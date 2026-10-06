@@ -1,0 +1,12 @@
+{
+ "asset": "/Game/SaskartaGaea/GameFlow/BP_Saskarta_RouteTrace",
+ "create": {"parent": "/Script/Engine.Actor"},
+ "description": "LANE5: the target of CIN_06's CallHook StartRouteTrace (the level instance is tagged Saskarta.Road; it has no spline, so the runner's road lookup skips it). The ember route line (NS_Saskarta_RouteTrace, CINEMATICS.md section 2) is not built yet: the hook only logs.",
+ "functions": [{"name": "StartRouteTrace", "inputs": [], "outputs": [], "pure": false}],
+ "graphs": [
+  {"graph": "StartRouteTrace",
+   "nodes": {"entry": {"entry": true}, "log": {"call": "PrintString", "class": "/Script/Engine.KismetSystemLibrary"}},
+   "links": [["entry.then", "log.execute"]],
+   "defaults": {"log.InString": "Saskarta route trace: StartRouteTrace (NS_Saskarta_RouteTrace not built yet)", "log.bPrintToScreen": "false", "log.bPrintToLog": "true"}}
+ ]
+}

@@ -1,0 +1,1890 @@
+{
+ "generated_by": "Tools/World/gen_ambient_anim.py",
+ "doc": "docs/world/AMBIENT_ANIMATION.md",
+ "wind": {
+  "mpc": "/Game/SaskartaGaea/Foliage/MPC_Saskarta_Wind",
+  "params": [
+   "WindDirection",
+   "WindStrength",
+   "GustPhase"
+  ],
+  "driver": "BP_Saskarta_WindDriver (existing, 0.1 s timer)"
+ },
+ "defaults": {
+  "wpo_disable_distance_cm": 15000,
+  "card_max_draw_distance_cm": 15000,
+  "shadow_cache_invalidation": "Static",
+  "nanite": "keep; WPO meshes need 'Evaluate World Position Offset' on (programmable raster)"
+ },
+ "methods": {
+  "wpo_cloth": {
+   "mode": "Cloth",
+   "gpu_us": 3,
+   "vs_instr": 35,
+   "what": "normal-direction ripple, weighted by distance from the pinned edge, phase from world position + GustPhase"
+  },
+  "wpo_pivot_sway": {
+   "mode": "Sway",
+   "gpu_us": 2,
+   "vs_instr": 30,
+   "what": "rigid rotation about the mesh's top edge (object bounds), axis perpendicular to WindDirection"
+  },
+  "wpo_wheel_creak": {
+   "mode": "Wheel",
+   "gpu_us": 2,
+   "vs_instr": 30,
+   "what": "rigid rotation of a few degrees about the axle through the bounds centre, driven by the gust (snaps back slowly)"
+  },
+  "wpo_rotor": {
+   "mode": "Rotor",
+   "gpu_us": 3,
+   "vs_instr": 40,
+   "what": "continuous rotation of the vertices inside the rotor sphere (local-space mask) about the hub axis; rate = base x WindStrength x gust"
+  },
+  "wpo_mast_bend": {
+   "mode": "Bend",
+   "gpu_us": 2,
+   "vs_instr": 25,
+   "what": "cantilever bend, offset = amp x z01^2 along WindDirection"
+  },
+  "cable_new": {
+   "mode": "Cable",
+   "gpu_us": 2,
+   "vs_instr": 25,
+   "what": "NEW thin guy-wire meshes (a 16-ring tube, imported from an offline OBJ); catenary sway = amp x sin(pi x t) along the wire"
+  },
+  "card_dust_wisp": {
+   "mode": "Card",
+   "gpu_us": 20,
+   "vs_instr": 0,
+   "what": "NEW 2 x 4 m translucent unlit card (Plane) at the stack top: panning noise, depth fade, alpha gated by gust; ash/dust lifted off the stack, never smoke"
+  },
+  "card_dust_sift": {
+   "mode": "Card",
+   "gpu_us": 12,
+   "vs_instr": 0,
+   "what": "NEW 1 x 3 m vertical card under a broken edge: a thin fall of grit that appears only in gusts (alpha = saturate(gust - 0.6) x 3)"
+  },
+  "ps_glint": {
+   "mode": "Glint",
+   "gpu_us": 1,
+   "vs_instr": 0,
+   "what": "pixel-shader emissive glint when the sun-mirror-camera angle lines up (dot of reflected sun and view > 0.995), plus a slow 0.3 deg WPO wobble"
+  },
+  "rotating_component": {
+   "mode": "RotatingMovement",
+   "gpu_us": 0,
+   "vs_instr": 0,
+   "what": "URotatingMovementComponent, bUpdateOnlyIfRendered true; the actor must be Movable"
+  }
+ },
+ "totals": {
+  "entries": 70,
+  "objects": 75,
+  "objects_by_method": {
+   "wpo_cloth": 37,
+   "wpo_pivot_sway": 12,
+   "wpo_wheel_creak": 3,
+   "wpo_rotor": 5,
+   "wpo_mast_bend": 1,
+   "cable_new": 7,
+   "card_dust_wisp": 3,
+   "card_dust_sift": 6,
+   "ps_glint": 1
+  }
+ },
+ "budget": {
+  "frame_ms_at_60fps": 16.67,
+  "headroom_pct": 15,
+  "ambient_cap_ms": 0.25,
+  "worst_site": "S15_Works",
+  "worst_site_ms_all_on_screen": 0.036
+ },
+ "sites": [
+  {
+   "site": "S07_WaitingWater",
+   "name": "Dasef Abremu, the Waiting Water (village)",
+   "road_m": 1220,
+   "layer": "road",
+   "items": [
+    {
+     "placement": "S07_WaitingWater_030",
+     "key": "B01_sign02",
+     "asset": "/Game/SaskartaGaea/Environment/Batch01/SM_B01_sign02",
+     "group": "sluice",
+     "folder": "Set/S07_WaitingWater/sluice",
+     "method": "wpo_pivot_sway",
+     "params": {
+      "amp_deg": 0.8,
+      "freq_hz": 2.2
+     },
+     "note": "loose board on its post: a small rattle about the top nail (set amp 0 if the board is fixed flush)",
+     "wpo_disable_distance_cm": 15000,
+     "shadow_cache_invalidation": "Static",
+     "material": {
+      "parent": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_PropMotion",
+      "function": "/Game/SaskartaGaea/Materials/Motion/MF_Saskarta_PropMotion",
+      "mode": "Sway"
+     }
+    },
+    {
+     "placement": "S07_WaitingWater_037",
+     "key": "B01_wheel01",
+     "asset": "/Game/SaskartaGaea/Environment/Batch01/SM_B01_wheel01",
+     "group": "mill",
+     "folder": "Set/S07_WaitingWater/mill",
+     "method": "wpo_wheel_creak",
+     "params": {
+      "amp_deg": 3.0,
+      "axis": "local_y",
+      "rise_s": 0.8,
+      "return_s": 3.0
+     },
+     "note": "the dead water wheel: creaks a few degrees forward in a gust and settles back",
+     "wpo_disable_distance_cm": 15000,
+     "shadow_cache_invalidation": "Static",
+     "material": {
+      "parent": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_PropMotion",
+      "function": "/Game/SaskartaGaea/Materials/Motion/MF_Saskarta_PropMotion",
+      "mode": "Wheel"
+     }
+    },
+    {
+     "placement": "S07_WaitingWater_054",
+     "key": "AB_Damaged_Tent_A",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Damaged_Tent_A",
+     "group": "stalls",
+     "folder": "Set/S07_WaitingWater/stalls",
+     "method": "wpo_cloth",
+     "params": {
+      "pin": "edges",
+      "amp_cm": 6,
+      "freq_hz": 0.8
+     },
+     "note": "stall/tent/tarp roof: a ripple between the poles, torn flaps lift in gusts",
+     "wpo_disable_distance_cm": 15000,
+     "shadow_cache_invalidation": "Static",
+     "material": {
+      "parent": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_PropMotion",
+      "function": "/Game/SaskartaGaea/Materials/Motion/MF_Saskarta_PropMotion",
+      "mode": "Cloth"
+     }
+    },
+    {
+     "placement": "S07_WaitingWater_056",
+     "key": "AB_Tent_B_Cloth_low",
+     "asset": "/Game/AshesOfBazaar/Meshes/sm_Tent_B_Cloth_low",
+     "group": "stalls",
+     "folder": "Set/S07_WaitingWater/stalls",
+     "method": "wpo_cloth",
+     "params": {
+      "pin": "edges",
+      "amp_cm": 6,
+      "freq_hz": 0.8
+     },
+     "note": "stall/tent/tarp roof: a ripple between the poles, torn flaps lift in gusts",
+     "wpo_disable_distance_cm": 15000,
+     "shadow_cache_invalidation": "Static",
+     "material": {
+      "parent": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_PropMotion",
+      "function": "/Game/SaskartaGaea/Materials/Motion/MF_Saskarta_PropMotion",
+      "mode": "Cloth"
+     }
+    },
+    {
+     "placement": "S07_WaitingWater_058",
+     "key": "AB_Damaged_Tent_A",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Damaged_Tent_A",
+     "group": "stalls",
+     "folder": "Set/S07_WaitingWater/stalls",
+     "method": "wpo_cloth",
+     "params": {
+      "pin": "edges",
+      "amp_cm": 6,
+      "freq_hz": 0.8
+     },
+     "note": "stall/tent/tarp roof: a ripple between the poles, torn flaps lift in gusts",
+     "wpo_disable_distance_cm": 15000,
+     "shadow_cache_invalidation": "Static",
+     "material": {
+      "parent": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_PropMotion",
+      "function": "/Game/SaskartaGaea/Materials/Motion/MF_Saskarta_PropMotion",
+      "mode": "Cloth"
+     }
+    },
+    {
+     "placement": "S07_WaitingWater_060",
+     "key": "AB_Tent_B_Cloth_low",
+     "asset": "/Game/AshesOfBazaar/Meshes/sm_Tent_B_Cloth_low",
+     "group": "stalls",
+     "folder": "Set/S07_WaitingWater/stalls",
+     "method": "wpo_cloth",
+     "params": {
+      "pin": "edges",
+      "amp_cm": 6,
+      "freq_hz": 0.8
+     },
+     "note": "stall/tent/tarp roof: a ripple between the poles, torn flaps lift in gusts",
+     "wpo_disable_distance_cm": 15000,
+     "shadow_cache_invalidation": "Static",
+     "material": {
+      "parent": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_PropMotion",
+      "function": "/Game/SaskartaGaea/Materials/Motion/MF_Saskarta_PropMotion",
+      "mode": "Cloth"
+     }
+    },
+    {
+     "placement": "S07_WaitingWater_095",
+     "key": "AB_Damaged_Minarate",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Damaged_Minarate",
+     "group": "tower",
+     "folder": "Set/S07_WaitingWater/tower",
+     "method": "card_dust_sift",
+     "params": {
+      "cards": 1,
+      "size_m": [
+       1,
+       3
+      ]
+     },
+     "note": "grit sifting from a broken edge in gusts",
+     "card": {
+      "mesh": "/Engine/BasicShapes/Plane",
+      "material": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_DustWisp",
+      "max_draw_distance_cm": 15000,
+      "place": "under the anchor's highest broken edge"
+     }
+    }
+   ],
+   "count": 7,
+   "gpu_us_all_on_screen": 28
+  },
+  {
+   "site": "S10_CrestFort",
+   "name": "Itset Itset, the Crest Fortress",
+   "road_m": 1980,
+   "layer": "road",
+   "items": [
+    {
+     "placement": "S10_CrestFort_022",
+     "key": "B01_ruin01",
+     "asset": "/Game/SaskartaGaea/Environment/Batch01/SM_B01_ruin01",
+     "group": "keep",
+     "folder": "Set/S10_CrestFort/keep",
+     "method": "card_dust_sift",
+     "params": {
+      "cards": 1,
+      "size_m": [
+       1,
+       3
+      ]
+     },
+     "note": "grit sifting from a broken edge in gusts",
+     "card": {
+      "mesh": "/Engine/BasicShapes/Plane",
+      "material": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_DustWisp",
+      "max_draw_distance_cm": 15000,
+      "place": "under the anchor's highest broken edge"
+     }
+    },
+    {
+     "placement": "S10_CrestFort_030",
+     "key": "TRIPO_Flag",
+     "asset": "/Game/Pallbearer/Tripo/extras/Untitled/StaticMeshes/Flag",
+     "group": "banner",
+     "folder": "Set/S10_CrestFort/banner",
+     "method": "wpo_cloth",
+     "params": {
+      "pin": "pole",
+      "amp_cm": 25,
+      "freq_hz": 1.3
+     },
+     "note": "banner/flag: the long torn cloth snaps from the pole side",
+     "wpo_disable_distance_cm": 15000,
+     "shadow_cache_invalidation": "Static",
+     "material": {
+      "parent": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_PropMotion",
+      "function": "/Game/SaskartaGaea/Materials/Motion/MF_Saskarta_PropMotion",
+      "mode": "Cloth"
+     }
+    },
+    {
+     "placement": "S10_CrestFort_031",
+     "key": "MV_Cloth_02",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_Cloth_02",
+     "group": "banner",
+     "folder": "Set/S10_CrestFort/banner",
+     "method": "wpo_cloth",
+     "params": {
+      "pin": "top",
+      "amp_cm": 12,
+      "freq_hz": 1.0
+     },
+     "note": "hanging cloth strip or luggage cover",
+     "wpo_disable_distance_cm": 15000,
+     "shadow_cache_invalidation": "Static",
+     "material": {
+      "parent": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_PropMotion",
+      "function": "/Game/SaskartaGaea/Materials/Motion/MF_Saskarta_PropMotion",
+      "mode": "Cloth"
+     }
+    }
+   ],
+   "count": 3,
+   "gpu_us_all_on_screen": 18
+  },
+  {
+   "site": "S13_NumberedStop",
+   "name": "Tfibaz Taflalut, the Numbered Stop (Heron Pools caravanserai)",
+   "road_m": 2540,
+   "layer": "road",
+   "items": [
+    {
+     "placement": "S13_NumberedStop_021",
+     "key": "B01_sign02",
+     "asset": "/Game/SaskartaGaea/Environment/Batch01/SM_B01_sign02",
+     "group": "gate",
+     "folder": "Set/S13_NumberedStop/gate",
+     "method": "wpo_pivot_sway",
+     "params": {
+      "amp_deg": 0.8,
+      "freq_hz": 2.2
+     },
+     "note": "loose board on its post: a small rattle about the top nail (set amp 0 if the board is fixed flush)",
+     "wpo_disable_distance_cm": 15000,
+     "shadow_cache_invalidation": "Static",
+     "material": {
+      "parent": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_PropMotion",
+      "function": "/Game/SaskartaGaea/Materials/Motion/MF_Saskarta_PropMotion",
+      "mode": "Sway"
+     }
+    },
+    {
+     "placement": "S13_NumberedStop_022",
+     "key": "B01_sign03",
+     "asset": "/Game/SaskartaGaea/Environment/Batch01/SM_B01_sign03",
+     "group": "gate",
+     "folder": "Set/S13_NumberedStop/gate",
+     "method": "wpo_pivot_sway",
+     "params": {
+      "amp_deg": 0.8,
+      "freq_hz": 2.2
+     },
+     "note": "loose board on its post: a small rattle about the top nail (set amp 0 if the board is fixed flush)",
+     "wpo_disable_distance_cm": 15000,
+     "shadow_cache_invalidation": "Static",
+     "material": {
+      "parent": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_PropMotion",
+      "function": "/Game/SaskartaGaea/Materials/Motion/MF_Saskarta_PropMotion",
+      "mode": "Sway"
+     }
+    },
+    {
+     "placement": "S13_NumberedStop_030",
+     "key": "AB_Damaged_Tent_A",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Damaged_Tent_A",
+     "group": "arcade",
+     "folder": "Set/S13_NumberedStop/arcade",
+     "method": "wpo_cloth",
+     "params": {
+      "pin": "edges",
+      "amp_cm": 6,
+      "freq_hz": 0.8
+     },
+     "note": "stall/tent/tarp roof: a ripple between the poles, torn flaps lift in gusts",
+     "wpo_disable_distance_cm": 15000,
+     "shadow_cache_invalidation": "Static",
+     "material": {
+      "parent": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_PropMotion",
+      "function": "/Game/SaskartaGaea/Materials/Motion/MF_Saskarta_PropMotion",
+      "mode": "Cloth"
+     }
+    },
+    {
+     "placement": "S13_NumberedStop_031",
+     "key": "AB_Tent_B_Cloth_low",
+     "asset": "/Game/AshesOfBazaar/Meshes/sm_Tent_B_Cloth_low",
+     "group": "arcade",
+     "folder": "Set/S13_NumberedStop/arcade",
+     "method": "wpo_cloth",
+     "params": {
+      "pin": "edges",
+      "amp_cm": 6,
+      "freq_hz": 0.8
+     },
+     "note": "stall/tent/tarp roof: a ripple between the poles, torn flaps lift in gusts",
+     "wpo_disable_distance_cm": 15000,
+     "shadow_cache_invalidation": "Static",
+     "material": {
+      "parent": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_PropMotion",
+      "function": "/Game/SaskartaGaea/Materials/Motion/MF_Saskarta_PropMotion",
+      "mode": "Cloth"
+     }
+    },
+    {
+     "placement": "S13_NumberedStop_032",
+     "key": "AB_Damaged_Tent_A",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Damaged_Tent_A",
+     "group": "arcade",
+     "folder": "Set/S13_NumberedStop/arcade",
+     "method": "wpo_cloth",
+     "params": {
+      "pin": "edges",
+      "amp_cm": 6,
+      "freq_hz": 0.8
+     },
+     "note": "stall/tent/tarp roof: a ripple between the poles, torn flaps lift in gusts",
+     "wpo_disable_distance_cm": 15000,
+     "shadow_cache_invalidation": "Static",
+     "material": {
+      "parent": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_PropMotion",
+      "function": "/Game/SaskartaGaea/Materials/Motion/MF_Saskarta_PropMotion",
+      "mode": "Cloth"
+     }
+    },
+    {
+     "placement": "S13_NumberedStop_033",
+     "key": "AB_Tent_B_Cloth_low",
+     "asset": "/Game/AshesOfBazaar/Meshes/sm_Tent_B_Cloth_low",
+     "group": "arcade",
+     "folder": "Set/S13_NumberedStop/arcade",
+     "method": "wpo_cloth",
+     "params": {
+      "pin": "edges",
+      "amp_cm": 6,
+      "freq_hz": 0.8
+     },
+     "note": "stall/tent/tarp roof: a ripple between the poles, torn flaps lift in gusts",
+     "wpo_disable_distance_cm": 15000,
+     "shadow_cache_invalidation": "Static",
+     "material": {
+      "parent": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_PropMotion",
+      "function": "/Game/SaskartaGaea/Materials/Motion/MF_Saskarta_PropMotion",
+      "mode": "Cloth"
+     }
+    },
+    {
+     "placement": "S13_NumberedStop_036",
+     "key": "B01_ruin01",
+     "asset": "/Game/SaskartaGaea/Environment/Batch01/SM_B01_ruin01",
+     "group": "back",
+     "folder": "Set/S13_NumberedStop/back",
+     "method": "card_dust_sift",
+     "params": {
+      "cards": 1,
+      "size_m": [
+       1,
+       3
+      ]
+     },
+     "note": "grit sifting from a broken edge in gusts",
+     "card": {
+      "mesh": "/Engine/BasicShapes/Plane",
+      "material": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_DustWisp",
+      "max_draw_distance_cm": 15000,
+      "place": "under the anchor's highest broken edge"
+     }
+    }
+   ],
+   "count": 7,
+   "gpu_us_all_on_screen": 28
+  },
+  {
+   "site": "S14_DeparturePlatform",
+   "name": "Wehm Aburde, the Departure Platform (evacuation outpost)",
+   "road_m": 2575,
+   "layer": "road",
+   "items": [
+    {
+     "placement": "S14_DeparturePlatform_046",
+     "key": "MV_Cloth_01",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_Cloth_01",
+     "group": "luggage_1",
+     "folder": "Set/S14_DeparturePlatform/luggage_1",
+     "method": "wpo_cloth",
+     "params": {
+      "pin": "top",
+      "amp_cm": 12,
+      "freq_hz": 1.0
+     },
+     "note": "hanging cloth strip or luggage cover",
+     "wpo_disable_distance_cm": 15000,
+     "shadow_cache_invalidation": "Static",
+     "material": {
+      "parent": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_PropMotion",
+      "function": "/Game/SaskartaGaea/Materials/Motion/MF_Saskarta_PropMotion",
+      "mode": "Cloth"
+     }
+    },
+    {
+     "placement": "S14_DeparturePlatform_047",
+     "key": "MV_Cloth_02",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_Cloth_02",
+     "group": "luggage_2",
+     "folder": "Set/S14_DeparturePlatform/luggage_2",
+     "method": "wpo_cloth",
+     "params": {
+      "pin": "top",
+      "amp_cm": 12,
+      "freq_hz": 1.0
+     },
+     "note": "hanging cloth strip or luggage cover",
+     "wpo_disable_distance_cm": 15000,
+     "shadow_cache_invalidation": "Static",
+     "material": {
+      "parent": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_PropMotion",
+      "function": "/Game/SaskartaGaea/Materials/Motion/MF_Saskarta_PropMotion",
+      "mode": "Cloth"
+     }
+    },
+    {
+     "placement": "S14_DeparturePlatform_059",
+     "key": "B01_sign02",
+     "asset": "/Game/SaskartaGaea/Environment/Batch01/SM_B01_sign02",
+     "group": "nameboard",
+     "folder": "Set/S14_DeparturePlatform/nameboard",
+     "method": "wpo_pivot_sway",
+     "params": {
+      "amp_deg": 0.8,
+      "freq_hz": 2.2
+     },
+     "note": "loose board on its post: a small rattle about the top nail (set amp 0 if the board is fixed flush)",
+     "wpo_disable_distance_cm": 15000,
+     "shadow_cache_invalidation": "Static",
+     "material": {
+      "parent": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_PropMotion",
+      "function": "/Game/SaskartaGaea/Materials/Motion/MF_Saskarta_PropMotion",
+      "mode": "Sway"
+     }
+    },
+    {
+     "placement": "S14_DeparturePlatform_065",
+     "key": "AB_Tent_A",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Tent_A",
+     "group": "tents",
+     "folder": "Set/S14_DeparturePlatform/tents",
+     "method": "wpo_cloth",
+     "params": {
+      "pin": "edges",
+      "amp_cm": 6,
+      "freq_hz": 0.8
+     },
+     "note": "stall/tent/tarp roof: a ripple between the poles, torn flaps lift in gusts",
+     "wpo_disable_distance_cm": 15000,
+     "shadow_cache_invalidation": "Static",
+     "material": {
+      "parent": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_PropMotion",
+      "function": "/Game/SaskartaGaea/Materials/Motion/MF_Saskarta_PropMotion",
+      "mode": "Cloth"
+     }
+    },
+    {
+     "placement": "S14_DeparturePlatform_066",
+     "key": "AB_Damaged_Tent_A",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Damaged_Tent_A",
+     "group": "tents",
+     "folder": "Set/S14_DeparturePlatform/tents",
+     "method": "wpo_cloth",
+     "params": {
+      "pin": "edges",
+      "amp_cm": 6,
+      "freq_hz": 0.8
+     },
+     "note": "stall/tent/tarp roof: a ripple between the poles, torn flaps lift in gusts",
+     "wpo_disable_distance_cm": 15000,
+     "shadow_cache_invalidation": "Static",
+     "material": {
+      "parent": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_PropMotion",
+      "function": "/Game/SaskartaGaea/Materials/Motion/MF_Saskarta_PropMotion",
+      "mode": "Cloth"
+     }
+    },
+    {
+     "placement": "S14_DeparturePlatform_067",
+     "key": "AB_Damaged_Tent_A",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Damaged_Tent_A",
+     "group": "tents",
+     "folder": "Set/S14_DeparturePlatform/tents",
+     "method": "wpo_cloth",
+     "params": {
+      "pin": "edges",
+      "amp_cm": 6,
+      "freq_hz": 0.8
+     },
+     "note": "stall/tent/tarp roof: a ripple between the poles, torn flaps lift in gusts",
+     "wpo_disable_distance_cm": 15000,
+     "shadow_cache_invalidation": "Static",
+     "material": {
+      "parent": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_PropMotion",
+      "function": "/Game/SaskartaGaea/Materials/Motion/MF_Saskarta_PropMotion",
+      "mode": "Cloth"
+     }
+    },
+    {
+     "placement": "S14_DeparturePlatform_069",
+     "key": "AB_Tent_C_Cloth",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Tent_C_Cloth",
+     "group": "tents",
+     "folder": "Set/S14_DeparturePlatform/tents",
+     "method": "wpo_cloth",
+     "params": {
+      "pin": "edges",
+      "amp_cm": 6,
+      "freq_hz": 0.8
+     },
+     "note": "stall/tent/tarp roof: a ripple between the poles, torn flaps lift in gusts",
+     "wpo_disable_distance_cm": 15000,
+     "shadow_cache_invalidation": "Static",
+     "material": {
+      "parent": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_PropMotion",
+      "function": "/Game/SaskartaGaea/Materials/Motion/MF_Saskarta_PropMotion",
+      "mode": "Cloth"
+     }
+    },
+    {
+     "placement": "S14_DeparturePlatform_071",
+     "key": "AB_Tent_C_Cloth",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Tent_C_Cloth",
+     "group": "tents",
+     "folder": "Set/S14_DeparturePlatform/tents",
+     "method": "wpo_cloth",
+     "params": {
+      "pin": "edges",
+      "amp_cm": 6,
+      "freq_hz": 0.8
+     },
+     "note": "stall/tent/tarp roof: a ripple between the poles, torn flaps lift in gusts",
+     "wpo_disable_distance_cm": 15000,
+     "shadow_cache_invalidation": "Static",
+     "material": {
+      "parent": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_PropMotion",
+      "function": "/Game/SaskartaGaea/Materials/Motion/MF_Saskarta_PropMotion",
+      "mode": "Cloth"
+     }
+    },
+    {
+     "placement": "S14_DeparturePlatform_072",
+     "key": "AB_Tent_B_Cloth_low",
+     "asset": "/Game/AshesOfBazaar/Meshes/sm_Tent_B_Cloth_low",
+     "group": "tents",
+     "folder": "Set/S14_DeparturePlatform/tents",
+     "method": "wpo_cloth",
+     "params": {
+      "pin": "edges",
+      "amp_cm": 6,
+      "freq_hz": 0.8
+     },
+     "note": "stall/tent/tarp roof: a ripple between the poles, torn flaps lift in gusts",
+     "wpo_disable_distance_cm": 15000,
+     "shadow_cache_invalidation": "Static",
+     "material": {
+      "parent": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_PropMotion",
+      "function": "/Game/SaskartaGaea/Materials/Motion/MF_Saskarta_PropMotion",
+      "mode": "Cloth"
+     }
+    }
+   ],
+   "count": 9,
+   "gpu_us_all_on_screen": 26
+  },
+  {
+   "site": "S17_DryCistern",
+   "name": "Zudh Akhetr, the Dry Cistern",
+   "road_m": 3050,
+   "layer": "road",
+   "items": [
+    {
+     "placement": "S17_DryCistern_v2_989",
+     "key": "B01_sign02",
+     "asset": "/Game/SaskartaGaea/Environment/Batch01/SM_B01_sign02",
+     "group": "head",
+     "folder": "Set/S17_DryCistern/head",
+     "method": "wpo_pivot_sway",
+     "params": {
+      "amp_deg": 0.8,
+      "freq_hz": 2.2
+     },
+     "note": "loose board on its post: a small rattle about the top nail (set amp 0 if the board is fixed flush)",
+     "wpo_disable_distance_cm": 15000,
+     "shadow_cache_invalidation": "Static",
+     "material": {
+      "parent": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_PropMotion",
+      "function": "/Game/SaskartaGaea/Materials/Motion/MF_Saskarta_PropMotion",
+      "mode": "Sway"
+     }
+    }
+   ],
+   "count": 1,
+   "gpu_us_all_on_screen": 2
+  },
+  {
+   "site": "S19_LastWaystation",
+   "name": "Nefr Rzag, the Last Waystation",
+   "road_m": 3400,
+   "layer": "road",
+   "items": [
+    {
+     "placement": "S19_LastWaystation_001",
+     "key": "MV_Annex_Tarp_01",
+     "asset": "/Game/MedievalVillage/Meshes/Tarp_Annexes/SM_Annex_Tarp_01",
+     "group": "v7_placeholder",
+     "folder": "Set/S19_LastWaystation/v7_placeholder",
+     "method": "wpo_cloth",
+     "params": {
+      "pin": "edges",
+      "amp_cm": 6,
+      "freq_hz": 0.8
+     },
+     "note": "stall/tent/tarp roof: a ripple between the poles, torn flaps lift in gusts",
+     "wpo_disable_distance_cm": 15000,
+     "shadow_cache_invalidation": "Static",
+     "material": {
+      "parent": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_PropMotion",
+      "function": "/Game/SaskartaGaea/Materials/Motion/MF_Saskarta_PropMotion",
+      "mode": "Cloth"
+     }
+    },
+    {
+     "placement": "S19_LastWaystation_006",
+     "key": "PH_lantern",
+     "asset": "/Game/Pallbearer/PolyHaven/Lantern_01/Lantern_01_2k/StaticMeshes/Lantern_01",
+     "group": "lantern",
+     "folder": "Set/S19_LastWaystation/lantern",
+     "method": "wpo_pivot_sway",
+     "params": {
+      "amp_deg": 5.0,
+      "freq_hz": 0.6,
+      "lit": false
+     },
+     "note": "hung lantern swings; UNLIT (REACT_POI_WAYSTATION_02: 'the fire at the waystation's gone out'); see the lit option in the doc",
+     "wpo_disable_distance_cm": 15000,
+     "shadow_cache_invalidation": "Static",
+     "material": {
+      "parent": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_PropMotion",
+      "function": "/Game/SaskartaGaea/Materials/Motion/MF_Saskarta_PropMotion",
+      "mode": "Sway"
+     }
+    },
+    {
+     "placement": "S19_LastWaystation_007",
+     "key": "MV_Rope_01",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_Rope_01",
+     "group": "lantern",
+     "folder": "Set/S19_LastWaystation/lantern",
+     "method": "wpo_pivot_sway",
+     "params": {
+      "amp_deg": 5.0,
+      "freq_hz": 0.6
+     },
+     "note": "the lantern's rope: same pivot and phase as the lantern",
+     "wpo_disable_distance_cm": 15000,
+     "shadow_cache_invalidation": "Static",
+     "material": {
+      "parent": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_PropMotion",
+      "function": "/Game/SaskartaGaea/Materials/Motion/MF_Saskarta_PropMotion",
+      "mode": "Sway"
+     }
+    },
+    {
+     "placement": "S19_LastWaystation_015",
+     "key": "TRIPO_Flag",
+     "asset": "/Game/Pallbearer/Tripo/extras/Untitled/StaticMeshes/Flag",
+     "group": "flag",
+     "folder": "Set/S19_LastWaystation/flag",
+     "method": "wpo_cloth",
+     "params": {
+      "pin": "pole",
+      "amp_cm": 25,
+      "freq_hz": 1.3
+     },
+     "note": "banner/flag: the long torn cloth snaps from the pole side",
+     "wpo_disable_distance_cm": 15000,
+     "shadow_cache_invalidation": "Static",
+     "material": {
+      "parent": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_PropMotion",
+      "function": "/Game/SaskartaGaea/Materials/Motion/MF_Saskarta_PropMotion",
+      "mode": "Cloth"
+     }
+    }
+   ],
+   "count": 4,
+   "gpu_us_all_on_screen": 10
+  },
+  {
+   "site": "S20_LongStair",
+   "name": "The Long Stair (the Knees)",
+   "road_m": 3650,
+   "layer": "road",
+   "items": [
+    {
+     "placement": null,
+     "anchor": "S20_LongStair_005",
+     "group": "rockfall_3605",
+     "folder": "Set/S20_LongStair/rockfall_3605",
+     "method": "card_dust_sift",
+     "params": {
+      "cards": 1,
+      "size_m": [
+       1,
+       3
+      ]
+     },
+     "note": "a trickle of grit down the rockfall above the first switchback",
+     "new": true,
+     "card": {
+      "mesh": "/Engine/BasicShapes/Plane",
+      "material": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_DustWisp",
+      "max_draw_distance_cm": 15000,
+      "place": "on the rockfall face"
+     }
+    },
+    {
+     "placement": null,
+     "anchor": "S20_LongStair_021",
+     "group": "rockfall_3695",
+     "folder": "Set/S20_LongStair/rockfall_3695",
+     "method": "card_dust_sift",
+     "params": {
+      "cards": 1,
+      "size_m": [
+       1,
+       3
+      ]
+     },
+     "note": "the same above the second",
+     "new": true,
+     "card": {
+      "mesh": "/Engine/BasicShapes/Plane",
+      "material": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_DustWisp",
+      "max_draw_distance_cm": 15000,
+      "place": "on the rockfall face"
+     }
+    }
+   ],
+   "count": 2,
+   "gpu_us_all_on_screen": 24
+  },
+  {
+   "site": "S05_CartConvoy",
+   "name": "Taflalut Deighim, the Cart Convoy",
+   "road_m": 810,
+   "layer": "road",
+   "items": [
+    {
+     "placement": "S05_CartConvoy_002",
+     "key": "MV_cart_tarp",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_cart_tarp",
+     "group": "carts",
+     "folder": "Set/S05_CartConvoy/carts",
+     "method": "wpo_cloth",
+     "params": {
+      "pin": "edges",
+      "amp_cm": 6,
+      "freq_hz": 0.8
+     },
+     "note": "stall/tent/tarp roof: a ripple between the poles, torn flaps lift in gusts",
+     "wpo_disable_distance_cm": 15000,
+     "shadow_cache_invalidation": "Static",
+     "material": {
+      "parent": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_PropMotion",
+      "function": "/Game/SaskartaGaea/Materials/Motion/MF_Saskarta_PropMotion",
+      "mode": "Cloth"
+     }
+    }
+   ],
+   "count": 1,
+   "gpu_us_all_on_screen": 3
+  },
+  {
+   "site": "S12_Checkpoint",
+   "name": "Egdir Tuleym, the Evacuation Checkpoint",
+   "road_m": 2330,
+   "layer": "road",
+   "items": [
+    {
+     "placement": "S12_Checkpoint_033",
+     "key": "AB_Tent_Cloth_B_frame",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Tent_Cloth_B_frame",
+     "group": "shelter",
+     "folder": "Set/S12_Checkpoint/shelter",
+     "method": "wpo_cloth",
+     "params": {
+      "pin": "edges",
+      "amp_cm": 6,
+      "freq_hz": 0.8
+     },
+     "note": "stall/tent/tarp roof: a ripple between the poles, torn flaps lift in gusts",
+     "wpo_disable_distance_cm": 15000,
+     "shadow_cache_invalidation": "Static",
+     "material": {
+      "parent": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_PropMotion",
+      "function": "/Game/SaskartaGaea/Materials/Motion/MF_Saskarta_PropMotion",
+      "mode": "Cloth"
+     }
+    },
+    {
+     "placement": "S12_Checkpoint_041",
+     "key": "B01_sign03",
+     "asset": "/Game/SaskartaGaea/Environment/Batch01/SM_B01_sign03",
+     "group": "boards",
+     "folder": "Set/S12_Checkpoint/boards",
+     "method": "wpo_pivot_sway",
+     "params": {
+      "amp_deg": 0.8,
+      "freq_hz": 2.2
+     },
+     "note": "loose board on its post: a small rattle about the top nail (set amp 0 if the board is fixed flush)",
+     "wpo_disable_distance_cm": 15000,
+     "shadow_cache_invalidation": "Static",
+     "material": {
+      "parent": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_PropMotion",
+      "function": "/Game/SaskartaGaea/Materials/Motion/MF_Saskarta_PropMotion",
+      "mode": "Sway"
+     }
+    },
+    {
+     "placement": "S12_Checkpoint_043",
+     "key": "B01_sign02",
+     "asset": "/Game/SaskartaGaea/Environment/Batch01/SM_B01_sign02",
+     "group": "boards",
+     "folder": "Set/S12_Checkpoint/boards",
+     "method": "wpo_pivot_sway",
+     "params": {
+      "amp_deg": 0.8,
+      "freq_hz": 2.2
+     },
+     "note": "loose board on its post: a small rattle about the top nail (set amp 0 if the board is fixed flush)",
+     "wpo_disable_distance_cm": 15000,
+     "shadow_cache_invalidation": "Static",
+     "material": {
+      "parent": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_PropMotion",
+      "function": "/Game/SaskartaGaea/Materials/Motion/MF_Saskarta_PropMotion",
+      "mode": "Sway"
+     }
+    }
+   ],
+   "count": 3,
+   "gpu_us_all_on_screen": 7
+  },
+  {
+   "site": "S15_Works",
+   "name": "Iphrib Khazb, the Works (the old forge)",
+   "road_m": 2615,
+   "layer": "road",
+   "items": [
+    {
+     "placement": "S15_Works_000",
+     "key": "AB_BrokenStructer",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_BrokenStructer",
+     "group": "hall",
+     "folder": "Set/S15_Works/hall",
+     "method": "card_dust_sift",
+     "params": {
+      "cards": 1,
+      "size_m": [
+       1,
+       3
+      ]
+     },
+     "note": "grit sifting from a broken edge in gusts",
+     "card": {
+      "mesh": "/Engine/BasicShapes/Plane",
+      "material": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_DustWisp",
+      "max_draw_distance_cm": 15000,
+      "place": "under the anchor's highest broken edge"
+     }
+    },
+    {
+     "placement": "S15_Works_001",
+     "key": "AB_Pillar_low",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Pillar_low",
+     "group": "hall",
+     "folder": "Set/S15_Works/hall",
+     "method": "card_dust_wisp",
+     "params": {
+      "cards": 1,
+      "size_m": [
+       2,
+       4
+      ],
+      "rise_cm_s": 40
+     },
+     "note": "chimney/stack top: dust and old ash lifted by the wind (not smoke: nobody keeps a fire)",
+     "card": {
+      "mesh": "/Engine/BasicShapes/Plane",
+      "material": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_DustWisp",
+      "max_draw_distance_cm": 15000,
+      "place": "top of the anchor's bounds"
+     }
+    },
+    {
+     "placement": "S15_Works_018",
+     "key": "MV_Woodmill_Wheel",
+     "asset": "/Game/MedievalVillage/Meshes/Woodmill/SM_Woodmill_Wheel",
+     "group": "pulley",
+     "folder": "Set/S15_Works/pulley",
+     "method": "wpo_wheel_creak",
+     "params": {
+      "amp_deg": 2.0,
+      "axis": "local_y",
+      "rise_s": 0.6,
+      "return_s": 2.0
+     },
+     "note": "the Works' pulley wheel rocks on its rope",
+     "wpo_disable_distance_cm": 15000,
+     "shadow_cache_invalidation": "Static",
+     "material": {
+      "parent": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_PropMotion",
+      "function": "/Game/SaskartaGaea/Materials/Motion/MF_Saskarta_PropMotion",
+      "mode": "Wheel"
+     }
+    },
+    {
+     "placement": "S15_Works_094",
+     "key": "B01_sign02",
+     "asset": "/Game/SaskartaGaea/Environment/Batch01/SM_B01_sign02",
+     "group": "boards",
+     "folder": "Set/S15_Works/boards",
+     "method": "wpo_pivot_sway",
+     "params": {
+      "amp_deg": 0.8,
+      "freq_hz": 2.2
+     },
+     "note": "loose board on its post: a small rattle about the top nail (set amp 0 if the board is fixed flush)",
+     "wpo_disable_distance_cm": 15000,
+     "shadow_cache_invalidation": "Static",
+     "material": {
+      "parent": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_PropMotion",
+      "function": "/Game/SaskartaGaea/Materials/Motion/MF_Saskarta_PropMotion",
+      "mode": "Sway"
+     }
+    }
+   ],
+   "count": 4,
+   "gpu_us_all_on_screen": 36
+  },
+  {
+   "site": "S03_GoatFold",
+   "name": "Zyal Shebbarban, the Goat Fold",
+   "road_m": 300,
+   "layer": "road",
+   "items": [
+    {
+     "placement": "S03_GoatFold_027",
+     "key": "MV_Annex_Tarp_01",
+     "asset": "/Game/MedievalVillage/Meshes/Tarp_Annexes/SM_Annex_Tarp_01",
+     "group": "hut",
+     "folder": "Set/S03_GoatFold/hut",
+     "method": "wpo_cloth",
+     "params": {
+      "pin": "edges",
+      "amp_cm": 6,
+      "freq_hz": 0.8
+     },
+     "note": "stall/tent/tarp roof: a ripple between the poles, torn flaps lift in gusts",
+     "wpo_disable_distance_cm": 15000,
+     "shadow_cache_invalidation": "Static",
+     "material": {
+      "parent": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_PropMotion",
+      "function": "/Game/SaskartaGaea/Materials/Motion/MF_Saskarta_PropMotion",
+      "mode": "Cloth"
+     }
+    }
+   ],
+   "count": 1,
+   "gpu_us_all_on_screen": 3
+  },
+  {
+   "site": "S08_Watchtower",
+   "name": "Efkirekeb Zdaw, the Valley Watchtower",
+   "road_m": 1500,
+   "layer": "road",
+   "items": [
+    {
+     "placement": "S08_Watchtower_030",
+     "key": "TRIPO_Flag",
+     "asset": "/Game/Pallbearer/Tripo/extras/Untitled/StaticMeshes/Flag",
+     "group": "pennant",
+     "folder": "Set/S08_Watchtower/pennant",
+     "method": "wpo_cloth",
+     "params": {
+      "pin": "pole",
+      "amp_cm": 25,
+      "freq_hz": 1.3
+     },
+     "note": "banner/flag: the long torn cloth snaps from the pole side",
+     "wpo_disable_distance_cm": 15000,
+     "shadow_cache_invalidation": "Static",
+     "material": {
+      "parent": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_PropMotion",
+      "function": "/Game/SaskartaGaea/Materials/Motion/MF_Saskarta_PropMotion",
+      "mode": "Cloth"
+     }
+    }
+   ],
+   "count": 1,
+   "gpu_us_all_on_screen": 3
+  },
+  {
+   "site": "S18_TeaHearth",
+   "name": "Ghafeth Ethris, the Tea Hearth",
+   "road_m": 3220,
+   "layer": "road",
+   "items": [
+    {
+     "placement": "S18_TeaHearth_013",
+     "key": "MV_Cloth_02",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_Cloth_02",
+     "group": "hearth",
+     "folder": "Set/S18_TeaHearth/hearth",
+     "method": "wpo_cloth",
+     "params": {
+      "pin": "top",
+      "amp_cm": 12,
+      "freq_hz": 1.0
+     },
+     "note": "hanging cloth strip or luggage cover",
+     "wpo_disable_distance_cm": 15000,
+     "shadow_cache_invalidation": "Static",
+     "material": {
+      "parent": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_PropMotion",
+      "function": "/Game/SaskartaGaea/Materials/Motion/MF_Saskarta_PropMotion",
+      "mode": "Cloth"
+     }
+    }
+   ],
+   "count": 1,
+   "gpu_us_all_on_screen": 3
+  },
+  {
+   "site": "S21_CloudNiche",
+   "name": "Tabaad Se'hk, the Cloud Niche (rest niche)",
+   "road_m": 3850,
+   "layer": "road",
+   "items": [
+    {
+     "placement": "S21_CloudNiche_015",
+     "key": "MV_Cloth_02",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_Cloth_02",
+     "group": "cloth",
+     "folder": "Set/S21_CloudNiche/cloth",
+     "method": "wpo_cloth",
+     "params": {
+      "pin": "top",
+      "amp_cm": 12,
+      "freq_hz": 1.0
+     },
+     "note": "hanging cloth strip or luggage cover",
+     "wpo_disable_distance_cm": 15000,
+     "shadow_cache_invalidation": "Static",
+     "material": {
+      "parent": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_PropMotion",
+      "function": "/Game/SaskartaGaea/Materials/Motion/MF_Saskarta_PropMotion",
+      "mode": "Cloth"
+     }
+    }
+   ],
+   "count": 1,
+   "gpu_us_all_on_screen": 3
+  },
+  {
+   "site": "S23_PassCairn",
+   "name": "Tfedrimet, the Pass Cairn",
+   "road_m": 4300,
+   "layer": "road",
+   "items": [
+    {
+     "placement": "S23_PassCairn_011",
+     "key": "MV_Cloth_02",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_Cloth_02",
+     "group": "poles",
+     "folder": "Set/S23_PassCairn/poles",
+     "method": "wpo_cloth",
+     "params": {
+      "pin": "top",
+      "amp_cm": 12,
+      "freq_hz": 1.0
+     },
+     "note": "hanging cloth strip or luggage cover",
+     "wpo_disable_distance_cm": 15000,
+     "shadow_cache_invalidation": "Static",
+     "material": {
+      "parent": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_PropMotion",
+      "function": "/Game/SaskartaGaea/Materials/Motion/MF_Saskarta_PropMotion",
+      "mode": "Cloth"
+     }
+    },
+    {
+     "placement": "S23_PassCairn_013",
+     "key": "MV_Cloth_02",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_Cloth_02",
+     "group": "poles",
+     "folder": "Set/S23_PassCairn/poles",
+     "method": "wpo_cloth",
+     "params": {
+      "pin": "top",
+      "amp_cm": 12,
+      "freq_hz": 1.0
+     },
+     "note": "hanging cloth strip or luggage cover",
+     "wpo_disable_distance_cm": 15000,
+     "shadow_cache_invalidation": "Static",
+     "material": {
+      "parent": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_PropMotion",
+      "function": "/Game/SaskartaGaea/Materials/Motion/MF_Saskarta_PropMotion",
+      "mode": "Cloth"
+     }
+    },
+    {
+     "placement": "S23_PassCairn_015",
+     "key": "MV_Cloth_02",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_Cloth_02",
+     "group": "poles",
+     "folder": "Set/S23_PassCairn/poles",
+     "method": "wpo_cloth",
+     "params": {
+      "pin": "top",
+      "amp_cm": 12,
+      "freq_hz": 1.0
+     },
+     "note": "hanging cloth strip or luggage cover",
+     "wpo_disable_distance_cm": 15000,
+     "shadow_cache_invalidation": "Static",
+     "material": {
+      "parent": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_PropMotion",
+      "function": "/Game/SaskartaGaea/Materials/Motion/MF_Saskarta_PropMotion",
+      "mode": "Cloth"
+     }
+    }
+   ],
+   "count": 3,
+   "gpu_us_all_on_screen": 9
+  },
+  {
+   "site": "S11_SignalFire",
+   "name": "Thebaqet Ghafeth, the Signal Fire",
+   "road_m": 2120,
+   "layer": "road",
+   "items": [
+    {
+     "placement": "S11_SignalFire_006",
+     "key": "MV_Cloth_02",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_Cloth_02",
+     "group": "pillar",
+     "folder": "Set/S11_SignalFire/pillar",
+     "method": "wpo_cloth",
+     "params": {
+      "pin": "top",
+      "amp_cm": 12,
+      "freq_hz": 1.0
+     },
+     "note": "hanging cloth strip or luggage cover",
+     "wpo_disable_distance_cm": 15000,
+     "shadow_cache_invalidation": "Static",
+     "material": {
+      "parent": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_PropMotion",
+      "function": "/Game/SaskartaGaea/Materials/Motion/MF_Saskarta_PropMotion",
+      "mode": "Cloth"
+     }
+    },
+    {
+     "placement": "S11_SignalFire_008",
+     "key": "B01_sign02",
+     "asset": "/Game/SaskartaGaea/Environment/Batch01/SM_B01_sign02",
+     "group": "board",
+     "folder": "Set/S11_SignalFire/board",
+     "method": "wpo_pivot_sway",
+     "params": {
+      "amp_deg": 0.8,
+      "freq_hz": 2.2
+     },
+     "note": "loose board on its post: a small rattle about the top nail (set amp 0 if the board is fixed flush)",
+     "wpo_disable_distance_cm": 15000,
+     "shadow_cache_invalidation": "Static",
+     "material": {
+      "parent": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_PropMotion",
+      "function": "/Game/SaskartaGaea/Materials/Motion/MF_Saskarta_PropMotion",
+      "mode": "Sway"
+     }
+    }
+   ],
+   "count": 2,
+   "gpu_us_all_on_screen": 5
+  },
+  {
+   "site": "L01_DockFarm",
+   "name": "The Dock Farm",
+   "road_m": 80,
+   "layer": "road",
+   "items": [
+    {
+     "placement": "L01_DockFarm_004",
+     "key": "MV_Chimney",
+     "asset": "/Game/MedievalVillage/Meshes/House/SM_Chimney",
+     "group": "house",
+     "folder": "Set/L01_DockFarm/house",
+     "method": "card_dust_wisp",
+     "params": {
+      "cards": 1,
+      "size_m": [
+       2,
+       4
+      ],
+      "rise_cm_s": 40
+     },
+     "note": "chimney/stack top: dust and old ash lifted by the wind (not smoke: nobody keeps a fire)",
+     "card": {
+      "mesh": "/Engine/BasicShapes/Plane",
+      "material": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_DustWisp",
+      "max_draw_distance_cm": 15000,
+      "place": "top of the anchor's bounds"
+     }
+    }
+   ],
+   "count": 1,
+   "gpu_us_all_on_screen": 20
+  },
+  {
+   "site": "L04_ShepherdCamp",
+   "name": "The Shepherd Camp at the Ridge Foot",
+   "road_m": 1650,
+   "layer": "road",
+   "items": [
+    {
+     "placement": "L04_ShepherdCamp_009",
+     "key": "AB_Tent_Cloth_B_frame",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Tent_Cloth_B_frame",
+     "group": "camp",
+     "folder": "Set/L04_ShepherdCamp/camp",
+     "method": "wpo_cloth",
+     "params": {
+      "pin": "edges",
+      "amp_cm": 6,
+      "freq_hz": 0.8
+     },
+     "note": "stall/tent/tarp roof: a ripple between the poles, torn flaps lift in gusts",
+     "wpo_disable_distance_cm": 15000,
+     "shadow_cache_invalidation": "Static",
+     "material": {
+      "parent": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_PropMotion",
+      "function": "/Game/SaskartaGaea/Materials/Motion/MF_Saskarta_PropMotion",
+      "mode": "Cloth"
+     }
+    }
+   ],
+   "count": 1,
+   "gpu_us_all_on_screen": 3
+  },
+  {
+   "site": "L13_ShoulderCairns",
+   "name": "The Cairn Line on the Shoulder",
+   "road_m": 4640,
+   "layer": "road",
+   "items": [
+    {
+     "placement": "L13_ShoulderCairns_005",
+     "key": "MV_Cloth_02",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_Cloth_02",
+     "group": "cairn_0",
+     "folder": "Set/L13_ShoulderCairns/cairn_0",
+     "method": "wpo_cloth",
+     "params": {
+      "pin": "top",
+      "amp_cm": 12,
+      "freq_hz": 1.0
+     },
+     "note": "hanging cloth strip or luggage cover",
+     "wpo_disable_distance_cm": 15000,
+     "shadow_cache_invalidation": "Static",
+     "material": {
+      "parent": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_PropMotion",
+      "function": "/Game/SaskartaGaea/Materials/Motion/MF_Saskarta_PropMotion",
+      "mode": "Cloth"
+     }
+    }
+   ],
+   "count": 1,
+   "gpu_us_all_on_screen": 3
+  },
+  {
+   "site": "R04_Verge3750",
+   "name": "A single dropped bundle",
+   "road_m": 3750,
+   "layer": "road",
+   "items": [
+    {
+     "placement": "R04_Verge3750_001",
+     "key": "MV_Cloth_02",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_Cloth_02",
+     "group": "v",
+     "folder": "Set/R04_Verge3750/v",
+     "method": "wpo_cloth",
+     "params": {
+      "pin": "top",
+      "amp_cm": 12,
+      "freq_hz": 1.0
+     },
+     "note": "hanging cloth strip or luggage cover",
+     "wpo_disable_distance_cm": 15000,
+     "shadow_cache_invalidation": "Static",
+     "material": {
+      "parent": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_PropMotion",
+      "function": "/Game/SaskartaGaea/Materials/Motion/MF_Saskarta_PropMotion",
+      "mode": "Cloth"
+     }
+    }
+   ],
+   "count": 1,
+   "gpu_us_all_on_screen": 3
+  },
+  {
+   "site": "O01_LowVoicePost",
+   "name": "The Low Voice post (the old post office and its radio room)",
+   "road_m": 425,
+   "layer": "offroad",
+   "items": [
+    {
+     "placement": "O01_LowVoicePost_016",
+     "key": "B01_sign02",
+     "asset": "/Game/SaskartaGaea/Environment/Batch01/SM_B01_sign02",
+     "group": "yard",
+     "folder": "Set/O01_LowVoicePost/yard",
+     "method": "wpo_pivot_sway",
+     "params": {
+      "amp_deg": 0.8,
+      "freq_hz": 2.2
+     },
+     "note": "loose board on its post: a small rattle about the top nail (set amp 0 if the board is fixed flush)",
+     "wpo_disable_distance_cm": 15000,
+     "shadow_cache_invalidation": "Static",
+     "material": {
+      "parent": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_PropMotion",
+      "function": "/Game/SaskartaGaea/Materials/Motion/MF_Saskarta_PropMotion",
+      "mode": "Sway"
+     }
+    },
+    {
+     "placement": null,
+     "anchor": "O01_LowVoicePost_006",
+     "group": "mast",
+     "folder": "Set/O01_LowVoicePost/mast",
+     "method": "cable_new",
+     "params": {
+      "wires": 3,
+      "amp_cm": 12,
+      "freq_hz": 0.7,
+      "anchor_radius_m": 4
+     },
+     "note": "the post's small mast: three stays to the fence posts",
+     "new": true,
+     "wpo_disable_distance_cm": 15000,
+     "shadow_cache_invalidation": "Static",
+     "material": {
+      "parent": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_PropMotion",
+      "function": "/Game/SaskartaGaea/Materials/Motion/MF_Saskarta_PropMotion",
+      "mode": "Cable"
+     }
+    }
+   ],
+   "count": 2,
+   "gpu_us_all_on_screen": 8
+  },
+  {
+   "site": "O04_Airship",
+   "name": "The downed airship",
+   "road_m": 650,
+   "layer": "offroad",
+   "items": [
+    {
+     "placement": "O04_Airship_010",
+     "key": "AB_Tent_A",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Tent_A",
+     "group": "canvas",
+     "folder": "Set/O04_Airship/canvas",
+     "method": "wpo_cloth",
+     "params": {
+      "pin": "edges",
+      "amp_cm": 80,
+      "freq_hz": 0.25
+     },
+     "note": "the airship's torn envelope canvas: a slow billow (far landmark, amplitude sized to read at 800 m in CIN_P04's 15 deg zoom)",
+     "wpo_disable_distance_cm": 230000,
+     "shadow_cache_invalidation": "Static",
+     "material": {
+      "parent": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_PropMotion",
+      "function": "/Game/SaskartaGaea/Materials/Motion/MF_Saskarta_PropMotion",
+      "mode": "Cloth"
+     },
+     "distance_note": "seen only from 790-2,300 m; 2 canvas meshes"
+    },
+    {
+     "placement": "O04_Airship_011",
+     "key": "AB_Damaged_Tent_A",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Damaged_Tent_A",
+     "group": "canvas",
+     "folder": "Set/O04_Airship/canvas",
+     "method": "wpo_cloth",
+     "params": {
+      "pin": "edges",
+      "amp_cm": 80,
+      "freq_hz": 0.25
+     },
+     "note": "the airship's torn envelope canvas: a slow billow (far landmark, amplitude sized to read at 800 m in CIN_P04's 15 deg zoom)",
+     "wpo_disable_distance_cm": 230000,
+     "shadow_cache_invalidation": "Static",
+     "material": {
+      "parent": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_PropMotion",
+      "function": "/Game/SaskartaGaea/Materials/Motion/MF_Saskarta_PropMotion",
+      "mode": "Cloth"
+     },
+     "distance_note": "seen only from 790-2,300 m; 2 canvas meshes"
+    }
+   ],
+   "count": 2,
+   "gpu_us_all_on_screen": 6
+  },
+  {
+   "site": "O06_OldDam",
+   "name": "The old dam and the dry reservoir",
+   "road_m": 2625,
+   "layer": "offroad",
+   "items": [
+    {
+     "placement": "O06_OldDam_013",
+     "key": "T2_water_wheel",
+     "asset": "/Game/SaskartaGaea/Environment/Tripo02/SM_T2_water_wheel",
+     "group": "mill",
+     "folder": "Set/O06_OldDam/mill",
+     "method": "wpo_wheel_creak",
+     "params": {
+      "amp_deg": 4.0,
+      "axis": "local_y",
+      "rise_s": 0.8,
+      "return_s": 3.0
+     },
+     "note": "the dam's dry mill wheel",
+     "wpo_disable_distance_cm": 15000,
+     "shadow_cache_invalidation": "Static",
+     "material": {
+      "parent": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_PropMotion",
+      "function": "/Game/SaskartaGaea/Materials/Motion/MF_Saskarta_PropMotion",
+      "mode": "Wheel"
+     }
+    }
+   ],
+   "count": 1,
+   "gpu_us_all_on_screen": 2
+  },
+  {
+   "site": "O08_WindPumps",
+   "name": "The wind-pump ridge",
+   "road_m": 1725,
+   "layer": "offroad",
+   "items": [
+    {
+     "placement": "O08_WindPumps_000",
+     "key": "T2_wind_pump",
+     "asset": "/Game/SaskartaGaea/Environment/Tripo02/SM_T2_wind_pump",
+     "group": "pumps",
+     "folder": "Set/O08_WindPumps/pumps",
+     "method": "wpo_rotor",
+     "params": {
+      "rev_s": 0.35,
+      "rotor_centre_local_cm": [
+       0,
+       0,
+       1050
+      ],
+      "rotor_radius_cm": 220,
+      "tail_yaw_deg": 5.0,
+      "speed_jitter": 0.15
+     },
+     "note": "wind-pump sails turning, lifting nothing (verify the hub height/axis on the Tripo mesh; set rotor_centre_local_cm)",
+     "wpo_disable_distance_cm": 260000,
+     "shadow_cache_invalidation": "Static",
+     "material": {
+      "parent": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_PropMotion",
+      "function": "/Game/SaskartaGaea/Materials/Motion/MF_Saskarta_PropMotion",
+      "mode": "Rotor"
+     },
+     "distance_note": "seen only from the road at 940-1,700 m; 5 meshes"
+    },
+    {
+     "placement": "O08_WindPumps_003",
+     "key": "T2_wind_pump",
+     "asset": "/Game/SaskartaGaea/Environment/Tripo02/SM_T2_wind_pump",
+     "group": "pumps",
+     "folder": "Set/O08_WindPumps/pumps",
+     "method": "wpo_rotor",
+     "params": {
+      "rev_s": 0.35,
+      "rotor_centre_local_cm": [
+       0,
+       0,
+       1050
+      ],
+      "rotor_radius_cm": 220,
+      "tail_yaw_deg": 5.0,
+      "speed_jitter": 0.15
+     },
+     "note": "wind-pump sails turning, lifting nothing (verify the hub height/axis on the Tripo mesh; set rotor_centre_local_cm)",
+     "wpo_disable_distance_cm": 260000,
+     "shadow_cache_invalidation": "Static",
+     "material": {
+      "parent": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_PropMotion",
+      "function": "/Game/SaskartaGaea/Materials/Motion/MF_Saskarta_PropMotion",
+      "mode": "Rotor"
+     },
+     "distance_note": "seen only from the road at 940-1,700 m; 5 meshes"
+    },
+    {
+     "placement": "O08_WindPumps_006",
+     "key": "T2_wind_pump",
+     "asset": "/Game/SaskartaGaea/Environment/Tripo02/SM_T2_wind_pump",
+     "group": "pumps",
+     "folder": "Set/O08_WindPumps/pumps",
+     "method": "wpo_rotor",
+     "params": {
+      "rev_s": 0.35,
+      "rotor_centre_local_cm": [
+       0,
+       0,
+       1050
+      ],
+      "rotor_radius_cm": 220,
+      "tail_yaw_deg": 5.0,
+      "speed_jitter": 0.15
+     },
+     "note": "wind-pump sails turning, lifting nothing (verify the hub height/axis on the Tripo mesh; set rotor_centre_local_cm)",
+     "wpo_disable_distance_cm": 260000,
+     "shadow_cache_invalidation": "Static",
+     "material": {
+      "parent": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_PropMotion",
+      "function": "/Game/SaskartaGaea/Materials/Motion/MF_Saskarta_PropMotion",
+      "mode": "Rotor"
+     },
+     "distance_note": "seen only from the road at 940-1,700 m; 5 meshes"
+    },
+    {
+     "placement": "O08_WindPumps_009",
+     "key": "T2_wind_pump",
+     "asset": "/Game/SaskartaGaea/Environment/Tripo02/SM_T2_wind_pump",
+     "group": "pumps",
+     "folder": "Set/O08_WindPumps/pumps",
+     "method": "wpo_rotor",
+     "params": {
+      "rev_s": 0.35,
+      "rotor_centre_local_cm": [
+       0,
+       0,
+       1050
+      ],
+      "rotor_radius_cm": 220,
+      "tail_yaw_deg": 5.0,
+      "speed_jitter": 0.15
+     },
+     "note": "wind-pump sails turning, lifting nothing (verify the hub height/axis on the Tripo mesh; set rotor_centre_local_cm)",
+     "wpo_disable_distance_cm": 260000,
+     "shadow_cache_invalidation": "Static",
+     "material": {
+      "parent": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_PropMotion",
+      "function": "/Game/SaskartaGaea/Materials/Motion/MF_Saskarta_PropMotion",
+      "mode": "Rotor"
+     },
+     "distance_note": "seen only from the road at 940-1,700 m; 5 meshes"
+    },
+    {
+     "placement": "O08_WindPumps_012",
+     "key": "T2_wind_pump",
+     "asset": "/Game/SaskartaGaea/Environment/Tripo02/SM_T2_wind_pump",
+     "group": "pumps",
+     "folder": "Set/O08_WindPumps/pumps",
+     "method": "wpo_rotor",
+     "params": {
+      "rev_s": 0.35,
+      "rotor_centre_local_cm": [
+       0,
+       0,
+       1050
+      ],
+      "rotor_radius_cm": 220,
+      "tail_yaw_deg": 5.0,
+      "speed_jitter": 0.15
+     },
+     "note": "wind-pump sails turning, lifting nothing (verify the hub height/axis on the Tripo mesh; set rotor_centre_local_cm)",
+     "wpo_disable_distance_cm": 260000,
+     "shadow_cache_invalidation": "Static",
+     "material": {
+      "parent": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_PropMotion",
+      "function": "/Game/SaskartaGaea/Materials/Motion/MF_Saskarta_PropMotion",
+      "mode": "Rotor"
+     },
+     "distance_note": "seen only from the road at 940-1,700 m; 5 meshes"
+    }
+   ],
+   "count": 5,
+   "gpu_us_all_on_screen": 15
+  },
+  {
+   "site": "O10_ChemistWorkshop",
+   "name": "The chemist's workshop",
+   "road_m": 3075,
+   "layer": "offroad",
+   "items": [
+    {
+     "placement": "O10_ChemistWorkshop_001",
+     "key": "AB_Pillar_A_01",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Pillar_A_01",
+     "group": "workshop",
+     "folder": "Set/O10_ChemistWorkshop/workshop",
+     "method": "card_dust_wisp",
+     "params": {
+      "cards": 1,
+      "size_m": [
+       2,
+       4
+      ],
+      "rise_cm_s": 40
+     },
+     "note": "chimney/stack top: dust and old ash lifted by the wind (not smoke: nobody keeps a fire)",
+     "card": {
+      "mesh": "/Engine/BasicShapes/Plane",
+      "material": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_DustWisp",
+      "max_draw_distance_cm": 15000,
+      "place": "top of the anchor's bounds"
+     }
+    },
+    {
+     "placement": "O10_ChemistWorkshop_003",
+     "key": "MV_Annex_Tarp_01",
+     "asset": "/Game/MedievalVillage/Meshes/Tarp_Annexes/SM_Annex_Tarp_01",
+     "group": "benches",
+     "folder": "Set/O10_ChemistWorkshop/benches",
+     "method": "wpo_cloth",
+     "params": {
+      "pin": "edges",
+      "amp_cm": 6,
+      "freq_hz": 0.8
+     },
+     "note": "stall/tent/tarp roof: a ripple between the poles, torn flaps lift in gusts",
+     "wpo_disable_distance_cm": 15000,
+     "shadow_cache_invalidation": "Static",
+     "material": {
+      "parent": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_PropMotion",
+      "function": "/Game/SaskartaGaea/Materials/Motion/MF_Saskarta_PropMotion",
+      "mode": "Cloth"
+     }
+    }
+   ],
+   "count": 2,
+   "gpu_us_all_on_screen": 23
+  },
+  {
+   "site": "O11_MirrorHill",
+   "name": "The signal-mirror hill",
+   "road_m": 3625,
+   "layer": "offroad",
+   "items": [
+    {
+     "placement": "O11_MirrorHill_007",
+     "key": "T2_signal_mirror",
+     "asset": "/Game/SaskartaGaea/Environment/Tripo02/SM_T2_signal_mirror",
+     "group": "mirror",
+     "folder": "Set/O11_MirrorHill/mirror",
+     "method": "ps_glint",
+     "params": {
+      "threshold": 0.995,
+      "wobble_deg": 0.3
+     },
+     "note": "the signal mirror still catches the low sun",
+     "wpo_disable_distance_cm": 250000,
+     "shadow_cache_invalidation": "Static",
+     "material": {
+      "parent": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_PropMotion",
+      "function": "/Game/SaskartaGaea/Materials/Motion/MF_Saskarta_PropMotion",
+      "mode": "Glint"
+     },
+     "distance_note": "pixel-shader glint; seen from 1,400-2,500 m"
+    },
+    {
+     "placement": "O11_MirrorHill_010",
+     "key": "MV_Cloth_02",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_Cloth_02",
+     "group": "mirror",
+     "folder": "Set/O11_MirrorHill/mirror",
+     "method": "wpo_cloth",
+     "params": {
+      "pin": "top",
+      "amp_cm": 12,
+      "freq_hz": 1.0
+     },
+     "note": "hanging cloth strip or luggage cover",
+     "wpo_disable_distance_cm": 250000,
+     "shadow_cache_invalidation": "Static",
+     "material": {
+      "parent": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_PropMotion",
+      "function": "/Game/SaskartaGaea/Materials/Motion/MF_Saskarta_PropMotion",
+      "mode": "Cloth"
+     },
+     "distance_note": "pixel-shader glint; seen from 1,400-2,500 m"
+    }
+   ],
+   "count": 2,
+   "gpu_us_all_on_screen": 4
+  },
+  {
+   "site": "O12_OldRelay",
+   "name": "The old relay (the first High Voice)",
+   "road_m": 3600,
+   "layer": "offroad",
+   "items": [
+    {
+     "placement": "O12_OldRelay_000",
+     "key": "T2_relay_tower",
+     "asset": "/Game/SaskartaGaea/Environment/Tripo02/SM_T2_relay_tower",
+     "group": "tower",
+     "folder": "Set/O12_OldRelay/tower",
+     "method": "wpo_mast_bend",
+     "params": {
+      "amp_cm": 18,
+      "freq_hz": 0.4
+     },
+     "note": "the old relay (26 m) leans a hand's width in gusts",
+     "wpo_disable_distance_cm": 250000,
+     "shadow_cache_invalidation": "Static",
+     "material": {
+      "parent": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_PropMotion",
+      "function": "/Game/SaskartaGaea/Materials/Motion/MF_Saskarta_PropMotion",
+      "mode": "Bend"
+     },
+     "distance_note": "seen only from 620-2,500 m; 1 tower + 4 wires"
+    },
+    {
+     "placement": null,
+     "anchor": "O12_OldRelay_000",
+     "group": "tower",
+     "folder": "Set/O12_OldRelay/tower",
+     "method": "cable_new",
+     "params": {
+      "wires": 4,
+      "amp_cm": 30,
+      "freq_hz": 0.5,
+      "anchor_radius_m": 9
+     },
+     "note": "four guy wires from the 26 m tower to ground anchors",
+     "new": true,
+     "wpo_disable_distance_cm": 250000,
+     "shadow_cache_invalidation": "Static",
+     "material": {
+      "parent": "/Game/SaskartaGaea/Materials/Motion/M_Saskarta_PropMotion",
+      "function": "/Game/SaskartaGaea/Materials/Motion/MF_Saskarta_PropMotion",
+      "mode": "Cable"
+     },
+     "distance_note": "seen only from 620-2,500 m; 1 tower + 4 wires"
+    }
+   ],
+   "count": 2,
+   "gpu_us_all_on_screen": 10
+  }
+ ]
+}

@@ -1,0 +1,20 @@
+{
+  "note": "start/yaw from the editor 2026-09-28 (LANE5): PlayerStart (616579.6, 463550, -35627.9), capsule half height 60 -> ground -35688; traces found no ground (the WP cell is not loaded in the editor), so the other ground heights stay provisional",
+  "start": [
+    616579.6,
+    463550.0,
+    -35627.9
+  ],
+  "yaw": -160.0,
+  "eye_offset": [
+    0.0,
+    0.0,
+    95.0
+  ],
+  "ground_z": -35688.0,
+  "capsule_back_m": 6.0,
+  "summit_yaw": -177.0,
+  "summit_pitch": 9.5,
+  "road_back_yaw": 10.0,
+  "road_back_ground_z": -35688.0
+}

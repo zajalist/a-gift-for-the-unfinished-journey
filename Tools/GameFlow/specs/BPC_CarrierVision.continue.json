@@ -1,0 +1,234 @@
+{
+  "asset": "/Game/SaskartaGaea/GameFlow/BPC_CarrierVision",
+  "description": "Scoped post-Continue startup overlay cleanup, called only after successful native restoration.",
+  "functions": [
+    {
+      "name": "RestoreAfterContinue",
+      "pure": false,
+      "inputs": [],
+      "outputs": []
+    }
+  ],
+  "graphs": [
+    {
+      "graph": "RestoreAfterContinue",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "clearLineTimer": {
+          "call": "K2_ClearAndInvalidateTimerHandle",
+          "class": "/Script/Engine.KismetSystemLibrary"
+        },
+        "getLineTimer": {
+          "get": "LineTimer"
+        },
+        "clearStepTimer": {
+          "call": "K2_ClearAndInvalidateTimerHandle",
+          "class": "/Script/Engine.KismetSystemLibrary"
+        },
+        "getStepTimer": {
+          "get": "StepTimer"
+        },
+        "clearFadeTimer": {
+          "call": "K2_ClearAndInvalidateTimerHandle",
+          "class": "/Script/Engine.KismetSystemLibrary"
+        },
+        "getFadeTimer": {
+          "get": "FadeTimer"
+        },
+        "getTitleWidget": {
+          "get": "TitleWidget"
+        },
+        "TitleWidgetValid": {
+          "call": "IsValid",
+          "class": "/Script/Engine.KismetSystemLibrary"
+        },
+        "TitleWidgetBranch": {
+          "branch": true
+        },
+        "stopTitleWidget": {
+          "call": "StopAllAnimations",
+          "class": "/Script/UMG.UserWidget"
+        },
+        "removeTitleWidget": {
+          "call": "RemoveFromParent",
+          "class": "/Script/UMG.Widget"
+        },
+        "getBootLogWidget": {
+          "get": "BootLogWidget"
+        },
+        "BootLogWidgetValid": {
+          "call": "IsValid",
+          "class": "/Script/Engine.KismetSystemLibrary"
+        },
+        "BootLogWidgetBranch": {
+          "branch": true
+        },
+        "stopBootLogWidget": {
+          "call": "StopAllAnimations",
+          "class": "/Script/UMG.UserWidget"
+        },
+        "removeBootLogWidget": {
+          "call": "RemoveFromParent",
+          "class": "/Script/UMG.Widget"
+        },
+        "getSubtitleWidget": {
+          "get": "SubtitleWidget"
+        },
+        "SubtitleWidgetValid": {
+          "call": "IsValid",
+          "class": "/Script/Engine.KismetSystemLibrary"
+        },
+        "SubtitleWidgetBranch": {
+          "branch": true
+        },
+        "stopSubtitleWidget": {
+          "call": "StopAllAnimations",
+          "class": "/Script/UMG.UserWidget"
+        },
+        "removeSubtitleWidget": {
+          "call": "RemoveFromParent",
+          "class": "/Script/UMG.Widget"
+        },
+        "stopHum": {
+          "call": "StopHum"
+        },
+        "cleanVision": {
+          "call": "CleanUp"
+        }
+      },
+      "links": [
+        [
+          "getLineTimer.LineTimer",
+          "clearLineTimer.Handle"
+        ],
+        [
+          "entry.then",
+          "clearLineTimer.execute"
+        ],
+        [
+          "getStepTimer.StepTimer",
+          "clearStepTimer.Handle"
+        ],
+        [
+          "clearLineTimer.then",
+          "clearStepTimer.execute"
+        ],
+        [
+          "getFadeTimer.FadeTimer",
+          "clearFadeTimer.Handle"
+        ],
+        [
+          "clearStepTimer.then",
+          "clearFadeTimer.execute"
+        ],
+        [
+          "getTitleWidget.TitleWidget",
+          "TitleWidgetValid.Object"
+        ],
+        [
+          "TitleWidgetValid.ReturnValue",
+          "TitleWidgetBranch.Condition"
+        ],
+        [
+          "clearFadeTimer.then",
+          "TitleWidgetBranch.execute"
+        ],
+        [
+          "getTitleWidget.TitleWidget",
+          "stopTitleWidget.self"
+        ],
+        [
+          "TitleWidgetBranch.then",
+          "stopTitleWidget.execute"
+        ],
+        [
+          "getTitleWidget.TitleWidget",
+          "removeTitleWidget.self"
+        ],
+        [
+          "stopTitleWidget.then",
+          "removeTitleWidget.execute"
+        ],
+        [
+          "getBootLogWidget.BootLogWidget",
+          "BootLogWidgetValid.Object"
+        ],
+        [
+          "BootLogWidgetValid.ReturnValue",
+          "BootLogWidgetBranch.Condition"
+        ],
+        [
+          "removeTitleWidget.then",
+          "BootLogWidgetBranch.execute"
+        ],
+        [
+          "TitleWidgetBranch.else",
+          "BootLogWidgetBranch.execute"
+        ],
+        [
+          "getBootLogWidget.BootLogWidget",
+          "stopBootLogWidget.self"
+        ],
+        [
+          "BootLogWidgetBranch.then",
+          "stopBootLogWidget.execute"
+        ],
+        [
+          "getBootLogWidget.BootLogWidget",
+          "removeBootLogWidget.self"
+        ],
+        [
+          "stopBootLogWidget.then",
+          "removeBootLogWidget.execute"
+        ],
+        [
+          "getSubtitleWidget.SubtitleWidget",
+          "SubtitleWidgetValid.Object"
+        ],
+        [
+          "SubtitleWidgetValid.ReturnValue",
+          "SubtitleWidgetBranch.Condition"
+        ],
+        [
+          "removeBootLogWidget.then",
+          "SubtitleWidgetBranch.execute"
+        ],
+        [
+          "BootLogWidgetBranch.else",
+          "SubtitleWidgetBranch.execute"
+        ],
+        [
+          "getSubtitleWidget.SubtitleWidget",
+          "stopSubtitleWidget.self"
+        ],
+        [
+          "SubtitleWidgetBranch.then",
+          "stopSubtitleWidget.execute"
+        ],
+        [
+          "getSubtitleWidget.SubtitleWidget",
+          "removeSubtitleWidget.self"
+        ],
+        [
+          "stopSubtitleWidget.then",
+          "removeSubtitleWidget.execute"
+        ],
+        [
+          "removeSubtitleWidget.then",
+          "stopHum.execute"
+        ],
+        [
+          "SubtitleWidgetBranch.else",
+          "stopHum.execute"
+        ],
+        [
+          "stopHum.then",
+          "cleanVision.execute"
+        ]
+      ],
+      "defaults": {}
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "asset": "/Game/SaskartaGaea/GameFlow/BP_CarrierVisionVolume",
+  "create": { "parent": "/Script/Engine.PostProcessVolume" },
+  "cdo_defaults": {
+    "bUnbound": true,
+    "Priority": 1000.0,
+    "BlendWeight": 1.0,
+    "bIsSpatiallyLoaded": false
+  }
+}

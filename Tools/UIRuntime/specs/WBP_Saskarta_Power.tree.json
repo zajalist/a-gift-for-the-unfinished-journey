@@ -1,0 +1,835 @@
+{
+  "asset": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Power",
+  "create": {
+    "path": "/Game/SaskartaGaea/GameFlow/UI",
+    "name": "WBP_Saskarta_Power",
+    "parent_class": "/Script/SaskartaCore.SaskartaPowerWidget"
+  },
+  "tree": [
+    {
+      "class": "SizeBox",
+      "name": "PowerDisplay",
+      "children": [
+        {
+          "class": "VerticalBox",
+          "name": "PowerContent",
+          "children": [
+            {
+              "class": "Border",
+              "name": "PowerNotices",
+              "children": [
+                {
+                  "class": "VerticalBox",
+                  "name": "PowerNoticesContent",
+                  "children": [
+                    {
+                      "class": "SizeBox",
+                      "name": "WarningAccentBounds",
+                      "children": [
+                        {
+                          "class": "Border",
+                          "name": "PowerWarningAccent",
+                          "properties": {
+                            "BrushColor": [
+                              1,
+                              0.74,
+                              0.28,
+                              1
+                            ]
+                          }
+                        }
+                      ],
+                      "properties": {
+                        "bOverride_WidthOverride": true,
+                        "WidthOverride": 320,
+                        "bOverride_HeightOverride": true,
+                        "HeightOverride": 2
+                      },
+                      "slot_props": {
+                        "padding": [
+                          0,
+                          0,
+                          0,
+                          5
+                        ]
+                      }
+                    },
+                    {
+                      "class": "TextBlock",
+                      "name": "PowerWarningTitle",
+                      "properties": {
+                        "Text": "[!] Low charge",
+                        "Font": {
+                          "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+                          "Size": 20
+                        },
+                        "ColorAndOpacity": {
+                          "SpecifiedColor": [
+                            0.94,
+                            0.91,
+                            0.81,
+                            1
+                          ]
+                        },
+                        "ShadowColorAndOpacity": [
+                          0,
+                          0,
+                          0,
+                          0.92
+                        ],
+                        "ShadowOffset": {
+                          "X": 1.5,
+                          "Y": 2
+                        }
+                      }
+                    },
+                    {
+                      "class": "TextBlock",
+                      "name": "PowerLoads",
+                      "properties": {
+                        "Text": "Stop to recharge the biofuel cell.",
+                        "Font": {
+                          "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+                          "Size": 16
+                        },
+                        "ColorAndOpacity": {
+                          "SpecifiedColor": [
+                            0.94,
+                            0.91,
+                            0.81,
+                            1
+                          ]
+                        },
+                        "ShadowColorAndOpacity": [
+                          0,
+                          0,
+                          0,
+                          0.92
+                        ],
+                        "ShadowOffset": {
+                          "X": 1.5,
+                          "Y": 2
+                        },
+                        "AutoWrapText": true
+                      }
+                    }
+                  ]
+                }
+              ],
+              "properties": {
+                "BrushColor": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "Padding": {
+                  "Left": 0,
+                  "Top": 5,
+                  "Right": 0,
+                  "Bottom": 5
+                }
+              },
+              "slot_props": {
+                "padding": [
+                  0,
+                  0,
+                  0,
+                  6
+                ]
+              }
+            },
+            {
+              "class": "Border",
+              "name": "BatteryInspection",
+              "children": [
+                {
+                  "class": "VerticalBox",
+                  "name": "BatteryInspectionContent",
+                  "children": [
+                    {
+                      "class": "TextBlock",
+                      "name": "BatteryLabel",
+                      "properties": {
+                        "Text": "BIOFUEL CELL",
+                        "Font": {
+                          "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+                          "Size": 14
+                        },
+                        "ColorAndOpacity": {
+                          "SpecifiedColor": [
+                            0.94,
+                            0.91,
+                            0.81,
+                            1
+                          ]
+                        },
+                        "ShadowColorAndOpacity": [
+                          0,
+                          0,
+                          0,
+                          0.92
+                        ],
+                        "ShadowOffset": {
+                          "X": 1.5,
+                          "Y": 2
+                        }
+                      }
+                    },
+                    {
+                      "class": "TextBlock",
+                      "name": "BatteryPercent",
+                      "properties": {
+                        "Text": "72%",
+                        "Font": {
+                          "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+                          "Size": 30
+                        },
+                        "ColorAndOpacity": {
+                          "SpecifiedColor": [
+                            0.94,
+                            0.91,
+                            0.81,
+                            1
+                          ]
+                        },
+                        "ShadowColorAndOpacity": [
+                          0,
+                          0,
+                          0,
+                          0.92
+                        ],
+                        "ShadowOffset": {
+                          "X": 1.5,
+                          "Y": 2
+                        }
+                      }
+                    },
+                    {
+                      "class": "HorizontalBox",
+                      "name": "BatteryGauge",
+                      "children": [
+                        {
+                          "class": "SizeBox",
+                          "name": "BatterySegmentBounds0",
+                          "children": [
+                            {
+                              "class": "ProgressBar",
+                              "name": "BatterySegment0",
+                              "properties": {
+                                "Percent": 1,
+                                "FillColorAndOpacity": [
+                                  0.63,
+                                  0.88,
+                                  0.66,
+                                  1
+                                ]
+                              }
+                            }
+                          ],
+                          "properties": {
+                            "bOverride_WidthOverride": true,
+                            "WidthOverride": 32,
+                            "bOverride_HeightOverride": true,
+                            "HeightOverride": 10
+                          },
+                          "slot_props": {
+                            "padding": [
+                              0,
+                              0,
+                              4,
+                              0
+                            ]
+                          }
+                        },
+                        {
+                          "class": "SizeBox",
+                          "name": "BatterySegmentBounds1",
+                          "children": [
+                            {
+                              "class": "ProgressBar",
+                              "name": "BatterySegment1",
+                              "properties": {
+                                "Percent": 1,
+                                "FillColorAndOpacity": [
+                                  0.63,
+                                  0.88,
+                                  0.66,
+                                  1
+                                ]
+                              }
+                            }
+                          ],
+                          "properties": {
+                            "bOverride_WidthOverride": true,
+                            "WidthOverride": 32,
+                            "bOverride_HeightOverride": true,
+                            "HeightOverride": 10
+                          },
+                          "slot_props": {
+                            "padding": [
+                              0,
+                              0,
+                              4,
+                              0
+                            ]
+                          }
+                        },
+                        {
+                          "class": "SizeBox",
+                          "name": "BatterySegmentBounds2",
+                          "children": [
+                            {
+                              "class": "ProgressBar",
+                              "name": "BatterySegment2",
+                              "properties": {
+                                "Percent": 1,
+                                "FillColorAndOpacity": [
+                                  0.63,
+                                  0.88,
+                                  0.66,
+                                  1
+                                ]
+                              }
+                            }
+                          ],
+                          "properties": {
+                            "bOverride_WidthOverride": true,
+                            "WidthOverride": 32,
+                            "bOverride_HeightOverride": true,
+                            "HeightOverride": 10
+                          },
+                          "slot_props": {
+                            "padding": [
+                              0,
+                              0,
+                              4,
+                              0
+                            ]
+                          }
+                        },
+                        {
+                          "class": "SizeBox",
+                          "name": "BatterySegmentBounds3",
+                          "children": [
+                            {
+                              "class": "ProgressBar",
+                              "name": "BatterySegment3",
+                              "properties": {
+                                "Percent": 1,
+                                "FillColorAndOpacity": [
+                                  0.63,
+                                  0.88,
+                                  0.66,
+                                  1
+                                ]
+                              }
+                            }
+                          ],
+                          "properties": {
+                            "bOverride_WidthOverride": true,
+                            "WidthOverride": 32,
+                            "bOverride_HeightOverride": true,
+                            "HeightOverride": 10
+                          },
+                          "slot_props": {
+                            "padding": [
+                              0,
+                              0,
+                              4,
+                              0
+                            ]
+                          }
+                        },
+                        {
+                          "class": "SizeBox",
+                          "name": "BatterySegmentBounds4",
+                          "children": [
+                            {
+                              "class": "ProgressBar",
+                              "name": "BatterySegment4",
+                              "properties": {
+                                "Percent": 1,
+                                "FillColorAndOpacity": [
+                                  0.63,
+                                  0.88,
+                                  0.66,
+                                  1
+                                ]
+                              }
+                            }
+                          ],
+                          "properties": {
+                            "bOverride_WidthOverride": true,
+                            "WidthOverride": 32,
+                            "bOverride_HeightOverride": true,
+                            "HeightOverride": 10
+                          },
+                          "slot_props": {
+                            "padding": [
+                              0,
+                              0,
+                              4,
+                              0
+                            ]
+                          }
+                        },
+                        {
+                          "class": "SizeBox",
+                          "name": "BatterySegmentBounds5",
+                          "children": [
+                            {
+                              "class": "ProgressBar",
+                              "name": "BatterySegment5",
+                              "properties": {
+                                "Percent": 0,
+                                "FillColorAndOpacity": [
+                                  0.63,
+                                  0.88,
+                                  0.66,
+                                  1
+                                ]
+                              }
+                            }
+                          ],
+                          "properties": {
+                            "bOverride_WidthOverride": true,
+                            "WidthOverride": 32,
+                            "bOverride_HeightOverride": true,
+                            "HeightOverride": 10
+                          },
+                          "slot_props": {
+                            "padding": [
+                              0,
+                              0,
+                              4,
+                              0
+                            ]
+                          }
+                        },
+                        {
+                          "class": "SizeBox",
+                          "name": "BatterySegmentBounds6",
+                          "children": [
+                            {
+                              "class": "ProgressBar",
+                              "name": "BatterySegment6",
+                              "properties": {
+                                "Percent": 0,
+                                "FillColorAndOpacity": [
+                                  0.63,
+                                  0.88,
+                                  0.66,
+                                  1
+                                ]
+                              }
+                            }
+                          ],
+                          "properties": {
+                            "bOverride_WidthOverride": true,
+                            "WidthOverride": 32,
+                            "bOverride_HeightOverride": true,
+                            "HeightOverride": 10
+                          },
+                          "slot_props": {
+                            "padding": [
+                              0,
+                              0,
+                              4,
+                              0
+                            ]
+                          }
+                        }
+                      ],
+                      "slot_props": {
+                        "padding": [
+                          0,
+                          5,
+                          0,
+                          5
+                        ]
+                      }
+                    },
+                    {
+                      "class": "TextBlock",
+                      "name": "BatteryState",
+                      "properties": {
+                        "Text": "RANGE 1.2 KM",
+                        "Font": {
+                          "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+                          "Size": 16
+                        },
+                        "ColorAndOpacity": {
+                          "SpecifiedColor": [
+                            0.94,
+                            0.91,
+                            0.81,
+                            1
+                          ]
+                        },
+                        "ShadowColorAndOpacity": [
+                          0,
+                          0,
+                          0,
+                          0.92
+                        ],
+                        "ShadowOffset": {
+                          "X": 1.5,
+                          "Y": 2
+                        }
+                      }
+                    }
+                  ]
+                }
+              ],
+              "properties": {
+                "BrushColor": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "Padding": {
+                  "Left": 0,
+                  "Top": 5,
+                  "Right": 0,
+                  "Bottom": 5
+                }
+              },
+              "slot_props": {
+                "padding": [
+                  0,
+                  0,
+                  0,
+                  6
+                ]
+              }
+            },
+            {
+              "class": "Border",
+              "name": "DrivingInstruments",
+              "children": [
+                {
+                  "class": "VerticalBox",
+                  "name": "DrivingInstrumentsContent",
+                  "children": [
+                    {
+                      "class": "HorizontalBox",
+                      "name": "TelemetryColumns",
+                      "children": [
+                        {
+                          "class": "VerticalBox",
+                          "name": "SpeedColumn",
+                          "children": [
+                            {
+                              "class": "TextBlock",
+                              "name": "ActualSpeed",
+                              "properties": {
+                                "Text": "SPEED 18.7 KM/H",
+                                "Font": {
+                                  "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+                                  "Size": 22
+                                },
+                                "ColorAndOpacity": {
+                                  "SpecifiedColor": [
+                                    0.94,
+                                    0.91,
+                                    0.81,
+                                    1
+                                  ]
+                                },
+                                "ShadowColorAndOpacity": [
+                                  0,
+                                  0,
+                                  0,
+                                  0.92
+                                ],
+                                "ShadowOffset": {
+                                  "X": 1.5,
+                                  "Y": 2
+                                }
+                              }
+                            },
+                            {
+                              "class": "TextBlock",
+                              "name": "SpeedScale",
+                              "properties": {
+                                "Text": "0 - 40 KM/H",
+                                "Font": {
+                                  "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+                                  "Size": 14
+                                },
+                                "ColorAndOpacity": {
+                                  "SpecifiedColor": [
+                                    0.94,
+                                    0.91,
+                                    0.81,
+                                    1
+                                  ]
+                                },
+                                "ShadowColorAndOpacity": [
+                                  0,
+                                  0,
+                                  0,
+                                  0.92
+                                ],
+                                "ShadowOffset": {
+                                  "X": 1.5,
+                                  "Y": 2
+                                }
+                              }
+                            },
+                            {
+                              "class": "/Script/SaskartaCore.SaskartaTelemetryGraph",
+                              "name": "SpeedTrace"
+                            }
+                          ],
+                          "slot_props": {
+                            "fill": 1,
+                            "padding": [
+                              0,
+                              0,
+                              12,
+                              0
+                            ]
+                          }
+                        },
+                        {
+                          "class": "VerticalBox",
+                          "name": "AltitudeColumn",
+                          "children": [
+                            {
+                              "class": "TextBlock",
+                              "name": "ActualAltitude",
+                              "properties": {
+                                "Text": "ALT -351.3 M",
+                                "Font": {
+                                  "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+                                  "Size": 22
+                                },
+                                "ColorAndOpacity": {
+                                  "SpecifiedColor": [
+                                    0.94,
+                                    0.91,
+                                    0.81,
+                                    1
+                                  ]
+                                },
+                                "ShadowColorAndOpacity": [
+                                  0,
+                                  0,
+                                  0,
+                                  0.92
+                                ],
+                                "ShadowOffset": {
+                                  "X": 1.5,
+                                  "Y": 2
+                                }
+                              }
+                            },
+                            {
+                              "class": "TextBlock",
+                              "name": "AltitudeScale",
+                              "properties": {
+                                "Text": "-355 - -349 M",
+                                "Font": {
+                                  "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+                                  "Size": 14
+                                },
+                                "ColorAndOpacity": {
+                                  "SpecifiedColor": [
+                                    0.94,
+                                    0.91,
+                                    0.81,
+                                    1
+                                  ]
+                                },
+                                "ShadowColorAndOpacity": [
+                                  0,
+                                  0,
+                                  0,
+                                  0.92
+                                ],
+                                "ShadowOffset": {
+                                  "X": 1.5,
+                                  "Y": 2
+                                }
+                              }
+                            },
+                            {
+                              "class": "/Script/SaskartaCore.SaskartaTelemetryGraph",
+                              "name": "AltitudeTrace"
+                            }
+                          ],
+                          "slot_props": {
+                            "fill": 1,
+                            "padding": [
+                              0,
+                              0,
+                              12,
+                              0
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "class": "TextBlock",
+                      "name": "AltitudeDatum",
+                      "properties": {
+                        "Text": "ALT: WORLD DATUM . RPM 800",
+                        "Font": {
+                          "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+                          "Size": 14
+                        },
+                        "ColorAndOpacity": {
+                          "SpecifiedColor": [
+                            0.94,
+                            0.91,
+                            0.81,
+                            1
+                          ]
+                        },
+                        "ShadowColorAndOpacity": [
+                          0,
+                          0,
+                          0,
+                          0.92
+                        ],
+                        "ShadowOffset": {
+                          "X": 1.5,
+                          "Y": 2
+                        }
+                      }
+                    },
+                    {
+                      "class": "TextBlock",
+                      "name": "TelemetryToggle",
+                      "properties": {
+                        "Text": "H . HIDE . LAST 12 S",
+                        "Font": {
+                          "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+                          "Size": 14
+                        },
+                        "ColorAndOpacity": {
+                          "SpecifiedColor": [
+                            0.94,
+                            0.91,
+                            0.81,
+                            1
+                          ]
+                        },
+                        "ShadowColorAndOpacity": [
+                          0,
+                          0,
+                          0,
+                          0.92
+                        ],
+                        "ShadowOffset": {
+                          "X": 1.5,
+                          "Y": 2
+                        }
+                      }
+                    }
+                  ]
+                }
+              ],
+              "properties": {
+                "BrushColor": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "Padding": {
+                  "Left": 0,
+                  "Top": 5,
+                  "Right": 0,
+                  "Bottom": 5
+                }
+              },
+              "slot_props": {
+                "padding": [
+                  0,
+                  0,
+                  0,
+                  6
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "properties": {
+        "bOverride_WidthOverride": true,
+        "WidthOverride": 420
+      }
+    }
+  ],
+  "slots": {
+    "PowerDisplay": {
+      "anchors": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "position": [
+        28,
+        40
+      ],
+      "size": [
+        420,
+        300
+      ],
+      "auto_size": true
+    }
+  },
+  "variables": [],
+  "expected_parent": "/Script/SaskartaCore.SaskartaPowerWidget",
+  "expected_widgets": {
+    "PowerDisplay": "SizeBox",
+    "PowerContent": "VerticalBox",
+    "PowerNotices": "Border",
+    "PowerNoticesContent": "VerticalBox",
+    "WarningAccentBounds": "SizeBox",
+    "PowerWarningAccent": "Border",
+    "PowerWarningTitle": "TextBlock",
+    "PowerLoads": "TextBlock",
+    "BatteryInspection": "Border",
+    "BatteryInspectionContent": "VerticalBox",
+    "BatteryLabel": "TextBlock",
+    "BatteryPercent": "TextBlock",
+    "BatteryGauge": "HorizontalBox",
+    "BatterySegmentBounds0": "SizeBox",
+    "BatterySegment0": "ProgressBar",
+    "BatterySegmentBounds1": "SizeBox",
+    "BatterySegment1": "ProgressBar",
+    "BatterySegmentBounds2": "SizeBox",
+    "BatterySegment2": "ProgressBar",
+    "BatterySegmentBounds3": "SizeBox",
+    "BatterySegment3": "ProgressBar",
+    "BatterySegmentBounds4": "SizeBox",
+    "BatterySegment4": "ProgressBar",
+    "BatterySegmentBounds5": "SizeBox",
+    "BatterySegment5": "ProgressBar",
+    "BatterySegmentBounds6": "SizeBox",
+    "BatterySegment6": "ProgressBar",
+    "BatteryState": "TextBlock",
+    "DrivingInstruments": "Border",
+    "DrivingInstrumentsContent": "VerticalBox",
+    "TelemetryColumns": "HorizontalBox",
+    "SpeedColumn": "VerticalBox",
+    "ActualSpeed": "TextBlock",
+    "SpeedScale": "TextBlock",
+    "SpeedTrace": "SaskartaTelemetryGraph",
+    "AltitudeColumn": "VerticalBox",
+    "ActualAltitude": "TextBlock",
+    "AltitudeScale": "TextBlock",
+    "AltitudeTrace": "SaskartaTelemetryGraph",
+    "AltitudeDatum": "TextBlock",
+    "TelemetryToggle": "TextBlock"
+  },
+  "strict_compile": true,
+  "force_save": true
+}

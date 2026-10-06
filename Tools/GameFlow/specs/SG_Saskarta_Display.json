@@ -1,0 +1,38 @@
+{
+  "asset": "/Game/SaskartaGaea/GameFlow/SG_Saskarta_Display",
+  "create": { "parent": "/Script/Engine.SaveGame" },
+  "description": "Display extras the settings class has no property for (R40: no header changes in run 3): brightness (the engine gamma, 2.2 = neutral) and motion blur. Saved to slot SaskartaDisplay by BFL_SaskartaSettings.",
+  "variables": [{ "name": "Brightness", "type": "float", "default": "2.2" }, { "name": "bMotionBlur", "type": "bool", "default": "true" }],
+  "functions": [
+    { "name": "GetBrightness", "inputs": [], "outputs": [{ "name": "Value", "type": "float" }], "pure": true },
+    { "name": "GetMotionBlur", "inputs": [], "outputs": [{ "name": "bOn", "type": "bool" }], "pure": true },
+    { "name": "SetBrightness", "inputs": [{ "name": "Value", "type": "float" }], "outputs": [], "pure": false },
+    { "name": "SetMotionBlur", "inputs": [{ "name": "bOn", "type": "bool" }], "outputs": [], "pure": false }
+  ],
+  "graphs": [
+    {
+      "graph": "GetBrightness",
+      "nodes": { "entry": { "entry": true }, "result": { "result": true }, "getBrightness1": { "get": "Brightness" } },
+      "links": [["entry.then", "result.execute"], ["getBrightness1.Brightness", "result.Value"]],
+      "defaults": {}
+    },
+    {
+      "graph": "GetMotionBlur",
+      "nodes": { "entry": { "entry": true }, "result": { "result": true }, "getbMotionBlur1": { "get": "bMotionBlur" } },
+      "links": [["entry.then", "result.execute"], ["getbMotionBlur1.bMotionBlur", "result.bOn"]],
+      "defaults": {}
+    },
+    {
+      "graph": "SetBrightness",
+      "nodes": { "entry": { "entry": true }, "s": { "set": "Brightness" } },
+      "links": [["entry.then", "s.execute"], ["entry.Value", "s.Brightness"]],
+      "defaults": {}
+    },
+    {
+      "graph": "SetMotionBlur",
+      "nodes": { "entry": { "entry": true }, "s": { "set": "bMotionBlur" } },
+      "links": [["entry.then", "s.execute"], ["entry.bOn", "s.bMotionBlur"]],
+      "defaults": {}
+    }
+  ]
+}

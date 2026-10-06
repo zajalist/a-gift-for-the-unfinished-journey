@@ -1,0 +1,616 @@
+{
+  "asset": "/Game/SaskartaGaea/Story/HighVoice/BP_Saskarta_HighVoice",
+  "create": {
+    "parent": "/Script/Engine.Actor"
+  },
+  "description": "The High Voice relay set's logic (V10; task ENDING). Meshes, component transforms and the tag Saskarta.HighVoice are placed by the V10 step (task-ENDING-brief.md step 6); this spec only adds the components and the functions CIN_24 calls. Crown material: MI_HighVoice_Glow (parent M_Glow, vector Col).",
+  "components": [
+    {
+      "name": "MastBase",
+      "class": "/Script/Engine.SceneComponent"
+    },
+    {
+      "name": "StandPoint",
+      "class": "/Script/Engine.SceneComponent"
+    },
+    {
+      "name": "SeatPoint",
+      "class": "/Script/Engine.SceneComponent"
+    },
+    {
+      "name": "Plate",
+      "class": "/Script/Engine.StaticMeshComponent"
+    },
+    {
+      "name": "Crown",
+      "class": "/Script/Engine.StaticMeshComponent"
+    },
+    {
+      "name": "Column",
+      "class": "/Script/Engine.StaticMeshComponent"
+    }
+  ],
+  "variables": [
+    {
+      "name": "CrownMID",
+      "type": "object:/Script/Engine.MaterialInstanceDynamic"
+    },
+    {
+      "name": "GlowTimer",
+      "type": "struct:/Script/Engine.TimerHandle"
+    },
+    {
+      "name": "GlowStart",
+      "type": "float",
+      "default": "0.0"
+    },
+    {
+      "name": "GlowDuration",
+      "type": "float",
+      "default": "8.0"
+    },
+    {
+      "name": "GlowInterval",
+      "type": "float",
+      "default": "0.05"
+    },
+    {
+      "name": "ColRest",
+      "type": "struct:/Script/CoreUObject.LinearColor",
+      "default": "(R=4.0,G=1.8,B=0.6,A=1.0)"
+    },
+    {
+      "name": "ColPeak",
+      "type": "struct:/Script/CoreUObject.LinearColor",
+      "default": "(R=40.0,G=18.0,B=6.0,A=1.0)"
+    },
+    {
+      "name": "ColumnMaxZ",
+      "type": "float",
+      "default": "60.0"
+    }
+  ],
+  "functions": [
+    {
+      "name": "SnapKeeperToPlate",
+      "inputs": [],
+      "outputs": [],
+      "pure": false
+    },
+    {
+      "name": "HideKeeper",
+      "inputs": [],
+      "outputs": [],
+      "pure": false
+    },
+    {
+      "name": "StartGlowAndColumn",
+      "inputs": [],
+      "outputs": [],
+      "pure": false
+    },
+    {
+      "name": "GlowStep",
+      "inputs": [],
+      "outputs": [],
+      "pure": false
+    },
+    {
+      "name": "ResetGlowAndColumn",
+      "inputs": [],
+      "outputs": [],
+      "pure": false
+    },
+    {
+      "name": "EnsureMID",
+      "inputs": [],
+      "outputs": [],
+      "pure": false
+    }
+  ],
+  "graphs": [
+    {
+      "graph": "SnapKeeperToPlate",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "GetPlaye1": {
+          "call": "GetPlayerPawn",
+          "class": "/Script/Engine.GameplayStatics"
+        },
+        "g2": {
+          "get": "StandPoint"
+        },
+        "K2_GetCo3": {
+          "call": "K2_GetComponentLocation",
+          "class": "/Script/Engine.SceneComponent"
+        },
+        "g4": {
+          "get": "StandPoint"
+        },
+        "K2_GetCo5": {
+          "call": "K2_GetComponentRotation",
+          "class": "/Script/Engine.SceneComponent"
+        },
+        "K2_Telep6": {
+          "call": "K2_TeleportTo",
+          "class": "/Script/Engine.Actor"
+        }
+      },
+      "links": [
+        [
+          "g2.StandPoint",
+          "K2_GetCo3.self"
+        ],
+        [
+          "g4.StandPoint",
+          "K2_GetCo5.self"
+        ],
+        [
+          "GetPlaye1.ReturnValue",
+          "K2_Telep6.self"
+        ],
+        [
+          "K2_GetCo3.ReturnValue",
+          "K2_Telep6.DestLocation"
+        ],
+        [
+          "K2_GetCo5.ReturnValue",
+          "K2_Telep6.DestRotation"
+        ],
+        [
+          "entry.then",
+          "K2_Telep6.execute"
+        ]
+      ],
+      "defaults": {
+        "GetPlaye1.PlayerIndex": "0"
+      }
+    },
+    {
+      "graph": "HideKeeper",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "GetPlaye1": {
+          "call": "GetPlayerPawn",
+          "class": "/Script/Engine.GameplayStatics"
+        },
+        "SetActor2": {
+          "call": "SetActorHiddenInGame",
+          "class": "/Script/Engine.Actor"
+        }
+      },
+      "links": [
+        [
+          "GetPlaye1.ReturnValue",
+          "SetActor2.self"
+        ],
+        [
+          "entry.then",
+          "SetActor2.execute"
+        ]
+      ],
+      "defaults": {
+        "GetPlaye1.PlayerIndex": "0",
+        "SetActor2.bNewHidden": "true"
+      }
+    },
+    {
+      "graph": "EnsureMID",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "g1": {
+          "get": "CrownMID"
+        },
+        "IsValid2": {
+          "call": "IsValid",
+          "class": "/Script/Engine.KismetSystemLibrary"
+        },
+        "Not_PreB3": {
+          "call": "Not_PreBool",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "if4": {
+          "branch": true
+        },
+        "g5": {
+          "get": "Crown"
+        },
+        "CreateDy6": {
+          "call": "CreateDynamicMaterialInstance",
+          "class": "/Script/Engine.PrimitiveComponent"
+        },
+        "s7": {
+          "set": "CrownMID"
+        }
+      },
+      "links": [
+        [
+          "g1.CrownMID",
+          "IsValid2.Object"
+        ],
+        [
+          "IsValid2.ReturnValue",
+          "Not_PreB3.A"
+        ],
+        [
+          "Not_PreB3.ReturnValue",
+          "if4.Condition"
+        ],
+        [
+          "entry.then",
+          "if4.execute"
+        ],
+        [
+          "g5.Crown",
+          "CreateDy6.self"
+        ],
+        [
+          "if4.then",
+          "CreateDy6.execute"
+        ],
+        [
+          "CreateDy6.ReturnValue",
+          "s7.CrownMID"
+        ],
+        [
+          "CreateDy6.then",
+          "s7.execute"
+        ]
+      ],
+      "defaults": {
+        "CreateDy6.ElementIndex": "0"
+      }
+    },
+    {
+      "graph": "StartGlowAndColumn",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "EnsureMI1": {
+          "call": "EnsureMID"
+        },
+        "g2": {
+          "get": "Column"
+        },
+        "SetVisib3": {
+          "call": "SetVisibility",
+          "class": "/Script/Engine.SceneComponent"
+        },
+        "GetTimeS4": {
+          "call": "GetTimeSeconds",
+          "class": "/Script/Engine.GameplayStatics"
+        },
+        "s5": {
+          "set": "GlowStart"
+        },
+        "g6": {
+          "get": "GlowInterval"
+        },
+        "t7": {
+          "timer": true
+        },
+        "me": {
+          "self": true
+        },
+        "s8": {
+          "set": "GlowTimer"
+        }
+      },
+      "links": [
+        [
+          "entry.then",
+          "EnsureMI1.execute"
+        ],
+        [
+          "g2.Column",
+          "SetVisib3.self"
+        ],
+        [
+          "EnsureMI1.then",
+          "SetVisib3.execute"
+        ],
+        [
+          "GetTimeS4.ReturnValue",
+          "s5.GlowStart"
+        ],
+        [
+          "SetVisib3.then",
+          "s5.execute"
+        ],
+        [
+          "me.self",
+          "t7.Object"
+        ],
+        [
+          "g6.GlowInterval",
+          "t7.Time"
+        ],
+        [
+          "s5.then",
+          "t7.execute"
+        ],
+        [
+          "t7.ReturnValue",
+          "s8.GlowTimer"
+        ],
+        [
+          "t7.then",
+          "s8.execute"
+        ]
+      ],
+      "defaults": {
+        "SetVisib3.bNewVisibility": "false",
+        "t7.FunctionName": "GlowStep",
+        "t7.bLooping": "true"
+      }
+    },
+    {
+      "graph": "GlowStep",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "GetTimeS1": {
+          "call": "GetTimeSeconds",
+          "class": "/Script/Engine.GameplayStatics"
+        },
+        "g2": {
+          "get": "GlowStart"
+        },
+        "Subtract3": {
+          "call": "Subtract_DoubleDouble",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "g4": {
+          "get": "GlowDuration"
+        },
+        "Divide_D5": {
+          "call": "Divide_DoubleDouble",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "FClamp6": {
+          "call": "FClamp",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "FInterpE7": {
+          "call": "FInterpEaseInOut",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "g8": {
+          "get": "ColRest"
+        },
+        "g9": {
+          "get": "ColPeak"
+        },
+        "LinearCo10": {
+          "call": "LinearColorLerp",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "g11": {
+          "get": "CrownMID"
+        },
+        "SetVecto12": {
+          "call": "SetVectorParameterValue",
+          "class": "/Script/Engine.MaterialInstanceDynamic"
+        },
+        "GreaterE13": {
+          "call": "GreaterEqual_DoubleDouble",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "if14": {
+          "branch": true
+        },
+        "g15": {
+          "get": "GlowTimer"
+        },
+        "K2_Clear16": {
+          "call": "K2_ClearAndInvalidateTimerHandle",
+          "class": "/Script/Engine.KismetSystemLibrary"
+        }
+      },
+      "links": [
+        [
+          "GetTimeS1.ReturnValue",
+          "Subtract3.A"
+        ],
+        [
+          "g2.GlowStart",
+          "Subtract3.B"
+        ],
+        [
+          "Subtract3.ReturnValue",
+          "Divide_D5.A"
+        ],
+        [
+          "g4.GlowDuration",
+          "Divide_D5.B"
+        ],
+        [
+          "Divide_D5.ReturnValue",
+          "FClamp6.Value"
+        ],
+        [
+          "FClamp6.ReturnValue",
+          "FInterpE7.Alpha"
+        ],
+        [
+          "g8.ColRest",
+          "LinearCo10.A"
+        ],
+        [
+          "g9.ColPeak",
+          "LinearCo10.B"
+        ],
+        [
+          "FInterpE7.ReturnValue",
+          "LinearCo10.Alpha"
+        ],
+        [
+          "g11.CrownMID",
+          "SetVecto12.self"
+        ],
+        [
+          "LinearCo10.ReturnValue",
+          "SetVecto12.Value"
+        ],
+        [
+          "entry.then",
+          "SetVecto12.execute"
+        ],
+        [
+          "FClamp6.ReturnValue",
+          "GreaterE13.A"
+        ],
+        [
+          "GreaterE13.ReturnValue",
+          "if14.Condition"
+        ],
+        [
+          "SetVecto12.then",
+          "if14.execute"
+        ],
+        [
+          "g15.GlowTimer",
+          "K2_Clear16.Handle"
+        ],
+        [
+          "if14.then",
+          "K2_Clear16.execute"
+        ]
+      ],
+      "defaults": {
+        "FClamp6.Min": "0.0",
+        "FClamp6.Max": "1.0",
+        "FInterpE7.A": "0.0",
+        "FInterpE7.B": "1.0",
+        "FInterpE7.Exponent": "2.0",
+        "SetVecto12.ParameterName": "Col",
+        "GreaterE13.B": "1.0"
+      }
+    },
+    {
+      "graph": "ResetGlowAndColumn",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "g1": {
+          "get": "GlowTimer"
+        },
+        "K2_Clear2": {
+          "call": "K2_ClearAndInvalidateTimerHandle",
+          "class": "/Script/Engine.KismetSystemLibrary"
+        },
+        "g3": {
+          "get": "Column"
+        },
+        "SetVisib4": {
+          "call": "SetVisibility",
+          "class": "/Script/Engine.SceneComponent"
+        },
+        "MakeVect5": {
+          "call": "MakeVector",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "g6": {
+          "get": "Column"
+        },
+        "SetRelat7": {
+          "call": "SetRelativeScale3D",
+          "class": "/Script/Engine.SceneComponent"
+        },
+        "EnsureMI8": {
+          "call": "EnsureMID"
+        },
+        "g9": {
+          "get": "ColRest"
+        },
+        "g10": {
+          "get": "CrownMID"
+        },
+        "SetVecto11": {
+          "call": "SetVectorParameterValue",
+          "class": "/Script/Engine.MaterialInstanceDynamic"
+        }
+      },
+      "links": [
+        [
+          "g1.GlowTimer",
+          "K2_Clear2.Handle"
+        ],
+        [
+          "entry.then",
+          "K2_Clear2.execute"
+        ],
+        [
+          "g3.Column",
+          "SetVisib4.self"
+        ],
+        [
+          "K2_Clear2.then",
+          "SetVisib4.execute"
+        ],
+        [
+          "g6.Column",
+          "SetRelat7.self"
+        ],
+        [
+          "MakeVect5.ReturnValue",
+          "SetRelat7.NewScale3D"
+        ],
+        [
+          "SetVisib4.then",
+          "SetRelat7.execute"
+        ],
+        [
+          "SetRelat7.then",
+          "EnsureMI8.execute"
+        ],
+        [
+          "g10.CrownMID",
+          "SetVecto11.self"
+        ],
+        [
+          "g9.ColRest",
+          "SetVecto11.Value"
+        ],
+        [
+          "EnsureMI8.then",
+          "SetVecto11.execute"
+        ]
+      ],
+      "defaults": {
+        "SetVisib4.bNewVisibility": "false",
+        "MakeVect5.X": "1.0",
+        "MakeVect5.Y": "1.0",
+        "MakeVect5.Z": "0.01",
+        "SetVecto11.ParameterName": "Col"
+      }
+    },
+    {
+      "graph": "EventGraph",
+      "nodes": {
+        "bp1": {
+          "event": "ReceiveBeginPlay"
+        },
+        "ResetGlo2": {
+          "call": "ResetGlowAndColumn"
+        }
+      },
+      "links": [
+        [
+          "bp1.then",
+          "ResetGlo2.execute"
+        ]
+      ],
+      "defaults": {}
+    }
+  ]
+}

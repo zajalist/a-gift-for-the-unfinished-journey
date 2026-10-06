@@ -1,0 +1,62 @@
+{
+  "asset": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Title",
+  "parent_widget_name": "Menu",
+  "tree": [
+    {
+      "class": "Button",
+      "name": "ContinueButton",
+      "properties": {
+        "WidgetStyle": {
+          "Normal": { "DrawAs": "NoDrawType" },
+          "Hovered": { "DrawAs": "NoDrawType" },
+          "Pressed": { "DrawAs": "NoDrawType" },
+          "Disabled": { "DrawAs": "NoDrawType" },
+          "NormalPadding": { "Left": 0, "Top": 0, "Right": 0, "Bottom": 0 },
+          "PressedPadding": { "Left": 0, "Top": 0, "Right": 0, "Bottom": 0 }
+        }
+      },
+      "slot_props": { "padding": [0, 0, 0, 30], "horizontal_alignment": "Left" },
+      "children": [
+        {
+          "class": "HorizontalBox",
+          "name": "ContinueEntry",
+          "children": [
+            {
+              "class": "Image",
+              "name": "ContinueMark",
+              "properties": {
+                "Brush": {
+                  "ResourceObject": "/Game/SaskartaGaea/GameFlow/UI/Textures/T_UI_FocusMark.T_UI_FocusMark",
+                  "ImageSize": { "X": 48, "Y": 24 },
+                  "DrawAs": "Image"
+                },
+                "RenderOpacity": 0
+              },
+              "slot_props": { "vertical_alignment": "Center" }
+            },
+            {
+              "class": "TextBlock",
+              "name": "ContinueLabel",
+              "properties": {
+                "Text": "Continue",
+                "Font": {
+                  "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa.F_ArefRuqaa",
+                  "TypefaceFontName": "Bold",
+                  "Size": 30,
+                  "LetterSpacing": 50
+                },
+                "ColorAndOpacity": { "SpecifiedColor": [0.8469, 0.7835, 0.7011, 1] },
+                "RenderOpacity": 0.6
+              },
+              "slot_props": { "vertical_alignment": "Center", "padding": [6, 0, 0, 0] }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "moves": [{ "widget_name": "ContinueButton", "index": 0 }],
+  "slots": { "Menu": { "anchors": [0, 0.5, 0, 0.5], "position": [580, -110], "size": [420, 400] } },
+  "variables": ["ContinueButton", "ContinueLabel", "ContinueMark"],
+  "widget_properties": { "HintEnterKey": { "Text": "Enter / A" } }
+}

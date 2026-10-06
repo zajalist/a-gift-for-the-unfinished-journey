@@ -1,0 +1,4063 @@
+{
+ "generated_by": "Tools/World/story_sets/v10_high_voice.py",
+ "method": "docs/world/SETDRESS_V2.md",
+ "design": "docs/world/story_sets/V10.md",
+ "level": "/Game/level/Saskarta_WP",
+ "conventions": {
+  "xy": "world cm; yaw = UE yaw deg",
+  "bounds": "x_cm/y_cm is the mesh BOUNDS CENTRE",
+  "ground": "decal patches: DecalActor pitch -90, yaw, size (depth/2, width/2, length/2)",
+  "contact": "rigid | rest | lie | stack | bear (SETDRESS_V2.md section 3; bear = rests on bears_on)",
+  "site_uv": "u m along the last road heading (yaw 83.66) from spline point 0 (the mast base), v m right of travel"
+ },
+ "rejected": [],
+ "checks": [],
+ "sites": [
+  {
+   "id": "V10_HighVoice",
+   "story_set": "V10",
+   "name": "The High Voice relay station (V10)",
+   "kind": "relay station",
+   "order": 1,
+   "road_m": 5009,
+   "side": "on/right",
+   "lateral_m": 4.5,
+   "centre_cm": [
+    297637.9,
+    483149.4,
+    10904.3
+   ],
+   "road_yaw": 83.66,
+   "radius_m": 22.0,
+   "zone": "Z6 Summit",
+   "storm": "above the cloud: clear, calm, gold light; bare wind-scoured rock; the fewest objects on the road",
+   "role": "landmark, story set",
+   "story": "B23 the last entry and the mark; B24/CIN_24 the transmission, the mast up-shot, the held seated shot; CIN_23 (optional) the Keeper at the hut",
+   "decay": 0,
+   "style": "BAZAAR STONE hut (AB walls, flagstone roof), cut sandstone collar and deadmen, brass conduit and plate, iron guys",
+   "layout": "\n  road (down 17 %) ====> [collar + MAST] . . . guy -> deadman (ahead-left, 16 m)\n        path -> plate (StandPoint) -> door      [HUT 6.2 x 3.2 m, front turned back up the road]\n  moss boulder (valley verge)          bench on the valley gable     rock face past the hut\n  seated view: east from the collar, empty to the valley; deadmen behind-left and right",
+   "notes": "Story-owned: the L2 HighVoice actor (mast, crown, beam) and BP_Saskarta_HighVoice (ending hooks) are not placed here. S26 dresses the interior against interior_frame, on the plinth of this set.",
+   "story_owned": [
+    "HighVoice (L2 beacon actor)",
+    "BP_Saskarta_HighVoice (tag Saskarta.HighVoice, task ENDING 6c)"
+   ],
+   "verify_only": false,
+   "layer": "road",
+   "poi": null,
+   "load_box_cm": [
+    290693,
+    466387,
+    307280,
+    489895
+   ],
+   "counts": {
+    "placements": 53,
+    "actors": 43,
+    "ism_instances": 27,
+    "physics": 2,
+    "batch01": 15,
+    "decals": 13,
+    "lines": 7
+   },
+   "views": [
+    {
+     "name": "carrier_a",
+     "cam_cm": [
+      297789.5,
+      480801.2,
+      11463.8
+     ],
+     "look_cm": [
+      297637.9,
+      483149.4,
+      11154.3
+     ]
+    },
+    {
+     "name": "carrier_b",
+     "cam_cm": [
+      298509.1,
+      477517.3,
+      12074.4
+     ],
+     "look_cm": [
+      297637.9,
+      483149.4,
+      11154.3
+     ]
+    },
+    {
+     "name": "carrier_c",
+     "cam_cm": [
+      302079.6,
+      471587.4,
+      12312.7
+     ],
+     "look_cm": [
+      297637.9,
+      483149.4,
+      11154.3
+     ]
+    },
+    {
+     "name": "orbit_a",
+     "cam_cm": [
+      299647.7,
+      482674.5,
+      11052.3
+     ],
+     "look_cm": [
+      297251.4,
+      483292.9,
+      11091.4
+     ]
+    },
+    {
+     "name": "orbit_b",
+     "cam_cm": [
+      296853.8,
+      484695.4,
+      11056.9
+     ],
+     "look_cm": [
+      297251.4,
+      483292.9,
+      11091.4
+     ]
+    },
+    {
+     "name": "orbit_c",
+     "cam_cm": [
+      296688.2,
+      482299.1,
+      11684.4
+     ],
+     "look_cm": [
+      297251.4,
+      483292.9,
+      11091.4
+     ]
+    },
+    {
+     "name": "contact",
+     "cam_cm": [
+      297427.1,
+      482981.8,
+      11087.7
+     ],
+     "look_cm": [
+      297413.6,
+      483140.8,
+      11052.1
+     ]
+    },
+    {
+     "name": "high34",
+     "cam_cm": [
+      295893.1,
+      481481.9,
+      13147.3
+     ],
+     "look_cm": [
+      297637.9,
+      483149.4,
+      11154.3
+     ]
+    },
+    {
+     "name": "far300",
+     "cam_cm": [
+      328337.8,
+      483712.6,
+      3888.8
+     ],
+     "look_cm": [
+      298079.6,
+      483050.0,
+      11868.8
+     ]
+    },
+    {
+     "name": "seat",
+     "cam_cm": [
+      298229.7,
+      483040.8,
+      10945.2
+     ],
+     "look_cm": [
+      300221.1,
+      482919.0,
+      10805.7
+     ]
+    },
+    {
+     "name": "mastup",
+     "cam_cm": [
+      298219.6,
+      483140.0,
+      10928.8
+     ],
+     "look_cm": [
+      298190.2,
+      483121.1,
+      11928.1
+     ]
+    }
+   ],
+   "placements": [
+    {
+     "id": "V10_HighVoice_000",
+     "key": "B01_brick01",
+     "asset": "/Game/SaskartaGaea/Environment/Batch01/SM_B01_brick01",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 298114.1,
+     "y_cm": 482961.4,
+     "ground_z_cm": 10885.5,
+     "yaw": 0.0,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.15,
+     "scale_range": [
+      1.15,
+      1.15
+     ],
+     "settle": {
+      "mode": "trace",
+      "max_tilt_deg": 0,
+      "rand_tilt_deg": 0,
+      "z_rule": "min",
+      "sink_cm": 25,
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "mastfoot",
+     "folder": "Set/V10_HighVoice/mastfoot",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 25000.0,
+     "cast_shadow": true,
+     "size_m": [
+      1.771,
+      0.69,
+      0.724
+     ],
+     "slope_deg": 13.8,
+     "relief_m": 0.44,
+     "road_clear_m": 0.4,
+     "site_uv": [
+      -0.84,
+      -0.44
+     ],
+     "block": "mastfoot",
+     "contact": "rigid",
+     "material_set": "stone",
+     "requires_import": true,
+     "verdict": "use",
+     "imported": true,
+     "fallback": {
+      "asset": "/Game/Fab/Megascans/3D/Ancient_Temple_Stones_tixjegefa/Medium/tixjegefa_tier_2/StaticMeshes/tixjegefa_tier_2",
+      "scale": 0.92
+     },
+     "predicted": {
+      "bottom_cm": 10802.1,
+      "top_cm": 10874.6,
+      "by": "the level step (predicted on the heightmap)"
+     },
+     "note": "collar block, course 1 (the footing): the pillar stands in the 1.08 m square hole"
+    },
+    {
+     "id": "V10_HighVoice_001",
+     "key": "B01_brick01",
+     "asset": "/Game/SaskartaGaea/Environment/Batch01/SM_B01_brick01",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 298168.1,
+     "y_cm": 483084.5,
+     "ground_z_cm": 10848.7,
+     "yaw": 90.0,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.15,
+     "scale_range": [
+      1.15,
+      1.15
+     ],
+     "settle": {
+      "mode": "trace",
+      "max_tilt_deg": 0,
+      "rand_tilt_deg": 0,
+      "z_rule": "min",
+      "sink_cm": 25,
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "mastfoot",
+     "folder": "Set/V10_HighVoice/mastfoot",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 25000.0,
+     "cast_shadow": true,
+     "size_m": [
+      1.771,
+      0.69,
+      0.724
+     ],
+     "slope_deg": 14.1,
+     "relief_m": 0.44,
+     "road_clear_m": 0.6,
+     "site_uv": [
+      0.44,
+      -0.84
+     ],
+     "block": "mastfoot",
+     "contact": "rigid",
+     "material_set": "stone",
+     "requires_import": true,
+     "verdict": "use",
+     "imported": true,
+     "fallback": {
+      "asset": "/Game/Fab/Megascans/3D/Ancient_Temple_Stones_tixjegefa/Medium/tixjegefa_tier_2/StaticMeshes/tixjegefa_tier_2",
+      "scale": 0.92
+     },
+     "predicted": {
+      "bottom_cm": 10802.1,
+      "top_cm": 10874.6,
+      "by": "the level step (predicted on the heightmap)"
+     },
+     "note": "collar block, course 1 (the footing): the pillar stands in the 1.08 m square hole"
+    },
+    {
+     "id": "V10_HighVoice_002",
+     "key": "B01_brick01",
+     "asset": "/Game/SaskartaGaea/Environment/Batch01/SM_B01_brick01",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 298045.1,
+     "y_cm": 483138.6,
+     "ground_z_cm": 10852.3,
+     "yaw": 180.0,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.15,
+     "scale_range": [
+      1.15,
+      1.15
+     ],
+     "settle": {
+      "mode": "trace",
+      "max_tilt_deg": 0,
+      "rand_tilt_deg": 0,
+      "z_rule": "min",
+      "sink_cm": 25,
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "mastfoot",
+     "folder": "Set/V10_HighVoice/mastfoot",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 25000.0,
+     "cast_shadow": true,
+     "size_m": [
+      1.771,
+      0.69,
+      0.724
+     ],
+     "slope_deg": 11.0,
+     "relief_m": 0.35,
+     "road_clear_m": 0.76,
+     "site_uv": [
+      0.84,
+      0.44
+     ],
+     "block": "mastfoot",
+     "contact": "rigid",
+     "material_set": "stone",
+     "requires_import": true,
+     "verdict": "use",
+     "imported": true,
+     "fallback": {
+      "asset": "/Game/Fab/Megascans/3D/Ancient_Temple_Stones_tixjegefa/Medium/tixjegefa_tier_2/StaticMeshes/tixjegefa_tier_2",
+      "scale": 0.92
+     },
+     "predicted": {
+      "bottom_cm": 10802.1,
+      "top_cm": 10874.6,
+      "by": "the level step (predicted on the heightmap)"
+     },
+     "note": "collar block, course 1 (the footing): the pillar stands in the 1.08 m square hole"
+    },
+    {
+     "id": "V10_HighVoice_003",
+     "key": "B01_brick01",
+     "asset": "/Game/SaskartaGaea/Environment/Batch01/SM_B01_brick01",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 297991.0,
+     "y_cm": 483015.5,
+     "ground_z_cm": 10889.5,
+     "yaw": 270.0,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.15,
+     "scale_range": [
+      1.15,
+      1.15
+     ],
+     "settle": {
+      "mode": "trace",
+      "max_tilt_deg": 0,
+      "rand_tilt_deg": 0,
+      "z_rule": "min",
+      "sink_cm": 25,
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "mastfoot",
+     "folder": "Set/V10_HighVoice/mastfoot",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 25000.0,
+     "cast_shadow": true,
+     "size_m": [
+      1.771,
+      0.69,
+      0.724
+     ],
+     "slope_deg": 16.2,
+     "relief_m": 0.52,
+     "road_clear_m": 0.4,
+     "site_uv": [
+      -0.44,
+      0.84
+     ],
+     "block": "mastfoot",
+     "contact": "rigid",
+     "material_set": "stone",
+     "requires_import": true,
+     "verdict": "use",
+     "imported": true,
+     "fallback": {
+      "asset": "/Game/Fab/Megascans/3D/Ancient_Temple_Stones_tixjegefa/Medium/tixjegefa_tier_2/StaticMeshes/tixjegefa_tier_2",
+      "scale": 0.92
+     },
+     "predicted": {
+      "bottom_cm": 10802.1,
+      "top_cm": 10874.6,
+      "by": "the level step (predicted on the heightmap)"
+     },
+     "note": "collar block, course 1 (the footing): the pillar stands in the 1.08 m square hole"
+    },
+    {
+     "id": "V10_HighVoice_004",
+     "key": "B01_brick01",
+     "asset": "/Game/SaskartaGaea/Environment/Batch01/SM_B01_brick01",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 298045.1,
+     "y_cm": 482961.4,
+     "ground_z_cm": 10897.1,
+     "yaw": 0.0,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.15,
+     "scale_range": [
+      1.15,
+      1.15
+     ],
+     "settle": {
+      "mode": "none",
+      "max_tilt_deg": 0,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "sink_cm": 2,
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "mastfoot",
+     "folder": "Set/V10_HighVoice/mastfoot",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 25000.0,
+     "cast_shadow": true,
+     "size_m": [
+      1.771,
+      0.69,
+      0.724
+     ],
+     "slope_deg": 13.0,
+     "relief_m": 0.41,
+     "road_clear_m": 0.6,
+     "site_uv": [
+      -0.92,
+      0.25
+     ],
+     "block": "mastfoot",
+     "contact": "bear",
+     "material_set": "stone",
+     "bears_on": [
+      "V10_HighVoice_000",
+      "V10_HighVoice_001",
+      "V10_HighVoice_002",
+      "V10_HighVoice_003"
+     ],
+     "requires_import": true,
+     "verdict": "use",
+     "imported": true,
+     "fallback": {
+      "asset": "/Game/Fab/Megascans/3D/Ancient_Temple_Stones_tixjegefa/Medium/tixjegefa_tier_2/StaticMeshes/tixjegefa_tier_2",
+      "scale": 0.92
+     },
+     "predicted": {
+      "bottom_cm": 10874.6,
+      "top_cm": 10947.0,
+      "by": "the level step (predicted on the heightmap)"
+     },
+     "note": "collar block, course 2 (the cap): the reversed pinwheel, each block across a joint of course 1"
+    },
+    {
+     "id": "V10_HighVoice_005",
+     "key": "B01_brick01",
+     "asset": "/Game/SaskartaGaea/Environment/Batch01/SM_B01_brick01",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 298168.1,
+     "y_cm": 483015.5,
+     "ground_z_cm": 10863.6,
+     "yaw": 90.0,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.15,
+     "scale_range": [
+      1.15,
+      1.15
+     ],
+     "settle": {
+      "mode": "none",
+      "max_tilt_deg": 0,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "sink_cm": 2,
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "mastfoot",
+     "folder": "Set/V10_HighVoice/mastfoot",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 25000.0,
+     "cast_shadow": true,
+     "size_m": [
+      1.771,
+      0.69,
+      0.724
+     ],
+     "slope_deg": 14.4,
+     "relief_m": 0.45,
+     "road_clear_m": 0.67,
+     "site_uv": [
+      -0.25,
+      -0.92
+     ],
+     "block": "mastfoot",
+     "contact": "bear",
+     "material_set": "stone",
+     "bears_on": [
+      "V10_HighVoice_000",
+      "V10_HighVoice_001",
+      "V10_HighVoice_002",
+      "V10_HighVoice_003"
+     ],
+     "requires_import": true,
+     "verdict": "use",
+     "imported": true,
+     "fallback": {
+      "asset": "/Game/Fab/Megascans/3D/Ancient_Temple_Stones_tixjegefa/Medium/tixjegefa_tier_2/StaticMeshes/tixjegefa_tier_2",
+      "scale": 0.92
+     },
+     "predicted": {
+      "bottom_cm": 10874.6,
+      "top_cm": 10947.0,
+      "by": "the level step (predicted on the heightmap)"
+     },
+     "note": "collar block, course 2 (the cap): the reversed pinwheel, each block across a joint of course 1"
+    },
+    {
+     "id": "V10_HighVoice_006",
+     "key": "B01_brick01",
+     "asset": "/Game/SaskartaGaea/Environment/Batch01/SM_B01_brick01",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 298114.1,
+     "y_cm": 483138.6,
+     "ground_z_cm": 10843.6,
+     "yaw": 180.0,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.15,
+     "scale_range": [
+      1.15,
+      1.15
+     ],
+     "settle": {
+      "mode": "none",
+      "max_tilt_deg": 0,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "sink_cm": 2,
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "mastfoot",
+     "folder": "Set/V10_HighVoice/mastfoot",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 25000.0,
+     "cast_shadow": true,
+     "size_m": [
+      1.771,
+      0.69,
+      0.724
+     ],
+     "slope_deg": 10.9,
+     "relief_m": 0.34,
+     "road_clear_m": 0.76,
+     "site_uv": [
+      0.92,
+      -0.25
+     ],
+     "block": "mastfoot",
+     "contact": "bear",
+     "material_set": "stone",
+     "bears_on": [
+      "V10_HighVoice_000",
+      "V10_HighVoice_001",
+      "V10_HighVoice_002",
+      "V10_HighVoice_003"
+     ],
+     "requires_import": true,
+     "verdict": "use",
+     "imported": true,
+     "fallback": {
+      "asset": "/Game/Fab/Megascans/3D/Ancient_Temple_Stones_tixjegefa/Medium/tixjegefa_tier_2/StaticMeshes/tixjegefa_tier_2",
+      "scale": 0.92
+     },
+     "predicted": {
+      "bottom_cm": 10874.6,
+      "top_cm": 10947.0,
+      "by": "the level step (predicted on the heightmap)"
+     },
+     "note": "collar block, course 2 (the cap): the reversed pinwheel, each block across a joint of course 1"
+    },
+    {
+     "id": "V10_HighVoice_007",
+     "key": "B01_brick01",
+     "asset": "/Game/SaskartaGaea/Environment/Batch01/SM_B01_brick01",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 297991.0,
+     "y_cm": 483084.5,
+     "ground_z_cm": 10871.7,
+     "yaw": 270.0,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.15,
+     "scale_range": [
+      1.15,
+      1.15
+     ],
+     "settle": {
+      "mode": "none",
+      "max_tilt_deg": 0,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "sink_cm": 2,
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "mastfoot",
+     "folder": "Set/V10_HighVoice/mastfoot",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 25000.0,
+     "cast_shadow": true,
+     "size_m": [
+      1.771,
+      0.69,
+      0.724
+     ],
+     "slope_deg": 15.4,
+     "relief_m": 0.49,
+     "road_clear_m": 0.48,
+     "site_uv": [
+      0.25,
+      0.92
+     ],
+     "block": "mastfoot",
+     "contact": "bear",
+     "material_set": "stone",
+     "bears_on": [
+      "V10_HighVoice_000",
+      "V10_HighVoice_001",
+      "V10_HighVoice_002",
+      "V10_HighVoice_003"
+     ],
+     "requires_import": true,
+     "verdict": "use",
+     "imported": true,
+     "fallback": {
+      "asset": "/Game/Fab/Megascans/3D/Ancient_Temple_Stones_tixjegefa/Medium/tixjegefa_tier_2/StaticMeshes/tixjegefa_tier_2",
+      "scale": 0.92
+     },
+     "predicted": {
+      "bottom_cm": 10874.6,
+      "top_cm": 10947.0,
+      "by": "the level step (predicted on the heightmap)"
+     },
+     "note": "collar block, course 2 (the cap): the reversed pinwheel, each block across a joint of course 1"
+    },
+    {
+     "id": "V10_HighVoice_008",
+     "key": "B01_brick01",
+     "asset": "/Game/SaskartaGaea/Environment/Batch01/SM_B01_brick01",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 298529.7,
+     "y_cm": 484585.4,
+     "ground_z_cm": 10613.9,
+     "yaw": 163.66,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "trace",
+      "max_tilt_deg": 0,
+      "rand_tilt_deg": 0,
+      "z_rule": "min",
+      "sink_cm": 30,
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "guys",
+     "folder": "Set/V10_HighVoice/guys",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 25000.0,
+     "cast_shadow": true,
+     "size_m": [
+      1.54,
+      0.6,
+      0.63
+     ],
+     "slope_deg": 4.8,
+     "relief_m": 0.13,
+     "road_clear_m": 15.72,
+     "site_uv": [
+      15.76,
+      -2.78
+     ],
+     "block": "anchor0",
+     "contact": "rigid",
+     "material_set": "stone",
+     "requires_import": true,
+     "verdict": "use",
+     "imported": true,
+     "fallback": {
+      "asset": "/Game/Fab/Megascans/3D/Ancient_Temple_Stones_tixjegefa/Medium/tixjegefa_tier_2/StaticMeshes/tixjegefa_tier_2",
+      "scale": 0.8
+     },
+     "note": "guy deadman 0: the cable runs to the mast 28 m up"
+    },
+    {
+     "id": "V10_HighVoice_009",
+     "key": "AB_Cobble_04",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_04",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 298645.3,
+     "y_cm": 484510.3,
+     "ground_z_cm": 10604.7,
+     "yaw": 276.02,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.964,
+     "scale_range": [
+      0.964,
+      0.964
+     ],
+     "settle": {
+      "mode": "trace",
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 30,
+      "z_rule": "mean",
+      "sink_cm": 5,
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "base_ism",
+     "folder": "Set/V10_HighVoice/base_ism",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.27,
+      0.299,
+      0.116
+     ],
+     "slope_deg": 5.3,
+     "relief_m": 0.05,
+     "road_clear_m": 15.47,
+     "site_uv": [
+      15.14,
+      -4.01
+     ],
+     "block": "base"
+    },
+    {
+     "id": "V10_HighVoice_010",
+     "key": "AB_Cobble_04",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_04",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 298486.7,
+     "y_cm": 484519.3,
+     "ground_z_cm": 10624.4,
+     "yaw": 122.14,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.092,
+     "scale_range": [
+      1.092,
+      1.092
+     ],
+     "settle": {
+      "mode": "trace",
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 30,
+      "z_rule": "mean",
+      "sink_cm": 5,
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "base_ism",
+     "folder": "Set/V10_HighVoice/base_ism",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.306,
+      0.339,
+      0.131
+     ],
+     "slope_deg": 6.3,
+     "relief_m": 0.06,
+     "road_clear_m": 15.02,
+     "site_uv": [
+      15.05,
+      -2.42
+     ],
+     "block": "base"
+    },
+    {
+     "id": "V10_HighVoice_011",
+     "key": "AB_Cobble_06",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_06",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 298606.4,
+     "y_cm": 484509.6,
+     "ground_z_cm": 10610.4,
+     "yaw": 290.86,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.858,
+     "scale_range": [
+      0.858,
+      0.858
+     ],
+     "settle": {
+      "mode": "trace",
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 30,
+      "z_rule": "mean",
+      "sink_cm": 5,
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "base_ism",
+     "folder": "Set/V10_HighVoice/base_ism",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.343,
+      0.421,
+      0.103
+     ],
+     "slope_deg": 7.2,
+     "relief_m": 0.06,
+     "road_clear_m": 15.25,
+     "site_uv": [
+      15.09,
+      -3.62
+     ],
+     "block": "base"
+    },
+    {
+     "id": "V10_HighVoice_012",
+     "key": "B01_brick01",
+     "asset": "/Game/SaskartaGaea/Environment/Batch01/SM_B01_brick01",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 296622.0,
+     "y_cm": 482695.8,
+     "ground_z_cm": 10997.4,
+     "yaw": 283.66,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "trace",
+      "max_tilt_deg": 0,
+      "rand_tilt_deg": 0,
+      "z_rule": "min",
+      "sink_cm": 30,
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "guys",
+     "folder": "Set/V10_HighVoice/guys",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 25000.0,
+     "cast_shadow": true,
+     "size_m": [
+      1.54,
+      0.6,
+      0.63
+     ],
+     "slope_deg": 15.2,
+     "relief_m": 0.42,
+     "road_clear_m": 13.55,
+     "site_uv": [
+      -5.13,
+      14.1
+     ],
+     "block": "anchor1",
+     "contact": "rigid",
+     "material_set": "stone",
+     "requires_import": true,
+     "verdict": "use",
+     "imported": true,
+     "fallback": {
+      "asset": "/Game/Fab/Megascans/3D/Ancient_Temple_Stones_tixjegefa/Medium/tixjegefa_tier_2/StaticMeshes/tixjegefa_tier_2",
+      "scale": 0.8
+     },
+     "note": "guy deadman 1: the cable runs to the mast 28 m up"
+    },
+    {
+     "id": "V10_HighVoice_013",
+     "key": "AB_Cobble_06",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_06",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 296578.9,
+     "y_cm": 482571.2,
+     "ground_z_cm": 11033.4,
+     "yaw": 270.36,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.806,
+     "scale_range": [
+      0.806,
+      0.806
+     ],
+     "settle": {
+      "mode": "trace",
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 30,
+      "z_rule": "mean",
+      "sink_cm": 5,
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "base_ism",
+     "folder": "Set/V10_HighVoice/base_ism",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.322,
+      0.395,
+      0.097
+     ],
+     "slope_deg": 11.3,
+     "relief_m": 0.1,
+     "road_clear_m": 14.17,
+     "site_uv": [
+      -6.42,
+      14.39
+     ],
+     "block": "base"
+    },
+    {
+     "id": "V10_HighVoice_014",
+     "key": "AB_Cobble_04",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_04",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 296622.6,
+     "y_cm": 482568.6,
+     "ground_z_cm": 11029.2,
+     "yaw": 135.47,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.198,
+     "scale_range": [
+      1.198,
+      1.198
+     ],
+     "settle": {
+      "mode": "trace",
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 30,
+      "z_rule": "mean",
+      "sink_cm": 5,
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "base_ism",
+     "folder": "Set/V10_HighVoice/base_ism",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.335,
+      0.371,
+      0.144
+     ],
+     "slope_deg": 12.4,
+     "relief_m": 0.11,
+     "road_clear_m": 13.7,
+     "site_uv": [
+      -6.39,
+      13.95
+     ],
+     "block": "base"
+    },
+    {
+     "id": "V10_HighVoice_015",
+     "key": "AB_Cobble_02",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_02",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 296506.8,
+     "y_cm": 482773.8,
+     "ground_z_cm": 10979.9,
+     "yaw": 152.34,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.973,
+     "scale_range": [
+      0.973,
+      0.973
+     ],
+     "settle": {
+      "mode": "trace",
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 30,
+      "z_rule": "mean",
+      "sink_cm": 5,
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "base_ism",
+     "folder": "Set/V10_HighVoice/base_ism",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.389,
+      0.477,
+      0.117
+     ],
+     "slope_deg": 15.7,
+     "relief_m": 0.14,
+     "road_clear_m": 15.06,
+     "site_uv": [
+      -4.48,
+      15.33
+     ],
+     "block": "base"
+    },
+    {
+     "id": "V10_HighVoice_016",
+     "key": "B01_brick01",
+     "asset": "/Game/SaskartaGaea/Environment/Batch01/SM_B01_brick01",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 298847.0,
+     "y_cm": 481646.0,
+     "ground_z_cm": 11014.4,
+     "yaw": 28.66,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "trace",
+      "max_tilt_deg": 0,
+      "rand_tilt_deg": 0,
+      "z_rule": "min",
+      "sink_cm": 30,
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "guys",
+     "folder": "Set/V10_HighVoice/guys",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 25000.0,
+     "cast_shadow": true,
+     "size_m": [
+      1.54,
+      0.6,
+      0.63
+     ],
+     "slope_deg": 16.2,
+     "relief_m": 0.45,
+     "road_clear_m": 8.37,
+     "site_uv": [
+      -13.11,
+      -9.18
+     ],
+     "block": "anchor2",
+     "contact": "rigid",
+     "material_set": "stone",
+     "requires_import": true,
+     "verdict": "use",
+     "imported": true,
+     "fallback": {
+      "asset": "/Game/Fab/Megascans/3D/Ancient_Temple_Stones_tixjegefa/Medium/tixjegefa_tier_2/StaticMeshes/tixjegefa_tier_2",
+      "scale": 0.8
+     },
+     "note": "guy deadman 2: the cable runs to the mast 28 m up"
+    },
+    {
+     "id": "V10_HighVoice_017",
+     "key": "AB_Cobble_02",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_02",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 298929.8,
+     "y_cm": 481608.7,
+     "ground_z_cm": 11006.3,
+     "yaw": 106.38,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.821,
+     "scale_range": [
+      0.821,
+      0.821
+     ],
+     "settle": {
+      "mode": "trace",
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 30,
+      "z_rule": "mean",
+      "sink_cm": 5,
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "base_ism",
+     "folder": "Set/V10_HighVoice/base_ism",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.328,
+      0.402,
+      0.098
+     ],
+     "slope_deg": 16.9,
+     "relief_m": 0.15,
+     "road_clear_m": 9.79,
+     "site_uv": [
+      -13.39,
+      -10.04
+     ],
+     "block": "base"
+    },
+    {
+     "id": "V10_HighVoice_018",
+     "key": "AB_Cobble_06",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_06",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 298965.9,
+     "y_cm": 481641.1,
+     "ground_z_cm": 10990.9,
+     "yaw": 36.49,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.891,
+     "scale_range": [
+      0.891,
+      0.891
+     ],
+     "settle": {
+      "mode": "trace",
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 30,
+      "z_rule": "mean",
+      "sink_cm": 5,
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "base_ism",
+     "folder": "Set/V10_HighVoice/base_ism",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.357,
+      0.437,
+      0.107
+     ],
+     "slope_deg": 12.1,
+     "relief_m": 0.11,
+     "road_clear_m": 10.09,
+     "site_uv": [
+      -13.02,
+      -10.37
+     ],
+     "block": "base"
+    },
+    {
+     "id": "V10_HighVoice_019",
+     "key": "AB_Cobble_06",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_06",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 298812.1,
+     "y_cm": 481765.0,
+     "ground_z_cm": 10985.2,
+     "yaw": 169.38,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.012,
+     "scale_range": [
+      1.012,
+      1.012
+     ],
+     "settle": {
+      "mode": "trace",
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 30,
+      "z_rule": "mean",
+      "sink_cm": 5,
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "base_ism",
+     "folder": "Set/V10_HighVoice/base_ism",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.405,
+      0.496,
+      0.121
+     ],
+     "slope_deg": 12.8,
+     "relief_m": 0.11,
+     "road_clear_m": 8.48,
+     "site_uv": [
+      -11.96,
+      -8.7
+     ],
+     "block": "base"
+    },
+    {
+     "id": "V10_HighVoice_020",
+     "key": "B01_floor01",
+     "asset": "/Game/SaskartaGaea/Environment/Batch01/SM_B01_floor01",
+     "kind": "SM",
+     "cat": "wall",
+     "x_cm": 297255.0,
+     "y_cm": 483282.1,
+     "ground_z_cm": 10911.2,
+     "yaw": 108.66,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.171,
+     "scale_range": [
+      1.171,
+      1.171
+     ],
+     "settle": {
+      "mode": "trace",
+      "max_tilt_deg": 0,
+      "rand_tilt_deg": 0,
+      "z_rule": "min",
+      "sink_cm": 3,
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "hut_floor",
+     "folder": "Set/V10_HighVoice/hut_floor",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 25000.0,
+     "cast_shadow": true,
+     "size_m": [
+      3.63,
+      3.595,
+      0.269
+     ],
+     "slope_deg": 3.6,
+     "relief_m": 0.23,
+     "road_clear_m": 6.08,
+     "site_uv": [
+      1.4,
+      8.45
+     ],
+     "block": "plinth",
+     "contact": "rigid",
+     "material_set": "stone",
+     "requires_import": true,
+     "verdict": "use",
+     "imported": true,
+     "fallback": {
+      "asset": "/Game/AshesOfBazaar/Meshes/SM_Planks_150_A",
+      "scale": 1.756
+     },
+     "predicted": {
+      "bottom_cm": 10891.8,
+      "top_cm": 10920.7,
+      "by": "the level step (predicted on the heightmap)"
+     },
+     "note": "plinth: the hut floor and the door sill (flush with the arch face, 0.08 m past the back wall, 0.17 m past the sides); `level` Z-scales it to clear the ground"
+    },
+    {
+     "id": "V10_HighVoice_021",
+     "key": "AB_Side_Arch_small",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Side_Arch_small",
+     "kind": "SM",
+     "cat": "wall",
+     "x_cm": 297299.4,
+     "y_cm": 483150.8,
+     "ground_z_cm": 10915.6,
+     "yaw": 198.66,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "none",
+      "max_tilt_deg": 0,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "sink_cm": 2,
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "hut",
+     "folder": "Set/V10_HighVoice/hut",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 25000.0,
+     "cast_shadow": true,
+     "size_m": [
+      3.03,
+      0.86,
+      3.26
+     ],
+     "slope_deg": 2.2,
+     "relief_m": 0.12,
+     "road_clear_m": 6.32,
+     "site_uv": [
+      0.14,
+      7.87
+     ],
+     "block": "hut",
+     "contact": "bear",
+     "material_set": "stone",
+     "bears_on": [
+      "V10_HighVoice_020"
+     ],
+     "predicted": {
+      "bottom_cm": 10920.7,
+      "top_cm": 11246.7,
+      "by": "the level step (predicted on the heightmap)"
+     },
+     "note": "front: the arched door (its top sets the wall height); the plate is on its left jamb"
+    },
+    {
+     "id": "V10_HighVoice_022",
+     "key": "AB_300x400_Mid",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_300x400_Mid",
+     "kind": "SM",
+     "cat": "wall",
+     "x_cm": 297203.4,
+     "y_cm": 483435.1,
+     "ground_z_cm": 10915.9,
+     "yaw": 288.66,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "none",
+      "max_tilt_deg": 0,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "sink_cm": 2,
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "hut",
+     "folder": "Set/V10_HighVoice/hut",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 80000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.24,
+      3.0,
+      4.0
+     ],
+     "slope_deg": 2.7,
+     "relief_m": 0.14,
+     "road_clear_m": 8.43,
+     "site_uv": [
+      2.86,
+      9.13
+     ],
+     "block": "hut",
+     "contact": "bear",
+     "material_set": "stone",
+     "bears_on": [
+      "V10_HighVoice_020"
+     ],
+     "predicted": {
+      "bottom_cm": 10920.7,
+      "top_cm": 11246.7,
+      "by": "the level step (predicted on the heightmap)"
+     },
+     "note": "back wall (downhill): the S26 desk stands against it, seen through the door"
+    },
+    {
+     "id": "V10_HighVoice_023",
+     "key": "AB_300x400_Mid",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_300x400_Mid",
+     "kind": "SM",
+     "cat": "wall",
+     "x_cm": 297393.5,
+     "y_cm": 483340.9,
+     "ground_z_cm": 10897.3,
+     "yaw": 18.66,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.08,
+     "scale_range": [
+      1.08,
+      1.08
+     ],
+     "settle": {
+      "mode": "none",
+      "max_tilt_deg": 0,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "sink_cm": 2,
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "hut",
+     "folder": "Set/V10_HighVoice/hut",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 80000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.259,
+      3.24,
+      4.32
+     ],
+     "slope_deg": 2.5,
+     "relief_m": 0.14,
+     "road_clear_m": 6.38,
+     "site_uv": [
+      2.13,
+      7.14
+     ],
+     "block": "hut",
+     "contact": "bear",
+     "material_set": "stone",
+     "bears_on": [
+      "V10_HighVoice_020"
+     ],
+     "predicted": {
+      "bottom_cm": 10920.7,
+      "top_cm": 11246.7,
+      "by": "the level step (predicted on the heightmap)"
+     },
+     "note": "left wall (the valley side: the shuttered window and the bench)"
+    },
+    {
+     "id": "V10_HighVoice_024",
+     "key": "AB_300x400_Mid",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_300x400_Mid",
+     "kind": "SM",
+     "cat": "wall",
+     "x_cm": 297109.2,
+     "y_cm": 483245.0,
+     "ground_z_cm": 10903.8,
+     "yaw": 198.66,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.08,
+     "scale_range": [
+      1.08,
+      1.08
+     ],
+     "settle": {
+      "mode": "none",
+      "max_tilt_deg": 0,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "sink_cm": 2,
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "hut",
+     "folder": "Set/V10_HighVoice/hut",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 80000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.259,
+      3.24,
+      4.32
+     ],
+     "slope_deg": 2.5,
+     "relief_m": 0.14,
+     "road_clear_m": 9.06,
+     "site_uv": [
+      0.87,
+      9.86
+     ],
+     "block": "hut",
+     "contact": "bear",
+     "material_set": "stone",
+     "bears_on": [
+      "V10_HighVoice_020"
+     ],
+     "predicted": {
+      "bottom_cm": 10920.7,
+      "top_cm": 11246.7,
+      "by": "the level step (predicted on the heightmap)"
+     },
+     "note": "right wall"
+    },
+    {
+     "id": "V10_HighVoice_025",
+     "key": "B01_floor01",
+     "asset": "/Game/SaskartaGaea/Environment/Batch01/SM_B01_floor01",
+     "kind": "SM",
+     "cat": "wall",
+     "x_cm": 297251.4,
+     "y_cm": 483292.9,
+     "ground_z_cm": 10911.4,
+     "yaw": 108.66,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.12,
+     "scale_range": [
+      1.12,
+      1.12
+     ],
+     "settle": {
+      "mode": "none",
+      "max_tilt_deg": 0,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "sink_cm": 2,
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "hut_roof",
+     "folder": "Set/V10_HighVoice/hut_roof",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 25000.0,
+     "cast_shadow": true,
+     "size_m": [
+      3.472,
+      3.438,
+      0.258
+     ],
+     "slope_deg": 3.3,
+     "relief_m": 0.2,
+     "road_clear_m": 6.24,
+     "site_uv": [
+      1.5,
+      8.5
+     ],
+     "block": "hut",
+     "contact": "bear",
+     "material_set": "stone",
+     "bears_on": [
+      "V10_HighVoice_021",
+      "V10_HighVoice_022"
+     ],
+     "requires_import": true,
+     "verdict": "use",
+     "imported": true,
+     "fallback": {
+      "asset": "/Game/AshesOfBazaar/Meshes/SM_Planks_150_A",
+      "scale": 1.68
+     },
+     "predicted": {
+      "bottom_cm": 11246.7,
+      "top_cm": 11272.4,
+      "by": "the level step (predicted on the heightmap)"
+     },
+     "note": "roof slab: rests on the arch top and the back wall"
+    },
+    {
+     "id": "V10_HighVoice_026",
+     "key": "AB_Window_B",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Window_B",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 297402.1,
+     "y_cm": 483380.8,
+     "ground_z_cm": 10894.4,
+     "yaw": 198.66,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "none",
+      "max_tilt_deg": 0,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "sink_cm": 2,
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "hut",
+     "folder": "Set/V10_HighVoice/hut",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.16,
+      0.92,
+      1.21
+     ],
+     "slope_deg": 3.1,
+     "relief_m": 0.05,
+     "road_clear_m": 7.16,
+     "site_uv": [
+      2.54,
+      7.1
+     ],
+     "block": "hut",
+     "contact": "stack",
+     "material_set": "wood",
+     "verdict": "check",
+     "note": "the valley window, shuttered: fixed to the left wall face, sill 1.0 m over the door grade"
+    },
+    {
+     "id": "V10_HighVoice_027",
+     "key": "B01_brick01",
+     "asset": "/Game/SaskartaGaea/Environment/Batch01/SM_B01_brick01",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 297442.7,
+     "y_cm": 483394.5,
+     "ground_z_cm": 10886.1,
+     "yaw": 108.66,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "trace",
+      "max_tilt_deg": 0,
+      "rand_tilt_deg": 0,
+      "z_rule": "min",
+      "sink_cm": 20,
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "hut_yard",
+     "folder": "Set/V10_HighVoice/hut_yard",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 25000.0,
+     "cast_shadow": true,
+     "size_m": [
+      1.54,
+      0.6,
+      0.63
+     ],
+     "slope_deg": 5.8,
+     "relief_m": 0.16,
+     "road_clear_m": 6.48,
+     "site_uv": [
+      2.72,
+      6.71
+     ],
+     "block": "bench",
+     "contact": "rigid",
+     "material_set": "stone",
+     "requires_import": true,
+     "verdict": "use",
+     "imported": true,
+     "fallback": {
+      "asset": "/Game/Fab/Megascans/3D/Ancient_Temple_Stones_tixjegefa/Medium/tixjegefa_tier_2/StaticMeshes/tixjegefa_tier_2",
+      "scale": 0.8
+     },
+     "note": "stone bench under the shuttered valley window, against the plinth edge: it looks at the mast and the valley"
+    },
+    {
+     "id": "V10_HighVoice_028",
+     "key": "B01_tank01",
+     "asset": "/Game/SaskartaGaea/Environment/Batch01/SM_B01_tank01",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 297290.9,
+     "y_cm": 483535.3,
+     "ground_z_cm": 10904.1,
+     "yaw": 157.13,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "physics",
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "sink_cm": 2,
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "hut_yard",
+     "folder": "Set/V10_HighVoice/hut_yard",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.86,
+      0.88,
+      1.24
+     ],
+     "slope_deg": 12.0,
+     "relief_m": 0.19,
+     "road_clear_m": 8.78,
+     "site_uv": [
+      3.95,
+      8.37
+     ],
+     "contact": "rest",
+     "material_set": "stone",
+     "requires_import": true,
+     "verdict": "use",
+     "imported": true,
+     "fallback": {
+      "asset": "/Game/AshesOfBazaar/Meshes/SM_Clay_Pot_A",
+      "scale": 1.8
+     },
+     "note": "rain jar at the back corner (valley side), its rim under the drip line of the roof slab (the eave overhangs the back wall by 0.12 m)"
+    },
+    {
+     "id": "V10_HighVoice_029",
+     "key": "MV_bucket_01",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_bucket_01",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 297214.2,
+     "y_cm": 483496.8,
+     "ground_z_cm": 10914.1,
+     "yaw": 134.1,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "physics",
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "sink_cm": 2,
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "hut_yard",
+     "folder": "Set/V10_HighVoice/hut_yard",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.54,
+      0.52,
+      0.41
+     ],
+     "slope_deg": 4.8,
+     "relief_m": 0.05,
+     "road_clear_m": 9.4,
+     "site_uv": [
+      3.48,
+      9.09
+     ],
+     "contact": "rest",
+     "material_set": "wood",
+     "note": "the bucket by the rain jar"
+    },
+    {
+     "id": "V10_HighVoice_030",
+     "key": "PH_rock_face",
+     "asset": "/Game/Pallbearer/PolyHaven/rock_face_02/rock_face_02_2k/StaticMeshes/rock_face_02_2k",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 296893.0,
+     "y_cm": 483150.8,
+     "ground_z_cm": 10882.7,
+     "yaw": 173.66,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "trace",
+      "max_tilt_deg": 25,
+      "rand_tilt_deg": 6,
+      "z_rule": "mean",
+      "sink_cm": 80,
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "rocks",
+     "folder": "Set/V10_HighVoice/rocks",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": false,
+     "draw_distance_cm": 25000.0,
+     "cast_shadow": true,
+     "size_m": [
+      2.72,
+      2.13,
+      2.48
+     ],
+     "slope_deg": 6.4,
+     "relief_m": 0.31,
+     "road_clear_m": 10.54,
+     "site_uv": [
+      -0.31,
+      11.9
+     ],
+     "contact": "lie",
+     "material_set": "stone",
+     "note": "rock face past the hut: closes the approach view on the right"
+    },
+    {
+     "id": "V10_HighVoice_031",
+     "key": "LF_Rock_04",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_04",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 296930.9,
+     "y_cm": 483554.2,
+     "ground_z_cm": 10864.8,
+     "yaw": 118.66,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "trace",
+      "max_tilt_deg": 25,
+      "rand_tilt_deg": 6,
+      "z_rule": "mean",
+      "sink_cm": 55,
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "rocks",
+     "folder": "Set/V10_HighVoice/rocks",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": false,
+     "draw_distance_cm": 25000.0,
+     "cast_shadow": true,
+     "size_m": [
+      2.34,
+      2.49,
+      1.46
+     ],
+     "slope_deg": 15.7,
+     "relief_m": 0.7,
+     "road_clear_m": 10.86,
+     "site_uv": [
+      3.74,
+      11.97
+     ],
+     "contact": "lie",
+     "material_set": "stone",
+     "note": "outcrop behind the hut"
+    },
+    {
+     "id": "V10_HighVoice_032",
+     "key": "PH_moss_rock_11",
+     "asset": "/Game/Pallbearer/PolyHaven/rock_moss_set_02/rock_moss_set_02_2k/StaticMeshes/rock_moss_set_02_rock11",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 298728.9,
+     "y_cm": 482374.2,
+     "ground_z_cm": 10916.1,
+     "yaw": 118.66,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "trace",
+      "max_tilt_deg": 25,
+      "rand_tilt_deg": 6,
+      "z_rule": "mean",
+      "sink_cm": 45,
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "rocks",
+     "folder": "Set/V10_HighVoice/rocks",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": false,
+     "draw_distance_cm": 25000.0,
+     "cast_shadow": true,
+     "size_m": [
+      2.02,
+      1.54,
+      1.31
+     ],
+     "slope_deg": 11.2,
+     "relief_m": 0.4,
+     "road_clear_m": 5.99,
+     "site_uv": [
+      -6.0,
+      -7.2
+     ],
+     "contact": "lie",
+     "material_set": "stone",
+     "note": "boulder on the valley verge before the end: closes the approach view on the left"
+    },
+    {
+     "id": "V10_HighVoice_033",
+     "key": "LF_Rock_05",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_05",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 296418.0,
+     "y_cm": 482646.2,
+     "ground_z_cm": 11013.0,
+     "yaw": 223.66,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "trace",
+      "max_tilt_deg": 25,
+      "rand_tilt_deg": 6,
+      "z_rule": "mean",
+      "sink_cm": 45,
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "rocks",
+     "folder": "Set/V10_HighVoice/rocks",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": false,
+     "draw_distance_cm": 25000.0,
+     "cast_shadow": true,
+     "size_m": [
+      1.78,
+      2.21,
+      1.29
+     ],
+     "slope_deg": 17.4,
+     "relief_m": 0.69,
+     "road_clear_m": 14.65,
+     "site_uv": [
+      -5.85,
+      16.07
+     ],
+     "contact": "lie",
+     "material_set": "stone",
+     "note": "the right guy anchor is set against a rock, on its far side"
+    },
+    {
+     "id": "V10_HighVoice_034",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 297414.2,
+     "y_cm": 483601.3,
+     "ground_z_cm": 10874.1,
+     "yaw": 103.66,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "trace",
+      "max_tilt_deg": 25,
+      "rand_tilt_deg": 6,
+      "z_rule": "mean",
+      "sink_cm": 10,
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "rocks",
+     "folder": "Set/V10_HighVoice/rocks",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.46,
+      0.45,
+      0.28
+     ],
+     "slope_deg": 12.8,
+     "relief_m": 0.11,
+     "road_clear_m": 8.32,
+     "site_uv": [
+      4.74,
+      7.22
+     ],
+     "contact": "lie",
+     "material_set": "stone"
+    },
+    {
+     "id": "V10_HighVoice_035",
+     "key": "LF_Rock_07",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_07",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 297168.2,
+     "y_cm": 483475.9,
+     "ground_z_cm": 10915.8,
+     "yaw": 255.06,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.99,
+     "scale_range": [
+      0.99,
+      0.99
+     ],
+     "settle": {
+      "mode": "trace",
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 30,
+      "z_rule": "mean",
+      "sink_cm": 5,
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "base_ism",
+     "folder": "Set/V10_HighVoice/base_ism",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.267,
+      0.307,
+      0.109
+     ],
+     "slope_deg": 2.8,
+     "relief_m": 0.02,
+     "road_clear_m": 9.89,
+     "site_uv": [
+      3.23,
+      9.53
+     ],
+     "block": "base"
+    },
+    {
+     "id": "V10_HighVoice_036",
+     "key": "AB_Cobble_03",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_03",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 297039.4,
+     "y_cm": 483438.3,
+     "ground_z_cm": 10895.6,
+     "yaw": 346.55,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.225,
+     "scale_range": [
+      1.225,
+      1.225
+     ],
+     "settle": {
+      "mode": "trace",
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 30,
+      "z_rule": "mean",
+      "sink_cm": 5,
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "base_ism",
+     "folder": "Set/V10_HighVoice/base_ism",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.49,
+      0.6,
+      0.147
+     ],
+     "slope_deg": 18.0,
+     "relief_m": 0.19,
+     "road_clear_m": 10.83,
+     "site_uv": [
+      2.71,
+      10.77
+     ],
+     "block": "base"
+    },
+    {
+     "id": "V10_HighVoice_037",
+     "key": "AB_Cobble_01",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_01",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 297401.4,
+     "y_cm": 483508.8,
+     "ground_z_cm": 10886.6,
+     "yaw": 221.8,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.061,
+     "scale_range": [
+      1.061,
+      1.061
+     ],
+     "settle": {
+      "mode": "trace",
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 30,
+      "z_rule": "mean",
+      "sink_cm": 5,
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "base_ism",
+     "folder": "Set/V10_HighVoice/base_ism",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.424,
+      0.52,
+      0.127
+     ],
+     "slope_deg": 14.5,
+     "relief_m": 0.13,
+     "road_clear_m": 7.89,
+     "site_uv": [
+      3.81,
+      7.25
+     ],
+     "block": "base"
+    },
+    {
+     "id": "V10_HighVoice_038",
+     "key": "AB_Cobble_03",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_03",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 297370.5,
+     "y_cm": 483543.5,
+     "ground_z_cm": 10889.8,
+     "yaw": 46.19,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.825,
+     "scale_range": [
+      0.825,
+      0.825
+     ],
+     "settle": {
+      "mode": "trace",
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 30,
+      "z_rule": "mean",
+      "sink_cm": 5,
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "base_ism",
+     "folder": "Set/V10_HighVoice/base_ism",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.33,
+      0.404,
+      0.099
+     ],
+     "slope_deg": 9.9,
+     "relief_m": 0.09,
+     "road_clear_m": 8.41,
+     "site_uv": [
+      4.12,
+      7.59
+     ],
+     "block": "base"
+    },
+    {
+     "id": "V10_HighVoice_039",
+     "key": "LF_Rock_07",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_07",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 296998.7,
+     "y_cm": 483408.9,
+     "ground_z_cm": 10881.3,
+     "yaw": 42.36,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.976,
+     "scale_range": [
+      0.976,
+      0.976
+     ],
+     "settle": {
+      "mode": "trace",
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 30,
+      "z_rule": "mean",
+      "sink_cm": 5,
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "base_ism",
+     "folder": "Set/V10_HighVoice/base_ism",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.263,
+      0.302,
+      0.107
+     ],
+     "slope_deg": 12.8,
+     "relief_m": 0.11,
+     "road_clear_m": 11.19,
+     "site_uv": [
+      2.37,
+      11.14
+     ],
+     "block": "base"
+    },
+    {
+     "id": "V10_HighVoice_040",
+     "key": "AB_Cobble_01",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_01",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 297062.4,
+     "y_cm": 483180.7,
+     "ground_z_cm": 10895.7,
+     "yaw": 149.77,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.178,
+     "scale_range": [
+      1.178,
+      1.178
+     ],
+     "settle": {
+      "mode": "trace",
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 30,
+      "z_rule": "mean",
+      "sink_cm": 5,
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "base_ism",
+     "folder": "Set/V10_HighVoice/base_ism",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.471,
+      0.577,
+      0.141
+     ],
+     "slope_deg": 14.9,
+     "relief_m": 0.15,
+     "road_clear_m": 9.93,
+     "site_uv": [
+      0.18,
+      10.25
+     ],
+     "block": "base"
+    },
+    {
+     "id": "V10_HighVoice_041",
+     "key": "LF_Rock_07",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_07",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 297926.0,
+     "y_cm": 482966.1,
+     "ground_z_cm": 10915.6,
+     "yaw": 69.32,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.017,
+     "scale_range": [
+      1.017,
+      1.017
+     ],
+     "settle": {
+      "mode": "trace",
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 30,
+      "z_rule": "mean",
+      "sink_cm": 5,
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "base_ism",
+     "folder": "Set/V10_HighVoice/base_ism",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.275,
+      0.315,
+      0.112
+     ],
+     "slope_deg": 12.5,
+     "relief_m": 0.11,
+     "road_clear_m": 1.25,
+     "site_uv": [
+      -1.0,
+      1.43
+     ],
+     "block": "base"
+    },
+    {
+     "id": "V10_HighVoice_042",
+     "key": "LF_Rock_07",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_07",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 298002.0,
+     "y_cm": 482893.2,
+     "ground_z_cm": 10916.7,
+     "yaw": 3.53,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.083,
+     "scale_range": [
+      1.083,
+      1.083
+     ],
+     "settle": {
+      "mode": "trace",
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 30,
+      "z_rule": "mean",
+      "sink_cm": 5,
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "base_ism",
+     "folder": "Set/V10_HighVoice/base_ism",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.292,
+      0.336,
+      0.119
+     ],
+     "slope_deg": 11.0,
+     "relief_m": 0.1,
+     "road_clear_m": 0.43,
+     "site_uv": [
+      -1.64,
+      0.6
+     ],
+     "block": "base"
+    },
+    {
+     "id": "V10_HighVoice_043",
+     "key": "AB_Cobble_02",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_02",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 298135.6,
+     "y_cm": 482884.2,
+     "ground_z_cm": 10892.9,
+     "yaw": 91.76,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.896,
+     "scale_range": [
+      0.896,
+      0.896
+     ],
+     "settle": {
+      "mode": "trace",
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 30,
+      "z_rule": "mean",
+      "sink_cm": 5,
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "base_ism",
+     "folder": "Set/V10_HighVoice/base_ism",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.359,
+      0.439,
+      0.108
+     ],
+     "slope_deg": 16.0,
+     "relief_m": 0.14,
+     "road_clear_m": 0.5,
+     "site_uv": [
+      -1.59,
+      -0.74
+     ],
+     "block": "base"
+    },
+    {
+     "id": "V10_HighVoice_044",
+     "key": "AB_Cobble_02",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_02",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 298236.4,
+     "y_cm": 482972.4,
+     "ground_z_cm": 10854.6,
+     "yaw": 176.03,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.96,
+     "scale_range": [
+      0.96,
+      0.96
+     ],
+     "settle": {
+      "mode": "trace",
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 30,
+      "z_rule": "mean",
+      "sink_cm": 5,
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "base_ism",
+     "folder": "Set/V10_HighVoice/base_ism",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.384,
+      0.47,
+      0.115
+     ],
+     "slope_deg": 18.9,
+     "relief_m": 0.17,
+     "road_clear_m": 1.44,
+     "site_uv": [
+      -0.6,
+      -1.64
+     ],
+     "block": "base"
+    },
+    {
+     "id": "V10_HighVoice_045",
+     "key": "FAB_Shrub_C",
+     "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarC",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 297110.1,
+     "y_cm": 483465.6,
+     "ground_z_cm": 10911.2,
+     "yaw": 179.63,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.997,
+     "scale_range": [
+      0.997,
+      0.997
+     ],
+     "settle": {
+      "mode": "trace",
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "sink_cm": 5,
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep_ism",
+     "folder": "Set/V10_HighVoice/creep_ism",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.817,
+      0.728,
+      0.449
+     ],
+     "slope_deg": 6.7,
+     "relief_m": 0.1,
+     "road_clear_m": 10.03,
+     "site_uv": [
+      3.06,
+      10.09
+     ],
+     "block": "creep"
+    },
+    {
+     "id": "V10_HighVoice_046",
+     "key": "FAB_Shrub_G",
+     "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarG",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 296992.8,
+     "y_cm": 483315.5,
+     "ground_z_cm": 10877.8,
+     "yaw": 310.19,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.973,
+     "scale_range": [
+      0.973,
+      0.973
+     ],
+     "settle": {
+      "mode": "trace",
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "sink_cm": 5,
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep_ism",
+     "folder": "Set/V10_HighVoice/creep_ism",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      1.129,
+      1.002,
+      0.642
+     ],
+     "slope_deg": 11.4,
+     "relief_m": 0.23,
+     "road_clear_m": 10.44,
+     "site_uv": [
+      1.44,
+      11.09
+     ],
+     "block": "creep"
+    },
+    {
+     "id": "V10_HighVoice_047",
+     "key": "FAB_Shrub_G",
+     "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarG",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 296804.9,
+     "y_cm": 483395.3,
+     "ground_z_cm": 10870.4,
+     "yaw": 287.66,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.125,
+     "scale_range": [
+      1.125,
+      1.125
+     ],
+     "settle": {
+      "mode": "trace",
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "sink_cm": 5,
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep_ism",
+     "folder": "Set/V10_HighVoice/creep_ism",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      1.305,
+      1.159,
+      0.742
+     ],
+     "slope_deg": 7.2,
+     "relief_m": 0.16,
+     "road_clear_m": 12.37,
+     "site_uv": [
+      2.02,
+      13.05
+     ],
+     "block": "creep"
+    },
+    {
+     "id": "V10_HighVoice_048",
+     "key": "FAB_Shrub_C",
+     "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarC",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 297117.3,
+     "y_cm": 483022.6,
+     "ground_z_cm": 10908.4,
+     "yaw": 117.05,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.187,
+     "scale_range": [
+      1.187,
+      1.187
+     ],
+     "settle": {
+      "mode": "trace",
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "sink_cm": 5,
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep_ism",
+     "folder": "Set/V10_HighVoice/creep_ism",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.974,
+      0.867,
+      0.534
+     ],
+     "slope_deg": 11.7,
+     "relief_m": 0.2,
+     "road_clear_m": 8.9,
+     "site_uv": [
+      -1.33,
+      9.53
+     ],
+     "block": "creep"
+    },
+    {
+     "id": "V10_HighVoice_049",
+     "key": "FAB_Shrub_G",
+     "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarG",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 297233.8,
+     "y_cm": 482951.5,
+     "ground_z_cm": 10926.8,
+     "yaw": 199.1,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.163,
+     "scale_range": [
+      1.163,
+      1.163
+     ],
+     "settle": {
+      "mode": "trace",
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "sink_cm": 5,
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep_ism",
+     "folder": "Set/V10_HighVoice/creep_ism",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      1.349,
+      1.198,
+      0.767
+     ],
+     "slope_deg": 8.2,
+     "relief_m": 0.2,
+     "road_clear_m": 7.43,
+     "site_uv": [
+      -1.91,
+      8.3
+     ],
+     "block": "creep"
+    },
+    {
+     "id": "V10_HighVoice_050",
+     "key": "FAB_Shrub_B",
+     "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarB",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 298460.2,
+     "y_cm": 484502.5,
+     "ground_z_cm": 10627.4,
+     "yaw": 193.4,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.9,
+     "scale_range": [
+      0.9,
+      0.9
+     ],
+     "settle": {
+      "mode": "trace",
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "sink_cm": 5,
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep_ism",
+     "folder": "Set/V10_HighVoice/creep_ism",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.234,
+      0.27,
+      0.234
+     ],
+     "slope_deg": 4.1,
+     "relief_m": 0.04,
+     "road_clear_m": 14.84,
+     "site_uv": [
+      14.86,
+      -2.18
+     ],
+     "block": "creep"
+    },
+    {
+     "id": "V10_HighVoice_051",
+     "key": "FAB_Shrub_B",
+     "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarB",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 296552.5,
+     "y_cm": 482612.9,
+     "ground_z_cm": 11022.2,
+     "yaw": 326.67,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.9,
+     "scale_range": [
+      0.9,
+      0.9
+     ],
+     "settle": {
+      "mode": "trace",
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "sink_cm": 5,
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep_ism",
+     "folder": "Set/V10_HighVoice/creep_ism",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.234,
+      0.27,
+      0.234
+     ],
+     "slope_deg": 10.1,
+     "relief_m": 0.09,
+     "road_clear_m": 14.53,
+     "site_uv": [
+      -6.03,
+      14.7
+     ],
+     "block": "creep"
+    },
+    {
+     "id": "V10_HighVoice_052",
+     "key": "FAB_Shrub_B",
+     "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarB",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 298777.4,
+     "y_cm": 481563.2,
+     "ground_z_cm": 11046.5,
+     "yaw": 243.04,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.9,
+     "scale_range": [
+      0.9,
+      0.9
+     ],
+     "settle": {
+      "mode": "trace",
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "sink_cm": 5,
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep_ism",
+     "folder": "Set/V10_HighVoice/creep_ism",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.234,
+      0.27,
+      0.234
+     ],
+     "slope_deg": 8.0,
+     "relief_m": 0.07,
+     "road_clear_m": 8.41,
+     "site_uv": [
+      -14.01,
+      -8.58
+     ],
+     "block": "creep"
+    }
+   ],
+   "ground": [
+    {
+     "id": "V10_HighVoice_g000",
+     "surface": "packed_earth",
+     "shape": "ellipse",
+     "x_cm": 298529.7,
+     "y_cm": 484585.4,
+     "z_cm": 10607.8,
+     "yaw": 163.7,
+     "length_m": 2.6,
+     "width_m": 1.8,
+     "depth_m": 3.0,
+     "strength": 0.55,
+     "sort": 0,
+     "site_uv": [
+      15.76,
+      -2.78
+     ]
+    },
+    {
+     "id": "V10_HighVoice_g001",
+     "surface": "packed_earth",
+     "shape": "ellipse",
+     "x_cm": 296622.0,
+     "y_cm": 482695.8,
+     "z_cm": 10994.5,
+     "yaw": 283.7,
+     "length_m": 2.6,
+     "width_m": 1.8,
+     "depth_m": 3.0,
+     "strength": 0.55,
+     "sort": 0,
+     "site_uv": [
+      -5.13,
+      14.1
+     ]
+    },
+    {
+     "id": "V10_HighVoice_g002",
+     "surface": "packed_earth",
+     "shape": "ellipse",
+     "x_cm": 298847.0,
+     "y_cm": 481646.0,
+     "z_cm": 11010.9,
+     "yaw": 28.7,
+     "length_m": 2.6,
+     "width_m": 1.8,
+     "depth_m": 3.0,
+     "strength": 0.55,
+     "sort": 0,
+     "site_uv": [
+      -13.11,
+      -9.18
+     ]
+    },
+    {
+     "id": "V10_HighVoice_g003",
+     "surface": "packed_earth",
+     "shape": "ellipse",
+     "x_cm": 297622.4,
+     "y_cm": 482919.7,
+     "z_cm": 10925.7,
+     "yaw": 103.7,
+     "length_m": 11.0,
+     "width_m": 7.5,
+     "depth_m": 4.41,
+     "strength": 0.7,
+     "sort": 0,
+     "site_uv": [
+      -1.8,
+      4.4
+     ]
+    },
+    {
+     "id": "V10_HighVoice_g004",
+     "surface": "packed_earth",
+     "shape": "ellipse",
+     "x_cm": 297261.0,
+     "y_cm": 483264.5,
+     "z_cm": 10899.9,
+     "yaw": 108.7,
+     "length_m": 6.4,
+     "width_m": 5.4,
+     "depth_m": 3.0,
+     "strength": 0.6,
+     "sort": 0,
+     "site_uv": [
+      1.23,
+      8.37
+     ]
+    },
+    {
+     "id": "V10_HighVoice_g005",
+     "surface": "gravel",
+     "shape": "ellipse",
+     "x_cm": 298079.6,
+     "y_cm": 483050.0,
+     "z_cm": 10864.0,
+     "yaw": 83.7,
+     "length_m": 4.4,
+     "width_m": 4.4,
+     "depth_m": 3.6,
+     "strength": 0.8,
+     "sort": 2,
+     "site_uv": [
+      0.0,
+      0.0
+     ]
+    },
+    {
+     "id": "V10_HighVoice_g006",
+     "surface": "gravel",
+     "shape": "capsule",
+     "x_cm": 297700.2,
+     "y_cm": 483108.1,
+     "z_cm": 10899.8,
+     "yaw": 174.6,
+     "length_m": 5.62,
+     "width_m": 0.55,
+     "depth_m": 3.0,
+     "strength": 0.8,
+     "sort": 2,
+     "site_uv": [
+      0.16,
+      3.84
+     ]
+    },
+    {
+     "id": "V10_HighVoice_g007",
+     "surface": "path",
+     "shape": "capsule",
+     "x_cm": 297617.4,
+     "y_cm": 482512.8,
+     "z_cm": 10993.1,
+     "yaw": 109.5,
+     "length_m": 4.77,
+     "width_m": 1.1,
+     "depth_m": 3.0,
+     "strength": 0.9,
+     "sort": 3,
+     "site_uv": [
+      -5.85,
+      4.0
+     ]
+    },
+    {
+     "id": "V10_HighVoice_g008",
+     "surface": "path",
+     "shape": "capsule",
+     "x_cm": 297505.8,
+     "y_cm": 482873.5,
+     "z_cm": 10945.8,
+     "yaw": 105.0,
+     "length_m": 4.99,
+     "width_m": 1.1,
+     "depth_m": 3.0,
+     "strength": 0.9,
+     "sort": 3,
+     "site_uv": [
+      -2.39,
+      5.51
+     ]
+    },
+    {
+     "id": "V10_HighVoice_g009",
+     "surface": "path",
+     "shape": "capsule",
+     "x_cm": 297392.3,
+     "y_cm": 483062.0,
+     "z_cm": 10921.7,
+     "yaw": 179.4,
+     "length_m": 2.36,
+     "width_m": 1.1,
+     "depth_m": 3.0,
+     "strength": 0.9,
+     "sort": 3,
+     "site_uv": [
+      -0.64,
+      6.84
+     ]
+    },
+    {
+     "id": "V10_HighVoice_g010",
+     "surface": "path",
+     "shape": "capsule",
+     "x_cm": 297299.8,
+     "y_cm": 483149.4,
+     "z_cm": 10917.2,
+     "yaw": 108.7,
+     "length_m": 2.73,
+     "width_m": 0.9,
+     "depth_m": 3.0,
+     "strength": 0.7,
+     "sort": 3,
+     "site_uv": [
+      0.13,
+      7.86
+     ]
+    },
+    {
+     "id": "V10_HighVoice_g011",
+     "surface": "path",
+     "shape": "capsule",
+     "x_cm": 297490.7,
+     "y_cm": 483221.8,
+     "z_cm": 10901.4,
+     "yaw": 87.8,
+     "length_m": 2.81,
+     "width_m": 0.9,
+     "depth_m": 3.0,
+     "strength": 0.6,
+     "sort": 3,
+     "site_uv": [
+      1.06,
+      6.04
+     ]
+    },
+    {
+     "id": "V10_HighVoice_g012",
+     "surface": "rubble_dust",
+     "shape": "ellipse",
+     "x_cm": 297123.8,
+     "y_cm": 483577.1,
+     "z_cm": 10879.8,
+     "yaw": 198.7,
+     "length_m": 5.0,
+     "width_m": 2.2,
+     "depth_m": 3.0,
+     "strength": 0.35,
+     "sort": 1,
+     "site_uv": [
+      4.18,
+      10.08
+     ]
+    }
+   ],
+   "units": [],
+   "waivers": [
+    {
+     "id": "V10_HighVoice_000",
+     "code": "ON_ACTOR",
+     "why": "the collar stands on the road's end by design (the road ribbon ends at the mast): a first hit on the road actor is the road, not a prop"
+    },
+    {
+     "id": "V10_HighVoice_001",
+     "code": "ON_ACTOR",
+     "why": "the collar stands on the road's end by design (the road ribbon ends at the mast): a first hit on the road actor is the road, not a prop"
+    },
+    {
+     "id": "V10_HighVoice_002",
+     "code": "ON_ACTOR",
+     "why": "the collar stands on the road's end by design (the road ribbon ends at the mast): a first hit on the road actor is the road, not a prop"
+    },
+    {
+     "id": "V10_HighVoice_003",
+     "code": "ON_ACTOR",
+     "why": "the collar stands on the road's end by design (the road ribbon ends at the mast): a first hit on the road actor is the road, not a prop"
+    },
+    {
+     "id": "V10_HighVoice_026",
+     "code": "FLOAT",
+     "why": "a shutter fixed to the valley wall face: the wall carries it, its sill is 1 m up by design (the level step puts its back face on the wall face and prints SHUTTER_ON_WALL)"
+    }
+   ],
+   "v2": {
+    "frame": {
+     "origin_cm": [
+      298079.6,
+      483050.0
+     ],
+     "yaw": 83.66,
+     "u": "along the last road heading",
+     "v": "right of travel"
+    },
+    "hut": {
+     "centre_uv": [
+      1.5,
+      8.5
+     ],
+     "front_psi": 205.0
+    }
+   }
+  }
+ ],
+ "story_set": {
+  "id": "V10",
+  "road_m": [
+   4950,
+   5009
+  ],
+  "beats": [
+   "B23_LAST_ENTRY (road 4,990, UE 19.5 m: RADIO_B23_01 live, then \"Lay your hand on the mark.\")",
+   "B24 / CIN_24_TRANSMISSION (48 s): shot 1 OTS 50 mm on the plate, shot 2 TransmitCam up the mast 18 mm, shot 5 SeatPoint 24 mm east over the valley",
+   "CIN_23_THE_MARK (optional): low 24 mm at the hut, tilt up the mast; 100 mm insert on the plate"
+  ],
+  "sources": [
+   "docs/story/storyline.md (section 2, B23/B24, V10)",
+   "docs/story/CINEMATICS.md (CIN_23, CIN_24)",
+   "Tools/Cinematics/probe_ending.json (provisional)",
+   "Tools/GameFlow/specs/README_Ending.md",
+   ".superpowers/sdd/2026-09-26-saskarta-world-sprint/task-ENDING-brief.md step 6",
+   "task-L2-report.md (the HighVoice actor)",
+   "task-SETDRESS-report.md (S26 waits for V10)"
+  ]
+ },
+ "level_blocks": [
+  {
+   "block": "plinth",
+   "members": [
+    "V10_HighVoice_020"
+   ],
+   "sink_cm": 3.0,
+   "match": null,
+   "supports": [],
+   "base_on": null,
+   "clear_cm": 3.0,
+   "why": "the plinth first: base = the lowest ground under it - 3 cm, then Z-scaled until its top clears the highest ground under it (5 x 5 traces) by 3 cm: the hut floor and the door sill, no terrain through it"
+  },
+  {
+   "block": "mastfoot",
+   "members": [
+    "V10_HighVoice_000",
+    "V10_HighVoice_001",
+    "V10_HighVoice_002",
+    "V10_HighVoice_003"
+   ],
+   "sink_cm": 25.0,
+   "match": null,
+   "supports": [
+    {
+     "id": "V10_HighVoice_004",
+     "rule": "on_members",
+     "x": 298045.1,
+     "y": 482961.4,
+     "yaw": 0.0,
+     "pitch": 0.0
+    },
+    {
+     "id": "V10_HighVoice_005",
+     "rule": "on_members",
+     "x": 298168.1,
+     "y": 483015.5,
+     "yaw": 90.0,
+     "pitch": 0.0
+    },
+    {
+     "id": "V10_HighVoice_006",
+     "rule": "on_members",
+     "x": 298114.1,
+     "y": 483138.6,
+     "yaw": 180.0,
+     "pitch": 0.0
+    },
+    {
+     "id": "V10_HighVoice_007",
+     "rule": "on_members",
+     "x": 297991.0,
+     "y": 483084.5,
+     "yaw": 270.0,
+     "pitch": 0.0
+    }
+   ],
+   "base_on": null,
+   "clear_cm": null,
+   "why": "course 1 of the collar shares one base (the lowest ground - 25 cm, dug in uphill); course 2 lies on its top (on_members), the reversed pinwheel, so the cap stands clear of the slope all round"
+  },
+  {
+   "block": "hut",
+   "members": [
+    "V10_HighVoice_021",
+    "V10_HighVoice_022",
+    "V10_HighVoice_023",
+    "V10_HighVoice_024"
+   ],
+   "sink_cm": 0.0,
+   "match": "V10_HighVoice_021",
+   "supports": [
+    {
+     "id": "V10_HighVoice_025",
+     "rule": "on_members",
+     "x": 297251.4,
+     "y": 483292.9,
+     "yaw": 108.66,
+     "pitch": 0.0
+    },
+    {
+     "id": "V10_HighVoice_026",
+     "rule": "grade",
+     "offset_cm": 100.0,
+     "x": 297402.1,
+     "y": 483380.8,
+     "yaw": 198.66,
+     "pitch": 0.0,
+     "optional": true
+    }
+   ],
+   "base_on": "plinth",
+   "clear_cm": null,
+   "why": "the walls stand on the plinth top (base_on); the plain walls take the door arch height (3.26 m, a Z scale), the roof slab lies on the arch and the back wall, the shutter hangs on the valley wall with its sill 1 m over the door grade"
+  }
+ ],
+ "lines": [
+  {
+   "id": "V10_HighVoice_guy0",
+   "role": "guy",
+   "asset": "/Game/EasyAtmos/EpicContentDemo/DemoRoom/Meshes/Pipe",
+   "material": "/Game/MedievalVillage/Materials/MI_Metal",
+   "section_cm": 3.0,
+   "a": {
+    "on": "actor_top",
+    "actor": "V10_HighVoice_008",
+    "xy_cm": [
+     298529.7,
+     484585.4
+    ],
+    "sink_cm": 3.0
+   },
+   "b": {
+    "on": "mast",
+    "xy_cm": [
+     298094.3,
+     483100.0
+    ],
+    "up_cm": 2800.0
+   },
+   "note": "iron guy: deadman 0 to the mast face 28 m up",
+   "draw_cm": 30000.0
+  },
+  {
+   "id": "V10_HighVoice_guy1",
+   "role": "guy",
+   "asset": "/Game/EasyAtmos/EpicContentDemo/DemoRoom/Meshes/Pipe",
+   "material": "/Game/MedievalVillage/Materials/MI_Metal",
+   "section_cm": 3.0,
+   "a": {
+    "on": "actor_top",
+    "actor": "V10_HighVoice_012",
+    "xy_cm": [
+     296622.0,
+     482695.8
+    ],
+    "sink_cm": 3.0
+   },
+   "b": {
+    "on": "mast",
+    "xy_cm": [
+     298054.6,
+     483043.9
+    ],
+    "up_cm": 2800.0
+   },
+   "note": "iron guy: deadman 1 to the mast face 28 m up",
+   "draw_cm": 30000.0
+  },
+  {
+   "id": "V10_HighVoice_guy2",
+   "role": "guy",
+   "asset": "/Game/EasyAtmos/EpicContentDemo/DemoRoom/Meshes/Pipe",
+   "material": "/Game/MedievalVillage/Materials/MI_Metal",
+   "section_cm": 3.0,
+   "a": {
+    "on": "actor_top",
+    "actor": "V10_HighVoice_016",
+    "xy_cm": [
+     298847.0,
+     481646.0
+    ],
+    "sink_cm": 3.0
+   },
+   "b": {
+    "on": "mast",
+    "xy_cm": [
+     298104.6,
+     483004.3
+    ],
+    "up_cm": 2800.0
+   },
+   "note": "iron guy: deadman 2 to the mast face 28 m up",
+   "draw_cm": 30000.0
+  },
+  {
+   "id": "V10_HighVoice_conduit0",
+   "role": "conduit",
+   "asset": "/Game/EasyAtmos/EpicContentDemo/DemoRoom/Meshes/Pipe",
+   "material": "/Game/Pallbearer/PolyHaven/Lantern_01/Lantern_01_2k/Materials/Lantern_01_brass",
+   "section_cm": 8.0,
+   "a": {
+    "on": "ground",
+    "xy_cm": [
+     297954.5,
+     483066.7
+    ],
+    "lift_cm": 2.0
+   },
+   "b": {
+    "on": "ground",
+    "xy_cm": [
+     297774.4,
+     483090.8
+    ],
+    "lift_cm": 2.0
+   },
+   "note": "brass cable conduit, half sunk in its gravel strip",
+   "draw_cm": 6000.0
+  },
+  {
+   "id": "V10_HighVoice_conduit1",
+   "role": "conduit",
+   "asset": "/Game/EasyAtmos/EpicContentDemo/DemoRoom/Meshes/Pipe",
+   "material": "/Game/Pallbearer/PolyHaven/Lantern_01/Lantern_01_2k/Materials/Lantern_01_brass",
+   "section_cm": 8.0,
+   "a": {
+    "on": "ground",
+    "xy_cm": [
+     297774.4,
+     483090.8
+    ],
+    "lift_cm": 2.0
+   },
+   "b": {
+    "on": "ground",
+    "xy_cm": [
+     297594.3,
+     483114.9
+    ],
+    "lift_cm": 2.0
+   },
+   "note": "brass cable conduit, half sunk in its gravel strip",
+   "draw_cm": 6000.0
+  },
+  {
+   "id": "V10_HighVoice_conduit2",
+   "role": "conduit",
+   "asset": "/Game/EasyAtmos/EpicContentDemo/DemoRoom/Meshes/Pipe",
+   "material": "/Game/Pallbearer/PolyHaven/Lantern_01/Lantern_01_2k/Materials/Lantern_01_brass",
+   "section_cm": 8.0,
+   "a": {
+    "on": "ground",
+    "xy_cm": [
+     297594.3,
+     483114.9
+    ],
+    "lift_cm": 2.0
+   },
+   "b": {
+    "on": "ground",
+    "xy_cm": [
+     297414.2,
+     483139.0
+    ],
+    "lift_cm": 2.0
+   },
+   "note": "brass cable conduit, half sunk in its gravel strip",
+   "draw_cm": 6000.0
+  },
+  {
+   "id": "V10_HighVoice_riser",
+   "role": "riser",
+   "asset": "/Game/EasyAtmos/EpicContentDemo/DemoRoom/Meshes/Pipe",
+   "material": "/Game/Pallbearer/PolyHaven/Lantern_01/Lantern_01_2k/Materials/Lantern_01_brass",
+   "section_cm": 8.0,
+   "a": {
+    "on": "ground",
+    "xy_cm": [
+     297414.2,
+     483139.0
+    ],
+    "lift_cm": -4.0
+   },
+   "b": {
+    "on": "plate_bottom",
+    "xy_cm": [
+     297414.2,
+     483139.0
+    ]
+   },
+   "note": "the riser up the wall into the plate",
+   "draw_cm": 6000.0
+  }
+ ],
+ "story_hooks": {
+  "actor": "BP_Saskarta_HighVoice (/Game/SaskartaGaea/Story/HighVoice/, tag Saskarta.HighVoice)",
+  "MastBase_cm": [
+   298079.6,
+   483050.0,
+   10868.8
+  ],
+  "Plate": {
+   "centre_cm": [
+    297413.6,
+    483140.8,
+    11052.1
+   ],
+   "yaw": 288.66,
+   "size_cm": [
+    6,
+    45,
+    45
+   ],
+   "mesh": "/Game/LevelPrototyping/Meshes/SM_ChamferCube",
+   "material": "/Game/Pallbearer/PolyHaven/Lantern_01/Lantern_01_2k/Materials/Lantern_01_brass",
+   "z_rule": "door grade + 130 cm (hooks step traces the grade)"
+  },
+  "StandPoint": {
+   "feet_cm": [
+    297432.8,
+    483084.0,
+    10919.7
+   ],
+   "capsule_cm": [
+    297432.8,
+    483084.0,
+    11011.7
+   ],
+   "yaw": 108.66,
+   "set_at": "capsule centre (K2_TeleportTo moves the capsule centre)"
+  },
+  "SeatPoint": {
+   "cm": [
+    298229.7,
+    483040.8,
+    10945.2
+   ],
+   "yaw": -3.5,
+   "pitch": -4.0
+  },
+  "HutSpeaker_cm": [
+   297317.9,
+   483095.9,
+   11177.1
+  ],
+  "TransmitCam_c2_cm": [
+   298219.6,
+   483140.0,
+   10928.8
+  ],
+  "OTS_cam_cm": [
+   297427.1,
+   482981.8,
+   11087.7
+  ],
+  "b23_boom_cam_cm": [
+   297789.5,
+   480801.2,
+   11463.8
+  ],
+  "camera_plan_flag": "resolved in build_cinematics.py (ENDING-PREP, RUNBOOK_Ending.md gap 3): plan_cin24 takes the StandPoint as the capsule centre and subtracts keeper_half_height_cm for the feet, which is what hooks sets; plan_cin23 frames the pawn at road 4,990 and inserts 2.5 m down-road of the probed plate (re-derived in this file: CIN_23 offline_checks). Re-probe after hooks."
+ },
+ "interior_frame": {
+  "for_set": "S26_HighVoiceHut (Tools/World/story_sets/s26_high_voice_hut.py): one room, AB 300x400 walls on a 3.0 m square of centre lines, the AB_Side_Arch_small front; the frame, the floor and the openings below",
+  "frame": "hut frame, metres: origin hut_centre_cm, +x = hut_x_yaw_world (front/door wall -> back wall), +y = hut_x_yaw_world + 90 (right of +x); the door is centred on y = 0 in the front",
+  "hut_centre_cm": [
+   297251.4,
+   483292.9
+  ],
+  "hut_x_yaw_world": 108.66,
+  "corners_cm": [
+   [
+    297415.4,
+    483235.4
+   ],
+   [
+    297155.8,
+    483147.7
+   ],
+   [
+    297077.4,
+    483379.8
+   ],
+   [
+    297337.0,
+    483467.5
+   ]
+  ],
+  "inner_m": {
+   "front": -1.07,
+   "back": 1.38,
+   "side": 1.37
+  },
+  "arch_m": {
+   "outer": -1.93,
+   "inner": -1.07
+  },
+  "door_cm": [
+   297299.4,
+   483150.8
+  ],
+  "door_opening_m": {
+   "w": 1.1,
+   "h": 2.05,
+   "centre_y": 0.0,
+   "measured": false,
+   "note": "measured by `v10_high_voice.py doorcheck` (complex traces through the arch piece); until then these are assumptions"
+  },
+  "plate": {
+   "local_y": -1.05,
+   "where": "outside, on the arch face (the left jamb)"
+  },
+  "window": {
+   "local_x": 0.35,
+   "sill_above_grade_m": 1.0,
+   "state": "a CLOSED shutter on the left wall's outer face; the wall behind it is solid, so the room is lit through the door only"
+  },
+  "door_grade": "the highest ground at grade_points_cm (the `level` and `hooks` steps trace it)",
+  "grade_points_cm": [
+   [
+    297365.3,
+    483096.1
+   ],
+   [
+    297322.7,
+    483081.7
+   ],
+   [
+    297280.1,
+    483067.3
+   ]
+  ],
+  "grade_z_cm": [
+   10919.8,
+   10921.0,
+   10922.1
+  ],
+  "floor_owner": "V10: the plinth (B01_floor01) is the hut floor and the door sill; S26 places no floor, only the room, and its props settle on the plinth (support_labels)",
+  "no_stove": "V10 places no chimney, stove or hearth (none is modelled; see missing_assets)",
+  "keep_clear": "the door passage and 0.6 m in front of the plate (StandPoint)",
+  "floor": {
+   "id": "V10_HighVoice_020",
+   "label": "SD_V10_HighVoice_020",
+   "top_cm_predicted": 10920.7,
+   "note": "predicted on the heightmap; the `level` step sets the real top (LEVEL plinth ... top)"
+  },
+  "wall_base_cm_predicted": 10920.7,
+  "roof_bottom_cm_predicted": 11246.7
+ },
+ "ism_candidates": [
+  {
+   "group": "base_ism",
+   "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_01",
+   "instances": 2
+  },
+  {
+   "group": "base_ism",
+   "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_02",
+   "instances": 4
+  },
+  {
+   "group": "base_ism",
+   "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_03",
+   "instances": 2
+  },
+  {
+   "group": "base_ism",
+   "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_04",
+   "instances": 3
+  },
+  {
+   "group": "base_ism",
+   "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_06",
+   "instances": 4
+  },
+  {
+   "group": "base_ism",
+   "asset": "/Game/Light_Foliage/Meshes/SM_Rock_07",
+   "instances": 4
+  },
+  {
+   "group": "creep_ism",
+   "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarB",
+   "instances": 3
+  },
+  {
+   "group": "creep_ism",
+   "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarC",
+   "instances": 2
+  },
+  {
+   "group": "creep_ism",
+   "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarG",
+   "instances": 3
+  }
+ ],
+ "missing_assets": [
+  {
+   "asset": "the palm-in-a-ring mark (the teammate's mark: a decal or relief texture for the plate)",
+   "stand_in": "SM_CircularBand ring at 34 cm on the plate (hooks --mark), no palm",
+   "needed_for": "B23, CIN_23 shot 2, CIN_24 shot 1",
+   "tripo_prompt": null,
+   "note": "a 2D mark, not a Tripo model: the capsule lid carries the same mark (teammate)"
+  },
+  {
+   "asset": "brass horn loudspeaker on an iron wall bracket (the hut speaker CV_TRANSMIT_01 plays from)",
+   "stand_in": "none; the sound hook HutSpeaker is above the door",
+   "needed_for": "CIN_24 shot 1 (the spatial line)",
+   "tripo_prompt": "weathered brass gramophone-horn loudspeaker on a riveted iron wall bracket, steampunk radio relay, 60 cm"
+  },
+  {
+   "asset": "a guy cable with a turnbuckle, and an iron eye for the deadman",
+   "stand_in": "EasyAtmos Pipe scaled to 3 cm with MI_Metal",
+   "needed_for": "the mast reading as a built mast; CIN_24 shot 2",
+   "tripo_prompt": "forged iron turnbuckle with two eye bolts and a short twisted cable end, weathered, 50 cm"
+  },
+  {
+   "asset": "a riveted iron junction box with a brass dial at the mast foot (where the conduit leaves the collar)",
+   "stand_in": "none (the conduit butts into the collar block)",
+   "needed_for": "detail only",
+   "tripo_prompt": "small riveted iron junction box with a brass dial and a cable gland, steampunk, 40 cm"
+  },
+  {
+   "asset": "a mast that reads as riveted iron (Tile_10MPillar read as a modern white monolith: LANE_SD)",
+   "stand_in": "the L2 beacon pillars; give Mast0-3 MI_Metal. The Tripo relay_tower (SourceArt/Tripo/relay_tower, 16.8 x 16.8 x 26 m, slot O12 \"the first High Voice, dead and leaning\") is the OLD relay, not this mast",
+   "needed_for": "every mast view",
+   "tripo_prompt": "tall slender riveted iron lattice radio mast section, 4 m, square, cross-braced, brass insulators, steampunk; tileable vertically"
+  },
+  {
+   "asset": "T2_radio_desk: the relay set for the S26 interior",
+   "stand_in": "S26: AB_WoodenTable_B under AB_Table_Cloth",
+   "needed_for": "the S26 interior (the doorway read)",
+   "tripo_prompt": null,
+   "note": "GENERATED (SourceArt/Tripo/radio_desk, 128 x 200 x 182 cm at import): waits for the Tools/Tripo/IMPORT.md editor import; at that size it needs its own S26 layout pass"
+  }
+ ],
+ "offline_checks": [
+  "road core: min clearance 5.99 m (collar excluded: it stands on the road end round the mast)",
+  "plinth: ground 108.95..109.18 m under it; base 108.92, top 109.21 (thickness 0.29 m, Z 1.07 x its plan scale); the walls stand on it",
+  "door sill (the plinth top) -0.01 m against the outside grade; clear door height = the opening (2.05 m ASSUMED: run doorcheck)",
+  "collar: 2 courses, base 108.02, top 109.47 over ground 108.27..109.16: the cap stands 0.31 m clear on the uphill (approach) side and shows 1.20 m on the downhill face",
+  "seated Keeper: 1.02 m of collar face behind his back (collar top 109.47, ground at the seat 108.45)",
+  "plate on the left jamb: 0.28 m of stone between the plate and the opening (ASSUMED opening 1.10 m), 0.24 m to the arch end",
+  "ISM declash: 12 of 27 ISM pieces moved (max 0.59 m), 0 left out (no room within 0.6 m: none); 0 overlaps left beyond {'stone': 0.05, 'shrub': 0.1, 'ism': 0.04}",
+  "guys: clear of every solid (0.2 m pad; the hut roof counts 1 m above its walls)",
+  "seated frame (24 mm, yaw -3.5, pitch -4.0): clear of every solid and guy",
+  "StandPoint 6.47 m from the road polyline (tether 9 m, blocking volumes 8 m)",
+  "B23 boom camera -> plate: terrain stays 2.12 m under the sight line",
+  "CIN_23 shot 1 (24 mm low, from the B23 Keeper -4.5 m / 2.5 m left): the hut is 100 % in the opening frame, the plate in it; the tilt ends at pitch 24 on the mast",
+  "CIN_23 shot 2 (100 mm insert, 2.5 m down-road of the plate): 25 deg off square, 1.21 m over the ground, clear",
+  "B23: the plate faces the walker 10 deg off square; the mast stands 6.7 m left of the plate"
+ ],
+ "editor_steps": [
+  "python Tools/GameFlow/editor_gate.py acquire --owner LANE_V10   # one editor lane at a time; PIE must be off",
+  "python Tools/World/story_sets/v10_high_voice.py --no-plot                          # regenerate V10.json offline; exit 0 = no offline violation",
+  "python Tools/World/story_sets/v10_high_voice.py editor load --owner LANE_V10       # its own call (WP pinning rule); S26 later runs inside this load",
+  "python Tools/World/story_sets/v10_high_voice.py editor survey                      # expect HighVoice (L2) and nothing tagged SD_V10_HighVoice",
+  "python Tools/World/story_sets/v10_high_voice.py mastcheck                          # read-only: the pillar vs the collar hole (>= 3 cm) and the ground at point 0",
+  "python Tools/World/story_sets/v10_high_voice.py editor place --owner LANE_V10      # solids (15 per call), then the ISM hosts",
+  "python Tools/World/story_sets/v10_high_voice.py editor settle --owner LANE_V10     # rigid/lie by trace, rest by emulated physics; bear/stack wait for level",
+  "python Tools/World/story_sets/v10_high_voice.py level --owner LANE_V10             # plinth (Z to clear the ground), collar course 1 + cap, hut on the plinth, roof, shutter",
+  "python Tools/World/story_sets/v10_high_voice.py doorcheck                          # read-only: the arch opening and the plate on its jamb (PLATE ON_JAMB OK)",
+  "if doorcheck printed OVERHANGS or other DOOR_ARGS: python Tools/World/story_sets/v10_high_voice.py --door-w W --door-h H [--plate-y Y]; rerun s26 offline",
+  "python Tools/World/story_sets/v10_high_voice.py lines --owner LANE_V10             # 3 guys + the conduit + the riser (non-uniform scale, NoCollision)",
+  "python Tools/World/story_sets/v10_high_voice.py editor ground --owner LANE_V10     # the decal patches (MI_SD_Ground_* exist: built for S07)",
+  "python Tools/World/story_sets/v10_high_voice.py editor matsurvey --owner LANE_V10",
+  "python Tools/World/story_sets/v10_high_voice.py materials variants                 # _GB copies of any material not yet in setdress_material_map.json",
+  "python Tools/World/story_sets/v10_high_voice.py editor material --owner LANE_V10",
+  "python Tools/World/story_sets/v10_high_voice.py hooks --owner LANE_V10 --mark      # only once BP_Saskarta_HighVoice is placed (task ENDING 6c); else it says so",
+  "python Tools/World/story_sets/v10_high_voice.py editor check2 --owner LANE_V10     # must print violations=0 (walls, cap and roof need the V2 lane bear class)",
+  "python Tools/World/story_sets/v10_high_voice.py editor capture --owner LANE_V10    # carrier_a..c, orbit_a..c, contact, high34, far300, seat, mastup",
+  "review Saved/Screenshots/SetDressV2/V10_HighVoice/ with the user; fix in this generator, then editor replace <ids>, level, lines, check2",
+  "python Tools/World/story_sets/v10_high_voice.py editor save --owner LANE_V10       # refuses while check2 is stale or has violations (level/lines mark it stale)",
+  "python Tools/World/story_sets/v10_high_voice.py hooks-save --owner LANE_V10        # the ending actor package; refuses if the file is read-only on disk",
+  "S26 (s26_high_voice_hut.py) now, inside this load: place .. save (docs/world/story_sets/RUNBOOK.md)",
+  "python Tools/World/story_sets/v10_high_voice.py editor unload --owner LANE_V10",
+  "python Tools/GameFlow/editor_gate.py release --owner LANE_V10; commit the new external actor packages by pathspec",
+  "then task ENDING step 7: probe-ending reads Plate/StandPoint/SeatPoint from the placed actor; re-emit CIN_24 and CIN_23"
+ ]
+}

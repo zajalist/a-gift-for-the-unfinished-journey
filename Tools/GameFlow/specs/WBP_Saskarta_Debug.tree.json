@@ -1,0 +1,2389 @@
+{
+ "asset": "/Game/SaskartaGaea/GameFlow/Debug/WBP_Saskarta_Debug",
+ "tree": [
+  {
+   "class": "Border",
+   "name": "Panel",
+   "properties": {
+    "BrushColor": [
+     0.02,
+     0.018,
+     0.015,
+     0.82
+    ],
+    "Padding": {
+     "Left": 14,
+     "Top": 10,
+     "Right": 14,
+     "Bottom": 10
+    }
+   },
+   "children": [
+    {
+     "class": "VerticalBox",
+     "name": "Layout",
+     "children": [
+      {
+       "class": "TextBlock",
+       "name": "Heading",
+       "properties": {
+        "Text": "Saskarta debug  (F9 closes)",
+        "Font": {
+         "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa.F_ArefRuqaa",
+         "Size": 24
+        },
+        "ColorAndOpacity": {
+         "SpecifiedColor": [
+          0.91,
+          0.62,
+          0.35,
+          1
+         ]
+        }
+       }
+      },
+      {
+       "class": "TextBlock",
+       "name": "Hint",
+       "properties": {
+        "Text": "Click or arrow keys + Enter. A beat: teleport 30 m before it and re-arm it.",
+        "Font": {
+         "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+         "Size": 12
+        },
+        "ColorAndOpacity": {
+         "SpecifiedColor": [
+          0.8469,
+          0.7835,
+          0.7011,
+          1
+         ]
+        }
+       }
+      },
+      {
+       "class": "HorizontalBox",
+       "name": "Columns",
+       "slot_props": {
+        "type": "Fill",
+        "fill": 1
+       },
+       "children": [
+        {
+         "class": "ScrollBox",
+         "name": "BeatList",
+         "slot_props": {
+          "type": "Fill",
+          "padding": [
+           0,
+           6,
+           10,
+           0
+          ]
+         },
+         "children": [
+          {
+           "class": "Button",
+           "name": "Beat00",
+           "properties": {
+            "BackgroundColor": [
+             0.08,
+             0.07,
+             0.06,
+             0.85
+            ]
+           },
+           "slot_props": {
+            "padding": [
+             0,
+             1,
+             0,
+             1
+            ]
+           },
+           "children": [
+            {
+             "class": "TextBlock",
+             "name": "Beat00Label",
+             "properties": {
+              "Text": "B01_BOOT_HANDOVER           0 m",
+              "Font": {
+               "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+               "Size": 14
+              },
+              "ColorAndOpacity": {
+               "SpecifiedColor": [
+                0.8469,
+                0.7835,
+                0.7011,
+                1
+               ]
+              }
+             }
+            }
+           ]
+          },
+          {
+           "class": "Button",
+           "name": "Beat01",
+           "properties": {
+            "BackgroundColor": [
+             0.08,
+             0.07,
+             0.06,
+             0.85
+            ]
+           },
+           "slot_props": {
+            "padding": [
+             0,
+             1,
+             0,
+             1
+            ]
+           },
+           "children": [
+            {
+             "class": "TextBlock",
+             "name": "Beat01Label",
+             "properties": {
+              "Text": "B02_ARCHIVE_OPENS         150 m",
+              "Font": {
+               "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+               "Size": 14
+              },
+              "ColorAndOpacity": {
+               "SpecifiedColor": [
+                0.8469,
+                0.7835,
+                0.7011,
+                1
+               ]
+              }
+             }
+            }
+           ]
+          },
+          {
+           "class": "Button",
+           "name": "Beat02",
+           "properties": {
+            "BackgroundColor": [
+             0.08,
+             0.07,
+             0.06,
+             0.85
+            ]
+           },
+           "slot_props": {
+            "padding": [
+             0,
+             1,
+             0,
+             1
+            ]
+           },
+           "children": [
+            {
+             "class": "TextBlock",
+             "name": "Beat02Label",
+             "properties": {
+              "Text": "B03_PROMISE               450 m",
+              "Font": {
+               "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+               "Size": 14
+              },
+              "ColorAndOpacity": {
+               "SpecifiedColor": [
+                0.8469,
+                0.7835,
+                0.7011,
+                1
+               ]
+              }
+             }
+            }
+           ]
+          },
+          {
+           "class": "Button",
+           "name": "Beat03",
+           "properties": {
+            "BackgroundColor": [
+             0.08,
+             0.07,
+             0.06,
+             0.85
+            ]
+           },
+           "slot_props": {
+            "padding": [
+             0,
+             1,
+             0,
+             1
+            ]
+           },
+           "children": [
+            {
+             "class": "TextBlock",
+             "name": "Beat03Label",
+             "properties": {
+              "Text": "B04_CART_CONVOY           810 m",
+              "Font": {
+               "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+               "Size": 14
+              },
+              "ColorAndOpacity": {
+               "SpecifiedColor": [
+                0.8469,
+                0.7835,
+                0.7011,
+                1
+               ]
+              }
+             }
+            }
+           ]
+          },
+          {
+           "class": "Button",
+           "name": "Beat04",
+           "properties": {
+            "BackgroundColor": [
+             0.08,
+             0.07,
+             0.06,
+             0.85
+            ]
+           },
+           "slot_props": {
+            "padding": [
+             0,
+             1,
+             0,
+             1
+            ]
+           },
+           "children": [
+            {
+             "class": "TextBlock",
+             "name": "Beat04Label",
+             "properties": {
+              "Text": "B05_WAITING_WATER        1220 m",
+              "Font": {
+               "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+               "Size": 14
+              },
+              "ColorAndOpacity": {
+               "SpecifiedColor": [
+                0.8469,
+                0.7835,
+                0.7011,
+                1
+               ]
+              }
+             }
+            }
+           ]
+          },
+          {
+           "class": "Button",
+           "name": "Beat05",
+           "properties": {
+            "BackgroundColor": [
+             0.08,
+             0.07,
+             0.06,
+             0.85
+            ]
+           },
+           "slot_props": {
+            "padding": [
+             0,
+             1,
+             0,
+             1
+            ]
+           },
+           "children": [
+            {
+             "class": "TextBlock",
+             "name": "Beat05Label",
+             "properties": {
+              "Text": "B06_ROAD_AHEAD           1980 m",
+              "Font": {
+               "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+               "Size": 14
+              },
+              "ColorAndOpacity": {
+               "SpecifiedColor": [
+                0.8469,
+                0.7835,
+                0.7011,
+                1
+               ]
+              }
+             }
+            }
+           ]
+          },
+          {
+           "class": "Button",
+           "name": "Beat06",
+           "properties": {
+            "BackgroundColor": [
+             0.08,
+             0.07,
+             0.06,
+             0.85
+            ]
+           },
+           "slot_props": {
+            "padding": [
+             0,
+             1,
+             0,
+             1
+            ]
+           },
+           "children": [
+            {
+             "class": "TextBlock",
+             "name": "Beat06Label",
+             "properties": {
+              "Text": "B07_GEIGER_RISES         2150 m",
+              "Font": {
+               "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+               "Size": 14
+              },
+              "ColorAndOpacity": {
+               "SpecifiedColor": [
+                0.8469,
+                0.7835,
+                0.7011,
+                1
+               ]
+              }
+             }
+            }
+           ]
+          },
+          {
+           "class": "Button",
+           "name": "Beat07",
+           "properties": {
+            "BackgroundColor": [
+             0.08,
+             0.07,
+             0.06,
+             0.85
+            ]
+           },
+           "slot_props": {
+            "padding": [
+             0,
+             1,
+             0,
+             1
+            ]
+           },
+           "children": [
+            {
+             "class": "TextBlock",
+             "name": "Beat07Label",
+             "properties": {
+              "Text": "B08_NUMBERED_STOP        2480 m",
+              "Font": {
+               "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+               "Size": 14
+              },
+              "ColorAndOpacity": {
+               "SpecifiedColor": [
+                0.8469,
+                0.7835,
+                0.7011,
+                1
+               ]
+              }
+             }
+            }
+           ]
+          },
+          {
+           "class": "Button",
+           "name": "Beat08",
+           "properties": {
+            "BackgroundColor": [
+             0.08,
+             0.07,
+             0.06,
+             0.85
+            ]
+           },
+           "slot_props": {
+            "padding": [
+             0,
+             1,
+             0,
+             1
+            ]
+           },
+           "children": [
+            {
+             "class": "TextBlock",
+             "name": "Beat08Label",
+             "properties": {
+              "Text": "B09_DEPARTURE_PLATFORM   2560 m",
+              "Font": {
+               "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+               "Size": 14
+              },
+              "ColorAndOpacity": {
+               "SpecifiedColor": [
+                0.8469,
+                0.7835,
+                0.7011,
+                1
+               ]
+              }
+             }
+            }
+           ]
+          },
+          {
+           "class": "Button",
+           "name": "Beat09",
+           "properties": {
+            "BackgroundColor": [
+             0.08,
+             0.07,
+             0.06,
+             0.85
+            ]
+           },
+           "slot_props": {
+            "padding": [
+             0,
+             1,
+             0,
+             1
+            ]
+           },
+           "children": [
+            {
+             "class": "TextBlock",
+             "name": "Beat09Label",
+             "properties": {
+              "Text": "B10_DRY_CISTERN          3050 m",
+              "Font": {
+               "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+               "Size": 14
+              },
+              "ColorAndOpacity": {
+               "SpecifiedColor": [
+                0.8469,
+                0.7835,
+                0.7011,
+                1
+               ]
+              }
+             }
+            }
+           ]
+          },
+          {
+           "class": "Button",
+           "name": "Beat10",
+           "properties": {
+            "BackgroundColor": [
+             0.08,
+             0.07,
+             0.06,
+             0.85
+            ]
+           },
+           "slot_props": {
+            "padding": [
+             0,
+             1,
+             0,
+             1
+            ]
+           },
+           "children": [
+            {
+             "class": "TextBlock",
+             "name": "Beat10Label",
+             "properties": {
+              "Text": "OX1_EXCHANGE             3360 m  (opt)",
+              "Font": {
+               "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+               "Size": 14
+              },
+              "ColorAndOpacity": {
+               "SpecifiedColor": [
+                0.8469,
+                0.7835,
+                0.7011,
+                1
+               ]
+              }
+             }
+            }
+           ]
+          },
+          {
+           "class": "Button",
+           "name": "Beat11",
+           "properties": {
+            "BackgroundColor": [
+             0.08,
+             0.07,
+             0.06,
+             0.85
+            ]
+           },
+           "slot_props": {
+            "padding": [
+             0,
+             1,
+             0,
+             1
+            ]
+           },
+           "children": [
+            {
+             "class": "TextBlock",
+             "name": "Beat11Label",
+             "properties": {
+              "Text": "B11_LAST_WAYSTATION      3400 m",
+              "Font": {
+               "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+               "Size": 14
+              },
+              "ColorAndOpacity": {
+               "SpecifiedColor": [
+                0.8469,
+                0.7835,
+                0.7011,
+                1
+               ]
+              }
+             }
+            }
+           ]
+          },
+          {
+           "class": "Button",
+           "name": "Beat12",
+           "properties": {
+            "BackgroundColor": [
+             0.08,
+             0.07,
+             0.06,
+             0.85
+            ]
+           },
+           "slot_props": {
+            "padding": [
+             0,
+             1,
+             0,
+             1
+            ]
+           },
+           "children": [
+            {
+             "class": "TextBlock",
+             "name": "Beat12Label",
+             "properties": {
+              "Text": "B12_KNEE_FAULT           3600 m",
+              "Font": {
+               "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+               "Size": 14
+              },
+              "ColorAndOpacity": {
+               "SpecifiedColor": [
+                0.8469,
+                0.7835,
+                0.7011,
+                1
+               ]
+              }
+             }
+            }
+           ]
+          },
+          {
+           "class": "Button",
+           "name": "Beat13",
+           "properties": {
+            "BackgroundColor": [
+             0.08,
+             0.07,
+             0.06,
+             0.85
+            ]
+           },
+           "slot_props": {
+            "padding": [
+             0,
+             1,
+             0,
+             1
+            ]
+           },
+           "children": [
+            {
+             "class": "TextBlock",
+             "name": "Beat13Label",
+             "properties": {
+              "Text": "OA1_OPTICS_FAIL          3700 m  (opt)",
+              "Font": {
+               "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+               "Size": 14
+              },
+              "ColorAndOpacity": {
+               "SpecifiedColor": [
+                0.8469,
+                0.7835,
+                0.7011,
+                1
+               ]
+              }
+             }
+            }
+           ]
+          },
+          {
+           "class": "Button",
+           "name": "Beat14",
+           "properties": {
+            "BackgroundColor": [
+             0.08,
+             0.07,
+             0.06,
+             0.85
+            ]
+           },
+           "slot_props": {
+            "padding": [
+             0,
+             1,
+             0,
+             1
+            ]
+           },
+           "children": [
+            {
+             "class": "TextBlock",
+             "name": "Beat14Label",
+             "properties": {
+              "Text": "B13_SECOND_FAULT         4015 m",
+              "Font": {
+               "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+               "Size": 14
+              },
+              "ColorAndOpacity": {
+               "SpecifiedColor": [
+                0.8469,
+                0.7835,
+                0.7011,
+                1
+               ]
+              }
+             }
+            }
+           ]
+          },
+          {
+           "class": "Button",
+           "name": "Beat15",
+           "properties": {
+            "BackgroundColor": [
+             0.08,
+             0.07,
+             0.06,
+             0.85
+            ]
+           },
+           "slot_props": {
+            "padding": [
+             0,
+             1,
+             0,
+             1
+            ]
+           },
+           "children": [
+            {
+             "class": "TextBlock",
+             "name": "Beat15Label",
+             "properties": {
+              "Text": "OB1_DRONE_SOLO           4015 m  (opt)",
+              "Font": {
+               "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+               "Size": 14
+              },
+              "ColorAndOpacity": {
+               "SpecifiedColor": [
+                0.8469,
+                0.7835,
+                0.7011,
+                1
+               ]
+              }
+             }
+            }
+           ]
+          },
+          {
+           "class": "Button",
+           "name": "Beat16",
+           "properties": {
+            "BackgroundColor": [
+             0.08,
+             0.07,
+             0.06,
+             0.85
+            ]
+           },
+           "slot_props": {
+            "padding": [
+             0,
+             1,
+             0,
+             1
+            ]
+           },
+           "children": [
+            {
+             "class": "TextBlock",
+             "name": "Beat16Label",
+             "properties": {
+              "Text": "OA2_OPTICS_BACK          4440 m  (opt)",
+              "Font": {
+               "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+               "Size": 14
+              },
+              "ColorAndOpacity": {
+               "SpecifiedColor": [
+                0.8469,
+                0.7835,
+                0.7011,
+                1
+               ]
+              }
+             }
+            }
+           ]
+          },
+          {
+           "class": "Button",
+           "name": "Beat17",
+           "properties": {
+            "BackgroundColor": [
+             0.08,
+             0.07,
+             0.06,
+             0.85
+            ]
+           },
+           "slot_props": {
+            "padding": [
+             0,
+             1,
+             0,
+             1
+            ]
+           },
+           "children": [
+            {
+             "class": "TextBlock",
+             "name": "Beat17Label",
+             "properties": {
+              "Text": "OB1_DRONE                4440 m  (opt)",
+              "Font": {
+               "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+               "Size": 14
+              },
+              "ColorAndOpacity": {
+               "SpecifiedColor": [
+                0.8469,
+                0.7835,
+                0.7011,
+                1
+               ]
+              }
+             }
+            }
+           ]
+          },
+          {
+           "class": "Button",
+           "name": "Beat18",
+           "properties": {
+            "BackgroundColor": [
+             0.08,
+             0.07,
+             0.06,
+             0.85
+            ]
+           },
+           "slot_props": {
+            "padding": [
+             0,
+             1,
+             0,
+             1
+            ]
+           },
+           "children": [
+            {
+             "class": "TextBlock",
+             "name": "Beat18Label",
+             "properties": {
+              "Text": "B14_LOOK_BACK            4460 m",
+              "Font": {
+               "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+               "Size": 14
+              },
+              "ColorAndOpacity": {
+               "SpecifiedColor": [
+                0.8469,
+                0.7835,
+                0.7011,
+                1
+               ]
+              }
+             }
+            }
+           ]
+          },
+          {
+           "class": "Button",
+           "name": "Beat19",
+           "properties": {
+            "BackgroundColor": [
+             0.08,
+             0.07,
+             0.06,
+             0.85
+            ]
+           },
+           "slot_props": {
+            "padding": [
+             0,
+             1,
+             0,
+             1
+            ]
+           },
+           "children": [
+            {
+             "class": "TextBlock",
+             "name": "Beat19Label",
+             "properties": {
+              "Text": "B15_HIGH_VOICE_IN_RANGE  4520 m",
+              "Font": {
+               "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+               "Size": 14
+              },
+              "ColorAndOpacity": {
+               "SpecifiedColor": [
+                0.8469,
+                0.7835,
+                0.7011,
+                1
+               ]
+              }
+             }
+            }
+           ]
+          },
+          {
+           "class": "Button",
+           "name": "Beat20",
+           "properties": {
+            "BackgroundColor": [
+             0.08,
+             0.07,
+             0.06,
+             0.85
+            ]
+           },
+           "slot_props": {
+            "padding": [
+             0,
+             1,
+             0,
+             1
+            ]
+           },
+           "children": [
+            {
+             "class": "TextBlock",
+             "name": "Beat20Label",
+             "properties": {
+              "Text": "B16_FAILING_STEPS        4600 m",
+              "Font": {
+               "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+               "Size": 14
+              },
+              "ColorAndOpacity": {
+               "SpecifiedColor": [
+                0.8469,
+                0.7835,
+                0.7011,
+                1
+               ]
+              }
+             }
+            }
+           ]
+          },
+          {
+           "class": "Button",
+           "name": "Beat21",
+           "properties": {
+            "BackgroundColor": [
+             0.08,
+             0.07,
+             0.06,
+             0.85
+            ]
+           },
+           "slot_props": {
+            "padding": [
+             0,
+             1,
+             0,
+             1
+            ]
+           },
+           "children": [
+            {
+             "class": "TextBlock",
+             "name": "Beat21Label",
+             "properties": {
+              "Text": "B17_CUT_OFF              4760 m",
+              "Font": {
+               "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+               "Size": 14
+              },
+              "ColorAndOpacity": {
+               "SpecifiedColor": [
+                0.8469,
+                0.7835,
+                0.7011,
+                1
+               ]
+              }
+             }
+            }
+           ]
+          },
+          {
+           "class": "Button",
+           "name": "Beat22",
+           "properties": {
+            "BackgroundColor": [
+             0.08,
+             0.07,
+             0.06,
+             0.85
+            ]
+           },
+           "slot_props": {
+            "padding": [
+             0,
+             1,
+             0,
+             1
+            ]
+           },
+           "children": [
+            {
+             "class": "TextBlock",
+             "name": "Beat22Label",
+             "properties": {
+              "Text": "B18_COLLAPSE             4790 m",
+              "Font": {
+               "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+               "Size": 14
+              },
+              "ColorAndOpacity": {
+               "SpecifiedColor": [
+                0.8469,
+                0.7835,
+                0.7011,
+                1
+               ]
+              }
+             }
+            }
+           ]
+          },
+          {
+           "class": "Button",
+           "name": "Beat23",
+           "properties": {
+            "BackgroundColor": [
+             0.08,
+             0.07,
+             0.06,
+             0.85
+            ]
+           },
+           "slot_props": {
+            "padding": [
+             0,
+             1,
+             0,
+             1
+            ]
+           },
+           "children": [
+            {
+             "class": "TextBlock",
+             "name": "Beat23Label",
+             "properties": {
+              "Text": "B19_REVEAL               4790 m",
+              "Font": {
+               "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+               "Size": 14
+              },
+              "ColorAndOpacity": {
+               "SpecifiedColor": [
+                0.8469,
+                0.7835,
+                0.7011,
+                1
+               ]
+              }
+             }
+            }
+           ]
+          },
+          {
+           "class": "Button",
+           "name": "Beat24",
+           "properties": {
+            "BackgroundColor": [
+             0.08,
+             0.07,
+             0.06,
+             0.85
+            ]
+           },
+           "slot_props": {
+            "padding": [
+             0,
+             1,
+             0,
+             1
+            ]
+           },
+           "children": [
+            {
+             "class": "TextBlock",
+             "name": "Beat24Label",
+             "properties": {
+              "Text": "B20_REST_BOULDER         4840 m",
+              "Font": {
+               "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+               "Size": 14
+              },
+              "ColorAndOpacity": {
+               "SpecifiedColor": [
+                0.8469,
+                0.7835,
+                0.7011,
+                1
+               ]
+              }
+             }
+            }
+           ]
+          },
+          {
+           "class": "Button",
+           "name": "Beat25",
+           "properties": {
+            "BackgroundColor": [
+             0.08,
+             0.07,
+             0.06,
+             0.85
+            ]
+           },
+           "slot_props": {
+            "padding": [
+             0,
+             1,
+             0,
+             1
+            ]
+           },
+           "children": [
+            {
+             "class": "TextBlock",
+             "name": "Beat25Label",
+             "properties": {
+              "Text": "B21_LAST_LOOK_BACK       4877 m",
+              "Font": {
+               "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+               "Size": 14
+              },
+              "ColorAndOpacity": {
+               "SpecifiedColor": [
+                0.8469,
+                0.7835,
+                0.7011,
+                1
+               ]
+              }
+             }
+            }
+           ]
+          },
+          {
+           "class": "Button",
+           "name": "Beat26",
+           "properties": {
+            "BackgroundColor": [
+             0.08,
+             0.07,
+             0.06,
+             0.85
+            ]
+           },
+           "slot_props": {
+            "padding": [
+             0,
+             1,
+             0,
+             1
+            ]
+           },
+           "children": [
+            {
+             "class": "TextBlock",
+             "name": "Beat26Label",
+             "properties": {
+              "Text": "B22_REST_HANDRAIL        4950 m",
+              "Font": {
+               "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+               "Size": 14
+              },
+              "ColorAndOpacity": {
+               "SpecifiedColor": [
+                0.8469,
+                0.7835,
+                0.7011,
+                1
+               ]
+              }
+             }
+            }
+           ]
+          },
+          {
+           "class": "Button",
+           "name": "Beat27",
+           "properties": {
+            "BackgroundColor": [
+             0.08,
+             0.07,
+             0.06,
+             0.85
+            ]
+           },
+           "slot_props": {
+            "padding": [
+             0,
+             1,
+             0,
+             1
+            ]
+           },
+           "children": [
+            {
+             "class": "TextBlock",
+             "name": "Beat27Label",
+             "properties": {
+              "Text": "B23_LAST_ENTRY           4990 m",
+              "Font": {
+               "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+               "Size": 14
+              },
+              "ColorAndOpacity": {
+               "SpecifiedColor": [
+                0.8469,
+                0.7835,
+                0.7011,
+                1
+               ]
+              }
+             }
+            }
+           ]
+          },
+          {
+           "class": "Button",
+           "name": "Beat28",
+           "properties": {
+            "BackgroundColor": [
+             0.08,
+             0.07,
+             0.06,
+             0.85
+            ]
+           },
+           "slot_props": {
+            "padding": [
+             0,
+             1,
+             0,
+             1
+            ]
+           },
+           "children": [
+            {
+             "class": "TextBlock",
+             "name": "Beat28Label",
+             "properties": {
+              "Text": "B24_TRANSMISSION         4990 m",
+              "Font": {
+               "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+               "Size": 14
+              },
+              "ColorAndOpacity": {
+               "SpecifiedColor": [
+                0.8469,
+                0.7835,
+                0.7011,
+                1
+               ]
+              }
+             }
+            }
+           ]
+          },
+          {
+           "class": "Button",
+           "name": "Cp0",
+           "properties": {
+            "BackgroundColor": [
+             0.08,
+             0.07,
+             0.06,
+             0.85
+            ]
+           },
+           "slot_props": {
+            "padding": [
+             0,
+             1,
+             0,
+             1
+            ]
+           },
+           "children": [
+            {
+             "class": "TextBlock",
+             "name": "Cp0Label",
+             "properties": {
+              "Text": "CP0_DOCK                    0 m  checkpoint",
+              "Font": {
+               "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+               "Size": 14
+              },
+              "ColorAndOpacity": {
+               "SpecifiedColor": [
+                0.91,
+                0.62,
+                0.35,
+                1
+               ]
+              }
+             }
+            }
+           ]
+          },
+          {
+           "class": "Button",
+           "name": "Cp1",
+           "properties": {
+            "BackgroundColor": [
+             0.08,
+             0.07,
+             0.06,
+             0.85
+            ]
+           },
+           "slot_props": {
+            "padding": [
+             0,
+             1,
+             0,
+             1
+            ]
+           },
+           "children": [
+            {
+             "class": "TextBlock",
+             "name": "Cp1Label",
+             "properties": {
+              "Text": "CP1_CREST                1990 m  checkpoint",
+              "Font": {
+               "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+               "Size": 14
+              },
+              "ColorAndOpacity": {
+               "SpecifiedColor": [
+                0.91,
+                0.62,
+                0.35,
+                1
+               ]
+              }
+             }
+            }
+           ]
+          },
+          {
+           "class": "Button",
+           "name": "Cp2",
+           "properties": {
+            "BackgroundColor": [
+             0.08,
+             0.07,
+             0.06,
+             0.85
+            ]
+           },
+           "slot_props": {
+            "padding": [
+             0,
+             1,
+             0,
+             1
+            ]
+           },
+           "children": [
+            {
+             "class": "TextBlock",
+             "name": "Cp2Label",
+             "properties": {
+              "Text": "CP2_WAYSTATION           3420 m  checkpoint",
+              "Font": {
+               "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+               "Size": 14
+              },
+              "ColorAndOpacity": {
+               "SpecifiedColor": [
+                0.91,
+                0.62,
+                0.35,
+                1
+               ]
+              }
+             }
+            }
+           ]
+          },
+          {
+           "class": "Button",
+           "name": "Cp3",
+           "properties": {
+            "BackgroundColor": [
+             0.08,
+             0.07,
+             0.06,
+             0.85
+            ]
+           },
+           "slot_props": {
+            "padding": [
+             0,
+             1,
+             0,
+             1
+            ]
+           },
+           "children": [
+            {
+             "class": "TextBlock",
+             "name": "Cp3Label",
+             "properties": {
+              "Text": "CP3_SHOULDER             4465 m  checkpoint",
+              "Font": {
+               "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+               "Size": 14
+              },
+              "ColorAndOpacity": {
+               "SpecifiedColor": [
+                0.91,
+                0.62,
+                0.35,
+                1
+               ]
+              }
+             }
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "class": "ScrollBox",
+         "name": "ActionList",
+         "slot_props": {
+          "padding": [
+           0,
+           6,
+           10,
+           0
+          ]
+         },
+         "children": [
+          {
+           "class": "HorizontalBox",
+           "name": "AutoRow",
+           "children": [
+            {
+             "class": "CheckBox",
+             "name": "AutoTrigger"
+            },
+            {
+             "class": "TextBlock",
+             "name": "AutoLabel",
+             "properties": {
+              "Text": " trigger on teleport",
+              "Font": {
+               "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+               "Size": 14
+              },
+              "ColorAndOpacity": {
+               "SpecifiedColor": [
+                0.8469,
+                0.7835,
+                0.7011,
+                1
+               ]
+              }
+             }
+            }
+           ]
+          },
+          {
+           "class": "Button",
+           "name": "PrevBtn",
+           "properties": {
+            "BackgroundColor": [
+             0.08,
+             0.07,
+             0.06,
+             0.85
+            ]
+           },
+           "slot_props": {
+            "padding": [
+             0,
+             1,
+             0,
+             1
+            ]
+           },
+           "children": [
+            {
+             "class": "TextBlock",
+             "name": "PrevBtnLabel",
+             "properties": {
+              "Text": "<  Previous beat",
+              "Font": {
+               "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+               "Size": 14
+              },
+              "ColorAndOpacity": {
+               "SpecifiedColor": [
+                0.8469,
+                0.7835,
+                0.7011,
+                1
+               ]
+              }
+             }
+            }
+           ]
+          },
+          {
+           "class": "Button",
+           "name": "NextBtn",
+           "properties": {
+            "BackgroundColor": [
+             0.08,
+             0.07,
+             0.06,
+             0.85
+            ]
+           },
+           "slot_props": {
+            "padding": [
+             0,
+             1,
+             0,
+             1
+            ]
+           },
+           "children": [
+            {
+             "class": "TextBlock",
+             "name": "NextBtnLabel",
+             "properties": {
+              "Text": "Next beat  >",
+              "Font": {
+               "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+               "Size": 14
+              },
+              "ColorAndOpacity": {
+               "SpecifiedColor": [
+                0.8469,
+                0.7835,
+                0.7011,
+                1
+               ]
+              }
+             }
+            }
+           ]
+          },
+          {
+           "class": "Button",
+           "name": "TriggerBtn",
+           "properties": {
+            "BackgroundColor": [
+             0.08,
+             0.07,
+             0.06,
+             0.85
+            ]
+           },
+           "slot_props": {
+            "padding": [
+             0,
+             1,
+             0,
+             1
+            ]
+           },
+           "children": [
+            {
+             "class": "TextBlock",
+             "name": "TriggerBtnLabel",
+             "properties": {
+              "Text": "Trigger selected beat now",
+              "Font": {
+               "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+               "Size": 14
+              },
+              "ColorAndOpacity": {
+               "SpecifiedColor": [
+                0.8469,
+                0.7835,
+                0.7011,
+                1
+               ]
+              }
+             }
+            }
+           ]
+          },
+          {
+           "class": "Button",
+           "name": "SkipBtn",
+           "properties": {
+            "BackgroundColor": [
+             0.08,
+             0.07,
+             0.06,
+             0.85
+            ]
+           },
+           "slot_props": {
+            "padding": [
+             0,
+             1,
+             0,
+             1
+            ]
+           },
+           "children": [
+            {
+             "class": "TextBlock",
+             "name": "SkipBtnLabel",
+             "properties": {
+              "Text": "Skip current cinematic",
+              "Font": {
+               "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+               "Size": 14
+              },
+              "ColorAndOpacity": {
+               "SpecifiedColor": [
+                0.8469,
+                0.7835,
+                0.7011,
+                1
+               ]
+              }
+             }
+            }
+           ]
+          },
+          {
+           "class": "Button",
+           "name": "ResetBtn",
+           "properties": {
+            "BackgroundColor": [
+             0.08,
+             0.07,
+             0.06,
+             0.85
+            ]
+           },
+           "slot_props": {
+            "padding": [
+             0,
+             1,
+             0,
+             1
+            ]
+           },
+           "children": [
+            {
+             "class": "TextBlock",
+             "name": "ResetBtnLabel",
+             "properties": {
+              "Text": "Reset all beats",
+              "Font": {
+               "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+               "Size": 14
+              },
+              "ColorAndOpacity": {
+               "SpecifiedColor": [
+                0.8469,
+                0.7835,
+                0.7011,
+                1
+               ]
+              }
+             }
+            }
+           ]
+          },
+          {
+           "class": "Button",
+           "name": "Speed1Btn",
+           "properties": {
+            "BackgroundColor": [
+             0.08,
+             0.07,
+             0.06,
+             0.85
+            ]
+           },
+           "slot_props": {
+            "padding": [
+             0,
+             1,
+             0,
+             1
+            ]
+           },
+           "children": [
+            {
+             "class": "TextBlock",
+             "name": "Speed1BtnLabel",
+             "properties": {
+              "Text": "Carrier speed x1",
+              "Font": {
+               "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+               "Size": 14
+              },
+              "ColorAndOpacity": {
+               "SpecifiedColor": [
+                0.8469,
+                0.7835,
+                0.7011,
+                1
+               ]
+              }
+             }
+            }
+           ]
+          },
+          {
+           "class": "Button",
+           "name": "Speed3Btn",
+           "properties": {
+            "BackgroundColor": [
+             0.08,
+             0.07,
+             0.06,
+             0.85
+            ]
+           },
+           "slot_props": {
+            "padding": [
+             0,
+             1,
+             0,
+             1
+            ]
+           },
+           "children": [
+            {
+             "class": "TextBlock",
+             "name": "Speed3BtnLabel",
+             "properties": {
+              "Text": "Carrier speed x3",
+              "Font": {
+               "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+               "Size": 14
+              },
+              "ColorAndOpacity": {
+               "SpecifiedColor": [
+                0.8469,
+                0.7835,
+                0.7011,
+                1
+               ]
+              }
+             }
+            }
+           ]
+          },
+          {
+           "class": "Button",
+           "name": "Speed10Btn",
+           "properties": {
+            "BackgroundColor": [
+             0.08,
+             0.07,
+             0.06,
+             0.85
+            ]
+           },
+           "slot_props": {
+            "padding": [
+             0,
+             1,
+             0,
+             1
+            ]
+           },
+           "children": [
+            {
+             "class": "TextBlock",
+             "name": "Speed10BtnLabel",
+             "properties": {
+              "Text": "Carrier speed x10",
+              "Font": {
+               "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+               "Size": 14
+              },
+              "ColorAndOpacity": {
+               "SpecifiedColor": [
+                0.8469,
+                0.7835,
+                0.7011,
+                1
+               ]
+              }
+             }
+            }
+           ]
+          },
+          {
+           "class": "Button",
+           "name": "GodBtn",
+           "properties": {
+            "BackgroundColor": [
+             0.08,
+             0.07,
+             0.06,
+             0.85
+            ]
+           },
+           "slot_props": {
+            "padding": [
+             0,
+             1,
+             0,
+             1
+            ]
+           },
+           "children": [
+            {
+             "class": "TextBlock",
+             "name": "GodBtnLabel",
+             "properties": {
+              "Text": "God mode (no tether / reboot)",
+              "Font": {
+               "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+               "Size": 14
+              },
+              "ColorAndOpacity": {
+               "SpecifiedColor": [
+                0.8469,
+                0.7835,
+                0.7011,
+                1
+               ]
+              }
+             }
+            }
+           ]
+          },
+          {
+           "class": "Button",
+           "name": "FlyBtn",
+           "properties": {
+            "BackgroundColor": [
+             0.08,
+             0.07,
+             0.06,
+             0.85
+            ]
+           },
+           "slot_props": {
+            "padding": [
+             0,
+             1,
+             0,
+             1
+            ]
+           },
+           "children": [
+            {
+             "class": "TextBlock",
+             "name": "FlyBtnLabel",
+             "properties": {
+              "Text": "Free-fly camera",
+              "Font": {
+               "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+               "Size": 14
+              },
+              "ColorAndOpacity": {
+               "SpecifiedColor": [
+                0.8469,
+                0.7835,
+                0.7011,
+                1
+               ]
+              }
+             }
+            }
+           ]
+          },
+          {
+           "class": "Button",
+           "name": "StatBtn",
+           "properties": {
+            "BackgroundColor": [
+             0.08,
+             0.07,
+             0.06,
+             0.85
+            ]
+           },
+           "slot_props": {
+            "padding": [
+             0,
+             1,
+             0,
+             1
+            ]
+           },
+           "children": [
+            {
+             "class": "TextBlock",
+             "name": "StatBtnLabel",
+             "properties": {
+              "Text": "stat unit",
+              "Font": {
+               "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+               "Size": 14
+              },
+              "ColorAndOpacity": {
+               "SpecifiedColor": [
+                0.8469,
+                0.7835,
+                0.7011,
+                1
+               ]
+              }
+             }
+            }
+           ]
+          },
+          {
+           "class": "Button",
+           "name": "RestartBtn",
+           "properties": {
+            "BackgroundColor": [
+             0.08,
+             0.07,
+             0.06,
+             0.85
+            ]
+           },
+           "slot_props": {
+            "padding": [
+             0,
+             1,
+             0,
+             1
+            ]
+           },
+           "children": [
+            {
+             "class": "TextBlock",
+             "name": "RestartBtnLabel",
+             "properties": {
+              "Text": "Restart: intro > loading > title",
+              "Font": {
+               "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+               "Size": 14
+              },
+              "ColorAndOpacity": {
+               "SpecifiedColor": [
+                0.8469,
+                0.7835,
+                0.7011,
+                1
+               ]
+              }
+             }
+            }
+           ]
+          },
+          {
+           "class": "Button",
+           "name": "StormOffBtn",
+           "properties": {
+            "BackgroundColor": [
+             0.08,
+             0.07,
+             0.06,
+             0.85
+            ]
+           },
+           "slot_props": {
+            "padding": [
+             0,
+             1,
+             0,
+             1
+            ]
+           },
+           "children": [
+            {
+             "class": "TextBlock",
+             "name": "StormOffBtnLabel",
+             "properties": {
+              "Text": "Storm: release override",
+              "Font": {
+               "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+               "Size": 14
+              },
+              "ColorAndOpacity": {
+               "SpecifiedColor": [
+                0.8469,
+                0.7835,
+                0.7011,
+                1
+               ]
+              }
+             }
+            }
+           ]
+          },
+          {
+           "class": "Button",
+           "name": "LookValleyBtn",
+           "properties": {
+            "BackgroundColor": [
+             0.08,
+             0.07,
+             0.06,
+             0.85
+            ]
+           },
+           "slot_props": {
+            "padding": [
+             0,
+             1,
+             0,
+             1
+            ]
+           },
+           "children": [
+            {
+             "class": "TextBlock",
+             "name": "LookValleyBtnLabel",
+             "properties": {
+              "Text": "Look: Valley (0 m)",
+              "Font": {
+               "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+               "Size": 14
+              },
+              "ColorAndOpacity": {
+               "SpecifiedColor": [
+                0.8469,
+                0.7835,
+                0.7011,
+                1
+               ]
+              }
+             }
+            }
+           ]
+          },
+          {
+           "class": "Button",
+           "name": "LookBasinBtn",
+           "properties": {
+            "BackgroundColor": [
+             0.08,
+             0.07,
+             0.06,
+             0.85
+            ]
+           },
+           "slot_props": {
+            "padding": [
+             0,
+             1,
+             0,
+             1
+            ]
+           },
+           "children": [
+            {
+             "class": "TextBlock",
+             "name": "LookBasinBtnLabel",
+             "properties": {
+              "Text": "Look: Basin (2300 m)",
+              "Font": {
+               "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+               "Size": 14
+              },
+              "ColorAndOpacity": {
+               "SpecifiedColor": [
+                0.8469,
+                0.7835,
+                0.7011,
+                1
+               ]
+              }
+             }
+            }
+           ]
+          },
+          {
+           "class": "Button",
+           "name": "LookClimbBtn",
+           "properties": {
+            "BackgroundColor": [
+             0.08,
+             0.07,
+             0.06,
+             0.85
+            ]
+           },
+           "slot_props": {
+            "padding": [
+             0,
+             1,
+             0,
+             1
+            ]
+           },
+           "children": [
+            {
+             "class": "TextBlock",
+             "name": "LookClimbBtnLabel",
+             "properties": {
+              "Text": "Look: Climb (3800 m)",
+              "Font": {
+               "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+               "Size": 14
+              },
+              "ColorAndOpacity": {
+               "SpecifiedColor": [
+                0.8469,
+                0.7835,
+                0.7011,
+                1
+               ]
+              }
+             }
+            }
+           ]
+          },
+          {
+           "class": "Button",
+           "name": "LookInCloudBtn",
+           "properties": {
+            "BackgroundColor": [
+             0.08,
+             0.07,
+             0.06,
+             0.85
+            ]
+           },
+           "slot_props": {
+            "padding": [
+             0,
+             1,
+             0,
+             1
+            ]
+           },
+           "children": [
+            {
+             "class": "TextBlock",
+             "name": "LookInCloudBtnLabel",
+             "properties": {
+              "Text": "Look: InCloud (4350 m)",
+              "Font": {
+               "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+               "Size": 14
+              },
+              "ColorAndOpacity": {
+               "SpecifiedColor": [
+                0.8469,
+                0.7835,
+                0.7011,
+                1
+               ]
+              }
+             }
+            }
+           ]
+          },
+          {
+           "class": "Button",
+           "name": "LookAboveBtn",
+           "properties": {
+            "BackgroundColor": [
+             0.08,
+             0.07,
+             0.06,
+             0.85
+            ]
+           },
+           "slot_props": {
+            "padding": [
+             0,
+             1,
+             0,
+             1
+            ]
+           },
+           "children": [
+            {
+             "class": "TextBlock",
+             "name": "LookAboveBtnLabel",
+             "properties": {
+              "Text": "Look: Above (4550 m)",
+              "Font": {
+               "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+               "Size": 14
+              },
+              "ColorAndOpacity": {
+               "SpecifiedColor": [
+                0.8469,
+                0.7835,
+                0.7011,
+                1
+               ]
+              }
+             }
+            }
+           ]
+          },
+          {
+           "class": "TextBlock",
+           "name": "StormLabel",
+           "properties": {
+            "Text": "Storm intensity override",
+            "Font": {
+             "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+             "Size": 14
+            },
+            "ColorAndOpacity": {
+             "SpecifiedColor": [
+              0.8469,
+              0.7835,
+              0.7011,
+              1
+             ]
+            }
+           },
+           "slot_props": {
+            "padding": [
+             0,
+             8,
+             0,
+             0
+            ]
+           }
+          },
+          {
+           "class": "Slider",
+           "name": "StormSlider",
+           "properties": {
+            "Value": 0.5
+           }
+          }
+         ]
+        },
+        {
+         "class": "VerticalBox",
+         "name": "LogColumn",
+         "slot_props": {
+          "type": "Fill",
+          "padding": [
+           0,
+           6,
+           0,
+           0
+          ]
+         },
+         "children": [
+          {
+           "class": "TextBlock",
+           "name": "StatusTitle",
+           "properties": {
+            "Text": "Event log",
+            "Font": {
+             "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa.F_ArefRuqaa",
+             "Size": 18
+            },
+            "ColorAndOpacity": {
+             "SpecifiedColor": [
+              0.91,
+              0.62,
+              0.35,
+              1
+             ]
+            }
+           }
+          },
+          {
+           "class": "TextBlock",
+           "name": "StatusText",
+           "properties": {
+            "Text": "(waiting)",
+            "Font": {
+             "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+             "Size": 13
+            },
+            "ColorAndOpacity": {
+             "SpecifiedColor": [
+              0.8469,
+              0.7835,
+              0.7011,
+              1
+             ]
+            }
+           }
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "slots": {
+  "Panel": {
+   "anchors": [
+    0.02,
+    0.04,
+    0.98,
+    0.96
+   ],
+   "position": [
+    0,
+    0
+   ],
+   "size": [
+    0,
+    0
+   ]
+  }
+ },
+ "variables": [
+  "StatusText",
+  "AutoTrigger",
+  "StormSlider",
+  "Beat00",
+  "Beat01",
+  "Beat02",
+  "Beat03",
+  "Beat04",
+  "Beat05",
+  "Beat06",
+  "Beat07",
+  "Beat08",
+  "Beat09",
+  "Beat10",
+  "Beat11",
+  "Beat12",
+  "Beat13",
+  "Beat14",
+  "Beat15",
+  "Beat16",
+  "Beat17",
+  "Beat18",
+  "Beat19",
+  "Beat20",
+  "Beat21",
+  "Beat22",
+  "Beat23",
+  "Beat24",
+  "Beat25",
+  "Beat26",
+  "Beat27",
+  "Beat28",
+  "Cp0",
+  "Cp1",
+  "Cp2",
+  "Cp3",
+  "PrevBtn",
+  "NextBtn",
+  "TriggerBtn",
+  "SkipBtn",
+  "ResetBtn",
+  "Speed1Btn",
+  "Speed3Btn",
+  "Speed10Btn",
+  "GodBtn",
+  "FlyBtn",
+  "StatBtn",
+  "RestartBtn",
+  "StormOffBtn",
+  "LookValleyBtn",
+  "LookBasinBtn",
+  "LookClimbBtn",
+  "LookInCloudBtn",
+  "LookAboveBtn"
+ ]
+}

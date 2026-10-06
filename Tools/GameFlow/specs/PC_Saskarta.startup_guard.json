@@ -1,0 +1,28 @@
+{
+  "asset": "/Game/SaskartaGaea/GameFlow/PC_Saskarta",
+  "description": "Disable the first world render synchronously on initial possession, before the delayed intro callback. Later traveller/respawn possession must not blank gameplay.",
+  "graphs": [{
+    "graph": "EventGraph",
+    "nodes": {
+      "possess": { "event": "ReceivePossess" },
+      "started": { "get": "bIntroStarted" },
+      "firstPossess": { "branch": true },
+      "noWorld": { "call": "SetEnableWorldRendering", "class": "/Script/Engine.GameplayStatics" },
+      "me": { "self": true },
+      "beginIntroTimer": { "timer": true }
+    },
+    "links": [
+      ["possess.then", "firstPossess.execute"],
+      ["started.bIntroStarted", "firstPossess.Condition"],
+      ["firstPossess.else", "noWorld.execute"],
+      ["noWorld.then", "beginIntroTimer.execute"],
+      ["me.self", "beginIntroTimer.Object"]
+    ],
+    "defaults": {
+      "noWorld.bEnable": "false",
+      "beginIntroTimer.FunctionName": "BeginIntro",
+      "beginIntroTimer.Time": "0.05",
+      "beginIntroTimer.bLooping": "false"
+    }
+  }]
+}

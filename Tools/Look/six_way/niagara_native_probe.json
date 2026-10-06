@@ -1,0 +1,21 @@
+{
+  "purpose": "Read-only replacement for protected Python EmitterHandles access. Root executes one request at a time under the existing editor guard.",
+  "schema_source": "Hayba list_tool_categories/get_tool_signature, 2026-10-01; native ObjectGetProperty explicitly includes non-editable reflected properties when names are supplied.",
+  "requests": [
+    {
+      "command": "niagara_system_inspect",
+      "params": {"system_path": "/Niagara/DefaultAssets/Templates/Systems/RadialBurst"}
+    },
+    {
+      "command": "object_get_property",
+      "params": {"path": "/Niagara/DefaultAssets/Templates/Systems/RadialBurst", "names": ["EmitterHandles"]}
+    }
+  ],
+  "continuation": [
+    "Stop on an error or an empty EmitterHandles property; preserve the response. Do not simulate, duplicate, activate or modify.",
+    "The explicit native property read returns Unreal ExportText, not parsed JSON structs. Obtain each VersionedInstance.Emitter or StatelessEmitter subobject path verbatim from that response.",
+    "For an observed regular NiagaraEmitter path, call object_get_property with that exact path and names:[VersionData]. Match its Version.VersionGuid to VersionedInstance.Version. Record SimTarget, bLocalSpace, AllocationMode, PreAllocationCount and RendererProperties.",
+    "For each observed renderer UObject path, call object_get_property with that exact path and names:[Material,MaterialUserParamBinding,SourceMode,Alignment,FacingMode,SubImageSize,bSubImageBlend,bEnableCameraDistanceCulling,bCastShadows]. A material user binding may override Material.",
+    "If ExportText omits required subobjects, report that boundary; do not invent paths or select a template based on its name. Stateless emitters require their separate reflected schema before use."
+  ]
+}

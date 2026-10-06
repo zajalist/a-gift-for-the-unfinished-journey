@@ -1,0 +1,10 @@
+{
+ "approved": ["B01_dock01", "B01_pipe01", "B01_rail01", "B01_bench01", "B01_scale01"],
+ "rejected": {
+  "B01_pump01": "white enamel box with twin gauges and a hose reads as a 20th-century fuel pump in the storm light (capture Saved/Screenshots/SetDress/_Verdict/props.png)",
+  "B01_house01": "intact whitewashed tiled-roof cottage reads Mediterranean and pristine against the ruined bazaar valley (halls.png)",
+  "B01_station01": "intact tiled-roof arcaded hall, same reason (halls.png)",
+  "B01_sign01": "modern pictogram sign (cable car, toilets)"
+ },
+ "judged": "2026-09-28, LANE_SD, in-engine captures at the S01 scratch row + offline previews docs/models/contact_*.png"
+}

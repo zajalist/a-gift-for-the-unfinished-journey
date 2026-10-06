@@ -1,0 +1,1089 @@
+{
+ "generated_by": "Tools/World/story_sets/s26_high_voice_hut.py",
+ "method": "docs/world/SETDRESS_V2.md",
+ "design": "docs/world/story_sets/S26.md",
+ "level": "/Game/level/Saskarta_WP",
+ "conventions": {
+  "xy": "world cm; yaw = UE yaw deg",
+  "bounds": "x_cm/y_cm is the mesh BOUNDS CENTRE",
+  "ground_z_cm": "the predicted bottom (the V10 plinth top or the support under it); the editor settle replaces it",
+  "local": "hut frame metres (hut_frame): x front->back, y right; yaw relative to the hut",
+  "ground": "decal patches: DecalActor pitch -90, yaw, size (depth/2, width/2, length/2)",
+  "contact": "rest (SETDRESS_V2.md section 3; check2 measures a rest prop against the first hit under it: the plinth)",
+  "support": "own = settle only on landscape, this site's actors, or support_labels (s26_high_voice_hut.py editor)"
+ },
+ "story_set": {
+  "id": "S26",
+  "site": "S26_HighVoiceHut",
+  "story": {
+   "beats": [
+    {
+     "id": "B15_HIGH_VOICE_IN_RANGE",
+     "road_m": 4520,
+     "why": "the hut is empty: the Keeper called the relay late at night (\"Is anyone at the relay? ... Do you still keep the old names up there? ... Please answer.\") and only static came back"
+    },
+    {
+     "id": "B18_COLLAPSE",
+     "road_m": 4790,
+     "ue_from_p0_m": 219,
+     "why": "the carrier falls 219 m short; CIN_18 shot 3 frames the crown behind it (far300 view)"
+    },
+    {
+     "id": "B23_LAST_ENTRY",
+     "road_m": 4990,
+     "ue_from_p0_m": 19.5,
+     "world_cm": [
+      298219,
+      481257,
+      11191
+     ],
+     "trigger": "pass:human",
+     "lines": [
+      "RADIO_B23_01 (Keeper, live and unfiltered: the mountain's old name, then \"This belongs to you too, if one day you choose to come back to it.\")"
+     ],
+     "prompt": "Lay your hand on the mark.",
+     "optional_cinematic": "CIN_23_THE_MARK (tag MarkCine, 12 s): 24 mm low wide of the Keeper by the hut tilting up the mast; 100 mm insert on the plate; hand-back",
+     "why": "the prompt is not proximity-gated: most players see the hut from about 20 m and press"
+    },
+    {
+     "id": "B24_TRANSMISSION",
+     "road_m": 4990,
+     "trigger": "prompt:poll_key",
+     "cinematic": "CIN_24_TRANSMISSION (48 s)",
+     "lines": [
+      "CV_TRANSMIT_01 \"Âlaawb. Transmitting.\" (quiet, from the hut speaker, spatial)",
+      "CHORUS_B24 (six archive lines)",
+      "CV_TRANSMIT_02 \"Transmission complete.\""
+     ],
+     "shots": [
+      "S1 0-4 s: over the right shoulder at the hut plate, 50 mm f/2.8, 0.4 m push: the hand on the palm-in-a-ring mark",
+      "S2 4-14 s: TransmitCam at the mast foot looking straight up, 18 mm",
+      "S3 14-24 s: extreme wide from ~1.5 km, 200 mm",
+      "S4 24-32 s: black, TRANSMISSION COMPLETE, hiss",
+      "S5 32-44 s: SeatedCam at the mast foot ~100 cm up, 24 mm, east over the valley, walking aid in the lower frame (12 s held)",
+      "S6 44-48 s: black, silence"
+     ]
+    }
+   ],
+   "audio": "CV_TRANSMIT_01 plays from V10's HutSpeaker hook (above the door); the relay set it speaks for is the covered shape on the desk",
+   "geiger_cps": 8,
+   "look": "Above: clear, calm, gold light; bare wind-scoured rock; the fewest objects on the road",
+   "rules": "kept (decay 0), nothing religious (the High Voice is a radio relay), nothing modern; bazaar stone first; lanterns unlit"
+  },
+  "exists": [
+   "/Game/SaskartaGaea/Story/HighVoice/BP_Saskarta_HighVoice (ending logic: MastBase, StandPoint, SeatPoint, Plate, Crown, Column; SnapKeeperToPlate, StartGlowAndColumn; compiled in commit 017afa0b); NOT placed yet (task ENDING 6c). V10's `hooks` step sets its Plate on the hut jamb",
+   "/Game/SaskartaGaea/Story/BP_Saskarta_BP_HighVoice (the L2 beacon: 4 x Tile_10MPillar 40 m mast, 8 m crown, 400 m beam) placed as actor HighVoice at (298079.6, 483050, 10818.7), not spatially loaded",
+   "The V10 hut exists as data only (Tools/World/story_sets/V10.json, not placed): the plinth (the floor), the walls, the door arch, the roof slab, the shutter, the plate/StandPoint/speaker hooks and the interior_frame S26 is laid out against",
+   "V1 set dressing for S26 (6 props) planned but NOT placed (task-SETDRESS-report.md: \"the V10 hut does not exist\")"
+  ],
+  "missing": [
+   {
+    "asset": "the relay set itself: T2_radio_desk",
+    "stand_in": "AB_Table_Cloth over AB_WoodenTable_B (the covered shape)",
+    "status": "GENERATED, not imported: SourceArt/Tripo/radio_desk (manifest: 128 x 200 x 182 cm at import scale 2.043). Tools/Tripo/IMPORT.md imports it to /Game/SaskartaGaea/Environment/Tripo02/SM_T2_radio_desk. At 2.0 x 1.3 m it does not fit this 2.45 x 2.74 m room as sized: re-import at a 1.2 m width (scale ~1.2) or it needs its own layout pass",
+    "tripo_prompt": null
+   },
+   {
+    "asset": "a small iron stove with a flue pipe through the roof (the kept hut is cold, but a stove says someone lived here)",
+    "stand_in": "none (V10 models no chimney)",
+    "status": "not generated",
+    "tripo_prompt": "small cast-iron pot-belly stove with a riveted flue pipe and a brass door handle, cold, steampunk, 90 cm"
+   },
+   {
+    "asset": "a brass horn loudspeaker for CV_TRANSMIT_01 (V10 lists it too; the HutSpeaker hook is above the door)",
+    "stand_in": "none",
+    "status": "not generated",
+    "tripo_prompt": "weathered brass gramophone-horn loudspeaker on a riveted iron wall bracket, steampunk radio relay, 60 cm"
+   },
+   {
+    "asset": "logbooks, loose papers and a pen on the desk",
+    "stand_in": "the closed record boxes",
+    "status": "not generated",
+    "tripo_prompt": "stack of three leather-bound logbooks with brass corners and a dip pen, worn, 30 cm"
+   },
+   {
+    "asset": "a blanket draped over the chair back (the V1 plan)",
+    "stand_in": "none: the pack cloths are flat sheets the emulated physics cannot drape",
+    "status": "not generated",
+    "tripo_prompt": "coarse wool blanket draped over the back of a low wooden chair, folded, earth tones, 80 cm"
+   },
+   {
+    "asset": "light in the room",
+    "stand_in": "none: V10's valley window is a closed shutter, so the room is lit through the door only",
+    "status": "capture check: if the room reads black, open the V10 shutter (AB_Window_B turned 70 deg) rather than light a lamp",
+    "tripo_prompt": null
+   }
+  ],
+  "assets_used": [
+   "/Game/AshesOfBazaar/Meshes/SM_Chair_A_low",
+   "/Game/AshesOfBazaar/Meshes/SM_Clay_Pot_B",
+   "/Game/AshesOfBazaar/Meshes/SM_Table_Cloth",
+   "/Game/AshesOfBazaar/Meshes/SM_WoodenTable_B",
+   "/Game/MedievalVillage/Meshes/Misc/SM_bench_03",
+   "/Game/MedievalVillage/Meshes/Misc/SM_box_03",
+   "/Game/MedievalVillage/Meshes/Misc/SM_carafe_01",
+   "/Game/Pallbearer/PolyHaven/Lantern_01/Lantern_01_2k/StaticMeshes/Lantern_01",
+   "/Game/Pallbearer/PolyHaven/pot_enamel_01/pot_enamel_01_2k/StaticMeshes/pot_enamel_01_base",
+   "/Game/SaskartaGaea/Environment/Batch01/SM_B01_tank01"
+  ],
+  "ground_materials": [
+   "/Game/SaskartaGaea/Environment/SetDress/Ground/MI_SD_Ground_rubble_dust"
+  ]
+ },
+ "rejected": [
+  {
+   "asset": "/Game/AshesOfBazaar/Meshes/SM_Fireplace",
+   "why": "reads as a crude brick column (S15 V1 capture, orbit_a)"
+  },
+  {
+   "asset": "B01_brick01 as a hearth",
+   "why": "with no chimney in V10 a hearth block reads as a bench or a step (verifier, 2026-09-28); a stove waits for a model"
+  }
+ ],
+ "checks": [],
+ "sites": [
+  {
+   "id": "S26_HighVoiceHut",
+   "name": "The High Voice relay hut (interior)",
+   "kind": "hut interior",
+   "order": 5,
+   "road_m": 5009,
+   "side": "right of the road end (V10 hut, 9 m)",
+   "lateral_m": 9,
+   "centre_cm": [
+    297251.4,
+    483292.9,
+    10920.7
+   ],
+   "road_yaw": 83.66,
+   "radius_m": 6,
+   "zone": "Z6 Summit",
+   "storm": "Above: clear, calm, gold light; bare wind-scoured rock; the fewest objects on the road",
+   "role": "landmark, story set",
+   "story": "B23/B24: the mark, the transmission; the kept, empty relay room",
+   "decay": 0,
+   "style": "AshesOfBazaar / MedievalVillage furniture in V10's bazaar-stone hut; brass, clay, timber, cloth",
+   "layout": "\n                       back wall (+x, downhill)\n   +---------------------------------------------------------+\n   | bench (tea pot)          [DESK: relay set under its     |  boxes x2\n   |  under the shut window    cloth, cold lantern]          |\n   |                         chair (pulled back, turned)     |\n   | oil jar                   dust                  jug JAR |\n   +=========[PLATE outside]====[ arch  door  arch ]=========+  front, turned back up the road\n    valley wall (-y)                                   far wall (+y)\n",
+   "notes": "Interior only: V10 owns the shell, the plinth (the floor and the sill) and every exterior piece. Laid out from V10.json interior_frame on every run; `support: own` items settle on V10's plinth (support_labels). Runs inside V10's editor load (every view is in V10's load box): no load/unload of its own.",
+   "story_owned": [
+    "V10_HighVoice: plinth, walls, door arch, roof, shutter, plate, speaker hook, exterior dressing",
+    "BP_Saskarta_HighVoice (mast, crown, column, Plate / StandPoint / SeatPoint) and the L2 HighVoice beacon"
+   ],
+   "verify_only": false,
+   "layer": "road",
+   "poi": null,
+   "load_box_cm": [
+    294251,
+    479816,
+    301230,
+    486422
+   ],
+   "runs_inside_load_of": "V10_HighVoice",
+   "counts": {
+    "placements": 11,
+    "actors": 11,
+    "ism_instances": 0,
+    "physics": 11,
+    "batch01": 1,
+    "decals": 2
+   },
+   "views": [
+    {
+     "name": "carrier_a",
+     "cam_cm": [
+      297559.5,
+      478731.0,
+      11890.7
+     ],
+     "look_cm": [
+      297221.3,
+      483382.0,
+      10990.7
+     ],
+     "why": "the walk camera 40.0 m from point 0 (approach), looking at the hut door"
+    },
+    {
+     "name": "carrier_b",
+     "cam_cm": [
+      297785.9,
+      480768.5,
+      11451.3
+     ],
+     "look_cm": [
+      297221.3,
+      483382.0,
+      10990.7
+     ],
+     "why": "the walk camera 19.5 m from point 0 (the B23 prompt), looking at the hut door"
+    },
+    {
+     "name": "carrier_c",
+     "cam_cm": [
+      297380.7,
+      482816.2,
+      11106.6
+     ],
+     "look_cm": [
+      297221.3,
+      483382.0,
+      10990.7
+     ],
+     "why": "3 m out from the door, eye height: the read through the doorway"
+    },
+    {
+     "name": "orbit_a",
+     "cam_cm": [
+      297326.5,
+      483242.3,
+      11070.7
+     ],
+     "look_cm": [
+      297221.3,
+      483382.0,
+      10980.7
+     ],
+     "why": "inside, just past the threshold: the desk, the covered set, the chair pulled back"
+    },
+    {
+     "name": "orbit_b",
+     "cam_cm": [
+      297310.3,
+      483421.5,
+      11065.7
+     ],
+     "look_cm": [
+      297174.7,
+      483185.7,
+      10970.7
+     ],
+     "why": "reverse, from the back corner by the bench: across the room to the door, the jar and the jug"
+    },
+    {
+     "name": "orbit_c",
+     "cam_cm": [
+      297427.1,
+      482981.8,
+      11087.7
+     ],
+     "look_cm": [
+      297413.6,
+      483140.8,
+      11052.1
+     ],
+     "why": "CIN24 S1 over-the-shoulder at the plate (V10 story hook; 50 mm in the sequence)"
+    },
+    {
+     "name": "contact",
+     "cam_cm": [
+      297321.0,
+      483274.2,
+      10955.7
+     ],
+     "look_cm": [
+      297216.6,
+      483302.3,
+      10925.7
+     ],
+     "why": "low close-up: the chair and the desk feet on the plinth"
+    },
+    {
+     "name": "high34",
+     "cam_cm": [
+      298043.8,
+      482821.7,
+      11819.7
+     ],
+     "look_cm": [
+      297251.4,
+      483292.9,
+      11020.7
+     ],
+     "why": "3/4 from above: the hut, the door, the mast foot"
+    },
+    {
+     "name": "far300",
+     "cam_cm": [
+      308432.3,
+      465685.9,
+      10619.1
+     ],
+     "look_cm": [
+      297251.4,
+      483292.9,
+      11070.7
+     ],
+     "why": "the collapse point (4,790 m): the hut, 219 m away"
+    },
+    {
+     "name": "seat",
+     "cam_cm": [
+      298229.7,
+      483040.8,
+      10945.2
+     ],
+     "look_cm": [
+      299227.8,
+      482979.8,
+      10875.3
+     ],
+     "why": "CIN24 S5 held shot: nothing of S26 may show (the hut is behind it)"
+    }
+   ],
+   "placements": [
+    {
+     "id": "S26_HighVoiceHut_000",
+     "key": "AB_WoodenTable_B",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_WoodenTable_B",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 297221.3,
+     "y_cm": 483382.0,
+     "ground_z_cm": 10919.7,
+     "yaw": 198.7,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 1,
+      "max_tilt_deg": 3,
+      "rand_tilt_deg": 1,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "relay",
+     "folder": "Set/S26_HighVoiceHut/relay",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      1.19,
+      0.8,
+      0.64
+     ],
+     "contact": "rest",
+     "support": "own",
+     "role": "the operator's desk against the back wall, square in the doorway (the walk sees it through the door)",
+     "local": {
+      "x": 0.94,
+      "y": 0.0,
+      "yaw": 90.0,
+      "on": "floor"
+     },
+     "predicted": {
+      "bottom_cm": 10919.7,
+      "top_cm": 10983.7,
+      "on": "floor"
+     }
+    },
+    {
+     "id": "S26_HighVoiceHut_001",
+     "key": "AB_Table_Cloth",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Table_Cloth",
+     "kind": "SM",
+     "cat": "cloth",
+     "x_cm": 297235.5,
+     "y_cm": 483386.8,
+     "ground_z_cm": 10983.7,
+     "yaw": 195.7,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 0,
+      "max_tilt_deg": 4,
+      "rand_tilt_deg": 2,
+      "z_rule": "max",
+      "drop_cm": 45,
+      "z_offset_cm": 0
+     },
+     "group": "relay",
+     "folder": "Set/S26_HighVoiceHut/relay",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.73,
+      0.73,
+      0.33
+     ],
+     "contact": "rest",
+     "support": "own",
+     "role": "the relay set under its dust cloth on the desk: the covered shape reads as equipment, the brass conduit from the plate outside comes in behind it",
+     "local": {
+      "x": 0.94,
+      "y": -0.15,
+      "yaw": 87.0,
+      "on": "desk"
+     },
+     "predicted": {
+      "bottom_cm": 10983.7,
+      "top_cm": 11016.7,
+      "on": "desk"
+     }
+    },
+    {
+     "id": "S26_HighVoiceHut_002",
+     "key": "PH_lantern",
+     "asset": "/Game/Pallbearer/PolyHaven/Lantern_01/Lantern_01_2k/StaticMeshes/Lantern_01",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 297179.6,
+     "y_cm": 483380.5,
+     "ground_z_cm": 10983.7,
+     "yaw": 138.7,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 0,
+      "max_tilt_deg": 4,
+      "rand_tilt_deg": 2,
+      "z_rule": "max",
+      "drop_cm": 40,
+      "z_offset_cm": 0
+     },
+     "group": "relay",
+     "folder": "Set/S26_HighVoiceHut/relay",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.12,
+      0.1,
+      0.3
+     ],
+     "contact": "rest",
+     "support": "own",
+     "role": "the cold brass lantern at the desk's end (unlit: the zone rule)",
+     "local": {
+      "x": 1.06,
+      "y": 0.4,
+      "yaw": 30.0,
+      "on": "desk"
+     },
+     "predicted": {
+      "bottom_cm": 10983.7,
+      "top_cm": 11013.7,
+      "on": "desk"
+     }
+    },
+    {
+     "id": "S26_HighVoiceHut_003",
+     "key": "AB_Chair_A_low",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Chair_A_low",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 297226.2,
+     "y_cm": 483273.8,
+     "ground_z_cm": 10919.7,
+     "yaw": 313.7,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 1,
+      "max_tilt_deg": 3,
+      "rand_tilt_deg": 1,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "relay",
+     "folder": "Set/S26_HighVoiceHut/relay",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.68,
+      0.64,
+      0.79
+     ],
+     "contact": "rest",
+     "support": "own",
+     "role": "the chair pulled back 30 cm from the desk and turned: someone stood up and did not come back",
+     "local": {
+      "x": -0.1,
+      "y": 0.3,
+      "yaw": 205.0,
+      "on": "floor"
+     },
+     "predicted": {
+      "bottom_cm": 10919.7,
+      "top_cm": 10998.7,
+      "on": "floor"
+     },
+     "facing_verify": "the seat must open toward the desk (hut +x) turned 25 deg; if the orbit_a / contact capture shows its back to the desk, change its \"a\" by 180 in compose() and `editor replace` it"
+    },
+    {
+     "id": "S26_HighVoiceHut_004",
+     "key": "MV_bench_03",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_bench_03",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 297361.4,
+     "y_cm": 483340.6,
+     "ground_z_cm": 10919.7,
+     "yaw": 108.7,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 1,
+      "max_tilt_deg": 3,
+      "rand_tilt_deg": 1,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "relay",
+     "folder": "Set/S26_HighVoiceHut/relay",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      1.6,
+      0.27,
+      0.48
+     ],
+     "contact": "rest",
+     "support": "own",
+     "role": "the bench along the valley wall under the shuttered window, facing the desk: a second person sat here and listened",
+     "local": {
+      "x": 0.1,
+      "y": -1.195,
+      "yaw": 0.0,
+      "on": "floor"
+     },
+     "predicted": {
+      "bottom_cm": 10919.7,
+      "top_cm": 10967.7,
+      "on": "floor"
+     }
+    },
+    {
+     "id": "S26_HighVoiceHut_005",
+     "key": "PH_pot",
+     "asset": "/Game/Pallbearer/PolyHaven/pot_enamel_01/pot_enamel_01_2k/StaticMeshes/pot_enamel_01_base",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 297342.9,
+     "y_cm": 483395.6,
+     "ground_z_cm": 10967.7,
+     "yaw": 108.7,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 0,
+      "max_tilt_deg": 4,
+      "rand_tilt_deg": 2,
+      "z_rule": "max",
+      "drop_cm": 25,
+      "z_offset_cm": 0
+     },
+     "group": "relay",
+     "folder": "Set/S26_HighVoiceHut/relay",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.27,
+      0.2,
+      0.14
+     ],
+     "contact": "rest",
+     "support": "own",
+     "role": "the enamel tea pot left on the bench end (\"we'll have tea while we wait\")",
+     "local": {
+      "x": 0.68,
+      "y": -1.195,
+      "yaw": 0.0,
+      "on": "bench"
+     },
+     "predicted": {
+      "bottom_cm": 10967.7,
+      "top_cm": 10981.7,
+      "on": "bench"
+     }
+    },
+    {
+     "id": "S26_HighVoiceHut_006",
+     "key": "AB_Clay_Pot_B",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Clay_Pot_B",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 297392.0,
+     "y_cm": 483247.0,
+     "ground_z_cm": 10919.7,
+     "yaw": 108.7,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 1,
+      "max_tilt_deg": 3,
+      "rand_tilt_deg": 1,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stores",
+     "folder": "Set/S26_HighVoiceHut/stores",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.29,
+      0.29,
+      0.45
+     ],
+     "contact": "rest",
+     "support": "own",
+     "role": "the lamp-oil jar in the front corner, behind the plate (the biofuel the lantern burned)",
+     "local": {
+      "x": -0.885,
+      "y": -1.185,
+      "yaw": 0.0,
+      "on": "floor"
+     },
+     "predicted": {
+      "bottom_cm": 10919.7,
+      "top_cm": 10964.7,
+      "on": "floor"
+     }
+    },
+    {
+     "id": "S26_HighVoiceHut_007",
+     "key": "B01_tank01",
+     "asset": "/Game/SaskartaGaea/Environment/Batch01/SM_B01_tank01",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 297175.7,
+     "y_cm": 483186.7,
+     "ground_z_cm": 10919.7,
+     "yaw": 288.7,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.62,
+     "scale_range": [
+      0.62,
+      0.62
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 1,
+      "max_tilt_deg": 3,
+      "rand_tilt_deg": 1,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stores",
+     "folder": "Set/S26_HighVoiceHut/stores",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.533,
+      0.546,
+      0.769
+     ],
+     "contact": "rest",
+     "support": "own",
+     "role": "the water jar in the corner by the door (wood-hooped clay)",
+     "local": {
+      "x": -0.764,
+      "y": 1.057,
+      "yaw": 180.0,
+      "on": "floor"
+     },
+     "predicted": {
+      "bottom_cm": 10919.7,
+      "top_cm": 10996.6,
+      "on": "floor"
+     },
+     "requires_import": false,
+     "verdict": "use",
+     "imported": true
+    },
+    {
+     "id": "S26_HighVoiceHut_008",
+     "key": "MV_carafe_01",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_carafe_01",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 297148.8,
+     "y_cm": 483224.8,
+     "ground_z_cm": 10919.7,
+     "yaw": 108.7,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.5,
+     "scale_range": [
+      0.5,
+      0.5
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 1,
+      "max_tilt_deg": 3,
+      "rand_tilt_deg": 1,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stores",
+     "folder": "Set/S26_HighVoiceHut/stores",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.24,
+      0.24,
+      0.29
+     ],
+     "contact": "rest",
+     "support": "own",
+     "role": "the jug for drawing water",
+     "local": {
+      "x": -0.317,
+      "y": 1.19,
+      "yaw": 0.0,
+      "on": "floor"
+     },
+     "predicted": {
+      "bottom_cm": 10919.7,
+      "top_cm": 10948.7,
+      "on": "floor"
+     }
+    },
+    {
+     "id": "S26_HighVoiceHut_009",
+     "key": "MV_box_03",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_box_03",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 297115.0,
+     "y_cm": 483360.8,
+     "ground_z_cm": 10919.7,
+     "yaw": 108.7,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 1,
+      "max_tilt_deg": 3,
+      "rand_tilt_deg": 1,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stores",
+     "folder": "Set/S26_HighVoiceHut/stores",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.52,
+      0.51,
+      0.39
+     ],
+     "contact": "rest",
+     "support": "own",
+     "role": "record box (the relay logbooks)",
+     "local": {
+      "x": 1.08,
+      "y": 1.075,
+      "yaw": 0.0,
+      "on": "floor"
+     },
+     "predicted": {
+      "bottom_cm": 10919.7,
+      "top_cm": 10958.7,
+      "on": "floor"
+     }
+    },
+    {
+     "id": "S26_HighVoiceHut_010",
+     "key": "MV_box_03",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_box_03",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 297116.3,
+     "y_cm": 483360.2,
+     "ground_z_cm": 10958.7,
+     "yaw": 99.7,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.8,
+     "scale_range": [
+      0.8,
+      0.8
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 0,
+      "max_tilt_deg": 4,
+      "rand_tilt_deg": 2,
+      "z_rule": "max",
+      "drop_cm": 45,
+      "z_offset_cm": 0
+     },
+     "group": "stores",
+     "folder": "Set/S26_HighVoiceHut/stores",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.416,
+      0.408,
+      0.312
+     ],
+     "contact": "rest",
+     "support": "own",
+     "role": "the second record box, on the first",
+     "local": {
+      "x": 1.07,
+      "y": 1.065,
+      "yaw": -9.0,
+      "on": "box"
+     },
+     "predicted": {
+      "bottom_cm": 10958.7,
+      "top_cm": 10989.9,
+      "on": "box"
+     }
+    }
+   ],
+   "ground": [
+    {
+     "id": "S26_HighVoiceHut_g000",
+     "surface": "rubble_dust",
+     "shape": "ellipse",
+     "x_cm": 297272.8,
+     "y_cm": 483229.4,
+     "z_cm": 10920.7,
+     "yaw": 108.7,
+     "length_m": 0.9,
+     "width_m": 0.85,
+     "depth_m": 0.1,
+     "strength": 0.55,
+     "sort": 2,
+     "where": "grit blown in over the threshold",
+     "local": {
+      "x": -0.67,
+      "y": 0.0
+     }
+    },
+    {
+     "id": "S26_HighVoiceHut_g001",
+     "surface": "rubble_dust",
+     "shape": "ellipse",
+     "x_cm": 297284.9,
+     "y_cm": 483303.2,
+     "z_cm": 10920.7,
+     "yaw": 108.7,
+     "length_m": 0.9,
+     "width_m": 0.7,
+     "depth_m": 0.1,
+     "strength": 0.3,
+     "sort": 2,
+     "where": "dust worn in the floor between the door and the desk",
+     "local": {
+      "x": -0.01,
+      "y": -0.35
+     }
+    }
+   ],
+   "units": [],
+   "waivers": [],
+   "support_labels": [
+    "SD_V10_HighVoice_020"
+   ],
+   "ism_candidates": [],
+   "hut_frame": {
+    "source": "Tools/World/story_sets/V10.json interior_frame",
+    "origin_cm": [
+     297251.4,
+     483292.9
+    ],
+    "yaw": 108.66,
+    "x_axis": "front (door) wall -> back wall",
+    "y_axis": "right of x: - = valley wall, + = far wall",
+    "inner_m": {
+     "front": -1.07,
+     "back": 1.38,
+     "side": 1.37
+    },
+    "door": {
+     "w": 1.1,
+     "h": 2.05,
+     "measured": false
+    },
+    "floor": {
+     "label": "SD_V10_HighVoice_020",
+     "top_cm_predicted": 10920.7
+    },
+    "roof_bottom_cm_predicted": 11246.7,
+    "derived": {
+     "desk_x": 0.94,
+     "bench_y": -1.195,
+     "plate_y": -1.05
+    }
+   },
+   "doorway_read": {
+    "b23": {
+     "AB_WoodenTable_B_000": 0.67,
+     "AB_Table_Cloth_001": 0.89,
+     "PH_lantern_002": 0.0,
+     "AB_Chair_A_low_003": 0.56,
+     "MV_bench_03_004": 0.0,
+     "PH_pot_005": 0.0,
+     "AB_Clay_Pot_B_006": 0.0,
+     "B01_tank01_007": 0.0,
+     "MV_carafe_01_008": 0.0,
+     "MV_box_03_009": 0.0,
+     "MV_box_03_010": 0.0
+    },
+    "approach": {
+     "AB_WoodenTable_B_000": 0.33,
+     "AB_Table_Cloth_001": 0.33,
+     "PH_lantern_002": 0.0,
+     "AB_Chair_A_low_003": 0.11,
+     "MV_bench_03_004": 0.11,
+     "PH_pot_005": 0.0,
+     "AB_Clay_Pot_B_006": 0.0,
+     "B01_tank01_007": 0.0,
+     "MV_carafe_01_008": 0.0,
+     "MV_box_03_009": 0.0,
+     "MV_box_03_010": 0.0
+    },
+    "door3": {
+     "AB_WoodenTable_B_000": 1.0,
+     "AB_Table_Cloth_001": 1.0,
+     "PH_lantern_002": 1.0,
+     "AB_Chair_A_low_003": 0.78,
+     "MV_bench_03_004": 0.0,
+     "PH_pot_005": 0.0,
+     "AB_Clay_Pot_B_006": 0.0,
+     "B01_tank01_007": 0.0,
+     "MV_carafe_01_008": 0.0,
+     "MV_box_03_009": 0.0,
+     "MV_box_03_010": 0.0
+    }
+   },
+   "v2": {
+    "method": "docs/world/SETDRESS_V2.md",
+    "checks_ok": 101,
+    "checks_failed": []
+   }
+  }
+ ]
+}

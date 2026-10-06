@@ -1,0 +1,815 @@
+{
+  "generated_by": "Tools/Foliage/plan_far_mountain_trees.py",
+  "seed": 20260929,
+  "source_heightmap": "Saved/TerrainRebuild/Current_u16.png",
+  "source_masks": [
+    "Saved/Masks/T_Saskarta_Ecology.png",
+    "Saved/Masks/T_Saskarta_RoadInfluence.png"
+  ],
+  "mesh_paths": [
+    "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_01",
+    "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_02"
+  ],
+  "limits": {
+    "max_clusters": 10,
+    "max_per_cluster": 12,
+    "max_total": 120,
+    "road_distance_m": [
+      500.0,
+      2100.0
+    ],
+    "slope_deg": [
+      3.0,
+      24.0
+    ]
+  },
+  "instance_count": 72,
+  "clusters": [
+    {
+      "id": "FM01",
+      "road_marker_m": 450,
+      "centre_cm": [
+        604753.1,
+        523973.2
+      ],
+      "centre_height_m": -217.4,
+      "points": [
+        {
+          "x_cm": 601515.7,
+          "y_cm": 527599.7,
+          "z_cm": -20118.4,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_01",
+          "yaw": 294.3,
+          "scale": 0.777,
+          "slope_deg": 19.8,
+          "road_distance_m": 658.0
+        },
+        {
+          "x_cm": 599915.4,
+          "y_cm": 521192.8,
+          "z_cm": -22417.7,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_02",
+          "yaw": 152.2,
+          "scale": 0.765,
+          "slope_deg": 19.7,
+          "road_distance_m": 600.0
+        },
+        {
+          "x_cm": 594785.4,
+          "y_cm": 523941.7,
+          "z_cm": -21307.2,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_01",
+          "yaw": 242.1,
+          "scale": 0.881,
+          "slope_deg": 4.6,
+          "road_distance_m": 642.0
+        },
+        {
+          "x_cm": 600807.5,
+          "y_cm": 525710.3,
+          "z_cm": -20773.6,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_02",
+          "yaw": 67.5,
+          "scale": 0.809,
+          "slope_deg": 19.6,
+          "road_distance_m": 641.3
+        },
+        {
+          "x_cm": 603807.2,
+          "y_cm": 523957.1,
+          "z_cm": -21614.5,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_01",
+          "yaw": 195.8,
+          "scale": 0.859,
+          "slope_deg": 23.8,
+          "road_distance_m": 617.4
+        },
+        {
+          "x_cm": 607263.0,
+          "y_cm": 532210.1,
+          "z_cm": -18740.5,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_02",
+          "yaw": 158.3,
+          "scale": 0.817,
+          "slope_deg": 17.7,
+          "road_distance_m": 692.9
+        },
+        {
+          "x_cm": 599730.3,
+          "y_cm": 523273.1,
+          "z_cm": -21657.8,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_01",
+          "yaw": 285.7,
+          "scale": 0.711,
+          "slope_deg": 21.4,
+          "road_distance_m": 620.5
+        },
+        {
+          "x_cm": 602362.7,
+          "y_cm": 530752.9,
+          "z_cm": -19205.6,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_02",
+          "yaw": 290.8,
+          "scale": 0.838,
+          "slope_deg": 21.9,
+          "road_distance_m": 686.9
+        },
+        {
+          "x_cm": 595596.8,
+          "y_cm": 520150.7,
+          "z_cm": -22694.0,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_01",
+          "yaw": 154.0,
+          "scale": 0.686,
+          "slope_deg": 22.0,
+          "road_distance_m": 603.6
+        },
+        {
+          "x_cm": 603868.8,
+          "y_cm": 532697.4,
+          "z_cm": -18521.2,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_02",
+          "yaw": 337.2,
+          "scale": 0.681,
+          "slope_deg": 16.3,
+          "road_distance_m": 703.1
+        },
+        {
+          "x_cm": 601959.6,
+          "y_cm": 519723.2,
+          "z_cm": -23055.7,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_01",
+          "yaw": 91.1,
+          "scale": 0.732,
+          "slope_deg": 22.7,
+          "road_distance_m": 580.4
+        },
+        {
+          "x_cm": 607658.6,
+          "y_cm": 524497.0,
+          "z_cm": -22011.1,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_02",
+          "yaw": 87.9,
+          "scale": 0.732,
+          "slope_deg": 20.8,
+          "road_distance_m": 616.0
+        }
+      ]
+    },
+    {
+      "id": "FM02",
+      "road_marker_m": 850,
+      "centre_cm": [
+        581325.5,
+        550802.6
+      ],
+      "centre_height_m": -159.3,
+      "points": [
+        {
+          "x_cm": 589401.4,
+          "y_cm": 554330.7,
+          "z_cm": -14136.3,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_01",
+          "yaw": 125.1,
+          "scale": 0.77,
+          "slope_deg": 16.2,
+          "road_distance_m": 947.6
+        },
+        {
+          "x_cm": 579781.5,
+          "y_cm": 557112.5,
+          "z_cm": -16727.8,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_02",
+          "yaw": 89.6,
+          "scale": 0.838,
+          "slope_deg": 4.2,
+          "road_distance_m": 1005.4
+        },
+        {
+          "x_cm": 591001.9,
+          "y_cm": 551979.2,
+          "z_cm": -14215.2,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_01",
+          "yaw": 148.7,
+          "scale": 0.74,
+          "slope_deg": 17.7,
+          "road_distance_m": 920.5
+        },
+        {
+          "x_cm": 577412.9,
+          "y_cm": 548261.5,
+          "z_cm": -16186.0,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_02",
+          "yaw": 63.6,
+          "scale": 0.711,
+          "slope_deg": 14.9,
+          "road_distance_m": 933.3
+        },
+        {
+          "x_cm": 583410.7,
+          "y_cm": 547161.1,
+          "z_cm": -16001.6,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_01",
+          "yaw": 115.2,
+          "scale": 0.795,
+          "slope_deg": 13.7,
+          "road_distance_m": 899.5
+        },
+        {
+          "x_cm": 584542.2,
+          "y_cm": 558723.4,
+          "z_cm": -15978.8,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_02",
+          "yaw": 13.5,
+          "scale": 0.667,
+          "slope_deg": 21.5,
+          "road_distance_m": 1004.2
+        },
+        {
+          "x_cm": 586701.6,
+          "y_cm": 557007.1,
+          "z_cm": -14985.0,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_01",
+          "yaw": 38.0,
+          "scale": 0.849,
+          "slope_deg": 22.2,
+          "road_distance_m": 981.2
+        },
+        {
+          "x_cm": 582877.7,
+          "y_cm": 557577.3,
+          "z_cm": -16427.1,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_02",
+          "yaw": 55.7,
+          "scale": 0.676,
+          "slope_deg": 11.1,
+          "road_distance_m": 998.8
+        },
+        {
+          "x_cm": 573817.5,
+          "y_cm": 551326.1,
+          "z_cm": -17166.3,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_01",
+          "yaw": 12.7,
+          "scale": 0.86,
+          "slope_deg": 8.5,
+          "road_distance_m": 976.4
+        },
+        {
+          "x_cm": 586221.3,
+          "y_cm": 548943.8,
+          "z_cm": -15491.2,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_02",
+          "yaw": 28.1,
+          "scale": 0.828,
+          "slope_deg": 13.8,
+          "road_distance_m": 906.3
+        },
+        {
+          "x_cm": 587658.6,
+          "y_cm": 544864.8,
+          "z_cm": -16352.4,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_01",
+          "yaw": 352.9,
+          "scale": 0.894,
+          "slope_deg": 18.2,
+          "road_distance_m": 863.0
+        },
+        {
+          "x_cm": 579333.1,
+          "y_cm": 545831.8,
+          "z_cm": -15967.4,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_02",
+          "yaw": 92.9,
+          "scale": 0.829,
+          "slope_deg": 11.4,
+          "road_distance_m": 903.2
+        }
+      ]
+    },
+    {
+      "id": "FM03",
+      "road_marker_m": 1150,
+      "centre_cm": [
+        618969.1,
+        320020.6
+      ],
+      "centre_height_m": -236.1,
+      "points": [
+        {
+          "x_cm": 628596.1,
+          "y_cm": 320879.7,
+          "z_cm": -24267.6,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_01",
+          "yaw": 154.8,
+          "scale": 0.654,
+          "slope_deg": 21.2,
+          "road_distance_m": 981.0
+        },
+        {
+          "x_cm": 622927.7,
+          "y_cm": 313464.2,
+          "z_cm": -21783.1,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_02",
+          "yaw": 127.3,
+          "scale": 0.722,
+          "slope_deg": 19.3,
+          "road_distance_m": 968.2
+        },
+        {
+          "x_cm": 625403.1,
+          "y_cm": 320088.6,
+          "z_cm": -22893.4,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_01",
+          "yaw": 178.7,
+          "scale": 0.864,
+          "slope_deg": 14.2,
+          "road_distance_m": 956.7
+        },
+        {
+          "x_cm": 617497.2,
+          "y_cm": 325349.0,
+          "z_cm": -25312.6,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_02",
+          "yaw": 165.3,
+          "scale": 0.868,
+          "slope_deg": 23.2,
+          "road_distance_m": 862.1
+        },
+        {
+          "x_cm": 609912.4,
+          "y_cm": 321257.5,
+          "z_cm": -27664.0,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_01",
+          "yaw": 164.5,
+          "scale": 0.743,
+          "slope_deg": 22.8,
+          "road_distance_m": 816.7
+        },
+        {
+          "x_cm": 617039.9,
+          "y_cm": 321512.6,
+          "z_cm": -24077.2,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_02",
+          "yaw": 231.4,
+          "scale": 0.788,
+          "slope_deg": 23.3,
+          "road_distance_m": 877.3
+        },
+        {
+          "x_cm": 622606.6,
+          "y_cm": 310988.1,
+          "z_cm": -20945.2,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_01",
+          "yaw": 77.1,
+          "scale": 0.799,
+          "slope_deg": 18.2,
+          "road_distance_m": 977.3
+        },
+        {
+          "x_cm": 611555.5,
+          "y_cm": 314394.2,
+          "z_cm": -26270.7,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_02",
+          "yaw": 50.9,
+          "scale": 0.834,
+          "slope_deg": 23.5,
+          "road_distance_m": 864.7
+        },
+        {
+          "x_cm": 615081.4,
+          "y_cm": 326842.7,
+          "z_cm": -26791.9,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_01",
+          "yaw": 338.2,
+          "scale": 0.828,
+          "slope_deg": 23.3,
+          "road_distance_m": 833.7
+        },
+        {
+          "x_cm": 611422.9,
+          "y_cm": 317859.8,
+          "z_cm": -26663.2,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_02",
+          "yaw": 186.3,
+          "scale": 0.774,
+          "slope_deg": 22.5,
+          "road_distance_m": 846.1
+        },
+        {
+          "x_cm": 615711.8,
+          "y_cm": 317508.2,
+          "z_cm": -24487.1,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_01",
+          "yaw": 298.9,
+          "scale": 0.865,
+          "slope_deg": 19.8,
+          "road_distance_m": 885.5
+        },
+        {
+          "x_cm": 611216.7,
+          "y_cm": 323333.9,
+          "z_cm": -27526.7,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_02",
+          "yaw": 353.2,
+          "scale": 0.746,
+          "slope_deg": 21.3,
+          "road_distance_m": 818.1
+        }
+      ]
+    },
+    {
+      "id": "FM04",
+      "road_marker_m": 1500,
+      "centre_cm": [
+        501833.8,
+        517543.9
+      ],
+      "centre_height_m": -284.9,
+      "points": [
+        {
+          "x_cm": 505870.4,
+          "y_cm": 522488.4,
+          "z_cm": -27604.9,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_01",
+          "yaw": 155.0,
+          "scale": 0.838,
+          "slope_deg": 5.8,
+          "road_distance_m": 1190.9
+        },
+        {
+          "x_cm": 498644.9,
+          "y_cm": 509329.4,
+          "z_cm": -30700.8,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_02",
+          "yaw": 288.1,
+          "scale": 0.863,
+          "slope_deg": 10.6,
+          "road_distance_m": 1129.4
+        },
+        {
+          "x_cm": 509165.9,
+          "y_cm": 523251.2,
+          "z_cm": -27388.3,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_01",
+          "yaw": 276.4,
+          "scale": 0.881,
+          "slope_deg": 5.0,
+          "road_distance_m": 1179.1
+        },
+        {
+          "x_cm": 504690.4,
+          "y_cm": 517107.8,
+          "z_cm": -28693.7,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_02",
+          "yaw": 336.9,
+          "scale": 0.815,
+          "slope_deg": 22.3,
+          "road_distance_m": 1153.4
+        },
+        {
+          "x_cm": 502096.6,
+          "y_cm": 518132.4,
+          "z_cm": -28339.1,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_01",
+          "yaw": 283.1,
+          "scale": 0.795,
+          "slope_deg": 15.5,
+          "road_distance_m": 1176.9
+        },
+        {
+          "x_cm": 496121.2,
+          "y_cm": 511870.2,
+          "z_cm": -29854.2,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_02",
+          "yaw": 82.8,
+          "scale": 0.82,
+          "slope_deg": 10.4,
+          "road_distance_m": 1165.1
+        },
+        {
+          "x_cm": 510221.2,
+          "y_cm": 513055.5,
+          "z_cm": -30988.0,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_01",
+          "yaw": 63.8,
+          "scale": 0.707,
+          "slope_deg": 12.3,
+          "road_distance_m": 1088.4
+        },
+        {
+          "x_cm": 503144.7,
+          "y_cm": 527399.4,
+          "z_cm": -28719.2,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_02",
+          "yaw": 62.4,
+          "scale": 0.728,
+          "slope_deg": 4.1,
+          "road_distance_m": 1246.8
+        },
+        {
+          "x_cm": 510431.9,
+          "y_cm": 518510.2,
+          "z_cm": -28809.6,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_01",
+          "yaw": 175.6,
+          "scale": 0.737,
+          "slope_deg": 19.8,
+          "road_distance_m": 1132.4
+        },
+        {
+          "x_cm": 503695.9,
+          "y_cm": 511159.9,
+          "z_cm": -30466.4,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_02",
+          "yaw": 199.7,
+          "scale": 0.737,
+          "slope_deg": 20.8,
+          "road_distance_m": 1111.7
+        },
+        {
+          "x_cm": 492490.8,
+          "y_cm": 515251.1,
+          "z_cm": -31222.7,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_01",
+          "yaw": 60.5,
+          "scale": 0.748,
+          "slope_deg": 23.5,
+          "road_distance_m": 1214.4
+        },
+        {
+          "x_cm": 497819.1,
+          "y_cm": 514143.3,
+          "z_cm": -29677.1,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_02",
+          "yaw": 184.2,
+          "scale": 0.761,
+          "slope_deg": 10.4,
+          "road_distance_m": 1171.6
+        }
+      ]
+    },
+    {
+      "id": "FM05",
+      "road_marker_m": 2600,
+      "centre_cm": [
+        302600.4,
+        286957.1
+      ],
+      "centre_height_m": -364.8,
+      "points": [
+        {
+          "x_cm": 299874.9,
+          "y_cm": 279087.8,
+          "z_cm": -37108.3,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_01",
+          "yaw": 300.1,
+          "scale": 0.804,
+          "slope_deg": 5.9,
+          "road_distance_m": 1194.7
+        },
+        {
+          "x_cm": 304262.0,
+          "y_cm": 290858.3,
+          "z_cm": -36703.6,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_02",
+          "yaw": 94.6,
+          "scale": 0.847,
+          "slope_deg": 8.2,
+          "road_distance_m": 1071.5
+        },
+        {
+          "x_cm": 306156.4,
+          "y_cm": 279003.5,
+          "z_cm": -37236.7,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_01",
+          "yaw": 259.1,
+          "scale": 0.728,
+          "slope_deg": 9.0,
+          "road_distance_m": 1159.8
+        },
+        {
+          "x_cm": 307530.7,
+          "y_cm": 295208.0,
+          "z_cm": -37522.3,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_02",
+          "yaw": 94.9,
+          "scale": 0.722,
+          "slope_deg": 10.2,
+          "road_distance_m": 1017.6
+        },
+        {
+          "x_cm": 306804.2,
+          "y_cm": 283335.3,
+          "z_cm": -36634.2,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_01",
+          "yaw": 164.7,
+          "scale": 0.82,
+          "slope_deg": 7.8,
+          "road_distance_m": 1120.2
+        },
+        {
+          "x_cm": 307586.6,
+          "y_cm": 292458.3,
+          "z_cm": -37021.6,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_02",
+          "yaw": 1.7,
+          "scale": 0.702,
+          "slope_deg": 10.3,
+          "road_distance_m": 1041.3
+        },
+        {
+          "x_cm": 302148.7,
+          "y_cm": 280904.7,
+          "z_cm": -36839.2,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_01",
+          "yaw": 265.4,
+          "scale": 0.892,
+          "slope_deg": 11.0,
+          "road_distance_m": 1166.7
+        },
+        {
+          "x_cm": 307110.4,
+          "y_cm": 290065.6,
+          "z_cm": -36712.9,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_02",
+          "yaw": 288.9,
+          "scale": 0.839,
+          "slope_deg": 7.1,
+          "road_distance_m": 1063.4
+        },
+        {
+          "x_cm": 310888.5,
+          "y_cm": 283477.8,
+          "z_cm": -37217.6,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_01",
+          "yaw": 183.5,
+          "scale": 0.766,
+          "slope_deg": 11.2,
+          "road_distance_m": 1096.5
+        },
+        {
+          "x_cm": 300280.8,
+          "y_cm": 282844.6,
+          "z_cm": -36623.4,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_02",
+          "yaw": 353.0,
+          "scale": 0.795,
+          "slope_deg": 7.0,
+          "road_distance_m": 1160.9
+        },
+        {
+          "x_cm": 311367.7,
+          "y_cm": 291452.8,
+          "z_cm": -37319.7,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_01",
+          "yaw": 187.6,
+          "scale": 0.663,
+          "slope_deg": 10.9,
+          "road_distance_m": 1027.4
+        },
+        {
+          "x_cm": 299041.0,
+          "y_cm": 294028.6,
+          "z_cm": -36941.6,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_02",
+          "yaw": 315.6,
+          "scale": 0.766,
+          "slope_deg": 7.1,
+          "road_distance_m": 1071.6
+        }
+      ]
+    },
+    {
+      "id": "FM06",
+      "road_marker_m": 3000,
+      "centre_cm": [
+        467022.1,
+        253905.1
+      ],
+      "centre_height_m": -331.6,
+      "points": [
+        {
+          "x_cm": 469412.9,
+          "y_cm": 252403.5,
+          "z_cm": -32764.4,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_01",
+          "yaw": 87.4,
+          "scale": 0.847,
+          "slope_deg": 8.1,
+          "road_distance_m": 683.7
+        },
+        {
+          "x_cm": 464146.4,
+          "y_cm": 254005.3,
+          "z_cm": -33575.7,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_02",
+          "yaw": 76.8,
+          "scale": 0.778,
+          "slope_deg": 11.0,
+          "road_distance_m": 673.8
+        },
+        {
+          "x_cm": 459995.2,
+          "y_cm": 253817.6,
+          "z_cm": -34017.2,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_01",
+          "yaw": 121.5,
+          "scale": 0.681,
+          "slope_deg": 8.4,
+          "road_distance_m": 682.7
+        },
+        {
+          "x_cm": 459938.2,
+          "y_cm": 248914.5,
+          "z_cm": -33908.7,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_02",
+          "yaw": 194.8,
+          "scale": 0.65,
+          "slope_deg": 6.7,
+          "road_distance_m": 731.0
+        },
+        {
+          "x_cm": 463422.8,
+          "y_cm": 257242.1,
+          "z_cm": -33537.3,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_01",
+          "yaw": 52.8,
+          "scale": 0.741,
+          "slope_deg": 5.7,
+          "road_distance_m": 642.9
+        },
+        {
+          "x_cm": 464314.0,
+          "y_cm": 260786.7,
+          "z_cm": -33440.6,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_02",
+          "yaw": 71.9,
+          "scale": 0.681,
+          "slope_deg": 8.6,
+          "road_distance_m": 606.5
+        },
+        {
+          "x_cm": 475023.9,
+          "y_cm": 250618.7,
+          "z_cm": -32068.2,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_01",
+          "yaw": 331.7,
+          "scale": 0.655,
+          "slope_deg": 14.7,
+          "road_distance_m": 699.3
+        },
+        {
+          "x_cm": 462884.7,
+          "y_cm": 248018.6,
+          "z_cm": -33655.7,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_02",
+          "yaw": 127.4,
+          "scale": 0.726,
+          "slope_deg": 6.2,
+          "road_distance_m": 734.8
+        },
+        {
+          "x_cm": 476421.2,
+          "y_cm": 253408.9,
+          "z_cm": -31308.0,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_01",
+          "yaw": 80.8,
+          "scale": 0.746,
+          "slope_deg": 13.6,
+          "road_distance_m": 671.4
+        },
+        {
+          "x_cm": 468195.4,
+          "y_cm": 259202.4,
+          "z_cm": -32789.4,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_02",
+          "yaw": 75.8,
+          "scale": 0.846,
+          "slope_deg": 16.6,
+          "road_distance_m": 617.2
+        },
+        {
+          "x_cm": 460995.5,
+          "y_cm": 260854.2,
+          "z_cm": -34091.4,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_01",
+          "yaw": 51.9,
+          "scale": 0.722,
+          "slope_deg": 7.5,
+          "road_distance_m": 611.6
+        },
+        {
+          "x_cm": 473596.3,
+          "y_cm": 258688.6,
+          "z_cm": -31703.8,
+          "mesh": "/Game/MedievalVillage/Demo/StaticMesh/Trees/Pine/SM_PineTree_02",
+          "yaw": 66.6,
+          "scale": 0.815,
+          "slope_deg": 19.0,
+          "road_distance_m": 618.8
+        }
+      ]
+    }
+  ]
+}

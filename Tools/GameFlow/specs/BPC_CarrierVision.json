@@ -1,0 +1,3851 @@
+{
+ "asset": "/Game/SaskartaGaea/GameFlow/BPC_CarrierVision",
+ "description": "Presentation component on PC_Saskarta: vision post-process MID, the three screens, SFX and every sequence timing, including the retro boot terminal text. Design notes: Tools/GameFlow/specs/README_CarrierVision.md and Tools/GameFlow/RETRO_BOOT.md.",
+ "create": {
+  "parent": "/Script/Engine.ActorComponent"
+ },
+ "variables": [
+  {
+   "name": "RampTime",
+   "type": "float",
+   "default": "0.8"
+  },
+  {
+   "name": "OffTime",
+   "type": "float",
+   "default": "0.3"
+  },
+  {
+   "name": "BootBlack",
+   "type": "float",
+   "default": "0.3"
+  },
+  {
+   "name": "OnTime",
+   "type": "float",
+   "default": "0.3"
+  },
+  {
+   "name": "Residual",
+   "type": "float",
+   "default": "1.0"
+  },
+  {
+   "name": "FadeToBlackTime",
+   "type": "float",
+   "default": "0.6"
+  },
+  {
+   "name": "FirstLineDelay",
+   "type": "float",
+   "default": "1.25"
+  },
+  {
+   "name": "RebootFirstLineDelay",
+   "type": "float",
+   "default": "0.3"
+  },
+  {
+   "name": "CharsPerSecond",
+   "type": "float",
+   "default": "40.0"
+  },
+  {
+   "name": "StatusDelay",
+   "type": "float",
+   "default": "0.14"
+  },
+  {
+   "name": "StallBudget",
+   "type": "float",
+   "default": "0.12"
+  },
+  {
+   "name": "LineGap",
+   "type": "float",
+   "default": "0.08"
+  },
+  {
+   "name": "FinalHold",
+   "type": "float",
+   "default": "1.5"
+  },
+  {
+   "name": "MemDelay",
+   "type": "float",
+   "default": "0.2"
+  },
+  {
+   "name": "MemCountTime",
+   "type": "float",
+   "default": "0.7"
+  },
+  {
+   "name": "HumFadeTime",
+   "type": "float",
+   "default": "0.4"
+  },
+  {
+   "name": "SubtitleFadeTime",
+   "type": "float",
+   "default": "0.25"
+  },
+  {
+   "name": "TitleFadeInTime",
+   "type": "float",
+   "default": "1.2"
+  },
+  {
+   "name": "OpticsTint",
+   "type": "struct:/Script/CoreUObject.LinearColor",
+   "default": "(R=0.78,G=0.93,B=1.0,A=1.0)"
+  },
+  {
+   "name": "VisionMID",
+   "type": "object:/Script/Engine.MaterialInstanceDynamic"
+  },
+  {
+   "name": "VisionVolume",
+   "type": "object:/Script/Engine.PostProcessVolume"
+  },
+  {
+   "name": "TitleWidget",
+   "type": "object:/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Title.WBP_Saskarta_Title_C"
+  },
+  {
+   "name": "SubtitleWidget",
+   "type": "object:/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Subtitle.WBP_Saskarta_Subtitle_C"
+  },
+  {
+   "name": "BootLogWidget",
+   "type": "object:/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_BootLog.WBP_Saskarta_BootLog_C"
+  },
+  {
+   "name": "SfxStatic",
+   "type": "object:/Script/Engine.SoundBase",
+   "default": "/Game/SaskartaGaea/GameFlow/Audio/SFX_Carrier_Static.SFX_Carrier_Static"
+  },
+  {
+   "name": "SfxPowerDown",
+   "type": "object:/Script/Engine.SoundBase",
+   "default": "/Game/SaskartaGaea/GameFlow/Audio/SFX_Carrier_PowerDown.SFX_Carrier_PowerDown"
+  },
+  {
+   "name": "SfxContactor",
+   "type": "object:/Script/Engine.SoundBase",
+   "default": "/Game/SaskartaGaea/GameFlow/Audio/SFX_Carrier_Contactor.SFX_Carrier_Contactor"
+  },
+  {
+   "name": "SfxPowerOn",
+   "type": "object:/Script/Engine.SoundBase",
+   "default": "/Game/SaskartaGaea/GameFlow/Audio/SFX_Carrier_PowerOn.SFX_Carrier_PowerOn"
+  },
+  {
+   "name": "SfxTeletype1",
+   "type": "object:/Script/Engine.SoundBase",
+   "default": "/Game/SaskartaGaea/Audio/Terminal/SFX_Term_Teletype_Burst_01.SFX_Term_Teletype_Burst_01"
+  },
+  {
+   "name": "SfxTeletype2",
+   "type": "object:/Script/Engine.SoundBase",
+   "default": "/Game/SaskartaGaea/Audio/Terminal/SFX_Term_Teletype_Burst_02.SFX_Term_Teletype_Burst_02"
+  },
+  {
+   "name": "SfxTeletype3",
+   "type": "object:/Script/Engine.SoundBase",
+   "default": "/Game/SaskartaGaea/Audio/Terminal/SFX_Term_Teletype_Burst_03.SFX_Term_Teletype_Burst_03"
+  },
+  {
+   "name": "SfxTeletype4",
+   "type": "object:/Script/Engine.SoundBase",
+   "default": "/Game/SaskartaGaea/Audio/Terminal/SFX_Term_Teletype_Burst_04.SFX_Term_Teletype_Burst_04"
+  },
+  {
+   "name": "SfxDriveSeek",
+   "type": "object:/Script/Engine.SoundBase",
+   "default": "/Game/SaskartaGaea/Audio/Terminal/SFX_Term_Drive_Seek.SFX_Term_Drive_Seek"
+  },
+  {
+   "name": "SfxCrtOn",
+   "type": "object:/Script/Engine.SoundBase",
+   "default": "/Game/SaskartaGaea/Audio/Terminal/SFX_Term_CRT_PowerOn.SFX_Term_CRT_PowerOn"
+  },
+  {
+   "name": "SfxCrtOff",
+   "type": "object:/Script/Engine.SoundBase",
+   "default": "/Game/SaskartaGaea/Audio/Terminal/SFX_Term_CRT_PowerOff.SFX_Term_CRT_PowerOff"
+  },
+  {
+   "name": "SfxFanHum",
+   "type": "object:/Script/Engine.SoundBase",
+   "default": "/Game/SaskartaGaea/Audio/Terminal/SFX_Term_Fan_Hum_Loop.SFX_Term_Fan_Hum_Loop"
+  },
+  {
+   "name": "BootHeader",
+   "type": "text",
+   "default": "HIGHLAND ASSISTIVE CARRIER  UNIT 07  ROM 2.07"
+  },
+  {
+   "name": "RebootHeader",
+   "type": "text",
+   "default": "HIGHLAND ASSISTIVE CARRIER  UNIT 07  ROM 2.07  WARM RESTART"
+  },
+  {
+   "name": "BootSubHeader",
+   "type": "text",
+   "default": "(C) HIGHLAND ROUTE AUTHORITY  1946 AA"
+  },
+  {
+   "name": "MemLabel",
+   "type": "text",
+   "default": "CORE MEMORY TEST"
+  },
+  {
+   "name": "BootMemoryKB",
+   "type": "int",
+   "default": "640"
+  },
+  {
+   "name": "RebootMemoryKB",
+   "type": "int",
+   "default": "0"
+  },
+  {
+   "name": "Boot1Line",
+   "type": "text",
+   "default": "CONTACTOR - CLOSING"
+  },
+  {
+   "name": "Boot1Result",
+   "type": "name",
+   "default": "OK"
+  },
+  {
+   "name": "Boot2Line",
+   "type": "text",
+   "default": "HANDOVER - CARRIER 07 / UNITS 01-06 LOST"
+  },
+  {
+   "name": "Boot2Result",
+   "type": "name",
+   "default": "OK"
+  },
+  {
+   "name": "Boot3Line",
+   "type": "text",
+   "default": "LOAD - 1 CAPSULE / ARCHIVE / 36.6 C"
+  },
+  {
+   "name": "Boot3Result",
+   "type": "name",
+   "default": "OK"
+  },
+  {
+   "name": "Boot4Line",
+   "type": "text",
+   "default": "ROUTE LOCK - ÂLAAWB"
+  },
+  {
+   "name": "Boot4Result",
+   "type": "name",
+   "default": "OK"
+  },
+  {
+   "name": "Reboot1Line",
+   "type": "text",
+   "default": "FAULT - ROUTE BOUNDARY EXCEEDED"
+  },
+  {
+   "name": "Reboot1Result",
+   "type": "name",
+   "default": "FAIL"
+  },
+  {
+   "name": "Reboot2Line",
+   "type": "text",
+   "default": "EMERGENCY SHUTDOWN - COMPLETE"
+  },
+  {
+   "name": "Reboot2Result",
+   "type": "name",
+   "default": "OK"
+  },
+  {
+   "name": "Reboot3Line",
+   "type": "text",
+   "default": "REINITIALIZING - CARRIER CORE"
+  },
+  {
+   "name": "Reboot3Result",
+   "type": "name",
+   "default": "OK"
+  },
+  {
+   "name": "Reboot4Line",
+   "type": "text",
+   "default": "ROUTE LOCK - RESTORED"
+  },
+  {
+   "name": "Reboot4Result",
+   "type": "name",
+   "default": "OK"
+  },
+  {
+   "name": "BootKind",
+   "type": "name"
+  },
+  {
+   "name": "BootLine",
+   "type": "int",
+   "default": "0"
+  },
+  {
+   "name": "LineHold",
+   "type": "float"
+  },
+  {
+   "name": "TermHum",
+   "type": "object:/Script/Engine.AudioComponent"
+  },
+  {
+   "name": "LineTimer",
+   "type": "struct:/Script/Engine.TimerHandle"
+  },
+  {
+   "name": "StepTimer",
+   "type": "struct:/Script/Engine.TimerHandle"
+  },
+  {
+   "name": "FadeTimer",
+   "type": "struct:/Script/Engine.TimerHandle"
+  },
+  {
+   "name": "FadeWidget",
+   "type": "object:/Script/UMG.Widget"
+  },
+  {
+   "name": "FadeFrom",
+   "type": "float"
+  },
+  {
+   "name": "FadeTo",
+   "type": "float"
+  },
+  {
+   "name": "FadeStart",
+   "type": "float"
+  },
+  {
+   "name": "FadeDuration",
+   "type": "float"
+  },
+  {
+   "name": "MinLineTime",
+   "type": "float",
+   "default": "1.8"
+  },
+  {
+   "name": "VoiceTail",
+   "type": "float",
+   "default": "0.4"
+  },
+  {
+   "name": "RouteLockPause",
+   "type": "float",
+   "default": "2.5"
+  },
+  {
+   "name": "VoiceHold",
+   "type": "float",
+   "default": "0.0"
+  },
+  {
+   "name": "BootVoice1",
+   "type": "object:/Script/Engine.SoundBase",
+   "default": "/Game/SaskartaGaea/Audio/CarrierVoice/VO_Carrier_CV_BOOT_01.VO_Carrier_CV_BOOT_01"
+  },
+  {
+   "name": "BootVoice1Time",
+   "type": "float",
+   "default": "1.09"
+  },
+  {
+   "name": "BootVoice2",
+   "type": "object:/Script/Engine.SoundBase",
+   "default": "/Game/SaskartaGaea/Audio/CarrierVoice/VO_Carrier_CV_BOOT_02.VO_Carrier_CV_BOOT_02"
+  },
+  {
+   "name": "BootVoice2Time",
+   "type": "float",
+   "default": "2.965"
+  },
+  {
+   "name": "BootVoice3",
+   "type": "object:/Script/Engine.SoundBase",
+   "default": "/Game/SaskartaGaea/Audio/CarrierVoice/VO_Carrier_CV_BOOT_03.VO_Carrier_CV_BOOT_03"
+  },
+  {
+   "name": "BootVoice3Time",
+   "type": "float",
+   "default": "2.405"
+  }
+ ],
+ "functions": [
+  {
+   "name": "SetVisionVolume",
+   "inputs": [
+    {
+     "name": "Volume",
+     "type": "object:/Script/Engine.PostProcessVolume"
+    }
+   ],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "GetTitleWidget",
+   "inputs": [],
+   "outputs": [
+    {
+     "name": "Widget",
+     "type": "object:/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Title.WBP_Saskarta_Title_C"
+    }
+   ],
+   "pure": true
+  },
+  {
+   "name": "SetVisionWeight",
+   "inputs": [
+    {
+     "name": "Weight",
+     "type": "float"
+    }
+   ],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "StartFade",
+   "inputs": [
+    {
+     "name": "Widget",
+     "type": "object:/Script/UMG.Widget"
+    },
+    {
+     "name": "FromOpacity",
+     "type": "float"
+    },
+    {
+     "name": "ToOpacity",
+     "type": "float"
+    },
+    {
+     "name": "Duration",
+     "type": "float"
+    }
+   ],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "FadeStep",
+   "inputs": [],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "Setup",
+   "inputs": [],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "ShowTitle",
+   "inputs": [],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "DisableTitle",
+   "inputs": [],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "RemoveTitle",
+   "inputs": [],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "FadeToBlack",
+   "inputs": [],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "ShowWarning",
+   "inputs": [
+    {
+     "name": "bShow",
+     "type": "bool"
+    }
+   ],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "PlayBreach",
+   "inputs": [],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "BreachPowerDown",
+   "inputs": [],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "BreachBlack",
+   "inputs": [],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "PlayBoot",
+   "inputs": [
+    {
+     "name": "Kind",
+     "type": "name"
+    }
+   ],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "BootLineStep",
+   "inputs": [],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "PowerOn",
+   "inputs": [],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "VisionOnline",
+   "inputs": [],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "CleanUp",
+   "inputs": [],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "StopHum",
+   "inputs": [],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "RestoreAfterContinue",
+   "pure": false,
+   "inputs": [],
+   "outputs": []
+  }
+ ],
+ "graphs": [
+  {
+   "graph": "SetVisionVolume",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "setVolume": {
+     "set": "VisionVolume"
+    }
+   },
+   "links": [
+    [
+     "entry.then",
+     "setVolume.execute"
+    ],
+    [
+     "entry.Volume",
+     "setVolume.VisionVolume"
+    ]
+   ],
+   "defaults": {}
+  },
+  {
+   "graph": "GetTitleWidget",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "result": {
+     "result": true
+    },
+    "getTitle": {
+     "get": "TitleWidget"
+    }
+   },
+   "links": [
+    [
+     "entry.then",
+     "result.execute"
+    ],
+    [
+     "getTitle.TitleWidget",
+     "result.Widget"
+    ]
+   ],
+   "defaults": {}
+  },
+  {
+   "graph": "SetVisionWeight",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "getVolume": {
+     "get": "VisionVolume"
+    },
+    "getMID": {
+     "get": "VisionMID"
+    },
+    "hasVolume": {
+     "call": "IsValid",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "ifVolume": {
+     "branch": true
+    },
+    "blend": {
+     "call": "AddOrUpdateBlendable",
+     "class": "/Script/Engine.PostProcessVolume"
+    },
+    "warn": {
+     "call": "PrintString",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    }
+   },
+   "links": [
+    [
+     "entry.then",
+     "ifVolume.execute"
+    ],
+    [
+     "getVolume.VisionVolume",
+     "hasVolume.Object"
+    ],
+    [
+     "hasVolume.ReturnValue",
+     "ifVolume.Condition"
+    ],
+    [
+     "ifVolume.then",
+     "blend.execute"
+    ],
+    [
+     "getVolume.VisionVolume",
+     "blend.self"
+    ],
+    [
+     "getMID.VisionMID",
+     "blend.InBlendableObject"
+    ],
+    [
+     "entry.Weight",
+     "blend.InWeight"
+    ],
+    [
+     "ifVolume.else",
+     "warn.execute"
+    ]
+   ],
+   "defaults": {
+    "warn.InString": "Saskarta vision: VisionVolume is not set. PC_Saskarta.BeginTitle must call CarrierVision.SetVisionVolume with the BP_CarrierVisionVolume actor before Setup."
+   }
+  },
+  {
+   "graph": "StartFade",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "setWidget": {
+     "set": "FadeWidget"
+    },
+    "setFrom": {
+     "set": "FadeFrom"
+    },
+    "setTo": {
+     "set": "FadeTo"
+    },
+    "safeDuration": {
+     "call": "FClamp",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "setDuration": {
+     "set": "FadeDuration"
+    },
+    "now": {
+     "call": "GetTimeSeconds",
+     "class": "/Script/Engine.GameplayStatics"
+    },
+    "setStart": {
+     "set": "FadeStart"
+    },
+    "applyFrom": {
+     "call": "SetRenderOpacity",
+     "class": "/Script/UMG.Widget"
+    },
+    "getFadeTimer": {
+     "get": "FadeTimer"
+    },
+    "clearFade": {
+     "call": "K2_ClearAndInvalidateTimerHandle",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "me": {
+     "self": true
+    },
+    "tick": {
+     "timer": true
+    },
+    "setFadeTimer": {
+     "set": "FadeTimer"
+    }
+   },
+   "links": [
+    [
+     "entry.then",
+     "setWidget.execute"
+    ],
+    [
+     "setWidget.then",
+     "setFrom.execute"
+    ],
+    [
+     "setFrom.then",
+     "setTo.execute"
+    ],
+    [
+     "setTo.then",
+     "setDuration.execute"
+    ],
+    [
+     "setDuration.then",
+     "setStart.execute"
+    ],
+    [
+     "setStart.then",
+     "applyFrom.execute"
+    ],
+    [
+     "applyFrom.then",
+     "clearFade.execute"
+    ],
+    [
+     "clearFade.then",
+     "tick.execute"
+    ],
+    [
+     "tick.then",
+     "setFadeTimer.execute"
+    ],
+    [
+     "entry.Widget",
+     "setWidget.FadeWidget"
+    ],
+    [
+     "entry.FromOpacity",
+     "setFrom.FadeFrom"
+    ],
+    [
+     "entry.ToOpacity",
+     "setTo.FadeTo"
+    ],
+    [
+     "entry.Duration",
+     "safeDuration.Value"
+    ],
+    [
+     "safeDuration.ReturnValue",
+     "setDuration.FadeDuration"
+    ],
+    [
+     "now.ReturnValue",
+     "setStart.FadeStart"
+    ],
+    [
+     "entry.Widget",
+     "applyFrom.self"
+    ],
+    [
+     "entry.FromOpacity",
+     "applyFrom.InOpacity"
+    ],
+    [
+     "getFadeTimer.FadeTimer",
+     "clearFade.Handle"
+    ],
+    [
+     "me.self",
+     "tick.Object"
+    ],
+    [
+     "tick.ReturnValue",
+     "setFadeTimer.FadeTimer"
+    ]
+   ],
+   "defaults": {
+    "safeDuration.Min": "0.01",
+    "safeDuration.Max": "60.0",
+    "tick.FunctionName": "FadeStep",
+    "tick.Time": "0.016",
+    "tick.bLooping": "true",
+    "tick.bMaxOncePerFrame": "true"
+   }
+  },
+  {
+   "graph": "FadeStep",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "now": {
+     "call": "GetTimeSeconds",
+     "class": "/Script/Engine.GameplayStatics"
+    },
+    "getStart": {
+     "get": "FadeStart"
+    },
+    "elapsed": {
+     "call": "Subtract_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "getDuration": {
+     "get": "FadeDuration"
+    },
+    "ratio": {
+     "call": "Divide_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "alpha": {
+     "call": "FClamp",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "getFrom": {
+     "get": "FadeFrom"
+    },
+    "getTo": {
+     "get": "FadeTo"
+    },
+    "span": {
+     "call": "Subtract_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "scaled": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "opacity": {
+     "call": "Add_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "getWidget": {
+     "get": "FadeWidget"
+    },
+    "apply": {
+     "call": "SetRenderOpacity",
+     "class": "/Script/UMG.Widget"
+    },
+    "stillFading": {
+     "call": "Less_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "ifDone": {
+     "branch": true
+    },
+    "getFadeTimer": {
+     "get": "FadeTimer"
+    },
+    "stop": {
+     "call": "K2_ClearAndInvalidateTimerHandle",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "fadedOut": {
+     "call": "Less_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "ifFadedOut": {
+     "branch": true
+    },
+    "collapse": {
+     "call": "SetVisibility",
+     "class": "/Script/UMG.Widget"
+    }
+   },
+   "links": [
+    [
+     "entry.then",
+     "apply.execute"
+    ],
+    [
+     "apply.then",
+     "ifDone.execute"
+    ],
+    [
+     "ifDone.else",
+     "stop.execute"
+    ],
+    [
+     "stop.then",
+     "ifFadedOut.execute"
+    ],
+    [
+     "ifFadedOut.then",
+     "collapse.execute"
+    ],
+    [
+     "now.ReturnValue",
+     "elapsed.A"
+    ],
+    [
+     "getStart.FadeStart",
+     "elapsed.B"
+    ],
+    [
+     "elapsed.ReturnValue",
+     "ratio.A"
+    ],
+    [
+     "getDuration.FadeDuration",
+     "ratio.B"
+    ],
+    [
+     "ratio.ReturnValue",
+     "alpha.Value"
+    ],
+    [
+     "getTo.FadeTo",
+     "span.A"
+    ],
+    [
+     "getFrom.FadeFrom",
+     "span.B"
+    ],
+    [
+     "span.ReturnValue",
+     "scaled.A"
+    ],
+    [
+     "alpha.ReturnValue",
+     "scaled.B"
+    ],
+    [
+     "getFrom.FadeFrom",
+     "opacity.A"
+    ],
+    [
+     "scaled.ReturnValue",
+     "opacity.B"
+    ],
+    [
+     "getWidget.FadeWidget",
+     "apply.self"
+    ],
+    [
+     "opacity.ReturnValue",
+     "apply.InOpacity"
+    ],
+    [
+     "alpha.ReturnValue",
+     "stillFading.A"
+    ],
+    [
+     "stillFading.ReturnValue",
+     "ifDone.Condition"
+    ],
+    [
+     "getFadeTimer.FadeTimer",
+     "stop.Handle"
+    ],
+    [
+     "getTo.FadeTo",
+     "fadedOut.A"
+    ],
+    [
+     "fadedOut.ReturnValue",
+     "ifFadedOut.Condition"
+    ],
+    [
+     "getWidget.FadeWidget",
+     "collapse.self"
+    ]
+   ],
+   "defaults": {
+    "alpha.Min": "0.0",
+    "alpha.Max": "1.0",
+    "stillFading.B": "1.0",
+    "fadedOut.B": "0.001",
+    "collapse.InVisibility": "Collapsed"
+   }
+  },
+  {
+   "graph": "Setup",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "makeMID": {
+     "call": "CreateDynamicMaterialInstance",
+     "class": "/Script/Engine.KismetMaterialLibrary"
+    },
+    "setMID": {
+     "set": "VisionMID"
+    },
+    "getMID": {
+     "get": "VisionMID"
+    },
+    "getRamp": {
+     "get": "RampTime"
+    },
+    "getOff": {
+     "get": "OffTime"
+    },
+    "getBootBlack": {
+     "get": "BootBlack"
+    },
+    "getOn": {
+     "get": "OnTime"
+    },
+    "getResidual": {
+     "get": "Residual"
+    },
+    "getTint": {
+     "get": "OpticsTint"
+    },
+    "pushRamp": {
+     "call": "SetScalarParameterValue",
+     "class": "/Script/Engine.MaterialInstanceDynamic"
+    },
+    "pushOff": {
+     "call": "SetScalarParameterValue",
+     "class": "/Script/Engine.MaterialInstanceDynamic"
+    },
+    "pushBootBlack": {
+     "call": "SetScalarParameterValue",
+     "class": "/Script/Engine.MaterialInstanceDynamic"
+    },
+    "pushOn": {
+     "call": "SetScalarParameterValue",
+     "class": "/Script/Engine.MaterialInstanceDynamic"
+    },
+    "pushResidual": {
+     "call": "SetScalarParameterValue",
+     "class": "/Script/Engine.MaterialInstanceDynamic"
+    },
+    "pushTint": {
+     "call": "SetVectorParameterValue",
+     "class": "/Script/Engine.MaterialInstanceDynamic"
+    },
+    "idle": {
+     "call": "SetVisionWeight"
+    },
+    "owner": {
+     "call": "GetOwner",
+     "class": "/Script/Engine.ActorComponent"
+    },
+    "asPC": {
+     "cast": "/Game/SaskartaGaea/GameFlow/PC_Saskarta.PC_Saskarta_C"
+    },
+    "noPC": {
+     "call": "PrintString",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "makeTitle": {
+     "create_widget": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Title.WBP_Saskarta_Title_C"
+    },
+    "setTitle": {
+     "set": "TitleWidget"
+    },
+    "addTitle": {
+     "call": "AddToViewport",
+     "class": "/Script/UMG.UserWidget"
+    },
+    "makeSubtitle": {
+     "create_widget": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Subtitle.WBP_Saskarta_Subtitle_C"
+    },
+    "setSubtitle": {
+     "set": "SubtitleWidget"
+    },
+    "addSubtitle": {
+     "call": "AddToViewport",
+     "class": "/Script/UMG.UserWidget"
+    },
+    "hideSubtitle": {
+     "call": "SetShown",
+     "class": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Subtitle.WBP_Saskarta_Subtitle_C"
+    },
+    "makeBootLog": {
+     "create_widget": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_BootLog.WBP_Saskarta_BootLog_C"
+    },
+    "setBootLog": {
+     "set": "BootLogWidget"
+    },
+    "addBootLog": {
+     "call": "AddToViewport",
+     "class": "/Script/UMG.UserWidget"
+    },
+    "opaqueBlack": {
+     "call": "SetBlackOpacity",
+     "class": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_BootLog.WBP_Saskarta_BootLog_C"
+    },
+    "hideBootLog": {
+     "call": "SetVisibility",
+     "class": "/Script/UMG.Widget"
+    },
+    "configure": {
+     "call": "ConfigureTerminal",
+     "class": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_BootLog.WBP_Saskarta_BootLog_C"
+    },
+    "getCharsPerSecond": {
+     "get": "CharsPerSecond"
+    },
+    "getStatusDelay": {
+     "get": "StatusDelay"
+    },
+    "getStallBudget": {
+     "get": "StallBudget"
+    },
+    "getMemDelay": {
+     "get": "MemDelay"
+    },
+    "getMemCountTime": {
+     "get": "MemCountTime"
+    }
+   },
+   "links": [
+    [
+     "entry.then",
+     "makeMID.execute"
+    ],
+    [
+     "makeMID.then",
+     "setMID.execute"
+    ],
+    [
+     "setMID.then",
+     "pushRamp.execute"
+    ],
+    [
+     "pushRamp.then",
+     "pushOff.execute"
+    ],
+    [
+     "pushOff.then",
+     "pushBootBlack.execute"
+    ],
+    [
+     "pushBootBlack.then",
+     "pushOn.execute"
+    ],
+    [
+     "pushOn.then",
+     "pushResidual.execute"
+    ],
+    [
+     "pushResidual.then",
+     "pushTint.execute"
+    ],
+    [
+     "pushTint.then",
+     "idle.execute"
+    ],
+    [
+     "idle.then",
+     "asPC.execute"
+    ],
+    [
+     "asPC.then",
+     "makeTitle.execute"
+    ],
+    [
+     "asPC.CastFailed",
+     "noPC.execute"
+    ],
+    [
+     "makeTitle.then",
+     "setTitle.execute"
+    ],
+    [
+     "setTitle.then",
+     "addTitle.execute"
+    ],
+    [
+     "addTitle.then",
+     "makeSubtitle.execute"
+    ],
+    [
+     "makeSubtitle.then",
+     "setSubtitle.execute"
+    ],
+    [
+     "setSubtitle.then",
+     "addSubtitle.execute"
+    ],
+    [
+     "addSubtitle.then",
+     "hideSubtitle.execute"
+    ],
+    [
+     "hideSubtitle.then",
+     "makeBootLog.execute"
+    ],
+    [
+     "makeBootLog.then",
+     "setBootLog.execute"
+    ],
+    [
+     "setBootLog.then",
+     "addBootLog.execute"
+    ],
+    [
+     "addBootLog.then",
+     "opaqueBlack.execute"
+    ],
+    [
+     "makeMID.ReturnValue",
+     "setMID.VisionMID"
+    ],
+    [
+     "getMID.VisionMID",
+     "pushRamp.self"
+    ],
+    [
+     "getMID.VisionMID",
+     "pushOff.self"
+    ],
+    [
+     "getMID.VisionMID",
+     "pushBootBlack.self"
+    ],
+    [
+     "getMID.VisionMID",
+     "pushOn.self"
+    ],
+    [
+     "getMID.VisionMID",
+     "pushResidual.self"
+    ],
+    [
+     "getMID.VisionMID",
+     "pushTint.self"
+    ],
+    [
+     "getRamp.RampTime",
+     "pushRamp.Value"
+    ],
+    [
+     "getOff.OffTime",
+     "pushOff.Value"
+    ],
+    [
+     "getBootBlack.BootBlack",
+     "pushBootBlack.Value"
+    ],
+    [
+     "getOn.OnTime",
+     "pushOn.Value"
+    ],
+    [
+     "getResidual.Residual",
+     "pushResidual.Value"
+    ],
+    [
+     "getTint.OpticsTint",
+     "pushTint.Value"
+    ],
+    [
+     "owner.ReturnValue",
+     "asPC.Object"
+    ],
+    [
+     "asPC.AsPC Saskarta",
+     "makeTitle.OwningPlayer"
+    ],
+    [
+     "asPC.AsPC Saskarta",
+     "makeSubtitle.OwningPlayer"
+    ],
+    [
+     "asPC.AsPC Saskarta",
+     "makeBootLog.OwningPlayer"
+    ],
+    [
+     "makeTitle.ReturnValue",
+     "setTitle.TitleWidget"
+    ],
+    [
+     "makeTitle.ReturnValue",
+     "addTitle.self"
+    ],
+    [
+     "makeSubtitle.ReturnValue",
+     "setSubtitle.SubtitleWidget"
+    ],
+    [
+     "makeSubtitle.ReturnValue",
+     "addSubtitle.self"
+    ],
+    [
+     "makeSubtitle.ReturnValue",
+     "hideSubtitle.self"
+    ],
+    [
+     "makeBootLog.ReturnValue",
+     "setBootLog.BootLogWidget"
+    ],
+    [
+     "makeBootLog.ReturnValue",
+     "addBootLog.self"
+    ],
+    [
+     "makeBootLog.ReturnValue",
+     "opaqueBlack.self"
+    ],
+    [
+     "makeBootLog.ReturnValue",
+     "hideBootLog.self"
+    ],
+    [
+     "getCharsPerSecond.CharsPerSecond",
+     "configure.InCharsPerSecond"
+    ],
+    [
+     "getStatusDelay.StatusDelay",
+     "configure.InStatusDelay"
+    ],
+    [
+     "getStallBudget.StallBudget",
+     "configure.InStallBudget"
+    ],
+    [
+     "getMemDelay.MemDelay",
+     "configure.InMemDelay"
+    ],
+    [
+     "getMemCountTime.MemCountTime",
+     "configure.InMemCountTime"
+    ],
+    [
+     "opaqueBlack.then",
+     "configure.execute"
+    ],
+    [
+     "configure.then",
+     "hideBootLog.execute"
+    ],
+    [
+     "makeBootLog.ReturnValue",
+     "configure.self"
+    ]
+   ],
+   "defaults": {
+    "makeMID.Parent": "/Game/SaskartaGaea/GameFlow/Materials/M_PP_CarrierVision.M_PP_CarrierVision",
+    "pushRamp.ParameterName": "RampTime",
+    "pushOff.ParameterName": "OffTime",
+    "pushBootBlack.ParameterName": "BootBlack",
+    "pushOn.ParameterName": "OnTime",
+    "pushResidual.ParameterName": "Residual",
+    "pushTint.ParameterName": "OpticsTint",
+    "idle.Weight": "0.0",
+    "noPC.InString": "Saskarta vision: the owner is not PC_Saskarta, so the vision widgets were not created.",
+    "addTitle.ZOrder": "0",
+    "addSubtitle.ZOrder": "10",
+    "hideSubtitle.bShow": "false",
+    "addBootLog.ZOrder": "100",
+    "opaqueBlack.Opacity": "1.0",
+    "hideBootLog.InVisibility": "Collapsed"
+   }
+  },
+  {
+   "graph": "ShowTitle",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "getTitle": {
+     "get": "TitleWidget"
+    },
+    "show": {
+     "call": "SetVisibility",
+     "class": "/Script/UMG.Widget"
+    },
+    "getFadeTime": {
+     "get": "TitleFadeInTime"
+    },
+    "startFade": {
+     "call": "StartFade"
+    },
+    "enable": {
+     "call": "SetIsEnabled",
+     "class": "/Script/UMG.Widget"
+    }
+   },
+   "links": [
+    [
+     "entry.then",
+     "show.execute"
+    ],
+    [
+     "show.then",
+     "startFade.execute"
+    ],
+    [
+     "startFade.then",
+     "enable.execute"
+    ],
+    [
+     "getTitle.TitleWidget",
+     "show.self"
+    ],
+    [
+     "getTitle.TitleWidget",
+     "startFade.Widget"
+    ],
+    [
+     "getFadeTime.TitleFadeInTime",
+     "startFade.Duration"
+    ],
+    [
+     "getTitle.TitleWidget",
+     "enable.self"
+    ]
+   ],
+   "defaults": {
+    "show.InVisibility": "Visible",
+    "startFade.FromOpacity": "0.0",
+    "startFade.ToOpacity": "1.0",
+    "enable.bInIsEnabled": "true"
+   }
+  },
+  {
+   "graph": "DisableTitle",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "getTitle": {
+     "get": "TitleWidget"
+    },
+    "disable": {
+     "call": "SetIsEnabled",
+     "class": "/Script/UMG.Widget"
+    }
+   },
+   "links": [
+    [
+     "entry.then",
+     "disable.execute"
+    ],
+    [
+     "getTitle.TitleWidget",
+     "disable.self"
+    ]
+   ],
+   "defaults": {
+    "disable.bInIsEnabled": "false"
+   }
+  },
+  {
+   "graph": "RemoveTitle",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "getTitle": {
+     "get": "TitleWidget"
+    },
+    "remove": {
+     "call": "RemoveFromParent",
+     "class": "/Script/UMG.Widget"
+    }
+   },
+   "links": [
+    [
+     "entry.then",
+     "remove.execute"
+    ],
+    [
+     "getTitle.TitleWidget",
+     "remove.self"
+    ]
+   ],
+   "defaults": {}
+  },
+  {
+   "graph": "FadeToBlack",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "getBootLog": {
+     "get": "BootLogWidget"
+    },
+    "getFadeTime": {
+     "get": "FadeToBlackTime"
+    },
+    "fadeIn": {
+     "call": "StartFade"
+    },
+    "show": {
+     "call": "SetVisibility",
+     "class": "/Script/UMG.Widget"
+    },
+    "getStep": {
+     "get": "StepTimer"
+    },
+    "clearStep": {
+     "call": "K2_ClearAndInvalidateTimerHandle",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "safeDelay": {
+     "call": "FClamp",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "me": {
+     "self": true
+    },
+    "atBlack": {
+     "timer": true
+    },
+    "setStep": {
+     "set": "StepTimer"
+    },
+    "clearTerm": {
+     "call": "ClearTerminal",
+     "class": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_BootLog.WBP_Saskarta_BootLog_C"
+    }
+   },
+   "links": [
+    [
+     "entry.then",
+     "clearTerm.execute"
+    ],
+    [
+     "clearTerm.then",
+     "fadeIn.execute"
+    ],
+    [
+     "fadeIn.then",
+     "show.execute"
+    ],
+    [
+     "show.then",
+     "clearStep.execute"
+    ],
+    [
+     "clearStep.then",
+     "atBlack.execute"
+    ],
+    [
+     "atBlack.then",
+     "setStep.execute"
+    ],
+    [
+     "getBootLog.BootLogWidget",
+     "clearTerm.self"
+    ],
+    [
+     "getBootLog.BootLogWidget",
+     "fadeIn.Widget"
+    ],
+    [
+     "getFadeTime.FadeToBlackTime",
+     "fadeIn.Duration"
+    ],
+    [
+     "getBootLog.BootLogWidget",
+     "show.self"
+    ],
+    [
+     "getStep.StepTimer",
+     "clearStep.Handle"
+    ],
+    [
+     "getFadeTime.FadeToBlackTime",
+     "safeDelay.Value"
+    ],
+    [
+     "me.self",
+     "atBlack.Object"
+    ],
+    [
+     "safeDelay.ReturnValue",
+     "atBlack.Time"
+    ],
+    [
+     "atBlack.ReturnValue",
+     "setStep.StepTimer"
+    ]
+   ],
+   "defaults": {
+    "fadeIn.FromOpacity": "0.0",
+    "fadeIn.ToOpacity": "1.0",
+    "show.InVisibility": "HitTestInvisible",
+    "safeDelay.Min": "0.01",
+    "safeDelay.Max": "60.0",
+    "atBlack.FunctionName": "BreachBlack",
+    "atBlack.bLooping": "false"
+   }
+  },
+  {
+   "graph": "ShowWarning",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "ifShow": {
+     "branch": true
+    },
+    "getSubtitle": {
+     "get": "SubtitleWidget"
+    },
+    "getFadeTime": {
+     "get": "SubtitleFadeTime"
+    },
+    "fadeIn": {
+     "call": "StartFade"
+    },
+    "reveal": {
+     "call": "SetShown",
+     "class": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Subtitle.WBP_Saskarta_Subtitle_C"
+    },
+    "fadeOut": {
+     "call": "StartFade"
+    }
+   },
+   "links": [
+    [
+     "entry.then",
+     "ifShow.execute"
+    ],
+    [
+     "entry.bShow",
+     "ifShow.Condition"
+    ],
+    [
+     "ifShow.then",
+     "fadeIn.execute"
+    ],
+    [
+     "fadeIn.then",
+     "reveal.execute"
+    ],
+    [
+     "ifShow.else",
+     "fadeOut.execute"
+    ],
+    [
+     "getSubtitle.SubtitleWidget",
+     "fadeIn.Widget"
+    ],
+    [
+     "getFadeTime.SubtitleFadeTime",
+     "fadeIn.Duration"
+    ],
+    [
+     "getSubtitle.SubtitleWidget",
+     "reveal.self"
+    ],
+    [
+     "getSubtitle.SubtitleWidget",
+     "fadeOut.Widget"
+    ],
+    [
+     "getFadeTime.SubtitleFadeTime",
+     "fadeOut.Duration"
+    ]
+   ],
+   "defaults": {
+    "fadeIn.FromOpacity": "0.0",
+    "fadeIn.ToOpacity": "1.0",
+    "reveal.bShow": "true",
+    "fadeOut.FromOpacity": "1.0",
+    "fadeOut.ToOpacity": "0.0"
+   }
+  },
+  {
+   "graph": "PlayBreach",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "getMID": {
+     "get": "VisionMID"
+    },
+    "now": {
+     "call": "GetTimeSeconds",
+     "class": "/Script/Engine.GameplayStatics"
+    },
+    "pushStart": {
+     "call": "SetScalarParameterValue",
+     "class": "/Script/Engine.MaterialInstanceDynamic"
+    },
+    "pushMode": {
+     "call": "SetScalarParameterValue",
+     "class": "/Script/Engine.MaterialInstanceDynamic"
+    },
+    "random": {
+     "call": "RandomFloat",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "seed": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "pushSeed": {
+     "call": "SetScalarParameterValue",
+     "class": "/Script/Engine.MaterialInstanceDynamic"
+    },
+    "weightOn": {
+     "call": "SetVisionWeight"
+    },
+    "getStatic": {
+     "get": "SfxStatic"
+    },
+    "playStatic": {
+     "call": "PlaySound2D",
+     "class": "/Script/Engine.GameplayStatics"
+    },
+    "getLineTimer": {
+     "get": "LineTimer"
+    },
+    "clearLine": {
+     "call": "K2_ClearAndInvalidateTimerHandle",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "getStep": {
+     "get": "StepTimer"
+    },
+    "clearStep": {
+     "call": "K2_ClearAndInvalidateTimerHandle",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "getRamp": {
+     "get": "RampTime"
+    },
+    "safeDelay": {
+     "call": "FClamp",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "me": {
+     "self": true
+    },
+    "atPowerDown": {
+     "timer": true
+    },
+    "setStep": {
+     "set": "StepTimer"
+    }
+   },
+   "links": [
+    [
+     "entry.then",
+     "pushStart.execute"
+    ],
+    [
+     "pushStart.then",
+     "pushMode.execute"
+    ],
+    [
+     "pushMode.then",
+     "pushSeed.execute"
+    ],
+    [
+     "pushSeed.then",
+     "weightOn.execute"
+    ],
+    [
+     "weightOn.then",
+     "playStatic.execute"
+    ],
+    [
+     "playStatic.then",
+     "clearLine.execute"
+    ],
+    [
+     "clearLine.then",
+     "clearStep.execute"
+    ],
+    [
+     "clearStep.then",
+     "atPowerDown.execute"
+    ],
+    [
+     "atPowerDown.then",
+     "setStep.execute"
+    ],
+    [
+     "getMID.VisionMID",
+     "pushStart.self"
+    ],
+    [
+     "now.ReturnValue",
+     "pushStart.Value"
+    ],
+    [
+     "getMID.VisionMID",
+     "pushMode.self"
+    ],
+    [
+     "getMID.VisionMID",
+     "pushSeed.self"
+    ],
+    [
+     "random.ReturnValue",
+     "seed.A"
+    ],
+    [
+     "seed.ReturnValue",
+     "pushSeed.Value"
+    ],
+    [
+     "getStatic.SfxStatic",
+     "playStatic.Sound"
+    ],
+    [
+     "getLineTimer.LineTimer",
+     "clearLine.Handle"
+    ],
+    [
+     "getStep.StepTimer",
+     "clearStep.Handle"
+    ],
+    [
+     "getRamp.RampTime",
+     "safeDelay.Value"
+    ],
+    [
+     "me.self",
+     "atPowerDown.Object"
+    ],
+    [
+     "safeDelay.ReturnValue",
+     "atPowerDown.Time"
+    ],
+    [
+     "atPowerDown.ReturnValue",
+     "setStep.StepTimer"
+    ]
+   ],
+   "defaults": {
+    "pushStart.ParameterName": "VisionStart",
+    "pushMode.ParameterName": "VisionMode",
+    "pushMode.Value": "0.0",
+    "seed.B": "100.0",
+    "pushSeed.ParameterName": "GlitchSeed",
+    "weightOn.Weight": "1.0",
+    "safeDelay.Min": "0.01",
+    "safeDelay.Max": "60.0",
+    "atPowerDown.FunctionName": "BreachPowerDown",
+    "atPowerDown.bLooping": "false"
+   }
+  },
+  {
+   "graph": "BreachPowerDown",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "getPowerDown": {
+     "get": "SfxPowerDown"
+    },
+    "playPowerDown": {
+     "call": "PlaySound2D",
+     "class": "/Script/Engine.GameplayStatics"
+    },
+    "getStep": {
+     "get": "StepTimer"
+    },
+    "clearStep": {
+     "call": "K2_ClearAndInvalidateTimerHandle",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "getOff": {
+     "get": "OffTime"
+    },
+    "safeDelay": {
+     "call": "FClamp",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "me": {
+     "self": true
+    },
+    "atBlack": {
+     "timer": true
+    },
+    "setStep": {
+     "set": "StepTimer"
+    }
+   },
+   "links": [
+    [
+     "entry.then",
+     "playPowerDown.execute"
+    ],
+    [
+     "playPowerDown.then",
+     "clearStep.execute"
+    ],
+    [
+     "clearStep.then",
+     "atBlack.execute"
+    ],
+    [
+     "atBlack.then",
+     "setStep.execute"
+    ],
+    [
+     "getPowerDown.SfxPowerDown",
+     "playPowerDown.Sound"
+    ],
+    [
+     "getStep.StepTimer",
+     "clearStep.Handle"
+    ],
+    [
+     "getOff.OffTime",
+     "safeDelay.Value"
+    ],
+    [
+     "me.self",
+     "atBlack.Object"
+    ],
+    [
+     "safeDelay.ReturnValue",
+     "atBlack.Time"
+    ],
+    [
+     "atBlack.ReturnValue",
+     "setStep.StepTimer"
+    ]
+   ],
+   "defaults": {
+    "safeDelay.Min": "0.01",
+    "safeDelay.Max": "60.0",
+    "atBlack.FunctionName": "BreachBlack",
+    "atBlack.bLooping": "false"
+   }
+  },
+  {
+   "graph": "BreachBlack",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "getBootLog": {
+     "get": "BootLogWidget"
+    },
+    "opaque": {
+     "call": "SetRenderOpacity",
+     "class": "/Script/UMG.Widget"
+    },
+    "show": {
+     "call": "SetVisibility",
+     "class": "/Script/UMG.Widget"
+    },
+    "owner": {
+     "call": "GetOwner",
+     "class": "/Script/Engine.ActorComponent"
+    },
+    "asPC": {
+     "cast": "/Game/SaskartaGaea/GameFlow/PC_Saskarta.PC_Saskarta_C"
+    },
+    "blackout": {
+     "call": "HandleBlackout",
+     "class": "/Game/SaskartaGaea/GameFlow/PC_Saskarta.PC_Saskarta_C"
+    },
+    "noPC": {
+     "call": "PrintString",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "clearTerm": {
+     "call": "ClearTerminal",
+     "class": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_BootLog.WBP_Saskarta_BootLog_C"
+    }
+   },
+   "links": [
+    [
+     "entry.then",
+     "clearTerm.execute"
+    ],
+    [
+     "clearTerm.then",
+     "opaque.execute"
+    ],
+    [
+     "opaque.then",
+     "show.execute"
+    ],
+    [
+     "show.then",
+     "asPC.execute"
+    ],
+    [
+     "asPC.then",
+     "blackout.execute"
+    ],
+    [
+     "asPC.CastFailed",
+     "noPC.execute"
+    ],
+    [
+     "getBootLog.BootLogWidget",
+     "clearTerm.self"
+    ],
+    [
+     "getBootLog.BootLogWidget",
+     "opaque.self"
+    ],
+    [
+     "getBootLog.BootLogWidget",
+     "show.self"
+    ],
+    [
+     "owner.ReturnValue",
+     "asPC.Object"
+    ],
+    [
+     "asPC.AsPC Saskarta",
+     "blackout.self"
+    ]
+   ],
+   "defaults": {
+    "opaque.InOpacity": "1.0",
+    "show.InVisibility": "HitTestInvisible",
+    "noPC.InString": "Saskarta vision: the owner is not PC_Saskarta, so HandleBlackout was not called."
+   }
+  },
+  {
+   "graph": "PlayBoot",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "setKind": {
+     "set": "BootKind"
+    },
+    "setLine": {
+     "set": "BootLine"
+    },
+    "getBootLog": {
+     "get": "BootLogWidget"
+    },
+    "opaque": {
+     "call": "SetRenderOpacity",
+     "class": "/Script/UMG.Widget"
+    },
+    "show": {
+     "call": "SetVisibility",
+     "class": "/Script/UMG.Widget"
+    },
+    "getClearStep": {
+     "get": "StepTimer"
+    },
+    "clearStep": {
+     "call": "K2_ClearAndInvalidateTimerHandle",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "getClearLine": {
+     "get": "LineTimer"
+    },
+    "clearLine": {
+     "call": "K2_ClearAndInvalidateTimerHandle",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "stopHum": {
+     "call": "StopHum"
+    },
+    "getFan": {
+     "get": "SfxFanHum"
+    },
+    "spawnHum": {
+     "call": "SpawnSound2D",
+     "class": "/Script/Engine.GameplayStatics"
+    },
+    "setHum": {
+     "set": "TermHum"
+    },
+    "getCrtOn": {
+     "get": "SfxCrtOn"
+    },
+    "playCrtOn": {
+     "call": "PlaySound2D",
+     "class": "/Script/Engine.GameplayStatics"
+    },
+    "getSeek": {
+     "get": "SfxDriveSeek"
+    },
+    "playSeek": {
+     "call": "PlaySound2D",
+     "class": "/Script/Engine.GameplayStatics"
+    },
+    "getKind": {
+     "get": "BootKind"
+    },
+    "isReboot": {
+     "call": "EqualEqual_NameName",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "getBootHeader": {
+     "get": "BootHeader"
+    },
+    "getRebootHeader": {
+     "get": "RebootHeader"
+    },
+    "header": {
+     "call": "SelectText",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "getSub": {
+     "get": "BootSubHeader"
+    },
+    "getMemLabel": {
+     "get": "MemLabel"
+    },
+    "getBootKB": {
+     "get": "BootMemoryKB"
+    },
+    "getRebootKB": {
+     "get": "RebootMemoryKB"
+    },
+    "memKB": {
+     "call": "SelectInt",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "begin": {
+     "call": "BeginTerminal",
+     "class": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_BootLog.WBP_Saskarta_BootLog_C"
+    },
+    "ifReboot": {
+     "branch": true
+    },
+    "getR1Line": {
+     "get": "Reboot1Line"
+    },
+    "getR1Result": {
+     "get": "Reboot1Result"
+    },
+    "replay1": {
+     "call": "PrintLine",
+     "class": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_BootLog.WBP_Saskarta_BootLog_C"
+    },
+    "getR2Line": {
+     "get": "Reboot2Line"
+    },
+    "getR2Result": {
+     "get": "Reboot2Result"
+    },
+    "replay2": {
+     "call": "PrintLine",
+     "class": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_BootLog.WBP_Saskarta_BootLog_C"
+    },
+    "skipReplayed": {
+     "set": "BootLine"
+    },
+    "getFirst": {
+     "get": "FirstLineDelay"
+    },
+    "getRebootFirst": {
+     "get": "RebootFirstLineDelay"
+    },
+    "first": {
+     "call": "SelectFloat",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "safeFirst": {
+     "call": "FClamp",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "me": {
+     "self": true
+    },
+    "lines": {
+     "timer": true
+    },
+    "setLineTimer": {
+     "set": "LineTimer"
+    }
+   },
+   "links": [
+    [
+     "entry.Kind",
+     "setKind.BootKind"
+    ],
+    [
+     "getBootLog.BootLogWidget",
+     "opaque.self"
+    ],
+    [
+     "getBootLog.BootLogWidget",
+     "show.self"
+    ],
+    [
+     "getClearStep.StepTimer",
+     "clearStep.Handle"
+    ],
+    [
+     "getClearLine.LineTimer",
+     "clearLine.Handle"
+    ],
+    [
+     "getFan.SfxFanHum",
+     "spawnHum.Sound"
+    ],
+    [
+     "spawnHum.ReturnValue",
+     "setHum.TermHum"
+    ],
+    [
+     "getCrtOn.SfxCrtOn",
+     "playCrtOn.Sound"
+    ],
+    [
+     "getSeek.SfxDriveSeek",
+     "playSeek.Sound"
+    ],
+    [
+     "getKind.BootKind",
+     "isReboot.A"
+    ],
+    [
+     "getRebootHeader.RebootHeader",
+     "header.A"
+    ],
+    [
+     "getBootHeader.BootHeader",
+     "header.B"
+    ],
+    [
+     "isReboot.ReturnValue",
+     "header.bPickA"
+    ],
+    [
+     "getRebootKB.RebootMemoryKB",
+     "memKB.A"
+    ],
+    [
+     "getBootKB.BootMemoryKB",
+     "memKB.B"
+    ],
+    [
+     "isReboot.ReturnValue",
+     "memKB.bPickA"
+    ],
+    [
+     "getBootLog.BootLogWidget",
+     "begin.self"
+    ],
+    [
+     "header.ReturnValue",
+     "begin.Header"
+    ],
+    [
+     "getSub.BootSubHeader",
+     "begin.SubHeader"
+    ],
+    [
+     "getMemLabel.MemLabel",
+     "begin.MemLabel"
+    ],
+    [
+     "memKB.ReturnValue",
+     "begin.MemoryKB"
+    ],
+    [
+     "isReboot.ReturnValue",
+     "ifReboot.Condition"
+    ],
+    [
+     "getBootLog.BootLogWidget",
+     "replay1.self"
+    ],
+    [
+     "getR1Line.Reboot1Line",
+     "replay1.Line"
+    ],
+    [
+     "getR1Result.Reboot1Result",
+     "replay1.Result"
+    ],
+    [
+     "getBootLog.BootLogWidget",
+     "replay2.self"
+    ],
+    [
+     "getR2Line.Reboot2Line",
+     "replay2.Line"
+    ],
+    [
+     "getR2Result.Reboot2Result",
+     "replay2.Result"
+    ],
+    [
+     "getRebootFirst.RebootFirstLineDelay",
+     "first.A"
+    ],
+    [
+     "getFirst.FirstLineDelay",
+     "first.B"
+    ],
+    [
+     "isReboot.ReturnValue",
+     "first.bPickA"
+    ],
+    [
+     "first.ReturnValue",
+     "safeFirst.Value"
+    ],
+    [
+     "me.self",
+     "lines.Object"
+    ],
+    [
+     "safeFirst.ReturnValue",
+     "lines.Time"
+    ],
+    [
+     "lines.ReturnValue",
+     "setLineTimer.LineTimer"
+    ],
+    [
+     "entry.then",
+     "setKind.execute"
+    ],
+    [
+     "setKind.then",
+     "setLine.execute"
+    ],
+    [
+     "setLine.then",
+     "opaque.execute"
+    ],
+    [
+     "opaque.then",
+     "show.execute"
+    ],
+    [
+     "show.then",
+     "clearStep.execute"
+    ],
+    [
+     "clearStep.then",
+     "clearLine.execute"
+    ],
+    [
+     "clearLine.then",
+     "stopHum.execute"
+    ],
+    [
+     "stopHum.then",
+     "spawnHum.execute"
+    ],
+    [
+     "spawnHum.then",
+     "setHum.execute"
+    ],
+    [
+     "setHum.then",
+     "playCrtOn.execute"
+    ],
+    [
+     "playCrtOn.then",
+     "playSeek.execute"
+    ],
+    [
+     "playSeek.then",
+     "begin.execute"
+    ],
+    [
+     "begin.then",
+     "ifReboot.execute"
+    ],
+    [
+     "ifReboot.then",
+     "replay1.execute"
+    ],
+    [
+     "replay1.then",
+     "replay2.execute"
+    ],
+    [
+     "replay2.then",
+     "skipReplayed.execute"
+    ],
+    [
+     "skipReplayed.then",
+     "lines.execute"
+    ],
+    [
+     "ifReboot.else",
+     "lines.execute"
+    ],
+    [
+     "lines.then",
+     "setLineTimer.execute"
+    ]
+   ],
+   "defaults": {
+    "setLine.BootLine": "0",
+    "opaque.InOpacity": "1.0",
+    "show.InVisibility": "HitTestInvisible",
+    "isReboot.B": "Reboot",
+    "skipReplayed.BootLine": "2",
+    "safeFirst.Min": "0.01",
+    "safeFirst.Max": "60.0",
+    "lines.FunctionName": "BootLineStep",
+    "lines.bLooping": "false"
+   }
+  },
+  {
+   "graph": "BootLineStep",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "getLine": {
+     "get": "BootLine"
+    },
+    "getKind": {
+     "get": "BootKind"
+    },
+    "isReboot": {
+     "call": "EqualEqual_NameName",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "bootLine": {
+     "select": 4
+    },
+    "getBoot1Line": {
+     "get": "Boot1Line"
+    },
+    "getBoot2Line": {
+     "get": "Boot2Line"
+    },
+    "getBoot3Line": {
+     "get": "Boot3Line"
+    },
+    "getBoot4Line": {
+     "get": "Boot4Line"
+    },
+    "bootResult": {
+     "select": 4
+    },
+    "getBoot1Result": {
+     "get": "Boot1Result"
+    },
+    "getBoot2Result": {
+     "get": "Boot2Result"
+    },
+    "getBoot3Result": {
+     "get": "Boot3Result"
+    },
+    "getBoot4Result": {
+     "get": "Boot4Result"
+    },
+    "rebootLine": {
+     "select": 4
+    },
+    "getReboot1Line": {
+     "get": "Reboot1Line"
+    },
+    "getReboot2Line": {
+     "get": "Reboot2Line"
+    },
+    "getReboot3Line": {
+     "get": "Reboot3Line"
+    },
+    "getReboot4Line": {
+     "get": "Reboot4Line"
+    },
+    "rebootResult": {
+     "select": 4
+    },
+    "getReboot1Result": {
+     "get": "Reboot1Result"
+    },
+    "getReboot2Result": {
+     "get": "Reboot2Result"
+    },
+    "getReboot3Result": {
+     "get": "Reboot3Result"
+    },
+    "getReboot4Result": {
+     "get": "Reboot4Result"
+    },
+    "line": {
+     "call": "SelectText",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "result": {
+     "call": "SelectName",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "getBootLog": {
+     "get": "BootLogWidget"
+    },
+    "typeLine": {
+     "call": "TypeLine",
+     "class": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_BootLog.WBP_Saskarta_BootLog_C"
+    },
+    "burst": {
+     "select": 4
+    },
+    "getTeletype1": {
+     "get": "SfxTeletype1"
+    },
+    "getTeletype2": {
+     "get": "SfxTeletype2"
+    },
+    "getTeletype3": {
+     "get": "SfxTeletype3"
+    },
+    "getTeletype4": {
+     "get": "SfxTeletype4"
+    },
+    "playBurst": {
+     "call": "PlaySound2D",
+     "class": "/Script/Engine.GameplayStatics"
+    },
+    "lineString": {
+     "call": "Conv_TextToString",
+     "class": "/Script/Engine.KismetTextLibrary"
+    },
+    "len": {
+     "call": "Len",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "lenF": {
+     "call": "Conv_IntToDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "getCps": {
+     "get": "CharsPerSecond"
+    },
+    "safeCps": {
+     "call": "FClamp",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "typeTime": {
+     "call": "Divide_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "getBudget": {
+     "get": "StallBudget"
+    },
+    "getStatusDelay": {
+     "get": "StatusDelay"
+    },
+    "plusStall": {
+     "call": "Add_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "plusStatus": {
+     "call": "Add_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "setHold": {
+     "set": "LineHold"
+    },
+    "getLineBefore": {
+     "get": "BootLine"
+    },
+    "increment": {
+     "call": "Add_IntInt",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "setLine": {
+     "set": "BootLine"
+    },
+    "getLineAfter": {
+     "get": "BootLine"
+    },
+    "moreLines": {
+     "call": "Less_IntInt",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "ifMore": {
+     "branch": true
+    },
+    "getHold": {
+     "get": "LineHold"
+    },
+    "getGap": {
+     "get": "LineGap"
+    },
+    "untilNext": {
+     "call": "Add_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "getClearLine": {
+     "get": "LineTimer"
+    },
+    "clearLine": {
+     "call": "K2_ClearAndInvalidateTimerHandle",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "safeNext": {
+     "call": "FClamp",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "me": {
+     "self": true
+    },
+    "nextLine": {
+     "timer": true
+    },
+    "setLineTimer": {
+     "set": "LineTimer"
+    },
+    "getFinal": {
+     "get": "FinalHold"
+    },
+    "untilPowerOn": {
+     "call": "Add_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "getClearLastLine": {
+     "get": "LineTimer"
+    },
+    "clearLastLine": {
+     "call": "K2_ClearAndInvalidateTimerHandle",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "getClearStep": {
+     "get": "StepTimer"
+    },
+    "clearStep": {
+     "call": "K2_ClearAndInvalidateTimerHandle",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "safePowerOn": {
+     "call": "FClamp",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "atPowerOn": {
+     "timer": true
+    },
+    "setStep": {
+     "set": "StepTimer"
+    },
+    "vLine": {
+     "get": "BootLine"
+    },
+    "vFirst": {
+     "call": "Not_PreBool",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "vLt": {
+     "call": "Less_IntInt",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "vAnd": {
+     "call": "BooleanAND",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "vIf": {
+     "branch": true
+    },
+    "vPick": {
+     "select": 3
+    },
+    "vTime": {
+     "select": 3
+    },
+    "vPlay": {
+     "call": "SpawnSound2D",
+     "class": "/Script/Engine.GameplayStatics"
+    },
+    "vTail": {
+     "get": "VoiceTail"
+    },
+    "vHold": {
+     "call": "Add_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "vSet": {
+     "set": "VoiceHold"
+    },
+    "vZero": {
+     "set": "VoiceHold"
+    },
+    "vS1": {
+     "get": "BootVoice1"
+    },
+    "vT1": {
+     "get": "BootVoice1Time"
+    },
+    "vS2": {
+     "get": "BootVoice2"
+    },
+    "vT2": {
+     "get": "BootVoice2Time"
+    },
+    "vS3": {
+     "get": "BootVoice3"
+    },
+    "vT3": {
+     "get": "BootVoice3Time"
+    },
+    "nMin": {
+     "get": "MinLineTime"
+    },
+    "nVoice": {
+     "get": "VoiceHold"
+    },
+    "nMax1": {
+     "call": "FMax",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "nMax2": {
+     "call": "FMax",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "nIdx": {
+     "get": "BootLine"
+    },
+    "nIs3": {
+     "call": "EqualEqual_IntInt",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "nFirst": {
+     "call": "Not_PreBool",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "nAnd": {
+     "call": "BooleanAND",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "nPause": {
+     "get": "RouteLockPause"
+    },
+    "nSel": {
+     "call": "SelectFloat",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "nAdd": {
+     "call": "Add_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "pVoice": {
+     "get": "VoiceHold"
+    },
+    "pMax": {
+     "call": "FMax",
+     "class": "/Script/Engine.KismetMathLibrary"
+    }
+   },
+   "links": [
+    [
+     "getKind.BootKind",
+     "isReboot.A"
+    ],
+    [
+     "getLine.BootLine",
+     "bootLine.Index"
+    ],
+    [
+     "getBoot1Line.Boot1Line",
+     "bootLine.Option 0"
+    ],
+    [
+     "getBoot2Line.Boot2Line",
+     "bootLine.Option 1"
+    ],
+    [
+     "getBoot3Line.Boot3Line",
+     "bootLine.Option 2"
+    ],
+    [
+     "getBoot4Line.Boot4Line",
+     "bootLine.Option 3"
+    ],
+    [
+     "getLine.BootLine",
+     "bootResult.Index"
+    ],
+    [
+     "getBoot1Result.Boot1Result",
+     "bootResult.Option 0"
+    ],
+    [
+     "getBoot2Result.Boot2Result",
+     "bootResult.Option 1"
+    ],
+    [
+     "getBoot3Result.Boot3Result",
+     "bootResult.Option 2"
+    ],
+    [
+     "getBoot4Result.Boot4Result",
+     "bootResult.Option 3"
+    ],
+    [
+     "getLine.BootLine",
+     "rebootLine.Index"
+    ],
+    [
+     "getReboot1Line.Reboot1Line",
+     "rebootLine.Option 0"
+    ],
+    [
+     "getReboot2Line.Reboot2Line",
+     "rebootLine.Option 1"
+    ],
+    [
+     "getReboot3Line.Reboot3Line",
+     "rebootLine.Option 2"
+    ],
+    [
+     "getReboot4Line.Reboot4Line",
+     "rebootLine.Option 3"
+    ],
+    [
+     "getLine.BootLine",
+     "rebootResult.Index"
+    ],
+    [
+     "getReboot1Result.Reboot1Result",
+     "rebootResult.Option 0"
+    ],
+    [
+     "getReboot2Result.Reboot2Result",
+     "rebootResult.Option 1"
+    ],
+    [
+     "getReboot3Result.Reboot3Result",
+     "rebootResult.Option 2"
+    ],
+    [
+     "getReboot4Result.Reboot4Result",
+     "rebootResult.Option 3"
+    ],
+    [
+     "rebootLine.ReturnValue",
+     "line.A"
+    ],
+    [
+     "bootLine.ReturnValue",
+     "line.B"
+    ],
+    [
+     "isReboot.ReturnValue",
+     "line.bPickA"
+    ],
+    [
+     "rebootResult.ReturnValue",
+     "result.A"
+    ],
+    [
+     "bootResult.ReturnValue",
+     "result.B"
+    ],
+    [
+     "isReboot.ReturnValue",
+     "result.bPickA"
+    ],
+    [
+     "getBootLog.BootLogWidget",
+     "typeLine.self"
+    ],
+    [
+     "line.ReturnValue",
+     "typeLine.Line"
+    ],
+    [
+     "result.ReturnValue",
+     "typeLine.Result"
+    ],
+    [
+     "getLine.BootLine",
+     "burst.Index"
+    ],
+    [
+     "getTeletype1.SfxTeletype1",
+     "burst.Option 0"
+    ],
+    [
+     "getTeletype2.SfxTeletype2",
+     "burst.Option 1"
+    ],
+    [
+     "getTeletype3.SfxTeletype3",
+     "burst.Option 2"
+    ],
+    [
+     "getTeletype4.SfxTeletype4",
+     "burst.Option 3"
+    ],
+    [
+     "burst.ReturnValue",
+     "playBurst.Sound"
+    ],
+    [
+     "line.ReturnValue",
+     "lineString.InText"
+    ],
+    [
+     "lineString.ReturnValue",
+     "len.S"
+    ],
+    [
+     "len.ReturnValue",
+     "lenF.InInt"
+    ],
+    [
+     "getCps.CharsPerSecond",
+     "safeCps.Value"
+    ],
+    [
+     "lenF.ReturnValue",
+     "typeTime.A"
+    ],
+    [
+     "safeCps.ReturnValue",
+     "typeTime.B"
+    ],
+    [
+     "typeTime.ReturnValue",
+     "plusStall.A"
+    ],
+    [
+     "getBudget.StallBudget",
+     "plusStall.B"
+    ],
+    [
+     "plusStall.ReturnValue",
+     "plusStatus.A"
+    ],
+    [
+     "getStatusDelay.StatusDelay",
+     "plusStatus.B"
+    ],
+    [
+     "plusStatus.ReturnValue",
+     "setHold.LineHold"
+    ],
+    [
+     "getLineBefore.BootLine",
+     "increment.A"
+    ],
+    [
+     "increment.ReturnValue",
+     "setLine.BootLine"
+    ],
+    [
+     "getLineAfter.BootLine",
+     "moreLines.A"
+    ],
+    [
+     "moreLines.ReturnValue",
+     "ifMore.Condition"
+    ],
+    [
+     "getHold.LineHold",
+     "untilNext.A"
+    ],
+    [
+     "getGap.LineGap",
+     "untilNext.B"
+    ],
+    [
+     "getClearLine.LineTimer",
+     "clearLine.Handle"
+    ],
+    [
+     "me.self",
+     "nextLine.Object"
+    ],
+    [
+     "safeNext.ReturnValue",
+     "nextLine.Time"
+    ],
+    [
+     "nextLine.ReturnValue",
+     "setLineTimer.LineTimer"
+    ],
+    [
+     "getFinal.FinalHold",
+     "untilPowerOn.B"
+    ],
+    [
+     "getClearLastLine.LineTimer",
+     "clearLastLine.Handle"
+    ],
+    [
+     "getClearStep.StepTimer",
+     "clearStep.Handle"
+    ],
+    [
+     "untilPowerOn.ReturnValue",
+     "safePowerOn.Value"
+    ],
+    [
+     "me.self",
+     "atPowerOn.Object"
+    ],
+    [
+     "safePowerOn.ReturnValue",
+     "atPowerOn.Time"
+    ],
+    [
+     "atPowerOn.ReturnValue",
+     "setStep.StepTimer"
+    ],
+    [
+     "entry.then",
+     "typeLine.execute"
+    ],
+    [
+     "typeLine.then",
+     "playBurst.execute"
+    ],
+    [
+     "setHold.then",
+     "setLine.execute"
+    ],
+    [
+     "setLine.then",
+     "ifMore.execute"
+    ],
+    [
+     "ifMore.then",
+     "clearLine.execute"
+    ],
+    [
+     "clearLine.then",
+     "nextLine.execute"
+    ],
+    [
+     "nextLine.then",
+     "setLineTimer.execute"
+    ],
+    [
+     "ifMore.else",
+     "clearLastLine.execute"
+    ],
+    [
+     "clearLastLine.then",
+     "clearStep.execute"
+    ],
+    [
+     "clearStep.then",
+     "atPowerOn.execute"
+    ],
+    [
+     "atPowerOn.then",
+     "setStep.execute"
+    ],
+    [
+     "vS1.BootVoice1",
+     "vPick.Option 0"
+    ],
+    [
+     "vT1.BootVoice1Time",
+     "vTime.Option 0"
+    ],
+    [
+     "vS2.BootVoice2",
+     "vPick.Option 1"
+    ],
+    [
+     "vT2.BootVoice2Time",
+     "vTime.Option 1"
+    ],
+    [
+     "vS3.BootVoice3",
+     "vPick.Option 2"
+    ],
+    [
+     "vT3.BootVoice3Time",
+     "vTime.Option 2"
+    ],
+    [
+     "isReboot.ReturnValue",
+     "vFirst.A"
+    ],
+    [
+     "vLine.BootLine",
+     "vLt.A"
+    ],
+    [
+     "vFirst.ReturnValue",
+     "vAnd.A"
+    ],
+    [
+     "vLt.ReturnValue",
+     "vAnd.B"
+    ],
+    [
+     "vAnd.ReturnValue",
+     "vIf.Condition"
+    ],
+    [
+     "vLine.BootLine",
+     "vPick.Index"
+    ],
+    [
+     "vLine.BootLine",
+     "vTime.Index"
+    ],
+    [
+     "vPick.ReturnValue",
+     "vPlay.Sound"
+    ],
+    [
+     "vTime.ReturnValue",
+     "vHold.A"
+    ],
+    [
+     "vTail.VoiceTail",
+     "vHold.B"
+    ],
+    [
+     "vHold.ReturnValue",
+     "vSet.VoiceHold"
+    ],
+    [
+     "playBurst.then",
+     "vIf.execute"
+    ],
+    [
+     "vIf.then",
+     "vPlay.execute"
+    ],
+    [
+     "vPlay.then",
+     "vSet.execute"
+    ],
+    [
+     "vSet.then",
+     "setHold.execute"
+    ],
+    [
+     "vIf.else",
+     "vZero.execute"
+    ],
+    [
+     "vZero.then",
+     "setHold.execute"
+    ],
+    [
+     "untilNext.ReturnValue",
+     "nMax1.A"
+    ],
+    [
+     "nMin.MinLineTime",
+     "nMax1.B"
+    ],
+    [
+     "nMax1.ReturnValue",
+     "nMax2.A"
+    ],
+    [
+     "nVoice.VoiceHold",
+     "nMax2.B"
+    ],
+    [
+     "nIdx.BootLine",
+     "nIs3.A"
+    ],
+    [
+     "isReboot.ReturnValue",
+     "nFirst.A"
+    ],
+    [
+     "nIs3.ReturnValue",
+     "nAnd.A"
+    ],
+    [
+     "nFirst.ReturnValue",
+     "nAnd.B"
+    ],
+    [
+     "nPause.RouteLockPause",
+     "nSel.A"
+    ],
+    [
+     "nAnd.ReturnValue",
+     "nSel.bPickA"
+    ],
+    [
+     "nMax2.ReturnValue",
+     "nAdd.A"
+    ],
+    [
+     "nSel.ReturnValue",
+     "nAdd.B"
+    ],
+    [
+     "nAdd.ReturnValue",
+     "safeNext.Value"
+    ],
+    [
+     "getHold.LineHold",
+     "pMax.A"
+    ],
+    [
+     "pVoice.VoiceHold",
+     "pMax.B"
+    ],
+    [
+     "pMax.ReturnValue",
+     "untilPowerOn.A"
+    ]
+   ],
+   "defaults": {
+    "isReboot.B": "Reboot",
+    "safeCps.Min": "1.0",
+    "safeCps.Max": "1000.0",
+    "increment.B": "1",
+    "moreLines.B": "4",
+    "safeNext.Min": "0.01",
+    "safeNext.Max": "60.0",
+    "nextLine.FunctionName": "BootLineStep",
+    "nextLine.bLooping": "false",
+    "safePowerOn.Min": "0.01",
+    "safePowerOn.Max": "60.0",
+    "atPowerOn.FunctionName": "PowerOn",
+    "atPowerOn.bLooping": "false",
+    "vLt.B": "3",
+    "vZero.VoiceHold": "0.0",
+    "nIs3.B": "3",
+    "nSel.B": "0.0"
+   }
+  },
+  {
+   "graph": "PowerOn",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "getContactor": {
+     "get": "SfxContactor"
+    },
+    "playContactor": {
+     "call": "PlaySound2D",
+     "class": "/Script/Engine.GameplayStatics"
+    },
+    "getPowerOn": {
+     "get": "SfxPowerOn"
+    },
+    "playPowerOn": {
+     "call": "PlaySound2D",
+     "class": "/Script/Engine.GameplayStatics"
+    },
+    "getMID": {
+     "get": "VisionMID"
+    },
+    "now": {
+     "call": "GetTimeSeconds",
+     "class": "/Script/Engine.GameplayStatics"
+    },
+    "pushStart": {
+     "call": "SetScalarParameterValue",
+     "class": "/Script/Engine.MaterialInstanceDynamic"
+    },
+    "pushMode": {
+     "call": "SetScalarParameterValue",
+     "class": "/Script/Engine.MaterialInstanceDynamic"
+    },
+    "weightOn": {
+     "call": "SetVisionWeight"
+    },
+    "getBootLog": {
+     "get": "BootLogWidget"
+    },
+    "hideBootLog": {
+     "call": "SetVisibility",
+     "class": "/Script/UMG.Widget"
+    },
+    "getStep": {
+     "get": "StepTimer"
+    },
+    "clearStep": {
+     "call": "K2_ClearAndInvalidateTimerHandle",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "getBootBlack": {
+     "get": "BootBlack"
+    },
+    "getOn": {
+     "get": "OnTime"
+    },
+    "untilOnline": {
+     "call": "Add_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "safeDelay": {
+     "call": "FClamp",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "me": {
+     "self": true
+    },
+    "atOnline": {
+     "timer": true
+    },
+    "setStep": {
+     "set": "StepTimer"
+    },
+    "getCrtOff": {
+     "get": "SfxCrtOff"
+    },
+    "playCrtOff": {
+     "call": "PlaySound2D",
+     "class": "/Script/Engine.GameplayStatics"
+    },
+    "clearTerm": {
+     "call": "ClearTerminal",
+     "class": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_BootLog.WBP_Saskarta_BootLog_C"
+    },
+    "stopHum": {
+     "call": "StopHum"
+    }
+   },
+   "links": [
+    [
+     "entry.then",
+     "playContactor.execute"
+    ],
+    [
+     "playContactor.then",
+     "playPowerOn.execute"
+    ],
+    [
+     "pushStart.then",
+     "pushMode.execute"
+    ],
+    [
+     "pushMode.then",
+     "weightOn.execute"
+    ],
+    [
+     "clearStep.then",
+     "atOnline.execute"
+    ],
+    [
+     "atOnline.then",
+     "setStep.execute"
+    ],
+    [
+     "getContactor.SfxContactor",
+     "playContactor.Sound"
+    ],
+    [
+     "getPowerOn.SfxPowerOn",
+     "playPowerOn.Sound"
+    ],
+    [
+     "getMID.VisionMID",
+     "pushStart.self"
+    ],
+    [
+     "now.ReturnValue",
+     "pushStart.Value"
+    ],
+    [
+     "getMID.VisionMID",
+     "pushMode.self"
+    ],
+    [
+     "getBootLog.BootLogWidget",
+     "hideBootLog.self"
+    ],
+    [
+     "getStep.StepTimer",
+     "clearStep.Handle"
+    ],
+    [
+     "getBootBlack.BootBlack",
+     "untilOnline.A"
+    ],
+    [
+     "getOn.OnTime",
+     "untilOnline.B"
+    ],
+    [
+     "untilOnline.ReturnValue",
+     "safeDelay.Value"
+    ],
+    [
+     "me.self",
+     "atOnline.Object"
+    ],
+    [
+     "safeDelay.ReturnValue",
+     "atOnline.Time"
+    ],
+    [
+     "atOnline.ReturnValue",
+     "setStep.StepTimer"
+    ],
+    [
+     "playPowerOn.then",
+     "playCrtOff.execute"
+    ],
+    [
+     "playCrtOff.then",
+     "pushStart.execute"
+    ],
+    [
+     "getCrtOff.SfxCrtOff",
+     "playCrtOff.Sound"
+    ],
+    [
+     "weightOn.then",
+     "clearTerm.execute"
+    ],
+    [
+     "clearTerm.then",
+     "hideBootLog.execute"
+    ],
+    [
+     "getBootLog.BootLogWidget",
+     "clearTerm.self"
+    ],
+    [
+     "hideBootLog.then",
+     "stopHum.execute"
+    ],
+    [
+     "stopHum.then",
+     "clearStep.execute"
+    ]
+   ],
+   "defaults": {
+    "pushStart.ParameterName": "VisionStart",
+    "pushMode.ParameterName": "VisionMode",
+    "pushMode.Value": "1.0",
+    "weightOn.Weight": "1.0",
+    "hideBootLog.InVisibility": "Collapsed",
+    "safeDelay.Min": "0.01",
+    "safeDelay.Max": "60.0",
+    "atOnline.FunctionName": "VisionOnline",
+    "atOnline.bLooping": "false"
+   }
+  },
+  {
+   "graph": "VisionOnline",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "getStep": {
+     "get": "StepTimer"
+    },
+    "clearStep": {
+     "call": "K2_ClearAndInvalidateTimerHandle",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "getResidual": {
+     "get": "Residual"
+    },
+    "safeDelay": {
+     "call": "FClamp",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "me": {
+     "self": true
+    },
+    "atClean": {
+     "timer": true
+    },
+    "setStep": {
+     "set": "StepTimer"
+    },
+    "owner": {
+     "call": "GetOwner",
+     "class": "/Script/Engine.ActorComponent"
+    },
+    "asPC": {
+     "cast": "/Game/SaskartaGaea/GameFlow/PC_Saskarta.PC_Saskarta_C"
+    },
+    "online": {
+     "call": "HandleVisionOnline",
+     "class": "/Game/SaskartaGaea/GameFlow/PC_Saskarta.PC_Saskarta_C"
+    },
+    "noPC": {
+     "call": "PrintString",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    }
+   },
+   "links": [
+    [
+     "entry.then",
+     "clearStep.execute"
+    ],
+    [
+     "clearStep.then",
+     "atClean.execute"
+    ],
+    [
+     "atClean.then",
+     "setStep.execute"
+    ],
+    [
+     "setStep.then",
+     "asPC.execute"
+    ],
+    [
+     "asPC.then",
+     "online.execute"
+    ],
+    [
+     "asPC.CastFailed",
+     "noPC.execute"
+    ],
+    [
+     "getStep.StepTimer",
+     "clearStep.Handle"
+    ],
+    [
+     "getResidual.Residual",
+     "safeDelay.Value"
+    ],
+    [
+     "me.self",
+     "atClean.Object"
+    ],
+    [
+     "safeDelay.ReturnValue",
+     "atClean.Time"
+    ],
+    [
+     "atClean.ReturnValue",
+     "setStep.StepTimer"
+    ],
+    [
+     "owner.ReturnValue",
+     "asPC.Object"
+    ],
+    [
+     "asPC.AsPC Saskarta",
+     "online.self"
+    ]
+   ],
+   "defaults": {
+    "safeDelay.Min": "0.01",
+    "safeDelay.Max": "60.0",
+    "atClean.FunctionName": "CleanUp",
+    "atClean.bLooping": "false",
+    "noPC.InString": "Saskarta vision: the owner is not PC_Saskarta, so HandleVisionOnline was not called."
+   }
+  },
+  {
+   "graph": "CleanUp",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "weightOff": {
+     "call": "SetVisionWeight"
+    }
+   },
+   "links": [
+    [
+     "entry.then",
+     "weightOff.execute"
+    ]
+   ],
+   "defaults": {
+    "weightOff.Weight": "0.0"
+   }
+  },
+  {
+   "graph": "StopHum",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "getHum": {
+     "get": "TermHum"
+    },
+    "valid": {
+     "call": "IsValid",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "ifHum": {
+     "branch": true
+    },
+    "getFade": {
+     "get": "HumFadeTime"
+    },
+    "fade": {
+     "call": "FadeOut",
+     "class": "/Script/Engine.AudioComponent"
+    }
+   },
+   "links": [
+    [
+     "getHum.TermHum",
+     "valid.Object"
+    ],
+    [
+     "valid.ReturnValue",
+     "ifHum.Condition"
+    ],
+    [
+     "getHum.TermHum",
+     "fade.self"
+    ],
+    [
+     "getFade.HumFadeTime",
+     "fade.FadeOutDuration"
+    ],
+    [
+     "entry.then",
+     "ifHum.execute"
+    ],
+    [
+     "ifHum.then",
+     "fade.execute"
+    ]
+   ],
+   "defaults": {
+    "fade.FadeVolumeLevel": "0.0"
+   }
+  },
+  {
+   "graph": "RestoreAfterContinue",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "clearLineTimer": {
+     "call": "K2_ClearAndInvalidateTimerHandle",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "getLineTimer": {
+     "get": "LineTimer"
+    },
+    "clearStepTimer": {
+     "call": "K2_ClearAndInvalidateTimerHandle",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "getStepTimer": {
+     "get": "StepTimer"
+    },
+    "clearFadeTimer": {
+     "call": "K2_ClearAndInvalidateTimerHandle",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "getFadeTimer": {
+     "get": "FadeTimer"
+    },
+    "getTitleWidget": {
+     "get": "TitleWidget"
+    },
+    "TitleWidgetValid": {
+     "call": "IsValid",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "TitleWidgetBranch": {
+     "branch": true
+    },
+    "stopTitleWidget": {
+     "call": "StopAllAnimations",
+     "class": "/Script/UMG.UserWidget"
+    },
+    "removeTitleWidget": {
+     "call": "RemoveFromParent",
+     "class": "/Script/UMG.Widget"
+    },
+    "getBootLogWidget": {
+     "get": "BootLogWidget"
+    },
+    "BootLogWidgetValid": {
+     "call": "IsValid",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "BootLogWidgetBranch": {
+     "branch": true
+    },
+    "stopBootLogWidget": {
+     "call": "StopAllAnimations",
+     "class": "/Script/UMG.UserWidget"
+    },
+    "removeBootLogWidget": {
+     "call": "RemoveFromParent",
+     "class": "/Script/UMG.Widget"
+    },
+    "getSubtitleWidget": {
+     "get": "SubtitleWidget"
+    },
+    "SubtitleWidgetValid": {
+     "call": "IsValid",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "SubtitleWidgetBranch": {
+     "branch": true
+    },
+    "stopSubtitleWidget": {
+     "call": "StopAllAnimations",
+     "class": "/Script/UMG.UserWidget"
+    },
+    "removeSubtitleWidget": {
+     "call": "RemoveFromParent",
+     "class": "/Script/UMG.Widget"
+    },
+    "stopHum": {
+     "call": "StopHum"
+    },
+    "cleanVision": {
+     "call": "CleanUp"
+    }
+   },
+   "links": [
+    [
+     "getLineTimer.LineTimer",
+     "clearLineTimer.Handle"
+    ],
+    [
+     "entry.then",
+     "clearLineTimer.execute"
+    ],
+    [
+     "getStepTimer.StepTimer",
+     "clearStepTimer.Handle"
+    ],
+    [
+     "clearLineTimer.then",
+     "clearStepTimer.execute"
+    ],
+    [
+     "getFadeTimer.FadeTimer",
+     "clearFadeTimer.Handle"
+    ],
+    [
+     "clearStepTimer.then",
+     "clearFadeTimer.execute"
+    ],
+    [
+     "getTitleWidget.TitleWidget",
+     "TitleWidgetValid.Object"
+    ],
+    [
+     "TitleWidgetValid.ReturnValue",
+     "TitleWidgetBranch.Condition"
+    ],
+    [
+     "clearFadeTimer.then",
+     "TitleWidgetBranch.execute"
+    ],
+    [
+     "getTitleWidget.TitleWidget",
+     "stopTitleWidget.self"
+    ],
+    [
+     "TitleWidgetBranch.then",
+     "stopTitleWidget.execute"
+    ],
+    [
+     "getTitleWidget.TitleWidget",
+     "removeTitleWidget.self"
+    ],
+    [
+     "stopTitleWidget.then",
+     "removeTitleWidget.execute"
+    ],
+    [
+     "getBootLogWidget.BootLogWidget",
+     "BootLogWidgetValid.Object"
+    ],
+    [
+     "BootLogWidgetValid.ReturnValue",
+     "BootLogWidgetBranch.Condition"
+    ],
+    [
+     "removeTitleWidget.then",
+     "BootLogWidgetBranch.execute"
+    ],
+    [
+     "TitleWidgetBranch.else",
+     "BootLogWidgetBranch.execute"
+    ],
+    [
+     "getBootLogWidget.BootLogWidget",
+     "stopBootLogWidget.self"
+    ],
+    [
+     "BootLogWidgetBranch.then",
+     "stopBootLogWidget.execute"
+    ],
+    [
+     "getBootLogWidget.BootLogWidget",
+     "removeBootLogWidget.self"
+    ],
+    [
+     "stopBootLogWidget.then",
+     "removeBootLogWidget.execute"
+    ],
+    [
+     "getSubtitleWidget.SubtitleWidget",
+     "SubtitleWidgetValid.Object"
+    ],
+    [
+     "SubtitleWidgetValid.ReturnValue",
+     "SubtitleWidgetBranch.Condition"
+    ],
+    [
+     "removeBootLogWidget.then",
+     "SubtitleWidgetBranch.execute"
+    ],
+    [
+     "BootLogWidgetBranch.else",
+     "SubtitleWidgetBranch.execute"
+    ],
+    [
+     "getSubtitleWidget.SubtitleWidget",
+     "stopSubtitleWidget.self"
+    ],
+    [
+     "SubtitleWidgetBranch.then",
+     "stopSubtitleWidget.execute"
+    ],
+    [
+     "getSubtitleWidget.SubtitleWidget",
+     "removeSubtitleWidget.self"
+    ],
+    [
+     "stopSubtitleWidget.then",
+     "removeSubtitleWidget.execute"
+    ],
+    [
+     "removeSubtitleWidget.then",
+     "stopHum.execute"
+    ],
+    [
+     "SubtitleWidgetBranch.else",
+     "stopHum.execute"
+    ],
+    [
+     "stopHum.then",
+     "cleanVision.execute"
+    ]
+   ],
+   "defaults": {}
+  }
+ ]
+}

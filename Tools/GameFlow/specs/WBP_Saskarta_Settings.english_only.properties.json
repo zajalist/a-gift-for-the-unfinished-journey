@@ -1,0 +1,7 @@
+{
+  "asset": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Settings",
+  "description": "Property-only update: hide the obsolete original-language toggle while preserving existing widgets and graphs.",
+  "tree": [],
+  "variables": [],
+  "widget_properties": { "ShowSaskartanRow": { "Visibility": "Collapsed" } }
+}

@@ -1,0 +1,708 @@
+{
+ "about": "Tripo Studio projects of the user (studio.tripo3d.ai, workspace list newest first, 2026-09-28). key = folder under SourceArt/Tripo; t2 = the /Game/SaskartaGaea/Environment/Tripo02/SM_T2_<t2> slot in Tools/World/setdress_catalog.py TRIPO2; real_size_m = the planned size (x, y, z) the import scale targets; verdict use = import, review = look first.",
+ "projects": [
+  {
+   "index": 1,
+   "key": "radio_desk",
+   "studio_name": "vintage radio desk",
+   "project_id": "eeebf890-34e3-4b37-98cb-1f26d0917080",
+   "task_id": "8046f104-2d28-49c5-9d93-4a37981973d8",
+   "studio_op": "text_to_model",
+   "t2": "radio_desk",
+   "slot": "O01 Low Voice post (radio room)",
+   "real_size_m": [
+    2,
+    0.9,
+    1.6
+   ],
+   "scale_basis": "max",
+   "intended_use": "The Keeper's broadcast desk inside the post office's radio room; replaces the AB_WoodenTable_B stand-in.",
+   "verdict": "use",
+   "note": ""
+  },
+  {
+   "index": 2,
+   "key": "signal_mirror",
+   "studio_name": "steampunk signal mirror",
+   "project_id": "5e2e76fc-f1c8-41b8-99d1-d1dc09d19d93",
+   "task_id": "5935ab71-98bf-4366-b6c9-6046f199f883",
+   "studio_op": "text_to_model",
+   "t2": "signal_mirror",
+   "slot": "O11 Signal-mirror hill",
+   "real_size_m": [
+    1.6,
+    0.6,
+    2.4
+   ],
+   "scale_basis": "max",
+   "intended_use": "The last turning signal mirror on the hill (ps_glint ambient); O11 has no stand-in today.",
+   "verdict": "use",
+   "note": ""
+  },
+  {
+   "index": 3,
+   "key": "wind_pump",
+   "studio_name": "windmill wind pump",
+   "project_id": "c987d82c-8185-4ffa-9814-a60062731747",
+   "task_id": "074f47cd-2785-43e3-857b-b18598f4fb5b",
+   "studio_op": "text_to_model",
+   "t2": "wind_pump",
+   "slot": "O08 Wind-pump ridge",
+   "real_size_m": [
+    4,
+    4,
+    12
+   ],
+   "scale_basis": "max",
+   "intended_use": "The line of dead wind pumps on the ridge (wpo_rotor ambient); replaces the B01_pillar01 stand-ins.",
+   "verdict": "use",
+   "note": ""
+  },
+  {
+   "index": 4,
+   "key": "airship",
+   "studio_name": "steampunk airship",
+   "project_id": "951a368f-557e-499d-84e1-f9a018971ed9",
+   "task_id": "18e6843c-626f-4f2a-b482-7bb335bff2ed",
+   "studio_op": "text_to_model",
+   "t2": "airship_hull",
+   "slot": "O04 Downed airship",
+   "real_size_m": [
+    14,
+    11.5,
+    9.6
+   ],
+   "scale_basis": "max",
+   "intended_use": "The brass-and-canvas airship across the plain; O04 has no hull today (only its mooring rope).",
+   "verdict": "use",
+   "note": "A small scout airship (gondola pod under a short envelope), not the 60 m rib-frame hull TRIPO2 planned; sized 14 m. O04 layout (a 60 m frame across the plain) needs re-planning around a small wreck, or keep the hull slot open."
+  },
+  {
+   "index": 5,
+   "key": "animal_pen",
+   "studio_name": "wooden animal pen",
+   "project_id": "7652cedd-b414-4c60-8c22-585180aeaf1e",
+   "task_id": "e50dc37c-07e4-447c-9a68-0f6bbace4492",
+   "studio_op": "text_to_model",
+   "t2": "animal_pen",
+   "slot": "O14 Granary hamlet",
+   "real_size_m": [
+    5,
+    5.5,
+    3.6
+   ],
+   "scale_basis": "max",
+   "intended_use": "The open animal pens of the hamlet; replaces BPP_Wooden_Pen_01.",
+   "verdict": "use",
+   "note": "The pen has a tall woven gate arch; sized 5 m across so the fence reads about 1.2 m. TRIPO2 planned 8 x 6 x 1.3."
+  },
+  {
+   "index": 6,
+   "key": "stone_terrace",
+   "studio_name": "medieval stone terrace",
+   "project_id": "6c6aaeb9-db9d-4a9d-a056-db93e39785fb",
+   "task_id": "d4ca237f-d114-4355-b1dc-897755e95209",
+   "studio_op": "text_to_model",
+   "t2": "terrace_wall",
+   "slot": "O13 Terrace orchards",
+   "real_size_m": [
+    4,
+    3.7,
+    3
+   ],
+   "scale_basis": "max",
+   "intended_use": "Stepped terrace wall runs (80 of 111 placements at O13 wait on Tripo); replaces B01_wall02.",
+   "verdict": "use",
+   "note": "A stepped terrace block with a sluice gate, taller than a single wall run; sized 4 m long (3 m high). TRIPO2 planned 5 x 1 x 1.5."
+  },
+  {
+   "index": 7,
+   "key": "watchtower",
+   "studio_name": "wooden watchtower",
+   "project_id": "e819713c-9023-4999-9536-de95acd249b0",
+   "task_id": "7882704d-47fa-47f0-a3ee-7ee0c21f3f5a",
+   "studio_op": "text_to_model",
+   "t2": "watchtower",
+   "slot": "S08 Valley watchtower",
+   "real_size_m": [
+    5,
+    5,
+    12
+   ],
+   "scale_basis": "max",
+   "intended_use": "The watch post on the knoll seen from the Waiting Water; replaces the house03 stand-in.",
+   "verdict": "use",
+   "note": ""
+  },
+  {
+   "index": 8,
+   "key": "granary",
+   "studio_name": "granary steampunk",
+   "project_id": "0056ea67-57bf-4099-8f70-260670dc8e9b",
+   "task_id": "bec035fa-7a39-458c-b611-fc7950f10c4c",
+   "studio_op": "text_to_model",
+   "t2": "granary",
+   "slot": "O14 Granary hamlet",
+   "real_size_m": [
+    6,
+    5,
+    6
+   ],
+   "scale_basis": "max",
+   "intended_use": "The hamlet granary (landmark of O14); replaces the B01_house02 stand-in.",
+   "verdict": "use",
+   "note": ""
+  },
+  {
+   "index": 9,
+   "key": "rope_bridge",
+   "studio_name": "steampunk medieval rope bridge",
+   "project_id": "2e3d3b5d-8b96-4cf5-969f-926c918e9d9c",
+   "task_id": "4ed5d2a8-d06b-41bc-877e-b1653268257c",
+   "studio_op": "text_to_model",
+   "t2": "rope_footbridge",
+   "slot": "O05 Cliff dwellings",
+   "real_size_m": [
+    8,
+    3.7,
+    2.3
+   ],
+   "scale_basis": "max",
+   "intended_use": "The rope footbridge between the cliff homes; O05 has no stand-in today.",
+   "verdict": "use",
+   "note": "A short span with anchor posts; sized 8 m so the deck width stays believable. O05 wants 16 m: use two, or bridge a narrower gap."
+  },
+  {
+   "index": 10,
+   "key": "dovecote",
+   "studio_name": "dovecote tower",
+   "project_id": "857ca4dc-5d31-4a32-a05d-40f9d5de99fe",
+   "task_id": "2bc0c72c-b712-4ff4-91e6-2f34f4e21ba8",
+   "studio_op": "text_to_model",
+   "t2": "dovecote",
+   "slot": "O14 Granary hamlet",
+   "real_size_m": [
+    4,
+    4,
+    8
+   ],
+   "scale_basis": "max",
+   "intended_use": "The hamlet dovecote tower; replaces the B01_house03 stand-in.",
+   "verdict": "use",
+   "note": ""
+  },
+  {
+   "index": 11,
+   "key": "milestone",
+   "studio_name": "stone milestone",
+   "project_id": "b55bf95f-9ba3-4f52-a0b1-2e518f811c33",
+   "task_id": "476f29ce-39c4-477e-87ab-225538534797",
+   "studio_op": "text_to_model",
+   "t2": "way_marker",
+   "slot": "Spur way-markers (O01, O09, O14, O15) and road markers",
+   "real_size_m": [
+    0.5,
+    0.4,
+    1.2
+   ],
+   "scale_basis": "max",
+   "intended_use": "Way-stones along the spur paths; replaces B01_marker01 and fills the asset-inventory \"no milestones\" gap.",
+   "verdict": "use",
+   "note": ""
+  },
+  {
+   "index": 12,
+   "key": "water_wheel",
+   "studio_name": "wooden water wheel",
+   "project_id": "9b77a7b8-3e50-4ca5-80fd-6c9643846453",
+   "task_id": "bb9e58c9-79dd-480e-95df-e0598bfb3fea",
+   "studio_op": "text_to_model",
+   "t2": "water_wheel",
+   "slot": "O06 Old dam",
+   "real_size_m": [
+    2.3,
+    7.8,
+    5
+   ],
+   "scale_basis": "h",
+   "intended_use": "The dam's dry mill wheel (wpo_wheel_creak ambient); replaces B01_wheel01.",
+   "verdict": "use",
+   "note": "Wheel, clay pots and stone channel in one piece; scaled by height (5 m)."
+  },
+  {
+   "index": 13,
+   "key": "distillation_column",
+   "studio_name": "distillation column",
+   "project_id": "c80cc83a-72f4-42b8-a1c8-d45f4424cb0d",
+   "task_id": "a15833d4-dcf9-448f-a780-5381bfbb5d28",
+   "studio_op": "text_to_model",
+   "t2": "distillation_column",
+   "slot": "O02 Hilltop biofuel refinery",
+   "real_size_m": [
+    3,
+    3,
+    22
+   ],
+   "scale_basis": "max",
+   "intended_use": "The dead columns on the refinery skyline; replaces the AB_Pillar_low stand-in.",
+   "verdict": "use",
+   "note": ""
+  },
+  {
+   "index": 14,
+   "key": "steam_pipe",
+   "studio_name": "steampunk pipe",
+   "project_id": "e2c0f879-cc2c-4b96-9412-11e261e71e90",
+   "task_id": "d376c8f7-d361-4df6-8d77-52b8c6cb519d",
+   "studio_op": "text_to_model",
+   "t2": "pipe_manifold",
+   "slot": "O02 Hilltop biofuel refinery",
+   "real_size_m": [
+    1.9,
+    2.2,
+    2.5
+   ],
+   "scale_basis": "h",
+   "intended_use": "Pipe manifold runs between still and columns (x3 at O02); O02 skips them today.",
+   "verdict": "use",
+   "note": "A standing manifold with a valve wheel; scaled by height (2.5 m), not the planned 4 m run."
+  },
+  {
+   "index": 15,
+   "key": "lab_bench",
+   "studio_name": "steampunk lab bench",
+   "project_id": "e96bb843-54dc-41b8-9c2d-c63d057aada0",
+   "task_id": "20aaa5c8-5c6c-47a7-8bdd-927033dfc75b",
+   "studio_op": "text_to_model",
+   "t2": "chem_bench",
+   "slot": "O10 Chemist's workshop",
+   "real_size_m": [
+    2.2,
+    0.9,
+    1.3
+   ],
+   "scale_basis": "max",
+   "intended_use": "The chemist's test bench set out for the next test; replaces AB_WoodenTable_B (which clips the house).",
+   "verdict": "use",
+   "note": ""
+  },
+  {
+   "index": 16,
+   "key": "copper_still",
+   "studio_name": "steampunk copper still",
+   "project_id": "d9567fc8-ad22-4310-9d1a-fd5f29d7027f",
+   "task_id": "2e791b9e-b5de-4410-9fd5-eb60bdfdd2ec",
+   "studio_op": "text_to_model",
+   "t2": "biofuel_still",
+   "slot": "O02 refinery and O10 chemist's workshop",
+   "real_size_m": [
+    4,
+    4,
+    7
+   ],
+   "scale_basis": "max",
+   "intended_use": "The riveted biofuel still; replaces the B01_tank01 stand-in. Also suits S15 Works.",
+   "verdict": "use",
+   "note": ""
+  },
+  {
+   "index": 17,
+   "key": "clay_jars",
+   "studio_name": "clay water jars",
+   "project_id": "fd9432b8-0656-4d69-ba27-09fcf6f70d6b",
+   "task_id": "cb043a91-bad2-44e3-9a43-2350bca2ae49",
+   "studio_op": "text_to_model",
+   "t2": "jars",
+   "slot": "O05, O10, O14 and S13 caravanserai",
+   "real_size_m": [
+    1.5,
+    2.4,
+    2.25
+   ],
+   "scale_basis": "max",
+   "intended_use": "Clay water jars (the plan bans modern drums); replaces the scaled B01_tank01.",
+   "verdict": "use",
+   "note": "A rack of about 14 jars and amphorae, not one jar; sized 2.4 m long. Single jars still need the B01_tank01 stand-in or a split."
+  },
+  {
+   "index": 18,
+   "key": "bread_oven",
+   "studio_name": "clay bread oven",
+   "project_id": "22405e23-eda1-4ec1-bb39-f261bb49a5cc",
+   "task_id": "cc7e3cde-4220-46e1-b8ea-4c2c815f0531",
+   "studio_op": "text_to_model",
+   "t2": "bread_oven",
+   "slot": "O14 Granary hamlet",
+   "real_size_m": [
+    2.5,
+    2.5,
+    2.2
+   ],
+   "scale_basis": "max",
+   "intended_use": "The cold bread oven; replaces the AB_Fireplace stand-in.",
+   "verdict": "use",
+   "note": ""
+  },
+  {
+   "index": 19,
+   "key": "courtyard",
+   "studio_name": "ancient courtyard",
+   "project_id": "be7e09e9-10f0-4a0b-a596-a2065c64c36a",
+   "task_id": "d7b37e69-1eb4-4913-90e8-ff77935c0a81",
+   "studio_op": "text_to_model",
+   "t2": "courtyard",
+   "slot": "S13 Numbered Stop caravanserai, S07 Waiting Water",
+   "real_size_m": [
+    20,
+    18,
+    4
+   ],
+   "scale_basis": "max",
+   "intended_use": "Walled courtyard inn of the caravanserai; replaces B01_ruin01.",
+   "verdict": "use",
+   "note": "Sized to the planned 20 m; the gate block then stands about 8 m. Check against the S13 layout."
+  },
+  {
+   "index": 20,
+   "key": "stone_mud_hut",
+   "studio_name": "stone mud hut",
+   "project_id": "be06dad4-797a-4f66-8d02-e02cf8bb46a4",
+   "task_id": "dece6d5f-28e7-455d-be6e-d6eb095aca57",
+   "studio_op": "text_to_model",
+   "t2": "stone_hut",
+   "slot": "S19 Last Waystation",
+   "real_size_m": [
+    6,
+    4.8,
+    4.2
+   ],
+   "scale_basis": "max",
+   "intended_use": "The waystation hut (the modular MedievalVillage hut reads as loose panels); new slot, not in TRIPO2 yet.",
+   "verdict": "use",
+   "note": ""
+  },
+  {
+   "index": 21,
+   "key": "mudbrick_house_ruined",
+   "studio_name": "ruined mud-brick house",
+   "project_id": "b60ba993-52f6-455e-a394-10f9e159b5c4",
+   "task_id": "1a685367-b0a0-4b85-adf3-4439afc0f9b9",
+   "studio_op": "text_to_model",
+   "t2": "mudbrick_house",
+   "slot": "O01 post office, O10 workshop, O14 hamlet, S07",
+   "real_size_m": [
+    10.5,
+    9.6,
+    6
+   ],
+   "scale_basis": "h",
+   "intended_use": "Mud-brick house shell; replaces the B01_house02 stand-in at O01/O10/O14.",
+   "verdict": "use",
+   "note": "Two-storey house on a rubble apron; scaled by height (6 m), so the footprint with rubble is about 10.5 m."
+  },
+  {
+   "index": 22,
+   "key": "mudbrick_house_collapsed",
+   "studio_name": "collapsed mud-brick house",
+   "project_id": "e865c925-974e-42be-b375-5a9ed618dbdb",
+   "task_id": "4fea2e02-6e53-49df-a92e-8c5a3c57b73f",
+   "studio_op": "text_to_model",
+   "t2": "mudbrick_house_collapsed",
+   "slot": "O14 ruined hamlet, S07 Waiting Water",
+   "real_size_m": [
+    8,
+    7,
+    4
+   ],
+   "scale_basis": "max",
+   "intended_use": "Collapsed variant to mix with the standing one (decay 2, ruined); new slot.",
+   "verdict": "use",
+   "note": ""
+  },
+  {
+   "index": 23,
+   "key": "carrier_cradle",
+   "studio_name": "weathered stone winch cart (docking cradle)",
+   "project_id": "928d8aaa-bb68-481e-bce6-2e256aa9b1f3",
+   "task_id": "416bd357-3f22-4768-942c-bacce94b9fc6",
+   "studio_op": "text_to_model",
+   "t2": "carrier_cradle",
+   "slot": "O09 Caravan graveyard (two old cradles), V1, V7",
+   "real_size_m": [
+    3.2,
+    1.2,
+    1.3
+   ],
+   "scale_basis": "max",
+   "intended_use": "Stone-and-timber docking cradle for the carrier; replaces MV_Manger.",
+   "verdict": "use",
+   "note": ""
+  },
+  {
+   "index": 24,
+   "key": "relay_tower",
+   "studio_name": "ancient radio relay tower",
+   "project_id": "a8dc86d2-9316-4005-aca9-7d6750b89c65",
+   "task_id": "daed9e3b-7e4d-4bd7-a742-1b57be39f30c",
+   "studio_op": "text_to_model",
+   "t2": "relay_tower",
+   "slot": "O12 Old relay (first High Voice), O01",
+   "real_size_m": [
+    6,
+    6,
+    26
+   ],
+   "scale_basis": "max",
+   "intended_use": "The first High Voice, dead and leaning (wpo_mast_bend); O01/O12 have no stand-in since the pillar was removed.",
+   "verdict": "use",
+   "note": "The mound at the foot makes the base about 17 m wide at 26 m tall."
+  },
+  {
+   "index": 25,
+   "key": "ruin_arch_be1a",
+   "studio_name": "stone ruin arch",
+   "project_id": "be1a696b-78ab-4b15-9fd3-0186c739ae60",
+   "task_id": "9fdc8c46-a254-4d7b-be94-ded4a6aee08f",
+   "studio_op": "meta_modification",
+   "t2": "ruin_arch_be1a",
+   "slot": "S13 broken arch gate, S10 crest fort, O03 bridge arches",
+   "real_size_m": [
+    7.7,
+    2.4,
+    7.1
+   ],
+   "scale_basis": "max",
+   "intended_use": "Earlier image-to-model ruin; candidate arch/ruin piece. Review against ABP_Arch_D before importing.",
+   "verdict": "skip",
+   "note": "Untextured Nexus image-to-model mesh (the Studio only has a wireframe preview). Gothic tracery windows and banners: reads as a church ruin, which the style rules avoid. Skip unless a plain arch is needed."
+  },
+  {
+   "index": 26,
+   "key": "ruin_archway_1428",
+   "studio_name": "stone ruin archway",
+   "project_id": "142814ec-7d10-4b80-9328-254977f948c2",
+   "task_id": "77f304e4-3073-4ba8-a6a4-0b0c4dc4c0ce",
+   "studio_op": "image_to_model",
+   "t2": "ruin_archway_1428",
+   "slot": "S13 broken arch gate, S10 crest fort, O03 bridge arches",
+   "real_size_m": [
+    7.7,
+    2.4,
+    7.1
+   ],
+   "scale_basis": "max",
+   "intended_use": "Earlier image-to-model ruin; candidate arch/ruin piece. Review against ABP_Arch_D before importing.",
+   "verdict": "skip",
+   "note": "Untextured Nexus image-to-model mesh (the Studio only has a wireframe preview). Gothic tracery windows and banners: reads as a church ruin, which the style rules avoid. Skip unless a plain arch is needed."
+  },
+  {
+   "index": 27,
+   "key": "ruin_arch_6aff",
+   "studio_name": "stone arch ruin",
+   "project_id": "6aff1b01-9b3e-4aa5-bd16-215c2f9a9f59",
+   "task_id": "8f97bd25-ce4b-4f1b-91d5-39641c824c4f",
+   "studio_op": "image_to_model",
+   "t2": "ruin_arch_6aff",
+   "slot": "S13 broken arch gate, S10 crest fort, O03 bridge arches",
+   "real_size_m": [
+    7.7,
+    2.4,
+    7.1
+   ],
+   "scale_basis": "max",
+   "intended_use": "Earlier image-to-model ruin; candidate arch/ruin piece. Review against ABP_Arch_D before importing.",
+   "verdict": "skip",
+   "note": "Untextured Nexus image-to-model mesh (the Studio only has a wireframe preview). Gothic tracery windows and banners: reads as a church ruin, which the style rules avoid. Skip unless a plain arch is needed."
+  },
+  {
+   "index": 28,
+   "key": "ruin_architecture_5df3",
+   "studio_name": "architecture",
+   "project_id": "5df3f71c-5f70-4cf7-b9aa-7e7006d595e9",
+   "task_id": "5ea6f939-19ca-4930-b77c-9c7916b1d750",
+   "studio_op": "texture_generation",
+   "t2": "ruin_architecture_5df3",
+   "slot": "S13 broken arch gate, S10 crest fort, O03 bridge arches",
+   "real_size_m": [
+    7.7,
+    2.4,
+    7.1
+   ],
+   "scale_basis": "max",
+   "intended_use": "Earlier image-to-model ruin; candidate arch/ruin piece. Review against ABP_Arch_D before importing.",
+   "verdict": "review",
+   "note": "Textured (one 4K map) version of the gothic arch ruin; same church-ruin read. Review before use."
+  },
+  {
+   "index": 29,
+   "key": "ruin_arch_b7b9",
+   "studio_name": "ancient ruin arch",
+   "project_id": "b7b9425a-03d7-43a0-bc2b-ecf75d57d6d7",
+   "task_id": "7258da6c-9196-4a7b-bc8f-2db4c8242d52",
+   "studio_op": "image_to_model",
+   "t2": "ruin_arch_b7b9",
+   "slot": "S13 broken arch gate, S10 crest fort, O03 bridge arches",
+   "real_size_m": [
+    7.7,
+    2.4,
+    7.1
+   ],
+   "scale_basis": "max",
+   "intended_use": "Earlier image-to-model ruin; candidate arch/ruin piece. Review against ABP_Arch_D before importing.",
+   "verdict": "skip",
+   "note": "Untextured Nexus image-to-model mesh (the Studio only has a wireframe preview). Gothic tracery windows and banners: reads as a church ruin, which the style rules avoid. Skip unless a plain arch is needed."
+  },
+  {
+   "index": 30,
+   "key": "ruin_archway_c5d2",
+   "studio_name": "stone ruin archway",
+   "project_id": "c5d2da6e-d24d-47d2-9c21-e98b57da02e9",
+   "task_id": "7410abf3-edad-4d20-9e57-c617df8d7dea",
+   "studio_op": "image_to_model",
+   "t2": "ruin_archway_c5d2",
+   "slot": "S13 broken arch gate, S10 crest fort, O03 bridge arches",
+   "real_size_m": [
+    7.7,
+    2.4,
+    7.1
+   ],
+   "scale_basis": "max",
+   "intended_use": "Earlier image-to-model ruin; candidate arch/ruin piece. Review against ABP_Arch_D before importing.",
+   "verdict": "skip",
+   "note": "Untextured Nexus image-to-model mesh (the Studio only has a wireframe preview). Gothic tracery windows and banners: reads as a church ruin, which the style rules avoid. Skip unless a plain arch is needed."
+  },
+  {
+   "index": 31,
+   "key": "ruin_378f",
+   "studio_name": "ancient ruin",
+   "project_id": "378643d2-42cc-4477-adfb-071d15dd77f8",
+   "task_id": "3fa96146-ee0a-4d3f-8945-5cbb45c64bc1",
+   "studio_op": "texture_generation",
+   "t2": "ruin_378f",
+   "slot": "rubble footings: O03 broken bridge, S10 crest fort",
+   "real_size_m": [
+    6,
+    6,
+    1.7
+   ],
+   "scale_basis": "max",
+   "intended_use": "Earlier image-to-model ruin footing; candidate base rubble under walls.",
+   "verdict": "review",
+   "note": "Low stepped ruin foundation with one 8K map (capped to 2K on import). Candidate rubble footing for O03/S10."
+  },
+  {
+   "index": 32,
+   "key": "ruins_8116",
+   "studio_name": "ancient ruins",
+   "project_id": "8116ca1e-4960-4b66-ac64-61f7a9be8f65",
+   "task_id": "dd5bdf94-c2ba-44a6-909e-ca8bb0004c81",
+   "studio_op": "image_to_model",
+   "t2": "ruins_8116",
+   "slot": "rubble footings: O03 broken bridge, S10 crest fort",
+   "real_size_m": [
+    6,
+    6,
+    1.7
+   ],
+   "scale_basis": "max",
+   "intended_use": "Earlier image-to-model ruin footing; candidate base rubble under walls.",
+   "verdict": "skip",
+   "note": "Untextured low ruin foundation (wireframe preview only); needs a triplanar stone material."
+  },
+  {
+   "index": 33,
+   "key": "ruins_4acf",
+   "studio_name": "ancient ruins",
+   "project_id": "4acf854e-5fb9-42d6-9fc2-5dac89f63ba3",
+   "task_id": "93395ff0-3f63-498d-bdcc-fc3b2dfea709",
+   "studio_op": "image_to_model",
+   "t2": "ruins_4acf",
+   "slot": "rubble footings: O03 broken bridge, S10 crest fort",
+   "real_size_m": [
+    6,
+    6,
+    1.7
+   ],
+   "scale_basis": "max",
+   "intended_use": "Earlier image-to-model ruin footing; candidate base rubble under walls.",
+   "verdict": "skip",
+   "note": "Untextured low ruin foundation (wireframe preview only); needs a triplanar stone material."
+  },
+  {
+   "index": 34,
+   "key": "ruins_7646",
+   "studio_name": "ancient ruins",
+   "project_id": "764686c8-dd3c-4bb1-a290-9956522dc801",
+   "task_id": "bb5f755e-5748-407b-aa4b-6f0444edf357",
+   "studio_op": "image_to_model",
+   "t2": "ruins_7646",
+   "slot": "rubble footings: O03 broken bridge, S10 crest fort",
+   "real_size_m": [
+    6,
+    6,
+    1.7
+   ],
+   "scale_basis": "max",
+   "intended_use": "Earlier image-to-model ruin footing; candidate base rubble under walls.",
+   "verdict": "skip",
+   "note": "Untextured low ruin foundation (wireframe preview only); needs a triplanar stone material."
+  },
+  {
+   "index": 35,
+   "key": "ruin_machinery_3179",
+   "studio_name": "steampunk ruin machinery (clone)",
+   "project_id": "3179577a-1cd0-4d86-8d97-328fa39b4b3b",
+   "task_id": "1d95e342-ad79-4769-b21b-54c0cc4b68be",
+   "studio_op": "meta_modification",
+   "t2": "ruin_machinery_3179",
+   "slot": "S15 Works (old forge) / O02 refinery",
+   "real_size_m": [
+    5,
+    3,
+    4
+   ],
+   "scale_basis": "max",
+   "intended_use": "Earlier ruined steampunk machine (before the steampunk-medieval list); candidate wreck for the Works.",
+   "verdict": "skip",
+   "note": "Same model file as ruin_machinery_5208 (a Studio clone); kept for completeness, do not import twice."
+  },
+  {
+   "index": 36,
+   "key": "ruin_arch_5d5d",
+   "studio_name": "stone ruin arch",
+   "project_id": "5d5d24ab-b702-4017-a63b-0f6ceb278992",
+   "task_id": "9feb5037-9680-4f65-9423-b3a9e846007f",
+   "studio_op": "texture_generation",
+   "t2": "ruin_arch_5d5d",
+   "slot": "S13 broken arch gate, S10 crest fort, O03 bridge arches",
+   "real_size_m": [
+    7.7,
+    2.4,
+    7.1
+   ],
+   "scale_basis": "max",
+   "intended_use": "Earlier image-to-model ruin; candidate arch/ruin piece. Review against ABP_Arch_D before importing.",
+   "verdict": "review",
+   "note": "1.88 M triangles in 185 materials (the 2 M face-limit generation). Too heavy and too many slots; merge materials offline before any import. Same gothic arch look."
+  },
+  {
+   "index": 37,
+   "key": "ruin_machinery_5208",
+   "studio_name": "steampunk ruin machinery",
+   "project_id": "5208ed44-0c9c-40de-b141-1f8a476ca143",
+   "task_id": "0626ecb8-8974-4298-82ef-64a8068a6317",
+   "studio_op": "pbr",
+   "t2": "ruin_machinery_5208",
+   "slot": "S15 Works (old forge) / O02 refinery",
+   "real_size_m": [
+    5,
+    3,
+    4
+   ],
+   "scale_basis": "max",
+   "intended_use": "Earlier ruined steampunk machine (before the steampunk-medieval list); candidate wreck for the Works.",
+   "verdict": "review",
+   "note": "Rusted machine tower on a ruin (v3.0), 256 separate parts and materials with small textures. Merge parts and atlas before import; candidate wreck for S15 Works."
+  }
+ ]
+}

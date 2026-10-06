@@ -1,0 +1,90 @@
+{
+  "asset": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_EventCard",
+  "tree": [
+    {
+      "class": "Image",
+      "name": "Backdrop",
+      "properties": { "Brush": { "ImageSize": { "X": 1, "Y": 1 }, "DrawAs": "Image" }, "ColorAndOpacity": [0.0037, 0.003, 0.0024, 1.0] }
+    },
+    {
+      "class": "Image",
+      "name": "Glow",
+      "properties": {
+        "Brush": { "ResourceObject": "/Game/SaskartaGaea/GameFlow/UI/Textures/T_UI_EmberGlow.T_UI_EmberGlow", "DrawAs": "Image" },
+        "ColorAndOpacity": [0.578, 0.162, 0.042, 0.32]
+      }
+    },
+    {
+      "class": "Button",
+      "name": "SkipButton",
+      "properties": {
+        "WidgetStyle": {
+          "Normal": { "DrawAs": "NoDrawType" },
+          "Hovered": { "DrawAs": "NoDrawType" },
+          "Pressed": { "DrawAs": "NoDrawType" },
+          "Disabled": { "DrawAs": "NoDrawType" },
+          "NormalPadding": { "Left": 0, "Top": 0, "Right": 0, "Bottom": 0 },
+          "PressedPadding": { "Left": 0, "Top": 0, "Right": 0, "Bottom": 0 }
+        }
+      }
+    },
+    {
+      "class": "VerticalBox",
+      "name": "Content",
+      "properties": { "RenderOpacity": 0.0 },
+      "children": [
+        {
+          "class": "Image",
+          "name": "EventLogo",
+          "properties": {
+            "Brush": {
+              "ResourceObject": "/Game/SaskartaGaea/GameFlow/UI/Textures/T_Tripo_Logo.T_Tripo_Logo",
+              "ImageSize": { "X": 600, "Y": 105 },
+              "DrawAs": "Image"
+            }
+          },
+          "slot_props": { "horizontal_alignment": "Center", "padding": [0, 0, 0, 44] }
+        },
+        {
+          "class": "TextBlock",
+          "name": "Caption",
+          "properties": {
+            "Text": "Made for Tripothon S1",
+            "Font": {
+              "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa.F_ArefRuqaa",
+              "TypefaceFontName": "Regular",
+              "Size": 30,
+              "LetterSpacing": 40
+            },
+            "ColorAndOpacity": { "SpecifiedColor": [0.8469, 0.7835, 0.7011, 0.72] },
+            "Justification": "Center"
+          },
+          "slot_props": { "horizontal_alignment": "Center", "padding": [0, 0, 0, 8] }
+        },
+        {
+          "class": "TextBlock",
+          "name": "CaptionDetail",
+          "properties": {
+            "Text": "the Tripo AI 3D hackathon",
+            "Font": {
+              "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa.F_ArefRuqaa",
+              "TypefaceFontName": "Regular",
+              "Size": 21,
+              "LetterSpacing": 60
+            },
+            "ColorAndOpacity": { "SpecifiedColor": [0.8469, 0.7835, 0.7011, 0.5] },
+            "Justification": "Center"
+          },
+          "slot_props": { "horizontal_alignment": "Center" }
+        }
+      ]
+    }
+  ],
+  "slots": {
+    "Backdrop": { "anchors": [0, 0, 1, 1], "position": [0, 0], "size": [0, 0], "z_order": -3 },
+    "Glow": { "anchors": [0, 1, 1, 1], "position": [0, -420], "size": [0, 420], "z_order": -2 },
+    "SkipButton": { "anchors": [0, 0, 1, 1], "position": [0, 0], "size": [0, 0], "z_order": 10 },
+    "Content": { "anchors": [0.5, 0.5, 0.5, 0.5], "position": [0, 0], "size": [900, 260], "alignment": [0.5, 0.5] }
+  },
+  "variables": ["Content", "SkipButton", "EventLogo", "Caption", "CaptionDetail"]
+}

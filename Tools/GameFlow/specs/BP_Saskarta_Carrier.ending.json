@@ -1,0 +1,1073 @@
+{
+  "asset": "/Game/SaskartaGaea/Characters/Carrier/BP_Saskarta_Carrier",
+  "description": "Scoped ending additions (task ENDING). Build with --reset-graphs together with BP_Saskarta_Traveller.json (EnterCapsule / GripRim / StandAt are called here). The carrier's other graphs are untouched. Uses the existing RoadSpline variable and the existing PlayShutdown / PlayOpenHatch.",
+  "variables": [
+    {
+      "name": "Traveller",
+      "type": "object:/Game/SaskartaGaea/Characters/Traveller/BP_Saskarta_Traveller.BP_Saskarta_Traveller_C"
+    },
+    {
+      "name": "CapsuleSocket",
+      "type": "name",
+      "default": "capsule_root"
+    },
+    {
+      "name": "KeeperSideCm",
+      "type": "float",
+      "default": "110.0"
+    },
+    {
+      "name": "InCapsuleLift",
+      "type": "float",
+      "default": "50.0"
+    },
+    {
+      "name": "StandLift",
+      "type": "float",
+      "default": "32.0"
+    },
+    {
+      "name": "SlamDelay",
+      "type": "float",
+      "default": "2.6"
+    },
+    {
+      "name": "SfxHatchHiss",
+      "type": "object:/Script/Engine.SoundBase",
+      "default": "/Game/SaskartaGaea/Audio/Carrier/SFX_Carrier_Hatch_Open.SFX_Carrier_Hatch_Open"
+    },
+    {
+      "name": "SfxHatchLatch",
+      "type": "object:/Script/Engine.SoundBase",
+      "default": "/Game/SaskartaGaea/Audio/Carrier/SFX_Carrier_Hatch_LockRelease.SFX_Carrier_Hatch_LockRelease"
+    },
+    {
+      "name": "SfxHatchSlam",
+      "type": "object:/Script/Engine.SoundBase",
+      "default": "/Game/SaskartaGaea/Audio/Carrier/SFX_Carrier_Suspension_Clunk_05.SFX_Carrier_Suspension_Clunk_05"
+    },
+    {
+      "name": "SfxHatchDust",
+      "type": "object:/Script/Engine.SoundBase",
+      "default": "/Game/SaskartaGaea/Audio/Environment/SFX_Gravel_Trickle_01.SFX_Gravel_Trickle_01"
+    }
+  ],
+  "functions": [
+    {
+      "name": "SnapToRoad",
+      "inputs": [],
+      "outputs": [],
+      "pure": false
+    },
+    {
+      "name": "FreezeCarrier",
+      "inputs": [],
+      "outputs": [],
+      "pure": false
+    },
+    {
+      "name": "SpawnTravellerInCapsule",
+      "inputs": [],
+      "outputs": [],
+      "pure": false
+    },
+    {
+      "name": "TravellerGripRim",
+      "inputs": [],
+      "outputs": [],
+      "pure": false
+    },
+    {
+      "name": "TravellerStandBeside",
+      "inputs": [],
+      "outputs": [],
+      "pure": false
+    },
+    {
+      "name": "GetTraveller",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "Result",
+          "type": "object:/Game/SaskartaGaea/Characters/Traveller/BP_Saskarta_Traveller.BP_Saskarta_Traveller_C"
+        }
+      ],
+      "pure": true
+    },
+    {
+      "name": "PlayCloseHatch",
+      "inputs": [],
+      "outputs": [],
+      "pure": false
+    },
+    {
+      "name": "CloseHatchSlam",
+      "inputs": [],
+      "outputs": [],
+      "pure": false
+    }
+  ],
+  "graphs": [
+    {
+      "graph": "SnapToRoad",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "g1": {
+          "get": "RoadSpline"
+        },
+        "IsValid2": {
+          "call": "IsValid",
+          "class": "/Script/Engine.KismetSystemLibrary"
+        },
+        "if3": {
+          "branch": true
+        },
+        "me": {
+          "self": true
+        },
+        "K2_GetAc4": {
+          "call": "K2_GetActorLocation",
+          "class": "/Script/Engine.Actor"
+        },
+        "g5": {
+          "get": "RoadSpline"
+        },
+        "FindInpu6": {
+          "call": "FindInputKeyClosestToWorldLocation",
+          "class": "/Script/Engine.SplineComponent"
+        },
+        "g7": {
+          "get": "RoadSpline"
+        },
+        "GetLocat8": {
+          "call": "GetLocationAtSplineInputKey",
+          "class": "/Script/Engine.SplineComponent"
+        },
+        "g9": {
+          "get": "RoadSpline"
+        },
+        "GetTange10": {
+          "call": "GetTangentAtSplineInputKey",
+          "class": "/Script/Engine.SplineComponent"
+        },
+        "Multiply11": {
+          "call": "Multiply_VectorFloat",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "Conv_Vec12": {
+          "call": "Conv_VectorToRotator",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "BreakRot13": {
+          "call": "BreakRotator",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "MakeRota14": {
+          "call": "MakeRotator",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "BreakVec15": {
+          "call": "BreakVector",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "BreakVec16": {
+          "call": "BreakVector",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "Add_Doub17": {
+          "call": "Add_DoubleDouble",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "FMax18": {
+          "call": "FMax",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "Add_Doub19": {
+          "call": "Add_DoubleDouble",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "MakeVect20": {
+          "call": "MakeVector",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "K2_Telep21": {
+          "call": "K2_TeleportTo",
+          "class": "/Script/Engine.Actor"
+        }
+      },
+      "links": [
+        [
+          "g1.RoadSpline",
+          "IsValid2.Object"
+        ],
+        [
+          "IsValid2.ReturnValue",
+          "if3.Condition"
+        ],
+        [
+          "entry.then",
+          "if3.execute"
+        ],
+        [
+          "me.self",
+          "K2_GetAc4.self"
+        ],
+        [
+          "g5.RoadSpline",
+          "FindInpu6.self"
+        ],
+        [
+          "K2_GetAc4.ReturnValue",
+          "FindInpu6.WorldLocation"
+        ],
+        [
+          "g7.RoadSpline",
+          "GetLocat8.self"
+        ],
+        [
+          "FindInpu6.ReturnValue",
+          "GetLocat8.InKey"
+        ],
+        [
+          "g9.RoadSpline",
+          "GetTange10.self"
+        ],
+        [
+          "FindInpu6.ReturnValue",
+          "GetTange10.InKey"
+        ],
+        [
+          "GetTange10.ReturnValue",
+          "Multiply11.A"
+        ],
+        [
+          "Multiply11.ReturnValue",
+          "Conv_Vec12.InVec"
+        ],
+        [
+          "Conv_Vec12.ReturnValue",
+          "BreakRot13.InRot"
+        ],
+        [
+          "BreakRot13.Yaw",
+          "MakeRota14.Yaw"
+        ],
+        [
+          "K2_GetAc4.ReturnValue",
+          "BreakVec15.InVec"
+        ],
+        [
+          "GetLocat8.ReturnValue",
+          "BreakVec16.InVec"
+        ],
+        [
+          "BreakVec16.Z",
+          "Add_Doub17.A"
+        ],
+        [
+          "BreakVec15.Z",
+          "FMax18.A"
+        ],
+        [
+          "Add_Doub17.ReturnValue",
+          "FMax18.B"
+        ],
+        [
+          "FMax18.ReturnValue",
+          "Add_Doub19.A"
+        ],
+        [
+          "BreakVec16.X",
+          "MakeVect20.X"
+        ],
+        [
+          "BreakVec16.Y",
+          "MakeVect20.Y"
+        ],
+        [
+          "Add_Doub19.ReturnValue",
+          "MakeVect20.Z"
+        ],
+        [
+          "me.self",
+          "K2_Telep21.self"
+        ],
+        [
+          "MakeVect20.ReturnValue",
+          "K2_Telep21.DestLocation"
+        ],
+        [
+          "MakeRota14.ReturnValue",
+          "K2_Telep21.DestRotation"
+        ],
+        [
+          "if3.then",
+          "K2_Telep21.execute"
+        ]
+      ],
+      "defaults": {
+        "GetLocat8.CoordinateSpace": "World",
+        "GetTange10.CoordinateSpace": "World",
+        "Multiply11.B": "-1.0",
+        "MakeRota14.Roll": "0.0",
+        "MakeRota14.Pitch": "0.0",
+        "Add_Doub17.B": "62.0",
+        "Add_Doub19.B": "2.0"
+      }
+    },
+    {
+      "graph": "FreezeCarrier",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "me": {
+          "self": true
+        },
+        "GetCompo1": {
+          "call": "GetComponentByClass",
+          "class": "/Script/Engine.Actor"
+        },
+        "as2": {
+          "cast": "/Script/Engine.CharacterMovementComponent"
+        },
+        "StopMove3": {
+          "call": "StopMovementImmediately",
+          "class": "/Script/Engine.MovementComponent"
+        },
+        "SetMovem4": {
+          "call": "SetMovementMode",
+          "class": "/Script/Engine.CharacterMovementComponent"
+        }
+      },
+      "links": [
+        [
+          "me.self",
+          "GetCompo1.self"
+        ],
+        [
+          "GetCompo1.ReturnValue",
+          "as2.Object"
+        ],
+        [
+          "entry.then",
+          "as2.execute"
+        ],
+        [
+          "as2.AsCharacter Movement Component",
+          "StopMove3.self"
+        ],
+        [
+          "as2.then",
+          "StopMove3.execute"
+        ],
+        [
+          "as2.AsCharacter Movement Component",
+          "SetMovem4.self"
+        ],
+        [
+          "StopMove3.then",
+          "SetMovem4.execute"
+        ]
+      ],
+      "defaults": {
+        "GetCompo1.ComponentClass": "/Script/Engine.CharacterMovementComponent",
+        "SetMovem4.NewMovementMode": "MOVE_None"
+      }
+    },
+    {
+      "graph": "SpawnTravellerInCapsule",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "GetActor1": {
+          "call": "GetActorOfClass",
+          "class": "/Script/Engine.GameplayStatics"
+        },
+        "as2": {
+          "cast": "/Game/SaskartaGaea/Characters/Traveller/BP_Saskarta_Traveller.BP_Saskarta_Traveller_C"
+        },
+        "s3": {
+          "set": "Traveller"
+        },
+        "me": {
+          "self": true
+        },
+        "GetCompo4": {
+          "call": "GetComponentByClass",
+          "class": "/Script/Engine.Actor"
+        },
+        "as5": {
+          "cast": "/Script/Engine.SkeletalMeshComponent"
+        },
+        "g6": {
+          "get": "CapsuleSocket"
+        },
+        "GetSocke7": {
+          "call": "GetSocketLocation",
+          "class": "/Script/Engine.SceneComponent"
+        },
+        "g8": {
+          "get": "InCapsuleLift"
+        },
+        "MakeVect9": {
+          "call": "MakeVector",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "Add_Vect10": {
+          "call": "Add_VectorVector",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "K2_GetAc11": {
+          "call": "K2_GetActorRotation",
+          "class": "/Script/Engine.Actor"
+        },
+        "g12": {
+          "get": "Traveller"
+        },
+        "EnterCap13": {
+          "call": "EnterCapsule",
+          "class": "/Game/SaskartaGaea/Characters/Traveller/BP_Saskarta_Traveller.BP_Saskarta_Traveller_C"
+        }
+      },
+      "links": [
+        [
+          "entry.then",
+          "GetActor1.execute"
+        ],
+        [
+          "GetActor1.ReturnValue",
+          "as2.Object"
+        ],
+        [
+          "GetActor1.then",
+          "as2.execute"
+        ],
+        [
+          "as2.AsBP Saskarta Traveller",
+          "s3.Traveller"
+        ],
+        [
+          "as2.then",
+          "s3.execute"
+        ],
+        [
+          "me.self",
+          "GetCompo4.self"
+        ],
+        [
+          "GetCompo4.ReturnValue",
+          "as5.Object"
+        ],
+        [
+          "s3.then",
+          "as5.execute"
+        ],
+        [
+          "as5.AsSkeletal Mesh Component",
+          "GetSocke7.self"
+        ],
+        [
+          "g6.CapsuleSocket",
+          "GetSocke7.InSocketName"
+        ],
+        [
+          "g8.InCapsuleLift",
+          "MakeVect9.Z"
+        ],
+        [
+          "GetSocke7.ReturnValue",
+          "Add_Vect10.A"
+        ],
+        [
+          "MakeVect9.ReturnValue",
+          "Add_Vect10.B"
+        ],
+        [
+          "me.self",
+          "K2_GetAc11.self"
+        ],
+        [
+          "g12.Traveller",
+          "EnterCap13.self"
+        ],
+        [
+          "Add_Vect10.ReturnValue",
+          "EnterCap13.Location"
+        ],
+        [
+          "K2_GetAc11.ReturnValue",
+          "EnterCap13.Rotation"
+        ],
+        [
+          "as5.then",
+          "EnterCap13.execute"
+        ]
+      ],
+      "defaults": {
+        "GetActor1.ActorClass": "/Game/SaskartaGaea/Characters/Traveller/BP_Saskarta_Traveller.BP_Saskarta_Traveller_C",
+        "GetCompo4.ComponentClass": "/Script/Engine.SkeletalMeshComponent",
+        "MakeVect9.X": "0.0",
+        "MakeVect9.Y": "0.0"
+      }
+    },
+    {
+      "graph": "TravellerGripRim",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "g1": {
+          "get": "Traveller"
+        },
+        "IsValid2": {
+          "call": "IsValid",
+          "class": "/Script/Engine.KismetSystemLibrary"
+        },
+        "if3": {
+          "branch": true
+        },
+        "g4": {
+          "get": "Traveller"
+        },
+        "GripRim5": {
+          "call": "GripRim",
+          "class": "/Game/SaskartaGaea/Characters/Traveller/BP_Saskarta_Traveller.BP_Saskarta_Traveller_C"
+        }
+      },
+      "links": [
+        [
+          "g1.Traveller",
+          "IsValid2.Object"
+        ],
+        [
+          "IsValid2.ReturnValue",
+          "if3.Condition"
+        ],
+        [
+          "entry.then",
+          "if3.execute"
+        ],
+        [
+          "g4.Traveller",
+          "GripRim5.self"
+        ],
+        [
+          "if3.then",
+          "GripRim5.execute"
+        ]
+      ],
+      "defaults": {}
+    },
+    {
+      "graph": "TravellerStandBeside",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "g1": {
+          "get": "Traveller"
+        },
+        "IsValid2": {
+          "call": "IsValid",
+          "class": "/Script/Engine.KismetSystemLibrary"
+        },
+        "if3": {
+          "branch": true
+        },
+        "me": {
+          "self": true
+        },
+        "GetCompo4": {
+          "call": "GetComponentByClass",
+          "class": "/Script/Engine.Actor"
+        },
+        "as5": {
+          "cast": "/Script/Engine.SkeletalMeshComponent"
+        },
+        "g6": {
+          "get": "CapsuleSocket"
+        },
+        "GetSocke7": {
+          "call": "GetSocketLocation",
+          "class": "/Script/Engine.SceneComponent"
+        },
+        "GetActor8": {
+          "call": "GetActorRightVector",
+          "class": "/Script/Engine.Actor"
+        },
+        "g9": {
+          "get": "KeeperSideCm"
+        },
+        "Multiply10": {
+          "call": "Multiply_DoubleDouble",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "Multiply11": {
+          "call": "Multiply_VectorFloat",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "Add_Vect12": {
+          "call": "Add_VectorVector",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "K2_GetAc13": {
+          "call": "K2_GetActorLocation",
+          "class": "/Script/Engine.Actor"
+        },
+        "BreakVec14": {
+          "call": "BreakVector",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "g15": {
+          "get": "StandLift"
+        },
+        "Add_Doub16": {
+          "call": "Add_DoubleDouble",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "BreakVec17": {
+          "call": "BreakVector",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "MakeVect18": {
+          "call": "MakeVector",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "K2_GetAc19": {
+          "call": "K2_GetActorRotation",
+          "class": "/Script/Engine.Actor"
+        },
+        "g20": {
+          "get": "Traveller"
+        },
+        "StandAt21": {
+          "call": "StandAt",
+          "class": "/Game/SaskartaGaea/Characters/Traveller/BP_Saskarta_Traveller.BP_Saskarta_Traveller_C"
+        }
+      },
+      "links": [
+        [
+          "g1.Traveller",
+          "IsValid2.Object"
+        ],
+        [
+          "IsValid2.ReturnValue",
+          "if3.Condition"
+        ],
+        [
+          "entry.then",
+          "if3.execute"
+        ],
+        [
+          "me.self",
+          "GetCompo4.self"
+        ],
+        [
+          "GetCompo4.ReturnValue",
+          "as5.Object"
+        ],
+        [
+          "if3.then",
+          "as5.execute"
+        ],
+        [
+          "as5.AsSkeletal Mesh Component",
+          "GetSocke7.self"
+        ],
+        [
+          "g6.CapsuleSocket",
+          "GetSocke7.InSocketName"
+        ],
+        [
+          "me.self",
+          "GetActor8.self"
+        ],
+        [
+          "g9.KeeperSideCm",
+          "Multiply10.A"
+        ],
+        [
+          "GetActor8.ReturnValue",
+          "Multiply11.A"
+        ],
+        [
+          "Multiply10.ReturnValue",
+          "Multiply11.B"
+        ],
+        [
+          "GetSocke7.ReturnValue",
+          "Add_Vect12.A"
+        ],
+        [
+          "Multiply11.ReturnValue",
+          "Add_Vect12.B"
+        ],
+        [
+          "me.self",
+          "K2_GetAc13.self"
+        ],
+        [
+          "K2_GetAc13.ReturnValue",
+          "BreakVec14.InVec"
+        ],
+        [
+          "BreakVec14.Z",
+          "Add_Doub16.A"
+        ],
+        [
+          "g15.StandLift",
+          "Add_Doub16.B"
+        ],
+        [
+          "Add_Vect12.ReturnValue",
+          "BreakVec17.InVec"
+        ],
+        [
+          "BreakVec17.X",
+          "MakeVect18.X"
+        ],
+        [
+          "BreakVec17.Y",
+          "MakeVect18.Y"
+        ],
+        [
+          "Add_Doub16.ReturnValue",
+          "MakeVect18.Z"
+        ],
+        [
+          "me.self",
+          "K2_GetAc19.self"
+        ],
+        [
+          "g20.Traveller",
+          "StandAt21.self"
+        ],
+        [
+          "MakeVect18.ReturnValue",
+          "StandAt21.Location"
+        ],
+        [
+          "K2_GetAc19.ReturnValue",
+          "StandAt21.Rotation"
+        ],
+        [
+          "as5.then",
+          "StandAt21.execute"
+        ]
+      ],
+      "defaults": {
+        "GetCompo4.ComponentClass": "/Script/Engine.SkeletalMeshComponent",
+        "Multiply10.B": "-1.0"
+      }
+    },
+    {
+      "graph": "PlayCloseHatch",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "PlayClip1": {
+          "call": "PlayClip"
+        },
+        "g2": {
+          "get": "SfxHatchHiss"
+        },
+        "me": {
+          "self": true
+        },
+        "GetCompo3": {
+          "call": "GetComponentByClass",
+          "class": "/Script/Engine.Actor"
+        },
+        "as4": {
+          "cast": "/Script/Engine.SkeletalMeshComponent"
+        },
+        "g5": {
+          "get": "CapsuleSocket"
+        },
+        "GetSocke6": {
+          "call": "GetSocketLocation",
+          "class": "/Script/Engine.SceneComponent"
+        },
+        "PlaySoun7": {
+          "call": "PlaySoundAtLocation",
+          "class": "/Script/Engine.GameplayStatics"
+        },
+        "g8": {
+          "get": "SlamDelay"
+        },
+        "t9": {
+          "timer": true
+        }
+      },
+      "links": [
+        [
+          "entry.then",
+          "PlayClip1.execute"
+        ],
+        [
+          "me.self",
+          "GetCompo3.self"
+        ],
+        [
+          "GetCompo3.ReturnValue",
+          "as4.Object"
+        ],
+        [
+          "PlayClip1.then",
+          "as4.execute"
+        ],
+        [
+          "as4.AsSkeletal Mesh Component",
+          "GetSocke6.self"
+        ],
+        [
+          "g5.CapsuleSocket",
+          "GetSocke6.InSocketName"
+        ],
+        [
+          "g2.SfxHatchHiss",
+          "PlaySoun7.Sound"
+        ],
+        [
+          "GetSocke6.ReturnValue",
+          "PlaySoun7.Location"
+        ],
+        [
+          "as4.then",
+          "PlaySoun7.execute"
+        ],
+        [
+          "me.self",
+          "t9.Object"
+        ],
+        [
+          "g8.SlamDelay",
+          "t9.Time"
+        ],
+        [
+          "PlaySoun7.then",
+          "t9.execute"
+        ]
+      ],
+      "defaults": {
+        "PlayClip1.Anim": "/Game/SaskartaGaea/Characters/Carrier/Full/A_CarrierFull_CloseHatch.A_CarrierFull_CloseHatch",
+        "PlayClip1.Mode": "Shutdown",
+        "PlayClip1.bLoop": "false",
+        "GetCompo3.ComponentClass": "/Script/Engine.SkeletalMeshComponent",
+        "PlaySoun7.VolumeMultiplier": "0.8",
+        "t9.FunctionName": "CloseHatchSlam",
+        "t9.bLooping": "false"
+      }
+    },
+    {
+      "graph": "CloseHatchSlam",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "g1": {
+          "get": "SfxHatchSlam"
+        },
+        "me": {
+          "self": true
+        },
+        "GetCompo2": {
+          "call": "GetComponentByClass",
+          "class": "/Script/Engine.Actor"
+        },
+        "as3": {
+          "cast": "/Script/Engine.SkeletalMeshComponent"
+        },
+        "g4": {
+          "get": "CapsuleSocket"
+        },
+        "GetSocke5": {
+          "call": "GetSocketLocation",
+          "class": "/Script/Engine.SceneComponent"
+        },
+        "PlaySoun6": {
+          "call": "PlaySoundAtLocation",
+          "class": "/Script/Engine.GameplayStatics"
+        },
+        "g7": {
+          "get": "SfxHatchLatch"
+        },
+        "GetCompo8": {
+          "call": "GetComponentByClass",
+          "class": "/Script/Engine.Actor"
+        },
+        "as9": {
+          "cast": "/Script/Engine.SkeletalMeshComponent"
+        },
+        "g10": {
+          "get": "CapsuleSocket"
+        },
+        "GetSocke11": {
+          "call": "GetSocketLocation",
+          "class": "/Script/Engine.SceneComponent"
+        },
+        "PlaySoun12": {
+          "call": "PlaySoundAtLocation",
+          "class": "/Script/Engine.GameplayStatics"
+        },
+        "g13": {
+          "get": "SfxHatchDust"
+        },
+        "GetCompo14": {
+          "call": "GetComponentByClass",
+          "class": "/Script/Engine.Actor"
+        },
+        "as15": {
+          "cast": "/Script/Engine.SkeletalMeshComponent"
+        },
+        "g16": {
+          "get": "CapsuleSocket"
+        },
+        "GetSocke17": {
+          "call": "GetSocketLocation",
+          "class": "/Script/Engine.SceneComponent"
+        },
+        "PlaySoun18": {
+          "call": "PlaySoundAtLocation",
+          "class": "/Script/Engine.GameplayStatics"
+        }
+      },
+      "links": [
+        [
+          "me.self",
+          "GetCompo2.self"
+        ],
+        [
+          "GetCompo2.ReturnValue",
+          "as3.Object"
+        ],
+        [
+          "entry.then",
+          "as3.execute"
+        ],
+        [
+          "as3.AsSkeletal Mesh Component",
+          "GetSocke5.self"
+        ],
+        [
+          "g4.CapsuleSocket",
+          "GetSocke5.InSocketName"
+        ],
+        [
+          "g1.SfxHatchSlam",
+          "PlaySoun6.Sound"
+        ],
+        [
+          "GetSocke5.ReturnValue",
+          "PlaySoun6.Location"
+        ],
+        [
+          "as3.then",
+          "PlaySoun6.execute"
+        ],
+        [
+          "me.self",
+          "GetCompo8.self"
+        ],
+        [
+          "GetCompo8.ReturnValue",
+          "as9.Object"
+        ],
+        [
+          "PlaySoun6.then",
+          "as9.execute"
+        ],
+        [
+          "as9.AsSkeletal Mesh Component",
+          "GetSocke11.self"
+        ],
+        [
+          "g10.CapsuleSocket",
+          "GetSocke11.InSocketName"
+        ],
+        [
+          "g7.SfxHatchLatch",
+          "PlaySoun12.Sound"
+        ],
+        [
+          "GetSocke11.ReturnValue",
+          "PlaySoun12.Location"
+        ],
+        [
+          "as9.then",
+          "PlaySoun12.execute"
+        ],
+        [
+          "me.self",
+          "GetCompo14.self"
+        ],
+        [
+          "GetCompo14.ReturnValue",
+          "as15.Object"
+        ],
+        [
+          "PlaySoun12.then",
+          "as15.execute"
+        ],
+        [
+          "as15.AsSkeletal Mesh Component",
+          "GetSocke17.self"
+        ],
+        [
+          "g16.CapsuleSocket",
+          "GetSocke17.InSocketName"
+        ],
+        [
+          "g13.SfxHatchDust",
+          "PlaySoun18.Sound"
+        ],
+        [
+          "GetSocke17.ReturnValue",
+          "PlaySoun18.Location"
+        ],
+        [
+          "as15.then",
+          "PlaySoun18.execute"
+        ]
+      ],
+      "defaults": {
+        "GetCompo2.ComponentClass": "/Script/Engine.SkeletalMeshComponent",
+        "PlaySoun6.VolumeMultiplier": "1.0",
+        "GetCompo8.ComponentClass": "/Script/Engine.SkeletalMeshComponent",
+        "PlaySoun12.VolumeMultiplier": "0.9",
+        "GetCompo14.ComponentClass": "/Script/Engine.SkeletalMeshComponent",
+        "PlaySoun18.VolumeMultiplier": "0.6"
+      }
+    },
+    {
+      "graph": "GetTraveller",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "result": {
+          "result": true
+        },
+        "g1": {
+          "get": "Traveller"
+        }
+      },
+      "links": [
+        [
+          "g1.Traveller",
+          "result.Result"
+        ],
+        [
+          "entry.then",
+          "result.execute"
+        ]
+      ],
+      "defaults": {}
+    }
+  ]
+}

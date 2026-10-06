@@ -1,0 +1,43 @@
+{
+  "status": "proposed_generator_fragment_not_installed",
+  "asset": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Loading",
+  "requires_named_variable": "LoadingCrank",
+  "requires_native_function": "/Script/SaskartaCore.SaskartaMotorDiagram.PresentLoading",
+  "variables_add": [
+    {"name":"CrankTarget","type":"float","default":"0.0"},
+    {"name":"CrankShown","type":"float","default":"0.0"}
+  ],
+  "graphs": [
+    {
+      "graph":"SetReadiness",
+      "nodes_add":{"setCrankTarget":{"set":"CrankTarget"}},
+      "links_remove":[["entry.then","stageSet.execute"]],
+      "links_add":[["entry.then","setCrankTarget.execute"],["clamp.ReturnValue","setCrankTarget.CrankTarget"],["setCrankTarget.then","stageSet.execute"]]
+    },
+    {
+      "graph":"Step",
+      "nodes_add":{
+        "crankShown":{"get":"CrankShown"},
+        "crankTarget":{"get":"CrankTarget"},
+        "crankEase":{"call":"FInterpTo","class":"/Script/Engine.KismetMathLibrary"},
+        "setCrankShown":{"set":"CrankShown"},
+        "crankWidget":{"get":"LoadingCrank"},
+        "presentCrank":{"call":"PresentLoading","class":"/Script/SaskartaCore.SaskartaMotorDiagram"}
+      },
+      "links_remove":[["setScale.then","setGlow.execute"]],
+      "links_add":[
+        ["setScale.then","setCrankShown.execute"],
+        ["crankShown.CrankShown","crankEase.Current"],
+        ["crankTarget.CrankTarget","crankEase.Target"],
+        ["dt.StepInterval","crankEase.DeltaTime"],
+        ["rate.FillRate","crankEase.InterpSpeed"],
+        ["crankEase.ReturnValue","setCrankShown.CrankShown"],
+        ["setCrankShown.then","presentCrank.execute"],
+        ["crankWidget.LoadingCrank","presentCrank.self"],
+        ["crankEase.ReturnValue","presentCrank.Readiness"],
+        ["presentCrank.then","setGlow.execute"]
+      ]
+    }
+  ],
+  "guards":["Fragment uses current generator node IDs. Adapt only execution neighbors if root removes old glow/line updates; preserve the readiness input and fade cleanup.","SetReadiness Fraction is actual phase readiness, not aggregate progress or elapsed time.","FadeOut must never assign1 to CrankTarget; timeout may transition while crank remains below full."]
+}

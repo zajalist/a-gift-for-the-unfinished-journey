@@ -1,0 +1,572 @@
+{
+ "generated_by": "Tools/World/story_sets/summit_tripo.py",
+ "level": "/Game/level/Saskarta_WP",
+ "anchor": {
+  "hut_centre_cm": [
+   297254.0,
+   483334.0
+  ],
+  "site_yaw": 198.66,
+  "hut_yaw": 288.65999999999997,
+  "scale": 0.75,
+  "doorway_cm": [
+   297334.7,
+   483173.0,
+   10921.3
+  ],
+  "outward_yaw": 288.65999999999997,
+  "floor_camera_cm": [
+   297430.7,
+   482888.8,
+   10994.6
+  ],
+  "plinth_top_cm": 10921.3,
+  "plinth_bottom_cm": 10870.6,
+  "plinth_height_cm": 50.7
+ },
+ "sites": [
+  {
+   "id": "S26_HighVoiceTripo",
+   "story_set": "V10",
+   "name": "High Voice Tripo relay hut and room",
+   "kind": "relay station",
+   "order": 1,
+   "road_m": 5009,
+   "side": "on/right",
+   "lateral_m": 4.5,
+   "centre_cm": [
+    297254.0,
+    483334.0
+   ],
+   "road_yaw": 83.66,
+   "radius_m": 24.0,
+   "zone": "Z6 Summit",
+   "storm": "above the cloud: clear, calm, gold light; bare wind-scoured rock; the fewest objects on the road",
+   "role": "landmark, story set",
+   "story": "A coherent kept relay hut and its operator desk; the older man enters and emerges while the drone rests outside.",
+   "decay": 0,
+   "style": "BAZAAR STONE hut (AB walls, flagstone roof), cut sandstone collar and deadmen, brass conduit and plate, iron guys",
+   "layout": "\n  road (down 17 %) ====> [collar + MAST] . . . guy -> deadman (ahead-left, 16 m)\n        path -> plate (StandPoint) -> door      [HUT 6.2 x 3.2 m, front turned back up the road]\n  moss boulder (valley verge)          bench on the valley gable     rock face past the hut\n  seated view: east from the collar, empty to the valley; deadmen behind-left and right",
+   "notes": "Supersedes the offline V10 modular shell and S26 furniture plan. Do not place those recipes.",
+   "story_owned": [
+    "summit relay station: ending agent owns plate, mast and cameras"
+   ],
+   "verify_only": false,
+   "layer": "road",
+   "poi": null,
+   "load_box_cm": [
+    290693,
+    466387,
+    307280,
+    489895
+   ],
+   "counts": {
+    "placements": 6,
+    "actors": 6,
+    "ism_instances": 0,
+    "decals": 0,
+    "lines": 0
+   },
+   "views": [
+    {
+     "name": "walk_far",
+     "cam_cm": [
+      297789.5,
+      480801.2,
+      11463.8
+     ],
+     "look_cm": [
+      297334.7,
+      483173.0,
+      11041.3
+     ]
+    },
+    {
+     "name": "walk_near",
+     "cam_cm": [
+      297540.0,
+      482310.0,
+      11208.2
+     ],
+     "look_cm": [
+      297334.7,
+      483173.0,
+      11041.3
+     ]
+    },
+    {
+     "name": "front",
+     "cam_cm": [
+      297430.7,
+      482888.8,
+      11134.6
+     ],
+     "look_cm": [
+      297334.7,
+      483173.0,
+      11041.3
+     ]
+    },
+    {
+     "name": "rear",
+     "cam_cm": [
+      296850.0,
+      483650.0,
+      11027.6
+     ],
+     "look_cm": [
+      297254.0,
+      483334.0,
+      11051.289062499996
+     ]
+    },
+    {
+     "name": "left",
+     "cam_cm": [
+      297010.0,
+      482800.0,
+      11082.1
+     ],
+     "look_cm": [
+      297254.0,
+      483334.0,
+      11051.289062499996
+     ]
+    },
+    {
+     "name": "right",
+     "cam_cm": [
+      297540.0,
+      483750.0,
+      11008.3
+     ],
+     "look_cm": [
+      297254.0,
+      483334.0,
+      11051.289062499996
+     ]
+    },
+    {
+     "name": "floor",
+     "cam_cm": [
+      297430.7,
+      482888.8,
+      10994.6
+     ],
+     "look_cm": [
+      297334.7,
+      483173.0,
+      11026.3
+     ]
+    }
+   ],
+   "placements": [
+    {
+     "id": "S26_HighVoiceTripo_000",
+     "key": "B01_floor01",
+     "asset": "/Game/SaskartaGaea/Environment/Batch01/SM_B01_floor01",
+     "kind": "SM",
+     "cat": "wall",
+     "x_cm": 297254.0,
+     "y_cm": 483334.0,
+     "ground_z_cm": 10912.2,
+     "yaw": 198.66,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.5,
+     "scale_range": [
+      1.5,
+      1.5
+     ],
+     "settle": {
+      "mode": "none",
+      "sink_cm": 0.0,
+      "max_tilt_deg": 0,
+      "rand_tilt_deg": 0,
+      "z_rule": "min",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "foundation",
+     "folder": "Set/S26_HighVoiceTripo/foundation",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 75000.0,
+     "cast_shadow": true,
+     "size_m": [
+      4.65,
+      4.605,
+      0.5072
+     ],
+     "slope_deg": 13.8,
+     "relief_m": 0.44,
+     "road_clear_m": 0.4,
+     "site_uv": [
+      -0.84,
+      -0.44
+     ],
+     "block": null,
+     "contact": "rigid",
+     "material_set": "stone",
+     "requires_import": true,
+     "verdict": "use",
+     "imported": true,
+     "fallback": null,
+     "predicted": {
+      "bottom_cm": 10802.1,
+      "top_cm": 10874.6,
+      "by": "the level step (predicted on the heightmap)"
+     },
+     "note": "collar block, course 1 (the footing): the pillar stands in the 1.08 m square hole",
+     "parent": null
+    },
+    {
+     "id": "S26_HighVoiceTripo_001",
+     "key": "T2_stone_hut",
+     "asset": "/Game/SaskartaGaea/Environment/Tripo02/SM_T2_stone_hut",
+     "kind": "SM",
+     "cat": "building",
+     "x_cm": 297254.0,
+     "y_cm": 483334.0,
+     "ground_z_cm": 10912.2,
+     "yaw": 288.65999999999997,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.75,
+     "scale_range": [
+      0.75,
+      0.75
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 3.0,
+      "max_tilt_deg": 0,
+      "rand_tilt_deg": 0,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "shell",
+     "folder": "Set/S26_HighVoiceTripo/shell",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": true,
+     "draw_distance_cm": 75000.0,
+     "cast_shadow": true,
+     "size_m": [
+      4.5002,
+      3.567,
+      3.1813
+     ],
+     "slope_deg": 13.8,
+     "relief_m": 0.44,
+     "road_clear_m": 0.4,
+     "site_uv": [
+      -0.84,
+      -0.44
+     ],
+     "block": null,
+     "contact": "rest",
+     "material_set": "stone",
+     "requires_import": true,
+     "verdict": "use",
+     "imported": true,
+     "fallback": null,
+     "predicted": {
+      "bottom_cm": 10802.1,
+      "top_cm": 10874.6,
+      "by": "the level step (predicted on the heightmap)"
+     },
+     "note": "collar block, course 1 (the footing): the pillar stands in the 1.08 m square hole",
+     "parent": null
+    },
+    {
+     "id": "S26_HighVoiceTripo_002",
+     "key": "T2_radio_desk",
+     "asset": "/Game/SaskartaGaea/Environment/Tripo02/SM_T2_radio_desk",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 297216.4,
+     "y_cm": 483414.2,
+     "ground_z_cm": 10914.8,
+     "yaw": 288.65999999999997,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.6,
+     "scale_range": [
+      0.6,
+      0.6
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 0.0,
+      "max_tilt_deg": 0,
+      "rand_tilt_deg": 0,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "interior",
+     "folder": "Set/S26_HighVoiceTripo/interior",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 75000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.7688,
+      1.2,
+      1.0906
+     ],
+     "slope_deg": 13.8,
+     "relief_m": 0.44,
+     "road_clear_m": 0.4,
+     "site_uv": [
+      -0.84,
+      -0.44
+     ],
+     "block": null,
+     "contact": "rest",
+     "material_set": "wood",
+     "requires_import": true,
+     "verdict": "use",
+     "imported": true,
+     "fallback": null,
+     "predicted": {
+      "bottom_cm": 10802.1,
+      "top_cm": 10874.6,
+      "by": "the level step (predicted on the heightmap)"
+     },
+     "note": "collar block, course 1 (the footing): the pillar stands in the 1.08 m square hole",
+     "parent": null
+    },
+    {
+     "id": "S26_HighVoiceTripo_003",
+     "key": "AB_Chair_A_low",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Chair_A_low",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 297145.0,
+     "y_cm": 483316.2,
+     "ground_z_cm": 10908.4,
+     "yaw": 198.66,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 0.0,
+      "max_tilt_deg": 0,
+      "rand_tilt_deg": 0,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "interior",
+     "folder": "Set/S26_HighVoiceTripo/interior",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 75000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.68,
+      0.64,
+      0.79
+     ],
+     "slope_deg": 13.8,
+     "relief_m": 0.44,
+     "road_clear_m": 0.4,
+     "site_uv": [
+      -0.84,
+      -0.44
+     ],
+     "block": null,
+     "contact": "rest",
+     "material_set": "wood",
+     "requires_import": true,
+     "verdict": "use",
+     "imported": true,
+     "fallback": null,
+     "predicted": {
+      "bottom_cm": 10802.1,
+      "top_cm": 10874.6,
+      "by": "the level step (predicted on the heightmap)"
+     },
+     "note": "collar block, course 1 (the footing): the pillar stands in the 1.08 m square hole",
+     "parent": null
+    },
+    {
+     "id": "S26_HighVoiceTripo_004",
+     "key": "MV_box_03",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_box_03",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 297076.0,
+     "y_cm": 483398.4,
+     "ground_z_cm": 10905.0,
+     "yaw": 198.66,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 0.0,
+      "max_tilt_deg": 0,
+      "rand_tilt_deg": 0,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "interior",
+     "folder": "Set/S26_HighVoiceTripo/interior",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 75000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.52,
+      0.51,
+      0.39
+     ],
+     "slope_deg": 13.8,
+     "relief_m": 0.44,
+     "road_clear_m": 0.4,
+     "site_uv": [
+      -0.84,
+      -0.44
+     ],
+     "block": null,
+     "contact": "rest",
+     "material_set": "wood",
+     "requires_import": true,
+     "verdict": "use",
+     "imported": true,
+     "fallback": null,
+     "predicted": {
+      "bottom_cm": 10802.1,
+      "top_cm": 10874.6,
+      "by": "the level step (predicted on the heightmap)"
+     },
+     "note": "collar block, course 1 (the footing): the pillar stands in the 1.08 m square hole",
+     "parent": null
+    },
+    {
+     "id": "S26_HighVoiceTripo_005",
+     "key": "AB_Clay_Pot_B",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Clay_Pot_B",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 297367.3,
+     "y_cm": 483483.1,
+     "ground_z_cm": 10896.8,
+     "yaw": 198.66,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 0.0,
+      "max_tilt_deg": 0,
+      "rand_tilt_deg": 0,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "interior",
+     "folder": "Set/S26_HighVoiceTripo/interior",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 75000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.29,
+      0.29,
+      0.45
+     ],
+     "slope_deg": 13.8,
+     "relief_m": 0.44,
+     "road_clear_m": 0.4,
+     "site_uv": [
+      -0.84,
+      -0.44
+     ],
+     "block": null,
+     "contact": "rest",
+     "material_set": "stone",
+     "requires_import": true,
+     "verdict": "use",
+     "imported": true,
+     "fallback": null,
+     "predicted": {
+      "bottom_cm": 10802.1,
+      "top_cm": 10874.6,
+      "by": "the level step (predicted on the heightmap)"
+     },
+     "note": "collar block, course 1 (the footing): the pillar stands in the 1.08 m square hole",
+     "parent": null
+    }
+   ],
+   "ground": [],
+   "units": [],
+   "waivers": [],
+   "v2": {
+    "frame": {
+     "origin_cm": [
+      298079.6,
+      483050.0
+     ],
+     "yaw": 83.66,
+     "u": "along the last road heading",
+     "v": "right of travel"
+    },
+    "hut": {
+     "centre_uv": [
+      1.5,
+      8.5
+     ],
+     "front_psi": 205.0
+    }
+   }
+  }
+ ]
+}

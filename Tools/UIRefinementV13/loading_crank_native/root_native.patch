@@ -1,0 +1,154 @@
+diff --git a/Plugins/SaskartaCore/Source/SaskartaCore/Public/SaskartaMotorResonance.h b/Plugins/SaskartaCore/Source/SaskartaCore/Public/SaskartaMotorResonance.h
+index 4b622f72..2bb2ae19 100644
+--- a/Plugins/SaskartaCore/Source/SaskartaCore/Public/SaskartaMotorResonance.h
++++ b/Plugins/SaskartaCore/Source/SaskartaCore/Public/SaskartaMotorResonance.h
+@@ -38,6 +38,14 @@ class SASKARTACORE_API USaskartaMotorDiagram : public UWidget
+ {
+     GENERATED_BODY()
+ public:
++    /** Set before RebuildWidget so loading never flashes gameplay instructions. */
++    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Saskarta|Motor")
++    bool bLoadingPresentation = false;
++
++    /** Smoothed readiness only; no gameplay clock, input or automatic advancement. */
++    UFUNCTION(BlueprintCallable, Category="Saskarta|Loading")
++    void PresentLoading(float Readiness);
++
+     void Configure(UObject* Font);
+     void Present(const FSaskartaMotorResonanceLogic& Logic, bool bGamepad, float Charge, float GapM, bool bInspectingBattery);
+ protected:
+@@ -52,6 +60,7 @@ private:
+     TSharedPtr<FStreamableHandle> GlyphLoad;
+     bool bGlyphLoadRequested = false;
+     FSaskartaMotorResonanceLogic Frame;
++    float LoadingReadiness = 0.f;
+     float ChargePercent = 0.f;
+     float DustGapM = 0.f;
+     bool bPad = false;
+diff --git a/Plugins/SaskartaCore/Source/SaskartaCore/Private/SaskartaMotorDiagram.cpp b/Plugins/SaskartaCore/Source/SaskartaCore/Private/SaskartaMotorDiagram.cpp
+index c6378cc0..04f633d8 100644
+--- a/Plugins/SaskartaCore/Source/SaskartaCore/Private/SaskartaMotorDiagram.cpp
++++ b/Plugins/SaskartaCore/Source/SaskartaCore/Private/SaskartaMotorDiagram.cpp
+@@ -58,6 +58,9 @@ public:
+     }
+     void SetFrame(UObject* InFont, const FSaskartaMotorResonanceLogic& InLogic, bool bInPad, float InCharge, float InGap, bool bInspectingBattery)
+     {
++        const bool bWasLoading = bLoading;
++        bLoading = false;
++        if (bWasLoading) Invalidate(EInvalidateWidgetReason::Layout);
+         Font = InFont;
+         Core = InLogic;
+         bPad = bInPad;
+@@ -66,9 +69,18 @@ public:
+         bShowCharge = bInspectingBattery;
+         Invalidate(EInvalidateWidgetReason::Paint);
+     }
++    void SetLoading(float InReadiness)
++    {
++        const float SafeReadiness = FMath::IsFinite(InReadiness) ? FMath::Clamp(InReadiness, 0.f, 1.f) : 0.f;
++        if (bLoading && LoadingFraction == SafeReadiness) return;
++        const bool bWasLoading = bLoading;
++        bLoading = true;
++        LoadingFraction = SafeReadiness;
++        Invalidate(bWasLoading ? EInvalidateWidgetReason::Paint : EInvalidateWidgetReason::Layout);
++    }
+     virtual FVector2D ComputeDesiredSize(float) const override
+     {
+-        return FVector2D(SaskartaMotorScreen::Width, SaskartaMotorScreen::Height);
++        return FVector2D(SaskartaMotorScreen::Width, bLoading ? 164.f : SaskartaMotorScreen::Height);
+     }
+     virtual int32 OnPaint(const FPaintArgs&, const FGeometry& G, const FSlateRect&,
+         FSlateWindowElementList& Elements, int32 Layer, const FWidgetStyle& Style, bool) const override
+@@ -132,6 +144,34 @@ public:
+             Line(Points, Bright, Thickness);
+         };
+ 
++        // Loading and charging share the exact crank rings, spokes, pin and top mark.
++        const auto DrawCrank = [&](FVector2D Wheel, float WheelAngle)
++        {
++            Arc(Wheel, 67, 0, 2*PI, 0.3f, 2.f);
++            Arc(Wheel, 61, 0, 2*PI, 0.56f, 2.f);
++            for (int32 I = 0; I < 6; ++I)
++            {
++                const float Angle = WheelAngle + I * PI / 3.f;
++                const FVector2D Direction(FMath::Cos(Angle), FMath::Sin(Angle));
++                Line({Wheel+Direction*25.f,Wheel+Direction*54.f}, 0.45f, 2.f);
++            }
++            const FVector2D Tip = Wheel + FVector2D(FMath::Cos(WheelAngle), FMath::Sin(WheelAngle)) * 61.f;
++            Arc(Tip, 5, 0, 2*PI, 1.f, 3.f);
++            Line({Wheel+FVector2D(0,-83),Wheel+FVector2D(0,-73)}, 1.f, 3.f);
++        };
++        if (bLoading)
++        {
++            // This phase can stop and reverse with readiness; time cannot fill the line.
++            const FVector2D Wheel(92.f, 83.f);
++            DrawCrank(Wheel, LoadingFraction * 1.75f * 2.f * PI - PI * 0.5f);
++            Arc(Wheel, 24, 0, 2*PI, 0.6f, 2.f);
++            if (LoadingFraction > 0.f)
++                Arc(Wheel, 70, -PI*0.5f, -PI*0.5f + LoadingFraction*2.f*PI, 0.9f, 3.f);
++            Box(184, 81, 512, 4, 0.16f);
++            Box(184, 81, 512*LoadingFraction, 4, 0.9f);
++            return Layer;
++        }
++
+         Text(24, 12, Core.IsTuning() ? TEXT("BIOFUEL / CHARGING") : TEXT("BIOFUEL / RESONANCE"), 24);
+         Text(500, 14, Core.IsTuning() ? TEXT("SERVICE MODE") :
+             (Core.bRecoveringCell ? TEXT("MOTOR STOPPED") : TEXT("AUTO DRIVE")), 21, 0.65f);
+@@ -186,18 +226,8 @@ public:
+         const FVector2D Wheel(358,174);
+         const float WheelAngle = Phase - PI * 0.5f;
+         const float Window = static_cast<float>(FLogic::GoodWindowS / Core.PeriodS * 2.0 * PI);
+-        Arc(Wheel, 67, 0, 2*PI, 0.3f, 2.f);
+-        Arc(Wheel, 61, 0, 2*PI, 0.56f, 2.f);
++        DrawCrank(Wheel, WheelAngle);
+         Arc(Wheel, 70, -PI*.5f-Window, -PI*.5f+Window, Core.BeatWindowOpen() ? 1.f : 0.6f, 5.f);
+-        for (int32 I = 0; I < 6; ++I)
+-        {
+-            const float Angle = WheelAngle + I * PI / 3.f;
+-            const FVector2D Direction(FMath::Cos(Angle), FMath::Sin(Angle));
+-            Line({Wheel+Direction*25.f,Wheel+Direction*54.f}, 0.45f, 2.f);
+-        }
+-        const FVector2D Tip = Wheel + FVector2D(FMath::Cos(WheelAngle), FMath::Sin(WheelAngle)) * 61.f;
+-        Arc(Tip, 5, 0, 2*PI, 1.f, 3.f);
+-        Line({{358,91},{358,101}}, 1.f, 3.f);
+         Text(312, 53, TEXT("CRANK"), 24, 0.8f);
+         Arc(Wheel, 24, 0, 2*PI, Core.BeatWindowOpen() ? 1.f : 0.38f, 2.f);
+         Glyph(358, 174, bPad ? TEXT("Pad_A") : TEXT("Key_E"), bPad ? TEXT("A") : TEXT("E"),
+@@ -245,6 +275,8 @@ private:
+     TWeakObjectPtr<UObject> Font;
+     TMap<FName, FSlateBrush> GlyphBrushes;
+     FSaskartaMotorResonanceLogic Core;
++    bool bLoading = false;
++    float LoadingFraction = 0.f;
+     float Charge = 0.f;
+     float Gap = 0.f;
+     bool bPad = false;
+@@ -286,6 +318,7 @@ void USaskartaMotorDiagram::BeginDestroy()
+ 
+ void USaskartaMotorDiagram::Present(const FSaskartaMotorResonanceLogic& Logic, bool bGamepad, float Charge, float GapM, bool bInspectingBattery)
+ {
++    bLoadingPresentation = false;
+     Frame = Logic;
+     bPad = bGamepad;
+     ChargePercent = Charge;
+@@ -294,11 +327,19 @@ void USaskartaMotorDiagram::Present(const FSaskartaMotorResonanceLogic& Logic, b
+     if (Diagram) Diagram->SetFrame(FontObject, Frame, bPad, ChargePercent, DustGapM, bShowCharge);
+ }
+ 
++void USaskartaMotorDiagram::PresentLoading(float Readiness)
++{
++    bLoadingPresentation = true;
++    LoadingReadiness = FMath::IsFinite(Readiness) ? FMath::Clamp(Readiness, 0.f, 1.f) : 0.f;
++    if (Diagram) Diagram->SetLoading(LoadingReadiness);
++}
++
+ TSharedRef<SWidget> USaskartaMotorDiagram::RebuildWidget()
+ {
+     SAssignNew(Diagram, SSaskartaMotorDiagram);
+     Diagram->SetGlyphs(GlyphTextures);
+-    Diagram->SetFrame(FontObject, Frame, bPad, ChargePercent, DustGapM, bShowCharge);
++    if (bLoadingPresentation) Diagram->SetLoading(LoadingReadiness);
++    else Diagram->SetFrame(FontObject, Frame, bPad, ChargePercent, DustGapM, bShowCharge);
+     return Diagram.ToSharedRef();
+ }
+ 

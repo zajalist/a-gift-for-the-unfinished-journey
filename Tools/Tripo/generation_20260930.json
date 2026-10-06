@@ -1,0 +1,149 @@
+{
+  "date": "2026-09-30",
+  "account": "zejbadr (signed-in Brave Tripo Studio account)",
+  "budget": {
+    "maximum_credits": 10000,
+    "spent_credits": 110,
+    "committed_credits": 0,
+    "unallocated_credits": 9890,
+    "observed_pre_balance": 23280,
+    "observed_post_balance": 23170,
+    "rule": "Record the displayed charge and reserve it before each generate, texture, remesh, or export action; never exceed the aggregate cap or purchase credits.",
+    "post_export_balance_verified": false,
+    "note": "Two completed 55-credit generations; exports displayed no additional quoted cost, and no later balance was verified. No further generation or export pending."
+  },
+  "access": {
+    "state": "connected_signed_in_brave_paused_after_first_batch",
+    "observed_account": "zejbadr",
+    "browser": "Brave Browser extension",
+    "workspace_url": "https://studio.tripo3d.ai/workspace/generate"
+  },
+  "operations": [
+    {
+      "site": "O05 Cliff Dwellings",
+      "kind": "text_to_3d",
+      "quoted_cost_credits": 55,
+      "reserved_credits": 0,
+      "spent_credits": 55,
+      "task_id": "cfe92e8d-610b-452d-831b-d9e1c4d595a8",
+      "status": "generated_exported_local",
+      "timestamp_utc": "2026-09-30T15:59:44.115128+00:00",
+      "observed_post_balance": 23225,
+      "model_url": "https://studio.tripo3d.ai/workspace/generate/one-contiguous-ruined-cliff-hamlet-facade-three-small-stone-and-mud-r-cfe92e8d-610b-452d-831b-d9e1c4d595a8",
+      "source_file": "SourceArt/Tripo/20260930/O05_cliff_hamlet_source.glb",
+      "runtime_file": "SourceArt/Tripo/20260930/O05_cliff_hamlet_ue.glb",
+      "source_sha256": "90b183b68cbc6fe3de021b21fd366fab6859cf9ad30ad2a8a61a746696abc0be",
+      "faces": 143219,
+      "vertices": 83233,
+      "source_texture_resolution": 4096,
+      "runtime_texture_resolution": 2048,
+      "editor_imported": true,
+      "level_placed": false,
+      "editor_saved_verified": true
+    },
+    {
+      "site": "S10 Crest Fort",
+      "kind": "text_to_3d",
+      "quoted_cost_credits": 55,
+      "reserved_credits": 0,
+      "spent_credits": 55,
+      "task_id": "6bac51ce-3119-45b5-864f-3d9026434c0c",
+      "status": "generated_exported_local",
+      "timestamp_utc": "2026-09-30T16:03:20.122991+00:00",
+      "observed_pre_balance": 23225,
+      "observed_post_balance": 23170,
+      "model_url": "https://studio.tripo3d.ai/workspace/generate/one-10-m-section-of-ancient-ruined-dry-stone-crest-fort-curtain-wall-6bac51ce-3119-45b5-864f-3d9026434c0c",
+      "source_file": "SourceArt/Tripo/20260930/S10_crest_fort_wall_source.glb",
+      "runtime_file": "SourceArt/Tripo/20260930/S10_crest_fort_wall_ue.glb",
+      "source_sha256": "3e483a2d1e3b7f44a6c0a7e0643226a8ec443ca7d33baf364368b03b3635c80a",
+      "faces": 142880,
+      "vertices": 86499,
+      "source_texture_resolution": 4096,
+      "runtime_texture_resolution": 2048,
+      "editor_imported": true,
+      "level_placed": false,
+      "editor_saved_verified": true
+    }
+  ],
+  "first_batch_candidates": [
+    {
+      "priority": 1,
+      "site": "O05 Cliff Dwellings",
+      "asset": "single rock-backed cliff hamlet facade",
+      "prompt": "One contiguous ruined cliff hamlet facade, three small stone-and-mud rooms cut into a wind-eroded sandstone outcrop, staggered ledges and deep dark door and window openings, broken timber beams and a few fallen stones; broad solid rock-backed base and underside to bury into a steep slope, irregular roofline, dusty ochre limestone, no freestanding posts or bridge, no religious ornament, game-ready single mesh.",
+      "target_m": [
+        16,
+        7,
+        12
+      ],
+      "quoted_cost_credits": 55,
+      "reserved_credits": 0,
+      "task_id": "cfe92e8d-610b-452d-831b-d9e1c4d595a8",
+      "status": "generated_exported_local",
+      "settings": {
+        "model": "H3.1 Best Quality HD Model",
+        "ultra_mesh_quality": true,
+        "triangle_polycount": 150000,
+        "texture": "4K PBR",
+        "8K_texture": false
+      },
+      "source_file": "SourceArt/Tripo/20260930/O05_cliff_hamlet_source.glb",
+      "runtime_file": "SourceArt/Tripo/20260930/O05_cliff_hamlet_ue.glb",
+      "source_sha256": "90b183b68cbc6fe3de021b21fd366fab6859cf9ad30ad2a8a61a746696abc0be",
+      "faces": 143219,
+      "vertices": 83233,
+      "source_texture_resolution": 4096,
+      "runtime_texture_resolution": 2048,
+      "editor_imported": true,
+      "level_placed": false,
+      "editor_saved_verified": true
+    },
+    {
+      "priority": 2,
+      "site": "S10 Crest Fort",
+      "asset": "asymmetric ruined dry-stone curtain wall",
+      "prompt": "One 10 m section of ancient ruined dry-stone crest-fort curtain wall, about 1.4 m thick, uneven 0.8 to 2.8 m broken courses, one tall survivor tapering into a slumped rubble end, broad buried footing and downhill rubble apron, weathered ochre stone, asymmetric ends, no repeating crenellations, arches, banners or religious ornament, game-ready single mesh.",
+      "target_m": [
+        10,
+        2.5,
+        2.8
+      ],
+      "quoted_cost_credits": 55,
+      "reserved_credits": 0,
+      "task_id": "6bac51ce-3119-45b5-864f-3d9026434c0c",
+      "status": "generated_exported_local",
+      "settings": {
+        "model": "H3.1 Best Quality HD Model",
+        "ultra_mesh_quality": true,
+        "triangle_polycount": 150000,
+        "texture": "4K PBR",
+        "8K_texture": false
+      },
+      "source_file": "SourceArt/Tripo/20260930/S10_crest_fort_wall_source.glb",
+      "runtime_file": "SourceArt/Tripo/20260930/S10_crest_fort_wall_ue.glb",
+      "source_sha256": "3e483a2d1e3b7f44a6c0a7e0643226a8ec443ca7d33baf364368b03b3635c80a",
+      "faces": 142880,
+      "vertices": 86499,
+      "source_texture_resolution": 4096,
+      "runtime_texture_resolution": 2048,
+      "editor_imported": true,
+      "level_placed": false,
+      "editor_saved_verified": true
+    },
+    {
+      "priority": 3,
+      "site": "S26 High Voice summit",
+      "asset": "low wind-scoured hut footing",
+      "prompt": "Low irregular wind-scoured sandstone footing and entry apron for a small stone relay hut, level 4.5 by 3.6 m seat, broken perimeter tapering into natural scree, clear flat doorway threshold, ochre stone matching the hut, no mast, signs or roof.",
+      "target_m": [
+        4.7,
+        4.6,
+        0.5
+      ],
+      "quoted_cost_credits": null,
+      "reserved_credits": 0,
+      "task_id": null,
+      "status": "deferred_pending_existing_hut_material_review"
+    }
+  ]
+}

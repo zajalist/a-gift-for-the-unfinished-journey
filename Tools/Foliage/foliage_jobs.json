@@ -1,0 +1,38 @@
+{
+  "DeadPine_A": {
+    "src": "/Game/Megaplant_Library/Tree_Dead_Pine/Tree_Dead_Pine_01/Tree_Dead_Pine_A",
+    "dst": "/Game/SaskartaGaea/Foliage/Static/SM_Saskarta_TreeFar_DeadPine_A"
+  },
+  "DeadPine_B": {
+    "src": "/Game/Megaplant_Library/Tree_Dead_Pine/Tree_Dead_Pine_01/Tree_Dead_Pine_B",
+    "dst": "/Game/SaskartaGaea/Foliage/Static/SM_Saskarta_TreeFar_DeadPine_B"
+  },
+  "DeadPine_C": {
+    "src": "/Game/Megaplant_Library/Tree_Dead_Pine/Tree_Dead_Pine_01/Tree_Dead_Pine_C",
+    "dst": "/Game/SaskartaGaea/Foliage/Static/SM_Saskarta_TreeFar_DeadPine_C"
+  },
+  "DeadPine_D": {
+    "src": "/Game/Megaplant_Library/Tree_Dead_Pine/Tree_Dead_Pine_01/Tree_Dead_Pine_D",
+    "dst": "/Game/SaskartaGaea/Foliage/Static/SM_Saskarta_TreeFar_DeadPine_D"
+  },
+  "DeadPine_E": {
+    "src": "/Game/Megaplant_Library/Tree_Dead_Pine/Tree_Dead_Pine_01/Tree_Dead_Pine_E",
+    "dst": "/Game/SaskartaGaea/Foliage/Static/SM_Saskarta_TreeFar_DeadPine_E"
+  },
+  "Ginkgo_A": {
+    "src": "/Game/Megaplant_Library/Tree_Ginkgo/Tree_Ginkgo_01/Tree_Ginkgo_01_A",
+    "dst": "/Game/SaskartaGaea/Foliage/Static/SM_Saskarta_TreeFar_Ginkgo_A"
+  },
+  "Ginkgo_B": {
+    "src": "/Game/Megaplant_Library/Tree_Ginkgo/Tree_Ginkgo_01/Tree_Ginkgo_01_B",
+    "dst": "/Game/SaskartaGaea/Foliage/Static/SM_Saskarta_TreeFar_Ginkgo_B"
+  },
+  "Ginkgo_C": {
+    "src": "/Game/Megaplant_Library/Tree_Ginkgo/Tree_Ginkgo_01/Tree_Ginkgo_01_C",
+    "dst": "/Game/SaskartaGaea/Foliage/Static/SM_Saskarta_TreeFar_Ginkgo_C"
+  },
+  "Ginkgo_D": {
+    "src": "/Game/Megaplant_Library/Tree_Ginkgo/Tree_Ginkgo_01/Tree_Ginkgo_01_D",
+    "dst": "/Game/SaskartaGaea/Foliage/Static/SM_Saskarta_TreeFar_Ginkgo_D"
+  }
+}

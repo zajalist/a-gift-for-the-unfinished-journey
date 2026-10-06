@@ -1,0 +1,108 @@
+{
+  "status": "conditional_packet_not_installed",
+  "asset": "/Game/SaskartaGaea/GameFlow/PC_Saskarta",
+  "purpose": "Loading draws only after Hayba finishes; original fire -> Tripo -> Hayba -> loading -> title preserved.",
+  "operations": [
+    {
+      "graph": "BeginIntro",
+      "new_nodes": {
+        "loadingHidden": {
+          "command": "blueprint_add_node",
+          "params": {
+            "path": "/Game/SaskartaGaea/GameFlow/PC_Saskarta",
+            "graph_name": "BeginIntro",
+            "node_type": "call_function",
+            "function_name": "SetVisibility",
+            "class_path": "/Script/UMG.Widget"
+          }
+        }
+      },
+      "defaults": {
+        "loadingHidden.InVisibility": "Collapsed"
+      },
+      "replace_exact_edge": [
+        "addLoading.then",
+        "makeEvent.execute"
+      ],
+      "new_edges": [
+        [
+          "addLoading.then",
+          "loadingHidden.execute"
+        ],
+        [
+          "makeLoading.ReturnValue",
+          "loadingHidden.self"
+        ],
+        [
+          "loadingHidden.then",
+          "makeEvent.execute"
+        ]
+      ],
+      "unique_existing_selectors": {
+        "addLoading": "AddToViewport ZOrder=450",
+        "makeLoading": "CreateWidget WBP_Saskarta_Loading_C",
+        "makeEvent": "CreateWidget WBP_Saskarta_EventCard_C"
+      }
+    },
+    {
+      "graph": "StepCards",
+      "new_nodes": {
+        "loadingShown": {
+          "command": "blueprint_add_node",
+          "params": {
+            "path": "/Game/SaskartaGaea/GameFlow/PC_Saskarta",
+            "graph_name": "StepCards",
+            "node_type": "call_function",
+            "function_name": "SetVisibility",
+            "class_path": "/Script/UMG.Widget"
+          }
+        },
+        "loadingWidgetForShow": {
+          "command": "blueprint_add_node",
+          "params": {
+            "path": "/Game/SaskartaGaea/GameFlow/PC_Saskarta",
+            "graph_name": "StepCards",
+            "node_type": "variable_get",
+            "variable_name": "LoadingWidget"
+          }
+        }
+      },
+      "defaults": {
+        "loadingShown.InVisibility": "HitTestInvisible"
+      },
+      "replace_exact_edge": [
+        "removeHayba.then",
+        "world.execute"
+      ],
+      "new_edges": [
+        [
+          "removeHayba.then",
+          "loadingShown.execute"
+        ],
+        [
+          "loadingWidgetForShow.LoadingWidget",
+          "loadingShown.self"
+        ],
+        [
+          "loadingShown.then",
+          "world.execute"
+        ]
+      ],
+      "unique_existing_selectors": {
+        "removeHayba": "RemoveFromParent self fed by HaybaCardWidget",
+        "world": "SetEnableWorldRendering bEnable=true"
+      }
+    }
+  ],
+  "instructions": [
+    "Inspect actual native graphs and resolve unique node GUIDs; refuse mismatches or equivalent prior gate.",
+    "Back up only PC before changes. Add the three nodes with native Hayba blueprint_add_node; read exact returned pin names.",
+    "Use blueprint_set_pin_default and blueprint_connect_nodes. Connecting replacement exec input must remove its previous edge; inspect graph immediately and require no exec fan-out.",
+    "Native compile zero errors/warnings, save exact PC with native blueprint_compile save=true or exact asset_save and read changed graphs. Preserve every unrelated node/link/default."
+  ],
+  "invariants": [
+    "All existing card durations, skip behavior, readiness timeouts, logos/fire material, title music and control lock remain unchanged.",
+    "This packet prevents premature loading drawing; actual saved card reordering is not established.",
+    "No tutorial or CRT panel introduced."
+  ]
+}

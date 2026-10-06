@@ -1,0 +1,97 @@
+{
+ "asset": "/Game/SaskartaGaea/GameFlow/BP_Saskarta_HUD",
+ "create": {
+  "parent": "/Script/Engine.HUD"
+ },
+ "description": "LANE5: puts WBP_Saskarta_Radio, WBP_Saskarta_Caption and the hidden WBP_Saskarta_TitleRadio on screen for the whole run. GM_Saskarta.HUDClass = this.",
+ "graphs": [
+  {
+   "graph": "EventGraph",
+   "nodes": {
+    "begin": {
+     "event": "ReceiveBeginPlay"
+    },
+    "n2": {
+     "call": "GetOwningPlayerController",
+     "class": "/Script/Engine.HUD"
+    },
+    "create": {
+     "create_widget": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Radio.WBP_Saskarta_Radio_C"
+    },
+    "n4": {
+     "call": "AddToViewport",
+     "class": "/Script/UMG.UserWidget"
+    },
+    "createCaption": {
+     "create_widget": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Caption.WBP_Saskarta_Caption_C"
+    },
+    "n6": {
+     "call": "AddToViewport",
+     "class": "/Script/UMG.UserWidget"
+    },
+    "createTitleRadio": {
+     "create_widget": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_TitleRadio.WBP_Saskarta_TitleRadio_C"
+    },
+    "n8": {
+     "call": "AddToViewport",
+     "class": "/Script/UMG.UserWidget"
+    }
+   },
+   "links": [
+    [
+     "n2.ReturnValue",
+     "create.OwningPlayer"
+    ],
+    [
+     "create.ReturnValue",
+     "n4.self"
+    ],
+    [
+     "n2.ReturnValue",
+     "createCaption.OwningPlayer"
+    ],
+    [
+     "createCaption.ReturnValue",
+     "n6.self"
+    ],
+    [
+     "n2.ReturnValue",
+     "createTitleRadio.OwningPlayer"
+    ],
+    [
+     "createTitleRadio.ReturnValue",
+     "n8.self"
+    ],
+    [
+     "begin.then",
+     "create.execute"
+    ],
+    [
+     "create.then",
+     "n4.execute"
+    ],
+    [
+     "n4.then",
+     "createCaption.execute"
+    ],
+    [
+     "createCaption.then",
+     "n6.execute"
+    ],
+    [
+     "n6.then",
+     "createTitleRadio.execute"
+    ],
+    [
+     "createTitleRadio.then",
+     "n8.execute"
+    ]
+   ],
+   "defaults": {
+    "n4.ZOrder": "40",
+    "n6.ZOrder": "30",
+    "n8.ZOrder": "1"
+   }
+  }
+ ]
+}

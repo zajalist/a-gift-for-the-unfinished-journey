@@ -1,0 +1,45 @@
+{
+  "review_only": false,
+  "editor_apply_authorized": true,
+  "source_image": "D:\\UnrealEngine\\saskartarad\\Saved\\TerrainRebuild\\Current_u16.png",
+  "candidate_image": "D:\\UnrealEngine\\saskartarad\\Saved\\TerrainRegrade\\local42_review_u16.png",
+  "image_pixels": [
+    8161,
+    8161
+  ],
+  "pixel_bounds_inclusive": [
+    3643,
+    3780,
+    3854,
+    4115
+  ],
+  "roi_pixels": [
+    212,
+    336
+  ],
+  "world_origin_cm": [
+    -18920.4,
+    50.0
+  ],
+  "xy_cm_per_pixel": 100.0,
+  "z_cm_per_u16_step": 1.5625,
+  "world_bounds_cm_inclusive": [
+    345379.6,
+    378050.0,
+    366479.6,
+    411550.0
+  ],
+  "changed_pixels": 13859,
+  "source_roi": "D:\\UnrealEngine\\saskartarad\\Saved\\TerrainRegrade\\Local42Patch\\source_roi.r16",
+  "target_roi": "D:\\UnrealEngine\\saskartarad\\Saved\\TerrainRegrade\\Local42Patch\\target_roi.r16",
+  "source_roi_sha256": "0c979155ff8c42f156aa5900172967894002ce3794d5d9aaa7963e82afb070d3",
+  "target_roi_sha256": "68c6f229c57c0fdba4bf75e32d39b0849355406addcf49397a854aca7411e549",
+  "format": "row-major little-endian uint16, no header, inclusive XY bounds",
+  "required_preflight": [
+    "loaded Landscape extent and XY/Z transform exactly match manifest",
+    "all overlapping World Partition Landscape components loaded and writable",
+    "selected edit layer and composed-height relationship explicitly verified",
+    "every live uint16 height in rectangle equals source_roi before any write",
+    "scoped backup of affected Landscape component packages exists"
+  ]
+}

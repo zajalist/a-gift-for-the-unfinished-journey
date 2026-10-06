@@ -1,0 +1,546 @@
+{
+  "asset": "/Game/SaskartaGaea/GameFlow/PC_Saskarta",
+  "description": "Scoped rebuild for Task TITLE: PollIntro (the intro holds until USaskartaReadiness reports every condition met at the title camera, or IntroMaxTime) and ApplyPlayerFOV (the carrier's CameraComponent FOV; PlayerCameraManager.SetFOV is not Blueprint-callable). Build with --reset-graphs; PC_Saskarta.json holds the same graphs.",
+  "variables": [
+    {
+      "name": "FlowState",
+      "type": "name",
+      "default": "None"
+    },
+    {
+      "name": "GroundTries",
+      "type": "int",
+      "default": "0"
+    },
+    {
+      "name": "RespawnTries",
+      "type": "int",
+      "default": "0"
+    },
+    {
+      "name": "RespawnStep",
+      "type": "float",
+      "default": "0.0"
+    },
+    {
+      "name": "bIntroStarted",
+      "type": "bool",
+      "default": "false"
+    },
+    {
+      "name": "IntroWidget",
+      "type": "object:/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Intro.WBP_Saskarta_Intro_C"
+    },
+    {
+      "name": "IntroTimer",
+      "type": "struct:/Script/Engine.TimerHandle"
+    },
+    {
+      "name": "IntroStart",
+      "type": "float",
+      "default": "0.0"
+    },
+    {
+      "name": "bStreamReady",
+      "type": "bool",
+      "default": "false"
+    },
+    {
+      "name": "IntroMinTime",
+      "type": "float",
+      "default": "6.0"
+    },
+    {
+      "name": "IntroMaxTime",
+      "type": "float",
+      "default": "25.0"
+    },
+    {
+      "name": "IntroPollInterval",
+      "type": "float",
+      "default": "0.25"
+    },
+    {
+      "name": "RevealLead",
+      "type": "float",
+      "default": "2.0"
+    },
+    {
+      "name": "RevealBurnTime",
+      "type": "float",
+      "default": "2.5"
+    },
+    {
+      "name": "PauseWidget",
+      "type": "object:/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Pause.WBP_Saskarta_Pause_C"
+    },
+    {
+      "name": "PauseKeyTimer",
+      "type": "struct:/Script/Engine.TimerHandle"
+    },
+    {
+      "name": "PauseKeyInterval",
+      "type": "float",
+      "default": "0.05"
+    },
+    {
+      "name": "bPauseKeyHeld",
+      "type": "bool",
+      "default": "false"
+    }
+  ],
+  "functions": [
+    {
+      "name": "PollIntro",
+      "pure": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "name": "ApplyPlayerFOV",
+      "pure": false,
+      "inputs": [],
+      "outputs": []
+    }
+  ],
+  "graphs": [
+    {
+      "graph": "PollIntro",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "me": {
+          "self": true
+        },
+        "findCam": {
+          "call": "GetActorOfClass",
+          "class": "/Script/Engine.GameplayStatics"
+        },
+        "camLoc": {
+          "call": "K2_GetActorLocation",
+          "class": "/Script/Engine.Actor"
+        },
+        "readiness": {
+          "call": "GetReadiness",
+          "class": "/Script/SaskartaCore.SaskartaReadiness"
+        },
+        "fraction": {
+          "call": "ComputeFraction",
+          "class": "/Script/SaskartaCore.SaskartaReadiness"
+        },
+        "allMet": {
+          "call": "GreaterEqual_DoubleDouble",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "setStream": {
+          "set": "bStreamReady"
+        },
+        "unmet": {
+          "call": "DescribeUnmet",
+          "class": "/Script/SaskartaCore.SaskartaReadiness"
+        },
+        "warnText": {
+          "call": "Concat_StrStr",
+          "class": "/Script/Engine.KismetStringLibrary"
+        },
+        "now": {
+          "call": "GetTimeSeconds",
+          "class": "/Script/Engine.GameplayStatics"
+        },
+        "start": {
+          "get": "IntroStart"
+        },
+        "elapsed": {
+          "call": "Subtract_DoubleDouble",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "minTime": {
+          "get": "IntroMinTime"
+        },
+        "maxTime": {
+          "get": "IntroMaxTime"
+        },
+        "lead": {
+          "get": "RevealLead"
+        },
+        "burnTime": {
+          "get": "RevealBurnTime"
+        },
+        "earliest": {
+          "call": "Subtract_DoubleDouble",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "maxLessLead": {
+          "call": "Subtract_DoubleDouble",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "latest": {
+          "call": "Subtract_DoubleDouble",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "pastMin": {
+          "call": "GreaterEqual_DoubleDouble",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "timedOut": {
+          "call": "GreaterEqual_DoubleDouble",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "intro": {
+          "get": "IntroWidget"
+        },
+        "holding": {
+          "call": "IsHolding",
+          "class": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Intro.WBP_Saskarta_Intro_C"
+        },
+        "stream": {
+          "get": "bStreamReady"
+        },
+        "minAndHold": {
+          "call": "BooleanAND",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "ready": {
+          "call": "BooleanAND",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "go": {
+          "call": "BooleanOR",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "ifGo": {
+          "branch": true
+        },
+        "pollGet": {
+          "get": "IntroTimer"
+        },
+        "stopPoll": {
+          "call": "K2_ClearAndInvalidateTimerHandle",
+          "class": "/Script/Engine.KismetSystemLibrary"
+        },
+        "ifReady": {
+          "branch": true
+        },
+        "warn": {
+          "call": "PrintString",
+          "class": "/Script/Engine.KismetSystemLibrary"
+        },
+        "title": {
+          "call": "BeginTitle"
+        },
+        "revealTimer": {
+          "timer": true
+        }
+      },
+      "links": [
+        [
+          "entry.then",
+          "findCam.execute"
+        ],
+        [
+          "findCam.then",
+          "readiness.execute"
+        ],
+        [
+          "findCam.ReturnValue",
+          "camLoc.self"
+        ],
+        [
+          "camLoc.ReturnValue",
+          "readiness.ViewLocation"
+        ],
+        [
+          "readiness.then",
+          "setStream.execute"
+        ],
+        [
+          "readiness.ReturnValue",
+          "fraction.Readiness"
+        ],
+        [
+          "fraction.ReturnValue",
+          "allMet.A"
+        ],
+        [
+          "allMet.ReturnValue",
+          "setStream.bStreamReady"
+        ],
+        [
+          "readiness.ReturnValue",
+          "unmet.Readiness"
+        ],
+        [
+          "unmet.ReturnValue",
+          "warnText.B"
+        ],
+        [
+          "warnText.ReturnValue",
+          "warn.InString"
+        ],
+        [
+          "setStream.then",
+          "ifGo.execute"
+        ],
+        [
+          "now.ReturnValue",
+          "elapsed.A"
+        ],
+        [
+          "start.IntroStart",
+          "elapsed.B"
+        ],
+        [
+          "minTime.IntroMinTime",
+          "earliest.A"
+        ],
+        [
+          "lead.RevealLead",
+          "earliest.B"
+        ],
+        [
+          "maxTime.IntroMaxTime",
+          "maxLessLead.A"
+        ],
+        [
+          "lead.RevealLead",
+          "maxLessLead.B"
+        ],
+        [
+          "maxLessLead.ReturnValue",
+          "latest.A"
+        ],
+        [
+          "burnTime.RevealBurnTime",
+          "latest.B"
+        ],
+        [
+          "elapsed.ReturnValue",
+          "pastMin.A"
+        ],
+        [
+          "earliest.ReturnValue",
+          "pastMin.B"
+        ],
+        [
+          "elapsed.ReturnValue",
+          "timedOut.A"
+        ],
+        [
+          "latest.ReturnValue",
+          "timedOut.B"
+        ],
+        [
+          "intro.IntroWidget",
+          "holding.self"
+        ],
+        [
+          "pastMin.ReturnValue",
+          "minAndHold.A"
+        ],
+        [
+          "holding.bHold",
+          "minAndHold.B"
+        ],
+        [
+          "minAndHold.ReturnValue",
+          "ready.A"
+        ],
+        [
+          "stream.bStreamReady",
+          "ready.B"
+        ],
+        [
+          "ready.ReturnValue",
+          "go.A"
+        ],
+        [
+          "timedOut.ReturnValue",
+          "go.B"
+        ],
+        [
+          "go.ReturnValue",
+          "ifGo.Condition"
+        ],
+        [
+          "ifGo.then",
+          "stopPoll.execute"
+        ],
+        [
+          "pollGet.IntroTimer",
+          "stopPoll.Handle"
+        ],
+        [
+          "stopPoll.then",
+          "ifReady.execute"
+        ],
+        [
+          "ready.ReturnValue",
+          "ifReady.Condition"
+        ],
+        [
+          "ifReady.else",
+          "warn.execute"
+        ],
+        [
+          "ifReady.then",
+          "title.execute"
+        ],
+        [
+          "warn.then",
+          "title.execute"
+        ],
+        [
+          "title.then",
+          "revealTimer.execute"
+        ],
+        [
+          "me.self",
+          "revealTimer.Object"
+        ],
+        [
+          "lead.RevealLead",
+          "revealTimer.Time"
+        ]
+      ],
+      "defaults": {
+        "findCam.ActorClass": "/Script/CinematicCamera.CineCameraActor",
+        "allMet.B": "0.999",
+        "warnText.A": "Saskarta intro: readiness timed out at the title camera; unmet: ",
+        "warn.bPrintToScreen": "false",
+        "warn.bPrintToLog": "true",
+        "revealTimer.FunctionName": "RevealIntro",
+        "revealTimer.bLooping": "false"
+      }
+    },
+    {
+      "graph": "ApplyPlayerFOV",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "isPlaying": {
+          "call": "EqualEqual_NameName",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "getFlowState1": {
+          "get": "FlowState"
+        },
+        "isPaused": {
+          "call": "EqualEqual_NameName",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "getFlowState2": {
+          "get": "FlowState"
+        },
+        "live": {
+          "call": "BooleanOR",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "fov": {
+          "call": "GetConsoleVariableFloatValue",
+          "class": "/Script/Engine.KismetSystemLibrary"
+        },
+        "set": {
+          "call": "Greater_DoubleDouble",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "both": {
+          "call": "BooleanAND",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "br": {
+          "branch": true
+        },
+        "pawn": {
+          "call": "K2_GetPawn",
+          "class": "/Script/Engine.Controller"
+        },
+        "comp": {
+          "call": "GetComponentByClass",
+          "class": "/Script/Engine.Actor"
+        },
+        "castCam": {
+          "cast": "/Script/Engine.CameraComponent"
+        },
+        "apply": {
+          "call": "SetFieldOfView",
+          "class": "/Script/Engine.CameraComponent"
+        }
+      },
+      "links": [
+        [
+          "getFlowState1.FlowState",
+          "isPlaying.A"
+        ],
+        [
+          "getFlowState2.FlowState",
+          "isPaused.A"
+        ],
+        [
+          "isPlaying.ReturnValue",
+          "live.A"
+        ],
+        [
+          "isPaused.ReturnValue",
+          "live.B"
+        ],
+        [
+          "fov.ReturnValue",
+          "set.A"
+        ],
+        [
+          "live.ReturnValue",
+          "both.A"
+        ],
+        [
+          "set.ReturnValue",
+          "both.B"
+        ],
+        [
+          "both.ReturnValue",
+          "br.Condition"
+        ],
+        [
+          "pawn.ReturnValue",
+          "comp.self"
+        ],
+        [
+          "comp.ReturnValue",
+          "castCam.Object"
+        ],
+        [
+          "castCam.AsCamera Component",
+          "apply.self"
+        ],
+        [
+          "fov.ReturnValue",
+          "apply.InFieldOfView"
+        ],
+        [
+          "entry.then",
+          "fov.execute"
+        ],
+        [
+          "fov.then",
+          "br.execute"
+        ],
+        [
+          "br.then",
+          "castCam.execute"
+        ],
+        [
+          "castCam.then",
+          "apply.execute"
+        ]
+      ],
+      "defaults": {
+        "isPlaying.B": "Playing",
+        "isPaused.B": "Paused",
+        "fov.VariableName": "saskarta.fov",
+        "set.B": "1.0",
+        "comp.ComponentClass": "/Script/Engine.CameraComponent"
+      }
+    }
+  ]
+}

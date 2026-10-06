@@ -1,0 +1,206 @@
+{
+ "asset": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_KeyPrompt",
+ "tree": [
+  {
+   "class": "Border",
+   "name": "Plate",
+   "properties": {
+    "Background": {
+     "ResourceObject": "/Game/SaskartaGaea/GameFlow/UI/Textures/T_UI_SoftPlate.T_UI_SoftPlate",
+     "DrawAs": "Box",
+     "ImageSize": {
+      "X": 110,
+      "Y": 60
+     },
+     "Margin": {
+      "Left": 0.4,
+      "Top": 0.4,
+      "Right": 0.4,
+      "Bottom": 0.4
+     },
+     "TintColor": {
+      "SpecifiedColor": [
+       0.0232,
+       0.013,
+       0.008,
+       0.55
+      ]
+     }
+    },
+    "Padding": {
+     "Left": 16,
+     "Top": 8,
+     "Right": 20,
+     "Bottom": 8
+    },
+    "Visibility": "HitTestInvisible"
+   },
+   "children": [
+    {
+     "class": "HorizontalBox",
+     "name": "Row",
+     "children": [
+      {
+       "class": "Overlay",
+       "name": "IconStack",
+       "slot_props": {
+        "vertical_alignment": "Center"
+       },
+       "children": [
+        {
+         "class": "HorizontalBox",
+         "name": "Icons",
+         "children": [
+          {
+           "class": "SizeBox",
+           "name": "IconBox",
+           "properties": {
+            "bOverride_WidthOverride": true,
+            "WidthOverride": 48,
+            "bOverride_HeightOverride": true,
+            "HeightOverride": 48,
+            "Visibility": "Visible"
+           },
+           "slot_props": {
+            "vertical_alignment": "Center"
+           },
+           "children": [
+            {
+             "class": "Image",
+             "name": "Icon",
+             "properties": {
+              "Brush": {
+               "ResourceObject": "/Game/SaskartaGaea/UI/Prompts/Light/T_Prompt_Key_W.T_Prompt_Key_W",
+               "ImageSize": {
+                "X": 48,
+                "Y": 48
+               },
+               "DrawAs": "Image"
+              }
+             }
+            }
+           ]
+          },
+          {
+           "class": "SizeBox",
+           "name": "IconBox2",
+           "properties": {
+            "bOverride_WidthOverride": true,
+            "WidthOverride": 48,
+            "bOverride_HeightOverride": true,
+            "HeightOverride": 48,
+            "Visibility": "Collapsed"
+           },
+           "slot_props": {
+            "vertical_alignment": "Center"
+           },
+           "children": [
+            {
+             "class": "Image",
+             "name": "Icon2",
+             "properties": {
+              "Brush": {
+               "ResourceObject": "/Game/SaskartaGaea/UI/Prompts/Light/T_Prompt_Key_W.T_Prompt_Key_W",
+               "ImageSize": {
+                "X": 48,
+                "Y": 48
+               },
+               "DrawAs": "Image"
+              }
+             }
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "class": "Image",
+         "name": "HoldRing",
+         "properties": {
+          "Brush": {
+           "ResourceObject": "/Game/SaskartaGaea/GameFlow/Materials/M_UI_SkipRing.M_UI_SkipRing",
+           "ImageSize": {
+            "X": 62,
+            "Y": 62
+           },
+           "DrawAs": "Image"
+          },
+          "Visibility": "Collapsed"
+         },
+         "slot_props": {
+          "horizontal_alignment": "Center",
+          "vertical_alignment": "Center"
+         }
+        }
+       ]
+      },
+      {
+       "class": "TextBlock",
+       "name": "LabelText",
+       "properties": {
+        "Text": "Drive",
+        "Font": {
+         "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+         "Size": 17,
+         "TypefaceFontName": "Regular"
+        },
+        "ColorAndOpacity": {
+         "SpecifiedColor": [
+          0.84,
+          0.76,
+          0.63,
+          1
+         ]
+        },
+        "ShadowOffset": {
+         "X": 1.5,
+         "Y": 2
+        },
+        "ShadowColorAndOpacity": [
+         0,
+         0,
+         0,
+         0.6
+        ]
+       },
+       "slot_props": {
+        "vertical_alignment": "Center",
+        "padding": [
+         10,
+         0,
+         0,
+         2
+        ]
+       }
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "slots": {
+  "Plate": {
+   "anchors": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "position": [
+    0,
+    0
+   ],
+   "auto_size": true
+  }
+ },
+ "variables": [
+  "Plate",
+  "IconStack",
+  "IconBox",
+  "Icon",
+  "IconBox2",
+  "Icon2",
+  "HoldRing",
+  "LabelText"
+ ]
+}

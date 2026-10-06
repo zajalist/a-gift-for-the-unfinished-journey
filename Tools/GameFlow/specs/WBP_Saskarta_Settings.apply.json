@@ -1,0 +1,62 @@
+{
+  "asset": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Settings",
+  "description": "Scoped ApplyPending fix: apply/save engine settings once, then audio/FOV and row refresh. No designer tree changes.",
+  "functions": [{ "name": "ApplyPending", "inputs": [], "outputs": [], "pure": false }],
+  "graphs": [
+    {
+      "graph": "ApplyPending",
+      "nodes": {
+        "entry": { "entry": true },
+        "resNow": { "call": "GetScreenResolution", "class": "/Script/Engine.GameUserSettings" },
+        "resKept": { "call": "GetLastConfirmedScreenResolution", "class": "/Script/Engine.GameUserSettings" },
+        "getGUS1": { "get": "GUS" },
+        "getGUS2": { "get": "GUS" },
+        "resDirty": { "call": "NotEqual_IntPointIntPoint", "class": "/Script/Engine.KismetMathLibrary" },
+        "modeNow": { "call": "GetFullscreenMode", "class": "/Script/Engine.GameUserSettings" },
+        "modeKept": { "call": "GetLastConfirmedFullscreenMode", "class": "/Script/Engine.GameUserSettings" },
+        "getGUS3": { "get": "GUS" },
+        "getGUS4": { "get": "GUS" },
+        "modeNowIndex": { "call": "Conv_ByteToInt", "class": "/Script/Engine.KismetMathLibrary" },
+        "modeKeptIndex": { "call": "Conv_ByteToInt", "class": "/Script/Engine.KismetMathLibrary" },
+        "modeDirty": { "call": "NotEqual_IntInt", "class": "/Script/Engine.KismetMathLibrary" },
+        "dirty": { "call": "BooleanOR", "class": "/Script/Engine.KismetMathLibrary" },
+        "setPending": { "set": "bResolutionPending" },
+        "apply": { "call": "ApplySettings", "class": "/Script/Engine.GameUserSettings" },
+        "getGUS5": { "get": "GUS" },
+        "saveDisplay": { "call": "SaveDisplay", "class": "/Game/SaskartaGaea/GameFlow/BFL_SaskartaSettings.BFL_SaskartaSettings_C" },
+        "getDisplay6": { "get": "Display" },
+        "preview": { "call": "PreviewLight" },
+        "refresh": { "call": "RefreshAll" },
+        "br": { "branch": true },
+        "getbResolutionPending7": { "get": "bResolutionPending" },
+        "countdown": { "call": "StartResolutionCountdown" }
+      },
+      "links": [
+        ["getGUS1.GUS", "resNow.self"],
+        ["getGUS2.GUS", "resKept.self"],
+        ["resNow.ReturnValue", "resDirty.A"],
+        ["resKept.ReturnValue", "resDirty.B"],
+        ["getGUS3.GUS", "modeNow.self"],
+        ["getGUS4.GUS", "modeKept.self"],
+        ["modeNow.ReturnValue", "modeNowIndex.InByte"],
+        ["modeKept.ReturnValue", "modeKeptIndex.InByte"],
+        ["modeNowIndex.ReturnValue", "modeDirty.A"],
+        ["modeKeptIndex.ReturnValue", "modeDirty.B"],
+        ["resDirty.ReturnValue", "dirty.A"],
+        ["modeDirty.ReturnValue", "dirty.B"],
+        ["dirty.ReturnValue", "setPending.bResolutionPending"],
+        ["getGUS5.GUS", "apply.self"],
+        ["getDisplay6.Display", "saveDisplay.Display"],
+        ["getbResolutionPending7.bResolutionPending", "br.Condition"],
+        ["entry.then", "setPending.execute"],
+        ["setPending.then", "apply.execute"],
+        ["apply.then", "saveDisplay.execute"],
+        ["saveDisplay.then", "preview.execute"],
+        ["preview.then", "refresh.execute"],
+        ["refresh.then", "br.execute"],
+        ["br.then", "countdown.execute"]
+      ],
+      "defaults": { "apply.bCheckForCommandLineOverrides": "false" }
+    }
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "status": "prepared_not_executed",
+  "commands": [
+    {
+      "command": "blueprint_inspect_graph",
+      "params": {
+        "path": "/Game/SaskartaGaea/GameFlow/PC_Saskarta",
+        "graph_name": "BeginIntro"
+      }
+    },
+    {
+      "command": "blueprint_inspect_graph",
+      "params": {
+        "path": "/Game/SaskartaGaea/GameFlow/PC_Saskarta",
+        "graph_name": "StepIntroCard"
+      }
+    },
+    {
+      "command": "blueprint_inspect_graph",
+      "params": {
+        "path": "/Game/SaskartaGaea/GameFlow/PC_Saskarta",
+        "graph_name": "StepCards"
+      }
+    },
+    {
+      "command": "blueprint_inspect_graph",
+      "params": {
+        "path": "/Game/SaskartaGaea/GameFlow/PC_Saskarta",
+        "graph_name": "PollIntro"
+      }
+    },
+    {
+      "command": "blueprint_inspect_graph",
+      "params": {
+        "path": "/Game/SaskartaGaea/GameFlow/PC_Saskarta",
+        "graph_name": "PollRoad"
+      }
+    },
+    {
+      "command": "blueprint_inspect_graph",
+      "params": {
+        "path": "/Game/SaskartaGaea/GameFlow/PC_Saskarta",
+        "graph_name": "PollTitle"
+      }
+    },
+    {
+      "command": "blueprint_inspect_graph",
+      "params": {
+        "path": "/Game/SaskartaGaea/GameFlow/PC_Saskarta",
+        "graph_name": "PollOpeningSkip"
+      }
+    },
+    {
+      "command": "ui_query",
+      "params": {
+        "path": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Loading",
+        "flatten": true,
+        "include_slot": true,
+        "include_properties": true
+      }
+    },
+    {
+      "command": "blueprint_inspect_graph",
+      "params": {
+        "path": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Loading",
+        "graph_name": "EventGraph"
+      }
+    },
+    {
+      "command": "blueprint_inspect_graph",
+      "params": {
+        "path": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Loading",
+        "graph_name": "RollHint"
+      }
+    },
+    {
+      "command": "ui_query",
+      "params": {
+        "path": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Power",
+        "flatten": true,
+        "include_slot": true
+      }
+    },
+    {
+      "command": "ui_layout_snapshot",
+      "params": {
+        "widget_blueprint_path": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Power",
+        "screen_width": 1280,
+        "screen_height": 720,
+        "limit": 50
+      }
+    },
+    {
+      "command": "ui_query",
+      "params": {
+        "path": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Motor",
+        "flatten": true,
+        "include_slot": true
+      }
+    },
+    {
+      "command": "ui_layout_snapshot",
+      "params": {
+        "widget_blueprint_path": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Motor",
+        "screen_width": 1280,
+        "screen_height": 720,
+        "limit": 50
+      }
+    },
+    {
+      "command": "ui_query",
+      "params": {
+        "path": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_GameplayHints",
+        "flatten": true,
+        "include_slot": true
+      }
+    },
+    {
+      "command": "ui_layout_snapshot",
+      "params": {
+        "widget_blueprint_path": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_GameplayHints",
+        "screen_width": 1280,
+        "screen_height": 720,
+        "limit": 50
+      }
+    },
+    {
+      "command": "ui_query",
+      "params": {
+        "path": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_RadioRepair",
+        "flatten": true,
+        "include_slot": true
+      }
+    },
+    {
+      "command": "ui_layout_snapshot",
+      "params": {
+        "widget_blueprint_path": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_RadioRepair",
+        "screen_width": 1280,
+        "screen_height": 720,
+        "limit": 50
+      }
+    }
+  ]
+}

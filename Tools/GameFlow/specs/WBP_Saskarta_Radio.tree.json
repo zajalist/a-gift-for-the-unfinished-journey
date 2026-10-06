@@ -1,0 +1,384 @@
+{
+ "asset": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Radio",
+ "tree": [
+  {
+   "class": "Border",
+   "name": "Panel",
+   "properties": {
+    "BrushColor": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "Padding": {
+     "Left": 0,
+     "Top": 0,
+     "Right": 0,
+     "Bottom": 0
+    },
+    "RenderOpacity": 0.0,
+    "Visibility": "HitTestInvisible"
+   },
+   "children": [
+    {
+     "class": "Overlay",
+     "name": "PanelLayers",
+     "children": [
+      {
+       "class": "Border",
+       "name": "ScreenScrim",
+       "properties": {
+        "Background": {
+         "ResourceObject": "/Game/SaskartaGaea/GameFlow/UI/Textures/T_UI_SoftPlate.T_UI_SoftPlate",
+         "DrawAs": "Box",
+         "ImageSize": {
+          "X": 304,
+          "Y": 104
+         },
+         "Margin": {
+          "Left": 0.4,
+          "Top": 0.4,
+          "Right": 0.4,
+          "Bottom": 0.4
+         },
+         "TintColor": {
+          "SpecifiedColor": [
+           0.018,
+           0.013,
+           0.009,
+           0.64
+          ]
+         }
+        },
+        "Visibility": "HitTestInvisible"
+       }
+      },
+      {
+       "class": "RetainerBox",
+       "name": "RadioScreen",
+       "properties": {
+        "EffectMaterial": "/Game/SaskartaGaea/GameFlow/Materials/MI_UI_RadioCRT.MI_UI_RadioCRT",
+        "TextureParameter": "Texture",
+        "RenderOnInvalidation": true,
+        "RenderOnPhase": false
+       },
+       "slot_props": {
+        "padding": [
+         10,
+         6,
+         10,
+         6
+        ]
+       },
+       "children": [
+        {
+         "class": "VerticalBox",
+         "name": "Layout",
+         "children": [
+          {
+           "class": "HorizontalBox",
+           "name": "Dial",
+           "children": [
+            {
+             "class": "SizeBox",
+             "name": "StationNameBox",
+             "properties": {
+              "bOverride_WidthOverride": true,
+              "WidthOverride": 96
+             },
+             "slot_props": {
+              "vertical_alignment": "Center"
+             },
+             "children": [
+              {
+               "class": "TextBlock",
+               "name": "StationName",
+               "properties": {
+                "Text": "ILAAWB",
+                "Font": {
+                 "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+                 "Size": 16,
+                 "LetterSpacing": 18
+                },
+                "ColorAndOpacity": {
+                 "SpecifiedColor": [
+                  0.76,
+                  0.44,
+                  0.19,
+                  0.95
+                 ]
+                }
+               },
+               "slot_props": {
+                "vertical_alignment": "Center"
+               }
+              }
+             ]
+            },
+            {
+             "class": "Spacer",
+             "name": "DialGap",
+             "slot_props": {
+              "fill": 1
+             }
+            },
+            {
+             "class": "TextBlock",
+             "name": "FreqText",
+             "properties": {
+              "Text": "94.3 FM",
+              "Font": {
+               "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+               "Size": 18,
+               "LetterSpacing": 12
+              },
+              "ColorAndOpacity": {
+               "SpecifiedColor": [
+                0.7,
+                0.65,
+                0.54,
+                0.92
+               ]
+              }
+             },
+             "slot_props": {
+              "vertical_alignment": "Center"
+             }
+            }
+           ]
+          },
+          {
+           "class": "SizeBox",
+           "name": "TopRuleBox",
+           "properties": {
+            "bOverride_HeightOverride": true,
+            "HeightOverride": 1
+           },
+           "slot_props": {
+            "padding": [
+             0,
+             1,
+             0,
+             2
+            ]
+           },
+           "children": [
+            {
+             "class": "Border",
+             "name": "TopRule",
+             "properties": {
+              "BrushColor": [
+               0.43,
+               0.25,
+               0.12,
+               0.48
+              ]
+             }
+            }
+           ]
+          },
+          {
+           "class": "TextBlock",
+           "name": "ScaleText",
+           "properties": {
+            "Text": "88     90     94     98    108",
+            "Font": {
+             "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+             "Size": 13,
+             "LetterSpacing": 10
+            },
+            "ColorAndOpacity": {
+             "SpecifiedColor": [
+              0.49,
+              0.3,
+              0.16,
+              0.76
+             ]
+            }
+           },
+           "slot_props": {
+            "padding": [
+             1,
+             0,
+             0,
+             1
+            ]
+           }
+          },
+          {
+           "class": "SizeBox",
+           "name": "SignalTrack",
+           "properties": {
+            "bOverride_HeightOverride": true,
+            "HeightOverride": 3
+           },
+           "slot_props": {
+            "padding": [
+             0,
+             0,
+             0,
+             3
+            ]
+           },
+           "children": [
+            {
+             "class": "ProgressBar",
+             "name": "SignalBar",
+             "properties": {
+              "Percent": 0.8,
+              "FillColorAndOpacity": [
+               1,
+               1,
+               1,
+               1
+              ],
+              "BarFillType": "LeftToRight",
+              "WidgetStyle": {
+               "BackgroundImage": {
+                "DrawAs": "Image",
+                "TintColor": {
+                 "SpecifiedColor": [
+                  0.18,
+                  0.11,
+                  0.06,
+                  0.34
+                 ]
+                }
+               },
+               "FillImage": {
+                "DrawAs": "Image",
+                "TintColor": {
+                 "SpecifiedColor": [
+                  0.76,
+                  0.44,
+                  0.19,
+                  0.95
+                 ]
+                }
+               },
+               "MarqueeImage": {
+                "DrawAs": "NoDrawType"
+               }
+              }
+             }
+            }
+           ]
+          },
+          {
+           "class": "HorizontalBox",
+           "name": "PowerRow",
+           "children": [
+            {
+             "class": "TextBlock",
+             "name": "NowText",
+             "properties": {
+              "Text": "on air",
+              "Font": {
+               "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+               "Size": 16,
+               "LetterSpacing": 0
+              },
+              "ColorAndOpacity": {
+               "SpecifiedColor": [
+                0.7,
+                0.65,
+                0.54,
+                0.92
+               ]
+              }
+             },
+             "slot_props": {
+              "vertical_alignment": "Center"
+             }
+            },
+            {
+             "class": "Spacer",
+             "name": "StateGap",
+             "slot_props": {
+              "fill": 1
+             }
+            },
+            {
+             "class": "TextBlock",
+             "name": "PowerText",
+             "properties": {
+              "Text": "ON",
+              "Font": {
+               "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+               "Size": 15,
+               "LetterSpacing": 12
+              },
+              "ColorAndOpacity": {
+               "SpecifiedColor": [
+                0.76,
+                0.44,
+                0.19,
+                0.95
+               ]
+              }
+             },
+             "slot_props": {
+              "vertical_alignment": "Center",
+              "padding": [
+               0,
+               0,
+               6,
+               0
+              ]
+             }
+            },
+            {
+             "class": "SizeBox",
+             "name": "RadioKeyCompact",
+             "properties": {
+              "bOverride_HeightOverride": true,
+              "HeightOverride": 36
+             },
+             "slot_props": {
+              "vertical_alignment": "Center"
+             },
+             "children": [
+              {
+               "class": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_KeyPrompt.WBP_Saskarta_KeyPrompt_C",
+               "name": "RadioKey"
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "slots": {
+  "Panel": {
+   "anchors": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "position": [
+    -340,
+    -140
+   ],
+   "size": [
+    304,
+    104
+   ]
+  }
+ },
+ "variables": [
+  "Panel",
+  "SignalBar",
+  "NowText",
+  "PowerText",
+  "RadioKey"
+ ]
+}

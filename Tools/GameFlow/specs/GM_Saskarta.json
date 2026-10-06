@@ -1,0 +1,8 @@
+{
+  "asset": "/Game/SaskartaGaea/GameFlow/GM_Saskarta",
+  "create": { "parent": "/Game/FirstPerson/Blueprints/BP_FirstPersonGameMode.BP_FirstPersonGameMode_C" },
+  "cdo_defaults": {
+    "PlayerControllerClass": "/Game/SaskartaGaea/GameFlow/PC_Saskarta.PC_Saskarta_C",
+    "DefaultPawnClass": "/Game/SaskartaGaea/Characters/Carrier/BP_Saskarta_Carrier.BP_Saskarta_Carrier_C"
+  }
+}

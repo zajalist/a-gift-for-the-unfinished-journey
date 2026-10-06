@@ -1,0 +1,2454 @@
+{
+  "asset": "/Game/SaskartaGaea/Characters/Traveller/BP_Saskarta_Traveller",
+  "description": "The Keeper as a playable pawn for the ending (task ENDING; README_Ending.md). Built with --reset-graphs: every function graph here is rebuilt; the inherited EventGraph (IA_Move, IA_Look, BeginPlay -> StartAnimDriver) is not in the spec and stays.",
+  "variables": [
+    {
+      "name": "AnimMode",
+      "type": "name",
+      "default": "Loco"
+    },
+    {
+      "name": "AnimTimer",
+      "type": "struct:/Script/Engine.TimerHandle"
+    },
+    {
+      "name": "AnimInterval",
+      "type": "float",
+      "default": "0.1"
+    },
+    {
+      "name": "MoveCancelSpeed",
+      "type": "float",
+      "default": "10.0"
+    },
+    {
+      "name": "bStartHidden",
+      "type": "bool",
+      "default": "true"
+    },
+    {
+      "name": "HumanWalkSpeed",
+      "type": "float",
+      "default": "110.0"
+    },
+    {
+      "name": "bWalking",
+      "type": "bool",
+      "default": "false"
+    },
+    {
+      "name": "RoadSpline",
+      "type": "object:/Script/Engine.SplineComponent"
+    },
+    {
+      "name": "TetherTimer",
+      "type": "struct:/Script/Engine.TimerHandle"
+    },
+    {
+      "name": "TetherInterval",
+      "type": "float",
+      "default": "0.25"
+    },
+    {
+      "name": "TetherLimit",
+      "type": "float",
+      "default": "900.0"
+    },
+    {
+      "name": "HalfHeight",
+      "type": "float",
+      "default": "92.0"
+    },
+    {
+      "name": "StepAccum",
+      "type": "float",
+      "default": "0.0"
+    },
+    {
+      "name": "StepLength",
+      "type": "float",
+      "default": "44.0"
+    },
+    {
+      "name": "StepCount",
+      "type": "int",
+      "default": "0"
+    },
+    {
+      "name": "FootVolume",
+      "type": "float",
+      "default": "0.55"
+    },
+    {
+      "name": "StaffVolume",
+      "type": "float",
+      "default": "0.45"
+    },
+    {
+      "name": "SfxFootA",
+      "type": "object:/Script/Engine.SoundBase",
+      "default": "/Game/AzielArts_Material/Footsteps/SoundWav/Rock_Mono_01.Rock_Mono_01"
+    },
+    {
+      "name": "SfxFootB",
+      "type": "object:/Script/Engine.SoundBase",
+      "default": "/Game/AzielArts_Material/Footsteps/SoundWav/Rock_Mono_03.Rock_Mono_03"
+    },
+    {
+      "name": "SfxStaffA",
+      "type": "object:/Script/Engine.SoundBase",
+      "default": "/Game/SaskartaGaea/Audio/Foley/SFX_WalkingAid_Tap_Gravel_01.SFX_WalkingAid_Tap_Gravel_01"
+    },
+    {
+      "name": "SfxStaffB",
+      "type": "object:/Script/Engine.SoundBase",
+      "default": "/Game/SaskartaGaea/Audio/Foley/SFX_WalkingAid_Tap_Gravel_03.SFX_WalkingAid_Tap_Gravel_03"
+    },
+    {
+      "name": "SfxBreathLoop",
+      "type": "object:/Script/Engine.SoundBase"
+    },
+    {
+      "name": "BreathComp",
+      "type": "object:/Script/Engine.AudioComponent"
+    },
+    {
+      "name": "ArmLength",
+      "type": "float",
+      "default": "280.0"
+    },
+    {
+      "name": "ArmLagSpeed",
+      "type": "float",
+      "default": "6.0"
+    },
+    {
+      "name": "EyeForward",
+      "type": "float",
+      "default": "0.0"
+    },
+    {
+      "name": "EyeHeight",
+      "type": "float",
+      "default": "64.0"
+    }
+  ],
+  "functions": [
+    {
+      "name": "StartAnimDriver",
+      "inputs": [],
+      "outputs": [],
+      "pure": false
+    },
+    {
+      "name": "UpdateAnim",
+      "inputs": [],
+      "outputs": [],
+      "pure": false
+    },
+    {
+      "name": "EnterLoco",
+      "inputs": [],
+      "outputs": [],
+      "pure": false
+    },
+    {
+      "name": "PlaySupportedIdle",
+      "inputs": [],
+      "outputs": [],
+      "pure": false
+    },
+    {
+      "name": "PlayTransmit",
+      "inputs": [],
+      "outputs": [],
+      "pure": false
+    },
+    {
+      "name": "PrepareHidden",
+      "inputs": [],
+      "outputs": [],
+      "pure": false
+    },
+    {
+      "name": "ConfigureCamera",
+      "inputs": [],
+      "outputs": [],
+      "pure": false
+    },
+    {
+      "name": "EnterCapsule",
+      "inputs": [
+        {
+          "name": "Location",
+          "type": "vector"
+        },
+        {
+          "name": "Rotation",
+          "type": "rotator"
+        }
+      ],
+      "outputs": [],
+      "pure": false
+    },
+    {
+      "name": "GripRim",
+      "inputs": [],
+      "outputs": [],
+      "pure": false
+    },
+    {
+      "name": "StandAt",
+      "inputs": [
+        {
+          "name": "Location",
+          "type": "vector"
+        },
+        {
+          "name": "Rotation",
+          "type": "rotator"
+        }
+      ],
+      "outputs": [],
+      "pure": false
+    },
+    {
+      "name": "StartWalk",
+      "inputs": [],
+      "outputs": [],
+      "pure": false
+    },
+    {
+      "name": "StopWalk",
+      "inputs": [],
+      "outputs": [],
+      "pure": false
+    },
+    {
+      "name": "FindRoad",
+      "inputs": [],
+      "outputs": [],
+      "pure": false
+    },
+    {
+      "name": "CheckTether",
+      "inputs": [],
+      "outputs": [],
+      "pure": false
+    },
+    {
+      "name": "PlayFootstep",
+      "inputs": [],
+      "outputs": [],
+      "pure": false
+    },
+    {
+      "name": "Move",
+      "inputs": [
+        {
+          "name": "Left / Right",
+          "type": "double"
+        },
+        {
+          "name": "Forward / Backward",
+          "type": "double"
+        }
+      ],
+      "outputs": [],
+      "pure": false
+    }
+  ],
+  "graphs": [
+    {
+      "graph": "StartAnimDriver",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "g1": {
+          "get": "AnimMode"
+        },
+        "NotEqual2": {
+          "call": "NotEqual_NameName",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "if3": {
+          "branch": true
+        },
+        "EnterLoc4": {
+          "call": "EnterLoco"
+        },
+        "g5": {
+          "get": "AnimInterval"
+        },
+        "t6": {
+          "timer": true
+        },
+        "me": {
+          "self": true
+        },
+        "s7": {
+          "set": "AnimTimer"
+        },
+        "Configur8": {
+          "call": "ConfigureCamera"
+        },
+        "g9": {
+          "get": "bStartHidden"
+        },
+        "if10": {
+          "branch": true
+        },
+        "PrepareH11": {
+          "call": "PrepareHidden"
+        }
+      },
+      "links": [
+        [
+          "g1.AnimMode",
+          "NotEqual2.A"
+        ],
+        [
+          "NotEqual2.ReturnValue",
+          "if3.Condition"
+        ],
+        [
+          "entry.then",
+          "if3.execute"
+        ],
+        [
+          "if3.then",
+          "EnterLoc4.execute"
+        ],
+        [
+          "me.self",
+          "t6.Object"
+        ],
+        [
+          "g5.AnimInterval",
+          "t6.Time"
+        ],
+        [
+          "EnterLoc4.then",
+          "t6.execute"
+        ],
+        [
+          "if3.else",
+          "t6.execute"
+        ],
+        [
+          "t6.ReturnValue",
+          "s7.AnimTimer"
+        ],
+        [
+          "t6.then",
+          "s7.execute"
+        ],
+        [
+          "s7.then",
+          "Configur8.execute"
+        ],
+        [
+          "g9.bStartHidden",
+          "if10.Condition"
+        ],
+        [
+          "Configur8.then",
+          "if10.execute"
+        ],
+        [
+          "if10.then",
+          "PrepareH11.execute"
+        ]
+      ],
+      "defaults": {
+        "NotEqual2.B": "SupportedIdle",
+        "t6.FunctionName": "UpdateAnim",
+        "t6.bLooping": "true"
+      }
+    },
+    {
+      "graph": "EnterLoco",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "me": {
+          "self": true
+        },
+        "GetCompo1": {
+          "call": "GetComponentByClass",
+          "class": "/Script/Engine.Actor"
+        },
+        "as2": {
+          "cast": "/Script/Engine.SkeletalMeshComponent"
+        },
+        "PlayAnim3": {
+          "call": "PlayAnimation",
+          "class": "/Script/Engine.SkeletalMeshComponent"
+        },
+        "s4": {
+          "set": "AnimMode"
+        }
+      },
+      "links": [
+        [
+          "me.self",
+          "GetCompo1.self"
+        ],
+        [
+          "GetCompo1.ReturnValue",
+          "as2.Object"
+        ],
+        [
+          "entry.then",
+          "as2.execute"
+        ],
+        [
+          "as2.AsSkeletal Mesh Component",
+          "PlayAnim3.self"
+        ],
+        [
+          "as2.then",
+          "PlayAnim3.execute"
+        ],
+        [
+          "PlayAnim3.then",
+          "s4.execute"
+        ]
+      ],
+      "defaults": {
+        "GetCompo1.ComponentClass": "/Script/Engine.SkeletalMeshComponent",
+        "PlayAnim3.NewAnimToPlay": "/Game/SaskartaGaea/Characters/Traveller/Anims/BS_Traveller_Locomotion.BS_Traveller_Locomotion",
+        "PlayAnim3.bLooping": "true",
+        "s4.AnimMode": "Loco"
+      }
+    },
+    {
+      "graph": "PlaySupportedIdle",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "me": {
+          "self": true
+        },
+        "GetCompo1": {
+          "call": "GetComponentByClass",
+          "class": "/Script/Engine.Actor"
+        },
+        "as2": {
+          "cast": "/Script/Engine.SkeletalMeshComponent"
+        },
+        "PlayAnim3": {
+          "call": "PlayAnimation",
+          "class": "/Script/Engine.SkeletalMeshComponent"
+        },
+        "s4": {
+          "set": "AnimMode"
+        }
+      },
+      "links": [
+        [
+          "me.self",
+          "GetCompo1.self"
+        ],
+        [
+          "GetCompo1.ReturnValue",
+          "as2.Object"
+        ],
+        [
+          "entry.then",
+          "as2.execute"
+        ],
+        [
+          "as2.AsSkeletal Mesh Component",
+          "PlayAnim3.self"
+        ],
+        [
+          "as2.then",
+          "PlayAnim3.execute"
+        ],
+        [
+          "PlayAnim3.then",
+          "s4.execute"
+        ]
+      ],
+      "defaults": {
+        "GetCompo1.ComponentClass": "/Script/Engine.SkeletalMeshComponent",
+        "PlayAnim3.NewAnimToPlay": "/Game/SaskartaGaea/Characters/Traveller/Anims/A_Traveller_SupportedIdle.A_Traveller_SupportedIdle",
+        "PlayAnim3.bLooping": "true",
+        "s4.AnimMode": "SupportedIdle"
+      }
+    },
+    {
+      "graph": "PlayTransmit",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "me": {
+          "self": true
+        },
+        "GetCompo1": {
+          "call": "GetComponentByClass",
+          "class": "/Script/Engine.Actor"
+        },
+        "as2": {
+          "cast": "/Script/Engine.SkeletalMeshComponent"
+        },
+        "PlayAnim3": {
+          "call": "PlayAnimation",
+          "class": "/Script/Engine.SkeletalMeshComponent"
+        },
+        "s4": {
+          "set": "AnimMode"
+        }
+      },
+      "links": [
+        [
+          "me.self",
+          "GetCompo1.self"
+        ],
+        [
+          "GetCompo1.ReturnValue",
+          "as2.Object"
+        ],
+        [
+          "entry.then",
+          "as2.execute"
+        ],
+        [
+          "as2.AsSkeletal Mesh Component",
+          "PlayAnim3.self"
+        ],
+        [
+          "as2.then",
+          "PlayAnim3.execute"
+        ],
+        [
+          "PlayAnim3.then",
+          "s4.execute"
+        ]
+      ],
+      "defaults": {
+        "GetCompo1.ComponentClass": "/Script/Engine.SkeletalMeshComponent",
+        "PlayAnim3.NewAnimToPlay": "/Game/SaskartaGaea/Characters/Traveller/Anims/A_Traveller_Transmit.A_Traveller_Transmit",
+        "PlayAnim3.bLooping": "false",
+        "s4.AnimMode": "Transmit"
+      }
+    },
+    {
+      "graph": "UpdateAnim",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "me": {
+          "self": true
+        },
+        "GetVeloc1": {
+          "call": "GetVelocity",
+          "class": "/Script/Engine.Actor"
+        },
+        "VSizeXY2": {
+          "call": "VSizeXY",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "g3": {
+          "get": "AnimMode"
+        },
+        "EqualEqu4": {
+          "call": "EqualEqual_NameName",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "if5": {
+          "branch": true
+        },
+        "GetCompo6": {
+          "call": "GetComponentByClass",
+          "class": "/Script/Engine.Actor"
+        },
+        "as7": {
+          "cast": "/Script/Engine.SkeletalMeshComponent"
+        },
+        "GetAnimI8": {
+          "call": "GetAnimInstance",
+          "class": "/Script/Engine.SkeletalMeshComponent"
+        },
+        "as9": {
+          "cast": "/Script/Engine.AnimSingleNodeInstance"
+        },
+        "MakeVect10": {
+          "call": "MakeVector",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "SetBlend11": {
+          "call": "SetBlendSpacePosition",
+          "class": "/Script/Engine.AnimSingleNodeInstance"
+        },
+        "g12": {
+          "get": "MoveCancelSpeed"
+        },
+        "Greater_13": {
+          "call": "Greater_DoubleDouble",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "if14": {
+          "branch": true
+        },
+        "EnterLoc15": {
+          "call": "EnterLoco"
+        },
+        "g16": {
+          "get": "bWalking"
+        },
+        "if17": {
+          "branch": true
+        },
+        "g18": {
+          "get": "StepAccum"
+        },
+        "g19": {
+          "get": "AnimInterval"
+        },
+        "Multiply20": {
+          "call": "Multiply_DoubleDouble",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "Add_Doub21": {
+          "call": "Add_DoubleDouble",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "s22": {
+          "set": "StepAccum"
+        },
+        "g23": {
+          "get": "StepAccum"
+        },
+        "g24": {
+          "get": "StepLength"
+        },
+        "Greater_25": {
+          "call": "Greater_DoubleDouble",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "if26": {
+          "branch": true
+        },
+        "g27": {
+          "get": "StepAccum"
+        },
+        "g28": {
+          "get": "StepLength"
+        },
+        "Subtract29": {
+          "call": "Subtract_DoubleDouble",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "s30": {
+          "set": "StepAccum"
+        },
+        "PlayFoot31": {
+          "call": "PlayFootstep"
+        }
+      },
+      "links": [
+        [
+          "me.self",
+          "GetVeloc1.self"
+        ],
+        [
+          "GetVeloc1.ReturnValue",
+          "VSizeXY2.A"
+        ],
+        [
+          "g3.AnimMode",
+          "EqualEqu4.A"
+        ],
+        [
+          "EqualEqu4.ReturnValue",
+          "if5.Condition"
+        ],
+        [
+          "entry.then",
+          "if5.execute"
+        ],
+        [
+          "me.self",
+          "GetCompo6.self"
+        ],
+        [
+          "GetCompo6.ReturnValue",
+          "as7.Object"
+        ],
+        [
+          "if5.then",
+          "as7.execute"
+        ],
+        [
+          "as7.AsSkeletal Mesh Component",
+          "GetAnimI8.self"
+        ],
+        [
+          "GetAnimI8.ReturnValue",
+          "as9.Object"
+        ],
+        [
+          "as7.then",
+          "as9.execute"
+        ],
+        [
+          "VSizeXY2.ReturnValue",
+          "MakeVect10.X"
+        ],
+        [
+          "as9.AsAnim Single Node Instance",
+          "SetBlend11.self"
+        ],
+        [
+          "MakeVect10.ReturnValue",
+          "SetBlend11.InPosition"
+        ],
+        [
+          "as9.then",
+          "SetBlend11.execute"
+        ],
+        [
+          "VSizeXY2.ReturnValue",
+          "Greater_13.A"
+        ],
+        [
+          "g12.MoveCancelSpeed",
+          "Greater_13.B"
+        ],
+        [
+          "Greater_13.ReturnValue",
+          "if14.Condition"
+        ],
+        [
+          "if5.else",
+          "if14.execute"
+        ],
+        [
+          "if14.then",
+          "EnterLoc15.execute"
+        ],
+        [
+          "g16.bWalking",
+          "if17.Condition"
+        ],
+        [
+          "SetBlend11.then",
+          "if17.execute"
+        ],
+        [
+          "if14.else",
+          "if17.execute"
+        ],
+        [
+          "EnterLoc15.then",
+          "if17.execute"
+        ],
+        [
+          "VSizeXY2.ReturnValue",
+          "Multiply20.A"
+        ],
+        [
+          "g19.AnimInterval",
+          "Multiply20.B"
+        ],
+        [
+          "g18.StepAccum",
+          "Add_Doub21.A"
+        ],
+        [
+          "Multiply20.ReturnValue",
+          "Add_Doub21.B"
+        ],
+        [
+          "Add_Doub21.ReturnValue",
+          "s22.StepAccum"
+        ],
+        [
+          "if17.then",
+          "s22.execute"
+        ],
+        [
+          "g23.StepAccum",
+          "Greater_25.A"
+        ],
+        [
+          "g24.StepLength",
+          "Greater_25.B"
+        ],
+        [
+          "Greater_25.ReturnValue",
+          "if26.Condition"
+        ],
+        [
+          "s22.then",
+          "if26.execute"
+        ],
+        [
+          "g27.StepAccum",
+          "Subtract29.A"
+        ],
+        [
+          "g28.StepLength",
+          "Subtract29.B"
+        ],
+        [
+          "Subtract29.ReturnValue",
+          "s30.StepAccum"
+        ],
+        [
+          "if26.then",
+          "s30.execute"
+        ],
+        [
+          "s30.then",
+          "PlayFoot31.execute"
+        ]
+      ],
+      "defaults": {
+        "EqualEqu4.B": "Loco",
+        "GetCompo6.ComponentClass": "/Script/Engine.SkeletalMeshComponent",
+        "MakeVect10.Y": "0.0",
+        "MakeVect10.Z": "0.0"
+      }
+    },
+    {
+      "graph": "PrepareHidden",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "s1": {
+          "set": "bStartHidden"
+        },
+        "me": {
+          "self": true
+        },
+        "SetActor2": {
+          "call": "SetActorHiddenInGame",
+          "class": "/Script/Engine.Actor"
+        },
+        "SetActor3": {
+          "call": "SetActorEnableCollision",
+          "class": "/Script/Engine.Actor"
+        },
+        "GetCompo4": {
+          "call": "GetComponentByClass",
+          "class": "/Script/Engine.Actor"
+        },
+        "as5": {
+          "cast": "/Script/Engine.CharacterMovementComponent"
+        },
+        "SetMovem6": {
+          "call": "SetMovementMode",
+          "class": "/Script/Engine.CharacterMovementComponent"
+        }
+      },
+      "links": [
+        [
+          "entry.then",
+          "s1.execute"
+        ],
+        [
+          "me.self",
+          "SetActor2.self"
+        ],
+        [
+          "s1.then",
+          "SetActor2.execute"
+        ],
+        [
+          "me.self",
+          "SetActor3.self"
+        ],
+        [
+          "SetActor2.then",
+          "SetActor3.execute"
+        ],
+        [
+          "me.self",
+          "GetCompo4.self"
+        ],
+        [
+          "GetCompo4.ReturnValue",
+          "as5.Object"
+        ],
+        [
+          "SetActor3.then",
+          "as5.execute"
+        ],
+        [
+          "as5.AsCharacter Movement Component",
+          "SetMovem6.self"
+        ],
+        [
+          "as5.then",
+          "SetMovem6.execute"
+        ]
+      ],
+      "defaults": {
+        "s1.bStartHidden": "false",
+        "SetActor2.bNewHidden": "true",
+        "SetActor3.bNewActorEnableCollision": "false",
+        "GetCompo4.ComponentClass": "/Script/Engine.CharacterMovementComponent",
+        "SetMovem6.NewMovementMode": "MOVE_None"
+      }
+    },
+    {
+      "graph": "ConfigureCamera",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "me": {
+          "self": true
+        },
+        "GetCompo1": {
+          "call": "GetComponentByClass",
+          "class": "/Script/Engine.Actor"
+        },
+        "as2": {
+          "cast": "/Script/Engine.SpringArmComponent"
+        },
+        "g3": {
+          "get": "ArmLength"
+        },
+        "SetDoubl4": {
+          "call": "SetDoublePropertyByName",
+          "class": "/Script/Engine.KismetSystemLibrary"
+        },
+        "SetBoolP5": {
+          "call": "SetBoolPropertyByName",
+          "class": "/Script/Engine.KismetSystemLibrary"
+        },
+        "g6": {
+          "get": "ArmLagSpeed"
+        },
+        "SetDoubl7": {
+          "call": "SetDoublePropertyByName",
+          "class": "/Script/Engine.KismetSystemLibrary"
+        },
+        "SetBoolP8": {
+          "call": "SetBoolPropertyByName",
+          "class": "/Script/Engine.KismetSystemLibrary"
+        },
+        "SetBoolP9": {
+          "call": "SetBoolPropertyByName",
+          "class": "/Script/Engine.KismetSystemLibrary"
+        },
+        "SetBoolP10": {
+          "call": "SetBoolPropertyByName",
+          "class": "/Script/Engine.KismetSystemLibrary"
+        },
+        "MakeVect11": {
+          "call": "MakeVector",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "SetVecto12": {
+          "call": "SetVectorPropertyByName",
+          "class": "/Script/Engine.KismetSystemLibrary"
+        },
+        "g13": {
+          "get": "EyeForward"
+        },
+        "g14": {
+          "get": "EyeHeight"
+        },
+        "MakeVect15": {
+          "call": "MakeVector",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "K2_SetRe16": {
+          "call": "K2_SetRelativeLocation",
+          "class": "/Script/Engine.SceneComponent"
+        },
+        "SetBoolP17": {
+          "call": "SetBoolPropertyByName",
+          "class": "/Script/Engine.KismetSystemLibrary"
+        },
+        "GetCompo18": {
+          "call": "GetComponentByClass",
+          "class": "/Script/Engine.Actor"
+        },
+        "as19": {
+          "cast": "/Script/Engine.CharacterMovementComponent"
+        },
+        "SetBoolP20": {
+          "call": "SetBoolPropertyByName",
+          "class": "/Script/Engine.KismetSystemLibrary"
+        },
+        "GetCompo21": {
+          "call": "GetComponentByClass",
+          "class": "/Script/Engine.Actor"
+        },
+        "as22": {
+          "cast": "/Script/Engine.SkeletalMeshComponent"
+        },
+        "UnHideBo23": {
+          "call": "UnHideBoneByName",
+          "class": "/Script/Engine.SkeletalMeshComponent"
+        }
+      },
+      "links": [
+        [
+          "me.self",
+          "GetCompo1.self"
+        ],
+        [
+          "GetCompo1.ReturnValue",
+          "as2.Object"
+        ],
+        [
+          "entry.then",
+          "as2.execute"
+        ],
+        [
+          "as2.AsSpring Arm Component",
+          "SetDoubl4.Object"
+        ],
+        [
+          "g3.ArmLength",
+          "SetDoubl4.Value"
+        ],
+        [
+          "as2.then",
+          "SetDoubl4.execute"
+        ],
+        [
+          "as2.AsSpring Arm Component",
+          "SetBoolP5.Object"
+        ],
+        [
+          "SetDoubl4.then",
+          "SetBoolP5.execute"
+        ],
+        [
+          "as2.AsSpring Arm Component",
+          "SetDoubl7.Object"
+        ],
+        [
+          "g6.ArmLagSpeed",
+          "SetDoubl7.Value"
+        ],
+        [
+          "SetBoolP5.then",
+          "SetDoubl7.execute"
+        ],
+        [
+          "as2.AsSpring Arm Component",
+          "SetBoolP8.Object"
+        ],
+        [
+          "SetDoubl7.then",
+          "SetBoolP8.execute"
+        ],
+        [
+          "as2.AsSpring Arm Component",
+          "SetBoolP9.Object"
+        ],
+        [
+          "SetBoolP8.then",
+          "SetBoolP9.execute"
+        ],
+        [
+          "as2.AsSpring Arm Component",
+          "SetBoolP10.Object"
+        ],
+        [
+          "SetBoolP9.then",
+          "SetBoolP10.execute"
+        ],
+        [
+          "as2.AsSpring Arm Component",
+          "SetVecto12.Object"
+        ],
+        [
+          "MakeVect11.ReturnValue",
+          "SetVecto12.Value"
+        ],
+        [
+          "SetBoolP10.then",
+          "SetVecto12.execute"
+        ],
+        [
+          "g13.EyeForward",
+          "MakeVect15.X"
+        ],
+        [
+          "g14.EyeHeight",
+          "MakeVect15.Z"
+        ],
+        [
+          "as2.AsSpring Arm Component",
+          "K2_SetRe16.self"
+        ],
+        [
+          "MakeVect15.ReturnValue",
+          "K2_SetRe16.NewLocation"
+        ],
+        [
+          "SetVecto12.then",
+          "K2_SetRe16.execute"
+        ],
+        [
+          "me.self",
+          "SetBoolP17.Object"
+        ],
+        [
+          "K2_SetRe16.then",
+          "SetBoolP17.execute"
+        ],
+        [
+          "me.self",
+          "GetCompo18.self"
+        ],
+        [
+          "GetCompo18.ReturnValue",
+          "as19.Object"
+        ],
+        [
+          "SetBoolP17.then",
+          "as19.execute"
+        ],
+        [
+          "as19.AsCharacter Movement Component",
+          "SetBoolP20.Object"
+        ],
+        [
+          "as19.then",
+          "SetBoolP20.execute"
+        ],
+        [
+          "me.self",
+          "GetCompo21.self"
+        ],
+        [
+          "GetCompo21.ReturnValue",
+          "as22.Object"
+        ],
+        [
+          "SetBoolP20.then",
+          "as22.execute"
+        ],
+        [
+          "as22.AsSkeletal Mesh Component",
+          "UnHideBo23.self"
+        ],
+        [
+          "as22.then",
+          "UnHideBo23.execute"
+        ]
+      ],
+      "defaults": {
+        "GetCompo1.ComponentClass": "/Script/Engine.SpringArmComponent",
+        "SetDoubl4.PropertyName": "TargetArmLength",
+        "SetBoolP5.PropertyName": "bEnableCameraLag",
+        "SetBoolP5.Value": "true",
+        "SetDoubl7.PropertyName": "CameraLagSpeed",
+        "SetBoolP8.PropertyName": "bEnableCameraRotationLag",
+        "SetBoolP8.Value": "false",
+        "SetBoolP9.PropertyName": "bDoCollisionTest",
+        "SetBoolP9.Value": "true",
+        "SetBoolP10.PropertyName": "bUsePawnControlRotation",
+        "SetBoolP10.Value": "true",
+        "MakeVect11.X": "0.0",
+        "MakeVect11.Y": "35.0",
+        "MakeVect11.Z": "0.0",
+        "SetVecto12.PropertyName": "SocketOffset",
+        "MakeVect15.Y": "0.0",
+        "K2_SetRe16.bSweep": "false",
+        "K2_SetRe16.bTeleport": "true",
+        "SetBoolP17.PropertyName": "bUseControllerRotationYaw",
+        "SetBoolP17.Value": "false",
+        "GetCompo18.ComponentClass": "/Script/Engine.CharacterMovementComponent",
+        "SetBoolP20.PropertyName": "bOrientRotationToMovement",
+        "SetBoolP20.Value": "true",
+        "GetCompo21.ComponentClass": "/Script/Engine.SkeletalMeshComponent",
+        "UnHideBo23.BoneName": "Neck"
+      }
+    },
+    {
+      "graph": "EnterCapsule",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "me": {
+          "self": true
+        },
+        "K2_Telep1": {
+          "call": "K2_TeleportTo",
+          "class": "/Script/Engine.Actor"
+        },
+        "SetActor2": {
+          "call": "SetActorHiddenInGame",
+          "class": "/Script/Engine.Actor"
+        },
+        "SetActor3": {
+          "call": "SetActorEnableCollision",
+          "class": "/Script/Engine.Actor"
+        },
+        "GetCompo4": {
+          "call": "GetComponentByClass",
+          "class": "/Script/Engine.Actor"
+        },
+        "as5": {
+          "cast": "/Script/Engine.CharacterMovementComponent"
+        },
+        "SetMovem6": {
+          "call": "SetMovementMode",
+          "class": "/Script/Engine.CharacterMovementComponent"
+        }
+      },
+      "links": [
+        [
+          "me.self",
+          "K2_Telep1.self"
+        ],
+        [
+          "entry.Location",
+          "K2_Telep1.DestLocation"
+        ],
+        [
+          "entry.Rotation",
+          "K2_Telep1.DestRotation"
+        ],
+        [
+          "entry.then",
+          "K2_Telep1.execute"
+        ],
+        [
+          "me.self",
+          "SetActor2.self"
+        ],
+        [
+          "K2_Telep1.then",
+          "SetActor2.execute"
+        ],
+        [
+          "me.self",
+          "SetActor3.self"
+        ],
+        [
+          "SetActor2.then",
+          "SetActor3.execute"
+        ],
+        [
+          "me.self",
+          "GetCompo4.self"
+        ],
+        [
+          "GetCompo4.ReturnValue",
+          "as5.Object"
+        ],
+        [
+          "SetActor3.then",
+          "as5.execute"
+        ],
+        [
+          "as5.AsCharacter Movement Component",
+          "SetMovem6.self"
+        ],
+        [
+          "as5.then",
+          "SetMovem6.execute"
+        ]
+      ],
+      "defaults": {
+        "SetActor2.bNewHidden": "true",
+        "SetActor3.bNewActorEnableCollision": "false",
+        "GetCompo4.ComponentClass": "/Script/Engine.CharacterMovementComponent",
+        "SetMovem6.NewMovementMode": "MOVE_None"
+      }
+    },
+    {
+      "graph": "GripRim",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "me": {
+          "self": true
+        },
+        "SetActor1": {
+          "call": "SetActorHiddenInGame",
+          "class": "/Script/Engine.Actor"
+        },
+        "PlaySupp2": {
+          "call": "PlaySupportedIdle"
+        }
+      },
+      "links": [
+        [
+          "me.self",
+          "SetActor1.self"
+        ],
+        [
+          "entry.then",
+          "SetActor1.execute"
+        ],
+        [
+          "SetActor1.then",
+          "PlaySupp2.execute"
+        ]
+      ],
+      "defaults": {
+        "SetActor1.bNewHidden": "false"
+      }
+    },
+    {
+      "graph": "StandAt",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "me": {
+          "self": true
+        },
+        "SetActor1": {
+          "call": "SetActorEnableCollision",
+          "class": "/Script/Engine.Actor"
+        },
+        "K2_Telep2": {
+          "call": "K2_TeleportTo",
+          "class": "/Script/Engine.Actor"
+        },
+        "SetActor3": {
+          "call": "SetActorHiddenInGame",
+          "class": "/Script/Engine.Actor"
+        },
+        "GetCompo4": {
+          "call": "GetComponentByClass",
+          "class": "/Script/Engine.Actor"
+        },
+        "as5": {
+          "cast": "/Script/Engine.CharacterMovementComponent"
+        },
+        "SetMovem6": {
+          "call": "SetMovementMode",
+          "class": "/Script/Engine.CharacterMovementComponent"
+        },
+        "PlaySupp7": {
+          "call": "PlaySupportedIdle"
+        }
+      },
+      "links": [
+        [
+          "me.self",
+          "SetActor1.self"
+        ],
+        [
+          "entry.then",
+          "SetActor1.execute"
+        ],
+        [
+          "me.self",
+          "K2_Telep2.self"
+        ],
+        [
+          "entry.Location",
+          "K2_Telep2.DestLocation"
+        ],
+        [
+          "entry.Rotation",
+          "K2_Telep2.DestRotation"
+        ],
+        [
+          "SetActor1.then",
+          "K2_Telep2.execute"
+        ],
+        [
+          "me.self",
+          "SetActor3.self"
+        ],
+        [
+          "K2_Telep2.then",
+          "SetActor3.execute"
+        ],
+        [
+          "me.self",
+          "GetCompo4.self"
+        ],
+        [
+          "GetCompo4.ReturnValue",
+          "as5.Object"
+        ],
+        [
+          "SetActor3.then",
+          "as5.execute"
+        ],
+        [
+          "as5.AsCharacter Movement Component",
+          "SetMovem6.self"
+        ],
+        [
+          "as5.then",
+          "SetMovem6.execute"
+        ],
+        [
+          "SetMovem6.then",
+          "PlaySupp7.execute"
+        ]
+      ],
+      "defaults": {
+        "SetActor1.bNewActorEnableCollision": "true",
+        "SetActor3.bNewHidden": "false",
+        "GetCompo4.ComponentClass": "/Script/Engine.CharacterMovementComponent",
+        "SetMovem6.NewMovementMode": "MOVE_Walking"
+      }
+    },
+    {
+      "graph": "StartWalk",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "s1": {
+          "set": "bWalking"
+        },
+        "s2": {
+          "set": "StepAccum"
+        },
+        "me": {
+          "self": true
+        },
+        "GetCompo3": {
+          "call": "GetComponentByClass",
+          "class": "/Script/Engine.Actor"
+        },
+        "as4": {
+          "cast": "/Script/Engine.CharacterMovementComponent"
+        },
+        "g5": {
+          "get": "HumanWalkSpeed"
+        },
+        "SetDoubl6": {
+          "call": "SetDoublePropertyByName",
+          "class": "/Script/Engine.KismetSystemLibrary"
+        },
+        "FindRoad7": {
+          "call": "FindRoad"
+        },
+        "g8": {
+          "get": "TetherInterval"
+        },
+        "t9": {
+          "timer": true
+        },
+        "s10": {
+          "set": "TetherTimer"
+        },
+        "g11": {
+          "get": "BreathComp"
+        },
+        "IsValid12": {
+          "call": "IsValid",
+          "class": "/Script/Engine.KismetSystemLibrary"
+        },
+        "if13": {
+          "branch": true
+        },
+        "g14": {
+          "get": "BreathComp"
+        },
+        "IsPlayin15": {
+          "call": "IsPlaying",
+          "class": "/Script/Engine.AudioComponent"
+        },
+        "if16": {
+          "branch": true
+        },
+        "K2_GetRo17": {
+          "call": "K2_GetRootComponent",
+          "class": "/Script/Engine.Actor"
+        },
+        "g18": {
+          "get": "SfxBreathLoop"
+        },
+        "SpawnSou19": {
+          "call": "SpawnSoundAttached",
+          "class": "/Script/Engine.GameplayStatics"
+        },
+        "s20": {
+          "set": "BreathComp"
+        }
+      },
+      "links": [
+        [
+          "entry.then",
+          "s1.execute"
+        ],
+        [
+          "s1.then",
+          "s2.execute"
+        ],
+        [
+          "me.self",
+          "GetCompo3.self"
+        ],
+        [
+          "GetCompo3.ReturnValue",
+          "as4.Object"
+        ],
+        [
+          "s2.then",
+          "as4.execute"
+        ],
+        [
+          "as4.AsCharacter Movement Component",
+          "SetDoubl6.Object"
+        ],
+        [
+          "g5.HumanWalkSpeed",
+          "SetDoubl6.Value"
+        ],
+        [
+          "as4.then",
+          "SetDoubl6.execute"
+        ],
+        [
+          "SetDoubl6.then",
+          "FindRoad7.execute"
+        ],
+        [
+          "me.self",
+          "t9.Object"
+        ],
+        [
+          "g8.TetherInterval",
+          "t9.Time"
+        ],
+        [
+          "FindRoad7.then",
+          "t9.execute"
+        ],
+        [
+          "t9.ReturnValue",
+          "s10.TetherTimer"
+        ],
+        [
+          "t9.then",
+          "s10.execute"
+        ],
+        [
+          "g11.BreathComp",
+          "IsValid12.Object"
+        ],
+        [
+          "IsValid12.ReturnValue",
+          "if13.Condition"
+        ],
+        [
+          "s10.then",
+          "if13.execute"
+        ],
+        [
+          "g14.BreathComp",
+          "IsPlayin15.self"
+        ],
+        [
+          "IsPlayin15.ReturnValue",
+          "if16.Condition"
+        ],
+        [
+          "if13.then",
+          "if16.execute"
+        ],
+        [
+          "me.self",
+          "K2_GetRo17.self"
+        ],
+        [
+          "g18.SfxBreathLoop",
+          "SpawnSou19.Sound"
+        ],
+        [
+          "K2_GetRo17.ReturnValue",
+          "SpawnSou19.AttachToComponent"
+        ],
+        [
+          "if13.else",
+          "SpawnSou19.execute"
+        ],
+        [
+          "if16.else",
+          "SpawnSou19.execute"
+        ],
+        [
+          "SpawnSou19.ReturnValue",
+          "s20.BreathComp"
+        ],
+        [
+          "SpawnSou19.then",
+          "s20.execute"
+        ]
+      ],
+      "defaults": {
+        "s1.bWalking": "true",
+        "s2.StepAccum": "0.0",
+        "GetCompo3.ComponentClass": "/Script/Engine.CharacterMovementComponent",
+        "SetDoubl6.PropertyName": "MaxWalkSpeed",
+        "t9.FunctionName": "CheckTether",
+        "t9.bLooping": "true",
+        "SpawnSou19.bStopWhenAttachedToDestroyed": "true",
+        "SpawnSou19.bAutoDestroy": "true"
+      }
+    },
+    {
+      "graph": "StopWalk",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "s1": {
+          "set": "bWalking"
+        },
+        "g2": {
+          "get": "TetherTimer"
+        },
+        "K2_Clear3": {
+          "call": "K2_ClearAndInvalidateTimerHandle",
+          "class": "/Script/Engine.KismetSystemLibrary"
+        },
+        "me": {
+          "self": true
+        },
+        "GetCompo4": {
+          "call": "GetComponentByClass",
+          "class": "/Script/Engine.Actor"
+        },
+        "as5": {
+          "cast": "/Script/Engine.CharacterMovementComponent"
+        },
+        "StopMove6": {
+          "call": "StopMovementImmediately",
+          "class": "/Script/Engine.MovementComponent"
+        },
+        "g7": {
+          "get": "BreathComp"
+        },
+        "IsValid8": {
+          "call": "IsValid",
+          "class": "/Script/Engine.KismetSystemLibrary"
+        },
+        "if9": {
+          "branch": true
+        },
+        "g10": {
+          "get": "BreathComp"
+        },
+        "FadeOut11": {
+          "call": "FadeOut",
+          "class": "/Script/Engine.AudioComponent"
+        },
+        "clear12": {
+          "set": "BreathComp"
+        }
+      },
+      "links": [
+        [
+          "entry.then",
+          "s1.execute"
+        ],
+        [
+          "g2.TetherTimer",
+          "K2_Clear3.Handle"
+        ],
+        [
+          "s1.then",
+          "K2_Clear3.execute"
+        ],
+        [
+          "me.self",
+          "GetCompo4.self"
+        ],
+        [
+          "GetCompo4.ReturnValue",
+          "as5.Object"
+        ],
+        [
+          "K2_Clear3.then",
+          "as5.execute"
+        ],
+        [
+          "as5.AsCharacter Movement Component",
+          "StopMove6.self"
+        ],
+        [
+          "as5.then",
+          "StopMove6.execute"
+        ],
+        [
+          "g7.BreathComp",
+          "IsValid8.Object"
+        ],
+        [
+          "IsValid8.ReturnValue",
+          "if9.Condition"
+        ],
+        [
+          "StopMove6.then",
+          "if9.execute"
+        ],
+        [
+          "g10.BreathComp",
+          "FadeOut11.self"
+        ],
+        [
+          "if9.then",
+          "FadeOut11.execute"
+        ],
+        [
+          "FadeOut11.then",
+          "clear12.execute"
+        ],
+        [
+          "if9.else",
+          "clear12.execute"
+        ]
+      ],
+      "defaults": {
+        "s1.bWalking": "false",
+        "GetCompo4.ComponentClass": "/Script/Engine.CharacterMovementComponent",
+        "FadeOut11.FadeOutDuration": "0.3",
+        "FadeOut11.FadeVolumeLevel": "0.0"
+      }
+    },
+    {
+      "graph": "FindRoad",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "GetActor1": {
+          "call": "GetActorOfClass",
+          "class": "/Script/Engine.GameplayStatics"
+        },
+        "IsValid2": {
+          "call": "IsValid",
+          "class": "/Script/Engine.KismetSystemLibrary"
+        },
+        "if3": {
+          "branch": true
+        },
+        "GetCompo4": {
+          "call": "GetComponentByClass",
+          "class": "/Script/Engine.Actor"
+        },
+        "as5": {
+          "cast": "/Script/Engine.SplineComponent"
+        },
+        "s6": {
+          "set": "RoadSpline"
+        }
+      },
+      "links": [
+        [
+          "entry.then",
+          "GetActor1.execute"
+        ],
+        [
+          "GetActor1.ReturnValue",
+          "IsValid2.Object"
+        ],
+        [
+          "IsValid2.ReturnValue",
+          "if3.Condition"
+        ],
+        [
+          "GetActor1.then",
+          "if3.execute"
+        ],
+        [
+          "GetActor1.ReturnValue",
+          "GetCompo4.self"
+        ],
+        [
+          "GetCompo4.ReturnValue",
+          "as5.Object"
+        ],
+        [
+          "if3.then",
+          "as5.execute"
+        ],
+        [
+          "as5.AsSpline Component",
+          "s6.RoadSpline"
+        ],
+        [
+          "as5.then",
+          "s6.execute"
+        ]
+      ],
+      "defaults": {
+        "GetActor1.ActorClass": "/Game/SaskartaGaea/Road/BP_Saskarta_Road.BP_Saskarta_Road_C",
+        "GetCompo4.ComponentClass": "/Script/Engine.SplineComponent"
+      }
+    },
+    {
+      "graph": "CheckTether",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "g1": {
+          "get": "RoadSpline"
+        },
+        "IsValid2": {
+          "call": "IsValid",
+          "class": "/Script/Engine.KismetSystemLibrary"
+        },
+        "if3": {
+          "branch": true
+        },
+        "me": {
+          "self": true
+        },
+        "K2_GetAc4": {
+          "call": "K2_GetActorLocation",
+          "class": "/Script/Engine.Actor"
+        },
+        "g5": {
+          "get": "RoadSpline"
+        },
+        "FindInpu6": {
+          "call": "FindInputKeyClosestToWorldLocation",
+          "class": "/Script/Engine.SplineComponent"
+        },
+        "g7": {
+          "get": "RoadSpline"
+        },
+        "GetLocat8": {
+          "call": "GetLocationAtSplineInputKey",
+          "class": "/Script/Engine.SplineComponent"
+        },
+        "Vector_D9": {
+          "call": "Vector_Distance2D",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "g10": {
+          "get": "TetherLimit"
+        },
+        "Greater_11": {
+          "call": "Greater_DoubleDouble",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "if12": {
+          "branch": true
+        },
+        "g13": {
+          "get": "RoadSpline"
+        },
+        "GetDista14": {
+          "call": "GetDistanceAlongSplineAtSplineInputKey",
+          "class": "/Script/Engine.SplineComponent"
+        },
+        "Subtract15": {
+          "call": "Subtract_DoubleDouble",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "FMax16": {
+          "call": "FMax",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "g17": {
+          "get": "RoadSpline"
+        },
+        "GetLocat18": {
+          "call": "GetLocationAtDistanceAlongSpline",
+          "class": "/Script/Engine.SplineComponent"
+        },
+        "Subtract19": {
+          "call": "Subtract_VectorVector",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "Conv_Vec20": {
+          "call": "Conv_VectorToRotator",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "BreakRot21": {
+          "call": "BreakRotator",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "MakeRota22": {
+          "call": "MakeRotator",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "g23": {
+          "get": "HalfHeight"
+        },
+        "MakeVect24": {
+          "call": "MakeVector",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "Add_Vect25": {
+          "call": "Add_VectorVector",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "K2_Telep26": {
+          "call": "K2_TeleportTo",
+          "class": "/Script/Engine.Actor"
+        }
+      },
+      "links": [
+        [
+          "g1.RoadSpline",
+          "IsValid2.Object"
+        ],
+        [
+          "IsValid2.ReturnValue",
+          "if3.Condition"
+        ],
+        [
+          "entry.then",
+          "if3.execute"
+        ],
+        [
+          "me.self",
+          "K2_GetAc4.self"
+        ],
+        [
+          "g5.RoadSpline",
+          "FindInpu6.self"
+        ],
+        [
+          "K2_GetAc4.ReturnValue",
+          "FindInpu6.WorldLocation"
+        ],
+        [
+          "g7.RoadSpline",
+          "GetLocat8.self"
+        ],
+        [
+          "FindInpu6.ReturnValue",
+          "GetLocat8.InKey"
+        ],
+        [
+          "K2_GetAc4.ReturnValue",
+          "Vector_D9.V1"
+        ],
+        [
+          "GetLocat8.ReturnValue",
+          "Vector_D9.V2"
+        ],
+        [
+          "Vector_D9.ReturnValue",
+          "Greater_11.A"
+        ],
+        [
+          "g10.TetherLimit",
+          "Greater_11.B"
+        ],
+        [
+          "Greater_11.ReturnValue",
+          "if12.Condition"
+        ],
+        [
+          "if3.then",
+          "if12.execute"
+        ],
+        [
+          "g13.RoadSpline",
+          "GetDista14.self"
+        ],
+        [
+          "FindInpu6.ReturnValue",
+          "GetDista14.InKey"
+        ],
+        [
+          "GetDista14.ReturnValue",
+          "Subtract15.A"
+        ],
+        [
+          "Subtract15.ReturnValue",
+          "FMax16.A"
+        ],
+        [
+          "g17.RoadSpline",
+          "GetLocat18.self"
+        ],
+        [
+          "FMax16.ReturnValue",
+          "GetLocat18.Distance"
+        ],
+        [
+          "GetLocat18.ReturnValue",
+          "Subtract19.A"
+        ],
+        [
+          "GetLocat8.ReturnValue",
+          "Subtract19.B"
+        ],
+        [
+          "Subtract19.ReturnValue",
+          "Conv_Vec20.InVec"
+        ],
+        [
+          "Conv_Vec20.ReturnValue",
+          "BreakRot21.InRot"
+        ],
+        [
+          "BreakRot21.Yaw",
+          "MakeRota22.Yaw"
+        ],
+        [
+          "g23.HalfHeight",
+          "MakeVect24.Z"
+        ],
+        [
+          "GetLocat8.ReturnValue",
+          "Add_Vect25.A"
+        ],
+        [
+          "MakeVect24.ReturnValue",
+          "Add_Vect25.B"
+        ],
+        [
+          "me.self",
+          "K2_Telep26.self"
+        ],
+        [
+          "Add_Vect25.ReturnValue",
+          "K2_Telep26.DestLocation"
+        ],
+        [
+          "MakeRota22.ReturnValue",
+          "K2_Telep26.DestRotation"
+        ],
+        [
+          "if12.then",
+          "K2_Telep26.execute"
+        ]
+      ],
+      "defaults": {
+        "GetLocat8.CoordinateSpace": "World",
+        "Subtract15.B": "300.0",
+        "FMax16.B": "0.0",
+        "GetLocat18.CoordinateSpace": "World",
+        "MakeRota22.Roll": "0.0",
+        "MakeRota22.Pitch": "0.0",
+        "MakeVect24.X": "0.0",
+        "MakeVect24.Y": "0.0"
+      }
+    },
+    {
+      "graph": "PlayFootstep",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "g1": {
+          "get": "StepCount"
+        },
+        "Add_IntI2": {
+          "call": "Add_IntInt",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "s3": {
+          "set": "StepCount"
+        },
+        "me": {
+          "self": true
+        },
+        "K2_GetAc4": {
+          "call": "K2_GetActorLocation",
+          "class": "/Script/Engine.Actor"
+        },
+        "g5": {
+          "get": "HalfHeight"
+        },
+        "MakeVect6": {
+          "call": "MakeVector",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "Subtract7": {
+          "call": "Subtract_VectorVector",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "g8": {
+          "get": "StepCount"
+        },
+        "Percent_9": {
+          "call": "Percent_IntInt",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "EqualEqu10": {
+          "call": "EqualEqual_IntInt",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "if11": {
+          "branch": true
+        },
+        "g12": {
+          "get": "SfxFootA"
+        },
+        "g13": {
+          "get": "FootVolume"
+        },
+        "RandomFl14": {
+          "call": "RandomFloatInRange",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "PlaySoun15": {
+          "call": "PlaySoundAtLocation",
+          "class": "/Script/Engine.GameplayStatics"
+        },
+        "g16": {
+          "get": "SfxFootB"
+        },
+        "g17": {
+          "get": "FootVolume"
+        },
+        "RandomFl18": {
+          "call": "RandomFloatInRange",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "PlaySoun19": {
+          "call": "PlaySoundAtLocation",
+          "class": "/Script/Engine.GameplayStatics"
+        },
+        "GetActor20": {
+          "call": "GetActorForwardVector",
+          "class": "/Script/Engine.Actor"
+        },
+        "Multiply21": {
+          "call": "Multiply_VectorFloat",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "Add_Vect22": {
+          "call": "Add_VectorVector",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "g23": {
+          "get": "StepCount"
+        },
+        "Percent_24": {
+          "call": "Percent_IntInt",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "EqualEqu25": {
+          "call": "EqualEqual_IntInt",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "if26": {
+          "branch": true
+        },
+        "g27": {
+          "get": "SfxStaffA"
+        },
+        "g28": {
+          "get": "StaffVolume"
+        },
+        "RandomFl29": {
+          "call": "RandomFloatInRange",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "PlaySoun30": {
+          "call": "PlaySoundAtLocation",
+          "class": "/Script/Engine.GameplayStatics"
+        },
+        "g31": {
+          "get": "SfxStaffB"
+        },
+        "g32": {
+          "get": "StaffVolume"
+        },
+        "RandomFl33": {
+          "call": "RandomFloatInRange",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "PlaySoun34": {
+          "call": "PlaySoundAtLocation",
+          "class": "/Script/Engine.GameplayStatics"
+        }
+      },
+      "links": [
+        [
+          "g1.StepCount",
+          "Add_IntI2.A"
+        ],
+        [
+          "Add_IntI2.ReturnValue",
+          "s3.StepCount"
+        ],
+        [
+          "entry.then",
+          "s3.execute"
+        ],
+        [
+          "me.self",
+          "K2_GetAc4.self"
+        ],
+        [
+          "g5.HalfHeight",
+          "MakeVect6.Z"
+        ],
+        [
+          "K2_GetAc4.ReturnValue",
+          "Subtract7.A"
+        ],
+        [
+          "MakeVect6.ReturnValue",
+          "Subtract7.B"
+        ],
+        [
+          "g8.StepCount",
+          "Percent_9.A"
+        ],
+        [
+          "Percent_9.ReturnValue",
+          "EqualEqu10.A"
+        ],
+        [
+          "EqualEqu10.ReturnValue",
+          "if11.Condition"
+        ],
+        [
+          "s3.then",
+          "if11.execute"
+        ],
+        [
+          "g12.SfxFootA",
+          "PlaySoun15.Sound"
+        ],
+        [
+          "Subtract7.ReturnValue",
+          "PlaySoun15.Location"
+        ],
+        [
+          "g13.FootVolume",
+          "PlaySoun15.VolumeMultiplier"
+        ],
+        [
+          "RandomFl14.ReturnValue",
+          "PlaySoun15.PitchMultiplier"
+        ],
+        [
+          "if11.then",
+          "PlaySoun15.execute"
+        ],
+        [
+          "g16.SfxFootB",
+          "PlaySoun19.Sound"
+        ],
+        [
+          "Subtract7.ReturnValue",
+          "PlaySoun19.Location"
+        ],
+        [
+          "g17.FootVolume",
+          "PlaySoun19.VolumeMultiplier"
+        ],
+        [
+          "RandomFl18.ReturnValue",
+          "PlaySoun19.PitchMultiplier"
+        ],
+        [
+          "if11.else",
+          "PlaySoun19.execute"
+        ],
+        [
+          "me.self",
+          "GetActor20.self"
+        ],
+        [
+          "GetActor20.ReturnValue",
+          "Multiply21.A"
+        ],
+        [
+          "Subtract7.ReturnValue",
+          "Add_Vect22.A"
+        ],
+        [
+          "Multiply21.ReturnValue",
+          "Add_Vect22.B"
+        ],
+        [
+          "g23.StepCount",
+          "Percent_24.A"
+        ],
+        [
+          "Percent_24.ReturnValue",
+          "EqualEqu25.A"
+        ],
+        [
+          "EqualEqu25.ReturnValue",
+          "if26.Condition"
+        ],
+        [
+          "PlaySoun15.then",
+          "if26.execute"
+        ],
+        [
+          "g27.SfxStaffA",
+          "PlaySoun30.Sound"
+        ],
+        [
+          "Add_Vect22.ReturnValue",
+          "PlaySoun30.Location"
+        ],
+        [
+          "g28.StaffVolume",
+          "PlaySoun30.VolumeMultiplier"
+        ],
+        [
+          "RandomFl29.ReturnValue",
+          "PlaySoun30.PitchMultiplier"
+        ],
+        [
+          "if26.then",
+          "PlaySoun30.execute"
+        ],
+        [
+          "g31.SfxStaffB",
+          "PlaySoun34.Sound"
+        ],
+        [
+          "Add_Vect22.ReturnValue",
+          "PlaySoun34.Location"
+        ],
+        [
+          "g32.StaffVolume",
+          "PlaySoun34.VolumeMultiplier"
+        ],
+        [
+          "RandomFl33.ReturnValue",
+          "PlaySoun34.PitchMultiplier"
+        ],
+        [
+          "if26.else",
+          "PlaySoun34.execute"
+        ]
+      ],
+      "defaults": {
+        "Add_IntI2.B": "1",
+        "MakeVect6.X": "0.0",
+        "MakeVect6.Y": "0.0",
+        "Percent_9.B": "2",
+        "EqualEqu10.B": "0",
+        "RandomFl14.Min": "0.92",
+        "RandomFl14.Max": "1.06",
+        "RandomFl18.Min": "0.92",
+        "RandomFl18.Max": "1.06",
+        "Multiply21.B": "40.0",
+        "Percent_24.B": "4",
+        "EqualEqu25.B": "0",
+        "RandomFl29.Min": "0.95",
+        "RandomFl29.Max": "1.05",
+        "RandomFl33.Min": "0.95",
+        "RandomFl33.Max": "1.05"
+      }
+    },
+    {
+      "graph": "Move",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "me": {
+          "self": true
+        },
+        "GetContr1": {
+          "call": "GetControlRotation",
+          "class": "/Script/Engine.Pawn"
+        },
+        "BreakRot2": {
+          "call": "BreakRotator",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "MakeRota3": {
+          "call": "MakeRotator",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "GetForwa4": {
+          "call": "GetForwardVector",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "AddMovem5": {
+          "call": "AddMovementInput",
+          "class": "/Script/Engine.Pawn"
+        },
+        "GetRight6": {
+          "call": "GetRightVector",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "AddMovem7": {
+          "call": "AddMovementInput",
+          "class": "/Script/Engine.Pawn"
+        }
+      },
+      "links": [
+        [
+          "me.self",
+          "GetContr1.self"
+        ],
+        [
+          "GetContr1.ReturnValue",
+          "BreakRot2.InRot"
+        ],
+        [
+          "BreakRot2.Yaw",
+          "MakeRota3.Yaw"
+        ],
+        [
+          "MakeRota3.ReturnValue",
+          "GetForwa4.InRot"
+        ],
+        [
+          "me.self",
+          "AddMovem5.self"
+        ],
+        [
+          "GetForwa4.ReturnValue",
+          "AddMovem5.WorldDirection"
+        ],
+        [
+          "entry.Forward / Backward",
+          "AddMovem5.ScaleValue"
+        ],
+        [
+          "entry.then",
+          "AddMovem5.execute"
+        ],
+        [
+          "MakeRota3.ReturnValue",
+          "GetRight6.InRot"
+        ],
+        [
+          "me.self",
+          "AddMovem7.self"
+        ],
+        [
+          "GetRight6.ReturnValue",
+          "AddMovem7.WorldDirection"
+        ],
+        [
+          "entry.Left / Right",
+          "AddMovem7.ScaleValue"
+        ],
+        [
+          "AddMovem5.then",
+          "AddMovem7.execute"
+        ]
+      ],
+      "defaults": {
+        "MakeRota3.Roll": "0.0",
+        "MakeRota3.Pitch": "0.0"
+      }
+    }
+  ],
+  "cdo_defaults": {
+    "AutoPossessAI": "Disabled",
+    "AutoPossessPlayer": "Disabled",
+    "ArmLength": 280.0,
+    "ArmLagSpeed": 6.0,
+    "EyeForward": 0.0,
+    "EyeHeight": 64.0
+  }
+}

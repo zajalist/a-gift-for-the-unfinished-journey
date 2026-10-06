@@ -1,0 +1,264 @@
+{
+  "status": "prepared_not_installed",
+  "scope": "Existing motor widget properties and its existing CanvasPanel slot only. No tree replacement, native source edit or editor execution by ui_finish.",
+  "asset": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Motor",
+  "expected_parent": "/Script/SaskartaCore.SaskartaMotorResonanceWidget",
+  "expected_named_widgets": {
+    "MotorScreen": "CanvasPanel",
+    "MotorGlass": "Border",
+    "MotorPhosphor": "SaskartaMotorRetainer",
+    "MotorMechanism": "SaskartaMotorDiagram"
+  },
+  "preflight": [
+    {
+      "command": "ui_query",
+      "params": {
+        "path": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Motor",
+        "flatten": true,
+        "include_properties": true,
+        "include_slot": true,
+        "include_guid": true
+      }
+    },
+    {
+      "command": "ui_layout_snapshot",
+      "params": {
+        "widget_blueprint_path": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Motor",
+        "screen_width": 1280,
+        "screen_height": 720,
+        "widget_names": [
+          "MotorScreen",
+          "MotorGlass",
+          "MotorPhosphor",
+          "MotorMechanism"
+        ],
+        "limit": 8
+      }
+    }
+  ],
+  "commands": [
+    {
+      "command": "ui_set_widget_properties",
+      "params": {
+        "widget_blueprint_path": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Motor",
+        "widget_name": "MotorGlass",
+        "properties": {
+          "BrushColor": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "command": "ui_set_widget_properties",
+      "params": {
+        "widget_blueprint_path": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Motor",
+        "widget_name": "MotorPhosphor",
+        "properties": {
+          "bRetainRender": false
+        }
+      }
+    },
+    {
+      "command": "ui_set_widget_properties",
+      "params": {
+        "widget_blueprint_path": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Motor",
+        "widget_name": "MotorScreen",
+        "properties": {
+          "RenderTransformPivot": {
+            "X": 0,
+            "Y": 1
+          },
+          "RenderTransform": {
+            "Translation": {
+              "X": 0,
+              "Y": 0
+            },
+            "Scale": {
+              "X": 0.66,
+              "Y": 0.66
+            },
+            "Shear": {
+              "X": 0,
+              "Y": 0
+            },
+            "Angle": 0
+          }
+        }
+      }
+    },
+    {
+      "command": "ui_set_slot_layout",
+      "params": {
+        "widget_blueprint_path": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Motor",
+        "widget_name": "MotorScreen",
+        "anchors_min": [
+          0,
+          1
+        ],
+        "anchors_max": [
+          0,
+          1
+        ],
+        "alignment": [
+          0,
+          1
+        ],
+        "position": [
+          28,
+          -232
+        ],
+        "size": [
+          720,
+          384
+        ],
+        "auto_size": false
+      }
+    },
+    {
+      "command": "ui_set_slot_layout",
+      "params": {
+        "widget_blueprint_path": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Motor",
+        "widget_name": "MotorGlass",
+        "position": [
+          0,
+          0
+        ],
+        "size": [
+          720,
+          384
+        ],
+        "auto_size": false
+      }
+    },
+    {
+      "command": "ui_set_slot_layout",
+      "params": {
+        "widget_blueprint_path": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Motor",
+        "widget_name": "MotorPhosphor",
+        "position": [
+          0,
+          0
+        ],
+        "size": [
+          720,
+          384
+        ],
+        "auto_size": false
+      }
+    }
+  ],
+  "compile": {
+    "command": "ui_compile_widget",
+    "params": {
+      "widget_blueprint_path": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Motor",
+      "save_on_success": false
+    }
+  },
+  "save": {
+    "command": "ui_save_widget",
+    "params": {
+      "widget_blueprint_path": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Motor",
+      "compile_first": false
+    }
+  },
+  "readback": [
+    {
+      "command": "ui_query",
+      "params": {
+        "path": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Motor",
+        "flatten": true,
+        "include_properties": true,
+        "include_slot": true
+      }
+    },
+    {
+      "command": "ui_layout_snapshot",
+      "params": {
+        "widget_blueprint_path": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Motor",
+        "screen_width": 1280,
+        "screen_height": 720,
+        "widget_names": [
+          "MotorScreen",
+          "MotorGlass",
+          "MotorPhosphor",
+          "MotorMechanism"
+        ],
+        "limit": 8
+      }
+    },
+    {
+      "command": "ui_layout_snapshot",
+      "params": {
+        "widget_blueprint_path": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Motor",
+        "screen_width": 1920,
+        "screen_height": 1080,
+        "widget_names": [
+          "MotorScreen",
+          "MotorGlass",
+          "MotorPhosphor",
+          "MotorMechanism"
+        ],
+        "limit": 8
+      }
+    },
+    {
+      "command": "ui_layout_snapshot",
+      "params": {
+        "widget_blueprint_path": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Motor",
+        "screen_width": 960,
+        "screen_height": 540,
+        "widget_names": [
+          "MotorScreen",
+          "MotorGlass",
+          "MotorPhosphor",
+          "MotorMechanism"
+        ],
+        "limit": 8
+      }
+    }
+  ],
+  "guards": [
+    "Root owns editor lease; apply only with PIE stopped and current package backed up.",
+    "Require the actual parent class and four exact widget classes above; abort on tree differences instead of recreating it.",
+    "Store full preflight, each per-key mutation result, compile and save receipts; no rejected/unknown properties or slot keys.",
+    "Require compile errors/warnings empty and actual save success with package_dirty_after_save=false.",
+    "Readback must retain all four existing widget identities and motor diagram. The diagram cannot be hidden because it owns actual timing/valve feedback.",
+    "Use preflight values for rollback; source defaults below are not an actual-state backup.",
+    "At720p require Motor rendered bounds inside viewport, top>=0, bottom<=488 and no overlap with ReceptionPrompt top504 or HintFit top604; verify actual layout, not just slot arithmetic.",
+    "Native DrawElement content is not represented as per-caption UMG text geometry. Root must view actual tuning and pursuit frames for text/glyph legibility on bright and dusty landscape.",
+    "An opaque area after alpha0/readback is a defect to investigate; do not restore a dark panel.",
+    "Synchronize source generator/spec MotorScreen scale0.66 and position[28,-232] after root acceptance; installer regeneration otherwise reverts this refinement."
+  ],
+  "geometry_prediction": {
+    "coordinate_space": "UMG logical pixels with720highviewport",
+    "old_scale": 0.82,
+    "new_scale": 0.66,
+    "old_rendered_size": [
+      590.4,
+      314.88
+    ],
+    "new_rendered_size": [
+      475.2,
+      253.44
+    ],
+    "new_bounds": [
+      28,
+      234.56,
+      503.2,
+      488
+    ],
+    "area_reduction_percent": 35.2165,
+    "reception_gap": 16,
+    "hint_gap": 116
+  },
+  "limitations": [
+    "Properties make the existing instrument transparent and compact. They do not replace the native amber schematic with individual Designer-editable labels.",
+    "20px native help becomes13.2logicalpx;24px instruction15.84;32pxglyph21.12. Actual runtime readability must pass before acceptance.",
+    "No installed state or screenshot acceptance claimed."
+  ]
+}
+

@@ -1,0 +1,250 @@
+{
+  "asset": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Loading",
+  "tree": [
+    { "class": "Border", "name": "LoadingBackdrop", "properties": { "BrushColor": [0, 0, 0, 1] } },
+    {
+      "class": "Image",
+      "name": "EmberGlow",
+      "properties": {
+        "Brush": { "ResourceObject": "/Game/SaskartaGaea/GameFlow/UI/Textures/T_UI_EmberGlow.T_UI_EmberGlow", "DrawAs": "Image" },
+        "ColorAndOpacity": [0, 0, 0, 0],
+        "Visibility": "Collapsed"
+      }
+    },
+    {
+      "class": "ScaleBox",
+      "name": "LoadingSafeScale",
+      "properties": { "Stretch": "ScaleToFit", "StretchDirection": "DownOnly" },
+      "children": [
+        {
+          "class": "SizeBox",
+          "name": "LoadingDesignSize",
+          "properties": { "bOverride_WidthOverride": true, "WidthOverride": 720, "bOverride_HeightOverride": true, "HeightOverride": 100 },
+          "children": [
+            {
+              "class": "Overlay",
+              "name": "LoadingScreen",
+              "properties": {},
+              "children": [
+                {
+                  "class": "Border",
+                  "name": "LoadingFrame",
+                  "properties": { "BrushColor": [0, 0, 0, 0], "Padding": { "Left": 0, "Top": 0, "Right": 0, "Bottom": 0 } },
+                  "children": [
+                    {
+                      "class": "VerticalBox",
+                      "name": "LoadingContent",
+                      "children": [
+                        {
+                          "class": "TextBlock",
+                          "name": "LoadingChannel",
+                          "properties": {
+                            "Text": "",
+                            "Font": { "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal", "Size": 14 },
+                            "ColorAndOpacity": { "SpecifiedColor": [0.92, 0.5, 0.15, 1] },
+                            "ShadowColorAndOpacity": [0, 0, 0, 0.9],
+                            "ShadowOffset": { "X": 1, "Y": 2 },
+                            "Visibility": "Collapsed"
+                          }
+                        },
+                        {
+                          "class": "TextBlock",
+                          "name": "PreparationStage",
+                          "properties": {
+                            "Text": "CHARGING CARRIER",
+                            "Font": { "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal", "Size": 18 },
+                            "ColorAndOpacity": { "SpecifiedColor": [0.9, 0.82, 0.68, 1] },
+                            "ShadowColorAndOpacity": [0, 0, 0, 0.9],
+                            "ShadowOffset": { "X": 1, "Y": 2 }
+                          },
+                          "slot_props": { "padding": [0, 0, 0, 10] }
+                        },
+                        {
+                          "class": "SizeBox",
+                          "name": "LoadingTrackBox",
+                          "properties": { "Visibility": "Collapsed", "bOverride_HeightOverride": true, "HeightOverride": 3 },
+                          "children": [
+                            {
+                              "class": "Overlay",
+                              "name": "LoadingTrack",
+                              "children": [
+                                { "class": "Border", "name": "LoadingTrackBack", "properties": { "BrushColor": [0.11, 0.065, 0.025, 0.25] } },
+                                {
+                                  "class": "Border",
+                                  "name": "ProgressFill",
+                                  "properties": {
+                                    "BrushColor": [0.92, 0.5, 0.15, 1],
+                                    "RenderTransformPivot": { "X": 0, "Y": 0.5 },
+                                    "RenderTransform": { "Scale": { "X": 0, "Y": 1 } }
+                                  },
+                                  "slot_props": { "horizontal_alignment": "Fill", "vertical_alignment": "Fill" }
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "class": "TextBlock",
+                          "name": "ReadinessChecks",
+                          "properties": {
+                            "Text": "",
+                            "Font": { "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal", "Size": 14 },
+                            "ColorAndOpacity": { "SpecifiedColor": [0.92, 0.5, 0.15, 1] },
+                            "ShadowColorAndOpacity": [0, 0, 0, 0.9],
+                            "ShadowOffset": { "X": 1, "Y": 2 },
+                            "Visibility": "Collapsed"
+                          },
+                          "slot_props": { "padding": [0, 8, 0, 18] }
+                        },
+                        {
+                          "class": "TextBlock",
+                          "name": "LoadingNotesLabel",
+                          "properties": {
+                            "Text": "",
+                            "Font": { "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal", "Size": 14 },
+                            "ColorAndOpacity": { "SpecifiedColor": [0.92, 0.5, 0.15, 1] },
+                            "ShadowColorAndOpacity": [0, 0, 0, 0.9],
+                            "ShadowOffset": { "X": 1, "Y": 2 },
+                            "Visibility": "Collapsed"
+                          }
+                        },
+                        {
+                          "class": "SizeBox",
+                          "name": "LoadingHintBox",
+                          "properties": { "bOverride_HeightOverride": true, "HeightOverride": 72 },
+                          "children": [
+                            {
+                              "class": "TextBlock",
+                              "name": "LoadingHint",
+                              "properties": {
+                                "Text": "Beyond the window, the road waits under a sleeping sky.",
+                                "Font": { "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal", "Size": 18 },
+                                "ColorAndOpacity": { "SpecifiedColor": [0.9, 0.82, 0.68, 1] },
+                                "ShadowColorAndOpacity": [0, 0, 0, 0.9],
+                                "ShadowOffset": { "X": 1, "Y": 2 },
+                                "AutoWrapText": true,
+                                "WrapTextAt": 680
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "class": "HorizontalBox",
+                          "name": "LoadingControls",
+                          "properties": { "Visibility": "Collapsed" },
+                          "children": [
+                            {
+                              "class": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_KeyPrompt.WBP_Saskarta_KeyPrompt_C",
+                              "name": "LoadingDrive",
+                              "slot_props": { "padding": [0, 0, 40, 0], "vertical_alignment": "Center" }
+                            },
+                            {
+                              "class": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_KeyPrompt.WBP_Saskarta_KeyPrompt_C",
+                              "name": "LoadingSteer",
+                              "slot_props": { "padding": [0, 0, 40, 0], "vertical_alignment": "Center" }
+                            },
+                            {
+                              "class": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_KeyPrompt.WBP_Saskarta_KeyPrompt_C",
+                              "name": "LoadingLook",
+                              "slot_props": { "padding": [0, 0, 40, 0], "vertical_alignment": "Center" }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "class": "ScaleBox",
+      "name": "LoadingCrankSafeScale",
+      "properties": { "Stretch": "ScaleToFit", "StretchDirection": "DownOnly" },
+      "children": [
+        {
+          "class": "SizeBox",
+          "name": "LoadingCrankDesignSize",
+          "properties": { "bOverride_WidthOverride": true, "WidthOverride": 720, "bOverride_HeightOverride": true, "HeightOverride": 164 },
+          "children": [
+            {
+              "class": "/Script/SaskartaCore.SaskartaMotorDiagram",
+              "name": "LoadingCrank",
+              "properties": { "bLoadingPresentation": true, "Visibility": "HitTestInvisible" }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "class": "ScaleBox",
+      "name": "LoadingCarSafeScale",
+      "properties": { "Stretch": "ScaleToFit", "StretchDirection": "Both" },
+      "children": [
+        {
+          "class": "SizeBox",
+          "name": "LoadingCarDesignSize",
+          "properties": { "bOverride_WidthOverride": true, "WidthOverride": 800, "bOverride_HeightOverride": true, "HeightOverride": 450 },
+          "children": [
+            {
+              "class": "Image",
+              "name": "LoadingCar",
+              "properties": {
+                "Brush": { "ResourceObject": "/Game/SaskartaGaea/GameFlow/UI/Materials/M_LoadingCarrierSplat.M_LoadingCarrierSplat", "DrawAs": "Image" }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "class": "ScaleBox",
+      "name": "LoadingKeeperSafeScale",
+      "properties": { "Stretch": "ScaleToFit", "StretchDirection": "Both" },
+      "children": [
+        {
+          "class": "SizeBox",
+          "name": "LoadingKeeperDesignSize",
+          "properties": { "bOverride_WidthOverride": true, "WidthOverride": 540, "bOverride_HeightOverride": true, "HeightOverride": 540 },
+          "children": [
+            {
+              "class": "Image",
+              "name": "TravellerPointCloud",
+              "properties": {
+                "Brush": {
+                  "ResourceObject": "/Game/SaskartaGaea/Characters/Traveller/PointCloud/M_UI_KeeperPointCloud.M_UI_KeeperPointCloud",
+                  "DrawAs": "Image"
+                },
+                "RenderOpacity": 0.0
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "slots": {
+    "LoadingBackdrop": { "anchors": [0, 0, 1, 1], "position": [0, 0], "size": [0, 0], "z_order": 0 },
+    "EmberGlow": { "anchors": [0, 0, 1, 1], "position": [0, 0], "size": [0, 0], "z_order": 1 },
+    "LoadingSafeScale": { "anchors": [0.08, 0.82, 0.92, 0.98], "alignment": [0, 0], "position": [0, 0], "size": [0, 0], "z_order": 3 },
+    "LoadingCrankSafeScale": { "anchors": [0.08, 0.6, 0.92, 0.81], "alignment": [0, 0], "position": [0, 0], "size": [0, 0], "z_order": 3 },
+    "LoadingCarSafeScale": { "anchors": [0.15, 0.05, 0.85, 0.56], "position": [0, 0], "size": [0, 0], "z_order": 2 },
+    "LoadingKeeperSafeScale": { "anchors": [0.31, 0.05, 0.69, 0.56], "position": [0, 0], "size": [0, 0], "z_order": 2 }
+  },
+  "variables": [
+    "LoadingCrank",
+    "ProgressFill",
+    "EmberGlow",
+    "PreparationStage",
+    "ReadinessChecks",
+    "LoadingHint",
+    "LoadingCar",
+    "TravellerPointCloud",
+    "LoadingDrive",
+    "LoadingSteer",
+    "LoadingLook"
+  ]
+}

@@ -1,0 +1,891 @@
+{
+ "asset": "/Game/SaskartaGaea/GameFlow/BP_Saskarta_GroundGuard",
+ "create": {
+  "parent": "/Script/Engine.Actor"
+ },
+ "variables": [
+  {
+   "name": "bEnabled",
+   "type": "bool",
+   "default": "false"
+  },
+  {
+   "name": "CheckInterval",
+   "type": "float",
+   "default": "0.2"
+  },
+  {
+   "name": "CheckTimer",
+   "type": "struct:/Script/Engine.TimerHandle"
+  },
+  {
+   "name": "NoGroundTime",
+   "type": "float",
+   "default": "0.0"
+  },
+  {
+   "name": "NoGroundLimit",
+   "type": "float",
+   "default": "1.0"
+  },
+  {
+   "name": "RescueCooldown",
+   "type": "float",
+   "default": "5.0"
+  },
+  {
+   "name": "LastRescueTime",
+   "type": "float",
+   "default": "-100.0"
+  },
+  {
+   "name": "FromLoc",
+   "type": "struct:/Script/CoreUObject.Vector"
+  },
+  {
+   "name": "bGuardFroze",
+   "type": "bool",
+   "default": "false"
+  },
+  {
+   "name": "Rescues",
+   "type": "int",
+   "default": "0"
+  }
+ ],
+ "functions": [
+  {
+   "name": "Check",
+   "pure": false,
+   "inputs": [],
+   "outputs": []
+  },
+  {
+   "name": "Rescue",
+   "pure": false,
+   "inputs": [],
+   "outputs": []
+  },
+  {
+   "name": "Release",
+   "pure": false,
+   "inputs": [],
+   "outputs": []
+  }
+ ],
+ "graphs": [
+  {
+   "graph": "EventGraph",
+   "nodes": {
+    "bp": {
+     "event": "ReceiveBeginPlay"
+    },
+    "me": {
+     "self": true
+    },
+    "interval": {
+     "get": "CheckInterval"
+    },
+    "timer": {
+     "timer": true
+    },
+    "keep": {
+     "set": "CheckTimer"
+    }
+   },
+   "links": [
+    [
+     "bp.then",
+     "timer.execute"
+    ],
+    [
+     "me.self",
+     "timer.Object"
+    ],
+    [
+     "interval.CheckInterval",
+     "timer.Time"
+    ],
+    [
+     "timer.then",
+     "keep.execute"
+    ],
+    [
+     "timer.ReturnValue",
+     "keep.CheckTimer"
+    ]
+   ],
+   "defaults": {
+    "timer.FunctionName": "Check",
+    "timer.bLooping": "true"
+   }
+  },
+  {
+   "graph": "Check",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "enabled": {
+     "get": "bEnabled"
+    },
+    "ifEnabled": {
+     "branch": true
+    },
+    "pawn": {
+     "call": "GetPlayerPawn",
+     "class": "/Script/Engine.GameplayStatics"
+    },
+    "pawnValid": {
+     "call": "IsValid",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "ifPawn": {
+     "branch": true
+    },
+    "loc": {
+     "call": "K2_GetActorLocation",
+     "class": "/Script/Engine.Actor"
+    },
+    "nearTop": {
+     "call": "Add_VectorVector",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "nearBot": {
+     "call": "Add_VectorVector",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "nearTrace": {
+     "call": "LineTraceSingle",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "moveAny": {
+     "call": "GetComponentByClass",
+     "class": "/Script/Engine.Actor"
+    },
+    "castMove": {
+     "cast": "/Script/Engine.CharacterMovementComponent"
+    },
+    "falling": {
+     "call": "IsFalling",
+     "class": "/Script/Engine.NavMovementComponent"
+    },
+    "noNear": {
+     "call": "Not_PreBool",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "bad": {
+     "call": "BooleanAND",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "ifBad": {
+     "branch": true
+    },
+    "t": {
+     "get": "NoGroundTime"
+    },
+    "dt": {
+     "get": "CheckInterval"
+    },
+    "tPlus": {
+     "call": "Add_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "setT": {
+     "set": "NoGroundTime"
+    },
+    "resetT": {
+     "set": "NoGroundTime"
+    },
+    "t2": {
+     "get": "NoGroundTime"
+    },
+    "lim": {
+     "get": "NoGroundLimit"
+    },
+    "tooLong": {
+     "call": "Greater_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "now": {
+     "call": "GetGameTimeInSeconds",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "last": {
+     "get": "LastRescueTime"
+    },
+    "since": {
+     "call": "Subtract_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "cool": {
+     "get": "RescueCooldown"
+    },
+    "cooled": {
+     "call": "Greater_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "mustRescue": {
+     "call": "BooleanAND",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "ifRescue": {
+     "branch": true
+    },
+    "rescue": {
+     "call": "Rescue"
+    },
+    "froze": {
+     "get": "bGuardFroze"
+    },
+    "canRelease": {
+     "call": "BooleanAND",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "ifRelease": {
+     "branch": true
+    },
+    "release": {
+     "call": "Release"
+    }
+   },
+   "links": [
+    [
+     "entry.then",
+     "ifEnabled.execute"
+    ],
+    [
+     "enabled.bEnabled",
+     "ifEnabled.Condition"
+    ],
+    [
+     "ifEnabled.then",
+     "ifPawn.execute"
+    ],
+    [
+     "pawn.ReturnValue",
+     "pawnValid.Object"
+    ],
+    [
+     "pawnValid.ReturnValue",
+     "ifPawn.Condition"
+    ],
+    [
+     "ifPawn.then",
+     "nearTrace.execute"
+    ],
+    [
+     "pawn.ReturnValue",
+     "loc.self"
+    ],
+    [
+     "loc.ReturnValue",
+     "nearTop.A"
+    ],
+    [
+     "loc.ReturnValue",
+     "nearBot.A"
+    ],
+    [
+     "nearTop.ReturnValue",
+     "nearTrace.Start"
+    ],
+    [
+     "nearBot.ReturnValue",
+     "nearTrace.End"
+    ],
+    [
+     "nearTrace.then",
+     "castMove.execute"
+    ],
+    [
+     "pawn.ReturnValue",
+     "moveAny.self"
+    ],
+    [
+     "moveAny.ReturnValue",
+     "castMove.Object"
+    ],
+    [
+     "castMove.AsCharacter Movement Component",
+     "falling.self"
+    ],
+    [
+     "nearTrace.ReturnValue",
+     "noNear.A"
+    ],
+    [
+     "falling.ReturnValue",
+     "bad.A"
+    ],
+    [
+     "noNear.ReturnValue",
+     "bad.B"
+    ],
+    [
+     "castMove.then",
+     "ifBad.execute"
+    ],
+    [
+     "bad.ReturnValue",
+     "ifBad.Condition"
+    ],
+    [
+     "ifBad.then",
+     "setT.execute"
+    ],
+    [
+     "t.NoGroundTime",
+     "tPlus.A"
+    ],
+    [
+     "dt.CheckInterval",
+     "tPlus.B"
+    ],
+    [
+     "tPlus.ReturnValue",
+     "setT.NoGroundTime"
+    ],
+    [
+     "ifBad.else",
+     "resetT.execute"
+    ],
+    [
+     "setT.then",
+     "ifRescue.execute"
+    ],
+    [
+     "t2.NoGroundTime",
+     "tooLong.A"
+    ],
+    [
+     "lim.NoGroundLimit",
+     "tooLong.B"
+    ],
+    [
+     "now.ReturnValue",
+     "since.A"
+    ],
+    [
+     "last.LastRescueTime",
+     "since.B"
+    ],
+    [
+     "since.ReturnValue",
+     "cooled.A"
+    ],
+    [
+     "cool.RescueCooldown",
+     "cooled.B"
+    ],
+    [
+     "tooLong.ReturnValue",
+     "mustRescue.A"
+    ],
+    [
+     "cooled.ReturnValue",
+     "mustRescue.B"
+    ],
+    [
+     "mustRescue.ReturnValue",
+     "ifRescue.Condition"
+    ],
+    [
+     "ifRescue.then",
+     "rescue.execute"
+    ],
+    [
+     "resetT.then",
+     "ifRelease.execute"
+    ],
+    [
+     "froze.bGuardFroze",
+     "canRelease.A"
+    ],
+    [
+     "nearTrace.ReturnValue",
+     "canRelease.B"
+    ],
+    [
+     "canRelease.ReturnValue",
+     "ifRelease.Condition"
+    ],
+    [
+     "ifRelease.then",
+     "release.execute"
+    ]
+   ],
+   "defaults": {
+    "pawn.PlayerIndex": "0",
+    "nearTop.B": "(X=0,Y=0,Z=50)",
+    "nearBot.B": "(X=0,Y=0,Z=-500)",
+    "nearTrace.TraceChannel": "TraceTypeQuery1",
+    "nearTrace.bTraceComplex": "false",
+    "nearTrace.DrawDebugType": "None",
+    "nearTrace.bIgnoreSelf": "true",
+    "moveAny.ComponentClass": "/Script/Engine.CharacterMovementComponent",
+    "resetT.NoGroundTime": "0.0"
+   }
+  },
+  {
+   "graph": "Rescue",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "pawn": {
+     "call": "GetPlayerPawn",
+     "class": "/Script/Engine.GameplayStatics"
+    },
+    "loc": {
+     "call": "K2_GetActorLocation",
+     "class": "/Script/Engine.Actor"
+    },
+    "findRoad": {
+     "call": "GetActorOfClass",
+     "class": "/Script/Engine.GameplayStatics"
+    },
+    "getSpline": {
+     "call": "GetComponentByClass",
+     "class": "/Script/Engine.Actor"
+    },
+    "castSpline": {
+     "cast": "/Script/Engine.SplineComponent"
+    },
+    "key": {
+     "call": "FindInputKeyClosestToWorldLocation",
+     "class": "/Script/Engine.SplineComponent"
+    },
+    "roadPt": {
+     "call": "GetLocationAtSplineInputKey",
+     "class": "/Script/Engine.SplineComponent"
+    },
+    "top": {
+     "call": "Add_VectorVector",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "bot": {
+     "call": "Add_VectorVector",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "trace": {
+     "call": "LineTraceSingle",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "hit": {
+     "call": "BreakHitResult",
+     "class": "/Script/Engine.GameplayStatics"
+    },
+    "base": {
+     "call": "SelectVector",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "lift": {
+     "call": "Add_VectorVector",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "rot": {
+     "call": "K2_GetActorRotation",
+     "class": "/Script/Engine.Actor"
+    },
+    "place": {
+     "call": "K2_SetActorLocationAndRotation",
+     "class": "/Script/Engine.Actor"
+    },
+    "moveAny": {
+     "call": "GetComponentByClass",
+     "class": "/Script/Engine.Actor"
+    },
+    "castMove": {
+     "cast": "/Script/Engine.CharacterMovementComponent"
+    },
+    "stop": {
+     "call": "StopMovementImmediately",
+     "class": "/Script/Engine.MovementComponent"
+    },
+    "ifGround": {
+     "branch": true
+    },
+    "walk": {
+     "call": "SetMovementMode",
+     "class": "/Script/Engine.CharacterMovementComponent"
+    },
+    "freeze": {
+     "call": "SetMovementMode",
+     "class": "/Script/Engine.CharacterMovementComponent"
+    },
+    "setFroze": {
+     "set": "bGuardFroze"
+    },
+    "clearFroze": {
+     "set": "bGuardFroze"
+    },
+    "resetT": {
+     "set": "NoGroundTime"
+    },
+    "n": {
+     "get": "Rescues"
+    },
+    "nPlus": {
+     "call": "Add_IntInt",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "setN": {
+     "set": "Rescues"
+    },
+    "fromStr": {
+     "call": "Conv_VectorToString",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "toStr": {
+     "call": "Conv_VectorToString",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "msg1": {
+     "call": "Concat_StrStr",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "msg2": {
+     "call": "Concat_StrStr",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "msg3": {
+     "call": "Concat_StrStr",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "log": {
+     "call": "PrintString",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "setFrom": {
+     "set": "FromLoc"
+    },
+    "fromGet": {
+     "get": "FromLoc"
+    },
+    "now": {
+     "call": "GetGameTimeInSeconds",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "stamp": {
+     "set": "LastRescueTime"
+    }
+   },
+   "links": [
+    [
+     "entry.then",
+     "setFrom.execute"
+    ],
+    [
+     "loc.ReturnValue",
+     "setFrom.FromLoc"
+    ],
+    [
+     "setFrom.then",
+     "stamp.execute"
+    ],
+    [
+     "now.ReturnValue",
+     "stamp.LastRescueTime"
+    ],
+    [
+     "stamp.then",
+     "findRoad.execute"
+    ],
+    [
+     "findRoad.then",
+     "castSpline.execute"
+    ],
+    [
+     "findRoad.ReturnValue",
+     "getSpline.self"
+    ],
+    [
+     "getSpline.ReturnValue",
+     "castSpline.Object"
+    ],
+    [
+     "pawn.ReturnValue",
+     "loc.self"
+    ],
+    [
+     "castSpline.AsSpline Component",
+     "key.self"
+    ],
+    [
+     "castSpline.AsSpline Component",
+     "roadPt.self"
+    ],
+    [
+     "key.ReturnValue",
+     "roadPt.InKey"
+    ],
+    [
+     "roadPt.ReturnValue",
+     "top.A"
+    ],
+    [
+     "roadPt.ReturnValue",
+     "bot.A"
+    ],
+    [
+     "top.ReturnValue",
+     "trace.Start"
+    ],
+    [
+     "bot.ReturnValue",
+     "trace.End"
+    ],
+    [
+     "castSpline.then",
+     "trace.execute"
+    ],
+    [
+     "trace.OutHit",
+     "hit.Hit"
+    ],
+    [
+     "hit.ImpactPoint",
+     "base.A"
+    ],
+    [
+     "roadPt.ReturnValue",
+     "base.B"
+    ],
+    [
+     "trace.ReturnValue",
+     "base.bPickA"
+    ],
+    [
+     "base.ReturnValue",
+     "lift.A"
+    ],
+    [
+     "pawn.ReturnValue",
+     "rot.self"
+    ],
+    [
+     "trace.then",
+     "place.execute"
+    ],
+    [
+     "pawn.ReturnValue",
+     "place.self"
+    ],
+    [
+     "lift.ReturnValue",
+     "place.NewLocation"
+    ],
+    [
+     "rot.ReturnValue",
+     "place.NewRotation"
+    ],
+    [
+     "place.then",
+     "castMove.execute"
+    ],
+    [
+     "pawn.ReturnValue",
+     "moveAny.self"
+    ],
+    [
+     "moveAny.ReturnValue",
+     "castMove.Object"
+    ],
+    [
+     "castMove.then",
+     "stop.execute"
+    ],
+    [
+     "castMove.AsCharacter Movement Component",
+     "stop.self"
+    ],
+    [
+     "stop.then",
+     "ifGround.execute"
+    ],
+    [
+     "trace.ReturnValue",
+     "ifGround.Condition"
+    ],
+    [
+     "ifGround.then",
+     "walk.execute"
+    ],
+    [
+     "castMove.AsCharacter Movement Component",
+     "walk.self"
+    ],
+    [
+     "walk.then",
+     "clearFroze.execute"
+    ],
+    [
+     "ifGround.else",
+     "freeze.execute"
+    ],
+    [
+     "castMove.AsCharacter Movement Component",
+     "freeze.self"
+    ],
+    [
+     "freeze.then",
+     "setFroze.execute"
+    ],
+    [
+     "clearFroze.then",
+     "resetT.execute"
+    ],
+    [
+     "setFroze.then",
+     "resetT.execute"
+    ],
+    [
+     "resetT.then",
+     "setN.execute"
+    ],
+    [
+     "n.Rescues",
+     "nPlus.A"
+    ],
+    [
+     "nPlus.ReturnValue",
+     "setN.Rescues"
+    ],
+    [
+     "setN.then",
+     "log.execute"
+    ],
+    [
+     "lift.ReturnValue",
+     "toStr.InVec"
+    ],
+    [
+     "fromStr.ReturnValue",
+     "msg1.B"
+    ],
+    [
+     "msg1.ReturnValue",
+     "msg2.A"
+    ],
+    [
+     "msg2.ReturnValue",
+     "msg3.A"
+    ],
+    [
+     "toStr.ReturnValue",
+     "msg3.B"
+    ],
+    [
+     "msg3.ReturnValue",
+     "log.InString"
+    ],
+    [
+     "fromGet.FromLoc",
+     "fromStr.InVec"
+    ],
+    [
+     "fromGet.FromLoc",
+     "key.WorldLocation"
+    ]
+   ],
+   "defaults": {
+    "pawn.PlayerIndex": "0",
+    "findRoad.ActorClass": "/Game/SaskartaGaea/Road/BP_Saskarta_Road.BP_Saskarta_Road_C",
+    "getSpline.ComponentClass": "/Script/Engine.SplineComponent",
+    "roadPt.CoordinateSpace": "World",
+    "top.B": "(X=0,Y=0,Z=5000)",
+    "bot.B": "(X=0,Y=0,Z=-5000)",
+    "trace.TraceChannel": "TraceTypeQuery1",
+    "trace.bTraceComplex": "false",
+    "trace.DrawDebugType": "None",
+    "trace.bIgnoreSelf": "true",
+    "lift.B": "(X=0,Y=0,Z=200)",
+    "place.bSweep": "false",
+    "place.bTeleport": "true",
+    "moveAny.ComponentClass": "/Script/Engine.CharacterMovementComponent",
+    "walk.NewMovementMode": "MOVE_Walking",
+    "freeze.NewMovementMode": "MOVE_None",
+    "setFroze.bGuardFroze": "true",
+    "clearFroze.bGuardFroze": "false",
+    "resetT.NoGroundTime": "0.0",
+    "nPlus.B": "1",
+    "msg1.A": "Saskarta ground guard: the pawn fell through or has no ground; moved from ",
+    "msg2.B": " to the road at ",
+    "log.bPrintToScreen": "false",
+    "log.bPrintToLog": "true",
+    "log.Duration": "5.0"
+   }
+  },
+  {
+   "graph": "Release",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "pawn": {
+     "call": "GetPlayerPawn",
+     "class": "/Script/Engine.GameplayStatics"
+    },
+    "moveAny": {
+     "call": "GetComponentByClass",
+     "class": "/Script/Engine.Actor"
+    },
+    "castMove": {
+     "cast": "/Script/Engine.CharacterMovementComponent"
+    },
+    "walk": {
+     "call": "SetMovementMode",
+     "class": "/Script/Engine.CharacterMovementComponent"
+    },
+    "clearFroze": {
+     "set": "bGuardFroze"
+    },
+    "log": {
+     "call": "PrintString",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    }
+   },
+   "links": [
+    [
+     "entry.then",
+     "castMove.execute"
+    ],
+    [
+     "pawn.ReturnValue",
+     "moveAny.self"
+    ],
+    [
+     "moveAny.ReturnValue",
+     "castMove.Object"
+    ],
+    [
+     "castMove.then",
+     "walk.execute"
+    ],
+    [
+     "castMove.AsCharacter Movement Component",
+     "walk.self"
+    ],
+    [
+     "walk.then",
+     "clearFroze.execute"
+    ],
+    [
+     "clearFroze.then",
+     "log.execute"
+    ]
+   ],
+   "defaults": {
+    "pawn.PlayerIndex": "0",
+    "moveAny.ComponentClass": "/Script/Engine.CharacterMovementComponent",
+    "walk.NewMovementMode": "MOVE_Walking",
+    "clearFroze.bGuardFroze": "false",
+    "log.InString": "Saskarta ground guard: ground loaded under the held pawn; walking again",
+    "log.bPrintToScreen": "false",
+    "log.bPrintToLog": "true",
+    "log.Duration": "5.0"
+   }
+  }
+ ]
+}

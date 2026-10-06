@@ -1,0 +1,779 @@
+{
+ "asset": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Caption",
+ "description": "CIN_25 end card only; additive to the caption widget.",
+ "variables": [
+  {
+   "name": "EndCardRollStartS",
+   "type": "float"
+  },
+  {
+   "name": "EndCardPhaseDurationS",
+   "type": "float",
+   "default": "8.0"
+  },
+  {
+   "name": "bEndCardRolling",
+   "type": "bool",
+   "default": "false"
+  },
+  {
+   "name": "EndCardRollTimer",
+   "type": "struct:/Script/Engine.TimerHandle"
+  }
+ ],
+ "functions": [
+  {
+   "name": "ShowEndCard",
+   "inputs": [
+    {
+     "name": "Id",
+     "type": "name"
+    }
+   ],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "HideEndCard",
+   "inputs": [],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "ScrollCreditsStep",
+   "inputs": [],
+   "outputs": [],
+   "pure": false
+  }
+ ],
+ "graphs": [
+  {
+   "graph": "HideEndCard",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "n2": {
+     "call": "SetScrollOffset",
+     "class": "/Script/UMG.ScrollBox"
+    },
+    "n3": {
+     "get": "EndCardRollScroll"
+    },
+    "n4": {
+     "get": "EndCardRollTimer"
+    },
+    "n5": {
+     "call": "K2_ClearAndInvalidateTimerHandle",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "n6": {
+     "get": "EndCardTitle"
+    },
+    "n7": {
+     "call": "SetVisibility",
+     "class": "/Script/UMG.Widget"
+    },
+    "n8": {
+     "get": "EndCardCreditsShort"
+    },
+    "n9": {
+     "call": "SetVisibility",
+     "class": "/Script/UMG.Widget"
+    },
+    "n10": {
+     "get": "EndCardRollViewport"
+    },
+    "n11": {
+     "call": "SetVisibility",
+     "class": "/Script/UMG.Widget"
+    },
+    "n12": {
+     "get": "EndCard"
+    },
+    "n13": {
+     "call": "SetVisibility",
+     "class": "/Script/UMG.Widget"
+    }
+   },
+   "links": [
+    [
+     "n3.EndCardRollScroll",
+     "n2.self"
+    ],
+    [
+     "n4.EndCardRollTimer",
+     "n5.Handle"
+    ],
+    [
+     "n6.EndCardTitle",
+     "n7.self"
+    ],
+    [
+     "n8.EndCardCreditsShort",
+     "n9.self"
+    ],
+    [
+     "n10.EndCardRollViewport",
+     "n11.self"
+    ],
+    [
+     "n12.EndCard",
+     "n13.self"
+    ],
+    [
+     "entry.then",
+     "n5.execute"
+    ],
+    [
+     "n5.then",
+     "n7.execute"
+    ],
+    [
+     "n7.then",
+     "n9.execute"
+    ],
+    [
+     "n9.then",
+     "n11.execute"
+    ],
+    [
+     "n11.then",
+     "n13.execute"
+    ],
+    [
+     "n13.then",
+     "n2.execute"
+    ]
+   ],
+   "defaults": {
+    "n2.NewScrollOffset": "0.0",
+    "n7.InVisibility": "Collapsed",
+    "n9.InVisibility": "Collapsed",
+    "n11.InVisibility": "Collapsed",
+    "n13.InVisibility": "Collapsed"
+   }
+  },
+  {
+   "graph": "ShowEndCard",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "n2": {
+     "call": "HideEndCard"
+    },
+    "n3": {
+     "get": "SkipBox"
+    },
+    "n4": {
+     "call": "SlotAsCanvasSlot",
+     "class": "/Script/UMG.WidgetLayoutLibrary"
+    },
+    "n5": {
+     "call": "SetZOrder",
+     "class": "/Script/UMG.CanvasPanelSlot"
+    },
+    "n6": {
+     "call": "EqualEqual_NameName",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "ifTitle": {
+     "branch": true
+    },
+    "n8": {
+     "get": "EndCard"
+    },
+    "n9": {
+     "call": "SetVisibility",
+     "class": "/Script/UMG.Widget"
+    },
+    "n10": {
+     "get": "EndCardTitle"
+    },
+    "n11": {
+     "call": "SetVisibility",
+     "class": "/Script/UMG.Widget"
+    },
+    "n12": {
+     "call": "GetTimeSeconds",
+     "class": "/Script/Engine.GameplayStatics"
+    },
+    "n13": {
+     "set": "EndCardRollStartS"
+    },
+    "n14": {
+     "set": "EndCardPhaseDurationS"
+    },
+    "n15": {
+     "set": "bEndCardRolling"
+    },
+    "n16": {
+     "get": "EndCardContent"
+    },
+    "n17": {
+     "call": "SetRenderOpacity",
+     "class": "/Script/UMG.Widget"
+    },
+    "timerTitle": {
+     "timer": true
+    },
+    "n19": {
+     "set": "EndCardRollTimer"
+    },
+    "n20": {
+     "call": "EqualEqual_NameName",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "ifCredits": {
+     "branch": true
+    },
+    "n22": {
+     "get": "EndCard"
+    },
+    "n23": {
+     "call": "SetVisibility",
+     "class": "/Script/UMG.Widget"
+    },
+    "n24": {
+     "get": "EndCardCreditsShort"
+    },
+    "n25": {
+     "call": "SetVisibility",
+     "class": "/Script/UMG.Widget"
+    },
+    "n26": {
+     "call": "GetTimeSeconds",
+     "class": "/Script/Engine.GameplayStatics"
+    },
+    "n27": {
+     "set": "EndCardRollStartS"
+    },
+    "n28": {
+     "set": "EndCardPhaseDurationS"
+    },
+    "n29": {
+     "set": "bEndCardRolling"
+    },
+    "n30": {
+     "get": "EndCardContent"
+    },
+    "n31": {
+     "call": "SetRenderOpacity",
+     "class": "/Script/UMG.Widget"
+    },
+    "timerCredits": {
+     "timer": true
+    },
+    "n33": {
+     "set": "EndCardRollTimer"
+    },
+    "n34": {
+     "call": "EqualEqual_NameName",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "ifCreditsRoll": {
+     "branch": true
+    },
+    "n36": {
+     "get": "EndCard"
+    },
+    "n37": {
+     "call": "SetVisibility",
+     "class": "/Script/UMG.Widget"
+    },
+    "n38": {
+     "get": "EndCardRollViewport"
+    },
+    "n39": {
+     "call": "SetVisibility",
+     "class": "/Script/UMG.Widget"
+    },
+    "n40": {
+     "call": "GetTimeSeconds",
+     "class": "/Script/Engine.GameplayStatics"
+    },
+    "n41": {
+     "set": "EndCardRollStartS"
+    },
+    "n42": {
+     "set": "EndCardPhaseDurationS"
+    },
+    "n43": {
+     "set": "bEndCardRolling"
+    },
+    "n44": {
+     "get": "EndCardContent"
+    },
+    "n45": {
+     "call": "SetRenderOpacity",
+     "class": "/Script/UMG.Widget"
+    },
+    "timerCreditsRoll": {
+     "timer": true
+    },
+    "n47": {
+     "set": "EndCardRollTimer"
+    }
+   },
+   "links": [
+    [
+     "entry.then",
+     "n2.execute"
+    ],
+    [
+     "n3.SkipBox",
+     "n4.Widget"
+    ],
+    [
+     "n4.ReturnValue",
+     "n5.self"
+    ],
+    [
+     "n2.then",
+     "n5.execute"
+    ],
+    [
+     "entry.Id",
+     "n6.A"
+    ],
+    [
+     "n6.ReturnValue",
+     "ifTitle.Condition"
+    ],
+    [
+     "n5.then",
+     "ifTitle.execute"
+    ],
+    [
+     "n8.EndCard",
+     "n9.self"
+    ],
+    [
+     "n10.EndCardTitle",
+     "n11.self"
+    ],
+    [
+     "n12.ReturnValue",
+     "n13.EndCardRollStartS"
+    ],
+    [
+     "n16.EndCardContent",
+     "n17.self"
+    ],
+    [
+     "timerTitle.ReturnValue",
+     "n19.EndCardRollTimer"
+    ],
+    [
+     "ifTitle.then",
+     "n9.execute"
+    ],
+    [
+     "n9.then",
+     "n11.execute"
+    ],
+    [
+     "n11.then",
+     "n13.execute"
+    ],
+    [
+     "n13.then",
+     "n14.execute"
+    ],
+    [
+     "n14.then",
+     "n15.execute"
+    ],
+    [
+     "n15.then",
+     "n17.execute"
+    ],
+    [
+     "n17.then",
+     "timerTitle.execute"
+    ],
+    [
+     "timerTitle.then",
+     "n19.execute"
+    ],
+    [
+     "entry.Id",
+     "n20.A"
+    ],
+    [
+     "n20.ReturnValue",
+     "ifCredits.Condition"
+    ],
+    [
+     "ifTitle.else",
+     "ifCredits.execute"
+    ],
+    [
+     "n22.EndCard",
+     "n23.self"
+    ],
+    [
+     "n24.EndCardCreditsShort",
+     "n25.self"
+    ],
+    [
+     "n26.ReturnValue",
+     "n27.EndCardRollStartS"
+    ],
+    [
+     "n30.EndCardContent",
+     "n31.self"
+    ],
+    [
+     "timerCredits.ReturnValue",
+     "n33.EndCardRollTimer"
+    ],
+    [
+     "ifCredits.then",
+     "n23.execute"
+    ],
+    [
+     "n23.then",
+     "n25.execute"
+    ],
+    [
+     "n25.then",
+     "n27.execute"
+    ],
+    [
+     "n27.then",
+     "n28.execute"
+    ],
+    [
+     "n28.then",
+     "n29.execute"
+    ],
+    [
+     "n29.then",
+     "n31.execute"
+    ],
+    [
+     "n31.then",
+     "timerCredits.execute"
+    ],
+    [
+     "timerCredits.then",
+     "n33.execute"
+    ],
+    [
+     "entry.Id",
+     "n34.A"
+    ],
+    [
+     "n34.ReturnValue",
+     "ifCreditsRoll.Condition"
+    ],
+    [
+     "ifCredits.else",
+     "ifCreditsRoll.execute"
+    ],
+    [
+     "n36.EndCard",
+     "n37.self"
+    ],
+    [
+     "n38.EndCardRollViewport",
+     "n39.self"
+    ],
+    [
+     "n40.ReturnValue",
+     "n41.EndCardRollStartS"
+    ],
+    [
+     "n44.EndCardContent",
+     "n45.self"
+    ],
+    [
+     "timerCreditsRoll.ReturnValue",
+     "n47.EndCardRollTimer"
+    ],
+    [
+     "ifCreditsRoll.then",
+     "n37.execute"
+    ],
+    [
+     "n37.then",
+     "n39.execute"
+    ],
+    [
+     "n39.then",
+     "n41.execute"
+    ],
+    [
+     "n41.then",
+     "n42.execute"
+    ],
+    [
+     "n42.then",
+     "n43.execute"
+    ],
+    [
+     "n43.then",
+     "n45.execute"
+    ],
+    [
+     "n45.then",
+     "timerCreditsRoll.execute"
+    ],
+    [
+     "timerCreditsRoll.then",
+     "n47.execute"
+    ]
+   ],
+   "defaults": {
+    "n5.InZOrder": "30",
+    "n6.B": "Title",
+    "n9.InVisibility": "HitTestInvisible",
+    "n11.InVisibility": "HitTestInvisible",
+    "n14.EndCardPhaseDurationS": "8.0",
+    "n15.bEndCardRolling": "false",
+    "n17.InOpacity": "0.0",
+    "timerTitle.FunctionName": "ScrollCreditsStep",
+    "timerTitle.bLooping": "true",
+    "timerTitle.Time": "0.02",
+    "n20.B": "Credits",
+    "n23.InVisibility": "HitTestInvisible",
+    "n25.InVisibility": "HitTestInvisible",
+    "n28.EndCardPhaseDurationS": "7.0",
+    "n29.bEndCardRolling": "false",
+    "n31.InOpacity": "0.0",
+    "timerCredits.FunctionName": "ScrollCreditsStep",
+    "timerCredits.bLooping": "true",
+    "timerCredits.Time": "0.02",
+    "n34.B": "CreditsRoll",
+    "n37.InVisibility": "HitTestInvisible",
+    "n39.InVisibility": "HitTestInvisible",
+    "n42.EndCardPhaseDurationS": "82.0",
+    "n43.bEndCardRolling": "true",
+    "n45.InOpacity": "0.0",
+    "timerCreditsRoll.FunctionName": "ScrollCreditsStep",
+    "timerCreditsRoll.bLooping": "true",
+    "timerCreditsRoll.Time": "0.02"
+   }
+  },
+  {
+   "graph": "ScrollCreditsStep",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "n2": {
+     "call": "GetTimeSeconds",
+     "class": "/Script/Engine.GameplayStatics"
+    },
+    "n3": {
+     "get": "EndCardRollStartS"
+    },
+    "n4": {
+     "call": "Subtract_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n5": {
+     "get": "EndCardPhaseDurationS"
+    },
+    "n6": {
+     "call": "GreaterEqual_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "ifRollDone": {
+     "branch": true
+    },
+    "n8": {
+     "get": "EndCardContent"
+    },
+    "n9": {
+     "call": "SetRenderOpacity",
+     "class": "/Script/UMG.Widget"
+    },
+    "n10": {
+     "get": "EndCardRollTimer"
+    },
+    "n11": {
+     "call": "K2_ClearAndInvalidateTimerHandle",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "n12": {
+     "call": "Divide_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n13": {
+     "call": "Subtract_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n14": {
+     "call": "Divide_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n15": {
+     "call": "FMin",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n16": {
+     "call": "FClamp",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n17": {
+     "call": "SetRenderOpacity",
+     "class": "/Script/UMG.Widget"
+    },
+    "n18": {
+     "get": "bEndCardRolling"
+    },
+    "ifRolling": {
+     "branch": true
+    },
+    "n20": {
+     "get": "EndCardRollScroll"
+    },
+    "n21": {
+     "call": "GetScrollOffsetOfEnd",
+     "class": "/Script/UMG.ScrollBox"
+    },
+    "n22": {
+     "call": "Divide_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n23": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n24": {
+     "call": "SetScrollOffset",
+     "class": "/Script/UMG.ScrollBox"
+    }
+   },
+   "links": [
+    [
+     "n2.ReturnValue",
+     "n4.A"
+    ],
+    [
+     "n3.EndCardRollStartS",
+     "n4.B"
+    ],
+    [
+     "n4.ReturnValue",
+     "n6.A"
+    ],
+    [
+     "n5.EndCardPhaseDurationS",
+     "n6.B"
+    ],
+    [
+     "n6.ReturnValue",
+     "ifRollDone.Condition"
+    ],
+    [
+     "entry.then",
+     "ifRollDone.execute"
+    ],
+    [
+     "n8.EndCardContent",
+     "n9.self"
+    ],
+    [
+     "n10.EndCardRollTimer",
+     "n11.Handle"
+    ],
+    [
+     "ifRollDone.then",
+     "n9.execute"
+    ],
+    [
+     "n9.then",
+     "n11.execute"
+    ],
+    [
+     "n4.ReturnValue",
+     "n12.A"
+    ],
+    [
+     "n5.EndCardPhaseDurationS",
+     "n13.A"
+    ],
+    [
+     "n4.ReturnValue",
+     "n13.B"
+    ],
+    [
+     "n13.ReturnValue",
+     "n14.A"
+    ],
+    [
+     "n12.ReturnValue",
+     "n15.A"
+    ],
+    [
+     "n14.ReturnValue",
+     "n15.B"
+    ],
+    [
+     "n15.ReturnValue",
+     "n16.Value"
+    ],
+    [
+     "n8.EndCardContent",
+     "n17.self"
+    ],
+    [
+     "n16.ReturnValue",
+     "n17.InOpacity"
+    ],
+    [
+     "n18.bEndCardRolling",
+     "ifRolling.Condition"
+    ],
+    [
+     "ifRollDone.else",
+     "n17.execute"
+    ],
+    [
+     "n17.then",
+     "ifRolling.execute"
+    ],
+    [
+     "n20.EndCardRollScroll",
+     "n21.self"
+    ],
+    [
+     "n4.ReturnValue",
+     "n22.A"
+    ],
+    [
+     "n22.ReturnValue",
+     "n23.A"
+    ],
+    [
+     "n21.ReturnValue",
+     "n23.B"
+    ],
+    [
+     "n23.ReturnValue",
+     "n24.NewScrollOffset"
+    ],
+    [
+     "n20.EndCardRollScroll",
+     "n24.self"
+    ],
+    [
+     "ifRolling.then",
+     "n24.execute"
+    ]
+   ],
+   "defaults": {
+    "n9.InOpacity": "0.0",
+    "n12.B": "1.2",
+    "n14.B": "1.2",
+    "n16.Min": "0.0",
+    "n16.Max": "1.0",
+    "n22.B": "82.0"
+   }
+  }
+ ]
+}

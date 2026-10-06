@@ -1,0 +1,51 @@
+{
+  "status": "prepared_not_installed",
+  "requires_existing_names": true,
+  "commands": [
+    {
+      "command": "ui_set_widget_properties",
+      "params": {
+        "widget_blueprint_path": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Loading",
+        "widget_name": "LoadingControls",
+        "properties": {
+          "Visibility": "Collapsed"
+        }
+      }
+    },
+    {
+      "command": "ui_set_widget_properties",
+      "params": {
+        "widget_blueprint_path": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Loading",
+        "widget_name": "LoadingDrive",
+        "properties": {
+          "Visibility": "Collapsed"
+        }
+      }
+    },
+    {
+      "command": "ui_set_widget_properties",
+      "params": {
+        "widget_blueprint_path": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Loading",
+        "widget_name": "LoadingSteer",
+        "properties": {
+          "Visibility": "Collapsed"
+        }
+      }
+    },
+    {
+      "command": "ui_set_widget_properties",
+      "params": {
+        "widget_blueprint_path": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Loading",
+        "widget_name": "LoadingLook",
+        "properties": {
+          "Visibility": "Collapsed"
+        }
+      }
+    }
+  ],
+  "finish": [
+    "ui_compile_widget",
+    "ui_save_widget",
+    "ui_query"
+  ]
+}

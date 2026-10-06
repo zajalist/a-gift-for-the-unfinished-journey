@@ -1,0 +1,4154 @@
+{
+ "asset": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Caption",
+ "tree": [
+  {
+   "class": "Overlay",
+   "name": "EndCard",
+   "properties": {
+    "Visibility": "Collapsed"
+   },
+   "children": [
+    {
+     "class": "Image",
+     "name": "EndCardBlack",
+     "properties": {
+      "Brush": {
+       "ImageSize": {
+        "X": 1,
+        "Y": 1
+       },
+       "DrawAs": "Image"
+      },
+      "ColorAndOpacity": [
+       0.002,
+       0.003,
+       0.002,
+       1
+      ],
+      "RenderOpacity": 1.0
+     },
+     "slot_props": {
+      "horizontal_alignment": "Fill",
+      "vertical_alignment": "Fill"
+     }
+    },
+    {
+     "class": "ScaleBox",
+     "name": "EndCardSafeScale",
+     "properties": {
+      "Stretch": "ScaleToFit",
+      "StretchDirection": "DownOnly"
+     },
+     "slot_props": {
+      "horizontal_alignment": "Fill",
+      "vertical_alignment": "Fill",
+      "padding": [
+       100,
+       72,
+       100,
+       72
+      ]
+     },
+     "children": [
+      {
+       "class": "SizeBox",
+       "name": "EndCardStage",
+       "properties": {
+        "bOverride_WidthOverride": true,
+        "WidthOverride": 1120,
+        "bOverride_HeightOverride": true,
+        "HeightOverride": 840
+       },
+       "children": [
+        {
+         "class": "Overlay",
+         "name": "EndCardContent",
+         "properties": {
+          "RenderOpacity": 0.0
+         },
+         "children": [
+          {
+           "class": "TextBlock",
+           "name": "EndCardOverline",
+           "properties": {
+            "Text": "END OF TRANSMISSION",
+            "Font": {
+             "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+             "Size": 17
+            },
+            "ColorAndOpacity": {
+             "SpecifiedColor": [
+              0.86,
+              0.66,
+              0.34,
+              1
+             ]
+            },
+            "ShadowOffset": {
+             "X": 1,
+             "Y": 1
+            },
+            "ShadowColorAndOpacity": [
+             0,
+             0,
+             0,
+             0.75
+            ]
+           },
+           "slot_props": {
+            "horizontal_alignment": "Center",
+            "vertical_alignment": "Top",
+            "padding": [
+             0,
+             12,
+             0,
+             0
+            ]
+           }
+          },
+          {
+           "class": "Image",
+           "name": "EndCardTitle",
+           "properties": {
+            "Brush": {
+             "ResourceObject": "/Game/SaskartaGaea/GameFlow/UI/Textures/T_Saskarta_TitleName_Ivory.T_Saskarta_TitleName_Ivory",
+             "DrawAs": "Image",
+             "ImageSize": {
+              "X": 320,
+              "Y": 519
+             }
+            },
+            "Visibility": "Collapsed"
+           },
+           "slot_props": {
+            "horizontal_alignment": "Center",
+            "vertical_alignment": "Center"
+           }
+          },
+          {
+           "class": "TextBlock",
+           "name": "EndCardCreditsShort",
+           "properties": {
+            "Text": "Made for Tripothon S1\nMade with Hayba\nVoices: Badr Zejli",
+            "Font": {
+             "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+             "Size": 30,
+             "TypefaceFontName": "Regular"
+            },
+            "ColorAndOpacity": {
+             "SpecifiedColor": [
+              0.8469,
+              0.7835,
+              0.7011,
+              1
+             ]
+            },
+            "ShadowOffset": {
+             "X": 1,
+             "Y": 1
+            },
+            "ShadowColorAndOpacity": [
+             0,
+             0,
+             0,
+             0.75
+            ],
+            "Justification": "Center",
+            "Visibility": "Collapsed",
+            "LineHeightPercentage": 1.5,
+            "AutoWrapText": true,
+            "WrapTextAt": 900
+           },
+           "slot_props": {
+            "horizontal_alignment": "Center",
+            "vertical_alignment": "Center"
+           }
+          },
+          {
+           "class": "SizeBox",
+           "name": "EndCardRollViewport",
+           "properties": {
+            "bOverride_WidthOverride": true,
+            "WidthOverride": 1000,
+            "bOverride_HeightOverride": true,
+            "HeightOverride": 640,
+            "Clipping": "ClipToBounds",
+            "Visibility": "Collapsed"
+           },
+           "slot_props": {
+            "horizontal_alignment": "Center",
+            "vertical_alignment": "Center"
+           },
+           "children": [
+            {
+             "class": "ScrollBox",
+             "name": "EndCardRollScroll",
+             "properties": {
+              "ScrollBarVisibility": "Collapsed",
+              "AllowOverscroll": false,
+              "ConsumeMouseWheel": "Never"
+             },
+             "children": [
+              {
+               "class": "Spacer",
+               "name": "EndCardRollLead",
+               "properties": {
+                "Size": {
+                 "X": 1,
+                 "Y": 640
+                }
+               }
+              },
+              {
+               "class": "VerticalBox",
+               "name": "EndCardCreditsRoll",
+               "children": [
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow000",
+                 "properties": {
+                  "Text": "Najzen dînefferesen, enisetre",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "Spacer",
+                 "name": "EndCreditRow001",
+                 "properties": {
+                  "Size": {
+                   "X": 1,
+                   "Y": 28
+                  }
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow002",
+                 "properties": {
+                  "Text": "A game by",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+                   "Size": 19
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.86,
+                    0.66,
+                    0.34,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow003",
+                 "properties": {
+                  "Text": "Badr Zejli (Zajalist)",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "Spacer",
+                 "name": "EndCreditRow004",
+                 "properties": {
+                  "Size": {
+                   "X": 1,
+                   "Y": 28
+                  }
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow005",
+                 "properties": {
+                  "Text": "Characters (AI-generated 3D) and story contributions:",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+                   "Size": 19
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.86,
+                    0.66,
+                    0.34,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow006",
+                 "properties": {
+                  "Text": "Ziyun",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "Spacer",
+                 "name": "EndCreditRow007",
+                 "properties": {
+                  "Size": {
+                   "X": 1,
+                   "Y": 28
+                  }
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow008",
+                 "properties": {
+                  "Text": "Made for Tripothon S1",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+                   "Size": 19
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.86,
+                    0.66,
+                    0.34,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "Spacer",
+                 "name": "EndCreditRow009",
+                 "properties": {
+                  "Size": {
+                   "X": 1,
+                   "Y": 28
+                  }
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow010",
+                 "properties": {
+                  "Text": "Made with Hayba",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+                   "Size": 19
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.86,
+                    0.66,
+                    0.34,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "Spacer",
+                 "name": "EndCreditRow011",
+                 "properties": {
+                  "Size": {
+                   "X": 1,
+                   "Y": 28
+                  }
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow012",
+                 "properties": {
+                  "Text": "Voices:",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+                   "Size": 19
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.86,
+                    0.66,
+                    0.34,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow013",
+                 "properties": {
+                  "Text": "The Keeper: Badr Zejli",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow014",
+                 "properties": {
+                  "Text": "The Elder and the Visitor: ElevenLabs synthetic voices",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow015",
+                 "properties": {
+                  "Text": "The carrier: edge-tts neural voice, robot vocoder",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow016",
+                 "properties": {
+                  "Text": "Placeholder station takes: edge-tts and ElevenLabs",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "Spacer",
+                 "name": "EndCreditRow017",
+                 "properties": {
+                  "Size": {
+                   "X": 1,
+                   "Y": 28
+                  }
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow018",
+                 "properties": {
+                  "Text": "Title song:",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+                   "Size": 19
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.86,
+                    0.66,
+                    0.34,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow019",
+                 "properties": {
+                  "Text": "eyetae, sung by Badr Zejli",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "Spacer",
+                 "name": "EndCreditRow020",
+                 "properties": {
+                  "Size": {
+                   "X": 1,
+                   "Y": 28
+                  }
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow021",
+                 "properties": {
+                  "Text": "Songs on Ilaawb:",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+                   "Size": 19
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.86,
+                    0.66,
+                    0.34,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow022",
+                 "properties": {
+                  "Text": "Hayaa (artist unknown)",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow023",
+                 "properties": {
+                  "Text": "Malak: Halal Voices",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow024",
+                 "properties": {
+                  "Text": "Weli: Alaa Wardi",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "Spacer",
+                 "name": "EndCreditRow025",
+                 "properties": {
+                  "Size": {
+                   "X": 1,
+                   "Y": 28
+                  }
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow026",
+                 "properties": {
+                  "Text": "Inscription on the road:",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+                   "Size": 19
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.86,
+                    0.66,
+                    0.34,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow027",
+                 "properties": {
+                  "Text": "Victor Segalen, Stèles (1912), public domain",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "Spacer",
+                 "name": "EndCreditRow028",
+                 "properties": {
+                  "Size": {
+                   "X": 1,
+                   "Y": 28
+                  }
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow029",
+                 "properties": {
+                  "Text": "3D generation:",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+                   "Size": 19
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.86,
+                    0.66,
+                    0.34,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow030",
+                 "properties": {
+                  "Text": "Tripo",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "Spacer",
+                 "name": "EndCreditRow031",
+                 "properties": {
+                  "Size": {
+                   "X": 1,
+                   "Y": 28
+                  }
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow032",
+                 "properties": {
+                  "Text": "Terrain:",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+                   "Size": 19
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.86,
+                    0.66,
+                    0.34,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow033",
+                 "properties": {
+                  "Text": "Gaea by QuadSpinner",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "Spacer",
+                 "name": "EndCreditRow034",
+                 "properties": {
+                  "Size": {
+                   "X": 1,
+                   "Y": 28
+                  }
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow035",
+                 "properties": {
+                  "Text": "Engine:",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+                   "Size": 19
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.86,
+                    0.66,
+                    0.34,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow036",
+                 "properties": {
+                  "Text": "Unreal Engine 5.8 by Epic Games",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "Spacer",
+                 "name": "EndCreditRow037",
+                 "properties": {
+                  "Size": {
+                   "X": 1,
+                   "Y": 28
+                  }
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow038",
+                 "properties": {
+                  "Text": "Fonts (SIL Open Font License):",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+                   "Size": 19
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.86,
+                    0.66,
+                    0.34,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow039",
+                 "properties": {
+                  "Text": "Aref Ruqaa",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow040",
+                 "properties": {
+                  "Text": "Cinzel",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow041",
+                 "properties": {
+                  "Text": "Cormorant",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow042",
+                 "properties": {
+                  "Text": "VT323",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "Spacer",
+                 "name": "EndCreditRow043",
+                 "properties": {
+                  "Size": {
+                   "X": 1,
+                   "Y": 28
+                  }
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow044",
+                 "properties": {
+                  "Text": "Input prompts:",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+                   "Size": 19
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.86,
+                    0.66,
+                    0.34,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow045",
+                 "properties": {
+                  "Text": "Kenney, Input Prompts 1.5 (kenney.nl, CC0)",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "Spacer",
+                 "name": "EndCreditRow046",
+                 "properties": {
+                  "Size": {
+                   "X": 1,
+                   "Y": 28
+                  }
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow047",
+                 "properties": {
+                  "Text": "Art and assets:",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+                   "Size": 19
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.86,
+                    0.66,
+                    0.34,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow048",
+                 "properties": {
+                  "Text": "Quixel Megascans via Fab",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow049",
+                 "properties": {
+                  "Text": "Fab: Twig V4 PBR",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow050",
+                 "properties": {
+                  "Text": "Fab: Wraithwood Trunks 3, Stylized Dead Tree",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow051",
+                 "properties": {
+                  "Text": "Ashes of Bazaar",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow052",
+                 "properties": {
+                  "Text": "Medieval Village",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow053",
+                 "properties": {
+                  "Text": "Light Foliage",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow054",
+                 "properties": {
+                  "Text": "EasyAtmos",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow055",
+                 "properties": {
+                  "Text": "Chaotic Skies",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow056",
+                 "properties": {
+                  "Text": "AzielArts Landscape Material and Footsteps",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow057",
+                 "properties": {
+                  "Text": "PN Grass Library",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow058",
+                 "properties": {
+                  "Text": "PN Wild Berries",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow059",
+                 "properties": {
+                  "Text": "Megaplant Library",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow060",
+                 "properties": {
+                  "Text": "Vefects Free Fire",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow061",
+                 "properties": {
+                  "Text": "Poly Haven (CC0)",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow062",
+                 "properties": {
+                  "Text": "Epic Games templates and Level Prototyping",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "Spacer",
+                 "name": "EndCreditRow063",
+                 "properties": {
+                  "Size": {
+                   "X": 1,
+                   "Y": 28
+                  }
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow064",
+                 "properties": {
+                  "Text": "Sound recordings from Freesound (CC BY 4.0):",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+                   "Size": 19
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.86,
+                    0.66,
+                    0.34,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow065",
+                 "properties": {
+                  "Text": "Artninja: rock_fall_avalanche_movement_sound_01082026",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow066",
+                 "properties": {
+                  "Text": "Benboncan: Rockfall in mine.wav",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow067",
+                 "properties": {
+                  "Text": "dobroide: 20081221.grey.heron.wav",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow068",
+                 "properties": {
+                  "Text": "Garuda1982: grey heron calls at night on lake",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow069",
+                 "properties": {
+                  "Text": "JustinBW: Crow Distant in Creek 2.wav",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow070",
+                 "properties": {
+                  "Text": "nicStage: Flagpole in the wind (Contact mic)",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "Spacer",
+                 "name": "EndCreditRow071",
+                 "properties": {
+                  "Size": {
+                   "X": 1,
+                   "Y": 28
+                  }
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow072",
+                 "properties": {
+                  "Text": "Sound recordings from Freesound (CC0), with thanks to:",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+                   "Size": 19
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.86,
+                    0.66,
+                    0.34,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow073",
+                 "properties": {
+                  "Text": "15GKovacovaJulie, 9voltplasma, Aegersum, alexanderdanner",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow074",
+                 "properties": {
+                  "Text": "Alexbuk, alfrd_jpn, AVstudent, betchkal",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow075",
+                 "properties": {
+                  "Text": "Bini_trns, bmacphail, Borgory, celadon_noise",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow076",
+                 "properties": {
+                  "Text": "CheatinSloth, cookies+policy, craigsmith, Crinkem",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow077",
+                 "properties": {
+                  "Text": "cupido-1, dan.pugsley, davidlagarde, dilsun",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow078",
+                 "properties": {
+                  "Text": "dpmart1970, EagleStealthTeam, Elizabethmoimane, elricadavis",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow079",
+                 "properties": {
+                  "Text": "EricsSoundschmiede, felix.blume, Fenfright, Fission9",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow080",
+                 "properties": {
+                  "Text": "florianreichelt, flumpytripod, foad, fran_marenco",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow081",
+                 "properties": {
+                  "Text": "franciscopcoutinho, Funkelfang, Garuda1982, gecop",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow082",
+                 "properties": {
+                  "Text": "giddster, gpag1, Greg_Surr, guyburns",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow083",
+                 "properties": {
+                  "Text": "hanneswannerberger, HenKonen, hinchinbrook, hnhnh",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow084",
+                 "properties": {
+                  "Text": "Hotlavaman, ideaph, inspire153, iwanPlays",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow085",
+                 "properties": {
+                  "Text": "Ixwolf, JelloApocalypse, jmbphilmes, Joao_Janz",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow086",
+                 "properties": {
+                  "Text": "joseph.larralde, julianmateo_, keng-wai-chane-chick-te, Kneeling",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow087",
+                 "properties": {
+                  "Text": "kyles, laft2k, larapoe, lartti",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow088",
+                 "properties": {
+                  "Text": "Leandri140029, loganzsound, LudwigMueller, lukiacostello",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow089",
+                 "properties": {
+                  "Text": "magnuswaker, martinimeniscus, miklovan, mukuh",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow090",
+                 "properties": {
+                  "Text": "NachtmahrTV, newtad1, NickTayloe, nicotep",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow091",
+                 "properties": {
+                  "Text": "Nox_Sound, OBXJohn, ondrosik, petebuchwald",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow092",
+                 "properties": {
+                  "Text": "Pfannkuchn, ProdMultimediasHQI, qubodup, rambler52",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow093",
+                 "properties": {
+                  "Text": "richwise, Robo9418, roisin.gleeson, rsellick",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow094",
+                 "properties": {
+                  "Text": "RutgerMuller, Sadiquecat, samararaine, SamsterBirdies",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow095",
+                 "properties": {
+                  "Text": "samwd, scalywhale, Selector, sergeeo",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow096",
+                 "properties": {
+                  "Text": "sethlind, shaunhillyard, Sheyvan, SKrafft",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow097",
+                 "properties": {
+                  "Text": "snardin42, Soonus, soundandmelodies, SoundsLikeYukon",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow098",
+                 "properties": {
+                  "Text": "SpliceSound, SukritSen, Takkyi, TheKingOfGeeks360",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow099",
+                 "properties": {
+                  "Text": "thisusernameis, thulitt, Troube, TRP",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow100",
+                 "properties": {
+                  "Text": "unfa, Vrymaa, xkeril, zmobie",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow101",
+                 "properties": {
+                  "Text": "Zott820, and one account since deleted",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                },
+                {
+                 "class": "Spacer",
+                 "name": "EndCreditRow102",
+                 "properties": {
+                  "Size": {
+                   "X": 1,
+                   "Y": 28
+                  }
+                 }
+                },
+                {
+                 "class": "TextBlock",
+                 "name": "EndCreditRow103",
+                 "properties": {
+                  "Text": "Thank you for carrying it this far.",
+                  "Font": {
+                   "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                   "Size": 25,
+                   "TypefaceFontName": "Regular"
+                  },
+                  "ColorAndOpacity": {
+                   "SpecifiedColor": [
+                    0.8469,
+                    0.7835,
+                    0.7011,
+                    1
+                   ]
+                  },
+                  "ShadowOffset": {
+                   "X": 1,
+                   "Y": 1
+                  },
+                  "ShadowColorAndOpacity": [
+                   0,
+                   0,
+                   0,
+                   0.75
+                  ],
+                  "AutoWrapText": true,
+                  "WrapTextAt": 900,
+                  "Justification": "Center",
+                  "LineHeightPercentage": 1.15
+                 },
+                 "slot_props": {
+                  "horizontal_alignment": "Fill",
+                  "padding": [
+                   20,
+                   4,
+                   20,
+                   4
+                  ]
+                 }
+                }
+               ]
+              },
+              {
+               "class": "Spacer",
+               "name": "EndCardRollTail",
+               "properties": {
+                "Size": {
+                 "X": 1,
+                 "Y": 640
+                }
+               }
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "slots": {
+  "EndCard": {
+   "anchors": [
+    0,
+    0,
+    1,
+    1
+   ],
+   "position": [
+    0,
+    0
+   ],
+   "size": [
+    0,
+    0
+   ],
+   "z_order": 20
+  }
+ },
+ "variables": [
+  "EndCard",
+  "EndCardBlack",
+  "EndCardContent",
+  "EndCardTitle",
+  "EndCardCreditsShort",
+  "EndCardRollViewport",
+  "EndCardRollScroll"
+ ]
+}

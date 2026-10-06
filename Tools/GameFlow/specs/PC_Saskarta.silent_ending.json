@@ -1,0 +1,32 @@
+{
+  "asset": "/Game/SaskartaGaea/GameFlow/PC_Saskarta",
+  "description": "Silence existing ending audio pending replacement voices. Flow hook applies once per transition and restores audio for other states.",
+  "functions": [{"name":"OnFlowStateSetByRunner","pure":false,"inputs":[],"outputs":[]}],
+  "graphs": [{
+    "graph":"OnFlowStateSetByRunner",
+    "nodes": {
+      "entry":{"entry":true},
+      "pop":{"call":"PopSoundMixModifier","class":"/Script/Engine.GameplayStatics"},
+      "flow":{"get":"FlowState"},
+      "human":{"call":"EqualEqual_NameName","class":"/Script/Engine.KismetMathLibrary"},
+      "transmit":{"call":"EqualEqual_NameName","class":"/Script/Engine.KismetMathLibrary"},
+      "end":{"call":"EqualEqual_NameName","class":"/Script/Engine.KismetMathLibrary"},
+      "or1":{"call":"BooleanOR","class":"/Script/Engine.KismetMathLibrary"},
+      "or2":{"call":"BooleanOR","class":"/Script/Engine.KismetMathLibrary"},
+      "branch":{"branch":true},
+      "push":{"call":"PushSoundMixModifier","class":"/Script/Engine.GameplayStatics"}
+    },
+    "defaults": {
+      "human.B":"Human","transmit.B":"Transmit","end.B":"End",
+      "pop.InSoundMixModifier":"/Game/SaskartaGaea/Audio/Classes/SCM_Saskarta_SilentEnding.SCM_Saskarta_SilentEnding",
+      "push.InSoundMixModifier":"/Game/SaskartaGaea/Audio/Classes/SCM_Saskarta_SilentEnding.SCM_Saskarta_SilentEnding"
+    },
+    "links": [
+      ["entry.then","pop.execute"],["pop.then","branch.execute"],
+      ["flow.FlowState","human.A"],["flow.FlowState","transmit.A"],["flow.FlowState","end.A"],
+      ["human.ReturnValue","or1.A"],["transmit.ReturnValue","or1.B"],
+      ["or1.ReturnValue","or2.A"],["end.ReturnValue","or2.B"],
+      ["or2.ReturnValue","branch.Condition"],["branch.then","push.execute"]
+    ]
+  }]
+}

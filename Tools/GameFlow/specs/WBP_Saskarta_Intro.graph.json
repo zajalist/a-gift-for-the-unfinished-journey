@@ -1,0 +1,1451 @@
+{
+  "asset": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Intro",
+  "description": "Studio intro (Task L5): ember name card, subtitle, loading hold and burn-away reveal on widget-owned timers (no Tick). PC_Saskarta creates it in BeginIntro and calls PlayIntro, IsHolding and Reveal. SkipButton requests the latched opening skip on PC_Saskarta before entering the hold. Notes: README.md, section WBP_Saskarta_Intro.",
+  "variables": [
+    {
+      "name": "EmberMID",
+      "type": "object:/Script/Engine.MaterialInstanceDynamic"
+    },
+    {
+      "name": "StepTimer",
+      "type": "struct:/Script/Engine.TimerHandle"
+    },
+    {
+      "name": "CardTimer",
+      "type": "struct:/Script/Engine.TimerHandle"
+    },
+    {
+      "name": "bHolding",
+      "type": "bool",
+      "default": "false"
+    },
+    {
+      "name": "IgniteFrom",
+      "type": "float",
+      "default": "0.0"
+    },
+    {
+      "name": "IgniteTo",
+      "type": "float",
+      "default": "1.0"
+    },
+    {
+      "name": "IgniteStart",
+      "type": "float",
+      "default": "0.0"
+    },
+    {
+      "name": "IgniteDur",
+      "type": "float",
+      "default": "4.0"
+    },
+    {
+      "name": "BurnFrom",
+      "type": "float",
+      "default": "0.0"
+    },
+    {
+      "name": "BurnTo",
+      "type": "float",
+      "default": "0.0"
+    },
+    {
+      "name": "BurnStart",
+      "type": "float",
+      "default": "0.0"
+    },
+    {
+      "name": "BurnDur",
+      "type": "float",
+      "default": "2.5"
+    },
+    {
+      "name": "SubFrom",
+      "type": "float",
+      "default": "0.0"
+    },
+    {
+      "name": "SubTo",
+      "type": "float",
+      "default": "0.0"
+    },
+    {
+      "name": "SubStart",
+      "type": "float",
+      "default": "0.0"
+    },
+    {
+      "name": "SubDur",
+      "type": "float",
+      "default": "1.5"
+    },
+    {
+      "name": "StatusFrom",
+      "type": "float",
+      "default": "0.0"
+    },
+    {
+      "name": "StatusTo",
+      "type": "float",
+      "default": "0.0"
+    },
+    {
+      "name": "StatusStart",
+      "type": "float",
+      "default": "0.0"
+    },
+    {
+      "name": "StatusDur",
+      "type": "float",
+      "default": "1.0"
+    },
+    {
+      "name": "SubtitleAt",
+      "type": "float",
+      "default": "2.5"
+    },
+    {
+      "name": "HoldDelay",
+      "type": "float",
+      "default": "5.5"
+    },
+    {
+      "name": "HoldIgnite",
+      "type": "float",
+      "default": "0.35"
+    },
+    {
+      "name": "HoldBlendTime",
+      "type": "float",
+      "default": "2.0"
+    },
+    {
+      "name": "StatusOutTime",
+      "type": "float",
+      "default": "0.4"
+    },
+    {
+      "name": "StepInterval",
+      "type": "float",
+      "default": "0.033"
+    },
+    {
+      "name": "PreviewIgnite",
+      "type": "float",
+      "default": "0.0"
+    },
+    {
+      "name": "PreviewBurn",
+      "type": "float",
+      "default": "0.0"
+    },
+    {
+      "name": "FireSound",
+      "type": "object:/Script/Engine.SoundBase",
+      "default": "/Game/SaskartaGaea/GameFlow/Audio/SFX_Intro_FireBurn.SFX_Intro_FireBurn"
+    },
+    {
+      "name": "FireAudio",
+      "type": "object:/Script/Engine.AudioComponent"
+    },
+    {
+      "name": "FireRevealAt",
+      "type": "float",
+      "default": "12.0"
+    }
+  ],
+  "functions": [
+    {
+      "name": "RampValue",
+      "pure": true,
+      "inputs": [
+        {
+          "name": "From",
+          "type": "float"
+        },
+        {
+          "name": "To",
+          "type": "float"
+        },
+        {
+          "name": "Start",
+          "type": "float"
+        },
+        {
+          "name": "Duration",
+          "type": "float"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Value",
+          "type": "float"
+        }
+      ]
+    },
+    {
+      "name": "IsHolding",
+      "pure": true,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "bHold",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "PlayIntro",
+      "pure": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "name": "ShowSubtitle",
+      "pure": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "name": "EnterHold",
+      "pure": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "name": "Reveal",
+      "pure": false,
+      "inputs": [
+        {
+          "name": "BurnTime",
+          "type": "float"
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "FinishIntro",
+      "pure": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "name": "EmberStep",
+      "pure": false,
+      "inputs": [],
+      "outputs": []
+    }
+  ],
+  "graphs": [
+    {
+      "graph": "RampValue",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "result": {
+          "result": true
+        },
+        "now": {
+          "call": "GetTimeSeconds",
+          "class": "/Script/Engine.GameplayStatics"
+        },
+        "elapsed": {
+          "call": "Subtract_DoubleDouble",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "safeDur": {
+          "call": "FMax",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "ratio": {
+          "call": "Divide_DoubleDouble",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "alpha": {
+          "call": "FClamp",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "value": {
+          "call": "Lerp",
+          "class": "/Script/Engine.KismetMathLibrary"
+        }
+      },
+      "links": [
+        [
+          "entry.then",
+          "result.execute"
+        ],
+        [
+          "now.ReturnValue",
+          "elapsed.A"
+        ],
+        [
+          "entry.Start",
+          "elapsed.B"
+        ],
+        [
+          "entry.Duration",
+          "safeDur.A"
+        ],
+        [
+          "elapsed.ReturnValue",
+          "ratio.A"
+        ],
+        [
+          "safeDur.ReturnValue",
+          "ratio.B"
+        ],
+        [
+          "ratio.ReturnValue",
+          "alpha.Value"
+        ],
+        [
+          "entry.From",
+          "value.A"
+        ],
+        [
+          "entry.To",
+          "value.B"
+        ],
+        [
+          "alpha.ReturnValue",
+          "value.Alpha"
+        ],
+        [
+          "value.ReturnValue",
+          "result.Value"
+        ]
+      ],
+      "defaults": {
+        "safeDur.B": "0.001",
+        "alpha.Min": "0.0",
+        "alpha.Max": "1.0"
+      }
+    },
+    {
+      "graph": "IsHolding",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "result": {
+          "result": true
+        },
+        "hold": {
+          "get": "bHolding"
+        }
+      },
+      "links": [
+        [
+          "entry.then",
+          "result.execute"
+        ],
+        [
+          "hold.bHolding",
+          "result.bHold"
+        ]
+      ],
+      "defaults": {}
+    },
+    {
+      "graph": "PlayIntro",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "me": {
+          "self": true
+        },
+        "retainer": {
+          "get": "EmberRetainer"
+        },
+        "effect": {
+          "call": "GetEffectMaterial",
+          "class": "/Script/UMG.RetainerBox"
+        },
+        "setMID": {
+          "set": "EmberMID"
+        },
+        "now": {
+          "call": "GetTimeSeconds",
+          "class": "/Script/Engine.GameplayStatics"
+        },
+        "setIgniteStart": {
+          "set": "IgniteStart"
+        },
+        "stepNow": {
+          "call": "EmberStep"
+        },
+        "subAt": {
+          "get": "SubtitleAt"
+        },
+        "cardTimer": {
+          "timer": true
+        },
+        "setCard": {
+          "set": "CardTimer"
+        },
+        "interval": {
+          "get": "StepInterval"
+        },
+        "stepTimer": {
+          "timer": true
+        },
+        "setStep": {
+          "set": "StepTimer"
+        },
+        "fireSound": {
+          "get": "FireSound"
+        },
+        "fireSpawn": {
+          "call": "SpawnSound2D",
+          "class": "/Script/Engine.GameplayStatics"
+        },
+        "fireSet": {
+          "set": "FireAudio"
+        }
+      },
+      "links": [
+        [
+          "entry.then",
+          "setMID.execute"
+        ],
+        [
+          "retainer.EmberRetainer",
+          "effect.self"
+        ],
+        [
+          "effect.ReturnValue",
+          "setMID.EmberMID"
+        ],
+        [
+          "setMID.then",
+          "setIgniteStart.execute"
+        ],
+        [
+          "now.ReturnValue",
+          "setIgniteStart.IgniteStart"
+        ],
+        [
+          "stepNow.then",
+          "cardTimer.execute"
+        ],
+        [
+          "me.self",
+          "cardTimer.Object"
+        ],
+        [
+          "subAt.SubtitleAt",
+          "cardTimer.Time"
+        ],
+        [
+          "cardTimer.then",
+          "setCard.execute"
+        ],
+        [
+          "cardTimer.ReturnValue",
+          "setCard.CardTimer"
+        ],
+        [
+          "setCard.then",
+          "stepTimer.execute"
+        ],
+        [
+          "me.self",
+          "stepTimer.Object"
+        ],
+        [
+          "interval.StepInterval",
+          "stepTimer.Time"
+        ],
+        [
+          "stepTimer.then",
+          "setStep.execute"
+        ],
+        [
+          "stepTimer.ReturnValue",
+          "setStep.StepTimer"
+        ],
+        [
+          "setIgniteStart.then",
+          "fireSpawn.execute"
+        ],
+        [
+          "fireSound.FireSound",
+          "fireSpawn.Sound"
+        ],
+        [
+          "fireSpawn.then",
+          "fireSet.execute"
+        ],
+        [
+          "fireSpawn.ReturnValue",
+          "fireSet.FireAudio"
+        ],
+        [
+          "fireSet.then",
+          "stepNow.execute"
+        ]
+      ],
+      "defaults": {
+        "cardTimer.FunctionName": "ShowSubtitle",
+        "cardTimer.bLooping": "false",
+        "stepTimer.FunctionName": "EmberStep",
+        "stepTimer.bLooping": "true",
+        "stepTimer.bMaxOncePerFrame": "true"
+      }
+    },
+    {
+      "graph": "ShowSubtitle",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "me": {
+          "self": true
+        },
+        "now": {
+          "call": "GetTimeSeconds",
+          "class": "/Script/Engine.GameplayStatics"
+        },
+        "setSubTo": {
+          "set": "SubTo"
+        },
+        "setSubStart": {
+          "set": "SubStart"
+        },
+        "holdDelay": {
+          "get": "HoldDelay"
+        },
+        "cardTimer": {
+          "timer": true
+        },
+        "setCard": {
+          "set": "CardTimer"
+        }
+      },
+      "links": [
+        [
+          "entry.then",
+          "setSubTo.execute"
+        ],
+        [
+          "setSubTo.then",
+          "setSubStart.execute"
+        ],
+        [
+          "now.ReturnValue",
+          "setSubStart.SubStart"
+        ],
+        [
+          "setSubStart.then",
+          "cardTimer.execute"
+        ],
+        [
+          "me.self",
+          "cardTimer.Object"
+        ],
+        [
+          "holdDelay.HoldDelay",
+          "cardTimer.Time"
+        ],
+        [
+          "cardTimer.then",
+          "setCard.execute"
+        ],
+        [
+          "cardTimer.ReturnValue",
+          "setCard.CardTimer"
+        ]
+      ],
+      "defaults": {
+        "setSubTo.SubTo": "1.0",
+        "cardTimer.FunctionName": "EnterHold",
+        "cardTimer.bLooping": "false"
+      }
+    },
+    {
+      "graph": "EnterHold",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "hold": {
+          "get": "bHolding"
+        },
+        "ifHolding": {
+          "branch": true
+        },
+        "cardGet": {
+          "get": "CardTimer"
+        },
+        "clearCard": {
+          "call": "K2_ClearAndInvalidateTimerHandle",
+          "class": "/Script/Engine.KismetSystemLibrary"
+        },
+        "setHolding": {
+          "set": "bHolding"
+        },
+        "now": {
+          "call": "GetTimeSeconds",
+          "class": "/Script/Engine.GameplayStatics"
+        },
+        "setIgniteFrom": {
+          "set": "IgniteFrom"
+        },
+        "holdIgnite": {
+          "get": "HoldIgnite"
+        },
+        "setIgniteTo": {
+          "set": "IgniteTo"
+        },
+        "setIgniteStart": {
+          "set": "IgniteStart"
+        },
+        "blend": {
+          "get": "HoldBlendTime"
+        },
+        "setIgniteDur": {
+          "set": "IgniteDur"
+        },
+        "setSubFrom": {
+          "set": "SubFrom"
+        },
+        "setSubTo": {
+          "set": "SubTo"
+        },
+        "setSubStart": {
+          "set": "SubStart"
+        },
+        "setSubDur": {
+          "set": "SubDur"
+        },
+        "setStatusTo": {
+          "set": "StatusTo"
+        },
+        "setStatusStart": {
+          "set": "StatusStart"
+        },
+        "igniteNow": {
+          "call": "RampValue"
+        },
+        "gIgniteFrom_igniteNow": {
+          "get": "IgniteFrom"
+        },
+        "gIgniteTo_igniteNow": {
+          "get": "IgniteTo"
+        },
+        "gIgniteStart_igniteNow": {
+          "get": "IgniteStart"
+        },
+        "gIgniteDur_igniteNow": {
+          "get": "IgniteDur"
+        },
+        "subNow": {
+          "call": "RampValue"
+        },
+        "gSubFrom_subNow": {
+          "get": "SubFrom"
+        },
+        "gSubTo_subNow": {
+          "get": "SubTo"
+        },
+        "gSubStart_subNow": {
+          "get": "SubStart"
+        },
+        "gSubDur_subNow": {
+          "get": "SubDur"
+        }
+      },
+      "links": [
+        [
+          "entry.then",
+          "ifHolding.execute"
+        ],
+        [
+          "hold.bHolding",
+          "ifHolding.Condition"
+        ],
+        [
+          "ifHolding.else",
+          "clearCard.execute"
+        ],
+        [
+          "cardGet.CardTimer",
+          "clearCard.Handle"
+        ],
+        [
+          "clearCard.then",
+          "setHolding.execute"
+        ],
+        [
+          "setHolding.then",
+          "setIgniteFrom.execute"
+        ],
+        [
+          "igniteNow.Value",
+          "setIgniteFrom.IgniteFrom"
+        ],
+        [
+          "setIgniteFrom.then",
+          "setIgniteTo.execute"
+        ],
+        [
+          "holdIgnite.HoldIgnite",
+          "setIgniteTo.IgniteTo"
+        ],
+        [
+          "setIgniteTo.then",
+          "setIgniteStart.execute"
+        ],
+        [
+          "now.ReturnValue",
+          "setIgniteStart.IgniteStart"
+        ],
+        [
+          "setIgniteStart.then",
+          "setIgniteDur.execute"
+        ],
+        [
+          "blend.HoldBlendTime",
+          "setIgniteDur.IgniteDur"
+        ],
+        [
+          "setIgniteDur.then",
+          "setSubFrom.execute"
+        ],
+        [
+          "subNow.Value",
+          "setSubFrom.SubFrom"
+        ],
+        [
+          "setSubFrom.then",
+          "setSubTo.execute"
+        ],
+        [
+          "setSubTo.then",
+          "setSubStart.execute"
+        ],
+        [
+          "now.ReturnValue",
+          "setSubStart.SubStart"
+        ],
+        [
+          "setSubStart.then",
+          "setSubDur.execute"
+        ],
+        [
+          "blend.HoldBlendTime",
+          "setSubDur.SubDur"
+        ],
+        [
+          "setSubDur.then",
+          "setStatusTo.execute"
+        ],
+        [
+          "setStatusTo.then",
+          "setStatusStart.execute"
+        ],
+        [
+          "now.ReturnValue",
+          "setStatusStart.StatusStart"
+        ],
+        [
+          "gIgniteFrom_igniteNow.IgniteFrom",
+          "igniteNow.From"
+        ],
+        [
+          "gIgniteTo_igniteNow.IgniteTo",
+          "igniteNow.To"
+        ],
+        [
+          "gIgniteStart_igniteNow.IgniteStart",
+          "igniteNow.Start"
+        ],
+        [
+          "gIgniteDur_igniteNow.IgniteDur",
+          "igniteNow.Duration"
+        ],
+        [
+          "gSubFrom_subNow.SubFrom",
+          "subNow.From"
+        ],
+        [
+          "gSubTo_subNow.SubTo",
+          "subNow.To"
+        ],
+        [
+          "gSubStart_subNow.SubStart",
+          "subNow.Start"
+        ],
+        [
+          "gSubDur_subNow.SubDur",
+          "subNow.Duration"
+        ]
+      ],
+      "defaults": {
+        "setHolding.bHolding": "true",
+        "setSubTo.SubTo": "0.0",
+        "setStatusTo.StatusTo": "1.0"
+      }
+    },
+    {
+      "graph": "Reveal",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "me": {
+          "self": true
+        },
+        "now": {
+          "call": "GetTimeSeconds",
+          "class": "/Script/Engine.GameplayStatics"
+        },
+        "setHolding": {
+          "set": "bHolding"
+        },
+        "cardGet": {
+          "get": "CardTimer"
+        },
+        "clearCard": {
+          "call": "K2_ClearAndInvalidateTimerHandle",
+          "class": "/Script/Engine.KismetSystemLibrary"
+        },
+        "setBurnTo": {
+          "set": "BurnTo"
+        },
+        "setBurnStart": {
+          "set": "BurnStart"
+        },
+        "setBurnDur": {
+          "set": "BurnDur"
+        },
+        "setStatusFrom": {
+          "set": "StatusFrom"
+        },
+        "setStatusTo": {
+          "set": "StatusTo"
+        },
+        "setStatusStart": {
+          "set": "StatusStart"
+        },
+        "outTime": {
+          "get": "StatusOutTime"
+        },
+        "setStatusDur": {
+          "set": "StatusDur"
+        },
+        "finishTimer": {
+          "timer": true
+        },
+        "setCard": {
+          "set": "CardTimer"
+        },
+        "statusNow": {
+          "call": "RampValue"
+        },
+        "gStatusFrom_statusNow": {
+          "get": "StatusFrom"
+        },
+        "gStatusTo_statusNow": {
+          "get": "StatusTo"
+        },
+        "gStatusStart_statusNow": {
+          "get": "StatusStart"
+        },
+        "gStatusDur_statusNow": {
+          "get": "StatusDur"
+        },
+        "fNow": {
+          "call": "GetTimeSeconds",
+          "class": "/Script/Engine.GameplayStatics"
+        },
+        "fStart": {
+          "get": "IgniteStart"
+        },
+        "fAge": {
+          "call": "Subtract_DoubleDouble",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "fAt": {
+          "get": "FireRevealAt"
+        },
+        "fOff": {
+          "call": "Subtract_DoubleDouble",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "fAbs": {
+          "call": "Abs",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "fLate": {
+          "call": "Greater_DoubleDouble",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "fAudio": {
+          "get": "FireAudio"
+        },
+        "fValid": {
+          "call": "IsValid",
+          "class": "/Script/Engine.KismetSystemLibrary"
+        },
+        "fBoth": {
+          "call": "BooleanAND",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "fireIf": {
+          "branch": true
+        },
+        "fFade": {
+          "call": "FadeOut",
+          "class": "/Script/Engine.AudioComponent"
+        },
+        "fSound": {
+          "get": "FireSound"
+        },
+        "fAt2": {
+          "get": "FireRevealAt"
+        },
+        "fRespawn": {
+          "call": "SpawnSound2D",
+          "class": "/Script/Engine.GameplayStatics"
+        },
+        "fSet": {
+          "set": "FireAudio"
+        }
+      },
+      "links": [
+        [
+          "entry.then",
+          "setHolding.execute"
+        ],
+        [
+          "setHolding.then",
+          "clearCard.execute"
+        ],
+        [
+          "cardGet.CardTimer",
+          "clearCard.Handle"
+        ],
+        [
+          "clearCard.then",
+          "setBurnTo.execute"
+        ],
+        [
+          "setBurnTo.then",
+          "setBurnStart.execute"
+        ],
+        [
+          "now.ReturnValue",
+          "setBurnStart.BurnStart"
+        ],
+        [
+          "setBurnStart.then",
+          "setBurnDur.execute"
+        ],
+        [
+          "entry.BurnTime",
+          "setBurnDur.BurnDur"
+        ],
+        [
+          "setBurnDur.then",
+          "setStatusFrom.execute"
+        ],
+        [
+          "statusNow.Value",
+          "setStatusFrom.StatusFrom"
+        ],
+        [
+          "setStatusFrom.then",
+          "setStatusTo.execute"
+        ],
+        [
+          "setStatusTo.then",
+          "setStatusStart.execute"
+        ],
+        [
+          "now.ReturnValue",
+          "setStatusStart.StatusStart"
+        ],
+        [
+          "setStatusStart.then",
+          "setStatusDur.execute"
+        ],
+        [
+          "outTime.StatusOutTime",
+          "setStatusDur.StatusDur"
+        ],
+        [
+          "setStatusDur.then",
+          "finishTimer.execute"
+        ],
+        [
+          "me.self",
+          "finishTimer.Object"
+        ],
+        [
+          "entry.BurnTime",
+          "finishTimer.Time"
+        ],
+        [
+          "finishTimer.then",
+          "setCard.execute"
+        ],
+        [
+          "finishTimer.ReturnValue",
+          "setCard.CardTimer"
+        ],
+        [
+          "gStatusFrom_statusNow.StatusFrom",
+          "statusNow.From"
+        ],
+        [
+          "gStatusTo_statusNow.StatusTo",
+          "statusNow.To"
+        ],
+        [
+          "gStatusStart_statusNow.StatusStart",
+          "statusNow.Start"
+        ],
+        [
+          "gStatusDur_statusNow.StatusDur",
+          "statusNow.Duration"
+        ],
+        [
+          "fNow.ReturnValue",
+          "fAge.A"
+        ],
+        [
+          "fStart.IgniteStart",
+          "fAge.B"
+        ],
+        [
+          "fAge.ReturnValue",
+          "fOff.A"
+        ],
+        [
+          "fAt.FireRevealAt",
+          "fOff.B"
+        ],
+        [
+          "fOff.ReturnValue",
+          "fAbs.A"
+        ],
+        [
+          "fAbs.ReturnValue",
+          "fLate.A"
+        ],
+        [
+          "fAudio.FireAudio",
+          "fValid.Object"
+        ],
+        [
+          "fLate.ReturnValue",
+          "fBoth.A"
+        ],
+        [
+          "fValid.ReturnValue",
+          "fBoth.B"
+        ],
+        [
+          "setCard.then",
+          "fireIf.execute"
+        ],
+        [
+          "fBoth.ReturnValue",
+          "fireIf.Condition"
+        ],
+        [
+          "fireIf.then",
+          "fFade.execute"
+        ],
+        [
+          "fAudio.FireAudio",
+          "fFade.self"
+        ],
+        [
+          "fFade.then",
+          "fRespawn.execute"
+        ],
+        [
+          "fSound.FireSound",
+          "fRespawn.Sound"
+        ],
+        [
+          "fAt2.FireRevealAt",
+          "fRespawn.StartTime"
+        ],
+        [
+          "fRespawn.then",
+          "fSet.execute"
+        ],
+        [
+          "fRespawn.ReturnValue",
+          "fSet.FireAudio"
+        ]
+      ],
+      "defaults": {
+        "setHolding.bHolding": "true",
+        "setBurnTo.BurnTo": "1.0",
+        "setStatusTo.StatusTo": "0.0",
+        "finishTimer.FunctionName": "FinishIntro",
+        "finishTimer.bLooping": "false",
+        "fLate.B": "0.25",
+        "fFade.FadeOutDuration": "0.4",
+        "fFade.FadeVolumeLevel": "0.0"
+      }
+    },
+    {
+      "graph": "FinishIntro",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "me": {
+          "self": true
+        },
+        "stepGet": {
+          "get": "StepTimer"
+        },
+        "clearStep": {
+          "call": "K2_ClearAndInvalidateTimerHandle",
+          "class": "/Script/Engine.KismetSystemLibrary"
+        },
+        "remove": {
+          "call": "RemoveFromParent",
+          "class": "/Script/UMG.Widget"
+        }
+      },
+      "links": [
+        [
+          "entry.then",
+          "clearStep.execute"
+        ],
+        [
+          "stepGet.StepTimer",
+          "clearStep.Handle"
+        ],
+        [
+          "clearStep.then",
+          "remove.execute"
+        ],
+        [
+          "me.self",
+          "remove.self"
+        ]
+      ],
+      "defaults": {}
+    },
+    {
+      "graph": "EmberStep",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "mid": {
+          "get": "EmberMID"
+        },
+        "pushIgnite": {
+          "call": "SetScalarParameterValue",
+          "class": "/Script/Engine.MaterialInstanceDynamic"
+        },
+        "pushBurn": {
+          "call": "SetScalarParameterValue",
+          "class": "/Script/Engine.MaterialInstanceDynamic"
+        },
+        "subtitle": {
+          "get": "SubtitleText"
+        },
+        "subOpacity": {
+          "call": "SetRenderOpacity",
+          "class": "/Script/UMG.Widget"
+        },
+        "status": {
+          "get": "StatusText"
+        },
+        "statusOpacity": {
+          "call": "SetRenderOpacity",
+          "class": "/Script/UMG.Widget"
+        },
+        "igniteV": {
+          "call": "RampValue"
+        },
+        "gIgniteFrom_igniteV": {
+          "get": "IgniteFrom"
+        },
+        "gIgniteTo_igniteV": {
+          "get": "IgniteTo"
+        },
+        "gIgniteStart_igniteV": {
+          "get": "IgniteStart"
+        },
+        "gIgniteDur_igniteV": {
+          "get": "IgniteDur"
+        },
+        "burnV": {
+          "call": "RampValue"
+        },
+        "gBurnFrom_burnV": {
+          "get": "BurnFrom"
+        },
+        "gBurnTo_burnV": {
+          "get": "BurnTo"
+        },
+        "gBurnStart_burnV": {
+          "get": "BurnStart"
+        },
+        "gBurnDur_burnV": {
+          "get": "BurnDur"
+        },
+        "subV": {
+          "call": "RampValue"
+        },
+        "gSubFrom_subV": {
+          "get": "SubFrom"
+        },
+        "gSubTo_subV": {
+          "get": "SubTo"
+        },
+        "gSubStart_subV": {
+          "get": "SubStart"
+        },
+        "gSubDur_subV": {
+          "get": "SubDur"
+        },
+        "statusV": {
+          "call": "RampValue"
+        },
+        "gStatusFrom_statusV": {
+          "get": "StatusFrom"
+        },
+        "gStatusTo_statusV": {
+          "get": "StatusTo"
+        },
+        "gStatusStart_statusV": {
+          "get": "StatusStart"
+        },
+        "gStatusDur_statusV": {
+          "get": "StatusDur"
+        }
+      },
+      "links": [
+        [
+          "entry.then",
+          "pushIgnite.execute"
+        ],
+        [
+          "mid.EmberMID",
+          "pushIgnite.self"
+        ],
+        [
+          "igniteV.Value",
+          "pushIgnite.Value"
+        ],
+        [
+          "pushIgnite.then",
+          "pushBurn.execute"
+        ],
+        [
+          "mid.EmberMID",
+          "pushBurn.self"
+        ],
+        [
+          "burnV.Value",
+          "pushBurn.Value"
+        ],
+        [
+          "pushBurn.then",
+          "subOpacity.execute"
+        ],
+        [
+          "subtitle.SubtitleText",
+          "subOpacity.self"
+        ],
+        [
+          "subV.Value",
+          "subOpacity.InOpacity"
+        ],
+        [
+          "subOpacity.then",
+          "statusOpacity.execute"
+        ],
+        [
+          "status.StatusText",
+          "statusOpacity.self"
+        ],
+        [
+          "statusV.Value",
+          "statusOpacity.InOpacity"
+        ],
+        [
+          "gIgniteFrom_igniteV.IgniteFrom",
+          "igniteV.From"
+        ],
+        [
+          "gIgniteTo_igniteV.IgniteTo",
+          "igniteV.To"
+        ],
+        [
+          "gIgniteStart_igniteV.IgniteStart",
+          "igniteV.Start"
+        ],
+        [
+          "gIgniteDur_igniteV.IgniteDur",
+          "igniteV.Duration"
+        ],
+        [
+          "gBurnFrom_burnV.BurnFrom",
+          "burnV.From"
+        ],
+        [
+          "gBurnTo_burnV.BurnTo",
+          "burnV.To"
+        ],
+        [
+          "gBurnStart_burnV.BurnStart",
+          "burnV.Start"
+        ],
+        [
+          "gBurnDur_burnV.BurnDur",
+          "burnV.Duration"
+        ],
+        [
+          "gSubFrom_subV.SubFrom",
+          "subV.From"
+        ],
+        [
+          "gSubTo_subV.SubTo",
+          "subV.To"
+        ],
+        [
+          "gSubStart_subV.SubStart",
+          "subV.Start"
+        ],
+        [
+          "gSubDur_subV.SubDur",
+          "subV.Duration"
+        ],
+        [
+          "gStatusFrom_statusV.StatusFrom",
+          "statusV.From"
+        ],
+        [
+          "gStatusTo_statusV.StatusTo",
+          "statusV.To"
+        ],
+        [
+          "gStatusStart_statusV.StatusStart",
+          "statusV.Start"
+        ],
+        [
+          "gStatusDur_statusV.StatusDur",
+          "statusV.Duration"
+        ]
+      ],
+      "defaults": {
+        "pushIgnite.ParameterName": "Ignite",
+        "pushBurn.ParameterName": "Burn"
+      }
+    },
+    {
+      "graph": "EventGraph",
+      "nodes": {
+        "pre": {
+          "event": "PreConstruct"
+        },
+        "retainer": {
+          "get": "EmberRetainer"
+        },
+        "effect": {
+          "call": "GetEffectMaterial",
+          "class": "/Script/UMG.RetainerBox"
+        },
+        "pIgnite": {
+          "get": "PreviewIgnite"
+        },
+        "pBurn": {
+          "get": "PreviewBurn"
+        },
+        "previewIgnite": {
+          "call": "SetScalarParameterValue",
+          "class": "/Script/Engine.MaterialInstanceDynamic"
+        },
+        "previewBurn": {
+          "call": "SetScalarParameterValue",
+          "class": "/Script/Engine.MaterialInstanceDynamic"
+        },
+        "skip": {
+          "bound_event": {
+            "target": "SkipButton",
+            "event": "OnClicked"
+          }
+        },
+        "skipSteps": {
+          "sequence": 2
+        },
+        "owner": {
+          "call": "GetOwningPlayer",
+          "class": "/Script/UMG.Widget"
+        },
+        "ownerPC": {
+          "cast": "/Game/SaskartaGaea/GameFlow/PC_Saskarta.PC_Saskarta_C"
+        },
+        "requestOpeningSkip": {
+          "call": "RequestOpeningSkip",
+          "class": "/Game/SaskartaGaea/GameFlow/PC_Saskarta.PC_Saskarta_C"
+        },
+        "hold": {
+          "call": "EnterHold"
+        }
+      },
+      "links": [
+        [
+          "pre.then",
+          "previewIgnite.execute"
+        ],
+        [
+          "retainer.EmberRetainer",
+          "effect.self"
+        ],
+        [
+          "effect.ReturnValue",
+          "previewIgnite.self"
+        ],
+        [
+          "pIgnite.PreviewIgnite",
+          "previewIgnite.Value"
+        ],
+        [
+          "previewIgnite.then",
+          "previewBurn.execute"
+        ],
+        [
+          "effect.ReturnValue",
+          "previewBurn.self"
+        ],
+        [
+          "pBurn.PreviewBurn",
+          "previewBurn.Value"
+        ],
+        ["skip.then", "skipSteps.execute"],
+        ["skipSteps.then_0", "ownerPC.execute"],
+        ["owner.ReturnValue", "ownerPC.Object"],
+        ["ownerPC.then", "requestOpeningSkip.execute"],
+        ["ownerPC.AsPC Saskarta", "requestOpeningSkip.self"],
+        ["skipSteps.then_1", "hold.execute"]
+      ],
+      "defaults": {
+        "previewIgnite.ParameterName": "Ignite",
+        "previewBurn.ParameterName": "Burn"
+      }
+    }
+  ],
+  "cdo_defaults": {
+    "bIsFocusable": true,
+    "DesiredFocusWidget": {
+      "WidgetName": "SkipButton"
+    }
+  }
+}

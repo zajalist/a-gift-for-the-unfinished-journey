@@ -1,0 +1,105 @@
+{
+  "asset": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Motor",
+  "create": {
+    "path": "/Game/SaskartaGaea/GameFlow/UI",
+    "name": "WBP_Saskarta_Motor",
+    "parent_class": "/Script/SaskartaCore.SaskartaMotorResonanceWidget"
+  },
+  "tree": [
+    {
+      "class": "CanvasPanel",
+      "name": "MotorScreen",
+      "children": [
+        {
+          "class": "Border",
+          "name": "MotorGlass",
+          "properties": {
+            "BrushColor": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "class": "/Script/SaskartaCore.SaskartaMotorRetainer",
+          "name": "MotorPhosphor",
+          "children": [
+            {
+              "class": "/Script/SaskartaCore.SaskartaMotorDiagram",
+              "name": "MotorMechanism"
+            }
+          ],
+          "properties": {
+            "bRetainRender": false
+          }
+        }
+      ],
+      "properties": {
+        "RenderTransformPivot": {
+          "X": 0,
+          "Y": 1
+        },
+        "RenderTransform": {
+          "Scale": {
+            "X": 0.66,
+            "Y": 0.66
+          }
+        }
+      }
+    }
+  ],
+  "slots": {
+    "MotorScreen": {
+      "anchors": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "alignment": [
+        0,
+        1
+      ],
+      "position": [
+        28,
+        -232
+      ],
+      "size": [
+        720,
+        384
+      ]
+    },
+    "MotorGlass": {
+      "position": [
+        0,
+        0
+      ],
+      "size": [
+        720,
+        384
+      ]
+    },
+    "MotorPhosphor": {
+      "position": [
+        0,
+        0
+      ],
+      "size": [
+        720,
+        384
+      ]
+    }
+  },
+  "variables": [],
+  "expected_parent": "/Script/SaskartaCore.SaskartaMotorResonanceWidget",
+  "expected_widgets": {
+    "MotorScreen": "CanvasPanel",
+    "MotorGlass": "Border",
+    "MotorPhosphor": "SaskartaMotorRetainer",
+    "MotorMechanism": "SaskartaMotorDiagram"
+  },
+  "strict_compile": true,
+  "force_save": true
+}

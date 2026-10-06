@@ -1,0 +1,956 @@
+{
+  "asset": "/Game/SaskartaGaea/GameFlow/PC_Saskarta",
+  "description": "Scoped Continue integration: retain title on failure; native restore owns flow, pawn and view. No first-boot or TryGround path.",
+  "variables": [
+    {
+      "name": "TitleSequencePlayer",
+      "type": "object:/Script/LevelSequence.LevelSequencePlayer"
+    },
+    {
+      "name": "bContinueRestored",
+      "type": "bool",
+      "default": "false"
+    }
+  ],
+  "functions": [
+    {
+      "name": "BeginTitle",
+      "pure": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "name": "ContinueGame",
+      "pure": false,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "bRestored",
+          "type": "bool"
+        }
+      ]
+    }
+  ],
+  "graphs": [
+    {
+      "graph": "BeginTitle",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "flow": {
+          "get": "FlowState"
+        },
+        "isNone": {
+          "call": "EqualEqual_NameName",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "ifFirst": {
+          "branch": true
+        },
+        "steps": {
+          "sequence": 4
+        },
+        "pawn": {
+          "call": "K2_GetPawn",
+          "class": "/Script/Engine.Controller"
+        },
+        "moveComponent": {
+          "call": "GetComponentByClass",
+          "class": "/Script/Engine.Actor"
+        },
+        "castMove": {
+          "cast": "/Script/Engine.CharacterMovementComponent"
+        },
+        "freeze": {
+          "call": "SetMovementMode",
+          "class": "/Script/Engine.CharacterMovementComponent"
+        },
+        "ignoreMove": {
+          "call": "SetIgnoreMoveInput",
+          "class": "/Script/Engine.Controller"
+        },
+        "ignoreLook": {
+          "call": "SetIgnoreLookInput",
+          "class": "/Script/Engine.Controller"
+        },
+        "findVolume": {
+          "call": "GetActorOfClass",
+          "class": "/Script/Engine.GameplayStatics"
+        },
+        "castVolume": {
+          "cast": "/Script/Engine.PostProcessVolume"
+        },
+        "vision": {
+          "get": "CarrierVision"
+        },
+        "giveVolume": {
+          "call": "SetVisionVolume",
+          "class": "/Game/SaskartaGaea/GameFlow/BPC_CarrierVision.BPC_CarrierVision_C"
+        },
+        "setup": {
+          "call": "Setup",
+          "class": "/Game/SaskartaGaea/GameFlow/BPC_CarrierVision.BPC_CarrierVision_C"
+        },
+        "findCamera": {
+          "call": "GetActorOfClass",
+          "class": "/Script/Engine.GameplayStatics"
+        },
+        "viewCamera": {
+          "call": "SetViewTargetWithBlend",
+          "class": "/Script/Engine.PlayerController"
+        },
+        "findSeqActor": {
+          "call": "GetActorOfClass",
+          "class": "/Script/Engine.GameplayStatics"
+        },
+        "castSeqActor": {
+          "cast": "/Script/LevelSequence.LevelSequenceActor"
+        },
+        "getPlayer": {
+          "call": "GetSequencePlayer",
+          "class": "/Script/LevelSequence.LevelSequenceActor"
+        },
+        "playLoop": {
+          "call": "PlayLooping",
+          "class": "/Script/LevelSequence.LevelSequencePlayer"
+        },
+        "showTitle": {
+          "call": "ShowTitle",
+          "class": "/Game/SaskartaGaea/GameFlow/BPC_CarrierVision.BPC_CarrierVision_C"
+        },
+        "titleWidget": {
+          "call": "GetTitleWidget",
+          "class": "/Game/SaskartaGaea/GameFlow/BPC_CarrierVision.BPC_CarrierVision_C"
+        },
+        "me": {
+          "self": true
+        },
+        "uiOnly": {
+          "call": "SetInputMode_UIOnlyEx",
+          "class": "/Script/UMG.WidgetBlueprintLibrary"
+        },
+        "cursorOn": {
+          "set": "bShowMouseCursor"
+        },
+        "music": {
+          "get": "TitleMusic"
+        },
+        "fadeInMusic": {
+          "call": "FadeIn",
+          "class": "/Script/Engine.AudioComponent"
+        },
+        "toTitle": {
+          "set": "FlowState"
+        },
+        "resumeLoadingGov": {
+          "call": "GetPerfGovernor",
+          "class": "/Script/SaskartaCore.SaskartaPerfGovernor"
+        },
+        "resumeLoading": {
+          "call": "SetSuspended",
+          "class": "/Script/SaskartaCore.SaskartaPerfGovernor"
+        },
+        "suspendTitleGov": {
+          "call": "GetPerfGovernor",
+          "class": "/Script/SaskartaCore.SaskartaPerfGovernor"
+        },
+        "suspendTitle": {
+          "call": "SetSuspended",
+          "class": "/Script/SaskartaCore.SaskartaPerfGovernor"
+        },
+        "cacheTitlePlayer": {
+          "set": "TitleSequencePlayer"
+        }
+      },
+      "links": [
+        [
+          "entry.then",
+          "ifFirst.execute"
+        ],
+        [
+          "flow.FlowState",
+          "isNone.A"
+        ],
+        [
+          "isNone.ReturnValue",
+          "ifFirst.Condition"
+        ],
+        [
+          "steps.then_0",
+          "castMove.execute"
+        ],
+        [
+          "pawn.ReturnValue",
+          "moveComponent.self"
+        ],
+        [
+          "moveComponent.ReturnValue",
+          "castMove.Object"
+        ],
+        [
+          "castMove.then",
+          "freeze.execute"
+        ],
+        [
+          "castMove.AsCharacter Movement Component",
+          "freeze.self"
+        ],
+        [
+          "steps.then_1",
+          "ignoreMove.execute"
+        ],
+        [
+          "ignoreMove.then",
+          "ignoreLook.execute"
+        ],
+        [
+          "steps.then_2",
+          "findVolume.execute"
+        ],
+        [
+          "findVolume.then",
+          "castVolume.execute"
+        ],
+        [
+          "findVolume.ReturnValue",
+          "castVolume.Object"
+        ],
+        [
+          "castVolume.then",
+          "giveVolume.execute"
+        ],
+        [
+          "vision.CarrierVision",
+          "giveVolume.self"
+        ],
+        [
+          "castVolume.AsPost Process Volume",
+          "giveVolume.Volume"
+        ],
+        [
+          "steps.then_3",
+          "setup.execute"
+        ],
+        [
+          "vision.CarrierVision",
+          "setup.self"
+        ],
+        [
+          "setup.then",
+          "findCamera.execute"
+        ],
+        [
+          "findCamera.then",
+          "viewCamera.execute"
+        ],
+        [
+          "findCamera.ReturnValue",
+          "viewCamera.NewViewTarget"
+        ],
+        [
+          "viewCamera.then",
+          "findSeqActor.execute"
+        ],
+        [
+          "findSeqActor.then",
+          "castSeqActor.execute"
+        ],
+        [
+          "findSeqActor.ReturnValue",
+          "castSeqActor.Object"
+        ],
+        [
+          "castSeqActor.AsLevel Sequence Actor",
+          "getPlayer.self"
+        ],
+        [
+          "getPlayer.ReturnValue",
+          "playLoop.self"
+        ],
+        [
+          "playLoop.then",
+          "showTitle.execute"
+        ],
+        [
+          "castSeqActor.CastFailed",
+          "showTitle.execute"
+        ],
+        [
+          "vision.CarrierVision",
+          "showTitle.self"
+        ],
+        [
+          "showTitle.then",
+          "uiOnly.execute"
+        ],
+        [
+          "me.self",
+          "uiOnly.PlayerController"
+        ],
+        [
+          "vision.CarrierVision",
+          "titleWidget.self"
+        ],
+        [
+          "titleWidget.Widget",
+          "uiOnly.InWidgetToFocus"
+        ],
+        [
+          "uiOnly.then",
+          "cursorOn.execute"
+        ],
+        [
+          "cursorOn.then",
+          "fadeInMusic.execute"
+        ],
+        [
+          "music.TitleMusic",
+          "fadeInMusic.self"
+        ],
+        [
+          "fadeInMusic.then",
+          "toTitle.execute"
+        ],
+        [
+          "me.self",
+          "resumeLoadingGov.WorldContext"
+        ],
+        [
+          "resumeLoadingGov.ReturnValue",
+          "resumeLoading.self"
+        ],
+        [
+          "me.self",
+          "suspendTitleGov.WorldContext"
+        ],
+        [
+          "suspendTitleGov.ReturnValue",
+          "suspendTitle.self"
+        ],
+        [
+          "ifFirst.then",
+          "resumeLoading.execute"
+        ],
+        [
+          "resumeLoading.then",
+          "suspendTitle.execute"
+        ],
+        [
+          "suspendTitle.then",
+          "steps.execute"
+        ],
+        [
+          "castSeqActor.then",
+          "cacheTitlePlayer.execute"
+        ],
+        [
+          "getPlayer.ReturnValue",
+          "cacheTitlePlayer.TitleSequencePlayer"
+        ],
+        [
+          "cacheTitlePlayer.then",
+          "playLoop.execute"
+        ]
+      ],
+      "defaults": {
+        "isNone.B": "None",
+        "moveComponent.ComponentClass": "/Script/Engine.CharacterMovementComponent",
+        "freeze.NewMovementMode": "MOVE_None",
+        "ignoreMove.bNewMoveInput": "true",
+        "ignoreLook.bNewLookInput": "true",
+        "findVolume.ActorClass": "/Game/SaskartaGaea/GameFlow/BP_CarrierVisionVolume.BP_CarrierVisionVolume_C",
+        "findCamera.ActorClass": "/Script/CinematicCamera.CineCameraActor",
+        "viewCamera.BlendTime": "0.0",
+        "findSeqActor.ActorClass": "/Script/LevelSequence.LevelSequenceActor",
+        "playLoop.NumLoops": "-1",
+        "uiOnly.InMouseLockMode": "DoNotLock",
+        "cursorOn.bShowMouseCursor": "true",
+        "fadeInMusic.FadeInDuration": "1.0",
+        "toTitle.FlowState": "Title",
+        "resumeLoading.Reason": "Loading",
+        "resumeLoading.bSuspend": "false",
+        "suspendTitle.Reason": "Title",
+        "suspendTitle.bSuspend": "true"
+      }
+    },
+    {
+      "graph": "ContinueGame",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "me": {
+          "self": true
+        },
+        "resetRestored": {
+          "set": "bContinueRestored"
+        },
+        "ifTitle": {
+          "branch": true
+        },
+        "isTitle": {
+          "call": "EqualEqual_NameName",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "getFlowState": {
+          "get": "FlowState"
+        },
+        "result": {
+          "result": true
+        },
+        "getbContinueRestored": {
+          "get": "bContinueRestored"
+        },
+        "getTitleSequencePlayer": {
+          "get": "TitleSequencePlayer"
+        },
+        "titlePlayerValid": {
+          "call": "IsValid",
+          "class": "/Script/Engine.KismetSystemLibrary"
+        },
+        "titlePlayerBranch": {
+          "branch": true
+        },
+        "stopTitle": {
+          "call": "Stop",
+          "class": "/Script/LevelSequence.LevelSequencePlayer"
+        },
+        "restore": {
+          "call": "RestoreFromSave",
+          "class": "/Script/SaskartaCore.SaskartaEventLibrary"
+        },
+        "restored": {
+          "branch": true
+        },
+        "replayTitleValid": {
+          "call": "IsValid",
+          "class": "/Script/Engine.KismetSystemLibrary"
+        },
+        "replayTitleBranch": {
+          "branch": true
+        },
+        "replay": {
+          "call": "PlayLooping",
+          "class": "/Script/LevelSequence.LevelSequencePlayer"
+        },
+        "clearIntroTimer": {
+          "call": "K2_ClearAndInvalidateTimerHandle",
+          "class": "/Script/Engine.KismetSystemLibrary"
+        },
+        "getIntroTimer": {
+          "get": "IntroTimer"
+        },
+        "clearOpeningSkipTimer": {
+          "call": "K2_ClearAndInvalidateTimerHandle",
+          "class": "/Script/Engine.KismetSystemLibrary"
+        },
+        "getOpeningSkipTimer": {
+          "get": "OpeningSkipTimer"
+        },
+        "getTitleMusic": {
+          "get": "TitleMusic"
+        },
+        "musicValid": {
+          "call": "IsValid",
+          "class": "/Script/Engine.KismetSystemLibrary"
+        },
+        "musicBranch": {
+          "branch": true
+        },
+        "stopMusic": {
+          "call": "Stop",
+          "class": "/Script/Engine.AudioComponent"
+        },
+        "getCarrierVision": {
+          "get": "CarrierVision"
+        },
+        "visionValid": {
+          "call": "IsValid",
+          "class": "/Script/Engine.KismetSystemLibrary"
+        },
+        "visionBranch": {
+          "branch": true
+        },
+        "cleanupVision": {
+          "call": "RestoreAfterContinue",
+          "class": "/Game/SaskartaGaea/GameFlow/BPC_CarrierVision.BPC_CarrierVision_C"
+        },
+        "getIntroWidget": {
+          "get": "IntroWidget"
+        },
+        "IntroWidgetValid": {
+          "call": "IsValid",
+          "class": "/Script/Engine.KismetSystemLibrary"
+        },
+        "IntroWidgetBranch": {
+          "branch": true
+        },
+        "stopIntroWidget": {
+          "call": "StopAllAnimations",
+          "class": "/Script/UMG.UserWidget"
+        },
+        "removeIntroWidget": {
+          "call": "RemoveFromParent",
+          "class": "/Script/UMG.Widget"
+        },
+        "getLoadingWidget": {
+          "get": "LoadingWidget"
+        },
+        "LoadingWidgetValid": {
+          "call": "IsValid",
+          "class": "/Script/Engine.KismetSystemLibrary"
+        },
+        "LoadingWidgetBranch": {
+          "branch": true
+        },
+        "stopLoadingWidget": {
+          "call": "StopAllAnimations",
+          "class": "/Script/UMG.UserWidget"
+        },
+        "removeLoadingWidget": {
+          "call": "RemoveFromParent",
+          "class": "/Script/UMG.Widget"
+        },
+        "getEventCardWidget": {
+          "get": "EventCardWidget"
+        },
+        "EventCardWidgetValid": {
+          "call": "IsValid",
+          "class": "/Script/Engine.KismetSystemLibrary"
+        },
+        "EventCardWidgetBranch": {
+          "branch": true
+        },
+        "stopEventCardWidget": {
+          "call": "StopAllAnimations",
+          "class": "/Script/UMG.UserWidget"
+        },
+        "removeEventCardWidget": {
+          "call": "RemoveFromParent",
+          "class": "/Script/UMG.Widget"
+        },
+        "getHaybaCardWidget": {
+          "get": "HaybaCardWidget"
+        },
+        "HaybaCardWidgetValid": {
+          "call": "IsValid",
+          "class": "/Script/Engine.KismetSystemLibrary"
+        },
+        "HaybaCardWidgetBranch": {
+          "branch": true
+        },
+        "stopHaybaCardWidget": {
+          "call": "StopAllAnimations",
+          "class": "/Script/UMG.UserWidget"
+        },
+        "removeHaybaCardWidget": {
+          "call": "RemoveFromParent",
+          "class": "/Script/UMG.Widget"
+        },
+        "worldVisible": {
+          "call": "SetEnableWorldRendering",
+          "class": "/Script/Engine.GameplayStatics"
+        },
+        "gameInput": {
+          "call": "SetInputMode_GameOnly",
+          "class": "/Script/UMG.WidgetBlueprintLibrary"
+        },
+        "cursorOff": {
+          "set": "bShowMouseCursor"
+        },
+        "isHuman": {
+          "call": "EqualEqual_NameName",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "humanFlow": {
+          "branch": true
+        },
+        "getRoadTether": {
+          "get": "RoadTether"
+        },
+        "tetherValid": {
+          "call": "IsValid",
+          "class": "/Script/Engine.KismetSystemLibrary"
+        },
+        "tetherBranch": {
+          "branch": true
+        },
+        "startTether": {
+          "call": "StartTether",
+          "class": "/Game/SaskartaGaea/GameFlow/BPC_RoadTether.BPC_RoadTether_C"
+        },
+        "enterPlaying": {
+          "call": "EnterPlaying"
+        },
+        "success": {
+          "set": "bContinueRestored"
+        }
+      },
+      "links": [
+        [
+          "entry.then",
+          "resetRestored.execute"
+        ],
+        [
+          "getFlowState.FlowState",
+          "isTitle.A"
+        ],
+        [
+          "isTitle.ReturnValue",
+          "ifTitle.Condition"
+        ],
+        [
+          "resetRestored.then",
+          "ifTitle.execute"
+        ],
+        [
+          "getbContinueRestored.bContinueRestored",
+          "result.bRestored"
+        ],
+        [
+          "ifTitle.else",
+          "result.execute"
+        ],
+        [
+          "getTitleSequencePlayer.TitleSequencePlayer",
+          "titlePlayerValid.Object"
+        ],
+        [
+          "titlePlayerValid.ReturnValue",
+          "titlePlayerBranch.Condition"
+        ],
+        [
+          "ifTitle.then",
+          "titlePlayerBranch.execute"
+        ],
+        [
+          "getTitleSequencePlayer.TitleSequencePlayer",
+          "stopTitle.self"
+        ],
+        [
+          "titlePlayerBranch.then",
+          "stopTitle.execute"
+        ],
+        [
+          "me.self",
+          "restore.WorldContext"
+        ],
+        [
+          "stopTitle.then",
+          "restore.execute"
+        ],
+        [
+          "titlePlayerBranch.else",
+          "restore.execute"
+        ],
+        [
+          "restore.ReturnValue",
+          "restored.Condition"
+        ],
+        [
+          "restore.then",
+          "restored.execute"
+        ],
+        [
+          "getTitleSequencePlayer.TitleSequencePlayer",
+          "replayTitleValid.Object"
+        ],
+        [
+          "replayTitleValid.ReturnValue",
+          "replayTitleBranch.Condition"
+        ],
+        [
+          "restored.else",
+          "replayTitleBranch.execute"
+        ],
+        [
+          "getTitleSequencePlayer.TitleSequencePlayer",
+          "replay.self"
+        ],
+        [
+          "replayTitleBranch.then",
+          "replay.execute"
+        ],
+        [
+          "replay.then",
+          "result.execute"
+        ],
+        [
+          "replayTitleBranch.else",
+          "result.execute"
+        ],
+        [
+          "getIntroTimer.IntroTimer",
+          "clearIntroTimer.Handle"
+        ],
+        [
+          "restored.then",
+          "clearIntroTimer.execute"
+        ],
+        [
+          "getOpeningSkipTimer.OpeningSkipTimer",
+          "clearOpeningSkipTimer.Handle"
+        ],
+        [
+          "clearIntroTimer.then",
+          "clearOpeningSkipTimer.execute"
+        ],
+        [
+          "getTitleMusic.TitleMusic",
+          "musicValid.Object"
+        ],
+        [
+          "musicValid.ReturnValue",
+          "musicBranch.Condition"
+        ],
+        [
+          "clearOpeningSkipTimer.then",
+          "musicBranch.execute"
+        ],
+        [
+          "getTitleMusic.TitleMusic",
+          "stopMusic.self"
+        ],
+        [
+          "musicBranch.then",
+          "stopMusic.execute"
+        ],
+        [
+          "getCarrierVision.CarrierVision",
+          "visionValid.Object"
+        ],
+        [
+          "visionValid.ReturnValue",
+          "visionBranch.Condition"
+        ],
+        [
+          "stopMusic.then",
+          "visionBranch.execute"
+        ],
+        [
+          "musicBranch.else",
+          "visionBranch.execute"
+        ],
+        [
+          "getCarrierVision.CarrierVision",
+          "cleanupVision.self"
+        ],
+        [
+          "visionBranch.then",
+          "cleanupVision.execute"
+        ],
+        [
+          "getIntroWidget.IntroWidget",
+          "IntroWidgetValid.Object"
+        ],
+        [
+          "IntroWidgetValid.ReturnValue",
+          "IntroWidgetBranch.Condition"
+        ],
+        [
+          "cleanupVision.then",
+          "IntroWidgetBranch.execute"
+        ],
+        [
+          "visionBranch.else",
+          "IntroWidgetBranch.execute"
+        ],
+        [
+          "getIntroWidget.IntroWidget",
+          "stopIntroWidget.self"
+        ],
+        [
+          "IntroWidgetBranch.then",
+          "stopIntroWidget.execute"
+        ],
+        [
+          "getIntroWidget.IntroWidget",
+          "removeIntroWidget.self"
+        ],
+        [
+          "stopIntroWidget.then",
+          "removeIntroWidget.execute"
+        ],
+        [
+          "getLoadingWidget.LoadingWidget",
+          "LoadingWidgetValid.Object"
+        ],
+        [
+          "LoadingWidgetValid.ReturnValue",
+          "LoadingWidgetBranch.Condition"
+        ],
+        [
+          "removeIntroWidget.then",
+          "LoadingWidgetBranch.execute"
+        ],
+        [
+          "IntroWidgetBranch.else",
+          "LoadingWidgetBranch.execute"
+        ],
+        [
+          "getLoadingWidget.LoadingWidget",
+          "stopLoadingWidget.self"
+        ],
+        [
+          "LoadingWidgetBranch.then",
+          "stopLoadingWidget.execute"
+        ],
+        [
+          "getLoadingWidget.LoadingWidget",
+          "removeLoadingWidget.self"
+        ],
+        [
+          "stopLoadingWidget.then",
+          "removeLoadingWidget.execute"
+        ],
+        [
+          "getEventCardWidget.EventCardWidget",
+          "EventCardWidgetValid.Object"
+        ],
+        [
+          "EventCardWidgetValid.ReturnValue",
+          "EventCardWidgetBranch.Condition"
+        ],
+        [
+          "removeLoadingWidget.then",
+          "EventCardWidgetBranch.execute"
+        ],
+        [
+          "LoadingWidgetBranch.else",
+          "EventCardWidgetBranch.execute"
+        ],
+        [
+          "getEventCardWidget.EventCardWidget",
+          "stopEventCardWidget.self"
+        ],
+        [
+          "EventCardWidgetBranch.then",
+          "stopEventCardWidget.execute"
+        ],
+        [
+          "getEventCardWidget.EventCardWidget",
+          "removeEventCardWidget.self"
+        ],
+        [
+          "stopEventCardWidget.then",
+          "removeEventCardWidget.execute"
+        ],
+        [
+          "getHaybaCardWidget.HaybaCardWidget",
+          "HaybaCardWidgetValid.Object"
+        ],
+        [
+          "HaybaCardWidgetValid.ReturnValue",
+          "HaybaCardWidgetBranch.Condition"
+        ],
+        [
+          "removeEventCardWidget.then",
+          "HaybaCardWidgetBranch.execute"
+        ],
+        [
+          "EventCardWidgetBranch.else",
+          "HaybaCardWidgetBranch.execute"
+        ],
+        [
+          "getHaybaCardWidget.HaybaCardWidget",
+          "stopHaybaCardWidget.self"
+        ],
+        [
+          "HaybaCardWidgetBranch.then",
+          "stopHaybaCardWidget.execute"
+        ],
+        [
+          "getHaybaCardWidget.HaybaCardWidget",
+          "removeHaybaCardWidget.self"
+        ],
+        [
+          "stopHaybaCardWidget.then",
+          "removeHaybaCardWidget.execute"
+        ],
+        [
+          "removeHaybaCardWidget.then",
+          "worldVisible.execute"
+        ],
+        [
+          "HaybaCardWidgetBranch.else",
+          "worldVisible.execute"
+        ],
+        [
+          "me.self",
+          "gameInput.PlayerController"
+        ],
+        [
+          "worldVisible.then",
+          "gameInput.execute"
+        ],
+        [
+          "gameInput.then",
+          "cursorOff.execute"
+        ],
+        [
+          "getFlowState.FlowState",
+          "isHuman.A"
+        ],
+        [
+          "isHuman.ReturnValue",
+          "humanFlow.Condition"
+        ],
+        [
+          "cursorOff.then",
+          "humanFlow.execute"
+        ],
+        [
+          "getRoadTether.RoadTether",
+          "tetherValid.Object"
+        ],
+        [
+          "tetherValid.ReturnValue",
+          "tetherBranch.Condition"
+        ],
+        [
+          "humanFlow.else",
+          "tetherBranch.execute"
+        ],
+        [
+          "getRoadTether.RoadTether",
+          "startTether.self"
+        ],
+        [
+          "tetherBranch.then",
+          "startTether.execute"
+        ],
+        [
+          "startTether.then",
+          "enterPlaying.execute"
+        ],
+        [
+          "tetherBranch.else",
+          "enterPlaying.execute"
+        ],
+        [
+          "humanFlow.then",
+          "enterPlaying.execute"
+        ],
+        [
+          "enterPlaying.then",
+          "success.execute"
+        ],
+        [
+          "success.then",
+          "result.execute"
+        ]
+      ],
+      "defaults": {
+        "resetRestored.bContinueRestored": "false",
+        "isTitle.B": "Title",
+        "replay.NumLoops": "-1",
+        "worldVisible.bEnable": "true",
+        "gameInput.bFlushInput": "true",
+        "cursorOff.bShowMouseCursor": "false",
+        "isHuman.B": "Human",
+        "success.bContinueRestored": "true"
+      }
+    }
+  ]
+}

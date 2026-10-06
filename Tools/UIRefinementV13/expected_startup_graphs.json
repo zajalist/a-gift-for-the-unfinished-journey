@@ -1,0 +1,1930 @@
+{
+  "asset": "/Game/SaskartaGaea/GameFlow/PC_Saskarta",
+  "graphs": {
+    "BeginIntro": {
+      "graph": "BeginIntro",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "started": {
+          "get": "bIntroStarted"
+        },
+        "ifStarted": {
+          "branch": true
+        },
+        "setStarted": {
+          "set": "bIntroStarted"
+        },
+        "pawn": {
+          "call": "K2_GetPawn",
+          "class": "/Script/Engine.Controller"
+        },
+        "moveComponent": {
+          "call": "GetComponentByClass",
+          "class": "/Script/Engine.Actor"
+        },
+        "castMove": {
+          "cast": "/Script/Engine.CharacterMovementComponent"
+        },
+        "freeze": {
+          "call": "SetMovementMode",
+          "class": "/Script/Engine.CharacterMovementComponent"
+        },
+        "findCamera": {
+          "call": "GetActorOfClass",
+          "class": "/Script/Engine.GameplayStatics"
+        },
+        "viewCamera": {
+          "call": "SetViewTargetWithBlend",
+          "class": "/Script/Engine.PlayerController"
+        },
+        "me": {
+          "self": true
+        },
+        "makeIntro": {
+          "create_widget": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Intro.WBP_Saskarta_Intro_C"
+        },
+        "setIntro": {
+          "set": "IntroWidget"
+        },
+        "addIntro": {
+          "call": "AddToViewport",
+          "class": "/Script/UMG.UserWidget"
+        },
+        "uiOnly": {
+          "call": "SetInputMode_GameAndUIEx",
+          "class": "/Script/UMG.WidgetBlueprintLibrary"
+        },
+        "play": {
+          "call": "PlayIntro",
+          "class": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Intro.WBP_Saskarta_Intro_C"
+        },
+        "now": {
+          "call": "GetTimeSeconds",
+          "class": "/Script/Engine.GameplayStatics"
+        },
+        "setIntroStart": {
+          "set": "IntroStart"
+        },
+        "interval": {
+          "get": "IntroPollInterval"
+        },
+        "pollTimer": {
+          "timer": true
+        },
+        "setPollTimer": {
+          "set": "IntroTimer"
+        },
+        "applyStartup": {
+          "call": "ApplyStartupSettings"
+        },
+        "makeLoading": {
+          "create_widget": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Loading.WBP_Saskarta_Loading_C"
+        },
+        "setLoading": {
+          "set": "LoadingWidget"
+        },
+        "addLoading": {
+          "call": "AddToViewport",
+          "class": "/Script/UMG.UserWidget"
+        },
+        "setPhase": {
+          "set": "LoadPhase"
+        },
+        "setPhaseStart": {
+          "set": "PhaseStart"
+        },
+        "noWorld": {
+          "call": "SetEnableWorldRendering",
+          "class": "/Script/Engine.GameplayStatics"
+        },
+        "makeEvent": {
+          "create_widget": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_EventCard.WBP_Saskarta_EventCard_C"
+        },
+        "setEvent": {
+          "set": "EventCardWidget"
+        },
+        "addEvent": {
+          "call": "AddToViewport",
+          "class": "/Script/UMG.UserWidget"
+        },
+        "makeHayba": {
+          "create_widget": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_HaybaCard.WBP_Saskarta_HaybaCard_C"
+        },
+        "setHayba": {
+          "set": "HaybaCardWidget"
+        },
+        "addHayba": {
+          "call": "AddToViewport",
+          "class": "/Script/UMG.UserWidget"
+        },
+        "setCardPhase": {
+          "set": "CardPhase"
+        },
+        "muteWorld": {
+          "call": "SetAudioListenerOverride",
+          "class": "/Script/Engine.PlayerController"
+        },
+        "suspendLoadingGov": {
+          "call": "GetPerfGovernor",
+          "class": "/Script/SaskartaCore.SaskartaPerfGovernor"
+        },
+        "suspendLoading": {
+          "call": "SetSuspended",
+          "class": "/Script/SaskartaCore.SaskartaPerfGovernor"
+        },
+        "ignoreMove": {
+          "call": "SetIgnoreMoveInput",
+          "class": "/Script/Engine.Controller"
+        },
+        "ignoreLook": {
+          "call": "SetIgnoreLookInput",
+          "class": "/Script/Engine.Controller"
+        },
+        "openingSkipInterval": {
+          "get": "OpeningSkipInterval"
+        },
+        "openingSkipTimer": {
+          "timer": true
+        },
+        "setOpeningSkipTimer": {
+          "set": "OpeningSkipTimer"
+        },
+        "afterInputMode": {
+          "sequence": 2
+        }
+      },
+      "links": [
+        [
+          "entry.then",
+          "ifStarted.execute"
+        ],
+        [
+          "started.bIntroStarted",
+          "ifStarted.Condition"
+        ],
+        [
+          "ifStarted.else",
+          "setStarted.execute"
+        ],
+        [
+          "setStarted.then",
+          "applyStartup.execute"
+        ],
+        [
+          "applyStartup.then",
+          "castMove.execute"
+        ],
+        [
+          "pawn.ReturnValue",
+          "moveComponent.self"
+        ],
+        [
+          "moveComponent.ReturnValue",
+          "castMove.Object"
+        ],
+        [
+          "castMove.then",
+          "freeze.execute"
+        ],
+        [
+          "castMove.AsCharacter Movement Component",
+          "freeze.self"
+        ],
+        [
+          "viewCamera.then",
+          "makeIntro.execute"
+        ],
+        [
+          "me.self",
+          "makeIntro.OwningPlayer"
+        ],
+        [
+          "makeIntro.then",
+          "setIntro.execute"
+        ],
+        [
+          "makeIntro.ReturnValue",
+          "setIntro.IntroWidget"
+        ],
+        [
+          "setIntro.then",
+          "addIntro.execute"
+        ],
+        [
+          "makeIntro.ReturnValue",
+          "addIntro.self"
+        ],
+        [
+          "me.self",
+          "uiOnly.PlayerController"
+        ],
+        [
+          "makeIntro.ReturnValue",
+          "uiOnly.InWidgetToFocus"
+        ],
+        [
+          "makeIntro.ReturnValue",
+          "play.self"
+        ],
+        [
+          "play.then",
+          "setIntroStart.execute"
+        ],
+        [
+          "now.ReturnValue",
+          "setIntroStart.IntroStart"
+        ],
+        [
+          "me.self",
+          "pollTimer.Object"
+        ],
+        [
+          "interval.IntroPollInterval",
+          "pollTimer.Time"
+        ],
+        [
+          "pollTimer.then",
+          "setPollTimer.execute"
+        ],
+        [
+          "pollTimer.ReturnValue",
+          "setPollTimer.IntroTimer"
+        ],
+        [
+          "addIntro.then",
+          "makeLoading.execute"
+        ],
+        [
+          "me.self",
+          "makeLoading.OwningPlayer"
+        ],
+        [
+          "makeLoading.then",
+          "setLoading.execute"
+        ],
+        [
+          "makeLoading.ReturnValue",
+          "setLoading.LoadingWidget"
+        ],
+        [
+          "setLoading.then",
+          "addLoading.execute"
+        ],
+        [
+          "makeLoading.ReturnValue",
+          "addLoading.self"
+        ],
+        [
+          "setIntroStart.then",
+          "setPhase.execute"
+        ],
+        [
+          "setPhase.then",
+          "setPhaseStart.execute"
+        ],
+        [
+          "now.ReturnValue",
+          "setPhaseStart.PhaseStart"
+        ],
+        [
+          "setPhaseStart.then",
+          "pollTimer.execute"
+        ],
+        [
+          "findCamera.ReturnValue",
+          "viewCamera.NewViewTarget"
+        ],
+        [
+          "findCamera.then",
+          "noWorld.execute"
+        ],
+        [
+          "addLoading.then",
+          "makeEvent.execute"
+        ],
+        [
+          "me.self",
+          "makeEvent.OwningPlayer"
+        ],
+        [
+          "makeEvent.then",
+          "setEvent.execute"
+        ],
+        [
+          "makeEvent.ReturnValue",
+          "setEvent.EventCardWidget"
+        ],
+        [
+          "setEvent.then",
+          "addEvent.execute"
+        ],
+        [
+          "makeEvent.ReturnValue",
+          "addEvent.self"
+        ],
+        [
+          "addEvent.then",
+          "makeHayba.execute"
+        ],
+        [
+          "me.self",
+          "makeHayba.OwningPlayer"
+        ],
+        [
+          "makeHayba.then",
+          "setHayba.execute"
+        ],
+        [
+          "makeHayba.ReturnValue",
+          "setHayba.HaybaCardWidget"
+        ],
+        [
+          "setHayba.then",
+          "addHayba.execute"
+        ],
+        [
+          "makeHayba.ReturnValue",
+          "addHayba.self"
+        ],
+        [
+          "addHayba.then",
+          "setCardPhase.execute"
+        ],
+        [
+          "setCardPhase.then",
+          "uiOnly.execute"
+        ],
+        [
+          "me.self",
+          "suspendLoadingGov.WorldContext"
+        ],
+        [
+          "suspendLoadingGov.ReturnValue",
+          "suspendLoading.self"
+        ],
+        [
+          "noWorld.then",
+          "muteWorld.execute"
+        ],
+        [
+          "muteWorld.then",
+          "suspendLoading.execute"
+        ],
+        [
+          "suspendLoading.then",
+          "viewCamera.execute"
+        ],
+        [
+          "freeze.then",
+          "ignoreMove.execute"
+        ],
+        [
+          "castMove.CastFailed",
+          "ignoreMove.execute"
+        ],
+        [
+          "ignoreMove.then",
+          "ignoreLook.execute"
+        ],
+        [
+          "ignoreLook.then",
+          "findCamera.execute"
+        ],
+        [
+          "me.self",
+          "ignoreMove.self"
+        ],
+        [
+          "me.self",
+          "ignoreLook.self"
+        ],
+        [
+          "me.self",
+          "openingSkipTimer.Object"
+        ],
+        [
+          "openingSkipInterval.OpeningSkipInterval",
+          "openingSkipTimer.Time"
+        ],
+        [
+          "openingSkipTimer.then",
+          "setOpeningSkipTimer.execute"
+        ],
+        [
+          "openingSkipTimer.ReturnValue",
+          "setOpeningSkipTimer.OpeningSkipTimer"
+        ],
+        [
+          "uiOnly.then",
+          "afterInputMode.execute"
+        ],
+        [
+          "afterInputMode.then_0",
+          "play.execute"
+        ],
+        [
+          "afterInputMode.then_1",
+          "openingSkipTimer.execute"
+        ]
+      ],
+      "defaults": {
+        "setStarted.bIntroStarted": "true",
+        "moveComponent.ComponentClass": "/Script/Engine.CharacterMovementComponent",
+        "freeze.NewMovementMode": "MOVE_None",
+        "findCamera.ActorClass": "/Script/CinematicCamera.CineCameraActor",
+        "viewCamera.BlendTime": "0.0",
+        "addIntro.ZOrder": "500",
+        "uiOnly.InMouseLockMode": "DoNotLock",
+        "pollTimer.FunctionName": "PollIntro",
+        "pollTimer.bLooping": "true",
+        "addLoading.ZOrder": "450",
+        "setPhase.LoadPhase": "0",
+        "noWorld.bEnable": "false",
+        "addEvent.ZOrder": "490",
+        "addHayba.ZOrder": "480",
+        "setCardPhase.CardPhase": "0",
+        "muteWorld.Location": "(X=0.0,Y=0.0,Z=5000000.0)",
+        "suspendLoading.Reason": "Loading",
+        "suspendLoading.bSuspend": "true",
+        "ignoreMove.bNewMoveInput": "true",
+        "ignoreLook.bNewLookInput": "true",
+        "openingSkipTimer.FunctionName": "PollOpeningSkip",
+        "openingSkipTimer.bLooping": "true"
+      }
+    },
+    "PollIntro": {
+      "graph": "PollIntro",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "card": {
+          "call": "StepIntroCard"
+        },
+        "cards": {
+          "call": "StepCards"
+        },
+        "cardPhase": {
+          "get": "CardPhase"
+        },
+        "loadPhase": {
+          "get": "LoadPhase"
+        },
+        "started": {
+          "call": "GreaterEqual_IntInt",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "ifStarted": {
+          "branch": true
+        },
+        "isRoad": {
+          "call": "EqualEqual_IntInt",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "ifRoad": {
+          "branch": true
+        },
+        "road": {
+          "call": "PollRoad"
+        },
+        "shown": {
+          "call": "EqualEqual_IntInt",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "ifShown": {
+          "branch": true
+        },
+        "title": {
+          "call": "PollTitle"
+        }
+      },
+      "links": [
+        [
+          "entry.then",
+          "card.execute"
+        ],
+        [
+          "card.then",
+          "cards.execute"
+        ],
+        [
+          "cards.then",
+          "ifStarted.execute"
+        ],
+        [
+          "cardPhase.CardPhase",
+          "started.A"
+        ],
+        [
+          "started.ReturnValue",
+          "ifStarted.Condition"
+        ],
+        [
+          "ifStarted.then",
+          "ifRoad.execute"
+        ],
+        [
+          "loadPhase.LoadPhase",
+          "isRoad.A"
+        ],
+        [
+          "isRoad.ReturnValue",
+          "ifRoad.Condition"
+        ],
+        [
+          "ifRoad.then",
+          "road.execute"
+        ],
+        [
+          "ifRoad.else",
+          "ifShown.execute"
+        ],
+        [
+          "cardPhase.CardPhase",
+          "shown.A"
+        ],
+        [
+          "shown.ReturnValue",
+          "ifShown.Condition"
+        ],
+        [
+          "ifShown.then",
+          "title.execute"
+        ]
+      ],
+      "defaults": {
+        "started.B": "1",
+        "isRoad.B": "1",
+        "shown.B": "3"
+      }
+    },
+    "StepIntroCard": {
+      "graph": "StepIntroCard",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "revealed": {
+          "get": "bIntroRevealed"
+        },
+        "notRevealed": {
+          "call": "Not_PreBool",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "intro": {
+          "get": "IntroWidget"
+        },
+        "holding": {
+          "call": "IsHolding",
+          "class": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Intro.WBP_Saskarta_Intro_C"
+        },
+        "due": {
+          "call": "BooleanAND",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "ifDue": {
+          "branch": true
+        },
+        "setRevealed": {
+          "set": "bIntroRevealed"
+        },
+        "now": {
+          "call": "GetTimeSeconds",
+          "class": "/Script/Engine.GameplayStatics"
+        },
+        "setRevealAt": {
+          "set": "RevealAt"
+        },
+        "reveal": {
+          "call": "RevealIntro"
+        }
+      },
+      "links": [
+        [
+          "entry.then",
+          "ifDue.execute"
+        ],
+        [
+          "revealed.bIntroRevealed",
+          "notRevealed.A"
+        ],
+        [
+          "intro.IntroWidget",
+          "holding.self"
+        ],
+        [
+          "notRevealed.ReturnValue",
+          "due.A"
+        ],
+        [
+          "holding.bHold",
+          "due.B"
+        ],
+        [
+          "due.ReturnValue",
+          "ifDue.Condition"
+        ],
+        [
+          "ifDue.then",
+          "setRevealed.execute"
+        ],
+        [
+          "setRevealed.then",
+          "setRevealAt.execute"
+        ],
+        [
+          "now.ReturnValue",
+          "setRevealAt.RevealAt"
+        ],
+        [
+          "setRevealAt.then",
+          "reveal.execute"
+        ]
+      ],
+      "defaults": {
+        "setRevealed.bIntroRevealed": "true"
+      }
+    },
+    "PollRoad": {
+      "graph": "PollRoad",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "me": {
+          "self": true
+        },
+        "pawn": {
+          "call": "K2_GetPawn",
+          "class": "/Script/Engine.Controller"
+        },
+        "pawnLoc": {
+          "call": "K2_GetActorLocation",
+          "class": "/Script/Engine.Actor"
+        },
+        "readiness": {
+          "call": "GetReadiness",
+          "class": "/Script/SaskartaCore.SaskartaReadiness"
+        },
+        "fraction": {
+          "call": "ComputeFraction",
+          "class": "/Script/SaskartaCore.SaskartaReadiness"
+        },
+        "half": {
+          "call": "Multiply_DoubleDouble",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "loading": {
+          "get": "LoadingWidget"
+        },
+        "progress": {
+          "call": "SetProgress",
+          "class": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Loading.WBP_Saskarta_Loading_C"
+        },
+        "now": {
+          "call": "GetTimeSeconds",
+          "class": "/Script/Engine.GameplayStatics"
+        },
+        "phaseStart": {
+          "get": "PhaseStart"
+        },
+        "elapsed": {
+          "call": "Subtract_DoubleDouble",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "minTime": {
+          "get": "RoadMinTime"
+        },
+        "maxTime": {
+          "get": "RoadMaxTime"
+        },
+        "met": {
+          "call": "GreaterEqual_DoubleDouble",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "pastMin": {
+          "call": "GreaterEqual_DoubleDouble",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "timedOut": {
+          "call": "GreaterEqual_DoubleDouble",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "ready": {
+          "call": "BooleanAND",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "done": {
+          "call": "BooleanOR",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "ifDone": {
+          "branch": true
+        },
+        "ifMet": {
+          "branch": true
+        },
+        "unmet": {
+          "call": "DescribeUnmet",
+          "class": "/Script/SaskartaCore.SaskartaReadiness"
+        },
+        "warnText": {
+          "call": "Concat_StrStr",
+          "class": "/Script/Engine.KismetStringLibrary"
+        },
+        "warn": {
+          "call": "PrintString",
+          "class": "/Script/Engine.KismetSystemLibrary"
+        },
+        "setPhase": {
+          "set": "LoadPhase"
+        },
+        "setPhaseStart": {
+          "set": "PhaseStart"
+        },
+        "findCam": {
+          "call": "GetActorOfClass",
+          "class": "/Script/Engine.GameplayStatics"
+        },
+        "viewCam": {
+          "call": "SetViewTargetWithBlend",
+          "class": "/Script/Engine.PlayerController"
+        },
+        "skipRequested": {
+          "get": "bOpeningSkipRequested"
+        },
+        "skipOrMin": {
+          "call": "BooleanOR",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "readinessText": {
+          "call": "SetReadiness",
+          "class": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Loading.WBP_Saskarta_Loading_C"
+        }
+      },
+      "links": [
+        [
+          "entry.then",
+          "readiness.execute"
+        ],
+        [
+          "me.self",
+          "pawn.self"
+        ],
+        [
+          "pawn.ReturnValue",
+          "pawnLoc.self"
+        ],
+        [
+          "pawnLoc.ReturnValue",
+          "readiness.ViewLocation"
+        ],
+        [
+          "readiness.ReturnValue",
+          "fraction.Readiness"
+        ],
+        [
+          "fraction.ReturnValue",
+          "half.A"
+        ],
+        [
+          "readiness.then",
+          "progress.execute"
+        ],
+        [
+          "loading.LoadingWidget",
+          "progress.self"
+        ],
+        [
+          "half.ReturnValue",
+          "progress.Progress"
+        ],
+        [
+          "now.ReturnValue",
+          "elapsed.A"
+        ],
+        [
+          "phaseStart.PhaseStart",
+          "elapsed.B"
+        ],
+        [
+          "fraction.ReturnValue",
+          "met.A"
+        ],
+        [
+          "elapsed.ReturnValue",
+          "pastMin.A"
+        ],
+        [
+          "minTime.RoadMinTime",
+          "pastMin.B"
+        ],
+        [
+          "elapsed.ReturnValue",
+          "timedOut.A"
+        ],
+        [
+          "maxTime.RoadMaxTime",
+          "timedOut.B"
+        ],
+        [
+          "met.ReturnValue",
+          "ready.A"
+        ],
+        [
+          "ready.ReturnValue",
+          "done.A"
+        ],
+        [
+          "timedOut.ReturnValue",
+          "done.B"
+        ],
+        [
+          "done.ReturnValue",
+          "ifDone.Condition"
+        ],
+        [
+          "ifDone.then",
+          "ifMet.execute"
+        ],
+        [
+          "met.ReturnValue",
+          "ifMet.Condition"
+        ],
+        [
+          "ifMet.then",
+          "setPhase.execute"
+        ],
+        [
+          "ifMet.else",
+          "warn.execute"
+        ],
+        [
+          "readiness.ReturnValue",
+          "unmet.Readiness"
+        ],
+        [
+          "unmet.ReturnValue",
+          "warnText.B"
+        ],
+        [
+          "warnText.ReturnValue",
+          "warn.InString"
+        ],
+        [
+          "warn.then",
+          "setPhase.execute"
+        ],
+        [
+          "setPhase.then",
+          "setPhaseStart.execute"
+        ],
+        [
+          "now.ReturnValue",
+          "setPhaseStart.PhaseStart"
+        ],
+        [
+          "setPhaseStart.then",
+          "findCam.execute"
+        ],
+        [
+          "findCam.then",
+          "viewCam.execute"
+        ],
+        [
+          "me.self",
+          "viewCam.self"
+        ],
+        [
+          "findCam.ReturnValue",
+          "viewCam.NewViewTarget"
+        ],
+        [
+          "pastMin.ReturnValue",
+          "skipOrMin.A"
+        ],
+        [
+          "skipRequested.bOpeningSkipRequested",
+          "skipOrMin.B"
+        ],
+        [
+          "skipOrMin.ReturnValue",
+          "ready.B"
+        ],
+        [
+          "progress.then",
+          "readinessText.execute"
+        ],
+        [
+          "loading.LoadingWidget",
+          "readinessText.self"
+        ],
+        [
+          "fraction.ReturnValue",
+          "readinessText.Fraction"
+        ],
+        [
+          "readinessText.then",
+          "ifDone.execute"
+        ]
+      ],
+      "defaults": {
+        "half.B": "0.5",
+        "met.B": "0.999",
+        "warnText.A": "Saskarta loading: the road view timed out; still pending: ",
+        "warn.bPrintToScreen": "false",
+        "warn.bPrintToLog": "true",
+        "setPhase.LoadPhase": "2",
+        "findCam.ActorClass": "/Script/CinematicCamera.CineCameraActor",
+        "viewCam.BlendTime": "0.0",
+        "readinessText.bTitle": "false"
+      }
+    },
+    "PollTitle": {
+      "graph": "PollTitle",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "me": {
+          "self": true
+        },
+        "findCam": {
+          "call": "GetActorOfClass",
+          "class": "/Script/Engine.GameplayStatics"
+        },
+        "camLoc": {
+          "call": "K2_GetActorLocation",
+          "class": "/Script/Engine.Actor"
+        },
+        "readiness": {
+          "call": "GetReadiness",
+          "class": "/Script/SaskartaCore.SaskartaReadiness"
+        },
+        "fraction": {
+          "call": "ComputeFraction",
+          "class": "/Script/SaskartaCore.SaskartaReadiness"
+        },
+        "half": {
+          "call": "Multiply_DoubleDouble",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "plusHalf": {
+          "call": "Add_DoubleDouble",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "loading": {
+          "get": "LoadingWidget"
+        },
+        "progress": {
+          "call": "SetProgress",
+          "class": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Loading.WBP_Saskarta_Loading_C"
+        },
+        "now": {
+          "call": "GetTimeSeconds",
+          "class": "/Script/Engine.GameplayStatics"
+        },
+        "phaseStart": {
+          "get": "PhaseStart"
+        },
+        "phaseElapsed": {
+          "call": "Subtract_DoubleDouble",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "titleMin": {
+          "get": "TitleMinTime"
+        },
+        "pastMin": {
+          "call": "GreaterEqual_DoubleDouble",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "revealAt": {
+          "get": "LoadShownAt"
+        },
+        "sinceReveal": {
+          "call": "Subtract_DoubleDouble",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "minShown": {
+          "get": "LoadMinShown"
+        },
+        "shownLong": {
+          "call": "GreaterEqual_DoubleDouble",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "revealed": {
+          "get": "bIntroRevealed"
+        },
+        "shown": {
+          "call": "BooleanAND",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "met": {
+          "call": "GreaterEqual_DoubleDouble",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "metAndMin": {
+          "call": "BooleanAND",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "ready": {
+          "call": "BooleanAND",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "introStart": {
+          "get": "IntroStart"
+        },
+        "total": {
+          "call": "Subtract_DoubleDouble",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "maxTime": {
+          "get": "LoadMaxTime"
+        },
+        "pastMax": {
+          "call": "GreaterEqual_DoubleDouble",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "timedOut": {
+          "call": "BooleanAND",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "go": {
+          "call": "BooleanOR",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "ifGo": {
+          "branch": true
+        },
+        "pollGet": {
+          "get": "IntroTimer"
+        },
+        "stopPoll": {
+          "call": "K2_ClearAndInvalidateTimerHandle",
+          "class": "/Script/Engine.KismetSystemLibrary"
+        },
+        "ifReady": {
+          "branch": true
+        },
+        "unmet": {
+          "call": "DescribeUnmet",
+          "class": "/Script/SaskartaCore.SaskartaReadiness"
+        },
+        "warnText": {
+          "call": "Concat_StrStr",
+          "class": "/Script/Engine.KismetStringLibrary"
+        },
+        "warn": {
+          "call": "PrintString",
+          "class": "/Script/Engine.KismetSystemLibrary"
+        },
+        "beginTitle": {
+          "call": "BeginTitle"
+        },
+        "fadeTime": {
+          "get": "LoadFadeTime"
+        },
+        "fade": {
+          "call": "FadeOut",
+          "class": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Loading.WBP_Saskarta_Loading_C"
+        },
+        "skipRequested": {
+          "get": "bOpeningSkipRequested"
+        },
+        "skipOrMin": {
+          "call": "BooleanOR",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "skipOrShown": {
+          "call": "BooleanOR",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "readinessText": {
+          "call": "SetReadiness",
+          "class": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Loading.WBP_Saskarta_Loading_C"
+        }
+      },
+      "links": [
+        [
+          "entry.then",
+          "findCam.execute"
+        ],
+        [
+          "findCam.then",
+          "readiness.execute"
+        ],
+        [
+          "findCam.ReturnValue",
+          "camLoc.self"
+        ],
+        [
+          "camLoc.ReturnValue",
+          "readiness.ViewLocation"
+        ],
+        [
+          "readiness.ReturnValue",
+          "fraction.Readiness"
+        ],
+        [
+          "fraction.ReturnValue",
+          "half.A"
+        ],
+        [
+          "half.ReturnValue",
+          "plusHalf.A"
+        ],
+        [
+          "readiness.then",
+          "progress.execute"
+        ],
+        [
+          "loading.LoadingWidget",
+          "progress.self"
+        ],
+        [
+          "plusHalf.ReturnValue",
+          "progress.Progress"
+        ],
+        [
+          "now.ReturnValue",
+          "phaseElapsed.A"
+        ],
+        [
+          "phaseStart.PhaseStart",
+          "phaseElapsed.B"
+        ],
+        [
+          "phaseElapsed.ReturnValue",
+          "pastMin.A"
+        ],
+        [
+          "titleMin.TitleMinTime",
+          "pastMin.B"
+        ],
+        [
+          "now.ReturnValue",
+          "sinceReveal.A"
+        ],
+        [
+          "revealAt.LoadShownAt",
+          "sinceReveal.B"
+        ],
+        [
+          "sinceReveal.ReturnValue",
+          "shownLong.A"
+        ],
+        [
+          "minShown.LoadMinShown",
+          "shownLong.B"
+        ],
+        [
+          "revealed.bIntroRevealed",
+          "shown.A"
+        ],
+        [
+          "fraction.ReturnValue",
+          "met.A"
+        ],
+        [
+          "met.ReturnValue",
+          "metAndMin.A"
+        ],
+        [
+          "metAndMin.ReturnValue",
+          "ready.A"
+        ],
+        [
+          "shown.ReturnValue",
+          "ready.B"
+        ],
+        [
+          "now.ReturnValue",
+          "total.A"
+        ],
+        [
+          "introStart.IntroStart",
+          "total.B"
+        ],
+        [
+          "total.ReturnValue",
+          "pastMax.A"
+        ],
+        [
+          "maxTime.LoadMaxTime",
+          "pastMax.B"
+        ],
+        [
+          "pastMax.ReturnValue",
+          "timedOut.A"
+        ],
+        [
+          "revealed.bIntroRevealed",
+          "timedOut.B"
+        ],
+        [
+          "ready.ReturnValue",
+          "go.A"
+        ],
+        [
+          "timedOut.ReturnValue",
+          "go.B"
+        ],
+        [
+          "go.ReturnValue",
+          "ifGo.Condition"
+        ],
+        [
+          "ifGo.then",
+          "stopPoll.execute"
+        ],
+        [
+          "pollGet.IntroTimer",
+          "stopPoll.Handle"
+        ],
+        [
+          "stopPoll.then",
+          "ifReady.execute"
+        ],
+        [
+          "ready.ReturnValue",
+          "ifReady.Condition"
+        ],
+        [
+          "ifReady.then",
+          "beginTitle.execute"
+        ],
+        [
+          "ifReady.else",
+          "warn.execute"
+        ],
+        [
+          "readiness.ReturnValue",
+          "unmet.Readiness"
+        ],
+        [
+          "unmet.ReturnValue",
+          "warnText.B"
+        ],
+        [
+          "warnText.ReturnValue",
+          "warn.InString"
+        ],
+        [
+          "warn.then",
+          "beginTitle.execute"
+        ],
+        [
+          "beginTitle.then",
+          "fade.execute"
+        ],
+        [
+          "loading.LoadingWidget",
+          "fade.self"
+        ],
+        [
+          "fadeTime.LoadFadeTime",
+          "fade.Time"
+        ],
+        [
+          "pastMin.ReturnValue",
+          "skipOrMin.A"
+        ],
+        [
+          "skipRequested.bOpeningSkipRequested",
+          "skipOrMin.B"
+        ],
+        [
+          "skipOrMin.ReturnValue",
+          "metAndMin.B"
+        ],
+        [
+          "shownLong.ReturnValue",
+          "skipOrShown.A"
+        ],
+        [
+          "skipRequested.bOpeningSkipRequested",
+          "skipOrShown.B"
+        ],
+        [
+          "skipOrShown.ReturnValue",
+          "shown.B"
+        ],
+        [
+          "progress.then",
+          "readinessText.execute"
+        ],
+        [
+          "loading.LoadingWidget",
+          "readinessText.self"
+        ],
+        [
+          "fraction.ReturnValue",
+          "readinessText.Fraction"
+        ],
+        [
+          "readinessText.then",
+          "ifGo.execute"
+        ]
+      ],
+      "defaults": {
+        "findCam.ActorClass": "/Script/CinematicCamera.CineCameraActor",
+        "half.B": "0.5",
+        "plusHalf.B": "0.5",
+        "met.B": "0.999",
+        "warnText.A": "Saskarta loading: timed out at the title camera; still pending: ",
+        "warn.bPrintToScreen": "false",
+        "warn.bPrintToLog": "true",
+        "readinessText.bTitle": "true"
+      }
+    },
+    "StepCards": {
+      "graph": "StepCards",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "steps": {
+          "sequence": 3
+        },
+        "phase": {
+          "get": "CardPhase"
+        },
+        "now": {
+          "call": "GetTimeSeconds",
+          "class": "/Script/Engine.GameplayStatics"
+        },
+        "me": {
+          "self": true
+        },
+        "is0": {
+          "call": "EqualEqual_IntInt",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "revealed": {
+          "get": "bIntroRevealed"
+        },
+        "revealAt": {
+          "get": "RevealAt"
+        },
+        "burnTime": {
+          "get": "RevealBurnTime"
+        },
+        "burnEnd": {
+          "call": "Add_DoubleDouble",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "burnt": {
+          "call": "GreaterEqual_DoubleDouble",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "go0a": {
+          "call": "BooleanAND",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "go0": {
+          "call": "BooleanAND",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "if0": {
+          "branch": true
+        },
+        "ev0": {
+          "get": "EventCardWidget"
+        },
+        "playEvent": {
+          "call": "PlayCard",
+          "class": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_EventCard.WBP_Saskarta_EventCard_C"
+        },
+        "pawn": {
+          "call": "K2_GetPawn",
+          "class": "/Script/Engine.Controller"
+        },
+        "viewPawn": {
+          "call": "SetViewTargetWithBlend",
+          "class": "/Script/Engine.PlayerController"
+        },
+        "setLoad": {
+          "set": "LoadPhase"
+        },
+        "setPhaseStart": {
+          "set": "PhaseStart"
+        },
+        "setCard1": {
+          "set": "CardPhase"
+        },
+        "is1": {
+          "call": "EqualEqual_IntInt",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "ev1": {
+          "get": "EventCardWidget"
+        },
+        "done1": {
+          "call": "IsDone",
+          "class": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_EventCard.WBP_Saskarta_EventCard_C"
+        },
+        "go1": {
+          "call": "BooleanAND",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "if1": {
+          "branch": true
+        },
+        "removeEvent": {
+          "call": "RemoveFromParent",
+          "class": "/Script/UMG.Widget"
+        },
+        "hb1": {
+          "get": "HaybaCardWidget"
+        },
+        "playHayba": {
+          "call": "PlayCard",
+          "class": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_HaybaCard.WBP_Saskarta_HaybaCard_C"
+        },
+        "setCard2": {
+          "set": "CardPhase"
+        },
+        "is2": {
+          "call": "EqualEqual_IntInt",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "hb2": {
+          "get": "HaybaCardWidget"
+        },
+        "done2": {
+          "call": "IsDone",
+          "class": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_HaybaCard.WBP_Saskarta_HaybaCard_C"
+        },
+        "go2": {
+          "call": "BooleanAND",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "if2": {
+          "branch": true
+        },
+        "removeHayba": {
+          "call": "RemoveFromParent",
+          "class": "/Script/UMG.Widget"
+        },
+        "world": {
+          "call": "SetEnableWorldRendering",
+          "class": "/Script/Engine.GameplayStatics"
+        },
+        "setShown": {
+          "set": "LoadShownAt"
+        },
+        "setCard3": {
+          "set": "CardPhase"
+        }
+      },
+      "links": [
+        [
+          "entry.then",
+          "steps.execute"
+        ],
+        [
+          "phase.CardPhase",
+          "is0.A"
+        ],
+        [
+          "revealAt.RevealAt",
+          "burnEnd.A"
+        ],
+        [
+          "burnTime.RevealBurnTime",
+          "burnEnd.B"
+        ],
+        [
+          "now.ReturnValue",
+          "burnt.A"
+        ],
+        [
+          "burnEnd.ReturnValue",
+          "burnt.B"
+        ],
+        [
+          "is0.ReturnValue",
+          "go0a.A"
+        ],
+        [
+          "revealed.bIntroRevealed",
+          "go0a.B"
+        ],
+        [
+          "go0a.ReturnValue",
+          "go0.A"
+        ],
+        [
+          "burnt.ReturnValue",
+          "go0.B"
+        ],
+        [
+          "steps.then_0",
+          "if0.execute"
+        ],
+        [
+          "go0.ReturnValue",
+          "if0.Condition"
+        ],
+        [
+          "if0.then",
+          "playEvent.execute"
+        ],
+        [
+          "ev0.EventCardWidget",
+          "playEvent.self"
+        ],
+        [
+          "playEvent.then",
+          "viewPawn.execute"
+        ],
+        [
+          "me.self",
+          "viewPawn.self"
+        ],
+        [
+          "me.self",
+          "pawn.self"
+        ],
+        [
+          "pawn.ReturnValue",
+          "viewPawn.NewViewTarget"
+        ],
+        [
+          "viewPawn.then",
+          "setLoad.execute"
+        ],
+        [
+          "setLoad.then",
+          "setPhaseStart.execute"
+        ],
+        [
+          "now.ReturnValue",
+          "setPhaseStart.PhaseStart"
+        ],
+        [
+          "setPhaseStart.then",
+          "setCard1.execute"
+        ],
+        [
+          "phase.CardPhase",
+          "is1.A"
+        ],
+        [
+          "ev1.EventCardWidget",
+          "done1.self"
+        ],
+        [
+          "is1.ReturnValue",
+          "go1.A"
+        ],
+        [
+          "done1.bIsDone",
+          "go1.B"
+        ],
+        [
+          "steps.then_1",
+          "if1.execute"
+        ],
+        [
+          "go1.ReturnValue",
+          "if1.Condition"
+        ],
+        [
+          "if1.then",
+          "removeEvent.execute"
+        ],
+        [
+          "ev1.EventCardWidget",
+          "removeEvent.self"
+        ],
+        [
+          "removeEvent.then",
+          "playHayba.execute"
+        ],
+        [
+          "hb1.HaybaCardWidget",
+          "playHayba.self"
+        ],
+        [
+          "playHayba.then",
+          "setCard2.execute"
+        ],
+        [
+          "phase.CardPhase",
+          "is2.A"
+        ],
+        [
+          "hb2.HaybaCardWidget",
+          "done2.self"
+        ],
+        [
+          "is2.ReturnValue",
+          "go2.A"
+        ],
+        [
+          "done2.bIsDone",
+          "go2.B"
+        ],
+        [
+          "steps.then_2",
+          "if2.execute"
+        ],
+        [
+          "go2.ReturnValue",
+          "if2.Condition"
+        ],
+        [
+          "if2.then",
+          "removeHayba.execute"
+        ],
+        [
+          "hb2.HaybaCardWidget",
+          "removeHayba.self"
+        ],
+        [
+          "removeHayba.then",
+          "world.execute"
+        ],
+        [
+          "world.then",
+          "setShown.execute"
+        ],
+        [
+          "now.ReturnValue",
+          "setShown.LoadShownAt"
+        ],
+        [
+          "setShown.then",
+          "setCard3.execute"
+        ]
+      ],
+      "defaults": {
+        "is0.B": "0",
+        "viewPawn.BlendTime": "0.0",
+        "setLoad.LoadPhase": "1",
+        "setCard1.CardPhase": "1",
+        "is1.B": "1",
+        "setCard2.CardPhase": "2",
+        "is2.B": "2",
+        "world.bEnable": "true",
+        "setCard3.CardPhase": "3"
+      }
+    },
+    "PollOpeningSkip": {
+      "graph": "PollOpeningSkip",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "space": {
+          "call": "IsInputKeyDown",
+          "class": "/Script/Engine.PlayerController"
+        },
+        "right": {
+          "call": "IsInputKeyDown",
+          "class": "/Script/Engine.PlayerController"
+        },
+        "physicalHeld": {
+          "call": "BooleanOR",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "requested": {
+          "get": "bOpeningSkipRequested"
+        },
+        "active": {
+          "call": "BooleanOR",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "ifHeld": {
+          "branch": true
+        },
+        "flow": {
+          "get": "FlowState"
+        },
+        "isNone": {
+          "call": "EqualEqual_NameName",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "isBooting": {
+          "call": "EqualEqual_NameName",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "flowSteps": {
+          "sequence": 2
+        },
+        "flowBranch": {
+          "branch": true
+        },
+        "setRequested": {
+          "set": "bOpeningSkipRequested"
+        },
+        "phase": {
+          "get": "CardPhase"
+        },
+        "isFire": {
+          "call": "EqualEqual_IntInt",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "fireBranch": {
+          "branch": true
+        },
+        "intro": {
+          "get": "IntroWidget"
+        },
+        "skipFire": {
+          "call": "EnterHold",
+          "class": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Intro.WBP_Saskarta_Intro_C"
+        },
+        "isEvent": {
+          "call": "EqualEqual_IntInt",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "eventBranch": {
+          "branch": true
+        },
+        "eventCard": {
+          "get": "EventCardWidget"
+        },
+        "skipEvent": {
+          "call": "Skip",
+          "class": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_EventCard.WBP_Saskarta_EventCard_C"
+        },
+        "isHayba": {
+          "call": "EqualEqual_IntInt",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "haybaBranch": {
+          "branch": true
+        },
+        "hayba": {
+          "get": "HaybaCardWidget"
+        },
+        "skipHayba": {
+          "call": "Skip",
+          "class": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_HaybaCard.WBP_Saskarta_HaybaCard_C"
+        },
+        "vision": {
+          "get": "CarrierVision"
+        },
+        "bootHeld": {
+          "call": "BooleanAND",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "bootBranch": {
+          "branch": true
+        },
+        "skipBoot": {
+          "call": "SkipBoot",
+          "class": "/Game/SaskartaGaea/GameFlow/BPC_CarrierVision.BPC_CarrierVision_C"
+        }
+      },
+      "links": [
+        [
+          "entry.then",
+          "ifHeld.execute"
+        ],
+        [
+          "physicalHeld.ReturnValue",
+          "active.A"
+        ],
+        [
+          "requested.bOpeningSkipRequested",
+          "active.B"
+        ],
+        [
+          "active.ReturnValue",
+          "ifHeld.Condition"
+        ],
+        [
+          "space.ReturnValue",
+          "physicalHeld.A"
+        ],
+        [
+          "right.ReturnValue",
+          "physicalHeld.B"
+        ],
+        [
+          "ifHeld.then",
+          "flowSteps.execute"
+        ],
+        [
+          "flowSteps.then_0",
+          "flowBranch.execute"
+        ],
+        [
+          "flow.FlowState",
+          "isNone.A"
+        ],
+        [
+          "flow.FlowState",
+          "isBooting.A"
+        ],
+        [
+          "isNone.ReturnValue",
+          "flowBranch.Condition"
+        ],
+        [
+          "flowBranch.then",
+          "setRequested.execute"
+        ],
+        [
+          "setRequested.then",
+          "fireBranch.execute"
+        ],
+        [
+          "phase.CardPhase",
+          "isFire.A"
+        ],
+        [
+          "isFire.ReturnValue",
+          "fireBranch.Condition"
+        ],
+        [
+          "fireBranch.then",
+          "skipFire.execute"
+        ],
+        [
+          "intro.IntroWidget",
+          "skipFire.self"
+        ],
+        [
+          "fireBranch.else",
+          "eventBranch.execute"
+        ],
+        [
+          "phase.CardPhase",
+          "isEvent.A"
+        ],
+        [
+          "isEvent.ReturnValue",
+          "eventBranch.Condition"
+        ],
+        [
+          "eventBranch.then",
+          "skipEvent.execute"
+        ],
+        [
+          "eventCard.EventCardWidget",
+          "skipEvent.self"
+        ],
+        [
+          "eventBranch.else",
+          "haybaBranch.execute"
+        ],
+        [
+          "phase.CardPhase",
+          "isHayba.A"
+        ],
+        [
+          "isHayba.ReturnValue",
+          "haybaBranch.Condition"
+        ],
+        [
+          "haybaBranch.then",
+          "skipHayba.execute"
+        ],
+        [
+          "hayba.HaybaCardWidget",
+          "skipHayba.self"
+        ],
+        [
+          "flowSteps.then_1",
+          "bootBranch.execute"
+        ],
+        [
+          "physicalHeld.ReturnValue",
+          "bootHeld.A"
+        ],
+        [
+          "isBooting.ReturnValue",
+          "bootHeld.B"
+        ],
+        [
+          "bootHeld.ReturnValue",
+          "bootBranch.Condition"
+        ],
+        [
+          "bootBranch.then",
+          "skipBoot.execute"
+        ],
+        [
+          "vision.CarrierVision",
+          "skipBoot.self"
+        ]
+      ],
+      "defaults": {
+        "space.Key": "SpaceBar",
+        "right.Key": "Gamepad_FaceButton_Right",
+        "isNone.B": "None",
+        "isBooting.B": "Booting",
+        "isFire.B": "0",
+        "isEvent.B": "1",
+        "isHayba.B": "2",
+        "setRequested.bOpeningSkipRequested": "true"
+      }
+    }
+  }
+}

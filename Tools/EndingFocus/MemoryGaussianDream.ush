@@ -1,0 +1,53 @@
+// Prepared renderer helper, not installed or compiled.
+// Input positions/scales are actual anisotropic 3D Gaussian data in centimetres.
+// Call BEFORE covariance projection and sorting in the true Gaussian renderer.
+// This helper does not synthesize sprites or replace the Gaussian kernel.
+
+uint SaskartaMemoryHash(uint x)
+{
+    x ^= x >> 16; x *= 0x7feb352d;
+    x ^= x >> 15; x *= 0x846ca68b;
+    return x ^ (x >> 16);
+}
+
+void SaskartaDreamGaussian(
+    uint StableGaussianId,
+    float TimeSeconds,
+    float MemoryEnvelope,
+    float ReducedMotion,
+    float3 OriginalCentreCm,
+    float3 OriginalSigmaCm,
+    float OriginalOpacity,
+    float3 SamyorFeetCm,
+    float LocalGroundZCm,
+    out float3 CentreCm,
+    out float3 SigmaCm,
+    out float Opacity)
+{
+    const float Tau = 6.28318530718;
+    uint h = SaskartaMemoryHash(StableGaussianId);
+    float a = float(h & 65535u) / 65535.0;
+    float b = float((h >> 16) & 65535u) / 65535.0;
+    float p = Tau * a;
+    float t = TimeSeconds * (0.18 + b * 0.08);
+    float motion = 1.0 - saturate(ReducedMotion);
+
+    // Independent centre translations leave each covariance valid. Applying the
+    // same positive scalar to sigma preserves an anisotropic positive covariance.
+    float amplitudeCm = lerp(2.0, 8.0, b) * motion;
+    CentreCm = OriginalCentreCm + amplitudeCm * float3(
+        sin(t + p), 0.6 * cos(t * 0.83 + p), 0.35 * sin(t * 0.69 + p));
+    SigmaCm = max(OriginalSigmaCm, 0.0001) *
+        (1.0 + motion * 0.04 * sin(t * 0.72 + p));
+
+    // Protect the physical walking corridor and terrain/footing legibility.
+    float pathDistanceCm = length(OriginalCentreCm.xy - SamyorFeetCm.xy);
+    float clearPath = smoothstep(150.0, 250.0, pathDistanceCm);
+    float clearGround = smoothstep(35.0, 140.0, OriginalCentreCm.z - LocalGroundZCm);
+    float quietPulse = lerp(1.0, 0.9 + 0.1 * sin(t * 0.5 + p), motion);
+    Opacity = saturate(OriginalOpacity) * clamp(MemoryEnvelope, 0.0, 0.28) *
+        clearPath * clearGround * quietPulse;
+    // Retain source color/SH, native depth test, camera-dependent projection and
+    // Gaussian alpha falloff in the caller. Bounds must expand by at least 12 cm
+    // (the three combined oscillation axes can exceed 8 cm in vector length).
+}

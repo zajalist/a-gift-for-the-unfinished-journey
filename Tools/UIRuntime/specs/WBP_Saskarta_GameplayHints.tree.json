@@ -1,0 +1,930 @@
+{
+  "asset": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_GameplayHints",
+  "create": {
+    "path": "/Game/SaskartaGaea/GameFlow/UI",
+    "name": "WBP_Saskarta_GameplayHints",
+    "parent_class": "/Script/SaskartaCore.SaskartaGameplayHintWidget"
+  },
+  "tree": [
+    {
+      "class": "ScaleBox",
+      "name": "HintFit",
+      "children": [
+        {
+          "class": "SizeBox",
+          "name": "HintBounds",
+          "children": [
+            {
+              "class": "VerticalBox",
+              "name": "HintNotification",
+              "children": [
+                {
+                  "class": "SizeBox",
+                  "name": "HintAccentBounds",
+                  "children": [
+                    {
+                      "class": "Border",
+                      "name": "HintAccent",
+                      "properties": {
+                        "BrushColor": [
+                          0.82,
+                          0.65,
+                          0.36,
+                          0.85
+                        ]
+                      }
+                    }
+                  ],
+                  "properties": {
+                    "bOverride_WidthOverride": true,
+                    "WidthOverride": 48,
+                    "bOverride_HeightOverride": true,
+                    "HeightOverride": 2
+                  },
+                  "slot_props": {
+                    "padding": [
+                      0,
+                      0,
+                      0,
+                      6
+                    ]
+                  }
+                },
+                {
+                  "class": "TextBlock",
+                  "name": "HintSystemHeader",
+                  "properties": {
+                    "Text": "SYSTEM / CARRIER ASSIST",
+                    "Font": {
+                      "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+                      "Size": 12
+                    },
+                    "ColorAndOpacity": {
+                      "SpecifiedColor": [
+                        0.84,
+                        0.76,
+                        0.59,
+                        0.95
+                      ]
+                    },
+                    "ShadowColorAndOpacity": [
+                      0,
+                      0,
+                      0,
+                      0.92
+                    ],
+                    "ShadowOffset": {
+                      "X": 1.5,
+                      "Y": 2
+                    }
+                  },
+                  "slot_props": {
+                    "padding": [
+                      0,
+                      0,
+                      0,
+                      5
+                    ]
+                  }
+                },
+                {
+                  "class": "HorizontalBox",
+                  "name": "HintRow",
+                  "children": [
+                    {
+                      "class": "HorizontalBox",
+                      "name": "HintGroup0",
+                      "children": [
+                        {
+                          "class": "SizeBox",
+                          "name": "HintGlyphBox0",
+                          "children": [
+                            {
+                              "class": "Image",
+                              "name": "HintGlyph0",
+                              "properties": {
+                                "Brush": {
+                                  "ResourceObject": "/Game/SaskartaGaea/UI/Prompts/Light/T_Prompt_Key_W.T_Prompt_Key_W",
+                                  "DrawAs": "Image"
+                                }
+                              }
+                            }
+                          ],
+                          "properties": {
+                            "bOverride_WidthOverride": true,
+                            "WidthOverride": 38,
+                            "bOverride_HeightOverride": true,
+                            "HeightOverride": 38
+                          },
+                          "slot_props": {
+                            "padding": [
+                              2,
+                              0,
+                              2,
+                              0
+                            ],
+                            "vertical_alignment": "Center"
+                          }
+                        },
+                        {
+                          "class": "SizeBox",
+                          "name": "HintGlyphBox1",
+                          "children": [
+                            {
+                              "class": "Image",
+                              "name": "HintGlyph1",
+                              "properties": {
+                                "Brush": {
+                                  "ResourceObject": "/Game/SaskartaGaea/UI/Prompts/Light/T_Prompt_Key_S.T_Prompt_Key_S",
+                                  "DrawAs": "Image"
+                                }
+                              }
+                            }
+                          ],
+                          "properties": {
+                            "bOverride_WidthOverride": true,
+                            "WidthOverride": 38,
+                            "bOverride_HeightOverride": true,
+                            "HeightOverride": 38
+                          },
+                          "slot_props": {
+                            "padding": [
+                              2,
+                              0,
+                              2,
+                              0
+                            ],
+                            "vertical_alignment": "Center"
+                          }
+                        },
+                        {
+                          "class": "TextBlock",
+                          "name": "HintCaption0",
+                          "properties": {
+                            "Text": "DRIVE",
+                            "Font": {
+                              "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                              "Size": 17
+                            },
+                            "ColorAndOpacity": {
+                              "SpecifiedColor": [
+                                0.94,
+                                0.91,
+                                0.81,
+                                1
+                              ]
+                            },
+                            "ShadowColorAndOpacity": [
+                              0,
+                              0,
+                              0,
+                              0.92
+                            ],
+                            "ShadowOffset": {
+                              "X": 1.5,
+                              "Y": 2
+                            },
+                            "Justification": "Left",
+                            "WrapTextAt": 620
+                          },
+                          "slot_props": {
+                            "padding": [
+                              8,
+                              0,
+                              22,
+                              0
+                            ],
+                            "vertical_alignment": "Center"
+                          }
+                        }
+                      ],
+                      "slot_props": {
+                        "vertical_alignment": "Center"
+                      }
+                    },
+                    {
+                      "class": "HorizontalBox",
+                      "name": "HintGroup1",
+                      "children": [
+                        {
+                          "class": "SizeBox",
+                          "name": "HintGlyphBox2",
+                          "children": [
+                            {
+                              "class": "Image",
+                              "name": "HintGlyph2",
+                              "properties": {
+                                "Brush": {
+                                  "ResourceObject": "/Game/SaskartaGaea/UI/Prompts/Light/T_Prompt_Key_A.T_Prompt_Key_A",
+                                  "DrawAs": "Image"
+                                }
+                              }
+                            }
+                          ],
+                          "properties": {
+                            "bOverride_WidthOverride": true,
+                            "WidthOverride": 38,
+                            "bOverride_HeightOverride": true,
+                            "HeightOverride": 38
+                          },
+                          "slot_props": {
+                            "padding": [
+                              2,
+                              0,
+                              2,
+                              0
+                            ],
+                            "vertical_alignment": "Center"
+                          }
+                        },
+                        {
+                          "class": "SizeBox",
+                          "name": "HintGlyphBox3",
+                          "children": [
+                            {
+                              "class": "Image",
+                              "name": "HintGlyph3",
+                              "properties": {
+                                "Brush": {
+                                  "ResourceObject": "/Game/SaskartaGaea/UI/Prompts/Light/T_Prompt_Key_D.T_Prompt_Key_D",
+                                  "DrawAs": "Image"
+                                }
+                              }
+                            }
+                          ],
+                          "properties": {
+                            "bOverride_WidthOverride": true,
+                            "WidthOverride": 38,
+                            "bOverride_HeightOverride": true,
+                            "HeightOverride": 38
+                          },
+                          "slot_props": {
+                            "padding": [
+                              2,
+                              0,
+                              2,
+                              0
+                            ],
+                            "vertical_alignment": "Center"
+                          }
+                        },
+                        {
+                          "class": "TextBlock",
+                          "name": "HintCaption1",
+                          "properties": {
+                            "Text": "STEER",
+                            "Font": {
+                              "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                              "Size": 17
+                            },
+                            "ColorAndOpacity": {
+                              "SpecifiedColor": [
+                                0.94,
+                                0.91,
+                                0.81,
+                                1
+                              ]
+                            },
+                            "ShadowColorAndOpacity": [
+                              0,
+                              0,
+                              0,
+                              0.92
+                            ],
+                            "ShadowOffset": {
+                              "X": 1.5,
+                              "Y": 2
+                            },
+                            "Justification": "Left",
+                            "WrapTextAt": 620
+                          },
+                          "slot_props": {
+                            "padding": [
+                              8,
+                              0,
+                              22,
+                              0
+                            ],
+                            "vertical_alignment": "Center"
+                          }
+                        }
+                      ],
+                      "slot_props": {
+                        "vertical_alignment": "Center"
+                      }
+                    },
+                    {
+                      "class": "HorizontalBox",
+                      "name": "HintGroup2",
+                      "children": [
+                        {
+                          "class": "SizeBox",
+                          "name": "HintGlyphBox4",
+                          "children": [
+                            {
+                              "class": "Image",
+                              "name": "HintGlyph4",
+                              "properties": {
+                                "Brush": {
+                                  "ResourceObject": "/Game/SaskartaGaea/UI/Prompts/Light/T_Prompt_Mouse_Move.T_Prompt_Mouse_Move",
+                                  "DrawAs": "Image"
+                                }
+                              }
+                            }
+                          ],
+                          "properties": {
+                            "bOverride_WidthOverride": true,
+                            "WidthOverride": 38,
+                            "bOverride_HeightOverride": true,
+                            "HeightOverride": 38
+                          },
+                          "slot_props": {
+                            "padding": [
+                              2,
+                              0,
+                              2,
+                              0
+                            ],
+                            "vertical_alignment": "Center"
+                          }
+                        },
+                        {
+                          "class": "SizeBox",
+                          "name": "HintGlyphBox5",
+                          "children": [
+                            {
+                              "class": "Image",
+                              "name": "HintGlyph5"
+                            }
+                          ],
+                          "properties": {
+                            "bOverride_WidthOverride": true,
+                            "WidthOverride": 38,
+                            "bOverride_HeightOverride": true,
+                            "HeightOverride": 38,
+                            "Visibility": "Collapsed"
+                          },
+                          "slot_props": {
+                            "padding": [
+                              2,
+                              0,
+                              2,
+                              0
+                            ],
+                            "vertical_alignment": "Center"
+                          }
+                        },
+                        {
+                          "class": "TextBlock",
+                          "name": "HintCaption2",
+                          "properties": {
+                            "Text": "LOOK",
+                            "Font": {
+                              "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                              "Size": 17
+                            },
+                            "ColorAndOpacity": {
+                              "SpecifiedColor": [
+                                0.94,
+                                0.91,
+                                0.81,
+                                1
+                              ]
+                            },
+                            "ShadowColorAndOpacity": [
+                              0,
+                              0,
+                              0,
+                              0.92
+                            ],
+                            "ShadowOffset": {
+                              "X": 1.5,
+                              "Y": 2
+                            },
+                            "Justification": "Left",
+                            "WrapTextAt": 620
+                          },
+                          "slot_props": {
+                            "padding": [
+                              8,
+                              0,
+                              22,
+                              0
+                            ],
+                            "vertical_alignment": "Center"
+                          }
+                        }
+                      ],
+                      "slot_props": {
+                        "vertical_alignment": "Center"
+                      }
+                    },
+                    {
+                      "class": "HorizontalBox",
+                      "name": "HintGroup3",
+                      "children": [
+                        {
+                          "class": "SizeBox",
+                          "name": "HintGlyphBox6",
+                          "children": [
+                            {
+                              "class": "Image",
+                              "name": "HintGlyph6"
+                            }
+                          ],
+                          "properties": {
+                            "bOverride_WidthOverride": true,
+                            "WidthOverride": 38,
+                            "bOverride_HeightOverride": true,
+                            "HeightOverride": 38,
+                            "Visibility": "Collapsed"
+                          },
+                          "slot_props": {
+                            "padding": [
+                              2,
+                              0,
+                              2,
+                              0
+                            ],
+                            "vertical_alignment": "Center"
+                          }
+                        },
+                        {
+                          "class": "SizeBox",
+                          "name": "HintGlyphBox7",
+                          "children": [
+                            {
+                              "class": "Image",
+                              "name": "HintGlyph7"
+                            }
+                          ],
+                          "properties": {
+                            "bOverride_WidthOverride": true,
+                            "WidthOverride": 38,
+                            "bOverride_HeightOverride": true,
+                            "HeightOverride": 38,
+                            "Visibility": "Collapsed"
+                          },
+                          "slot_props": {
+                            "padding": [
+                              2,
+                              0,
+                              2,
+                              0
+                            ],
+                            "vertical_alignment": "Center"
+                          }
+                        },
+                        {
+                          "class": "TextBlock",
+                          "name": "HintCaption3",
+                          "properties": {
+                            "Text": "",
+                            "Font": {
+                              "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                              "Size": 17
+                            },
+                            "ColorAndOpacity": {
+                              "SpecifiedColor": [
+                                0.94,
+                                0.91,
+                                0.81,
+                                1
+                              ]
+                            },
+                            "ShadowColorAndOpacity": [
+                              0,
+                              0,
+                              0,
+                              0.92
+                            ],
+                            "ShadowOffset": {
+                              "X": 1.5,
+                              "Y": 2
+                            },
+                            "Visibility": "Collapsed",
+                            "Justification": "Left",
+                            "WrapTextAt": 620
+                          },
+                          "slot_props": {
+                            "padding": [
+                              8,
+                              0,
+                              22,
+                              0
+                            ],
+                            "vertical_alignment": "Center"
+                          }
+                        }
+                      ],
+                      "slot_props": {
+                        "vertical_alignment": "Center"
+                      }
+                    },
+                    {
+                      "class": "HorizontalBox",
+                      "name": "HintGroup4",
+                      "children": [
+                        {
+                          "class": "SizeBox",
+                          "name": "HintGlyphBox8",
+                          "children": [
+                            {
+                              "class": "Image",
+                              "name": "HintGlyph8"
+                            }
+                          ],
+                          "properties": {
+                            "bOverride_WidthOverride": true,
+                            "WidthOverride": 38,
+                            "bOverride_HeightOverride": true,
+                            "HeightOverride": 38,
+                            "Visibility": "Collapsed"
+                          },
+                          "slot_props": {
+                            "padding": [
+                              2,
+                              0,
+                              2,
+                              0
+                            ],
+                            "vertical_alignment": "Center"
+                          }
+                        },
+                        {
+                          "class": "SizeBox",
+                          "name": "HintGlyphBox9",
+                          "children": [
+                            {
+                              "class": "Image",
+                              "name": "HintGlyph9"
+                            }
+                          ],
+                          "properties": {
+                            "bOverride_WidthOverride": true,
+                            "WidthOverride": 38,
+                            "bOverride_HeightOverride": true,
+                            "HeightOverride": 38,
+                            "Visibility": "Collapsed"
+                          },
+                          "slot_props": {
+                            "padding": [
+                              2,
+                              0,
+                              2,
+                              0
+                            ],
+                            "vertical_alignment": "Center"
+                          }
+                        },
+                        {
+                          "class": "TextBlock",
+                          "name": "HintCaption4",
+                          "properties": {
+                            "Text": "",
+                            "Font": {
+                              "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                              "Size": 17
+                            },
+                            "ColorAndOpacity": {
+                              "SpecifiedColor": [
+                                0.94,
+                                0.91,
+                                0.81,
+                                1
+                              ]
+                            },
+                            "ShadowColorAndOpacity": [
+                              0,
+                              0,
+                              0,
+                              0.92
+                            ],
+                            "ShadowOffset": {
+                              "X": 1.5,
+                              "Y": 2
+                            },
+                            "Visibility": "Collapsed",
+                            "Justification": "Left",
+                            "WrapTextAt": 620
+                          },
+                          "slot_props": {
+                            "padding": [
+                              8,
+                              0,
+                              22,
+                              0
+                            ],
+                            "vertical_alignment": "Center"
+                          }
+                        }
+                      ],
+                      "slot_props": {
+                        "vertical_alignment": "Center"
+                      }
+                    },
+                    {
+                      "class": "HorizontalBox",
+                      "name": "HintGroup5",
+                      "children": [
+                        {
+                          "class": "SizeBox",
+                          "name": "HintGlyphBox10",
+                          "children": [
+                            {
+                              "class": "Image",
+                              "name": "HintGlyph10"
+                            }
+                          ],
+                          "properties": {
+                            "bOverride_WidthOverride": true,
+                            "WidthOverride": 38,
+                            "bOverride_HeightOverride": true,
+                            "HeightOverride": 38,
+                            "Visibility": "Collapsed"
+                          },
+                          "slot_props": {
+                            "padding": [
+                              2,
+                              0,
+                              2,
+                              0
+                            ],
+                            "vertical_alignment": "Center"
+                          }
+                        },
+                        {
+                          "class": "SizeBox",
+                          "name": "HintGlyphBox11",
+                          "children": [
+                            {
+                              "class": "Image",
+                              "name": "HintGlyph11"
+                            }
+                          ],
+                          "properties": {
+                            "bOverride_WidthOverride": true,
+                            "WidthOverride": 38,
+                            "bOverride_HeightOverride": true,
+                            "HeightOverride": 38,
+                            "Visibility": "Collapsed"
+                          },
+                          "slot_props": {
+                            "padding": [
+                              2,
+                              0,
+                              2,
+                              0
+                            ],
+                            "vertical_alignment": "Center"
+                          }
+                        },
+                        {
+                          "class": "TextBlock",
+                          "name": "HintCaption5",
+                          "properties": {
+                            "Text": "",
+                            "Font": {
+                              "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                              "Size": 17
+                            },
+                            "ColorAndOpacity": {
+                              "SpecifiedColor": [
+                                0.94,
+                                0.91,
+                                0.81,
+                                1
+                              ]
+                            },
+                            "ShadowColorAndOpacity": [
+                              0,
+                              0,
+                              0,
+                              0.92
+                            ],
+                            "ShadowOffset": {
+                              "X": 1.5,
+                              "Y": 2
+                            },
+                            "Visibility": "Collapsed",
+                            "Justification": "Left",
+                            "WrapTextAt": 620
+                          },
+                          "slot_props": {
+                            "padding": [
+                              8,
+                              0,
+                              22,
+                              0
+                            ],
+                            "vertical_alignment": "Center"
+                          }
+                        }
+                      ],
+                      "slot_props": {
+                        "vertical_alignment": "Center"
+                      }
+                    },
+                    {
+                      "class": "HorizontalBox",
+                      "name": "HintGroup6",
+                      "children": [
+                        {
+                          "class": "SizeBox",
+                          "name": "HintGlyphBox12",
+                          "children": [
+                            {
+                              "class": "Image",
+                              "name": "HintGlyph12"
+                            }
+                          ],
+                          "properties": {
+                            "bOverride_WidthOverride": true,
+                            "WidthOverride": 38,
+                            "bOverride_HeightOverride": true,
+                            "HeightOverride": 38,
+                            "Visibility": "Collapsed"
+                          },
+                          "slot_props": {
+                            "padding": [
+                              2,
+                              0,
+                              2,
+                              0
+                            ],
+                            "vertical_alignment": "Center"
+                          }
+                        },
+                        {
+                          "class": "SizeBox",
+                          "name": "HintGlyphBox13",
+                          "children": [
+                            {
+                              "class": "Image",
+                              "name": "HintGlyph13"
+                            }
+                          ],
+                          "properties": {
+                            "bOverride_WidthOverride": true,
+                            "WidthOverride": 38,
+                            "bOverride_HeightOverride": true,
+                            "HeightOverride": 38,
+                            "Visibility": "Collapsed"
+                          },
+                          "slot_props": {
+                            "padding": [
+                              2,
+                              0,
+                              2,
+                              0
+                            ],
+                            "vertical_alignment": "Center"
+                          }
+                        },
+                        {
+                          "class": "TextBlock",
+                          "name": "HintCaption6",
+                          "properties": {
+                            "Text": "",
+                            "Font": {
+                              "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                              "Size": 17
+                            },
+                            "ColorAndOpacity": {
+                              "SpecifiedColor": [
+                                0.94,
+                                0.91,
+                                0.81,
+                                1
+                              ]
+                            },
+                            "ShadowColorAndOpacity": [
+                              0,
+                              0,
+                              0,
+                              0.92
+                            ],
+                            "ShadowOffset": {
+                              "X": 1.5,
+                              "Y": 2
+                            },
+                            "Visibility": "Collapsed",
+                            "Justification": "Left",
+                            "WrapTextAt": 620
+                          },
+                          "slot_props": {
+                            "padding": [
+                              8,
+                              0,
+                              22,
+                              0
+                            ],
+                            "vertical_alignment": "Center"
+                          }
+                        }
+                      ],
+                      "slot_props": {
+                        "vertical_alignment": "Center"
+                      }
+                    }
+                  ],
+                  "slot_props": {
+                    "horizontal_alignment": "Left",
+                    "vertical_alignment": "Center"
+                  }
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "bOverride_WidthOverride": true,
+            "WidthOverride": 660,
+            "bOverride_HeightOverride": true,
+            "HeightOverride": 84
+          }
+        }
+      ],
+      "properties": {
+        "Stretch": "ScaleToFit",
+        "StretchDirection": "DownOnly"
+      }
+    }
+  ],
+  "slots": {
+    "HintFit": {
+      "anchors": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "alignment": [
+        0,
+        1
+      ],
+      "position": [
+        28,
+        -32
+      ],
+      "size": [
+        660,
+        84
+      ]
+    }
+  },
+  "variables": [],
+  "expected_parent": "/Script/SaskartaCore.SaskartaGameplayHintWidget",
+  "expected_widgets": {
+    "HintFit": "ScaleBox",
+    "HintBounds": "SizeBox",
+    "HintNotification": "VerticalBox",
+    "HintAccentBounds": "SizeBox",
+    "HintAccent": "Border",
+    "HintSystemHeader": "TextBlock",
+    "HintRow": "HorizontalBox",
+    "HintGroup0": "HorizontalBox",
+    "HintGlyphBox0": "SizeBox",
+    "HintGlyph0": "Image",
+    "HintGlyphBox1": "SizeBox",
+    "HintGlyph1": "Image",
+    "HintCaption0": "TextBlock",
+    "HintGroup1": "HorizontalBox",
+    "HintGlyphBox2": "SizeBox",
+    "HintGlyph2": "Image",
+    "HintGlyphBox3": "SizeBox",
+    "HintGlyph3": "Image",
+    "HintCaption1": "TextBlock",
+    "HintGroup2": "HorizontalBox",
+    "HintGlyphBox4": "SizeBox",
+    "HintGlyph4": "Image",
+    "HintGlyphBox5": "SizeBox",
+    "HintGlyph5": "Image",
+    "HintCaption2": "TextBlock",
+    "HintGroup3": "HorizontalBox",
+    "HintGlyphBox6": "SizeBox",
+    "HintGlyph6": "Image",
+    "HintGlyphBox7": "SizeBox",
+    "HintGlyph7": "Image",
+    "HintCaption3": "TextBlock",
+    "HintGroup4": "HorizontalBox",
+    "HintGlyphBox8": "SizeBox",
+    "HintGlyph8": "Image",
+    "HintGlyphBox9": "SizeBox",
+    "HintGlyph9": "Image",
+    "HintCaption4": "TextBlock",
+    "HintGroup5": "HorizontalBox",
+    "HintGlyphBox10": "SizeBox",
+    "HintGlyph10": "Image",
+    "HintGlyphBox11": "SizeBox",
+    "HintGlyph11": "Image",
+    "HintCaption5": "TextBlock",
+    "HintGroup6": "HorizontalBox",
+    "HintGlyphBox12": "SizeBox",
+    "HintGlyph12": "Image",
+    "HintGlyphBox13": "SizeBox",
+    "HintGlyph13": "Image",
+    "HintCaption6": "TextBlock"
+  },
+  "strict_compile": true,
+  "force_save": true
+}

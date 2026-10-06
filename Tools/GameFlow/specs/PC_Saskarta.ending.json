@@ -1,0 +1,541 @@
+{
+  "asset": "/Game/SaskartaGaea/GameFlow/PC_Saskarta",
+  "description": "Scoped ending additions (task ENDING): the no-parameter hooks story-events.json calls (CallHook passes no text, so each log line is its own wrapper). Build with --reset-graphs together with BPC_CarrierVision.ending.json, BP_Saskarta_Carrier.ending.json and BP_Saskarta_Traveller.json. The other PC graphs are untouched; the pause fix (Human/Transmit) is a separate step in task-ENDING-brief.md.",
+  "variables": [],
+  "functions": [
+    {
+      "name": "Cine_Breach",
+      "inputs": [],
+      "outputs": [],
+      "pure": false
+    },
+    {
+      "name": "Cine_ClearBlack",
+      "inputs": [],
+      "outputs": [],
+      "pure": false
+    },
+    {
+      "name": "Cine_ShowBlack",
+      "inputs": [],
+      "outputs": [],
+      "pure": false
+    },
+    {
+      "name": "Cine_LogCriticalFailure",
+      "inputs": [],
+      "outputs": [],
+      "pure": false
+    },
+    {
+      "name": "Cine_LogHandoverSearching",
+      "inputs": [],
+      "outputs": [],
+      "pure": false
+    },
+    {
+      "name": "Cine_LogNoCarrier",
+      "inputs": [],
+      "outputs": [],
+      "pure": false
+    },
+    {
+      "name": "Cine_LogLockReleased",
+      "inputs": [],
+      "outputs": [],
+      "pure": false
+    },
+    {
+      "name": "Cine_LogTransmissionComplete",
+      "inputs": [],
+      "outputs": [],
+      "pure": false
+    },
+    {
+      "name": "PossessTraveller",
+      "inputs": [],
+      "outputs": [],
+      "pure": false
+    },
+    {
+      "name": "StartHumanWalk",
+      "inputs": [],
+      "outputs": [],
+      "pure": false
+    },
+    {
+      "name": "StopHumanWalk",
+      "inputs": [],
+      "outputs": [],
+      "pure": false
+    }
+  ],
+  "graphs": [
+    {
+      "graph": "Cine_Breach",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "g1": {
+          "get": "CarrierVision"
+        },
+        "PlayBrea2": {
+          "call": "PlayBreach",
+          "class": "/Game/SaskartaGaea/GameFlow/BPC_CarrierVision.BPC_CarrierVision_C"
+        }
+      },
+      "links": [
+        [
+          "g1.CarrierVision",
+          "PlayBrea2.self"
+        ],
+        [
+          "entry.then",
+          "PlayBrea2.execute"
+        ]
+      ],
+      "defaults": {}
+    },
+    {
+      "graph": "Cine_ClearBlack",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "g1": {
+          "get": "CarrierVision"
+        },
+        "HideBlac2": {
+          "call": "HideBlack",
+          "class": "/Game/SaskartaGaea/GameFlow/BPC_CarrierVision.BPC_CarrierVision_C"
+        }
+      },
+      "links": [
+        [
+          "g1.CarrierVision",
+          "HideBlac2.self"
+        ],
+        [
+          "entry.then",
+          "HideBlac2.execute"
+        ]
+      ],
+      "defaults": {}
+    },
+    {
+      "graph": "Cine_ShowBlack",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "g1": {
+          "get": "CarrierVision"
+        },
+        "ShowBlac2": {
+          "call": "ShowBlack",
+          "class": "/Game/SaskartaGaea/GameFlow/BPC_CarrierVision.BPC_CarrierVision_C"
+        }
+      },
+      "links": [
+        [
+          "g1.CarrierVision",
+          "ShowBlac2.self"
+        ],
+        [
+          "entry.then",
+          "ShowBlac2.execute"
+        ]
+      ],
+      "defaults": {}
+    },
+    {
+      "graph": "Cine_LogCriticalFailure",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "g1": {
+          "get": "CarrierVision"
+        },
+        "ShowLogL2": {
+          "call": "ShowLogLine",
+          "class": "/Game/SaskartaGaea/GameFlow/BPC_CarrierVision.BPC_CarrierVision_C"
+        }
+      },
+      "links": [
+        [
+          "g1.CarrierVision",
+          "ShowLogL2.self"
+        ],
+        [
+          "entry.then",
+          "ShowLogL2.execute"
+        ]
+      ],
+      "defaults": {
+        "ShowLogL2.Line": "CARRIER 07 - CRITICAL FAILURE",
+        "ShowLogL2.Result": "FAIL"
+      }
+    },
+    {
+      "graph": "Cine_LogHandoverSearching",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "g1": {
+          "get": "CarrierVision"
+        },
+        "ShowLogL2": {
+          "call": "ShowLogLine",
+          "class": "/Game/SaskartaGaea/GameFlow/BPC_CarrierVision.BPC_CarrierVision_C"
+        }
+      },
+      "links": [
+        [
+          "g1.CarrierVision",
+          "ShowLogL2.self"
+        ],
+        [
+          "entry.then",
+          "ShowLogL2.execute"
+        ]
+      ],
+      "defaults": {
+        "ShowLogL2.Line": "HANDOVER - SEARCHING",
+        "ShowLogL2.Result": "NONE"
+      }
+    },
+    {
+      "graph": "Cine_LogNoCarrier",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "g1": {
+          "get": "CarrierVision"
+        },
+        "ShowLogL2": {
+          "call": "ShowLogLine",
+          "class": "/Game/SaskartaGaea/GameFlow/BPC_CarrierVision.BPC_CarrierVision_C"
+        }
+      },
+      "links": [
+        [
+          "g1.CarrierVision",
+          "ShowLogL2.self"
+        ],
+        [
+          "entry.then",
+          "ShowLogL2.execute"
+        ]
+      ],
+      "defaults": {
+        "ShowLogL2.Line": "NO CARRIER AVAILABLE",
+        "ShowLogL2.Result": "FAIL"
+      }
+    },
+    {
+      "graph": "Cine_LogLockReleased",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "g1": {
+          "get": "CarrierVision"
+        },
+        "ShowLogL2": {
+          "call": "ShowLogLine",
+          "class": "/Game/SaskartaGaea/GameFlow/BPC_CarrierVision.BPC_CarrierVision_C"
+        }
+      },
+      "links": [
+        [
+          "g1.CarrierVision",
+          "ShowLogL2.self"
+        ],
+        [
+          "entry.then",
+          "ShowLogL2.execute"
+        ]
+      ],
+      "defaults": {
+        "ShowLogL2.Line": "CAPSULE LOCK - RELEASED",
+        "ShowLogL2.Result": "OK"
+      }
+    },
+    {
+      "graph": "Cine_LogTransmissionComplete",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "g1": {
+          "get": "CarrierVision"
+        },
+        "ShowLogL2": {
+          "call": "ShowLogLine",
+          "class": "/Game/SaskartaGaea/GameFlow/BPC_CarrierVision.BPC_CarrierVision_C"
+        }
+      },
+      "links": [
+        [
+          "g1.CarrierVision",
+          "ShowLogL2.self"
+        ],
+        [
+          "entry.then",
+          "ShowLogL2.execute"
+        ]
+      ],
+      "defaults": {
+        "ShowLogL2.Line": "TRANSMISSION COMPLETE",
+        "ShowLogL2.Result": "OK"
+      }
+    },
+    {
+      "graph": "PossessTraveller",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "me": {
+          "self": true
+        },
+        "K2_GetPa1": {
+          "call": "K2_GetPawn",
+          "class": "/Script/Engine.Controller"
+        },
+        "as2": {
+          "cast": "/Game/SaskartaGaea/Characters/Carrier/BP_Saskarta_Carrier.BP_Saskarta_Carrier_C"
+        },
+        "Travelle3": {
+          "call": "TravellerStandBeside",
+          "class": "/Game/SaskartaGaea/Characters/Carrier/BP_Saskarta_Carrier.BP_Saskarta_Carrier_C"
+        },
+        "GetTrave4": {
+          "call": "GetTraveller",
+          "class": "/Game/SaskartaGaea/Characters/Carrier/BP_Saskarta_Carrier.BP_Saskarta_Carrier_C"
+        },
+        "IsValid5": {
+          "call": "IsValid",
+          "class": "/Script/Engine.KismetSystemLibrary"
+        },
+        "if6": {
+          "branch": true
+        },
+        "Possess7": {
+          "call": "Possess",
+          "class": "/Script/Engine.Controller"
+        },
+        "K2_GetAc8": {
+          "call": "K2_GetActorRotation",
+          "class": "/Script/Engine.Actor"
+        },
+        "BreakRot9": {
+          "call": "BreakRotator",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "MakeRota10": {
+          "call": "MakeRotator",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "SetContr11": {
+          "call": "SetControlRotation",
+          "class": "/Script/Engine.Controller"
+        },
+        "ApplyPla12": {
+          "call": "ApplyPlayerFOV"
+        }
+      },
+      "links": [
+        [
+          "me.self",
+          "K2_GetPa1.self"
+        ],
+        [
+          "K2_GetPa1.ReturnValue",
+          "as2.Object"
+        ],
+        [
+          "entry.then",
+          "as2.execute"
+        ],
+        [
+          "as2.AsBP Saskarta Carrier",
+          "Travelle3.self"
+        ],
+        [
+          "as2.then",
+          "Travelle3.execute"
+        ],
+        [
+          "as2.AsBP Saskarta Carrier",
+          "GetTrave4.self"
+        ],
+        [
+          "GetTrave4.Result",
+          "IsValid5.Object"
+        ],
+        [
+          "IsValid5.ReturnValue",
+          "if6.Condition"
+        ],
+        [
+          "Travelle3.then",
+          "if6.execute"
+        ],
+        [
+          "me.self",
+          "Possess7.self"
+        ],
+        [
+          "GetTrave4.Result",
+          "Possess7.InPawn"
+        ],
+        [
+          "if6.then",
+          "Possess7.execute"
+        ],
+        [
+          "GetTrave4.Result",
+          "K2_GetAc8.self"
+        ],
+        [
+          "K2_GetAc8.ReturnValue",
+          "BreakRot9.InRot"
+        ],
+        [
+          "BreakRot9.Yaw",
+          "MakeRota10.Yaw"
+        ],
+        [
+          "me.self",
+          "SetContr11.self"
+        ],
+        [
+          "MakeRota10.ReturnValue",
+          "SetContr11.NewRotation"
+        ],
+        [
+          "Possess7.then",
+          "SetContr11.execute"
+        ],
+        [
+          "SetContr11.then",
+          "ApplyPla12.execute"
+        ]
+      ],
+      "defaults": {
+        "MakeRota10.Roll": "0.0",
+        "MakeRota10.Pitch": "-8.0"
+      }
+    },
+    {
+      "graph": "StartHumanWalk",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "g1": {
+          "get": "RoadTether"
+        },
+        "StopTeth2": {
+          "call": "StopTether",
+          "class": "/Game/SaskartaGaea/GameFlow/BPC_RoadTether.BPC_RoadTether_C"
+        },
+        "me": {
+          "self": true
+        },
+        "K2_GetPa3": {
+          "call": "K2_GetPawn",
+          "class": "/Script/Engine.Controller"
+        },
+        "as4": {
+          "cast": "/Game/SaskartaGaea/Characters/Traveller/BP_Saskarta_Traveller.BP_Saskarta_Traveller_C"
+        },
+        "StartWal5": {
+          "call": "StartWalk",
+          "class": "/Game/SaskartaGaea/Characters/Traveller/BP_Saskarta_Traveller.BP_Saskarta_Traveller_C"
+        }
+      },
+      "links": [
+        [
+          "g1.RoadTether",
+          "StopTeth2.self"
+        ],
+        [
+          "entry.then",
+          "StopTeth2.execute"
+        ],
+        [
+          "me.self",
+          "K2_GetPa3.self"
+        ],
+        [
+          "K2_GetPa3.ReturnValue",
+          "as4.Object"
+        ],
+        [
+          "StopTeth2.then",
+          "as4.execute"
+        ],
+        [
+          "as4.AsBP Saskarta Traveller",
+          "StartWal5.self"
+        ],
+        [
+          "as4.then",
+          "StartWal5.execute"
+        ]
+      ],
+      "defaults": {}
+    },
+    {
+      "graph": "StopHumanWalk",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "me": {
+          "self": true
+        },
+        "K2_GetPa1": {
+          "call": "K2_GetPawn",
+          "class": "/Script/Engine.Controller"
+        },
+        "as2": {
+          "cast": "/Game/SaskartaGaea/Characters/Traveller/BP_Saskarta_Traveller.BP_Saskarta_Traveller_C"
+        },
+        "StopWalk3": {
+          "call": "StopWalk",
+          "class": "/Game/SaskartaGaea/Characters/Traveller/BP_Saskarta_Traveller.BP_Saskarta_Traveller_C"
+        }
+      },
+      "links": [
+        [
+          "me.self",
+          "K2_GetPa1.self"
+        ],
+        [
+          "K2_GetPa1.ReturnValue",
+          "as2.Object"
+        ],
+        [
+          "entry.then",
+          "as2.execute"
+        ],
+        [
+          "as2.AsBP Saskarta Traveller",
+          "StopWalk3.self"
+        ],
+        [
+          "as2.then",
+          "StopWalk3.execute"
+        ]
+      ],
+      "defaults": {}
+    }
+  ]
+}

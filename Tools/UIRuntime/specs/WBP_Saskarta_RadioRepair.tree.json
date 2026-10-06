@@ -1,0 +1,664 @@
+{
+  "asset": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_RadioRepair",
+  "create": {
+    "path": "/Game/SaskartaGaea/GameFlow/UI",
+    "name": "WBP_Saskarta_RadioRepair",
+    "parent_class": "/Script/SaskartaCore.SaskartaRadioRepairWidget"
+  },
+  "tree": [
+    {
+      "class": "CanvasPanel",
+      "name": "RepairCard",
+      "children": [
+        {
+          "class": "Border",
+          "name": "ReceiverGlass",
+          "children": [
+            {
+              "class": "VerticalBox",
+              "name": "ReceiverContent",
+              "children": [
+                {
+                  "class": "TextBlock",
+                  "name": "ReceiverTitle",
+                  "properties": {
+                    "Text": "CISTERN / RECEIVER ALIGNMENT",
+                    "Font": {
+                      "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+                      "Size": 24
+                    },
+                    "ColorAndOpacity": {
+                      "SpecifiedColor": [
+                        0.94,
+                        0.91,
+                        0.81,
+                        1
+                      ]
+                    },
+                    "ShadowColorAndOpacity": [
+                      0,
+                      0,
+                      0,
+                      0.92
+                    ],
+                    "ShadowOffset": {
+                      "X": 1.5,
+                      "Y": 2
+                    }
+                  },
+                  "slot_props": {
+                    "padding": [
+                      0,
+                      0,
+                      0,
+                      10
+                    ]
+                  }
+                },
+                {
+                  "class": "TextBlock",
+                  "name": "RepairStage",
+                  "properties": {
+                    "Text": "1 / AIM THE AERIAL",
+                    "Font": {
+                      "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+                      "Size": 22
+                    },
+                    "ColorAndOpacity": {
+                      "SpecifiedColor": [
+                        0.94,
+                        0.91,
+                        0.81,
+                        1
+                      ]
+                    },
+                    "ShadowColorAndOpacity": [
+                      0,
+                      0,
+                      0,
+                      0.92
+                    ],
+                    "ShadowOffset": {
+                      "X": 1.5,
+                      "Y": 2
+                    }
+                  },
+                  "slot_props": {
+                    "padding": [
+                      0,
+                      0,
+                      0,
+                      10
+                    ]
+                  }
+                },
+                {
+                  "class": "TextBlock",
+                  "name": "RepairValues",
+                  "properties": {
+                    "Text": "AERIAL +0 DEG   TUNE +0.00   SIGNAL 0%",
+                    "Font": {
+                      "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+                      "Size": 17
+                    },
+                    "ColorAndOpacity": {
+                      "SpecifiedColor": [
+                        0.94,
+                        0.91,
+                        0.81,
+                        1
+                      ]
+                    },
+                    "ShadowColorAndOpacity": [
+                      0,
+                      0,
+                      0,
+                      0.92
+                    ],
+                    "ShadowOffset": {
+                      "X": 1.5,
+                      "Y": 2
+                    }
+                  },
+                  "slot_props": {
+                    "padding": [
+                      0,
+                      0,
+                      0,
+                      10
+                    ]
+                  }
+                },
+                {
+                  "class": "SizeBox",
+                  "name": "SignalBounds",
+                  "children": [
+                    {
+                      "class": "ProgressBar",
+                      "name": "SignalBar",
+                      "properties": {
+                        "FillColorAndOpacity": [
+                          0.63,
+                          0.88,
+                          0.66,
+                          1
+                        ],
+                        "bIsVariable": false
+                      }
+                    }
+                  ],
+                  "properties": {
+                    "bOverride_HeightOverride": true,
+                    "HeightOverride": 8
+                  },
+                  "slot_props": {
+                    "padding": [
+                      0,
+                      0,
+                      0,
+                      10
+                    ]
+                  }
+                },
+                {
+                  "class": "TextBlock",
+                  "name": "RepairInstructions",
+                  "properties": {
+                    "Text": "TURN THE AERIAL THROUGH THE STATIC",
+                    "Font": {
+                      "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+                      "Size": 17
+                    },
+                    "ColorAndOpacity": {
+                      "SpecifiedColor": [
+                        0.94,
+                        0.91,
+                        0.81,
+                        1
+                      ]
+                    },
+                    "ShadowColorAndOpacity": [
+                      0,
+                      0,
+                      0,
+                      0.92
+                    ],
+                    "ShadowOffset": {
+                      "X": 1.5,
+                      "Y": 2
+                    }
+                  },
+                  "slot_props": {
+                    "padding": [
+                      0,
+                      0,
+                      0,
+                      10
+                    ]
+                  }
+                },
+                {
+                  "class": "TextBlock",
+                  "name": "EnvelopeLabel",
+                  "properties": {
+                    "Text": "LIVE VOICE ENVELOPE",
+                    "Font": {
+                      "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+                      "Size": 13
+                    },
+                    "ColorAndOpacity": {
+                      "SpecifiedColor": [
+                        0.94,
+                        0.91,
+                        0.81,
+                        1
+                      ]
+                    },
+                    "ShadowColorAndOpacity": [
+                      0,
+                      0,
+                      0,
+                      0.92
+                    ],
+                    "ShadowOffset": {
+                      "X": 1.5,
+                      "Y": 2
+                    }
+                  },
+                  "slot_props": {
+                    "padding": [
+                      0,
+                      0,
+                      0,
+                      10
+                    ]
+                  }
+                },
+                {
+                  "class": "/Script/SaskartaCore.SaskartaTelemetryGraph",
+                  "name": "EnvelopeGraph",
+                  "properties": {
+                    "bIsVariable": false
+                  },
+                  "slot_props": {
+                    "padding": [
+                      0,
+                      0,
+                      0,
+                      10
+                    ]
+                  }
+                },
+                {
+                  "class": "TextBlock",
+                  "name": "RepairStability",
+                  "properties": {
+                    "Text": "FIND THE STRONG SIGNAL",
+                    "Font": {
+                      "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+                      "Size": 16
+                    },
+                    "ColorAndOpacity": {
+                      "SpecifiedColor": [
+                        0.94,
+                        0.91,
+                        0.81,
+                        1
+                      ]
+                    },
+                    "ShadowColorAndOpacity": [
+                      0,
+                      0,
+                      0,
+                      0.92
+                    ],
+                    "ShadowOffset": {
+                      "X": 1.5,
+                      "Y": 2
+                    }
+                  },
+                  "slot_props": {
+                    "padding": [
+                      0,
+                      0,
+                      0,
+                      10
+                    ]
+                  }
+                },
+                {
+                  "class": "SizeBox",
+                  "name": "StabilityBounds",
+                  "children": [
+                    {
+                      "class": "ProgressBar",
+                      "name": "StabilityBar",
+                      "properties": {
+                        "FillColorAndOpacity": [
+                          0.63,
+                          0.88,
+                          0.66,
+                          1
+                        ],
+                        "bIsVariable": false
+                      }
+                    }
+                  ],
+                  "properties": {
+                    "bOverride_HeightOverride": true,
+                    "HeightOverride": 6
+                  },
+                  "slot_props": {
+                    "padding": [
+                      0,
+                      0,
+                      0,
+                      10
+                    ]
+                  }
+                },
+                {
+                  "class": "TextBlock",
+                  "name": "RepairExit",
+                  "properties": {
+                    "Text": "T CLOSE . ESC PAUSE",
+                    "Font": {
+                      "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+                      "Size": 13
+                    },
+                    "ColorAndOpacity": {
+                      "SpecifiedColor": [
+                        0.94,
+                        0.91,
+                        0.81,
+                        1
+                      ]
+                    },
+                    "ShadowColorAndOpacity": [
+                      0,
+                      0,
+                      0,
+                      0.92
+                    ],
+                    "ShadowOffset": {
+                      "X": 1.5,
+                      "Y": 2
+                    }
+                  },
+                  "slot_props": {
+                    "padding": [
+                      0,
+                      0,
+                      0,
+                      10
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "BrushColor": [
+              0.008,
+              0.009,
+              0.006,
+              0.55
+            ],
+            "Padding": {
+              "Left": 20,
+              "Top": 18,
+              "Right": 20,
+              "Bottom": 18
+            }
+          },
+          "slot_props": {
+            "anchors_min": [
+              0,
+              0
+            ],
+            "anchors_max": [
+              1,
+              1
+            ],
+            "position": [
+              0,
+              0
+            ],
+            "size": [
+              0,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "class": "Border",
+      "name": "ReceptionPrompt",
+      "children": [
+        {
+          "class": "VerticalBox",
+          "name": "ReceptionNotification",
+          "children": [
+            {
+              "class": "SizeBox",
+              "name": "ReceptionAccentBounds",
+              "children": [
+                {
+                  "class": "Border",
+                  "name": "ReceptionAccent",
+                  "properties": {
+                    "BrushColor": [
+                      0.82,
+                      0.65,
+                      0.36,
+                      0.85
+                    ]
+                  }
+                }
+              ],
+              "properties": {
+                "bOverride_WidthOverride": true,
+                "WidthOverride": 48,
+                "bOverride_HeightOverride": true,
+                "HeightOverride": 2
+              },
+              "slot_props": {
+                "padding": [
+                  0,
+                  0,
+                  0,
+                  6
+                ]
+              }
+            },
+            {
+              "class": "TextBlock",
+              "name": "ReceptionHeader",
+              "properties": {
+                "Text": "SYSTEM / RECEPTION DRIFT",
+                "Font": {
+                  "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+                  "Size": 12
+                },
+                "ColorAndOpacity": {
+                  "SpecifiedColor": [
+                    0.84,
+                    0.76,
+                    0.59,
+                    0.95
+                  ]
+                },
+                "ShadowColorAndOpacity": [
+                  0,
+                  0,
+                  0,
+                  0.92
+                ],
+                "ShadowOffset": {
+                  "X": 1.5,
+                  "Y": 2
+                }
+              },
+              "slot_props": {
+                "padding": [
+                  0,
+                  0,
+                  0,
+                  7
+                ]
+              }
+            },
+            {
+              "class": "HorizontalBox",
+              "name": "ReceptionControls",
+              "children": [
+                {
+                  "class": "SizeBox",
+                  "name": "ReceptionGlyphBounds",
+                  "children": [
+                    {
+                      "class": "Overlay",
+                      "name": "ReceptionKeyPlate",
+                      "children": [
+                        {
+                          "class": "Image",
+                          "name": "ReceptionGlyph",
+                          "properties": {
+                            "Brush": {
+                              "ResourceObject": "/Game/SaskartaGaea/UI/Prompts/Light/T_Prompt_Pad_Y.T_Prompt_Pad_Y",
+                              "DrawAs": "Image"
+                            },
+                            "Visibility": "Collapsed"
+                          }
+                        },
+                        {
+                          "class": "TextBlock",
+                          "name": "ReceptionKey",
+                          "properties": {
+                            "Text": "T",
+                            "Font": {
+                              "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/Font_Terminal.Font_Terminal",
+                              "Size": 22
+                            },
+                            "ColorAndOpacity": {
+                              "SpecifiedColor": [
+                                0.94,
+                                0.91,
+                                0.81,
+                                1
+                              ]
+                            },
+                            "ShadowColorAndOpacity": [
+                              0,
+                              0,
+                              0,
+                              0.92
+                            ],
+                            "ShadowOffset": {
+                              "X": 1.5,
+                              "Y": 2
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "properties": {
+                    "bOverride_WidthOverride": true,
+                    "WidthOverride": 38,
+                    "bOverride_HeightOverride": true,
+                    "HeightOverride": 38
+                  },
+                  "slot_props": {
+                    "vertical_alignment": "Center",
+                    "padding": [
+                      0,
+                      0,
+                      10,
+                      0
+                    ]
+                  }
+                },
+                {
+                  "class": "TextBlock",
+                  "name": "ReceptionAction",
+                  "properties": {
+                    "Text": "PARK TO ADJUST THE AERIAL",
+                    "Font": {
+                      "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa_Caption.F_ArefRuqaa_Caption",
+                      "Size": 17
+                    },
+                    "ColorAndOpacity": {
+                      "SpecifiedColor": [
+                        0.94,
+                        0.91,
+                        0.81,
+                        1
+                      ]
+                    },
+                    "ShadowColorAndOpacity": [
+                      0,
+                      0,
+                      0,
+                      0.92
+                    ],
+                    "ShadowOffset": {
+                      "X": 1.5,
+                      "Y": 2
+                    }
+                  },
+                  "slot_props": {
+                    "vertical_alignment": "Center"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "properties": {
+        "BrushColor": [
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    }
+  ],
+  "slots": {
+    "RepairCard": {
+      "anchors": [
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "alignment": [
+        0.5,
+        0.5
+      ],
+      "position": [
+        0,
+        -28
+      ],
+      "size": [
+        680,
+        420
+      ]
+    },
+    "ReceptionPrompt": {
+      "anchors": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "alignment": [
+        0,
+        1
+      ],
+      "position": [
+        28,
+        -132
+      ],
+      "size": [
+        620,
+        84
+      ]
+    }
+  },
+  "variables": [],
+  "expected_parent": "/Script/SaskartaCore.SaskartaRadioRepairWidget",
+  "expected_widgets": {
+    "RepairCard": "CanvasPanel",
+    "ReceiverGlass": "Border",
+    "ReceiverContent": "VerticalBox",
+    "ReceiverTitle": "TextBlock",
+    "RepairStage": "TextBlock",
+    "RepairValues": "TextBlock",
+    "SignalBounds": "SizeBox",
+    "SignalBar": "ProgressBar",
+    "RepairInstructions": "TextBlock",
+    "EnvelopeLabel": "TextBlock",
+    "EnvelopeGraph": "SaskartaTelemetryGraph",
+    "RepairStability": "TextBlock",
+    "StabilityBounds": "SizeBox",
+    "StabilityBar": "ProgressBar",
+    "RepairExit": "TextBlock",
+    "ReceptionPrompt": "Border",
+    "ReceptionNotification": "VerticalBox",
+    "ReceptionAccentBounds": "SizeBox",
+    "ReceptionAccent": "Border",
+    "ReceptionHeader": "TextBlock",
+    "ReceptionControls": "HorizontalBox",
+    "ReceptionGlyphBounds": "SizeBox",
+    "ReceptionKeyPlate": "Overlay",
+    "ReceptionGlyph": "Image",
+    "ReceptionKey": "TextBlock",
+    "ReceptionAction": "TextBlock"
+  },
+  "strict_compile": true,
+  "force_save": true
+}

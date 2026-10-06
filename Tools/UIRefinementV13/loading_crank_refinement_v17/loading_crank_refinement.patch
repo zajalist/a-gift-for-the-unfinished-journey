@@ -1,0 +1,70 @@
+--- a/Plugins/SaskartaCore/Source/SaskartaCore/Private/SaskartaMotorDiagram.cpp
++++ b/Plugins/SaskartaCore/Source/SaskartaCore/Private/SaskartaMotorDiagram.cpp
+@@ -144,8 +144,9 @@
+             Line(Points, Bright, Thickness);
+         };
+ 
+-        // Loading and charging share the exact crank rings, spokes, pin and top mark.
+-        const auto DrawCrank = [&](FVector2D Wheel, float WheelAngle)
++        // One connected mechanism in both presentations. The arm and grip rotate
++        // with the wheel; the attached top index stays fixed for the accepted beat.
++        const auto DrawCrank = [&](FVector2D Wheel, float WheelAngle, float HubBright)
+         {
+             Arc(Wheel, 67, 0, 2*PI, 0.3f, 2.f);
+             Arc(Wheel, 61, 0, 2*PI, 0.56f, 2.f);
+@@ -153,22 +154,34 @@
+             {
+                 const float Angle = WheelAngle + I * PI / 3.f;
+                 const FVector2D Direction(FMath::Cos(Angle), FMath::Sin(Angle));
+-                Line({Wheel+Direction*25.f,Wheel+Direction*54.f}, 0.45f, 2.f);
++                Line({Wheel+Direction*24.f,Wheel+Direction*61.f}, 0.45f, 2.f);
+             }
+-            const FVector2D Tip = Wheel + FVector2D(FMath::Cos(WheelAngle), FMath::Sin(WheelAngle)) * 61.f;
+-            Arc(Tip, 5, 0, 2*PI, 1.f, 3.f);
+-            Line({Wheel+FVector2D(0,-83),Wheel+FVector2D(0,-73)}, 1.f, 3.f);
++            Arc(Wheel, 24, 0, 2*PI, HubBright, 2.f);
++
++            const FVector2D Direction(FMath::Cos(WheelAngle), FMath::Sin(WheelAngle));
++            const FVector2D Tangent(-Direction.Y, Direction.X);
++            const FVector2D Pin = Wheel + Direction * 51.f;
++            Line({Wheel+Direction*24.f,Pin}, 0.9f, 3.f);
++            // A closed grip and its spindle make the handle read as a crank,
++            // while leaving the center clear for the existing input glyph.
++            Line({Pin-Tangent*8.f-Direction*4.f,Pin+Tangent*8.f-Direction*4.f}, 1.f, 2.f);
++            Line({Pin-Tangent*8.f+Direction*4.f,Pin+Tangent*8.f+Direction*4.f}, 1.f, 2.f);
++            Arc(Pin+Tangent*8.f, 4, WheelAngle, WheelAngle+PI, 1.f, 2.f);
++            Arc(Pin-Tangent*8.f, 4, WheelAngle+PI, WheelAngle+2*PI, 1.f, 2.f);
++            Arc(Pin, 2, 0, 2*PI, 1.f, 1.5f);
++            Line({Wheel+FVector2D(0,-74),Wheel+FVector2D(0,-67)}, 1.f, 3.f);
+         };
+         if (bLoading)
+         {
+-            // This phase can stop and reverse with readiness; time cannot fill the line.
++            // Readiness supplies exactly two turns and finishes at the top mark.
++            // A stalled or regressing readiness stalls or reverses the mechanism.
+             const FVector2D Wheel(92.f, 83.f);
+-            DrawCrank(Wheel, LoadingFraction * 1.75f * 2.f * PI - PI * 0.5f);
+-            Arc(Wheel, 24, 0, 2*PI, 0.6f, 2.f);
++            DrawCrank(Wheel, LoadingFraction * 2.f * 2.f * PI - PI * 0.5f, 0.6f);
++            Arc(Wheel, 5, 0, 2*PI, 0.6f, 1.5f);
+             if (LoadingFraction > 0.f)
+                 Arc(Wheel, 70, -PI*0.5f, -PI*0.5f + LoadingFraction*2.f*PI, 0.9f, 3.f);
+-            Box(184, 81, 512, 4, 0.16f);
+-            Box(184, 81, 512*LoadingFraction, 4, 0.9f);
++            Box(184, 81.5f, 512, 3, 0.16f);
++            Box(184, 81.5f, 512*LoadingFraction, 3, 0.9f);
+             return Layer;
+         }
+ 
+@@ -226,10 +239,9 @@
+         const FVector2D Wheel(358,174);
+         const float WheelAngle = Phase - PI * 0.5f;
+         const float Window = static_cast<float>(FLogic::GoodWindowS / Core.PeriodS * 2.0 * PI);
+-        DrawCrank(Wheel, WheelAngle);
++        DrawCrank(Wheel, WheelAngle, Core.BeatWindowOpen() ? 1.f : 0.38f);
+         Arc(Wheel, 70, -PI*.5f-Window, -PI*.5f+Window, Core.BeatWindowOpen() ? 1.f : 0.6f, 5.f);
+         Text(312, 53, TEXT("CRANK"), 24, 0.8f);
+-        Arc(Wheel, 24, 0, 2*PI, Core.BeatWindowOpen() ? 1.f : 0.38f, 2.f);
+         Glyph(358, 174, bPad ? TEXT("Pad_A") : TEXT("Key_E"), bPad ? TEXT("A") : TEXT("E"),
+             32.f, Core.BeatWindowOpen() ? 1.f : 0.72f);
+         Line({{213,213},{299,164}}, 0.4f, 2.f);

@@ -1,0 +1,5025 @@
+{
+ "asset": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Caption",
+ "description": "LANE5 caption layer functions; the runner bindings come from editor/caption_graph.py.",
+ "variables": [
+  {
+   "name": "EnRest",
+   "type": "string"
+  },
+  {
+   "name": "SksRest",
+   "type": "string"
+  },
+  {
+   "name": "TotalLen",
+   "type": "float",
+   "default": "1.0"
+  },
+  {
+   "name": "LineDur",
+   "type": "float",
+   "default": "3.0"
+  },
+  {
+   "name": "bCarrier",
+   "type": "bool",
+   "default": "false"
+  },
+  {
+   "name": "SubAlpha",
+   "type": "float",
+   "default": "0.0"
+  },
+  {
+   "name": "SubTarget",
+   "type": "float",
+   "default": "0.0"
+  },
+  {
+   "name": "HeadAlpha",
+   "type": "float",
+   "default": "0.0"
+  },
+  {
+   "name": "HeadTarget",
+   "type": "float",
+   "default": "0.0"
+  },
+  {
+   "name": "LbAlpha",
+   "type": "float",
+   "default": "0.0"
+  },
+  {
+   "name": "LbTarget",
+   "type": "float",
+   "default": "0.0"
+  },
+  {
+   "name": "ChunkTimer",
+   "type": "struct:/Script/Engine.TimerHandle"
+  },
+  {
+   "name": "HideTimer",
+   "type": "struct:/Script/Engine.TimerHandle"
+  },
+  {
+   "name": "HeaderTimer",
+   "type": "struct:/Script/Engine.TimerHandle"
+  },
+  {
+   "name": "FadeTimer",
+   "type": "struct:/Script/Engine.TimerHandle"
+  },
+  {
+   "name": "CarrierPrefix",
+   "type": "string",
+   "default": "CARRIER: "
+  },
+  {
+   "name": "RadioPrefix",
+   "type": "string",
+   "default": "RADIO · "
+  },
+  {
+   "name": "Empty",
+   "type": "string"
+  },
+  {
+   "name": "NL",
+   "type": "string",
+   "default": "\n"
+  },
+  {
+   "name": "MaxW",
+   "type": "float",
+   "default": "1150.0"
+  },
+  {
+   "name": "NoLabel",
+   "type": "text"
+  },
+  {
+   "name": "bSkipReady",
+   "type": "bool",
+   "default": "false"
+  },
+  {
+   "name": "LabelDrive",
+   "type": "text",
+   "default": "Drive"
+  },
+  {
+   "name": "LabelSteer",
+   "type": "text",
+   "default": "Steer"
+  },
+  {
+   "name": "LabelLook",
+   "type": "text",
+   "default": "Look"
+  },
+  {
+   "name": "LabelSkip",
+   "type": "text",
+   "default": "Skip"
+  },
+  {
+   "name": "EndCardRollStartS",
+   "type": "float"
+  },
+  {
+   "name": "EndCardPhaseDurationS",
+   "type": "float",
+   "default": "8.0"
+  },
+  {
+   "name": "bEndCardRolling",
+   "type": "bool",
+   "default": "false"
+  },
+  {
+   "name": "EndCardRollTimer",
+   "type": "struct:/Script/Engine.TimerHandle"
+  }
+ ],
+ "functions": [
+  {
+   "name": "ShowSubtitle",
+   "inputs": [
+    {
+     "name": "English",
+     "type": "text"
+    },
+    {
+     "name": "Saskartan",
+     "type": "text"
+    },
+    {
+     "name": "Header",
+     "type": "text"
+    },
+    {
+     "name": "Speaker",
+     "type": "name"
+    },
+    {
+     "name": "DurationS",
+     "type": "float"
+    }
+   ],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "HideSubtitle",
+   "inputs": [],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "BeginFadeOut",
+   "inputs": [],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "NextChunk",
+   "inputs": [],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "HideHeader",
+   "inputs": [],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "StartFade",
+   "inputs": [],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "FadeStep",
+   "inputs": [],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "CutChunk",
+   "inputs": [
+    {
+     "name": "S",
+     "type": "string"
+    },
+    {
+     "name": "CharPx",
+     "type": "float"
+    }
+   ],
+   "outputs": [
+    {
+     "name": "Chunk",
+     "type": "string"
+    },
+    {
+     "name": "Rest",
+     "type": "string"
+    }
+   ],
+   "pure": false
+  },
+  {
+   "name": "Layout",
+   "inputs": [
+    {
+     "name": "Box",
+     "type": "object:/Script/UMG.SizeBox"
+    },
+    {
+     "name": "Chunk",
+     "type": "string"
+    },
+    {
+     "name": "CharPx",
+     "type": "float"
+    }
+   ],
+   "outputs": [
+    {
+     "name": "Out",
+     "type": "string"
+    }
+   ],
+   "pure": false
+  },
+  {
+   "name": "UpdateMaxW",
+   "inputs": [],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "ShowCaption",
+   "inputs": [
+    {
+     "name": "Text",
+     "type": "text"
+    },
+    {
+     "name": "Target",
+     "type": "name"
+    }
+   ],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "HideCaption",
+   "inputs": [
+    {
+     "name": "Target",
+     "type": "name"
+    }
+   ],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "ShowPrompt",
+   "inputs": [
+    {
+     "name": "Text",
+     "type": "text"
+    }
+   ],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "HidePrompt",
+   "inputs": [],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "SetLetterbox",
+   "inputs": [
+    {
+     "name": "bOn",
+     "type": "bool"
+    },
+    {
+     "name": "BlendS",
+     "type": "float"
+    }
+   ],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "SetSkipProgress",
+   "inputs": [
+    {
+     "name": "Fraction",
+     "type": "float"
+    }
+   ],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "ShowEndCard",
+   "inputs": [
+    {
+     "name": "Id",
+     "type": "name"
+    }
+   ],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "HideEndCard",
+   "inputs": [],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "ScrollCreditsStep",
+   "inputs": [],
+   "outputs": [],
+   "pure": false
+  }
+ ],
+ "graphs": [
+  {
+   "graph": "UpdateMaxW",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "n2": {
+     "self": true
+    },
+    "n3": {
+     "call": "GetViewportSize",
+     "class": "/Script/UMG.WidgetLayoutLibrary"
+    },
+    "n4": {
+     "call": "GetViewportScale",
+     "class": "/Script/UMG.WidgetLayoutLibrary"
+    },
+    "n5": {
+     "call": "BreakVector2D",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n6": {
+     "call": "FMax",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n7": {
+     "call": "Divide_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n8": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n9": {
+     "call": "FClamp",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n10": {
+     "call": "Greater_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n11": {
+     "call": "SelectFloat",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n12": {
+     "set": "MaxW"
+    }
+   },
+   "links": [
+    [
+     "n2.self",
+     "n3.WorldContextObject"
+    ],
+    [
+     "n2.self",
+     "n4.WorldContextObject"
+    ],
+    [
+     "n3.ReturnValue",
+     "n5.InVec"
+    ],
+    [
+     "n4.ReturnValue",
+     "n6.A"
+    ],
+    [
+     "n5.X",
+     "n7.A"
+    ],
+    [
+     "n6.ReturnValue",
+     "n7.B"
+    ],
+    [
+     "n7.ReturnValue",
+     "n8.A"
+    ],
+    [
+     "n8.ReturnValue",
+     "n9.Value"
+    ],
+    [
+     "n5.X",
+     "n10.A"
+    ],
+    [
+     "n9.ReturnValue",
+     "n11.A"
+    ],
+    [
+     "n10.ReturnValue",
+     "n11.bPickA"
+    ],
+    [
+     "n11.ReturnValue",
+     "n12.MaxW"
+    ],
+    [
+     "entry.then",
+     "n12.execute"
+    ]
+   ],
+   "defaults": {
+    "n6.B": "0.1",
+    "n8.B": "0.6",
+    "n9.Min": "640.0",
+    "n9.Max": "1150.0",
+    "n10.B": "1.0",
+    "n11.B": "1150.0"
+   }
+  },
+  {
+   "graph": "CutChunk",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "result": {
+     "result": true
+    },
+    "n3": {
+     "get": "MaxW"
+    },
+    "n4": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n5": {
+     "call": "Divide_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n6": {
+     "call": "FTrunc",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n7": {
+     "call": "Len",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n8": {
+     "call": "LessEqual_IntInt",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n9": {
+     "call": "Add_IntInt",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n10": {
+     "call": "Subtract_IntInt",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n11": {
+     "call": "Divide_IntInt",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n12": {
+     "call": "Max",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n13": {
+     "call": "Add_IntInt",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n14": {
+     "call": "Subtract_IntInt",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n15": {
+     "call": "Divide_IntInt",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n16": {
+     "call": "Divide_IntInt",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n17": {
+     "call": "Add_IntInt",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n18": {
+     "call": "Min",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n19": {
+     "call": "Divide_IntInt",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n20": {
+     "call": "FindSubstring",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n21": {
+     "call": "FindSubstring",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n22": {
+     "call": "Max",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n23": {
+     "call": "FindSubstring",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n24": {
+     "call": "FindSubstring",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n25": {
+     "call": "Max",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n26": {
+     "call": "Max",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n27": {
+     "call": "FindSubstring",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n28": {
+     "call": "FindSubstring",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n29": {
+     "call": "Max",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n30": {
+     "call": "FindSubstring",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n31": {
+     "call": "FindSubstring",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n32": {
+     "call": "Max",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n33": {
+     "call": "Max",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n34": {
+     "call": "FindSubstring",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n35": {
+     "call": "GreaterEqual_IntInt",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n36": {
+     "call": "GreaterEqual_IntInt",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n37": {
+     "call": "SelectInt",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n38": {
+     "call": "SelectInt",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n39": {
+     "call": "Add_IntInt",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n40": {
+     "call": "Left",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n41": {
+     "call": "RightChop",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n42": {
+     "call": "Trim",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n43": {
+     "call": "TrimTrailing",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n44": {
+     "call": "SelectString",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n45": {
+     "get": "Empty"
+    },
+    "n46": {
+     "call": "SelectString",
+     "class": "/Script/Engine.KismetMathLibrary"
+    }
+   },
+   "links": [
+    [
+     "n3.MaxW",
+     "n4.A"
+    ],
+    [
+     "n4.ReturnValue",
+     "n5.A"
+    ],
+    [
+     "entry.CharPx",
+     "n5.B"
+    ],
+    [
+     "n5.ReturnValue",
+     "n6.A"
+    ],
+    [
+     "entry.S",
+     "n7.S"
+    ],
+    [
+     "n7.ReturnValue",
+     "n8.A"
+    ],
+    [
+     "n6.ReturnValue",
+     "n8.B"
+    ],
+    [
+     "n7.ReturnValue",
+     "n9.A"
+    ],
+    [
+     "n6.ReturnValue",
+     "n9.B"
+    ],
+    [
+     "n9.ReturnValue",
+     "n10.A"
+    ],
+    [
+     "n10.ReturnValue",
+     "n11.A"
+    ],
+    [
+     "n6.ReturnValue",
+     "n11.B"
+    ],
+    [
+     "n11.ReturnValue",
+     "n12.A"
+    ],
+    [
+     "n7.ReturnValue",
+     "n13.A"
+    ],
+    [
+     "n12.ReturnValue",
+     "n13.B"
+    ],
+    [
+     "n13.ReturnValue",
+     "n14.A"
+    ],
+    [
+     "n14.ReturnValue",
+     "n15.A"
+    ],
+    [
+     "n12.ReturnValue",
+     "n15.B"
+    ],
+    [
+     "n15.ReturnValue",
+     "n16.A"
+    ],
+    [
+     "n15.ReturnValue",
+     "n17.A"
+    ],
+    [
+     "n16.ReturnValue",
+     "n17.B"
+    ],
+    [
+     "n17.ReturnValue",
+     "n18.A"
+    ],
+    [
+     "n6.ReturnValue",
+     "n18.B"
+    ],
+    [
+     "n15.ReturnValue",
+     "n19.A"
+    ],
+    [
+     "entry.S",
+     "n20.SearchIn"
+    ],
+    [
+     "n18.ReturnValue",
+     "n20.StartPosition"
+    ],
+    [
+     "entry.S",
+     "n21.SearchIn"
+    ],
+    [
+     "n18.ReturnValue",
+     "n21.StartPosition"
+    ],
+    [
+     "n20.ReturnValue",
+     "n22.A"
+    ],
+    [
+     "n21.ReturnValue",
+     "n22.B"
+    ],
+    [
+     "entry.S",
+     "n23.SearchIn"
+    ],
+    [
+     "n18.ReturnValue",
+     "n23.StartPosition"
+    ],
+    [
+     "entry.S",
+     "n24.SearchIn"
+    ],
+    [
+     "n18.ReturnValue",
+     "n24.StartPosition"
+    ],
+    [
+     "n23.ReturnValue",
+     "n25.A"
+    ],
+    [
+     "n24.ReturnValue",
+     "n25.B"
+    ],
+    [
+     "n22.ReturnValue",
+     "n26.A"
+    ],
+    [
+     "n25.ReturnValue",
+     "n26.B"
+    ],
+    [
+     "entry.S",
+     "n27.SearchIn"
+    ],
+    [
+     "n18.ReturnValue",
+     "n27.StartPosition"
+    ],
+    [
+     "entry.S",
+     "n28.SearchIn"
+    ],
+    [
+     "n18.ReturnValue",
+     "n28.StartPosition"
+    ],
+    [
+     "n27.ReturnValue",
+     "n29.A"
+    ],
+    [
+     "n28.ReturnValue",
+     "n29.B"
+    ],
+    [
+     "entry.S",
+     "n30.SearchIn"
+    ],
+    [
+     "n18.ReturnValue",
+     "n30.StartPosition"
+    ],
+    [
+     "entry.S",
+     "n31.SearchIn"
+    ],
+    [
+     "n18.ReturnValue",
+     "n31.StartPosition"
+    ],
+    [
+     "n30.ReturnValue",
+     "n32.A"
+    ],
+    [
+     "n31.ReturnValue",
+     "n32.B"
+    ],
+    [
+     "n29.ReturnValue",
+     "n33.A"
+    ],
+    [
+     "n32.ReturnValue",
+     "n33.B"
+    ],
+    [
+     "entry.S",
+     "n34.SearchIn"
+    ],
+    [
+     "n18.ReturnValue",
+     "n34.StartPosition"
+    ],
+    [
+     "n26.ReturnValue",
+     "n35.A"
+    ],
+    [
+     "n19.ReturnValue",
+     "n35.B"
+    ],
+    [
+     "n33.ReturnValue",
+     "n36.A"
+    ],
+    [
+     "n19.ReturnValue",
+     "n36.B"
+    ],
+    [
+     "n33.ReturnValue",
+     "n37.A"
+    ],
+    [
+     "n34.ReturnValue",
+     "n37.B"
+    ],
+    [
+     "n36.ReturnValue",
+     "n37.bPickA"
+    ],
+    [
+     "n26.ReturnValue",
+     "n38.A"
+    ],
+    [
+     "n37.ReturnValue",
+     "n38.B"
+    ],
+    [
+     "n35.ReturnValue",
+     "n38.bPickA"
+    ],
+    [
+     "n38.ReturnValue",
+     "n39.A"
+    ],
+    [
+     "entry.S",
+     "n40.SourceString"
+    ],
+    [
+     "n39.ReturnValue",
+     "n40.Count"
+    ],
+    [
+     "entry.S",
+     "n41.SourceString"
+    ],
+    [
+     "n39.ReturnValue",
+     "n41.Count"
+    ],
+    [
+     "n41.ReturnValue",
+     "n42.SourceString"
+    ],
+    [
+     "n40.ReturnValue",
+     "n43.SourceString"
+    ],
+    [
+     "entry.S",
+     "n44.A"
+    ],
+    [
+     "n43.ReturnValue",
+     "n44.B"
+    ],
+    [
+     "n8.ReturnValue",
+     "n44.bPickA"
+    ],
+    [
+     "n45.Empty",
+     "n46.A"
+    ],
+    [
+     "n42.ReturnValue",
+     "n46.B"
+    ],
+    [
+     "n8.ReturnValue",
+     "n46.bPickA"
+    ],
+    [
+     "n44.ReturnValue",
+     "result.Chunk"
+    ],
+    [
+     "n46.ReturnValue",
+     "result.Rest"
+    ],
+    [
+     "entry.then",
+     "result.execute"
+    ]
+   ],
+   "defaults": {
+    "n4.B": "1.6",
+    "n10.B": "1",
+    "n12.B": "1",
+    "n14.B": "1",
+    "n16.B": "4",
+    "n19.B": "2",
+    "n20.Substring": ". ",
+    "n20.bUseCase": "false",
+    "n20.bSearchFromEnd": "true",
+    "n21.Substring": "? ",
+    "n21.bUseCase": "false",
+    "n21.bSearchFromEnd": "true",
+    "n23.Substring": "! ",
+    "n23.bUseCase": "false",
+    "n23.bSearchFromEnd": "true",
+    "n24.Substring": "… ",
+    "n24.bUseCase": "false",
+    "n24.bSearchFromEnd": "true",
+    "n27.Substring": ", ",
+    "n27.bUseCase": "false",
+    "n27.bSearchFromEnd": "true",
+    "n28.Substring": "; ",
+    "n28.bUseCase": "false",
+    "n28.bSearchFromEnd": "true",
+    "n30.Substring": ": ",
+    "n30.bUseCase": "false",
+    "n30.bSearchFromEnd": "true",
+    "n31.Substring": "— ",
+    "n31.bUseCase": "false",
+    "n31.bSearchFromEnd": "true",
+    "n34.Substring": " ",
+    "n34.bUseCase": "false",
+    "n34.bSearchFromEnd": "true",
+    "n39.B": "1"
+   }
+  },
+  {
+   "graph": "Layout",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "result": {
+     "result": true
+    },
+    "n3": {
+     "get": "MaxW"
+    },
+    "n4": {
+     "call": "Len",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n5": {
+     "call": "Conv_IntToDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n6": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n7": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n8": {
+     "call": "Subtract_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n9": {
+     "call": "LessEqual_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n10": {
+     "call": "FTrunc",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n11": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n12": {
+     "call": "FTrunc",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n13": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n14": {
+     "call": "FindSubstring",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n15": {
+     "call": "FindSubstring",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n16": {
+     "call": "Max",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n17": {
+     "call": "FindSubstring",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n18": {
+     "call": "FindSubstring",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n19": {
+     "call": "Max",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n20": {
+     "call": "Max",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n21": {
+     "call": "FindSubstring",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n22": {
+     "call": "FindSubstring",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n23": {
+     "call": "Max",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n24": {
+     "call": "FindSubstring",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n25": {
+     "call": "FindSubstring",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n26": {
+     "call": "Max",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n27": {
+     "call": "Max",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n28": {
+     "call": "GreaterEqual_IntInt",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n29": {
+     "call": "GreaterEqual_IntInt",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n30": {
+     "call": "SelectInt",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n31": {
+     "call": "BooleanOR",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n32": {
+     "call": "Add_IntInt",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n33": {
+     "call": "Left",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n34": {
+     "call": "TrimTrailing",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n35": {
+     "call": "RightChop",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n36": {
+     "call": "Trim",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n37": {
+     "get": "NL"
+    },
+    "n38": {
+     "call": "Concat_StrStr",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n39": {
+     "call": "Concat_StrStr",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n40": {
+     "call": "Len",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n41": {
+     "call": "Conv_IntToDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n42": {
+     "call": "Len",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n43": {
+     "call": "Conv_IntToDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n44": {
+     "call": "FMax",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n45": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n46": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n47": {
+     "call": "Add_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n48": {
+     "call": "FMin",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n49": {
+     "call": "FCeil",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n50": {
+     "call": "Divide_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n51": {
+     "call": "Conv_IntToDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n52": {
+     "call": "FMax",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n53": {
+     "call": "Divide_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n54": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n55": {
+     "call": "Add_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n56": {
+     "call": "FMin",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n57": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n58": {
+     "call": "Add_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n59": {
+     "call": "FMin",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n60": {
+     "call": "SelectFloat",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n61": {
+     "call": "SelectFloat",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n62": {
+     "call": "SelectString",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n63": {
+     "call": "SelectString",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n64": {
+     "call": "SetWidthOverride",
+     "class": "/Script/UMG.SizeBox"
+    }
+   },
+   "links": [
+    [
+     "entry.Chunk",
+     "n4.S"
+    ],
+    [
+     "n4.ReturnValue",
+     "n5.InInt"
+    ],
+    [
+     "n5.ReturnValue",
+     "n6.A"
+    ],
+    [
+     "entry.CharPx",
+     "n6.B"
+    ],
+    [
+     "n6.ReturnValue",
+     "n7.A"
+    ],
+    [
+     "n3.MaxW",
+     "n8.A"
+    ],
+    [
+     "n7.ReturnValue",
+     "n9.A"
+    ],
+    [
+     "n8.ReturnValue",
+     "n9.B"
+    ],
+    [
+     "n5.ReturnValue",
+     "n11.A"
+    ],
+    [
+     "n11.ReturnValue",
+     "n10.A"
+    ],
+    [
+     "n5.ReturnValue",
+     "n13.A"
+    ],
+    [
+     "n13.ReturnValue",
+     "n12.A"
+    ],
+    [
+     "entry.Chunk",
+     "n14.SearchIn"
+    ],
+    [
+     "n10.ReturnValue",
+     "n14.StartPosition"
+    ],
+    [
+     "entry.Chunk",
+     "n15.SearchIn"
+    ],
+    [
+     "n10.ReturnValue",
+     "n15.StartPosition"
+    ],
+    [
+     "n14.ReturnValue",
+     "n16.A"
+    ],
+    [
+     "n15.ReturnValue",
+     "n16.B"
+    ],
+    [
+     "entry.Chunk",
+     "n17.SearchIn"
+    ],
+    [
+     "n10.ReturnValue",
+     "n17.StartPosition"
+    ],
+    [
+     "entry.Chunk",
+     "n18.SearchIn"
+    ],
+    [
+     "n10.ReturnValue",
+     "n18.StartPosition"
+    ],
+    [
+     "n17.ReturnValue",
+     "n19.A"
+    ],
+    [
+     "n18.ReturnValue",
+     "n19.B"
+    ],
+    [
+     "n16.ReturnValue",
+     "n20.A"
+    ],
+    [
+     "n19.ReturnValue",
+     "n20.B"
+    ],
+    [
+     "entry.Chunk",
+     "n21.SearchIn"
+    ],
+    [
+     "n10.ReturnValue",
+     "n21.StartPosition"
+    ],
+    [
+     "entry.Chunk",
+     "n22.SearchIn"
+    ],
+    [
+     "n10.ReturnValue",
+     "n22.StartPosition"
+    ],
+    [
+     "n21.ReturnValue",
+     "n23.A"
+    ],
+    [
+     "n22.ReturnValue",
+     "n23.B"
+    ],
+    [
+     "entry.Chunk",
+     "n24.SearchIn"
+    ],
+    [
+     "n10.ReturnValue",
+     "n24.StartPosition"
+    ],
+    [
+     "entry.Chunk",
+     "n25.SearchIn"
+    ],
+    [
+     "n10.ReturnValue",
+     "n25.StartPosition"
+    ],
+    [
+     "n24.ReturnValue",
+     "n26.A"
+    ],
+    [
+     "n25.ReturnValue",
+     "n26.B"
+    ],
+    [
+     "n23.ReturnValue",
+     "n27.A"
+    ],
+    [
+     "n26.ReturnValue",
+     "n27.B"
+    ],
+    [
+     "n20.ReturnValue",
+     "n28.A"
+    ],
+    [
+     "n12.ReturnValue",
+     "n28.B"
+    ],
+    [
+     "n27.ReturnValue",
+     "n29.A"
+    ],
+    [
+     "n12.ReturnValue",
+     "n29.B"
+    ],
+    [
+     "n20.ReturnValue",
+     "n30.A"
+    ],
+    [
+     "n27.ReturnValue",
+     "n30.B"
+    ],
+    [
+     "n28.ReturnValue",
+     "n30.bPickA"
+    ],
+    [
+     "n28.ReturnValue",
+     "n31.A"
+    ],
+    [
+     "n29.ReturnValue",
+     "n31.B"
+    ],
+    [
+     "n30.ReturnValue",
+     "n32.A"
+    ],
+    [
+     "entry.Chunk",
+     "n33.SourceString"
+    ],
+    [
+     "n32.ReturnValue",
+     "n33.Count"
+    ],
+    [
+     "n33.ReturnValue",
+     "n34.SourceString"
+    ],
+    [
+     "entry.Chunk",
+     "n35.SourceString"
+    ],
+    [
+     "n32.ReturnValue",
+     "n35.Count"
+    ],
+    [
+     "n35.ReturnValue",
+     "n36.SourceString"
+    ],
+    [
+     "n34.ReturnValue",
+     "n38.A"
+    ],
+    [
+     "n37.NL",
+     "n38.B"
+    ],
+    [
+     "n38.ReturnValue",
+     "n39.A"
+    ],
+    [
+     "n36.ReturnValue",
+     "n39.B"
+    ],
+    [
+     "n34.ReturnValue",
+     "n40.S"
+    ],
+    [
+     "n40.ReturnValue",
+     "n41.InInt"
+    ],
+    [
+     "n36.ReturnValue",
+     "n42.S"
+    ],
+    [
+     "n42.ReturnValue",
+     "n43.InInt"
+    ],
+    [
+     "n41.ReturnValue",
+     "n44.A"
+    ],
+    [
+     "n43.ReturnValue",
+     "n44.B"
+    ],
+    [
+     "n44.ReturnValue",
+     "n45.A"
+    ],
+    [
+     "entry.CharPx",
+     "n45.B"
+    ],
+    [
+     "n45.ReturnValue",
+     "n46.A"
+    ],
+    [
+     "n46.ReturnValue",
+     "n47.A"
+    ],
+    [
+     "n47.ReturnValue",
+     "n48.A"
+    ],
+    [
+     "n3.MaxW",
+     "n48.B"
+    ],
+    [
+     "n6.ReturnValue",
+     "n50.A"
+    ],
+    [
+     "n3.MaxW",
+     "n50.B"
+    ],
+    [
+     "n50.ReturnValue",
+     "n49.A"
+    ],
+    [
+     "n49.ReturnValue",
+     "n51.InInt"
+    ],
+    [
+     "n51.ReturnValue",
+     "n52.A"
+    ],
+    [
+     "n6.ReturnValue",
+     "n53.A"
+    ],
+    [
+     "n52.ReturnValue",
+     "n53.B"
+    ],
+    [
+     "n53.ReturnValue",
+     "n54.A"
+    ],
+    [
+     "n54.ReturnValue",
+     "n55.A"
+    ],
+    [
+     "n55.ReturnValue",
+     "n56.A"
+    ],
+    [
+     "n3.MaxW",
+     "n56.B"
+    ],
+    [
+     "n6.ReturnValue",
+     "n57.A"
+    ],
+    [
+     "n57.ReturnValue",
+     "n58.A"
+    ],
+    [
+     "n58.ReturnValue",
+     "n59.A"
+    ],
+    [
+     "n3.MaxW",
+     "n59.B"
+    ],
+    [
+     "n48.ReturnValue",
+     "n60.A"
+    ],
+    [
+     "n56.ReturnValue",
+     "n60.B"
+    ],
+    [
+     "n31.ReturnValue",
+     "n60.bPickA"
+    ],
+    [
+     "n59.ReturnValue",
+     "n61.A"
+    ],
+    [
+     "n60.ReturnValue",
+     "n61.B"
+    ],
+    [
+     "n9.ReturnValue",
+     "n61.bPickA"
+    ],
+    [
+     "n39.ReturnValue",
+     "n62.A"
+    ],
+    [
+     "entry.Chunk",
+     "n62.B"
+    ],
+    [
+     "n31.ReturnValue",
+     "n62.bPickA"
+    ],
+    [
+     "entry.Chunk",
+     "n63.A"
+    ],
+    [
+     "n62.ReturnValue",
+     "n63.B"
+    ],
+    [
+     "n9.ReturnValue",
+     "n63.bPickA"
+    ],
+    [
+     "entry.Box",
+     "n64.self"
+    ],
+    [
+     "n61.ReturnValue",
+     "n64.InWidthOverride"
+    ],
+    [
+     "n63.ReturnValue",
+     "result.Out"
+    ],
+    [
+     "entry.then",
+     "n64.execute"
+    ],
+    [
+     "n64.then",
+     "result.execute"
+    ]
+   ],
+   "defaults": {
+    "n7.B": "1.1",
+    "n8.B": "40.0",
+    "n11.B": "0.62",
+    "n13.B": "0.38",
+    "n14.Substring": ". ",
+    "n14.bUseCase": "false",
+    "n14.bSearchFromEnd": "true",
+    "n15.Substring": "? ",
+    "n15.bUseCase": "false",
+    "n15.bSearchFromEnd": "true",
+    "n17.Substring": "! ",
+    "n17.bUseCase": "false",
+    "n17.bSearchFromEnd": "true",
+    "n18.Substring": "… ",
+    "n18.bUseCase": "false",
+    "n18.bSearchFromEnd": "true",
+    "n21.Substring": ", ",
+    "n21.bUseCase": "false",
+    "n21.bSearchFromEnd": "true",
+    "n22.Substring": "; ",
+    "n22.bUseCase": "false",
+    "n22.bSearchFromEnd": "true",
+    "n24.Substring": ": ",
+    "n24.bUseCase": "false",
+    "n24.bSearchFromEnd": "true",
+    "n25.Substring": "— ",
+    "n25.bUseCase": "false",
+    "n25.bSearchFromEnd": "true",
+    "n32.B": "1",
+    "n46.B": "1.1",
+    "n47.B": "40.0",
+    "n52.B": "1.0",
+    "n54.B": "1.1",
+    "n55.B": "40.0",
+    "n57.B": "1.1",
+    "n58.B": "40.0"
+   }
+  },
+  {
+   "graph": "ShowSubtitle",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "n2": {
+     "get": "HideTimer"
+    },
+    "n3": {
+     "call": "K2_ClearAndInvalidateTimerHandle",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "n4": {
+     "get": "ChunkTimer"
+    },
+    "n5": {
+     "call": "K2_ClearAndInvalidateTimerHandle",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "n6": {
+     "call": "Conv_TextToString",
+     "class": "/Script/Engine.KismetTextLibrary"
+    },
+    "n7": {
+     "get": "CarrierPrefix"
+    },
+    "n8": {
+     "call": "StartsWith",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n9": {
+     "set": "bCarrier"
+    },
+    "n10": {
+     "get": "RadioPrefix"
+    },
+    "n11": {
+     "call": "Replace",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n12": {
+     "get": "Empty"
+    },
+    "n13": {
+     "call": "Replace",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n14": {
+     "set": "EnRest"
+    },
+    "n15": {
+     "call": "Conv_TextToString",
+     "class": "/Script/Engine.KismetTextLibrary"
+    },
+    "n16": {
+     "set": "SksRest"
+    },
+    "n17": {
+     "call": "Len",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n18": {
+     "call": "Conv_IntToDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n19": {
+     "call": "FMax",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n20": {
+     "set": "TotalLen"
+    },
+    "n21": {
+     "call": "FMax",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n22": {
+     "set": "LineDur"
+    },
+    "n23": {
+     "call": "Conv_NameToString",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n24": {
+     "get": "CarrierPrefix"
+    },
+    "n25": {
+     "call": "Replace",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n26": {
+     "call": "SelectString",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n27": {
+     "call": "EqualEqual_StrStr",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n28": {
+     "call": "SelectString",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n29": {
+     "call": "ToUpper",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n30": {
+     "call": "Conv_StringToText",
+     "class": "/Script/Engine.KismetTextLibrary"
+    },
+    "n31": {
+     "get": "SpeakerLabel"
+    },
+    "n32": {
+     "call": "SetText",
+     "class": "/Script/UMG.TextBlock"
+    },
+    "n33": {
+     "call": "EqualEqual_StrStr",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "ifNoSpeaker": {
+     "branch": true
+    },
+    "n35": {
+     "get": "SpeakerPlate"
+    },
+    "n36": {
+     "call": "SetVisibility",
+     "class": "/Script/UMG.Widget"
+    },
+    "n37": {
+     "get": "SpeakerPlate"
+    },
+    "n38": {
+     "call": "SetVisibility",
+     "class": "/Script/UMG.Widget"
+    },
+    "ifCarrier": {
+     "branch": true
+    },
+    "n40": {
+     "get": "CarrierBox"
+    },
+    "n41": {
+     "call": "SetVisibility",
+     "class": "/Script/UMG.Widget"
+    },
+    "n42": {
+     "get": "EnglishBox"
+    },
+    "n43": {
+     "call": "SetVisibility",
+     "class": "/Script/UMG.Widget"
+    },
+    "n44": {
+     "get": "CarrierBox"
+    },
+    "n45": {
+     "call": "SetVisibility",
+     "class": "/Script/UMG.Widget"
+    },
+    "n46": {
+     "get": "EnglishBox"
+    },
+    "n47": {
+     "call": "SetVisibility",
+     "class": "/Script/UMG.Widget"
+    },
+    "n48": {
+     "call": "TextIsEmpty",
+     "class": "/Script/Engine.KismetTextLibrary"
+    },
+    "ifHeader": {
+     "branch": true
+    },
+    "n50": {
+     "get": "HeaderLabel"
+    },
+    "n51": {
+     "call": "SetText",
+     "class": "/Script/UMG.TextBlock"
+    },
+    "n52": {
+     "get": "HeaderBox"
+    },
+    "n53": {
+     "call": "SetVisibility",
+     "class": "/Script/UMG.Widget"
+    },
+    "n54": {
+     "set": "HeadTarget"
+    },
+    "headerTimer": {
+     "timer": true
+    },
+    "n56": {
+     "set": "HeaderTimer"
+    },
+    "n57": {
+     "call": "NextChunk"
+    },
+    "n58": {
+     "get": "SubtitleBox"
+    },
+    "n59": {
+     "call": "SetVisibility",
+     "class": "/Script/UMG.Widget"
+    },
+    "n60": {
+     "set": "SubTarget"
+    },
+    "n61": {
+     "call": "StartFade"
+    },
+    "n62": {
+     "call": "UpdateMaxW"
+    }
+   },
+   "links": [
+    [
+     "n2.HideTimer",
+     "n3.Handle"
+    ],
+    [
+     "n4.ChunkTimer",
+     "n5.Handle"
+    ],
+    [
+     "entry.English",
+     "n6.InText"
+    ],
+    [
+     "n6.ReturnValue",
+     "n8.SourceString"
+    ],
+    [
+     "n7.CarrierPrefix",
+     "n8.InPrefix"
+    ],
+    [
+     "n8.ReturnValue",
+     "n9.bCarrier"
+    ],
+    [
+     "n6.ReturnValue",
+     "n11.SourceString"
+    ],
+    [
+     "n7.CarrierPrefix",
+     "n11.From"
+    ],
+    [
+     "n12.Empty",
+     "n11.To"
+    ],
+    [
+     "n11.ReturnValue",
+     "n13.SourceString"
+    ],
+    [
+     "n10.RadioPrefix",
+     "n13.From"
+    ],
+    [
+     "n12.Empty",
+     "n13.To"
+    ],
+    [
+     "n13.ReturnValue",
+     "n14.EnRest"
+    ],
+    [
+     "entry.Saskartan",
+     "n15.InText"
+    ],
+    [
+     "n15.ReturnValue",
+     "n16.SksRest"
+    ],
+    [
+     "n13.ReturnValue",
+     "n17.S"
+    ],
+    [
+     "n17.ReturnValue",
+     "n18.InInt"
+    ],
+    [
+     "n18.ReturnValue",
+     "n19.A"
+    ],
+    [
+     "n19.ReturnValue",
+     "n20.TotalLen"
+    ],
+    [
+     "entry.DurationS",
+     "n21.A"
+    ],
+    [
+     "n21.ReturnValue",
+     "n22.LineDur"
+    ],
+    [
+     "entry.Speaker",
+     "n23.InName"
+    ],
+    [
+     "n24.CarrierPrefix",
+     "n25.SourceString"
+    ],
+    [
+     "n25.ReturnValue",
+     "n26.A"
+    ],
+    [
+     "n23.ReturnValue",
+     "n26.B"
+    ],
+    [
+     "n8.ReturnValue",
+     "n26.bPickA"
+    ],
+    [
+     "n26.ReturnValue",
+     "n27.A"
+    ],
+    [
+     "n26.ReturnValue",
+     "n28.B"
+    ],
+    [
+     "n27.ReturnValue",
+     "n28.bPickA"
+    ],
+    [
+     "n28.ReturnValue",
+     "n29.SourceString"
+    ],
+    [
+     "n29.ReturnValue",
+     "n30.InString"
+    ],
+    [
+     "n31.SpeakerLabel",
+     "n32.self"
+    ],
+    [
+     "n30.ReturnValue",
+     "n32.InText"
+    ],
+    [
+     "n26.ReturnValue",
+     "n33.A"
+    ],
+    [
+     "n33.ReturnValue",
+     "ifNoSpeaker.Condition"
+    ],
+    [
+     "n35.SpeakerPlate",
+     "n36.self"
+    ],
+    [
+     "n37.SpeakerPlate",
+     "n38.self"
+    ],
+    [
+     "n8.ReturnValue",
+     "ifCarrier.Condition"
+    ],
+    [
+     "n40.CarrierBox",
+     "n41.self"
+    ],
+    [
+     "n42.EnglishBox",
+     "n43.self"
+    ],
+    [
+     "n44.CarrierBox",
+     "n45.self"
+    ],
+    [
+     "n46.EnglishBox",
+     "n47.self"
+    ],
+    [
+     "entry.Header",
+     "n48.InText"
+    ],
+    [
+     "n48.ReturnValue",
+     "ifHeader.Condition"
+    ],
+    [
+     "n50.HeaderLabel",
+     "n51.self"
+    ],
+    [
+     "entry.Header",
+     "n51.InText"
+    ],
+    [
+     "n52.HeaderBox",
+     "n53.self"
+    ],
+    [
+     "headerTimer.ReturnValue",
+     "n56.HeaderTimer"
+    ],
+    [
+     "n58.SubtitleBox",
+     "n59.self"
+    ],
+    [
+     "entry.then",
+     "n3.execute"
+    ],
+    [
+     "n3.then",
+     "n5.execute"
+    ],
+    [
+     "n5.then",
+     "n62.execute"
+    ],
+    [
+     "n62.then",
+     "n14.execute"
+    ],
+    [
+     "n14.then",
+     "n16.execute"
+    ],
+    [
+     "n16.then",
+     "n20.execute"
+    ],
+    [
+     "n20.then",
+     "n22.execute"
+    ],
+    [
+     "n22.then",
+     "n9.execute"
+    ],
+    [
+     "n9.then",
+     "n32.execute"
+    ],
+    [
+     "n32.then",
+     "ifNoSpeaker.execute"
+    ],
+    [
+     "ifNoSpeaker.then",
+     "n36.execute"
+    ],
+    [
+     "n36.then",
+     "ifCarrier.execute"
+    ],
+    [
+     "ifNoSpeaker.else",
+     "n38.execute"
+    ],
+    [
+     "n38.then",
+     "ifCarrier.execute"
+    ],
+    [
+     "ifCarrier.then",
+     "n41.execute"
+    ],
+    [
+     "n41.then",
+     "n43.execute"
+    ],
+    [
+     "n43.then",
+     "ifHeader.execute"
+    ],
+    [
+     "ifCarrier.else",
+     "n45.execute"
+    ],
+    [
+     "n45.then",
+     "n47.execute"
+    ],
+    [
+     "n47.then",
+     "ifHeader.execute"
+    ],
+    [
+     "ifHeader.else",
+     "n51.execute"
+    ],
+    [
+     "n51.then",
+     "n53.execute"
+    ],
+    [
+     "n53.then",
+     "n54.execute"
+    ],
+    [
+     "n54.then",
+     "headerTimer.execute"
+    ],
+    [
+     "headerTimer.then",
+     "n56.execute"
+    ],
+    [
+     "n56.then",
+     "n57.execute"
+    ],
+    [
+     "ifHeader.then",
+     "n57.execute"
+    ],
+    [
+     "n57.then",
+     "n59.execute"
+    ],
+    [
+     "n59.then",
+     "n60.execute"
+    ],
+    [
+     "n60.then",
+     "n61.execute"
+    ]
+   ],
+   "defaults": {
+    "n8.SearchCase": "IgnoreCase",
+    "n11.SearchCase": "IgnoreCase",
+    "n13.SearchCase": "IgnoreCase",
+    "n19.B": "1.0",
+    "n21.B": "1.0",
+    "n25.From": ": ",
+    "n27.B": "KEEPER",
+    "n28.A": "RADIO HOST",
+    "n33.B": "None",
+    "n36.InVisibility": "Collapsed",
+    "n38.InVisibility": "HitTestInvisible",
+    "n41.InVisibility": "HitTestInvisible",
+    "n43.InVisibility": "Collapsed",
+    "n45.InVisibility": "Collapsed",
+    "n47.InVisibility": "HitTestInvisible",
+    "n53.InVisibility": "HitTestInvisible",
+    "n54.HeadTarget": "1.0",
+    "headerTimer.FunctionName": "HideHeader",
+    "headerTimer.bLooping": "false",
+    "headerTimer.Time": "4.0",
+    "n59.InVisibility": "HitTestInvisible",
+    "n60.SubTarget": "1.0"
+   }
+  },
+  {
+   "graph": "NextChunk",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "n2": {
+     "get": "EnRest"
+    },
+    "n3": {
+     "get": "SksRest"
+    },
+    "n4": {
+     "call": "CutChunk"
+    },
+    "n5": {
+     "call": "CutChunk"
+    },
+    "n6": {
+     "get": "EnglishBox"
+    },
+    "n7": {
+     "call": "Layout"
+    },
+    "n8": {
+     "get": "CarrierBox"
+    },
+    "n9": {
+     "call": "Layout"
+    },
+    "n10": {
+     "get": "SaskartanBox"
+    },
+    "n11": {
+     "call": "Layout"
+    },
+    "n12": {
+     "call": "Conv_StringToText",
+     "class": "/Script/Engine.KismetTextLibrary"
+    },
+    "n13": {
+     "get": "EnglishLine"
+    },
+    "n14": {
+     "call": "SetText",
+     "class": "/Script/UMG.TextBlock"
+    },
+    "n15": {
+     "call": "Conv_StringToText",
+     "class": "/Script/Engine.KismetTextLibrary"
+    },
+    "n16": {
+     "get": "CarrierLine"
+    },
+    "n17": {
+     "call": "SetText",
+     "class": "/Script/UMG.TextBlock"
+    },
+    "n18": {
+     "call": "Conv_StringToText",
+     "class": "/Script/Engine.KismetTextLibrary"
+    },
+    "n19": {
+     "get": "SaskartanLine"
+    },
+    "n20": {
+     "call": "SetText",
+     "class": "/Script/UMG.TextBlock"
+    },
+    "n21": {
+     "set": "EnRest"
+    },
+    "n22": {
+     "set": "SksRest"
+    },
+    "n23": {
+     "call": "Len",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n24": {
+     "call": "LessEqual_IntInt",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "ifNoSks": {
+     "branch": true
+    },
+    "n26": {
+     "get": "SaskartanBox"
+    },
+    "n27": {
+     "call": "SetVisibility",
+     "class": "/Script/UMG.Widget"
+    },
+    "n28": {
+     "get": "SaskartanBox"
+    },
+    "n29": {
+     "call": "SetVisibility",
+     "class": "/Script/UMG.Widget"
+    },
+    "n30": {
+     "call": "Len",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n31": {
+     "call": "Greater_IntInt",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "ifMore": {
+     "branch": true
+    },
+    "n33": {
+     "call": "Len",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n34": {
+     "call": "Conv_IntToDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n35": {
+     "get": "LineDur"
+    },
+    "n36": {
+     "get": "TotalLen"
+    },
+    "n37": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n38": {
+     "call": "Divide_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n39": {
+     "call": "FMax",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "chunkTimer": {
+     "timer": true
+    },
+    "n41": {
+     "set": "ChunkTimer"
+    }
+   },
+   "links": [
+    [
+     "n2.EnRest",
+     "n4.S"
+    ],
+    [
+     "n3.SksRest",
+     "n5.S"
+    ],
+    [
+     "n6.EnglishBox",
+     "n7.Box"
+    ],
+    [
+     "n4.Chunk",
+     "n7.Chunk"
+    ],
+    [
+     "n8.CarrierBox",
+     "n9.Box"
+    ],
+    [
+     "n4.Chunk",
+     "n9.Chunk"
+    ],
+    [
+     "n10.SaskartanBox",
+     "n11.Box"
+    ],
+    [
+     "n5.Chunk",
+     "n11.Chunk"
+    ],
+    [
+     "n7.Out",
+     "n12.InString"
+    ],
+    [
+     "n13.EnglishLine",
+     "n14.self"
+    ],
+    [
+     "n12.ReturnValue",
+     "n14.InText"
+    ],
+    [
+     "n9.Out",
+     "n15.InString"
+    ],
+    [
+     "n16.CarrierLine",
+     "n17.self"
+    ],
+    [
+     "n15.ReturnValue",
+     "n17.InText"
+    ],
+    [
+     "n11.Out",
+     "n18.InString"
+    ],
+    [
+     "n19.SaskartanLine",
+     "n20.self"
+    ],
+    [
+     "n18.ReturnValue",
+     "n20.InText"
+    ],
+    [
+     "n4.Rest",
+     "n21.EnRest"
+    ],
+    [
+     "n5.Rest",
+     "n22.SksRest"
+    ],
+    [
+     "n5.Chunk",
+     "n23.S"
+    ],
+    [
+     "n23.ReturnValue",
+     "n24.A"
+    ],
+    [
+     "n24.ReturnValue",
+     "ifNoSks.Condition"
+    ],
+    [
+     "n26.SaskartanBox",
+     "n27.self"
+    ],
+    [
+     "n28.SaskartanBox",
+     "n29.self"
+    ],
+    [
+     "n4.Rest",
+     "n30.S"
+    ],
+    [
+     "n30.ReturnValue",
+     "n31.A"
+    ],
+    [
+     "n31.ReturnValue",
+     "ifMore.Condition"
+    ],
+    [
+     "n4.Chunk",
+     "n33.S"
+    ],
+    [
+     "n33.ReturnValue",
+     "n34.InInt"
+    ],
+    [
+     "n35.LineDur",
+     "n37.A"
+    ],
+    [
+     "n34.ReturnValue",
+     "n37.B"
+    ],
+    [
+     "n37.ReturnValue",
+     "n38.A"
+    ],
+    [
+     "n36.TotalLen",
+     "n38.B"
+    ],
+    [
+     "n38.ReturnValue",
+     "n39.A"
+    ],
+    [
+     "n39.ReturnValue",
+     "chunkTimer.Time"
+    ],
+    [
+     "chunkTimer.ReturnValue",
+     "n41.ChunkTimer"
+    ],
+    [
+     "entry.then",
+     "n4.execute"
+    ],
+    [
+     "n4.then",
+     "n5.execute"
+    ],
+    [
+     "n5.then",
+     "n7.execute"
+    ],
+    [
+     "n7.then",
+     "n9.execute"
+    ],
+    [
+     "n9.then",
+     "n11.execute"
+    ],
+    [
+     "n11.then",
+     "n14.execute"
+    ],
+    [
+     "n14.then",
+     "n17.execute"
+    ],
+    [
+     "n17.then",
+     "n20.execute"
+    ],
+    [
+     "n20.then",
+     "n21.execute"
+    ],
+    [
+     "n21.then",
+     "n22.execute"
+    ],
+    [
+     "n22.then",
+     "ifNoSks.execute"
+    ],
+    [
+     "ifNoSks.then",
+     "n27.execute"
+    ],
+    [
+     "n27.then",
+     "ifMore.execute"
+    ],
+    [
+     "ifNoSks.else",
+     "n29.execute"
+    ],
+    [
+     "n29.then",
+     "ifMore.execute"
+    ],
+    [
+     "ifMore.then",
+     "chunkTimer.execute"
+    ],
+    [
+     "chunkTimer.then",
+     "n41.execute"
+    ]
+   ],
+   "defaults": {
+    "n4.CharPx": "13.0",
+    "n5.CharPx": "9.4",
+    "n7.CharPx": "13.0",
+    "n9.CharPx": "11.3",
+    "n11.CharPx": "9.4",
+    "n24.B": "0",
+    "n27.InVisibility": "Collapsed",
+    "n29.InVisibility": "Collapsed",
+    "n31.B": "0",
+    "n39.B": "1.2",
+    "chunkTimer.FunctionName": "NextChunk",
+    "chunkTimer.bLooping": "false"
+   }
+  },
+  {
+   "graph": "HideSubtitle",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "hold": {
+     "timer": true
+    },
+    "n3": {
+     "set": "HideTimer"
+    }
+   },
+   "links": [
+    [
+     "hold.ReturnValue",
+     "n3.HideTimer"
+    ],
+    [
+     "entry.then",
+     "hold.execute"
+    ],
+    [
+     "hold.then",
+     "n3.execute"
+    ]
+   ],
+   "defaults": {
+    "hold.FunctionName": "BeginFadeOut",
+    "hold.bLooping": "false",
+    "hold.Time": "0.4"
+   }
+  },
+  {
+   "graph": "BeginFadeOut",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "n2": {
+     "get": "ChunkTimer"
+    },
+    "n3": {
+     "call": "K2_ClearAndInvalidateTimerHandle",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "n4": {
+     "set": "SubTarget"
+    },
+    "n5": {
+     "call": "StartFade"
+    }
+   },
+   "links": [
+    [
+     "n2.ChunkTimer",
+     "n3.Handle"
+    ],
+    [
+     "entry.then",
+     "n3.execute"
+    ],
+    [
+     "n3.then",
+     "n4.execute"
+    ],
+    [
+     "n4.then",
+     "n5.execute"
+    ]
+   ],
+   "defaults": {
+    "n4.SubTarget": "0.0"
+   }
+  },
+  {
+   "graph": "HideHeader",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "n2": {
+     "set": "HeadTarget"
+    },
+    "n3": {
+     "call": "StartFade"
+    }
+   },
+   "links": [
+    [
+     "entry.then",
+     "n2.execute"
+    ],
+    [
+     "n2.then",
+     "n3.execute"
+    ]
+   ],
+   "defaults": {
+    "n2.HeadTarget": "0.0"
+   }
+  },
+  {
+   "graph": "StartFade",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "fade": {
+     "timer": true
+    },
+    "n3": {
+     "set": "FadeTimer"
+    }
+   },
+   "links": [
+    [
+     "fade.ReturnValue",
+     "n3.FadeTimer"
+    ],
+    [
+     "entry.then",
+     "fade.execute"
+    ],
+    [
+     "fade.then",
+     "n3.execute"
+    ]
+   ],
+   "defaults": {
+    "fade.FunctionName": "FadeStep",
+    "fade.bLooping": "true",
+    "fade.Time": "0.02"
+   }
+  },
+  {
+   "graph": "FadeStep",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "n2": {
+     "get": "SubAlpha"
+    },
+    "n3": {
+     "get": "SubTarget"
+    },
+    "n4": {
+     "call": "FInterpTo_Constant",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n5": {
+     "set": "SubAlpha"
+    },
+    "n6": {
+     "get": "HeadAlpha"
+    },
+    "n7": {
+     "get": "HeadTarget"
+    },
+    "n8": {
+     "call": "FInterpTo_Constant",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n9": {
+     "set": "HeadAlpha"
+    },
+    "n10": {
+     "get": "LbAlpha"
+    },
+    "n11": {
+     "get": "LbTarget"
+    },
+    "n12": {
+     "call": "FInterpTo_Constant",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n13": {
+     "set": "LbAlpha"
+    },
+    "n14": {
+     "call": "Ease",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n15": {
+     "get": "SubtitleBox"
+    },
+    "n16": {
+     "call": "SetRenderOpacity",
+     "class": "/Script/UMG.Widget"
+    },
+    "n17": {
+     "get": "HeaderBox"
+    },
+    "n18": {
+     "call": "SetRenderOpacity",
+     "class": "/Script/UMG.Widget"
+    },
+    "n19": {
+     "get": "LetterboxTop"
+    },
+    "n20": {
+     "call": "SetRenderOpacity",
+     "class": "/Script/UMG.Widget"
+    },
+    "n21": {
+     "get": "LetterboxBottom"
+    },
+    "n22": {
+     "call": "SetRenderOpacity",
+     "class": "/Script/UMG.Widget"
+    },
+    "n23": {
+     "call": "Subtract_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n24": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n25": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n26": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n27": {
+     "call": "MakeVector2D",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n28": {
+     "get": "LetterboxTop"
+    },
+    "n29": {
+     "call": "SetRenderTranslation",
+     "class": "/Script/UMG.Widget"
+    },
+    "n30": {
+     "call": "MakeVector2D",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n31": {
+     "get": "LetterboxBottom"
+    },
+    "n32": {
+     "call": "SetRenderTranslation",
+     "class": "/Script/UMG.Widget"
+    },
+    "n33": {
+     "call": "MakeVector2D",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n34": {
+     "get": "SubtitleBox"
+    },
+    "n35": {
+     "call": "SetRenderTranslation",
+     "class": "/Script/UMG.Widget"
+    },
+    "n36": {
+     "call": "LessEqual_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n37": {
+     "get": "SubTarget"
+    },
+    "n38": {
+     "call": "LessEqual_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n39": {
+     "call": "BooleanAND",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "ifGone": {
+     "branch": true
+    },
+    "n41": {
+     "get": "SubtitleBox"
+    },
+    "n42": {
+     "call": "SetVisibility",
+     "class": "/Script/UMG.Widget"
+    },
+    "n43": {
+     "get": "SubAlpha"
+    },
+    "n44": {
+     "get": "SubTarget"
+    },
+    "n45": {
+     "call": "NearlyEqual_FloatFloat",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n46": {
+     "get": "HeadAlpha"
+    },
+    "n47": {
+     "get": "HeadTarget"
+    },
+    "n48": {
+     "call": "NearlyEqual_FloatFloat",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n49": {
+     "call": "BooleanAND",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n50": {
+     "get": "LbAlpha"
+    },
+    "n51": {
+     "get": "LbTarget"
+    },
+    "n52": {
+     "call": "NearlyEqual_FloatFloat",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n53": {
+     "call": "BooleanAND",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "ifSettled": {
+     "branch": true
+    },
+    "n55": {
+     "get": "FadeTimer"
+    },
+    "n56": {
+     "call": "K2_ClearAndInvalidateTimerHandle",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    }
+   },
+   "links": [
+    [
+     "n2.SubAlpha",
+     "n4.Current"
+    ],
+    [
+     "n3.SubTarget",
+     "n4.Target"
+    ],
+    [
+     "n4.ReturnValue",
+     "n5.SubAlpha"
+    ],
+    [
+     "n6.HeadAlpha",
+     "n8.Current"
+    ],
+    [
+     "n7.HeadTarget",
+     "n8.Target"
+    ],
+    [
+     "n8.ReturnValue",
+     "n9.HeadAlpha"
+    ],
+    [
+     "n10.LbAlpha",
+     "n12.Current"
+    ],
+    [
+     "n11.LbTarget",
+     "n12.Target"
+    ],
+    [
+     "n12.ReturnValue",
+     "n13.LbAlpha"
+    ],
+    [
+     "n12.ReturnValue",
+     "n14.Alpha"
+    ],
+    [
+     "n15.SubtitleBox",
+     "n16.self"
+    ],
+    [
+     "n4.ReturnValue",
+     "n16.InOpacity"
+    ],
+    [
+     "n17.HeaderBox",
+     "n18.self"
+    ],
+    [
+     "n8.ReturnValue",
+     "n18.InOpacity"
+    ],
+    [
+     "n19.LetterboxTop",
+     "n20.self"
+    ],
+    [
+     "n14.ReturnValue",
+     "n20.InOpacity"
+    ],
+    [
+     "n21.LetterboxBottom",
+     "n22.self"
+    ],
+    [
+     "n14.ReturnValue",
+     "n22.InOpacity"
+    ],
+    [
+     "n14.ReturnValue",
+     "n23.B"
+    ],
+    [
+     "n23.ReturnValue",
+     "n24.A"
+    ],
+    [
+     "n24.ReturnValue",
+     "n25.A"
+    ],
+    [
+     "n14.ReturnValue",
+     "n26.A"
+    ],
+    [
+     "n25.ReturnValue",
+     "n27.Y"
+    ],
+    [
+     "n28.LetterboxTop",
+     "n29.self"
+    ],
+    [
+     "n27.ReturnValue",
+     "n29.Translation"
+    ],
+    [
+     "n24.ReturnValue",
+     "n30.Y"
+    ],
+    [
+     "n31.LetterboxBottom",
+     "n32.self"
+    ],
+    [
+     "n30.ReturnValue",
+     "n32.Translation"
+    ],
+    [
+     "n26.ReturnValue",
+     "n33.Y"
+    ],
+    [
+     "n34.SubtitleBox",
+     "n35.self"
+    ],
+    [
+     "n33.ReturnValue",
+     "n35.Translation"
+    ],
+    [
+     "n4.ReturnValue",
+     "n36.A"
+    ],
+    [
+     "n37.SubTarget",
+     "n38.A"
+    ],
+    [
+     "n36.ReturnValue",
+     "n39.A"
+    ],
+    [
+     "n38.ReturnValue",
+     "n39.B"
+    ],
+    [
+     "n39.ReturnValue",
+     "ifGone.Condition"
+    ],
+    [
+     "n41.SubtitleBox",
+     "n42.self"
+    ],
+    [
+     "n43.SubAlpha",
+     "n45.A"
+    ],
+    [
+     "n44.SubTarget",
+     "n45.B"
+    ],
+    [
+     "n46.HeadAlpha",
+     "n48.A"
+    ],
+    [
+     "n47.HeadTarget",
+     "n48.B"
+    ],
+    [
+     "n45.ReturnValue",
+     "n49.A"
+    ],
+    [
+     "n48.ReturnValue",
+     "n49.B"
+    ],
+    [
+     "n50.LbAlpha",
+     "n52.A"
+    ],
+    [
+     "n51.LbTarget",
+     "n52.B"
+    ],
+    [
+     "n49.ReturnValue",
+     "n53.A"
+    ],
+    [
+     "n52.ReturnValue",
+     "n53.B"
+    ],
+    [
+     "n53.ReturnValue",
+     "ifSettled.Condition"
+    ],
+    [
+     "n55.FadeTimer",
+     "n56.Handle"
+    ],
+    [
+     "entry.then",
+     "n5.execute"
+    ],
+    [
+     "n5.then",
+     "n9.execute"
+    ],
+    [
+     "n9.then",
+     "n13.execute"
+    ],
+    [
+     "n13.then",
+     "n16.execute"
+    ],
+    [
+     "n16.then",
+     "n18.execute"
+    ],
+    [
+     "n18.then",
+     "n20.execute"
+    ],
+    [
+     "n20.then",
+     "n22.execute"
+    ],
+    [
+     "n22.then",
+     "n29.execute"
+    ],
+    [
+     "n29.then",
+     "n32.execute"
+    ],
+    [
+     "n32.then",
+     "n35.execute"
+    ],
+    [
+     "n35.then",
+     "ifGone.execute"
+    ],
+    [
+     "ifGone.then",
+     "n42.execute"
+    ],
+    [
+     "n42.then",
+     "ifSettled.execute"
+    ],
+    [
+     "ifGone.else",
+     "ifSettled.execute"
+    ],
+    [
+     "ifSettled.then",
+     "n56.execute"
+    ]
+   ],
+   "defaults": {
+    "n4.DeltaTime": "0.02",
+    "n4.InterpSpeed": "4.0",
+    "n8.DeltaTime": "0.02",
+    "n8.InterpSpeed": "4.0",
+    "n12.DeltaTime": "0.02",
+    "n12.InterpSpeed": "1.25",
+    "n14.A": "0.0",
+    "n14.B": "1.0",
+    "n14.EasingFunc": "EaseInOut",
+    "n14.BlendExp": "2.0",
+    "n14.Steps": "2",
+    "n23.A": "1.0",
+    "n24.B": "139.0",
+    "n25.B": "-1.0",
+    "n26.B": "-139.0",
+    "n27.X": "0.0",
+    "n30.X": "0.0",
+    "n33.X": "0.0",
+    "n36.B": "0.001",
+    "n38.B": "0.001",
+    "n42.InVisibility": "Collapsed",
+    "n45.ErrorTolerance": "0.0005",
+    "n48.ErrorTolerance": "0.0005",
+    "n52.ErrorTolerance": "0.0005"
+   }
+  },
+  {
+   "graph": "ShowCaption",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "n2": {
+     "call": "EqualEqual_NameName",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n3": {
+     "call": "EqualEqual_NameName",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n4": {
+     "call": "EqualEqual_NameName",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n5": {
+     "call": "EqualEqual_NameName",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "ifHudColumn": {
+     "branch": true
+    },
+    "ifHud": {
+     "branch": true
+    },
+    "ifScan": {
+     "branch": true
+    },
+    "ifScanPrompt": {
+     "branch": true
+    },
+    "n10": {
+     "get": "HudQuestions"
+    },
+    "n11": {
+     "call": "SetText",
+     "class": "/Script/UMG.TextBlock"
+    },
+    "n12": {
+     "get": "HudQuestions"
+    },
+    "n13": {
+     "call": "SetVisibility",
+     "class": "/Script/UMG.Widget"
+    },
+    "n14": {
+     "get": "HudLine"
+    },
+    "n15": {
+     "call": "SetText",
+     "class": "/Script/UMG.TextBlock"
+    },
+    "n16": {
+     "get": "HudLine"
+    },
+    "n17": {
+     "call": "SetVisibility",
+     "class": "/Script/UMG.Widget"
+    },
+    "n18": {
+     "get": "ScanBlock"
+    },
+    "n19": {
+     "call": "SetText",
+     "class": "/Script/UMG.TextBlock"
+    },
+    "n20": {
+     "get": "ScanBlock"
+    },
+    "n21": {
+     "call": "SetVisibility",
+     "class": "/Script/UMG.Widget"
+    },
+    "n22": {
+     "call": "Conv_TextToString",
+     "class": "/Script/Engine.KismetTextLibrary"
+    },
+    "n23": {
+     "call": "StartsWith",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "ifControls": {
+     "branch": true
+    },
+    "n25": {
+     "get": "KP_Drive"
+    },
+    "n26": {
+     "call": "Configure",
+     "class": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_KeyPrompt.WBP_Saskarta_KeyPrompt_C"
+    },
+    "n27": {
+     "get": "LabelDrive"
+    },
+    "n28": {
+     "get": "KP_Drive"
+    },
+    "n29": {
+     "call": "Show",
+     "class": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_KeyPrompt.WBP_Saskarta_KeyPrompt_C"
+    },
+    "n30": {
+     "get": "KP_Steer"
+    },
+    "n31": {
+     "call": "Configure",
+     "class": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_KeyPrompt.WBP_Saskarta_KeyPrompt_C"
+    },
+    "n32": {
+     "get": "LabelSteer"
+    },
+    "n33": {
+     "get": "KP_Steer"
+    },
+    "n34": {
+     "call": "Show",
+     "class": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_KeyPrompt.WBP_Saskarta_KeyPrompt_C"
+    },
+    "n35": {
+     "get": "KP_Look"
+    },
+    "n36": {
+     "call": "Configure",
+     "class": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_KeyPrompt.WBP_Saskarta_KeyPrompt_C"
+    },
+    "n37": {
+     "get": "LabelLook"
+    },
+    "n38": {
+     "get": "KP_Look"
+    },
+    "n39": {
+     "call": "Show",
+     "class": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_KeyPrompt.WBP_Saskarta_KeyPrompt_C"
+    },
+    "n40": {
+     "get": "CaptionTextBox"
+    },
+    "n41": {
+     "call": "Layout"
+    },
+    "n42": {
+     "get": "ScanPromptLine"
+    },
+    "n43": {
+     "call": "SetText",
+     "class": "/Script/UMG.TextBlock"
+    },
+    "n44": {
+     "get": "ScanPromptLine"
+    },
+    "n45": {
+     "call": "SetVisibility",
+     "class": "/Script/UMG.Widget"
+    },
+    "n46": {
+     "get": "ControlsRow"
+    },
+    "n47": {
+     "call": "SetVisibility",
+     "class": "/Script/UMG.Widget"
+    },
+    "n48": {
+     "call": "UpdateMaxW"
+    },
+    "n49": {
+     "call": "Conv_StringToText",
+     "class": "/Script/Engine.KismetTextLibrary"
+    },
+    "n50": {
+     "get": "CaptionLine"
+    },
+    "n51": {
+     "call": "SetText",
+     "class": "/Script/UMG.TextBlock"
+    },
+    "n52": {
+     "get": "CaptionBox"
+    },
+    "n53": {
+     "call": "SetVisibility",
+     "class": "/Script/UMG.Widget"
+    }
+   },
+   "links": [
+    [
+     "entry.Target",
+     "n2.A"
+    ],
+    [
+     "entry.Target",
+     "n3.A"
+    ],
+    [
+     "entry.Target",
+     "n4.A"
+    ],
+    [
+     "entry.Target",
+     "n5.A"
+    ],
+    [
+     "n5.ReturnValue",
+     "ifHudColumn.Condition"
+    ],
+    [
+     "n4.ReturnValue",
+     "ifScanPrompt.Condition"
+    ],
+    [
+     "n2.ReturnValue",
+     "ifHud.Condition"
+    ],
+    [
+     "n3.ReturnValue",
+     "ifScan.Condition"
+    ],
+    [
+     "entry.then",
+     "ifHudColumn.execute"
+    ],
+    [
+     "ifHudColumn.else",
+     "ifHud.execute"
+    ],
+    [
+     "n10.HudQuestions",
+     "n11.self"
+    ],
+    [
+     "entry.Text",
+     "n11.InText"
+    ],
+    [
+     "n12.HudQuestions",
+     "n13.self"
+    ],
+    [
+     "ifHudColumn.then",
+     "n11.execute"
+    ],
+    [
+     "n11.then",
+     "n13.execute"
+    ],
+    [
+     "n14.HudLine",
+     "n15.self"
+    ],
+    [
+     "entry.Text",
+     "n15.InText"
+    ],
+    [
+     "n16.HudLine",
+     "n17.self"
+    ],
+    [
+     "ifHud.then",
+     "n15.execute"
+    ],
+    [
+     "n15.then",
+     "n17.execute"
+    ],
+    [
+     "ifHud.else",
+     "ifScan.execute"
+    ],
+    [
+     "n18.ScanBlock",
+     "n19.self"
+    ],
+    [
+     "entry.Text",
+     "n19.InText"
+    ],
+    [
+     "n20.ScanBlock",
+     "n21.self"
+    ],
+    [
+     "ifScan.then",
+     "n19.execute"
+    ],
+    [
+     "n19.then",
+     "n21.execute"
+    ],
+    [
+     "entry.Text",
+     "n22.InText"
+    ],
+    [
+     "n22.ReturnValue",
+     "n23.SourceString"
+    ],
+    [
+     "n23.ReturnValue",
+     "ifControls.Condition"
+    ],
+    [
+     "n25.KP_Drive",
+     "n26.self"
+    ],
+    [
+     "n27.LabelDrive",
+     "n26.InLabel"
+    ],
+    [
+     "n28.KP_Drive",
+     "n29.self"
+    ],
+    [
+     "n30.KP_Steer",
+     "n31.self"
+    ],
+    [
+     "n32.LabelSteer",
+     "n31.InLabel"
+    ],
+    [
+     "n33.KP_Steer",
+     "n34.self"
+    ],
+    [
+     "n35.KP_Look",
+     "n36.self"
+    ],
+    [
+     "n37.LabelLook",
+     "n36.InLabel"
+    ],
+    [
+     "n38.KP_Look",
+     "n39.self"
+    ],
+    [
+     "n40.CaptionTextBox",
+     "n41.Box"
+    ],
+    [
+     "n22.ReturnValue",
+     "n41.Chunk"
+    ],
+    [
+     "ifScan.else",
+     "ifScanPrompt.execute"
+    ],
+    [
+     "n42.ScanPromptLine",
+     "n43.self"
+    ],
+    [
+     "entry.Text",
+     "n43.InText"
+    ],
+    [
+     "n44.ScanPromptLine",
+     "n45.self"
+    ],
+    [
+     "ifScanPrompt.then",
+     "n43.execute"
+    ],
+    [
+     "n43.then",
+     "n45.execute"
+    ],
+    [
+     "ifScanPrompt.else",
+     "ifControls.execute"
+    ],
+    [
+     "n46.ControlsRow",
+     "n47.self"
+    ],
+    [
+     "ifControls.then",
+     "n26.execute"
+    ],
+    [
+     "n26.then",
+     "n29.execute"
+    ],
+    [
+     "n29.then",
+     "n31.execute"
+    ],
+    [
+     "n31.then",
+     "n34.execute"
+    ],
+    [
+     "n34.then",
+     "n36.execute"
+    ],
+    [
+     "n36.then",
+     "n39.execute"
+    ],
+    [
+     "n39.then",
+     "n47.execute"
+    ],
+    [
+     "n41.Out",
+     "n49.InString"
+    ],
+    [
+     "n50.CaptionLine",
+     "n51.self"
+    ],
+    [
+     "n49.ReturnValue",
+     "n51.InText"
+    ],
+    [
+     "n52.CaptionBox",
+     "n53.self"
+    ],
+    [
+     "ifControls.else",
+     "n48.execute"
+    ],
+    [
+     "n48.then",
+     "n41.execute"
+    ],
+    [
+     "n41.then",
+     "n51.execute"
+    ],
+    [
+     "n51.then",
+     "n53.execute"
+    ]
+   ],
+   "defaults": {
+    "n2.B": "Hud",
+    "n3.B": "Scan",
+    "n4.B": "ScanPrompt",
+    "n5.B": "HudColumn",
+    "n13.InVisibility": "HitTestInvisible",
+    "n17.InVisibility": "HitTestInvisible",
+    "n21.InVisibility": "HitTestInvisible",
+    "n23.InPrefix": "W / RT",
+    "n23.SearchCase": "IgnoreCase",
+    "n26.InGlyph": "Key_W",
+    "n26.InGlyph2": "None",
+    "n26.InGlyphPad": "Pad_RT",
+    "n26.bInHold": "false",
+    "n26.InIconSize": "44",
+    "n31.InGlyph": "Key_A",
+    "n31.InGlyph2": "Key_D",
+    "n31.InGlyphPad": "Pad_LStick",
+    "n31.bInHold": "false",
+    "n31.InIconSize": "44",
+    "n36.InGlyph": "Mouse_Move",
+    "n36.InGlyph2": "None",
+    "n36.InGlyphPad": "Pad_RStick",
+    "n36.bInHold": "false",
+    "n36.InIconSize": "44",
+    "n41.CharPx": "10.6",
+    "n45.InVisibility": "HitTestInvisible",
+    "n47.InVisibility": "HitTestInvisible",
+    "n53.InVisibility": "HitTestInvisible"
+   }
+  },
+  {
+   "graph": "HideCaption",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "n2": {
+     "call": "EqualEqual_NameName",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n3": {
+     "call": "EqualEqual_NameName",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n4": {
+     "call": "EqualEqual_NameName",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n5": {
+     "call": "EqualEqual_NameName",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "ifHudColumn": {
+     "branch": true
+    },
+    "ifHud": {
+     "branch": true
+    },
+    "ifScan": {
+     "branch": true
+    },
+    "ifScanPrompt": {
+     "branch": true
+    },
+    "n10": {
+     "get": "HudQuestions"
+    },
+    "n11": {
+     "call": "SetVisibility",
+     "class": "/Script/UMG.Widget"
+    },
+    "n12": {
+     "get": "HudLine"
+    },
+    "n13": {
+     "call": "SetVisibility",
+     "class": "/Script/UMG.Widget"
+    },
+    "n14": {
+     "get": "ScanBlock"
+    },
+    "n15": {
+     "call": "SetVisibility",
+     "class": "/Script/UMG.Widget"
+    },
+    "n16": {
+     "get": "ScanPromptLine"
+    },
+    "n17": {
+     "call": "SetVisibility",
+     "class": "/Script/UMG.Widget"
+    },
+    "n18": {
+     "get": "CaptionBox"
+    },
+    "n19": {
+     "call": "SetVisibility",
+     "class": "/Script/UMG.Widget"
+    },
+    "n20": {
+     "get": "ControlsRow"
+    },
+    "n21": {
+     "call": "SetVisibility",
+     "class": "/Script/UMG.Widget"
+    },
+    "n22": {
+     "get": "KP_Drive"
+    },
+    "n23": {
+     "call": "Hide",
+     "class": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_KeyPrompt.WBP_Saskarta_KeyPrompt_C"
+    },
+    "n24": {
+     "get": "KP_Steer"
+    },
+    "n25": {
+     "call": "Hide",
+     "class": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_KeyPrompt.WBP_Saskarta_KeyPrompt_C"
+    },
+    "n26": {
+     "get": "KP_Look"
+    },
+    "n27": {
+     "call": "Hide",
+     "class": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_KeyPrompt.WBP_Saskarta_KeyPrompt_C"
+    }
+   },
+   "links": [
+    [
+     "entry.Target",
+     "n2.A"
+    ],
+    [
+     "entry.Target",
+     "n3.A"
+    ],
+    [
+     "entry.Target",
+     "n4.A"
+    ],
+    [
+     "entry.Target",
+     "n5.A"
+    ],
+    [
+     "n5.ReturnValue",
+     "ifHudColumn.Condition"
+    ],
+    [
+     "n4.ReturnValue",
+     "ifScanPrompt.Condition"
+    ],
+    [
+     "n2.ReturnValue",
+     "ifHud.Condition"
+    ],
+    [
+     "n3.ReturnValue",
+     "ifScan.Condition"
+    ],
+    [
+     "entry.then",
+     "ifHudColumn.execute"
+    ],
+    [
+     "ifHudColumn.else",
+     "ifHud.execute"
+    ],
+    [
+     "n10.HudQuestions",
+     "n11.self"
+    ],
+    [
+     "ifHudColumn.then",
+     "n11.execute"
+    ],
+    [
+     "n12.HudLine",
+     "n13.self"
+    ],
+    [
+     "ifHud.then",
+     "n13.execute"
+    ],
+    [
+     "ifHud.else",
+     "ifScan.execute"
+    ],
+    [
+     "n14.ScanBlock",
+     "n15.self"
+    ],
+    [
+     "ifScan.then",
+     "n15.execute"
+    ],
+    [
+     "ifScan.else",
+     "ifScanPrompt.execute"
+    ],
+    [
+     "n16.ScanPromptLine",
+     "n17.self"
+    ],
+    [
+     "ifScanPrompt.then",
+     "n17.execute"
+    ],
+    [
+     "n18.CaptionBox",
+     "n19.self"
+    ],
+    [
+     "n20.ControlsRow",
+     "n21.self"
+    ],
+    [
+     "n22.KP_Drive",
+     "n23.self"
+    ],
+    [
+     "n24.KP_Steer",
+     "n25.self"
+    ],
+    [
+     "n26.KP_Look",
+     "n27.self"
+    ],
+    [
+     "ifScanPrompt.else",
+     "n19.execute"
+    ],
+    [
+     "n19.then",
+     "n21.execute"
+    ],
+    [
+     "n21.then",
+     "n23.execute"
+    ],
+    [
+     "n23.then",
+     "n25.execute"
+    ],
+    [
+     "n25.then",
+     "n27.execute"
+    ]
+   ],
+   "defaults": {
+    "n2.B": "Hud",
+    "n3.B": "Scan",
+    "n4.B": "ScanPrompt",
+    "n5.B": "HudColumn",
+    "n11.InVisibility": "Collapsed",
+    "n13.InVisibility": "Collapsed",
+    "n15.InVisibility": "Collapsed",
+    "n17.InVisibility": "Collapsed",
+    "n19.InVisibility": "Collapsed",
+    "n21.InVisibility": "Collapsed"
+   }
+  },
+  {
+   "graph": "ShowPrompt",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "n2": {
+     "get": "KP_Prompt"
+    },
+    "n3": {
+     "call": "Configure",
+     "class": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_KeyPrompt.WBP_Saskarta_KeyPrompt_C"
+    },
+    "n4": {
+     "get": "NoLabel"
+    },
+    "n5": {
+     "get": "KP_Prompt"
+    },
+    "n6": {
+     "call": "Show",
+     "class": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_KeyPrompt.WBP_Saskarta_KeyPrompt_C"
+    },
+    "n7": {
+     "get": "PromptLine"
+    },
+    "n8": {
+     "call": "SetText",
+     "class": "/Script/UMG.TextBlock"
+    },
+    "n9": {
+     "get": "PromptBox"
+    },
+    "n10": {
+     "call": "SetVisibility",
+     "class": "/Script/UMG.Widget"
+    }
+   },
+   "links": [
+    [
+     "n2.KP_Prompt",
+     "n3.self"
+    ],
+    [
+     "n4.NoLabel",
+     "n3.InLabel"
+    ],
+    [
+     "n5.KP_Prompt",
+     "n6.self"
+    ],
+    [
+     "n7.PromptLine",
+     "n8.self"
+    ],
+    [
+     "entry.Text",
+     "n8.InText"
+    ],
+    [
+     "n9.PromptBox",
+     "n10.self"
+    ],
+    [
+     "entry.then",
+     "n3.execute"
+    ],
+    [
+     "n3.then",
+     "n6.execute"
+    ],
+    [
+     "n6.then",
+     "n8.execute"
+    ],
+    [
+     "n8.then",
+     "n10.execute"
+    ]
+   ],
+   "defaults": {
+    "n3.InGlyph": "Key_E",
+    "n3.InGlyph2": "None",
+    "n3.InGlyphPad": "Pad_A",
+    "n3.bInHold": "false",
+    "n3.InIconSize": "40",
+    "n10.InVisibility": "HitTestInvisible"
+   }
+  },
+  {
+   "graph": "HidePrompt",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "n2": {
+     "get": "PromptBox"
+    },
+    "n3": {
+     "call": "SetVisibility",
+     "class": "/Script/UMG.Widget"
+    },
+    "n4": {
+     "get": "KP_Prompt"
+    },
+    "n5": {
+     "call": "Hide",
+     "class": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_KeyPrompt.WBP_Saskarta_KeyPrompt_C"
+    }
+   },
+   "links": [
+    [
+     "n2.PromptBox",
+     "n3.self"
+    ],
+    [
+     "n4.KP_Prompt",
+     "n5.self"
+    ],
+    [
+     "entry.then",
+     "n3.execute"
+    ],
+    [
+     "n3.then",
+     "n5.execute"
+    ]
+   ],
+   "defaults": {
+    "n3.InVisibility": "Collapsed"
+   }
+  },
+  {
+   "graph": "SetLetterbox",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "n2": {
+     "call": "SelectFloat",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n3": {
+     "set": "LbTarget"
+    },
+    "n4": {
+     "call": "StartFade"
+    }
+   },
+   "links": [
+    [
+     "entry.bOn",
+     "n2.bPickA"
+    ],
+    [
+     "n2.ReturnValue",
+     "n3.LbTarget"
+    ],
+    [
+     "entry.then",
+     "n3.execute"
+    ],
+    [
+     "n3.then",
+     "n4.execute"
+    ]
+   ],
+   "defaults": {
+    "n2.A": "1.0",
+    "n2.B": "0.0"
+   }
+  },
+  {
+   "graph": "SetSkipProgress",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "n2": {
+     "get": "bSkipReady"
+    },
+    "ifReady": {
+     "branch": true
+    },
+    "n4": {
+     "get": "KP_Skip"
+    },
+    "n5": {
+     "call": "Configure",
+     "class": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_KeyPrompt.WBP_Saskarta_KeyPrompt_C"
+    },
+    "n6": {
+     "get": "LabelSkip"
+    },
+    "n7": {
+     "get": "KP_Skip"
+    },
+    "n8": {
+     "call": "Show",
+     "class": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_KeyPrompt.WBP_Saskarta_KeyPrompt_C"
+    },
+    "n9": {
+     "set": "bSkipReady"
+    },
+    "n10": {
+     "get": "KP_Skip"
+    },
+    "n11": {
+     "call": "SetHoldProgress",
+     "class": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_KeyPrompt.WBP_Saskarta_KeyPrompt_C"
+    },
+    "n12": {
+     "call": "Greater_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n13": {
+     "call": "SelectFloat",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n14": {
+     "get": "SkipBox"
+    },
+    "n15": {
+     "call": "SetRenderOpacity",
+     "class": "/Script/UMG.Widget"
+    }
+   },
+   "links": [
+    [
+     "n2.bSkipReady",
+     "ifReady.Condition"
+    ],
+    [
+     "n4.KP_Skip",
+     "n5.self"
+    ],
+    [
+     "n6.LabelSkip",
+     "n5.InLabel"
+    ],
+    [
+     "n7.KP_Skip",
+     "n8.self"
+    ],
+    [
+     "n10.KP_Skip",
+     "n11.self"
+    ],
+    [
+     "entry.Fraction",
+     "n11.Fraction"
+    ],
+    [
+     "entry.Fraction",
+     "n12.A"
+    ],
+    [
+     "n12.ReturnValue",
+     "n13.bPickA"
+    ],
+    [
+     "n14.SkipBox",
+     "n15.self"
+    ],
+    [
+     "n13.ReturnValue",
+     "n15.InOpacity"
+    ],
+    [
+     "entry.then",
+     "ifReady.execute"
+    ],
+    [
+     "ifReady.else",
+     "n5.execute"
+    ],
+    [
+     "n5.then",
+     "n8.execute"
+    ],
+    [
+     "n8.then",
+     "n9.execute"
+    ],
+    [
+     "n9.then",
+     "n11.execute"
+    ],
+    [
+     "ifReady.then",
+     "n11.execute"
+    ],
+    [
+     "n11.then",
+     "n15.execute"
+    ]
+   ],
+   "defaults": {
+    "n5.InGlyph": "Key_Space",
+    "n5.InGlyph2": "None",
+    "n5.InGlyphPad": "Pad_B",
+    "n5.bInHold": "true",
+    "n5.InIconSize": "36",
+    "n9.bSkipReady": "true",
+    "n12.B": "0.0",
+    "n13.A": "1.0",
+    "n13.B": "0.0"
+   }
+  },
+  {
+   "graph": "HideEndCard",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "n2": {
+     "call": "SetScrollOffset",
+     "class": "/Script/UMG.ScrollBox"
+    },
+    "n3": {
+     "get": "EndCardRollScroll"
+    },
+    "n4": {
+     "get": "EndCardRollTimer"
+    },
+    "n5": {
+     "call": "K2_ClearAndInvalidateTimerHandle",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "n6": {
+     "get": "EndCardTitle"
+    },
+    "n7": {
+     "call": "SetVisibility",
+     "class": "/Script/UMG.Widget"
+    },
+    "n8": {
+     "get": "EndCardCreditsShort"
+    },
+    "n9": {
+     "call": "SetVisibility",
+     "class": "/Script/UMG.Widget"
+    },
+    "n10": {
+     "get": "EndCardRollViewport"
+    },
+    "n11": {
+     "call": "SetVisibility",
+     "class": "/Script/UMG.Widget"
+    },
+    "n12": {
+     "get": "EndCard"
+    },
+    "n13": {
+     "call": "SetVisibility",
+     "class": "/Script/UMG.Widget"
+    }
+   },
+   "links": [
+    [
+     "n3.EndCardRollScroll",
+     "n2.self"
+    ],
+    [
+     "n4.EndCardRollTimer",
+     "n5.Handle"
+    ],
+    [
+     "n6.EndCardTitle",
+     "n7.self"
+    ],
+    [
+     "n8.EndCardCreditsShort",
+     "n9.self"
+    ],
+    [
+     "n10.EndCardRollViewport",
+     "n11.self"
+    ],
+    [
+     "n12.EndCard",
+     "n13.self"
+    ],
+    [
+     "entry.then",
+     "n5.execute"
+    ],
+    [
+     "n5.then",
+     "n7.execute"
+    ],
+    [
+     "n7.then",
+     "n9.execute"
+    ],
+    [
+     "n9.then",
+     "n11.execute"
+    ],
+    [
+     "n11.then",
+     "n13.execute"
+    ],
+    [
+     "n13.then",
+     "n2.execute"
+    ]
+   ],
+   "defaults": {
+    "n2.NewScrollOffset": "0.0",
+    "n7.InVisibility": "Collapsed",
+    "n9.InVisibility": "Collapsed",
+    "n11.InVisibility": "Collapsed",
+    "n13.InVisibility": "Collapsed"
+   }
+  },
+  {
+   "graph": "ShowEndCard",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "n2": {
+     "call": "HideEndCard"
+    },
+    "n3": {
+     "get": "SkipBox"
+    },
+    "n4": {
+     "call": "SlotAsCanvasSlot",
+     "class": "/Script/UMG.WidgetLayoutLibrary"
+    },
+    "n5": {
+     "call": "SetZOrder",
+     "class": "/Script/UMG.CanvasPanelSlot"
+    },
+    "n6": {
+     "call": "EqualEqual_NameName",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "ifTitle": {
+     "branch": true
+    },
+    "n8": {
+     "get": "EndCard"
+    },
+    "n9": {
+     "call": "SetVisibility",
+     "class": "/Script/UMG.Widget"
+    },
+    "n10": {
+     "get": "EndCardTitle"
+    },
+    "n11": {
+     "call": "SetVisibility",
+     "class": "/Script/UMG.Widget"
+    },
+    "n12": {
+     "call": "GetTimeSeconds",
+     "class": "/Script/Engine.GameplayStatics"
+    },
+    "n13": {
+     "set": "EndCardRollStartS"
+    },
+    "n14": {
+     "set": "EndCardPhaseDurationS"
+    },
+    "n15": {
+     "set": "bEndCardRolling"
+    },
+    "n16": {
+     "get": "EndCardContent"
+    },
+    "n17": {
+     "call": "SetRenderOpacity",
+     "class": "/Script/UMG.Widget"
+    },
+    "timerTitle": {
+     "timer": true
+    },
+    "n19": {
+     "set": "EndCardRollTimer"
+    },
+    "n20": {
+     "call": "EqualEqual_NameName",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "ifCredits": {
+     "branch": true
+    },
+    "n22": {
+     "get": "EndCard"
+    },
+    "n23": {
+     "call": "SetVisibility",
+     "class": "/Script/UMG.Widget"
+    },
+    "n24": {
+     "get": "EndCardCreditsShort"
+    },
+    "n25": {
+     "call": "SetVisibility",
+     "class": "/Script/UMG.Widget"
+    },
+    "n26": {
+     "call": "GetTimeSeconds",
+     "class": "/Script/Engine.GameplayStatics"
+    },
+    "n27": {
+     "set": "EndCardRollStartS"
+    },
+    "n28": {
+     "set": "EndCardPhaseDurationS"
+    },
+    "n29": {
+     "set": "bEndCardRolling"
+    },
+    "n30": {
+     "get": "EndCardContent"
+    },
+    "n31": {
+     "call": "SetRenderOpacity",
+     "class": "/Script/UMG.Widget"
+    },
+    "timerCredits": {
+     "timer": true
+    },
+    "n33": {
+     "set": "EndCardRollTimer"
+    },
+    "n34": {
+     "call": "EqualEqual_NameName",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "ifCreditsRoll": {
+     "branch": true
+    },
+    "n36": {
+     "get": "EndCard"
+    },
+    "n37": {
+     "call": "SetVisibility",
+     "class": "/Script/UMG.Widget"
+    },
+    "n38": {
+     "get": "EndCardRollViewport"
+    },
+    "n39": {
+     "call": "SetVisibility",
+     "class": "/Script/UMG.Widget"
+    },
+    "n40": {
+     "call": "GetTimeSeconds",
+     "class": "/Script/Engine.GameplayStatics"
+    },
+    "n41": {
+     "set": "EndCardRollStartS"
+    },
+    "n42": {
+     "set": "EndCardPhaseDurationS"
+    },
+    "n43": {
+     "set": "bEndCardRolling"
+    },
+    "n44": {
+     "get": "EndCardContent"
+    },
+    "n45": {
+     "call": "SetRenderOpacity",
+     "class": "/Script/UMG.Widget"
+    },
+    "timerCreditsRoll": {
+     "timer": true
+    },
+    "n47": {
+     "set": "EndCardRollTimer"
+    }
+   },
+   "links": [
+    [
+     "entry.then",
+     "n2.execute"
+    ],
+    [
+     "n3.SkipBox",
+     "n4.Widget"
+    ],
+    [
+     "n4.ReturnValue",
+     "n5.self"
+    ],
+    [
+     "n2.then",
+     "n5.execute"
+    ],
+    [
+     "entry.Id",
+     "n6.A"
+    ],
+    [
+     "n6.ReturnValue",
+     "ifTitle.Condition"
+    ],
+    [
+     "n5.then",
+     "ifTitle.execute"
+    ],
+    [
+     "n8.EndCard",
+     "n9.self"
+    ],
+    [
+     "n10.EndCardTitle",
+     "n11.self"
+    ],
+    [
+     "n12.ReturnValue",
+     "n13.EndCardRollStartS"
+    ],
+    [
+     "n16.EndCardContent",
+     "n17.self"
+    ],
+    [
+     "timerTitle.ReturnValue",
+     "n19.EndCardRollTimer"
+    ],
+    [
+     "ifTitle.then",
+     "n9.execute"
+    ],
+    [
+     "n9.then",
+     "n11.execute"
+    ],
+    [
+     "n11.then",
+     "n13.execute"
+    ],
+    [
+     "n13.then",
+     "n14.execute"
+    ],
+    [
+     "n14.then",
+     "n15.execute"
+    ],
+    [
+     "n15.then",
+     "n17.execute"
+    ],
+    [
+     "n17.then",
+     "timerTitle.execute"
+    ],
+    [
+     "timerTitle.then",
+     "n19.execute"
+    ],
+    [
+     "entry.Id",
+     "n20.A"
+    ],
+    [
+     "n20.ReturnValue",
+     "ifCredits.Condition"
+    ],
+    [
+     "ifTitle.else",
+     "ifCredits.execute"
+    ],
+    [
+     "n22.EndCard",
+     "n23.self"
+    ],
+    [
+     "n24.EndCardCreditsShort",
+     "n25.self"
+    ],
+    [
+     "n26.ReturnValue",
+     "n27.EndCardRollStartS"
+    ],
+    [
+     "n30.EndCardContent",
+     "n31.self"
+    ],
+    [
+     "timerCredits.ReturnValue",
+     "n33.EndCardRollTimer"
+    ],
+    [
+     "ifCredits.then",
+     "n23.execute"
+    ],
+    [
+     "n23.then",
+     "n25.execute"
+    ],
+    [
+     "n25.then",
+     "n27.execute"
+    ],
+    [
+     "n27.then",
+     "n28.execute"
+    ],
+    [
+     "n28.then",
+     "n29.execute"
+    ],
+    [
+     "n29.then",
+     "n31.execute"
+    ],
+    [
+     "n31.then",
+     "timerCredits.execute"
+    ],
+    [
+     "timerCredits.then",
+     "n33.execute"
+    ],
+    [
+     "entry.Id",
+     "n34.A"
+    ],
+    [
+     "n34.ReturnValue",
+     "ifCreditsRoll.Condition"
+    ],
+    [
+     "ifCredits.else",
+     "ifCreditsRoll.execute"
+    ],
+    [
+     "n36.EndCard",
+     "n37.self"
+    ],
+    [
+     "n38.EndCardRollViewport",
+     "n39.self"
+    ],
+    [
+     "n40.ReturnValue",
+     "n41.EndCardRollStartS"
+    ],
+    [
+     "n44.EndCardContent",
+     "n45.self"
+    ],
+    [
+     "timerCreditsRoll.ReturnValue",
+     "n47.EndCardRollTimer"
+    ],
+    [
+     "ifCreditsRoll.then",
+     "n37.execute"
+    ],
+    [
+     "n37.then",
+     "n39.execute"
+    ],
+    [
+     "n39.then",
+     "n41.execute"
+    ],
+    [
+     "n41.then",
+     "n42.execute"
+    ],
+    [
+     "n42.then",
+     "n43.execute"
+    ],
+    [
+     "n43.then",
+     "n45.execute"
+    ],
+    [
+     "n45.then",
+     "timerCreditsRoll.execute"
+    ],
+    [
+     "timerCreditsRoll.then",
+     "n47.execute"
+    ]
+   ],
+   "defaults": {
+    "n5.InZOrder": "30",
+    "n6.B": "Title",
+    "n9.InVisibility": "HitTestInvisible",
+    "n11.InVisibility": "HitTestInvisible",
+    "n14.EndCardPhaseDurationS": "8.0",
+    "n15.bEndCardRolling": "false",
+    "n17.InOpacity": "0.0",
+    "timerTitle.FunctionName": "ScrollCreditsStep",
+    "timerTitle.bLooping": "true",
+    "timerTitle.Time": "0.02",
+    "n20.B": "Credits",
+    "n23.InVisibility": "HitTestInvisible",
+    "n25.InVisibility": "HitTestInvisible",
+    "n28.EndCardPhaseDurationS": "7.0",
+    "n29.bEndCardRolling": "false",
+    "n31.InOpacity": "0.0",
+    "timerCredits.FunctionName": "ScrollCreditsStep",
+    "timerCredits.bLooping": "true",
+    "timerCredits.Time": "0.02",
+    "n34.B": "CreditsRoll",
+    "n37.InVisibility": "HitTestInvisible",
+    "n39.InVisibility": "HitTestInvisible",
+    "n42.EndCardPhaseDurationS": "82.0",
+    "n43.bEndCardRolling": "true",
+    "n45.InOpacity": "0.0",
+    "timerCreditsRoll.FunctionName": "ScrollCreditsStep",
+    "timerCreditsRoll.bLooping": "true",
+    "timerCreditsRoll.Time": "0.02"
+   }
+  },
+  {
+   "graph": "ScrollCreditsStep",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "n2": {
+     "call": "GetTimeSeconds",
+     "class": "/Script/Engine.GameplayStatics"
+    },
+    "n3": {
+     "get": "EndCardRollStartS"
+    },
+    "n4": {
+     "call": "Subtract_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n5": {
+     "get": "EndCardPhaseDurationS"
+    },
+    "n6": {
+     "call": "GreaterEqual_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "ifRollDone": {
+     "branch": true
+    },
+    "n8": {
+     "get": "EndCardContent"
+    },
+    "n9": {
+     "call": "SetRenderOpacity",
+     "class": "/Script/UMG.Widget"
+    },
+    "n10": {
+     "get": "EndCardRollTimer"
+    },
+    "n11": {
+     "call": "K2_ClearAndInvalidateTimerHandle",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "n12": {
+     "call": "Divide_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n13": {
+     "call": "Subtract_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n14": {
+     "call": "Divide_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n15": {
+     "call": "FMin",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n16": {
+     "call": "FClamp",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n17": {
+     "call": "SetRenderOpacity",
+     "class": "/Script/UMG.Widget"
+    },
+    "n18": {
+     "get": "bEndCardRolling"
+    },
+    "ifRolling": {
+     "branch": true
+    },
+    "n20": {
+     "get": "EndCardRollScroll"
+    },
+    "n21": {
+     "call": "GetScrollOffsetOfEnd",
+     "class": "/Script/UMG.ScrollBox"
+    },
+    "n22": {
+     "call": "Divide_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n23": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n24": {
+     "call": "SetScrollOffset",
+     "class": "/Script/UMG.ScrollBox"
+    }
+   },
+   "links": [
+    [
+     "n2.ReturnValue",
+     "n4.A"
+    ],
+    [
+     "n3.EndCardRollStartS",
+     "n4.B"
+    ],
+    [
+     "n4.ReturnValue",
+     "n6.A"
+    ],
+    [
+     "n5.EndCardPhaseDurationS",
+     "n6.B"
+    ],
+    [
+     "n6.ReturnValue",
+     "ifRollDone.Condition"
+    ],
+    [
+     "entry.then",
+     "ifRollDone.execute"
+    ],
+    [
+     "n8.EndCardContent",
+     "n9.self"
+    ],
+    [
+     "n10.EndCardRollTimer",
+     "n11.Handle"
+    ],
+    [
+     "ifRollDone.then",
+     "n9.execute"
+    ],
+    [
+     "n9.then",
+     "n11.execute"
+    ],
+    [
+     "n4.ReturnValue",
+     "n12.A"
+    ],
+    [
+     "n5.EndCardPhaseDurationS",
+     "n13.A"
+    ],
+    [
+     "n4.ReturnValue",
+     "n13.B"
+    ],
+    [
+     "n13.ReturnValue",
+     "n14.A"
+    ],
+    [
+     "n12.ReturnValue",
+     "n15.A"
+    ],
+    [
+     "n14.ReturnValue",
+     "n15.B"
+    ],
+    [
+     "n15.ReturnValue",
+     "n16.Value"
+    ],
+    [
+     "n8.EndCardContent",
+     "n17.self"
+    ],
+    [
+     "n16.ReturnValue",
+     "n17.InOpacity"
+    ],
+    [
+     "n18.bEndCardRolling",
+     "ifRolling.Condition"
+    ],
+    [
+     "ifRollDone.else",
+     "n17.execute"
+    ],
+    [
+     "n17.then",
+     "ifRolling.execute"
+    ],
+    [
+     "n20.EndCardRollScroll",
+     "n21.self"
+    ],
+    [
+     "n4.ReturnValue",
+     "n22.A"
+    ],
+    [
+     "n22.ReturnValue",
+     "n23.A"
+    ],
+    [
+     "n21.ReturnValue",
+     "n23.B"
+    ],
+    [
+     "n23.ReturnValue",
+     "n24.NewScrollOffset"
+    ],
+    [
+     "n20.EndCardRollScroll",
+     "n24.self"
+    ],
+    [
+     "ifRolling.then",
+     "n24.execute"
+    ]
+   ],
+   "defaults": {
+    "n9.InOpacity": "0.0",
+    "n12.B": "1.2",
+    "n14.B": "1.2",
+    "n16.Min": "0.0",
+    "n16.Max": "1.0",
+    "n22.B": "82.0"
+   }
+  }
+ ]
+}

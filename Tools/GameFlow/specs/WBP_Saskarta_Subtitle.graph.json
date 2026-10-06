@@ -1,0 +1,31 @@
+{
+  "asset": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Subtitle",
+  "description": "Helper function BPC_CarrierVision calls on the warning subtitle: shown means not hit-testable, hidden means Collapsed. Render opacity is faded by BPC_CarrierVision.FadeStep. Notes: README_CarrierVision.md.",
+  "functions": [
+    { "name": "SetShown", "inputs": [ { "name": "bShow", "type": "bool" } ], "outputs": [], "pure": false }
+  ],
+  "graphs": [
+    {
+      "graph": "SetShown",
+      "nodes": {
+        "entry": { "entry": true },
+        "ifShow": { "branch": true },
+        "me": { "self": true },
+        "show": { "call": "SetVisibility", "class": "/Script/UMG.Widget" },
+        "hide": { "call": "SetVisibility", "class": "/Script/UMG.Widget" }
+      },
+      "links": [
+        ["entry.then", "ifShow.execute"],
+        ["entry.bShow", "ifShow.Condition"],
+        ["ifShow.then", "show.execute"],
+        ["ifShow.else", "hide.execute"],
+        ["me.self", "show.self"],
+        ["me.self", "hide.self"]
+      ],
+      "defaults": {
+        "show.InVisibility": "HitTestInvisible",
+        "hide.InVisibility": "Collapsed"
+      }
+    }
+  ]
+}

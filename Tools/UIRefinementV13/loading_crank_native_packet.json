@@ -1,0 +1,39 @@
+{
+  "status": "prepared_not_installed",
+  "asset": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Loading",
+  "expected_parent": "/Script/UMG.UserWidget",
+  "expected_root": "RootCanvas",
+  "source_receipt": "Saved/Verification/startup_presentation_20261001/finalization-v2.json",
+  "requires_native_proposal_rebuild": true,
+  "preflight": [{"command":"ui_query","params":{"path":"/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Loading","flatten":true,"include_properties":true,"include_slot":true,"include_guid":true}}],
+  "commands": [
+    {"command":"ui_set_widget_properties","params":{"widget_blueprint_path":"/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Loading","widget_name":"LoadingBackdrop","properties":{"BrushColor":[0,0,0,1],"RenderOpacity":1,"Visibility":"Visible","Padding":{"Left":0,"Top":0,"Right":0,"Bottom":0}}}},
+    {"command":"ui_set_slot_layout","params":{"widget_blueprint_path":"/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Loading","widget_name":"LoadingBackdrop","anchors_min":[0,0],"anchors_max":[1,1],"alignment":[0,0],"position":[0,0],"size":[0,0],"auto_size":false,"z_order":0}},
+    {"command":"ui_set_widget_properties","params":{"widget_blueprint_path":"/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Loading","widget_name":"EmberGlow","properties":{"Visibility":"Collapsed","RenderOpacity":0}}},
+    {"command":"ui_set_widget_properties","params":{"widget_blueprint_path":"/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Loading","widget_name":"LoadingTrackBox","properties":{"Visibility":"Collapsed"}}},
+    {"command":"ui_set_widget_properties","params":{"widget_blueprint_path":"/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Loading","widget_name":"LoadingControls","properties":{"Visibility":"Collapsed"}}},
+    {"command":"ui_set_widget_properties","params":{"widget_blueprint_path":"/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Loading","widget_name":"LoadingDrive","properties":{"Visibility":"Collapsed"}}},
+    {"command":"ui_set_widget_properties","params":{"widget_blueprint_path":"/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Loading","widget_name":"LoadingSteer","properties":{"Visibility":"Collapsed"}}},
+    {"command":"ui_set_widget_properties","params":{"widget_blueprint_path":"/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Loading","widget_name":"LoadingLook","properties":{"Visibility":"Collapsed"}}},
+    {"command":"ui_build_tree","params":{"widget_blueprint_path":"/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Loading","parent_widget_name":"RootCanvas","tree":{"class":"ScaleBox","name":"LoadingCrankSafeScale","properties":{"Stretch":"ScaleToFit","StretchDirection":"DownOnly","Visibility":"HitTestInvisible"},"children":[{"class":"SizeBox","name":"LoadingCrankDesignSize","properties":{"bOverride_WidthOverride":true,"WidthOverride":720,"bOverride_HeightOverride":true,"HeightOverride":164},"children":[{"class":"/Script/SaskartaCore.SaskartaMotorDiagram","name":"LoadingCrank","properties":{"bLoadingPresentation":true,"Visibility":"HitTestInvisible"}}]}]}}},
+    {"command":"ui_set_slot_layout","params":{"widget_blueprint_path":"/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Loading","widget_name":"LoadingCrankSafeScale","anchors_min":[0,1],"anchors_max":[0,1],"alignment":[0,1],"position":[32,-236],"size":[720,164],"auto_size":false,"z_order":3}},
+    {"command":"ui_set_variable","params":{"widget_blueprint_path":"/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Loading","widget_name":"LoadingCrank","is_variable":true,"category":"Loading"}}
+  ],
+  "compile": {"command":"ui_compile_widget","params":{"widget_blueprint_path":"/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Loading","save_on_success":false}},
+  "save": {"command":"ui_save_widget","params":{"widget_blueprint_path":"/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Loading","compile_first":false}},
+  "readback": [
+    {"command":"ui_query","params":{"path":"/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Loading","flatten":true,"include_properties":true,"include_slot":true,"include_guid":true}},
+    {"command":"ui_layout_snapshot","params":{"widget_blueprint_path":"/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Loading","screen_width":1280,"screen_height":720,"widget_names":["LoadingBackdrop","LoadingCrankSafeScale","LoadingCrank","LoadingSafeScale","LoadingControls"],"limit":8}}
+  ],
+  "guards": [
+    "Root alone executes all editor operations and owns backups. No execution has occurred in this lane.",
+    "Historical root/name receipt is evidence only. Require fresh preflight exact RootCanvas CanvasPanel and retained variable names before mutation.",
+    "Before tree creation ensure LoadingCrankSafeScale, LoadingCrankDesignSize and LoadingCrank are absent; on repeat reuse exact matching tree instead of duplicating.",
+    "Native bLoadingPresentation=true must resolve after rebuild; reject unknown properties or unexpected classes. Do not compile a loading tree against stale native reflection.",
+    "Inspect every result for failed_properties, unknown_slot_props, partial construction, compile errors, warnings and save success/package_dirty_after_save=false.",
+    "Root installs the readiness graph fragment before final compile/save; default mode draws no control glyph even before first sample.",
+    "Native LoadingCrank uses no texture, scene capture, timer, gameplay subsystem or input processor. Gaussian car presentation is integrated separately above the opaque backdrop.",
+    "640-or-wider layout predicted crank bounds[32,H-400,752,H-236], adjusted by viewport DPI/ScaleBox; require fresh layout at actual target sizes and visual acceptance.",
+    "Full-screen black coverage remains alpha1 until intentional fade into the started title. World rendering budget suppression is owned separately."
+  ]
+}

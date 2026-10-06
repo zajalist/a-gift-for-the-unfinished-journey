@@ -1,0 +1,69 @@
+{
+  "asset": "/Game/SaskartaGaea/GameFlow/Video/WBP_CapsuleExitVideo",
+  "variables": [
+    {
+      "name": "ExitMediaPlayer",
+      "type": "object:/Script/MediaAssets.MediaPlayer"
+    },
+    {
+      "name": "ExitMediaSource",
+      "type": "object:/Script/MediaAssets.MediaSource"
+    }
+  ],
+  "cdo_defaults": {
+    "ExitMediaPlayer": "/Game/SaskartaGaea/GameFlow/Video/MP_CapsuleExit.MP_CapsuleExit",
+    "ExitMediaSource": "/Game/SaskartaGaea/GameFlow/Video/FMS_CapsuleExit.FMS_CapsuleExit"
+  },
+  "graphs": [
+    {
+      "graph": "EventGraph",
+      "nodes": {
+        "construct": {
+          "event": "Construct"
+        },
+        "player": {
+          "get": "ExitMediaPlayer"
+        },
+        "source": {
+          "get": "ExitMediaSource"
+        },
+        "open": {
+          "call": "OpenSource",
+          "class": "/Script/MediaAssets.MediaPlayer"
+        },
+        "destruct": {
+          "event": "Destruct"
+        },
+        "closePlayer": {
+          "get": "ExitMediaPlayer"
+        },
+        "close": {
+          "call": "Close",
+          "class": "/Script/MediaAssets.MediaPlayer"
+        }
+      },
+      "links": [
+        [
+          "construct.then",
+          "open.execute"
+        ],
+        [
+          "player.ExitMediaPlayer",
+          "open.self"
+        ],
+        [
+          "source.ExitMediaSource",
+          "open.MediaSource"
+        ],
+        [
+          "destruct.then",
+          "close.execute"
+        ],
+        [
+          "closePlayer.ExitMediaPlayer",
+          "close.self"
+        ]
+      ]
+    }
+  ]
+}

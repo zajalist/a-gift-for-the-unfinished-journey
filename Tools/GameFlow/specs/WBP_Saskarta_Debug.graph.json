@@ -1,0 +1,1182 @@
+{
+ "asset": "/Game/SaskartaGaea/GameFlow/Debug/WBP_Saskarta_Debug",
+ "description": "LANE5 debug menu. CM_Saskarta creates it and calls InitDebug(self). Every button calls CM_Saskarta. README_Debug.md.",
+ "variables": [
+  {
+   "name": "CM",
+   "type": "object:/Game/SaskartaGaea/GameFlow/Debug/CM_Saskarta.CM_Saskarta_C"
+  },
+  {
+   "name": "RefreshTimer",
+   "type": "struct:/Script/Engine.TimerHandle"
+  }
+ ],
+ "functions": [
+  {
+   "name": "InitDebug",
+   "inputs": [
+    {
+     "name": "InCM",
+     "type": "object:/Game/SaskartaGaea/GameFlow/Debug/CM_Saskarta.CM_Saskarta_C"
+    }
+   ],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "Refresh",
+   "inputs": [],
+   "outputs": [],
+   "pure": false
+  }
+ ],
+ "graphs": [
+  {
+   "graph": "InitDebug",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "n2": {
+     "set": "CM"
+    },
+    "timer": {
+     "timer": true
+    },
+    "n4": {
+     "set": "RefreshTimer"
+    },
+    "n5": {
+     "get": "Beat00"
+    },
+    "n6": {
+     "call": "SetKeyboardFocus",
+     "class": "/Script/UMG.Widget"
+    }
+   },
+   "links": [
+    [
+     "entry.InCM",
+     "n2.CM"
+    ],
+    [
+     "timer.ReturnValue",
+     "n4.RefreshTimer"
+    ],
+    [
+     "n5.Beat00",
+     "n6.self"
+    ],
+    [
+     "entry.then",
+     "n2.execute"
+    ],
+    [
+     "n2.then",
+     "timer.execute"
+    ],
+    [
+     "timer.then",
+     "n4.execute"
+    ],
+    [
+     "n4.then",
+     "n6.execute"
+    ]
+   ],
+   "defaults": {
+    "timer.FunctionName": "Refresh",
+    "timer.Time": "0.25",
+    "timer.bLooping": "true"
+   }
+  },
+  {
+   "graph": "Refresh",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "n2": {
+     "get": "CM"
+    },
+    "n3": {
+     "call": "IsValid",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "ifCM": {
+     "branch": true
+    },
+    "n5": {
+     "call": "GetStatusText",
+     "class": "/Game/SaskartaGaea/GameFlow/Debug/CM_Saskarta.CM_Saskarta_C"
+    },
+    "n6": {
+     "call": "Conv_StringToText",
+     "class": "/Script/Engine.KismetTextLibrary"
+    },
+    "n7": {
+     "get": "StatusText"
+    },
+    "n8": {
+     "call": "SetText",
+     "class": "/Script/UMG.TextBlock"
+    }
+   },
+   "links": [
+    [
+     "n2.CM",
+     "n3.Object"
+    ],
+    [
+     "n3.ReturnValue",
+     "ifCM.Condition"
+    ],
+    [
+     "n2.CM",
+     "n5.self"
+    ],
+    [
+     "n5.Text",
+     "n6.InString"
+    ],
+    [
+     "n7.StatusText",
+     "n8.self"
+    ],
+    [
+     "n6.ReturnValue",
+     "n8.InText"
+    ],
+    [
+     "entry.then",
+     "ifCM.execute"
+    ],
+    [
+     "ifCM.then",
+     "n5.execute"
+    ],
+    [
+     "n5.then",
+     "n8.execute"
+    ]
+   ],
+   "defaults": {}
+  },
+  {
+   "graph": "EventGraph",
+   "nodes": {
+    "n1": {
+     "get": "CM"
+    },
+    "onBeat00": {
+     "bound_event": {
+      "target": "Beat00",
+      "event": "OnClicked"
+     }
+    },
+    "n3": {
+     "call": "SelectIndex",
+     "class": "/Game/SaskartaGaea/GameFlow/Debug/CM_Saskarta.CM_Saskarta_C"
+    },
+    "onBeat01": {
+     "bound_event": {
+      "target": "Beat01",
+      "event": "OnClicked"
+     }
+    },
+    "n5": {
+     "call": "SelectIndex",
+     "class": "/Game/SaskartaGaea/GameFlow/Debug/CM_Saskarta.CM_Saskarta_C"
+    },
+    "onBeat02": {
+     "bound_event": {
+      "target": "Beat02",
+      "event": "OnClicked"
+     }
+    },
+    "n7": {
+     "call": "SelectIndex",
+     "class": "/Game/SaskartaGaea/GameFlow/Debug/CM_Saskarta.CM_Saskarta_C"
+    },
+    "onBeat03": {
+     "bound_event": {
+      "target": "Beat03",
+      "event": "OnClicked"
+     }
+    },
+    "n9": {
+     "call": "SelectIndex",
+     "class": "/Game/SaskartaGaea/GameFlow/Debug/CM_Saskarta.CM_Saskarta_C"
+    },
+    "onBeat04": {
+     "bound_event": {
+      "target": "Beat04",
+      "event": "OnClicked"
+     }
+    },
+    "n11": {
+     "call": "SelectIndex",
+     "class": "/Game/SaskartaGaea/GameFlow/Debug/CM_Saskarta.CM_Saskarta_C"
+    },
+    "onBeat05": {
+     "bound_event": {
+      "target": "Beat05",
+      "event": "OnClicked"
+     }
+    },
+    "n13": {
+     "call": "SelectIndex",
+     "class": "/Game/SaskartaGaea/GameFlow/Debug/CM_Saskarta.CM_Saskarta_C"
+    },
+    "onBeat06": {
+     "bound_event": {
+      "target": "Beat06",
+      "event": "OnClicked"
+     }
+    },
+    "n15": {
+     "call": "SelectIndex",
+     "class": "/Game/SaskartaGaea/GameFlow/Debug/CM_Saskarta.CM_Saskarta_C"
+    },
+    "onBeat07": {
+     "bound_event": {
+      "target": "Beat07",
+      "event": "OnClicked"
+     }
+    },
+    "n17": {
+     "call": "SelectIndex",
+     "class": "/Game/SaskartaGaea/GameFlow/Debug/CM_Saskarta.CM_Saskarta_C"
+    },
+    "onBeat08": {
+     "bound_event": {
+      "target": "Beat08",
+      "event": "OnClicked"
+     }
+    },
+    "n19": {
+     "call": "SelectIndex",
+     "class": "/Game/SaskartaGaea/GameFlow/Debug/CM_Saskarta.CM_Saskarta_C"
+    },
+    "onBeat09": {
+     "bound_event": {
+      "target": "Beat09",
+      "event": "OnClicked"
+     }
+    },
+    "n21": {
+     "call": "SelectIndex",
+     "class": "/Game/SaskartaGaea/GameFlow/Debug/CM_Saskarta.CM_Saskarta_C"
+    },
+    "onBeat10": {
+     "bound_event": {
+      "target": "Beat10",
+      "event": "OnClicked"
+     }
+    },
+    "n23": {
+     "call": "SelectIndex",
+     "class": "/Game/SaskartaGaea/GameFlow/Debug/CM_Saskarta.CM_Saskarta_C"
+    },
+    "onBeat11": {
+     "bound_event": {
+      "target": "Beat11",
+      "event": "OnClicked"
+     }
+    },
+    "n25": {
+     "call": "SelectIndex",
+     "class": "/Game/SaskartaGaea/GameFlow/Debug/CM_Saskarta.CM_Saskarta_C"
+    },
+    "onBeat12": {
+     "bound_event": {
+      "target": "Beat12",
+      "event": "OnClicked"
+     }
+    },
+    "n27": {
+     "call": "SelectIndex",
+     "class": "/Game/SaskartaGaea/GameFlow/Debug/CM_Saskarta.CM_Saskarta_C"
+    },
+    "onBeat13": {
+     "bound_event": {
+      "target": "Beat13",
+      "event": "OnClicked"
+     }
+    },
+    "n29": {
+     "call": "SelectIndex",
+     "class": "/Game/SaskartaGaea/GameFlow/Debug/CM_Saskarta.CM_Saskarta_C"
+    },
+    "onBeat14": {
+     "bound_event": {
+      "target": "Beat14",
+      "event": "OnClicked"
+     }
+    },
+    "n31": {
+     "call": "SelectIndex",
+     "class": "/Game/SaskartaGaea/GameFlow/Debug/CM_Saskarta.CM_Saskarta_C"
+    },
+    "onBeat15": {
+     "bound_event": {
+      "target": "Beat15",
+      "event": "OnClicked"
+     }
+    },
+    "n33": {
+     "call": "SelectIndex",
+     "class": "/Game/SaskartaGaea/GameFlow/Debug/CM_Saskarta.CM_Saskarta_C"
+    },
+    "onBeat16": {
+     "bound_event": {
+      "target": "Beat16",
+      "event": "OnClicked"
+     }
+    },
+    "n35": {
+     "call": "SelectIndex",
+     "class": "/Game/SaskartaGaea/GameFlow/Debug/CM_Saskarta.CM_Saskarta_C"
+    },
+    "onBeat17": {
+     "bound_event": {
+      "target": "Beat17",
+      "event": "OnClicked"
+     }
+    },
+    "n37": {
+     "call": "SelectIndex",
+     "class": "/Game/SaskartaGaea/GameFlow/Debug/CM_Saskarta.CM_Saskarta_C"
+    },
+    "onBeat18": {
+     "bound_event": {
+      "target": "Beat18",
+      "event": "OnClicked"
+     }
+    },
+    "n39": {
+     "call": "SelectIndex",
+     "class": "/Game/SaskartaGaea/GameFlow/Debug/CM_Saskarta.CM_Saskarta_C"
+    },
+    "onBeat19": {
+     "bound_event": {
+      "target": "Beat19",
+      "event": "OnClicked"
+     }
+    },
+    "n41": {
+     "call": "SelectIndex",
+     "class": "/Game/SaskartaGaea/GameFlow/Debug/CM_Saskarta.CM_Saskarta_C"
+    },
+    "onBeat20": {
+     "bound_event": {
+      "target": "Beat20",
+      "event": "OnClicked"
+     }
+    },
+    "n43": {
+     "call": "SelectIndex",
+     "class": "/Game/SaskartaGaea/GameFlow/Debug/CM_Saskarta.CM_Saskarta_C"
+    },
+    "onBeat21": {
+     "bound_event": {
+      "target": "Beat21",
+      "event": "OnClicked"
+     }
+    },
+    "n45": {
+     "call": "SelectIndex",
+     "class": "/Game/SaskartaGaea/GameFlow/Debug/CM_Saskarta.CM_Saskarta_C"
+    },
+    "onBeat22": {
+     "bound_event": {
+      "target": "Beat22",
+      "event": "OnClicked"
+     }
+    },
+    "n47": {
+     "call": "SelectIndex",
+     "class": "/Game/SaskartaGaea/GameFlow/Debug/CM_Saskarta.CM_Saskarta_C"
+    },
+    "onBeat23": {
+     "bound_event": {
+      "target": "Beat23",
+      "event": "OnClicked"
+     }
+    },
+    "n49": {
+     "call": "SelectIndex",
+     "class": "/Game/SaskartaGaea/GameFlow/Debug/CM_Saskarta.CM_Saskarta_C"
+    },
+    "onBeat24": {
+     "bound_event": {
+      "target": "Beat24",
+      "event": "OnClicked"
+     }
+    },
+    "n51": {
+     "call": "SelectIndex",
+     "class": "/Game/SaskartaGaea/GameFlow/Debug/CM_Saskarta.CM_Saskarta_C"
+    },
+    "onBeat25": {
+     "bound_event": {
+      "target": "Beat25",
+      "event": "OnClicked"
+     }
+    },
+    "n53": {
+     "call": "SelectIndex",
+     "class": "/Game/SaskartaGaea/GameFlow/Debug/CM_Saskarta.CM_Saskarta_C"
+    },
+    "onBeat26": {
+     "bound_event": {
+      "target": "Beat26",
+      "event": "OnClicked"
+     }
+    },
+    "n55": {
+     "call": "SelectIndex",
+     "class": "/Game/SaskartaGaea/GameFlow/Debug/CM_Saskarta.CM_Saskarta_C"
+    },
+    "onBeat27": {
+     "bound_event": {
+      "target": "Beat27",
+      "event": "OnClicked"
+     }
+    },
+    "n57": {
+     "call": "SelectIndex",
+     "class": "/Game/SaskartaGaea/GameFlow/Debug/CM_Saskarta.CM_Saskarta_C"
+    },
+    "onBeat28": {
+     "bound_event": {
+      "target": "Beat28",
+      "event": "OnClicked"
+     }
+    },
+    "n59": {
+     "call": "SelectIndex",
+     "class": "/Game/SaskartaGaea/GameFlow/Debug/CM_Saskarta.CM_Saskarta_C"
+    },
+    "onCp0": {
+     "bound_event": {
+      "target": "Cp0",
+      "event": "OnClicked"
+     }
+    },
+    "n61": {
+     "call": "DebugGoToRoad",
+     "class": "/Game/SaskartaGaea/GameFlow/Debug/CM_Saskarta.CM_Saskarta_C"
+    },
+    "onCp1": {
+     "bound_event": {
+      "target": "Cp1",
+      "event": "OnClicked"
+     }
+    },
+    "n63": {
+     "call": "DebugGoToRoad",
+     "class": "/Game/SaskartaGaea/GameFlow/Debug/CM_Saskarta.CM_Saskarta_C"
+    },
+    "onCp2": {
+     "bound_event": {
+      "target": "Cp2",
+      "event": "OnClicked"
+     }
+    },
+    "n65": {
+     "call": "DebugGoToRoad",
+     "class": "/Game/SaskartaGaea/GameFlow/Debug/CM_Saskarta.CM_Saskarta_C"
+    },
+    "onCp3": {
+     "bound_event": {
+      "target": "Cp3",
+      "event": "OnClicked"
+     }
+    },
+    "n67": {
+     "call": "DebugGoToRoad",
+     "class": "/Game/SaskartaGaea/GameFlow/Debug/CM_Saskarta.CM_Saskarta_C"
+    },
+    "onPrevBtn": {
+     "bound_event": {
+      "target": "PrevBtn",
+      "event": "OnClicked"
+     }
+    },
+    "n69": {
+     "call": "SaskartaPrev",
+     "class": "/Game/SaskartaGaea/GameFlow/Debug/CM_Saskarta.CM_Saskarta_C"
+    },
+    "onNextBtn": {
+     "bound_event": {
+      "target": "NextBtn",
+      "event": "OnClicked"
+     }
+    },
+    "n71": {
+     "call": "SaskartaNext",
+     "class": "/Game/SaskartaGaea/GameFlow/Debug/CM_Saskarta.CM_Saskarta_C"
+    },
+    "onTriggerBtn": {
+     "bound_event": {
+      "target": "TriggerBtn",
+      "event": "OnClicked"
+     }
+    },
+    "n73": {
+     "call": "TriggerSelected",
+     "class": "/Game/SaskartaGaea/GameFlow/Debug/CM_Saskarta.CM_Saskarta_C"
+    },
+    "onSkipBtn": {
+     "bound_event": {
+      "target": "SkipBtn",
+      "event": "OnClicked"
+     }
+    },
+    "n75": {
+     "call": "SaskartaSkip",
+     "class": "/Game/SaskartaGaea/GameFlow/Debug/CM_Saskarta.CM_Saskarta_C"
+    },
+    "onResetBtn": {
+     "bound_event": {
+      "target": "ResetBtn",
+      "event": "OnClicked"
+     }
+    },
+    "n77": {
+     "call": "SaskartaResetBeats",
+     "class": "/Game/SaskartaGaea/GameFlow/Debug/CM_Saskarta.CM_Saskarta_C"
+    },
+    "onSpeed1Btn": {
+     "bound_event": {
+      "target": "Speed1Btn",
+      "event": "OnClicked"
+     }
+    },
+    "n79": {
+     "call": "SaskartaSpeed",
+     "class": "/Game/SaskartaGaea/GameFlow/Debug/CM_Saskarta.CM_Saskarta_C"
+    },
+    "onSpeed3Btn": {
+     "bound_event": {
+      "target": "Speed3Btn",
+      "event": "OnClicked"
+     }
+    },
+    "n81": {
+     "call": "SaskartaSpeed",
+     "class": "/Game/SaskartaGaea/GameFlow/Debug/CM_Saskarta.CM_Saskarta_C"
+    },
+    "onSpeed10Btn": {
+     "bound_event": {
+      "target": "Speed10Btn",
+      "event": "OnClicked"
+     }
+    },
+    "n83": {
+     "call": "SaskartaSpeed",
+     "class": "/Game/SaskartaGaea/GameFlow/Debug/CM_Saskarta.CM_Saskarta_C"
+    },
+    "onGodBtn": {
+     "bound_event": {
+      "target": "GodBtn",
+      "event": "OnClicked"
+     }
+    },
+    "n85": {
+     "call": "SaskartaGod",
+     "class": "/Game/SaskartaGaea/GameFlow/Debug/CM_Saskarta.CM_Saskarta_C"
+    },
+    "onFlyBtn": {
+     "bound_event": {
+      "target": "FlyBtn",
+      "event": "OnClicked"
+     }
+    },
+    "n87": {
+     "call": "SaskartaFly",
+     "class": "/Game/SaskartaGaea/GameFlow/Debug/CM_Saskarta.CM_Saskarta_C"
+    },
+    "onStatBtn": {
+     "bound_event": {
+      "target": "StatBtn",
+      "event": "OnClicked"
+     }
+    },
+    "n89": {
+     "call": "StatUnit",
+     "class": "/Game/SaskartaGaea/GameFlow/Debug/CM_Saskarta.CM_Saskarta_C"
+    },
+    "onRestartBtn": {
+     "bound_event": {
+      "target": "RestartBtn",
+      "event": "OnClicked"
+     }
+    },
+    "n91": {
+     "call": "RestartFlow",
+     "class": "/Game/SaskartaGaea/GameFlow/Debug/CM_Saskarta.CM_Saskarta_C"
+    },
+    "onStormOffBtn": {
+     "bound_event": {
+      "target": "StormOffBtn",
+      "event": "OnClicked"
+     }
+    },
+    "n93": {
+     "call": "SaskartaStorm",
+     "class": "/Game/SaskartaGaea/GameFlow/Debug/CM_Saskarta.CM_Saskarta_C"
+    },
+    "onLookValleyBtn": {
+     "bound_event": {
+      "target": "LookValleyBtn",
+      "event": "OnClicked"
+     }
+    },
+    "n95": {
+     "call": "SaskartaLook",
+     "class": "/Game/SaskartaGaea/GameFlow/Debug/CM_Saskarta.CM_Saskarta_C"
+    },
+    "onLookBasinBtn": {
+     "bound_event": {
+      "target": "LookBasinBtn",
+      "event": "OnClicked"
+     }
+    },
+    "n97": {
+     "call": "SaskartaLook",
+     "class": "/Game/SaskartaGaea/GameFlow/Debug/CM_Saskarta.CM_Saskarta_C"
+    },
+    "onLookClimbBtn": {
+     "bound_event": {
+      "target": "LookClimbBtn",
+      "event": "OnClicked"
+     }
+    },
+    "n99": {
+     "call": "SaskartaLook",
+     "class": "/Game/SaskartaGaea/GameFlow/Debug/CM_Saskarta.CM_Saskarta_C"
+    },
+    "onLookInCloudBtn": {
+     "bound_event": {
+      "target": "LookInCloudBtn",
+      "event": "OnClicked"
+     }
+    },
+    "n101": {
+     "call": "SaskartaLook",
+     "class": "/Game/SaskartaGaea/GameFlow/Debug/CM_Saskarta.CM_Saskarta_C"
+    },
+    "onLookAboveBtn": {
+     "bound_event": {
+      "target": "LookAboveBtn",
+      "event": "OnClicked"
+     }
+    },
+    "n103": {
+     "call": "SaskartaLook",
+     "class": "/Game/SaskartaGaea/GameFlow/Debug/CM_Saskarta.CM_Saskarta_C"
+    },
+    "onAuto": {
+     "bound_event": {
+      "target": "AutoTrigger",
+      "event": "OnCheckStateChanged"
+     }
+    },
+    "n105": {
+     "call": "SetAutoTrigger",
+     "class": "/Game/SaskartaGaea/GameFlow/Debug/CM_Saskarta.CM_Saskarta_C"
+    },
+    "onStorm": {
+     "bound_event": {
+      "target": "StormSlider",
+      "event": "OnValueChanged"
+     }
+    },
+    "n107": {
+     "call": "SaskartaStorm",
+     "class": "/Game/SaskartaGaea/GameFlow/Debug/CM_Saskarta.CM_Saskarta_C"
+    }
+   },
+   "links": [
+    [
+     "n1.CM",
+     "n3.self"
+    ],
+    [
+     "onBeat00.then",
+     "n3.execute"
+    ],
+    [
+     "n1.CM",
+     "n5.self"
+    ],
+    [
+     "onBeat01.then",
+     "n5.execute"
+    ],
+    [
+     "n1.CM",
+     "n7.self"
+    ],
+    [
+     "onBeat02.then",
+     "n7.execute"
+    ],
+    [
+     "n1.CM",
+     "n9.self"
+    ],
+    [
+     "onBeat03.then",
+     "n9.execute"
+    ],
+    [
+     "n1.CM",
+     "n11.self"
+    ],
+    [
+     "onBeat04.then",
+     "n11.execute"
+    ],
+    [
+     "n1.CM",
+     "n13.self"
+    ],
+    [
+     "onBeat05.then",
+     "n13.execute"
+    ],
+    [
+     "n1.CM",
+     "n15.self"
+    ],
+    [
+     "onBeat06.then",
+     "n15.execute"
+    ],
+    [
+     "n1.CM",
+     "n17.self"
+    ],
+    [
+     "onBeat07.then",
+     "n17.execute"
+    ],
+    [
+     "n1.CM",
+     "n19.self"
+    ],
+    [
+     "onBeat08.then",
+     "n19.execute"
+    ],
+    [
+     "n1.CM",
+     "n21.self"
+    ],
+    [
+     "onBeat09.then",
+     "n21.execute"
+    ],
+    [
+     "n1.CM",
+     "n23.self"
+    ],
+    [
+     "onBeat10.then",
+     "n23.execute"
+    ],
+    [
+     "n1.CM",
+     "n25.self"
+    ],
+    [
+     "onBeat11.then",
+     "n25.execute"
+    ],
+    [
+     "n1.CM",
+     "n27.self"
+    ],
+    [
+     "onBeat12.then",
+     "n27.execute"
+    ],
+    [
+     "n1.CM",
+     "n29.self"
+    ],
+    [
+     "onBeat13.then",
+     "n29.execute"
+    ],
+    [
+     "n1.CM",
+     "n31.self"
+    ],
+    [
+     "onBeat14.then",
+     "n31.execute"
+    ],
+    [
+     "n1.CM",
+     "n33.self"
+    ],
+    [
+     "onBeat15.then",
+     "n33.execute"
+    ],
+    [
+     "n1.CM",
+     "n35.self"
+    ],
+    [
+     "onBeat16.then",
+     "n35.execute"
+    ],
+    [
+     "n1.CM",
+     "n37.self"
+    ],
+    [
+     "onBeat17.then",
+     "n37.execute"
+    ],
+    [
+     "n1.CM",
+     "n39.self"
+    ],
+    [
+     "onBeat18.then",
+     "n39.execute"
+    ],
+    [
+     "n1.CM",
+     "n41.self"
+    ],
+    [
+     "onBeat19.then",
+     "n41.execute"
+    ],
+    [
+     "n1.CM",
+     "n43.self"
+    ],
+    [
+     "onBeat20.then",
+     "n43.execute"
+    ],
+    [
+     "n1.CM",
+     "n45.self"
+    ],
+    [
+     "onBeat21.then",
+     "n45.execute"
+    ],
+    [
+     "n1.CM",
+     "n47.self"
+    ],
+    [
+     "onBeat22.then",
+     "n47.execute"
+    ],
+    [
+     "n1.CM",
+     "n49.self"
+    ],
+    [
+     "onBeat23.then",
+     "n49.execute"
+    ],
+    [
+     "n1.CM",
+     "n51.self"
+    ],
+    [
+     "onBeat24.then",
+     "n51.execute"
+    ],
+    [
+     "n1.CM",
+     "n53.self"
+    ],
+    [
+     "onBeat25.then",
+     "n53.execute"
+    ],
+    [
+     "n1.CM",
+     "n55.self"
+    ],
+    [
+     "onBeat26.then",
+     "n55.execute"
+    ],
+    [
+     "n1.CM",
+     "n57.self"
+    ],
+    [
+     "onBeat27.then",
+     "n57.execute"
+    ],
+    [
+     "n1.CM",
+     "n59.self"
+    ],
+    [
+     "onBeat28.then",
+     "n59.execute"
+    ],
+    [
+     "n1.CM",
+     "n61.self"
+    ],
+    [
+     "onCp0.then",
+     "n61.execute"
+    ],
+    [
+     "n1.CM",
+     "n63.self"
+    ],
+    [
+     "onCp1.then",
+     "n63.execute"
+    ],
+    [
+     "n1.CM",
+     "n65.self"
+    ],
+    [
+     "onCp2.then",
+     "n65.execute"
+    ],
+    [
+     "n1.CM",
+     "n67.self"
+    ],
+    [
+     "onCp3.then",
+     "n67.execute"
+    ],
+    [
+     "n1.CM",
+     "n69.self"
+    ],
+    [
+     "onPrevBtn.then",
+     "n69.execute"
+    ],
+    [
+     "n1.CM",
+     "n71.self"
+    ],
+    [
+     "onNextBtn.then",
+     "n71.execute"
+    ],
+    [
+     "n1.CM",
+     "n73.self"
+    ],
+    [
+     "onTriggerBtn.then",
+     "n73.execute"
+    ],
+    [
+     "n1.CM",
+     "n75.self"
+    ],
+    [
+     "onSkipBtn.then",
+     "n75.execute"
+    ],
+    [
+     "n1.CM",
+     "n77.self"
+    ],
+    [
+     "onResetBtn.then",
+     "n77.execute"
+    ],
+    [
+     "n1.CM",
+     "n79.self"
+    ],
+    [
+     "onSpeed1Btn.then",
+     "n79.execute"
+    ],
+    [
+     "n1.CM",
+     "n81.self"
+    ],
+    [
+     "onSpeed3Btn.then",
+     "n81.execute"
+    ],
+    [
+     "n1.CM",
+     "n83.self"
+    ],
+    [
+     "onSpeed10Btn.then",
+     "n83.execute"
+    ],
+    [
+     "n1.CM",
+     "n85.self"
+    ],
+    [
+     "onGodBtn.then",
+     "n85.execute"
+    ],
+    [
+     "n1.CM",
+     "n87.self"
+    ],
+    [
+     "onFlyBtn.then",
+     "n87.execute"
+    ],
+    [
+     "n1.CM",
+     "n89.self"
+    ],
+    [
+     "onStatBtn.then",
+     "n89.execute"
+    ],
+    [
+     "n1.CM",
+     "n91.self"
+    ],
+    [
+     "onRestartBtn.then",
+     "n91.execute"
+    ],
+    [
+     "n1.CM",
+     "n93.self"
+    ],
+    [
+     "onStormOffBtn.then",
+     "n93.execute"
+    ],
+    [
+     "n1.CM",
+     "n95.self"
+    ],
+    [
+     "onLookValleyBtn.then",
+     "n95.execute"
+    ],
+    [
+     "n1.CM",
+     "n97.self"
+    ],
+    [
+     "onLookBasinBtn.then",
+     "n97.execute"
+    ],
+    [
+     "n1.CM",
+     "n99.self"
+    ],
+    [
+     "onLookClimbBtn.then",
+     "n99.execute"
+    ],
+    [
+     "n1.CM",
+     "n101.self"
+    ],
+    [
+     "onLookInCloudBtn.then",
+     "n101.execute"
+    ],
+    [
+     "n1.CM",
+     "n103.self"
+    ],
+    [
+     "onLookAboveBtn.then",
+     "n103.execute"
+    ],
+    [
+     "n1.CM",
+     "n105.self"
+    ],
+    [
+     "onAuto.bIsChecked",
+     "n105.bOn"
+    ],
+    [
+     "onAuto.then",
+     "n105.execute"
+    ],
+    [
+     "n1.CM",
+     "n107.self"
+    ],
+    [
+     "onStorm.Value",
+     "n107.Intensity"
+    ],
+    [
+     "onStorm.then",
+     "n107.execute"
+    ]
+   ],
+   "defaults": {
+    "n3.Index": "0",
+    "n5.Index": "1",
+    "n7.Index": "2",
+    "n9.Index": "3",
+    "n11.Index": "4",
+    "n13.Index": "5",
+    "n15.Index": "6",
+    "n17.Index": "7",
+    "n19.Index": "8",
+    "n21.Index": "9",
+    "n23.Index": "10",
+    "n25.Index": "11",
+    "n27.Index": "12",
+    "n29.Index": "13",
+    "n31.Index": "14",
+    "n33.Index": "15",
+    "n35.Index": "16",
+    "n37.Index": "17",
+    "n39.Index": "18",
+    "n41.Index": "19",
+    "n43.Index": "20",
+    "n45.Index": "21",
+    "n47.Index": "22",
+    "n49.Index": "23",
+    "n51.Index": "24",
+    "n53.Index": "25",
+    "n55.Index": "26",
+    "n57.Index": "27",
+    "n59.Index": "28",
+    "n61.RoadM": "0.0",
+    "n63.RoadM": "1990.0",
+    "n65.RoadM": "3420.0",
+    "n67.RoadM": "4465.0",
+    "n79.Multiplier": "1.0",
+    "n81.Multiplier": "3.0",
+    "n83.Multiplier": "10.0",
+    "n93.Intensity": "-1.0",
+    "n95.RoadM": "0.0",
+    "n97.RoadM": "2300.0",
+    "n99.RoadM": "3800.0",
+    "n101.RoadM": "4350.0",
+    "n103.RoadM": "4550.0"
+   }
+  }
+ ]
+}

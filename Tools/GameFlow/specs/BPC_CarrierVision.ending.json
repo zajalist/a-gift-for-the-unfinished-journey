@@ -1,0 +1,181 @@
+{
+  "asset": "/Game/SaskartaGaea/GameFlow/BPC_CarrierVision",
+  "description": "Scoped ending additions (task ENDING): the collapse and transmission log lines (RETRO_BOOT.md: ShowLogLine(Line, Result) wraps BootLog.TypeLine) and the black the ending cinematics show and hide.",
+  "variables": [],
+  "functions": [
+    {
+      "name": "ShowLogLine",
+      "inputs": [
+        {
+          "name": "Line",
+          "type": "text"
+        },
+        {
+          "name": "Result",
+          "type": "name"
+        }
+      ],
+      "outputs": [],
+      "pure": false
+    },
+    {
+      "name": "ShowBlack",
+      "inputs": [],
+      "outputs": [],
+      "pure": false
+    },
+    {
+      "name": "HideBlack",
+      "inputs": [],
+      "outputs": [],
+      "pure": false
+    }
+  ],
+  "graphs": [
+    {
+      "graph": "ShowLogLine",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "g1": {
+          "get": "BootLogWidget"
+        },
+        "TypeLine2": {
+          "call": "TypeLine",
+          "class": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_BootLog.WBP_Saskarta_BootLog_C"
+        }
+      },
+      "links": [
+        [
+          "g1.BootLogWidget",
+          "TypeLine2.self"
+        ],
+        [
+          "entry.Line",
+          "TypeLine2.Line"
+        ],
+        [
+          "entry.Result",
+          "TypeLine2.Result"
+        ],
+        [
+          "entry.then",
+          "TypeLine2.execute"
+        ]
+      ],
+      "defaults": {}
+    },
+    {
+      "graph": "ShowBlack",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "g1": {
+          "get": "BootLogWidget"
+        },
+        "ClearTer2": {
+          "call": "ClearTerminal",
+          "class": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_BootLog.WBP_Saskarta_BootLog_C"
+        },
+        "g3": {
+          "get": "BootLogWidget"
+        },
+        "SetBlack4": {
+          "call": "SetBlackOpacity",
+          "class": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_BootLog.WBP_Saskarta_BootLog_C"
+        },
+        "g5": {
+          "get": "BootLogWidget"
+        },
+        "SetRende6": {
+          "call": "SetRenderOpacity",
+          "class": "/Script/UMG.Widget"
+        },
+        "g7": {
+          "get": "BootLogWidget"
+        },
+        "SetVisib8": {
+          "call": "SetVisibility",
+          "class": "/Script/UMG.Widget"
+        }
+      },
+      "links": [
+        [
+          "g1.BootLogWidget",
+          "ClearTer2.self"
+        ],
+        [
+          "entry.then",
+          "ClearTer2.execute"
+        ],
+        [
+          "g3.BootLogWidget",
+          "SetBlack4.self"
+        ],
+        [
+          "ClearTer2.then",
+          "SetBlack4.execute"
+        ],
+        [
+          "g5.BootLogWidget",
+          "SetRende6.self"
+        ],
+        [
+          "SetBlack4.then",
+          "SetRende6.execute"
+        ],
+        [
+          "g7.BootLogWidget",
+          "SetVisib8.self"
+        ],
+        [
+          "SetRende6.then",
+          "SetVisib8.execute"
+        ]
+      ],
+      "defaults": {
+        "SetBlack4.Opacity": "1.0",
+        "SetRende6.InOpacity": "1.0",
+        "SetVisib8.InVisibility": "HitTestInvisible"
+      }
+    },
+    {
+      "graph": "HideBlack",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "g1": {
+          "get": "BootLogWidget"
+        },
+        "SetVisib2": {
+          "call": "SetVisibility",
+          "class": "/Script/UMG.Widget"
+        },
+        "SetVisio3": {
+          "call": "SetVisionWeight"
+        }
+      },
+      "links": [
+        [
+          "g1.BootLogWidget",
+          "SetVisib2.self"
+        ],
+        [
+          "entry.then",
+          "SetVisib2.execute"
+        ],
+        [
+          "SetVisib2.then",
+          "SetVisio3.execute"
+        ]
+      ],
+      "defaults": {
+        "SetVisib2.InVisibility": "Collapsed",
+        "SetVisio3.Weight": "0.0"
+      }
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "asset": "/Game/SaskartaGaea/GameFlow/Video/WBP_CapsuleExitVideo",
+  "variables": [],
+  "tree": [
+    {
+      "class": "CanvasPanel",
+      "name": "Root",
+      "children": [
+        {
+          "class": "Border",
+          "name": "BlackBackground",
+          "properties": {
+            "BrushColor": [
+              0,
+              0,
+              0,
+              1
+            ]
+          }
+        },
+        {
+          "class": "ScaleBox",
+          "name": "VideoFit",
+          "properties": {
+            "Stretch": "ScaleToFit"
+          },
+          "children": [
+            {
+              "class": "SizeBox",
+              "name": "VideoSize",
+              "properties": {
+                "bOverride_WidthOverride": true,
+                "bOverride_HeightOverride": true,
+                "WidthOverride": 1280,
+                "HeightOverride": 714
+              },
+              "children": [
+                {
+                  "class": "Image",
+                  "name": "VideoImage",
+                  "properties": {
+                    "Brush": {
+                      "ResourceObject": "/Game/SaskartaGaea/GameFlow/Video/M_UI_CapsuleExit.M_UI_CapsuleExit",
+                      "DrawAs": "Image"
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "slots": {
+    "Root": {
+      "anchors": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "position": [
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "z_order": 0
+    },
+    "BlackBackground": {
+      "anchors": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "position": [
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "z_order": 1
+    },
+    "VideoFit": {
+      "anchors": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "position": [
+        0,
+        0
+      ],
+      "size": [
+        0,
+        0
+      ],
+      "z_order": 2
+    }
+  }
+}

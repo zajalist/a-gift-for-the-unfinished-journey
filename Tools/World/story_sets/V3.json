@@ -1,0 +1,6401 @@
+{
+ "generated_by": "Tools/World/story_sets/v3_cart_convoy.py",
+ "method": "docs/world/SETDRESS_V2.md",
+ "design": "docs/world/story_sets/V3.md",
+ "level": "/Game/level/Saskarta_WP",
+ "conventions": {
+  "xy": "world cm; yaw = UE yaw deg",
+  "bounds": "x_cm/y_cm is the mesh BOUNDS CENTRE",
+  "ground": "decal patches: DecalActor pitch -90, yaw, size (depth/2, width/2, length/2)",
+  "contact": "rigid | rest | lie (SETDRESS_V2.md section 3); loads are rest + stack",
+  "site_uv": "u m along travel from road 810, v m left of travel",
+  "facing": "cart meshes are long along local Y; yaw = nose direction - 90, assuming the shafts at local +Y until `facing` measures them (V3_measured.json flips)"
+ },
+ "rejected": [],
+ "checks": [],
+ "sites": [
+  {
+   "id": "S05_CartConvoy",
+   "story_set": "V3",
+   "name": "Taflalut Deighim, the Cart Convoy (V3)",
+   "kind": "caravan vignette",
+   "order": 2,
+   "road_m": 810,
+   "side": "on/both",
+   "lateral_m": 0,
+   "centre_cm": [
+    559147.5,
+    410514.2,
+    -34159.5
+   ],
+   "road_yaw": -135.7,
+   "radius_m": 26.0,
+   "zone": "Z1 Valley",
+   "storm": "storm-dusk at its worst: dust sheets and gusts; dust drifts on the lee side of every cart",
+   "role": "reveal",
+   "story": "B04 (no voice): the carts they left all at once; HUD CARTS · 5 · LEFT LOADED at 790; the host remembers \"the carts lined up with a lamp on the last one\" at 790",
+   "decay": 2,
+   "style": "MedievalVillage cart beds + the AshesOfBazaar handcart, chest, lamp and jars",
+   "layout": "   bank:            C3 tipped toward the road, its spill fanned out below it   (a lone wheel behind)\n  ======== road 786-834 m, a 230 m straight, travel -> ======== the core stays clear ========\n  tail lamp  C5 [barrel+lamp]  C4 [barrels]   <gap>   C2 [chest, sacks]  C1 AB handcart on its wheels ->\n     ruts from the road edge to each cart; dust in the lee (down-road, outward); shrubs against them\n  the dead shade tree + the cold hearth and its pot            C2's wheels stood beside it",
+   "notes": "Story set V3 on the road site S05_CartConvoy. The V1 dressing (setdress_sites.json S05_CartConvoy_000..036) is removed by `clear` first. Five carts because the HUD counts five. Nothing religious, nothing modern; no people; the lamp is never lit (no light, no emissive).",
+   "story_owned": [
+    "V3 the cart convoy (this file is the story set)"
+   ],
+   "verify_only": false,
+   "layer": "road",
+   "poi": null,
+   "counts": {
+    "placements": 94,
+    "actors": 46,
+    "ism_instances": 62,
+    "physics": 29,
+    "batch01": 0,
+    "decals": 45
+   },
+   "views": [
+    {
+     "name": "carrier_a",
+     "cam_cm": [
+      564020.1,
+      415687.1,
+      -34275.4
+     ],
+     "look_cm": [
+      559251.4,
+      410336.2,
+      -34072.2
+     ]
+    },
+    {
+     "name": "carrier_b",
+     "cam_cm": [
+      560441.2,
+      412195.4,
+      -33949.3
+     ],
+     "look_cm": [
+      559979.8,
+      410912.5,
+      -34039.1
+     ]
+    },
+    {
+     "name": "carrier_c",
+     "cam_cm": [
+      559510.7,
+      411287.6,
+      -33931.3
+     ],
+     "look_cm": [
+      559251.4,
+      410336.2,
+      -34072.2
+     ]
+    },
+    {
+     "name": "cinp04",
+     "cam_cm": [
+      566883.2,
+      418480.4,
+      -34708.0
+     ],
+     "look_cm": [
+      559725.4,
+      411497.1,
+      -35232.1
+     ]
+    },
+    {
+     "name": "orbit_a",
+     "cam_cm": [
+      560834.0,
+      409644.8,
+      -33848.9
+     ],
+     "look_cm": [
+      559251.4,
+      410336.2,
+      -34072.2
+     ]
+    },
+    {
+     "name": "orbit_b",
+     "cam_cm": [
+      557178.3,
+      411387.1,
+      -33785.7
+     ],
+     "look_cm": [
+      559251.4,
+      410336.2,
+      -34072.2
+     ]
+    },
+    {
+     "name": "orbit_c",
+     "cam_cm": [
+      557537.9,
+      409013.7,
+      -33981.6
+     ],
+     "look_cm": [
+      559606.7,
+      410473.2,
+      -34084.8
+     ]
+    },
+    {
+     "name": "contact",
+     "cam_cm": [
+      560239.4,
+      410739.8,
+      -34043.2
+     ],
+     "look_cm": [
+      559979.8,
+      410912.5,
+      -34039.1
+     ]
+    },
+    {
+     "name": "contact_b",
+     "cam_cm": [
+      558672.3,
+      410972.7,
+      -34063.2
+     ],
+     "look_cm": [
+      558414.5,
+      411279.9,
+      -34079.5
+     ]
+    },
+    {
+     "name": "high34",
+     "cam_cm": [
+      562543.1,
+      410613.7,
+      -32197.8
+     ],
+     "look_cm": [
+      559251.4,
+      410336.2,
+      -34072.2
+     ]
+    },
+    {
+     "name": "far300",
+     "cam_cm": [
+      588740.8,
+      413260.4,
+      -30034.6
+     ],
+     "look_cm": [
+      559251.4,
+      410336.2,
+      -34072.2
+     ]
+    }
+   ],
+   "view_notes": {
+    "carrier_a": "approach, 70 m out: the file, the tree and C3 across the road (capture_look eye 2.5 m)",
+    "carrier_b": "road 790: the HUD line and the host's \"lamp on the last one\" (capture_look eye 2.5 m)",
+    "carrier_c": "road 803: abeam the last cart, looking up the file (capture_look eye 2.5 m)",
+    "cinp04": "CIN_P04 shots 1 and 4: road 700, eye 1.22 m, straight up the road, pitch -3",
+    "contact": "the last cart from its outer side: bed on the ground, dust, the lamp",
+    "contact_b": "the tipped cart on the bank edge: its rail on the ground, the spill",
+    "far300": "from the flat 300 m down-road and right"
+   },
+   "placements": [
+    {
+     "id": "S05_CartConvoy_v3_000",
+     "key": "AB_Cart_A_texturing",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cart_A_texturing",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 558801.2,
+     "y_cm": 409678.5,
+     "ground_z_cm": -34169.0,
+     "yaw": 132.29,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 3,
+      "max_tilt_deg": 12,
+      "rand_tilt_deg": 1,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "carts",
+     "folder": "Set/S05_CartConvoy/carts",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 25000.0,
+     "cast_shadow": true,
+     "size_m": [
+      2.09,
+      3.97,
+      1.61
+     ],
+     "slope_deg": 2.5,
+     "road_clear_m": 5.45,
+     "contact": "rest",
+     "site_uv": [
+      9.32,
+      -6.56
+     ],
+     "role": "C1: the lead cart, a bazaar handcart: the only one still on its wheels, its shafts down on the verge",
+     "story_set": "V3",
+     "material_set": "wood",
+     "cart": "C1"
+    },
+    {
+     "id": "S05_CartConvoy_v3_001",
+     "key": "MV_cart_02",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_cart_02",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 559117.1,
+     "y_cm": 410067.2,
+     "ground_z_cm": -34152.3,
+     "yaw": 137.29,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 3,
+      "max_tilt_deg": 12,
+      "rand_tilt_deg": 1,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "carts",
+     "folder": "Set/S05_CartConvoy/carts",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 25000.0,
+     "cast_shadow": true,
+     "size_m": [
+      1.21,
+      3.18,
+      0.44
+     ],
+     "slope_deg": 1.4,
+     "road_clear_m": 5.3,
+     "contact": "rest",
+     "site_uv": [
+      4.34,
+      -5.99
+     ],
+     "role": "C2: set down on its bed, wheels off: the pair stands beside it",
+     "story_set": "V3",
+     "material_set": "wood",
+     "cart": "C2"
+    },
+    {
+     "id": "S05_CartConvoy_v3_002",
+     "key": "MV_cart_01",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_cart_01",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 559620.7,
+     "y_cm": 410519.7,
+     "ground_z_cm": -34145.6,
+     "yaw": 132.79,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 3,
+      "max_tilt_deg": 12,
+      "rand_tilt_deg": 1,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "carts",
+     "folder": "Set/S05_CartConvoy/carts",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 25000.0,
+     "cast_shadow": true,
+     "size_m": [
+      1.33,
+      3.85,
+      0.84
+     ],
+     "slope_deg": 3.3,
+     "road_clear_m": 5.55,
+     "contact": "rest",
+     "site_uv": [
+      -2.42,
+      -6.27
+     ],
+     "role": "C4: set down on its bed, wheels gone; the wide gap ahead of it is the place C3 swerved out of",
+     "story_set": "V3",
+     "material_set": "wood",
+     "cart": "C4"
+    },
+    {
+     "id": "S05_CartConvoy_v3_003",
+     "key": "MV_cart_02",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_cart_02",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 559944.0,
+     "y_cm": 410870.7,
+     "ground_z_cm": -34153.1,
+     "yaw": 136.29,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 3,
+      "max_tilt_deg": 12,
+      "rand_tilt_deg": 1,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "carts",
+     "folder": "Set/S05_CartConvoy/carts",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 25000.0,
+     "cast_shadow": true,
+     "size_m": [
+      1.21,
+      3.18,
+      0.44
+     ],
+     "slope_deg": 4.2,
+     "road_clear_m": 5.35,
+     "contact": "rest",
+     "site_uv": [
+      -7.19,
+      -6.01
+     ],
+     "role": "C5: FOCAL: the last cart, the tail lamp of the column (a cold brass lantern on its load)",
+     "story_set": "V3",
+     "material_set": "wood",
+     "cart": "C5"
+    },
+    {
+     "id": "S05_CartConvoy_v3_004",
+     "key": "MV_cart_01",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_cart_01",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 558390.0,
+     "y_cm": 411305.0,
+     "ground_z_cm": -34107.6,
+     "yaw": 331.54,
+     "pitch": 87.62,
+     "roll": -142.78,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "none",
+      "sink_cm": 7,
+      "max_tilt_deg": 0,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 17
+     },
+     "group": "carts",
+     "folder": "Set/S05_CartConvoy/carts",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 25000.0,
+     "cast_shadow": true,
+     "size_m": [
+      1.33,
+      3.85,
+      0.84
+     ],
+     "slope_deg": 2.2,
+     "road_clear_m": 6.87,
+     "contact": "lie",
+     "site_uv": [
+      0.9,
+      7.95
+     ],
+     "role": "C3: swerved out of the line to the left, climbed the bank edge and tipped toward the road; its load spilled out of the open top",
+     "story_set": "V3",
+     "material_set": "wood",
+     "cart": "C3"
+    },
+    {
+     "id": "S05_CartConvoy_v3_005",
+     "key": "MV_jute_bag_01",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_jute_bag_01",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 558781.0,
+     "y_cm": 409700.7,
+     "ground_z_cm": -34168.7,
+     "yaw": 222.29,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 1,
+      "max_tilt_deg": 20,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 100,
+      "z_offset_cm": 0
+     },
+     "group": "loads",
+     "folder": "Set/S05_CartConvoy/loads",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": false,
+     "draw_distance_cm": 12000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.57,
+      0.62,
+      0.42
+     ],
+     "slope_deg": 2.4,
+     "road_clear_m": 5.94,
+     "contact": "rest",
+     "site_uv": [
+      9.3,
+      -6.26
+     ],
+     "role": "C1 load: grain sack, lashed on the bed",
+     "story_set": "V3",
+     "material_set": "cloth",
+     "on_cart": "C1",
+     "layer": 1
+    },
+    {
+     "id": "S05_CartConvoy_v3_006",
+     "key": "MV_jute_bag_03",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_jute_bag_03",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 558819.9,
+     "y_cm": 409655.0,
+     "ground_z_cm": -34169.5,
+     "yaw": 217.29,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 1,
+      "max_tilt_deg": 20,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 100,
+      "z_offset_cm": 0
+     },
+     "group": "loads",
+     "folder": "Set/S05_CartConvoy/loads",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": false,
+     "draw_distance_cm": 12000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.58,
+      0.44,
+      0.55
+     ],
+     "slope_deg": 2.6,
+     "road_clear_m": 6.61,
+     "contact": "rest",
+     "site_uv": [
+      9.35,
+      -6.86
+     ],
+     "role": "C1 load: grain sack",
+     "story_set": "V3",
+     "material_set": "cloth",
+     "on_cart": "C1",
+     "layer": 1
+    },
+    {
+     "id": "S05_CartConvoy_v3_007",
+     "key": "MV_jute_bag_06",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_jute_bag_06",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 558799.9,
+     "y_cm": 409680.0,
+     "ground_z_cm": -34169.0,
+     "yaw": 227.29,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 1,
+      "max_tilt_deg": 20,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 160,
+      "z_offset_cm": 0
+     },
+     "group": "loads",
+     "folder": "Set/S05_CartConvoy/loads",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": false,
+     "draw_distance_cm": 12000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.63,
+      0.69,
+      0.42
+     ],
+     "slope_deg": 2.5,
+     "road_clear_m": 6.18,
+     "contact": "rest",
+     "site_uv": [
+      9.31,
+      -6.54
+     ],
+     "role": "C1 load: a third sack on top",
+     "story_set": "V3",
+     "material_set": "cloth",
+     "on_cart": "C1",
+     "layer": 2
+    },
+    {
+     "id": "S05_CartConvoy_v3_008",
+     "key": "AB_Box_A",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Box_A",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 559147.6,
+     "y_cm": 410100.2,
+     "ground_z_cm": -34151.3,
+     "yaw": 227.29,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 1,
+      "max_tilt_deg": 20,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 100,
+      "z_offset_cm": 0
+     },
+     "group": "loads",
+     "folder": "Set/S05_CartConvoy/loads",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": false,
+     "draw_distance_cm": 12000.0,
+     "cast_shadow": true,
+     "size_m": [
+      1.17,
+      0.64,
+      0.33
+     ],
+     "slope_deg": 1.2,
+     "road_clear_m": 5.61,
+     "contact": "rest",
+     "site_uv": [
+      3.89,
+      -5.96
+     ],
+     "role": "C2 load: the family chest (bazaar box), along the bed",
+     "story_set": "V3",
+     "material_set": "wood",
+     "on_cart": "C2",
+     "layer": 1
+    },
+    {
+     "id": "S05_CartConvoy_v3_009",
+     "key": "MV_jute_bag_07",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_jute_bag_07",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 559079.0,
+     "y_cm": 410027.4,
+     "ground_z_cm": -34153.5,
+     "yaw": 225.29,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 1,
+      "max_tilt_deg": 20,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 100,
+      "z_offset_cm": 0
+     },
+     "group": "loads",
+     "folder": "Set/S05_CartConvoy/loads",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": false,
+     "draw_distance_cm": 12000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.64,
+      0.88,
+      0.3
+     ],
+     "slope_deg": 1.6,
+     "road_clear_m": 5.56,
+     "contact": "rest",
+     "site_uv": [
+      4.89,
+      -6.01
+     ],
+     "role": "C2 load: a long sack across the bed in front of the chest",
+     "story_set": "V3",
+     "material_set": "cloth",
+     "on_cart": "C2",
+     "layer": 1
+    },
+    {
+     "id": "S05_CartConvoy_v3_010",
+     "key": "MV_jute_bag_02",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_jute_bag_02",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 559161.6,
+     "y_cm": 410121.3,
+     "ground_z_cm": -34150.7,
+     "yaw": 217.29,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 1,
+      "max_tilt_deg": 20,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 160,
+      "z_offset_cm": 0
+     },
+     "group": "loads",
+     "folder": "Set/S05_CartConvoy/loads",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": false,
+     "draw_distance_cm": 12000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.66,
+      0.54,
+      0.52
+     ],
+     "slope_deg": 1.1,
+     "road_clear_m": 5.6,
+     "contact": "rest",
+     "site_uv": [
+      3.64,
+      -5.91
+     ],
+     "role": "C2 load: sack on the chest",
+     "story_set": "V3",
+     "material_set": "cloth",
+     "on_cart": "C2",
+     "layer": 2
+    },
+    {
+     "id": "S05_CartConvoy_v3_011",
+     "key": "AB_Clay_Pot_A",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Clay_Pot_A",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 559131.1,
+     "y_cm": 410070.6,
+     "ground_z_cm": -34152.0,
+     "yaw": 137.29,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 1,
+      "max_tilt_deg": 20,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 160,
+      "z_offset_cm": 0
+     },
+     "group": "loads",
+     "folder": "Set/S05_CartConvoy/loads",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": false,
+     "draw_distance_cm": 12000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.36,
+      0.36,
+      0.64
+     ],
+     "slope_deg": 1.4,
+     "road_clear_m": 5.87,
+     "contact": "rest",
+     "site_uv": [
+      4.22,
+      -6.06
+     ],
+     "role": "C2 load: a water jar stood on the chest lid",
+     "story_set": "V3",
+     "material_set": "stone",
+     "on_cart": "C2",
+     "layer": 2
+    },
+    {
+     "id": "S05_CartConvoy_v3_012",
+     "key": "MV_barrel_02",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_barrel_02",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 559653.7,
+     "y_cm": 410550.3,
+     "ground_z_cm": -34145.0,
+     "yaw": 132.79,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 1,
+      "max_tilt_deg": 20,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 100,
+      "z_offset_cm": 0
+     },
+     "group": "loads",
+     "folder": "Set/S05_CartConvoy/loads",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": false,
+     "draw_distance_cm": 12000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.83,
+      0.8,
+      0.82
+     ],
+     "slope_deg": 3.5,
+     "road_clear_m": 5.85,
+     "contact": "rest",
+     "site_uv": [
+      -2.87,
+      -6.28
+     ],
+     "role": "C4 load: oil barrel",
+     "story_set": "V3",
+     "material_set": "wood",
+     "on_cart": "C4",
+     "layer": 1
+    },
+    {
+     "id": "S05_CartConvoy_v3_013",
+     "key": "MV_barrel_01",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_barrel_01",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 559590.0,
+     "y_cm": 410494.0,
+     "ground_z_cm": -34146.2,
+     "yaw": 162.79,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 1,
+      "max_tilt_deg": 20,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 100,
+      "z_offset_cm": 0
+     },
+     "group": "loads",
+     "folder": "Set/S05_CartConvoy/loads",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": false,
+     "draw_distance_cm": 12000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.69,
+      0.69,
+      0.79
+     ],
+     "slope_deg": 3.2,
+     "road_clear_m": 5.77,
+     "contact": "rest",
+     "site_uv": [
+      -2.03,
+      -6.23
+     ],
+     "role": "C4 load: water barrel",
+     "story_set": "V3",
+     "material_set": "wood",
+     "on_cart": "C4",
+     "layer": 1
+    },
+    {
+     "id": "S05_CartConvoy_v3_014",
+     "key": "MV_bucket_03",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_bucket_03",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 559652.4,
+     "y_cm": 410551.7,
+     "ground_z_cm": -34145.1,
+     "yaw": 132.79,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 1,
+      "max_tilt_deg": 20,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 160,
+      "z_offset_cm": 0
+     },
+     "group": "loads",
+     "folder": "Set/S05_CartConvoy/loads",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": false,
+     "draw_distance_cm": 12000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.36,
+      0.36,
+      0.49
+     ],
+     "slope_deg": 3.5,
+     "road_clear_m": 6.07,
+     "contact": "rest",
+     "site_uv": [
+      -2.88,
+      -6.26
+     ],
+     "role": "C4 load: a bucket left on the barrel head",
+     "story_set": "V3",
+     "material_set": "wood",
+     "on_cart": "C4",
+     "layer": 2
+    },
+    {
+     "id": "S05_CartConvoy_v3_015",
+     "key": "MV_barrel_01",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_barrel_01",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 559982.0,
+     "y_cm": 410910.5,
+     "ground_z_cm": -34156.3,
+     "yaw": 136.29,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 1,
+      "max_tilt_deg": 20,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 100,
+      "z_offset_cm": 0
+     },
+     "group": "loads",
+     "folder": "Set/S05_CartConvoy/loads",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": false,
+     "draw_distance_cm": 12000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.69,
+      0.69,
+      0.79
+     ],
+     "slope_deg": 4.1,
+     "road_clear_m": 5.63,
+     "contact": "rest",
+     "site_uv": [
+      -7.74,
+      -5.99
+     ],
+     "role": "C5 load: the lamp barrel, at the tail",
+     "story_set": "V3",
+     "material_set": "wood",
+     "on_cart": "C5",
+     "layer": 1
+    },
+    {
+     "id": "S05_CartConvoy_v3_016",
+     "key": "MV_box_01",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_box_01",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 559926.7,
+     "y_cm": 410852.6,
+     "ground_z_cm": -34151.7,
+     "yaw": 226.29,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 1,
+      "max_tilt_deg": 20,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 100,
+      "z_offset_cm": 0
+     },
+     "group": "loads",
+     "folder": "Set/S05_CartConvoy/loads",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": false,
+     "draw_distance_cm": 12000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.46,
+      0.86,
+      0.45
+     ],
+     "slope_deg": 4.2,
+     "road_clear_m": 5.58,
+     "contact": "rest",
+     "site_uv": [
+      -6.94,
+      -6.02
+     ],
+     "role": "C5 load: a box along the bed",
+     "story_set": "V3",
+     "material_set": "wood",
+     "on_cart": "C5",
+     "layer": 1
+    },
+    {
+     "id": "S05_CartConvoy_v3_017",
+     "key": "MV_jute_bag_05",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_jute_bag_05",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 559888.6,
+     "y_cm": 410815.7,
+     "ground_z_cm": -34148.9,
+     "yaw": 226.29,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 1,
+      "max_tilt_deg": 20,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 100,
+      "z_offset_cm": 0
+     },
+     "group": "loads",
+     "folder": "Set/S05_CartConvoy/loads",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": false,
+     "draw_distance_cm": 12000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.62,
+      0.68,
+      0.32
+     ],
+     "slope_deg": 4.2,
+     "road_clear_m": 5.67,
+     "contact": "rest",
+     "site_uv": [
+      -6.41,
+      -6.02
+     ],
+     "role": "C5 load: a flat sack at the front board",
+     "story_set": "V3",
+     "material_set": "cloth",
+     "on_cart": "C5",
+     "layer": 1
+    },
+    {
+     "id": "S05_CartConvoy_v3_018",
+     "key": "MV_box_03",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_box_03",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 559923.8,
+     "y_cm": 410855.4,
+     "ground_z_cm": -34151.9,
+     "yaw": 146.29,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 1,
+      "max_tilt_deg": 20,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 160,
+      "z_offset_cm": 0
+     },
+     "group": "loads",
+     "folder": "Set/S05_CartConvoy/loads",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": false,
+     "draw_distance_cm": 12000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.52,
+      0.51,
+      0.39
+     ],
+     "slope_deg": 4.2,
+     "road_clear_m": 5.67,
+     "contact": "rest",
+     "site_uv": [
+      -6.94,
+      -5.98
+     ],
+     "role": "C5 load: a small box on the box",
+     "story_set": "V3",
+     "material_set": "wood",
+     "on_cart": "C5",
+     "layer": 2
+    },
+    {
+     "id": "S05_CartConvoy_v3_019",
+     "key": "AB_Lamp_A",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Lamp_A",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 559979.8,
+     "y_cm": 410912.5,
+     "ground_z_cm": -34156.4,
+     "yaw": 156.29,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 1,
+      "max_tilt_deg": 20,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 220,
+      "z_offset_cm": 0
+     },
+     "group": "loads",
+     "folder": "Set/S05_CartConvoy/loads",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": false,
+     "draw_distance_cm": 12000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.12,
+      0.11,
+      0.38
+     ],
+     "slope_deg": 4.1,
+     "road_clear_m": 5.88,
+     "contact": "rest",
+     "site_uv": [
+      -7.74,
+      -5.96
+     ],
+     "role": "C5 load: FOCAL: the cold brass tail lamp, stood on the barrel head",
+     "story_set": "V3",
+     "on_cart": "C5",
+     "layer": 3
+    },
+    {
+     "id": "S05_CartConvoy_v3_020",
+     "key": "MV_cart_02_wheels",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_cart_02_wheels",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 559212.4,
+     "y_cm": 409958.8,
+     "ground_z_cm": -34152.0,
+     "yaw": 229.29,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 2,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "wheels",
+     "folder": "Set/S05_CartConvoy/wheels",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 25000.0,
+     "cast_shadow": true,
+     "size_m": [
+      1.63,
+      1.06,
+      1.07
+     ],
+     "slope_deg": 1.8,
+     "road_clear_m": 6.83,
+     "contact": "rest",
+     "site_uv": [
+      4.41,
+      -7.43
+     ],
+     "role": "C2's wheels, off and stood beside it on the verge",
+     "story_set": "V3",
+     "material_set": "wood"
+    },
+    {
+     "id": "S05_CartConvoy_v3_021",
+     "key": "MV_box_02",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_box_02",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 558477.2,
+     "y_cm": 411245.6,
+     "ground_z_cm": -34114.2,
+     "yaw": 85.67,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 2,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 10,
+      "z_offset_cm": 0
+     },
+     "group": "spill",
+     "folder": "Set/S05_CartConvoy/spill",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 12000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.46,
+      0.86,
+      0.39
+     ],
+     "slope_deg": 5.3,
+     "road_clear_m": 6.44,
+     "contact": "rest",
+     "site_uv": [
+      0.69,
+      6.92
+     ],
+     "role": "C3 spill: a box, still shut, just out of the bed",
+     "story_set": "V3",
+     "material_set": "wood"
+    },
+    {
+     "id": "S05_CartConvoy_v3_022",
+     "key": "MV_jute_bag_02",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_jute_bag_02",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 558374.5,
+     "y_cm": 411205.8,
+     "ground_z_cm": -34111.3,
+     "yaw": 195.92,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 2,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 10,
+      "z_offset_cm": 0
+     },
+     "group": "spill",
+     "folder": "Set/S05_CartConvoy/spill",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 12000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.66,
+      0.54,
+      0.52
+     ],
+     "slope_deg": 3.8,
+     "road_clear_m": 6.95,
+     "contact": "rest",
+     "site_uv": [
+      1.7,
+      7.35
+     ],
+     "role": "C3 spill: sack, just out of the bed",
+     "story_set": "V3",
+     "material_set": "cloth"
+    },
+    {
+     "id": "S05_CartConvoy_v3_023",
+     "key": "AB_Clay_Pot_D",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Clay_Pot_D",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 558287.5,
+     "y_cm": 411179.7,
+     "ground_z_cm": -34112.7,
+     "yaw": 133.18,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 2,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 10,
+      "z_offset_cm": 0
+     },
+     "group": "spill",
+     "folder": "Set/S05_CartConvoy/spill",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 12000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.44,
+      0.44,
+      0.46
+     ],
+     "slope_deg": 3.2,
+     "road_clear_m": 7.55,
+     "contact": "rest",
+     "site_uv": [
+      2.51,
+      7.77
+     ],
+     "role": "C3 spill: a jar that stayed upright",
+     "story_set": "V3",
+     "material_set": "stone"
+    },
+    {
+     "id": "S05_CartConvoy_v3_024",
+     "key": "MV_jute_bag_08",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_jute_bag_08",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 558585.2,
+     "y_cm": 411237.3,
+     "ground_z_cm": -34126.6,
+     "yaw": 217.41,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 2,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 10,
+      "z_offset_cm": 0
+     },
+     "group": "spill",
+     "folder": "Set/S05_CartConvoy/spill",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 12000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.63,
+      0.88,
+      0.29
+     ],
+     "slope_deg": 7.3,
+     "road_clear_m": 5.63,
+     "contact": "rest",
+     "site_uv": [
+      -0.02,
+      6.1
+     ],
+     "role": "C3 spill: flat sack",
+     "story_set": "V3",
+     "material_set": "cloth"
+    },
+    {
+     "id": "S05_CartConvoy_v3_025",
+     "key": "MV_jute_bag_10",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_jute_bag_10",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 558452.1,
+     "y_cm": 411155.3,
+     "ground_z_cm": -34118.7,
+     "yaw": 225.26,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 2,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 10,
+      "z_offset_cm": 0
+     },
+     "group": "spill",
+     "folder": "Set/S05_CartConvoy/spill",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 12000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.64,
+      0.88,
+      0.28
+     ],
+     "slope_deg": 5.2,
+     "road_clear_m": 6.0,
+     "contact": "rest",
+     "site_uv": [
+      1.5,
+      6.44
+     ],
+     "role": "C3 spill: flat sack",
+     "story_set": "V3",
+     "material_set": "cloth"
+    },
+    {
+     "id": "S05_CartConvoy_v3_026",
+     "key": "MV_jute_bag_03",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_jute_bag_03",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 558339.9,
+     "y_cm": 411112.3,
+     "ground_z_cm": -34117.6,
+     "yaw": 23.59,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 2,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 10,
+      "z_offset_cm": 0
+     },
+     "group": "spill",
+     "folder": "Set/S05_CartConvoy/spill",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 12000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.58,
+      0.44,
+      0.55
+     ],
+     "slope_deg": 4.0,
+     "road_clear_m": 6.61,
+     "contact": "rest",
+     "site_uv": [
+      2.6,
+      6.92
+     ],
+     "role": "C3 spill: sack",
+     "story_set": "V3",
+     "material_set": "cloth"
+    },
+    {
+     "id": "S05_CartConvoy_v3_027",
+     "key": "MV_jute_bag_04",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_jute_bag_04",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 558546.8,
+     "y_cm": 411139.9,
+     "ground_z_cm": -34128.1,
+     "yaw": 4.74,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 2,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 10,
+      "z_offset_cm": 0
+     },
+     "group": "spill",
+     "folder": "Set/S05_CartConvoy/spill",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 12000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.62,
+      0.49,
+      0.68
+     ],
+     "slope_deg": 6.4,
+     "road_clear_m": 5.29,
+     "contact": "rest",
+     "site_uv": [
+      0.93,
+      5.67
+     ],
+     "role": "C3 spill: burst sack at the foot of the spill, nearest the road",
+     "story_set": "V3",
+     "material_set": "cloth"
+    },
+    {
+     "id": "S05_CartConvoy_v3_028",
+     "key": "AB_Lamp_C",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Lamp_C",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 558418.4,
+     "y_cm": 411060.0,
+     "ground_z_cm": -34123.1,
+     "yaw": 301.49,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 2,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 10,
+      "z_offset_cm": 0
+     },
+     "group": "spill",
+     "folder": "Set/S05_CartConvoy/spill",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 12000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.24,
+      0.2,
+      0.38
+     ],
+     "slope_deg": 4.4,
+     "road_clear_m": 5.86,
+     "contact": "rest",
+     "site_uv": [
+      2.41,
+      6.0
+     ],
+     "role": "C3 spill: a brass ewer rolled furthest",
+     "story_set": "V3"
+    },
+    {
+     "id": "S05_CartConvoy_v3_029",
+     "key": "AB_Cart_Wheel",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cart_Wheel",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 558559.3,
+     "y_cm": 411553.9,
+     "ground_z_cm": -34122.1,
+     "yaw": 93.37,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 3,
+      "max_tilt_deg": 25,
+      "rand_tilt_deg": 2,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "wheels",
+     "folder": "Set/S05_CartConvoy/wheels",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 12000.0,
+     "cast_shadow": true,
+     "size_m": [
+      1.18,
+      1.18,
+      0.31
+     ],
+     "slope_deg": 4.4,
+     "road_clear_m": 7.72,
+     "contact": "lie",
+     "site_uv": [
+      -2.05,
+      8.55
+     ],
+     "role": "a lone wheel lying flat behind the tipped cart",
+     "story_set": "V3",
+     "material_set": "wood"
+    },
+    {
+     "id": "S05_CartConvoy_v3_030",
+     "key": "FAB_DeadTree_qlEtl",
+     "asset": "/Game/Fab/Megascans/3D/Dead_Tree_qlEtl/Raw/qlEtl_tier_0/StaticMeshes/qlEtl_tier_0",
+     "kind": "SM",
+     "cat": "hero_tree",
+     "x_cm": 560613.5,
+     "y_cm": 410742.9,
+     "ground_z_cm": -34148.5,
+     "yaw": 259.29,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 25,
+      "max_tilt_deg": 0,
+      "rand_tilt_deg": 0,
+      "z_rule": "min",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "tree",
+     "folder": "Set/S05_CartConvoy/tree",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 80000.0,
+     "cast_shadow": true,
+     "size_m": [
+      2.18,
+      2.81,
+      6.22
+     ],
+     "slope_deg": 2.6,
+     "road_clear_m": 9.82,
+     "contact": "rigid",
+     "site_uv": [
+      -11.09,
+      -11.6
+     ],
+     "role": "the shade tree the column halted by (dead now)",
+     "story_set": "V3",
+     "block": "tree",
+     "material_set": "wood"
+    },
+    {
+     "id": "S05_CartConvoy_v3_031",
+     "key": "PH_pot",
+     "asset": "/Game/Pallbearer/PolyHaven/pot_enamel_01/pot_enamel_01_2k/StaticMeshes/pot_enamel_01_base",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 560235.9,
+     "y_cm": 410800.6,
+     "ground_z_cm": -34145.9,
+     "yaw": 84.36,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 2,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 10,
+      "z_offset_cm": 0
+     },
+     "group": "hearth",
+     "folder": "Set/S05_CartConvoy/hearth",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.27,
+      0.2,
+      0.14
+     ],
+     "slope_deg": 3.1,
+     "road_clear_m": 8.39,
+     "contact": "rest",
+     "site_uv": [
+      -8.79,
+      -8.55
+     ],
+     "role": "a pot left on the cold hearth",
+     "story_set": "V3"
+    },
+    {
+     "id": "S05_CartConvoy_v3_032",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 560183.6,
+     "y_cm": 410766.8,
+     "ground_z_cm": -34146.0,
+     "yaw": 171.49,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.692,
+     "scale_range": [
+      0.692,
+      0.692
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 7,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "hearth",
+     "folder": "Set/S05_CartConvoy/hearth",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": true,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.318,
+      0.311,
+      0.194
+     ],
+     "slope_deg": 2.7,
+     "road_clear_m": 8.21,
+     "contact": "lie",
+     "site_uv": [
+      -8.18,
+      -8.43
+     ],
+     "role": "hearth ring stone",
+     "story_set": "V3",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "S05_CartConvoy_v3_033",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 560177.5,
+     "y_cm": 410811.3,
+     "ground_z_cm": -34148.2,
+     "yaw": 312.5,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.658,
+     "scale_range": [
+      0.658,
+      0.658
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 6,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "hearth",
+     "folder": "Set/S05_CartConvoy/hearth",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": true,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.303,
+      0.296,
+      0.184
+     ],
+     "slope_deg": 3.3,
+     "road_clear_m": 7.91,
+     "contact": "lie",
+     "site_uv": [
+      -8.45,
+      -8.07
+     ],
+     "role": "hearth ring stone",
+     "story_set": "V3",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "S05_CartConvoy_v3_034",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 560202.6,
+     "y_cm": 410856.1,
+     "ground_z_cm": -34149.7,
+     "yaw": 23.05,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.664,
+     "scale_range": [
+      0.664,
+      0.664
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 7,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "hearth",
+     "folder": "Set/S05_CartConvoy/hearth",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": true,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.306,
+      0.299,
+      0.186
+     ],
+     "slope_deg": 3.7,
+     "road_clear_m": 7.73,
+     "contact": "lie",
+     "site_uv": [
+      -8.94,
+      -7.92
+     ],
+     "role": "hearth ring stone",
+     "story_set": "V3",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "S05_CartConvoy_v3_035",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 560263.5,
+     "y_cm": 410857.6,
+     "ground_z_cm": -34147.9,
+     "yaw": 11.16,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.601,
+     "scale_range": [
+      0.601,
+      0.601
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 6,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "hearth",
+     "folder": "Set/S05_CartConvoy/hearth",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": true,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.277,
+      0.271,
+      0.168
+     ],
+     "slope_deg": 3.6,
+     "road_clear_m": 8.15,
+     "contact": "lie",
+     "site_uv": [
+      -9.39,
+      -8.34
+     ],
+     "role": "hearth ring stone",
+     "story_set": "V3",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "S05_CartConvoy_v3_036",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 560297.1,
+     "y_cm": 410811.7,
+     "ground_z_cm": -34144.6,
+     "yaw": 316.37,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.672,
+     "scale_range": [
+      0.672,
+      0.672
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 7,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "hearth",
+     "folder": "Set/S05_CartConvoy/hearth",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": true,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.309,
+      0.302,
+      0.188
+     ],
+     "slope_deg": 3.0,
+     "road_clear_m": 8.74,
+     "contact": "lie",
+     "site_uv": [
+      -9.31,
+      -8.9
+     ],
+     "role": "hearth ring stone",
+     "story_set": "V3",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "S05_CartConvoy_v3_037",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 560288.3,
+     "y_cm": 410760.0,
+     "ground_z_cm": -34142.5,
+     "yaw": 288.33,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.617,
+     "scale_range": [
+      0.617,
+      0.617
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 6,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "hearth",
+     "folder": "Set/S05_CartConvoy/hearth",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": true,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.284,
+      0.278,
+      0.173
+     ],
+     "slope_deg": 2.2,
+     "road_clear_m": 9.02,
+     "contact": "lie",
+     "site_uv": [
+      -8.88,
+      -9.21
+     ],
+     "role": "hearth ring stone",
+     "story_set": "V3",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "S05_CartConvoy_v3_038",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 560243.9,
+     "y_cm": 410734.7,
+     "ground_z_cm": -34143.0,
+     "yaw": 35.08,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.699,
+     "scale_range": [
+      0.699,
+      0.699
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 7,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "hearth",
+     "folder": "Set/S05_CartConvoy/hearth",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": true,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.322,
+      0.315,
+      0.196
+     ],
+     "slope_deg": 2.2,
+     "road_clear_m": 8.9,
+     "contact": "lie",
+     "site_uv": [
+      -8.39,
+      -9.08
+     ],
+     "role": "hearth ring stone",
+     "story_set": "V3",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "S05_CartConvoy_v3_039",
+     "key": "LF_Rock_07",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_07",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 558587.6,
+     "y_cm": 409580.6,
+     "ground_z_cm": -34177.0,
+     "yaw": 280.43,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.047,
+     "scale_range": [
+      1.047,
+      1.047
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 4,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S05_CartConvoy/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.283,
+      0.325,
+      0.115
+     ],
+     "slope_deg": 1.9,
+     "road_clear_m": 5.56,
+     "contact": "lie",
+     "site_uv": [
+      11.53,
+      -5.77
+     ],
+     "role": "verge-edge gravel",
+     "story_set": "V3",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "S05_CartConvoy_v3_040",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 558527.8,
+     "y_cm": 409539.4,
+     "ground_z_cm": -34179.1,
+     "yaw": 192.28,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.576,
+     "scale_range": [
+      0.576,
+      0.576
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 6,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S05_CartConvoy/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.265,
+      0.259,
+      0.161
+     ],
+     "slope_deg": 1.5,
+     "road_clear_m": 5.47,
+     "contact": "lie",
+     "site_uv": [
+      12.24,
+      -5.65
+     ],
+     "role": "verge-edge gravel",
+     "story_set": "V3",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "S05_CartConvoy_v3_041",
+     "key": "AB_Cobble_04",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_04",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 558513.9,
+     "y_cm": 409508.1,
+     "ground_z_cm": -34179.8,
+     "yaw": 334.42,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.092,
+     "scale_range": [
+      1.092,
+      1.092
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S05_CartConvoy/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.306,
+      0.339,
+      0.131
+     ],
+     "slope_deg": 1.4,
+     "road_clear_m": 5.58,
+     "contact": "lie",
+     "site_uv": [
+      12.56,
+      -5.78
+     ],
+     "role": "verge-edge gravel",
+     "story_set": "V3",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "S05_CartConvoy_v3_042",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 560603.4,
+     "y_cm": 411560.4,
+     "ground_z_cm": -34184.2,
+     "yaw": 309.83,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.747,
+     "scale_range": [
+      0.747,
+      0.747
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 7,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S05_CartConvoy/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.344,
+      0.336,
+      0.209
+     ],
+     "slope_deg": 3.3,
+     "road_clear_m": 5.49,
+     "contact": "lie",
+     "site_uv": [
+      -16.73,
+      -5.68
+     ],
+     "role": "verge-edge gravel",
+     "story_set": "V3",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "S05_CartConvoy_v3_043",
+     "key": "LF_Rock_07",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_07",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 560678.5,
+     "y_cm": 411588.8,
+     "ground_z_cm": -34187.7,
+     "yaw": 206.47,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.157,
+     "scale_range": [
+      1.157,
+      1.157
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 4,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S05_CartConvoy/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.312,
+      0.359,
+      0.127
+     ],
+     "slope_deg": 2.7,
+     "road_clear_m": 5.78,
+     "contact": "lie",
+     "site_uv": [
+      -17.46,
+      -6.0
+     ],
+     "role": "verge-edge gravel",
+     "story_set": "V3",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "S05_CartConvoy_v3_044",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 560641.0,
+     "y_cm": 411565.2,
+     "ground_z_cm": -34185.5,
+     "yaw": 174.06,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.487,
+     "scale_range": [
+      0.487,
+      0.487
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S05_CartConvoy/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.224,
+      0.219,
+      0.136
+     ],
+     "slope_deg": 3.2,
+     "road_clear_m": 5.75,
+     "contact": "lie",
+     "site_uv": [
+      -17.03,
+      -5.91
+     ],
+     "role": "verge-edge gravel",
+     "story_set": "V3",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "S05_CartConvoy_v3_045",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 558392.6,
+     "y_cm": 409418.3,
+     "ground_z_cm": -34183.1,
+     "yaw": 105.8,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.69,
+     "scale_range": [
+      0.69,
+      0.69
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 7,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S05_CartConvoy/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.317,
+      0.311,
+      0.193
+     ],
+     "slope_deg": 1.4,
+     "road_clear_m": 5.36,
+     "contact": "lie",
+     "site_uv": [
+      14.06,
+      -5.57
+     ],
+     "role": "verge-edge gravel",
+     "story_set": "V3",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "S05_CartConvoy_v3_046",
+     "key": "AB_Cobble_04",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_04",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 558450.1,
+     "y_cm": 409443.3,
+     "ground_z_cm": -34181.8,
+     "yaw": 16.18,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.236,
+     "scale_range": [
+      1.236,
+      1.236
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S05_CartConvoy/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.346,
+      0.383,
+      0.148
+     ],
+     "slope_deg": 1.3,
+     "road_clear_m": 5.54,
+     "contact": "lie",
+     "site_uv": [
+      13.47,
+      -5.79
+     ],
+     "role": "verge-edge gravel",
+     "story_set": "V3",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "S05_CartConvoy_v3_047",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 558338.3,
+     "y_cm": 409356.8,
+     "ground_z_cm": -34185.0,
+     "yaw": 84.94,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.615,
+     "scale_range": [
+      0.615,
+      0.615
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 6,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S05_CartConvoy/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.283,
+      0.277,
+      0.172
+     ],
+     "slope_deg": 1.6,
+     "road_clear_m": 5.44,
+     "contact": "lie",
+     "site_uv": [
+      14.88,
+      -5.63
+     ],
+     "role": "verge-edge gravel",
+     "story_set": "V3",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "S05_CartConvoy_v3_048",
+     "key": "LF_Rock_07",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_07",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 559083.4,
+     "y_cm": 411679.3,
+     "ground_z_cm": -34175.8,
+     "yaw": 11.3,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.955,
+     "scale_range": [
+      0.955,
+      0.955
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 4,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S05_CartConvoy/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.258,
+      0.296,
+      0.105
+     ],
+     "slope_deg": 3.5,
+     "road_clear_m": 5.59,
+     "contact": "lie",
+     "site_uv": [
+      -6.68,
+      5.79
+     ],
+     "role": "verge-edge gravel",
+     "story_set": "V3",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "S05_CartConvoy_v3_049",
+     "key": "LF_Rock_07",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_07",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 559070.0,
+     "y_cm": 411643.8,
+     "ground_z_cm": -34176.0,
+     "yaw": 248.3,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.286,
+     "scale_range": [
+      1.286,
+      1.286
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S05_CartConvoy/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.347,
+      0.399,
+      0.141
+     ],
+     "slope_deg": 3.3,
+     "road_clear_m": 5.37,
+     "contact": "lie",
+     "site_uv": [
+      -6.33,
+      5.63
+     ],
+     "role": "verge-edge gravel",
+     "story_set": "V3",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "S05_CartConvoy_v3_050",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 558206.9,
+     "y_cm": 410852.0,
+     "ground_z_cm": -34133.1,
+     "yaw": 136.0,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.544,
+     "scale_range": [
+      0.544,
+      0.544
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S05_CartConvoy/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.25,
+      0.245,
+      0.152
+     ],
+     "slope_deg": 4.5,
+     "road_clear_m": 5.86,
+     "contact": "lie",
+     "site_uv": [
+      5.37,
+      5.99
+     ],
+     "role": "verge-edge gravel",
+     "story_set": "V3",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "S05_CartConvoy_v3_051",
+     "key": "AB_Cobble_04",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_04",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 558283.8,
+     "y_cm": 410910.2,
+     "ground_z_cm": -34130.7,
+     "yaw": 245.15,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.235,
+     "scale_range": [
+      1.235,
+      1.235
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S05_CartConvoy/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.346,
+      0.383,
+      0.148
+     ],
+     "slope_deg": 3.9,
+     "road_clear_m": 5.63,
+     "contact": "lie",
+     "site_uv": [
+      4.42,
+      5.87
+     ],
+     "role": "verge-edge gravel",
+     "story_set": "V3",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "S05_CartConvoy_v3_052",
+     "key": "LF_Rock_07",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_07",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 558232.3,
+     "y_cm": 410835.9,
+     "ground_z_cm": -34134.5,
+     "yaw": 155.23,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.11,
+     "scale_range": [
+      1.11,
+      1.11
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 4,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S05_CartConvoy/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.3,
+      0.344,
+      0.122
+     ],
+     "slope_deg": 3.9,
+     "road_clear_m": 5.49,
+     "contact": "lie",
+     "site_uv": [
+      5.3,
+      5.69
+     ],
+     "role": "verge-edge gravel",
+     "story_set": "V3",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "S05_CartConvoy_v3_053",
+     "key": "LF_Rock_07",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_07",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 558997.0,
+     "y_cm": 409917.5,
+     "ground_z_cm": -34157.8,
+     "yaw": 109.08,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.268,
+     "scale_range": [
+      1.268,
+      1.268
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S05_CartConvoy/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.342,
+      0.393,
+      0.14
+     ],
+     "slope_deg": 2.0,
+     "road_clear_m": 5.98,
+     "contact": "lie",
+     "site_uv": [
+      6.24,
+      -6.22
+     ],
+     "role": "gravel on the crown between the ruts",
+     "story_set": "V3",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "S05_CartConvoy_v3_054",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 559016.1,
+     "y_cm": 409894.3,
+     "ground_z_cm": -34157.5,
+     "yaw": 7.22,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.453,
+     "scale_range": [
+      0.453,
+      0.453
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 4,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S05_CartConvoy/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.209,
+      0.204,
+      0.127
+     ],
+     "slope_deg": 2.0,
+     "road_clear_m": 6.38,
+     "contact": "lie",
+     "site_uv": [
+      6.27,
+      -6.52
+     ],
+     "role": "gravel on the crown between the ruts",
+     "story_set": "V3",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "S05_CartConvoy_v3_055",
+     "key": "LF_Rock_07",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_07",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 559245.6,
+     "y_cm": 410237.1,
+     "ground_z_cm": -34150.3,
+     "yaw": 244.54,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.83,
+     "scale_range": [
+      0.83,
+      0.83
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 3,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S05_CartConvoy/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.224,
+      0.257,
+      0.091
+     ],
+     "slope_deg": 1.5,
+     "road_clear_m": 5.51,
+     "contact": "lie",
+     "site_uv": [
+      2.23,
+      -5.67
+     ],
+     "role": "gravel on the crown between the ruts",
+     "story_set": "V3",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "S05_CartConvoy_v3_056",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 559269.4,
+     "y_cm": 410255.5,
+     "ground_z_cm": -34150.3,
+     "yaw": 212.18,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.633,
+     "scale_range": [
+      0.633,
+      0.633
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 6,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S05_CartConvoy/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.291,
+      0.285,
+      0.177
+     ],
+     "slope_deg": 1.7,
+     "road_clear_m": 5.53,
+     "contact": "lie",
+     "site_uv": [
+      1.93,
+      -5.7
+     ],
+     "role": "gravel on the crown between the ruts",
+     "story_set": "V3",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "S05_CartConvoy_v3_057",
+     "key": "LF_Rock_07",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_07",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 559763.1,
+     "y_cm": 410689.7,
+     "ground_z_cm": -34146.4,
+     "yaw": 213.36,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.282,
+     "scale_range": [
+      1.282,
+      1.282
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S05_CartConvoy/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.346,
+      0.397,
+      0.141
+     ],
+     "slope_deg": 3.8,
+     "road_clear_m": 5.81,
+     "contact": "lie",
+     "site_uv": [
+      -4.63,
+      -6.04
+     ],
+     "role": "gravel on the crown between the ruts",
+     "story_set": "V3",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "S05_CartConvoy_v3_058",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 559785.9,
+     "y_cm": 410700.9,
+     "ground_z_cm": -34145.8,
+     "yaw": 303.78,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.503,
+     "scale_range": [
+      0.503,
+      0.503
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S05_CartConvoy/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.231,
+      0.226,
+      0.141
+     ],
+     "slope_deg": 3.8,
+     "road_clear_m": 5.99,
+     "contact": "lie",
+     "site_uv": [
+      -4.87,
+      -6.12
+     ],
+     "role": "gravel on the crown between the ruts",
+     "story_set": "V3",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "S05_CartConvoy_v3_059",
+     "key": "AB_Cobble_04",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_04",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 558306.3,
+     "y_cm": 411484.9,
+     "ground_z_cm": -34109.5,
+     "yaw": 216.26,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.639,
+     "scale_range": [
+      0.639,
+      0.639
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 2,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S05_CartConvoy/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.179,
+      0.198,
+      0.077
+     ],
+     "slope_deg": 2.2,
+     "road_clear_m": 9.71,
+     "contact": "lie",
+     "site_uv": [
+      0.24,
+      9.82
+     ],
+     "role": "stone ploughed up by C3",
+     "story_set": "V3",
+     "block": "fan",
+     "material_set": "stone"
+    },
+    {
+     "id": "S05_CartConvoy_v3_060",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 558205.5,
+     "y_cm": 411422.2,
+     "ground_z_cm": -34106.0,
+     "yaw": 307.99,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.775,
+     "scale_range": [
+      0.775,
+      0.775
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 7,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S05_CartConvoy/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.357,
+      0.349,
+      0.217
+     ],
+     "slope_deg": 1.1,
+     "road_clear_m": 9.88,
+     "contact": "lie",
+     "site_uv": [
+      1.4,
+      10.08
+     ],
+     "role": "stone ploughed up by C3",
+     "story_set": "V3",
+     "block": "fan",
+     "material_set": "stone"
+    },
+    {
+     "id": "S05_CartConvoy_v3_061",
+     "key": "AB_Cobble_04",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_04",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 558305.0,
+     "y_cm": 411447.9,
+     "ground_z_cm": -34108.2,
+     "yaw": 204.62,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.687,
+     "scale_range": [
+      0.687,
+      0.687
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 2,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S05_CartConvoy/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.192,
+      0.213,
+      0.082
+     ],
+     "slope_deg": 1.9,
+     "road_clear_m": 9.43,
+     "contact": "lie",
+     "site_uv": [
+      0.51,
+      9.57
+     ],
+     "role": "stone ploughed up by C3",
+     "story_set": "V3",
+     "block": "fan",
+     "material_set": "stone"
+    },
+    {
+     "id": "S05_CartConvoy_v3_062",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 558278.3,
+     "y_cm": 411466.4,
+     "ground_z_cm": -34108.3,
+     "yaw": 68.69,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.812,
+     "scale_range": [
+      0.812,
+      0.812
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 7,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S05_CartConvoy/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.373,
+      0.365,
+      0.227
+     ],
+     "slope_deg": 1.9,
+     "road_clear_m": 9.64,
+     "contact": "lie",
+     "site_uv": [
+      0.57,
+      9.89
+     ],
+     "role": "stone ploughed up by C3",
+     "story_set": "V3",
+     "block": "fan",
+     "material_set": "stone"
+    },
+    {
+     "id": "S05_CartConvoy_v3_063",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 558233.7,
+     "y_cm": 411450.5,
+     "ground_z_cm": -34106.4,
+     "yaw": 122.44,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.945,
+     "scale_range": [
+      0.945,
+      0.945
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 8,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S05_CartConvoy/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.435,
+      0.425,
+      0.265
+     ],
+     "slope_deg": 1.5,
+     "road_clear_m": 9.83,
+     "contact": "lie",
+     "site_uv": [
+      1.0,
+      10.08
+     ],
+     "role": "stone ploughed up by C3",
+     "story_set": "V3",
+     "block": "fan",
+     "material_set": "stone"
+    },
+    {
+     "id": "S05_CartConvoy_v3_064",
+     "key": "LF_Rock_03",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_03",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 560478.4,
+     "y_cm": 410688.0,
+     "ground_z_cm": -34143.7,
+     "yaw": 298.06,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.42,
+     "scale_range": [
+      0.42,
+      0.42
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 21,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 8,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "rocks",
+     "folder": "Set/S05_CartConvoy/rocks",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.714,
+      1.05,
+      0.521
+     ],
+     "slope_deg": 1.8,
+     "road_clear_m": 10.56,
+     "contact": "lie",
+     "site_uv": [
+      -9.74,
+      -11.05
+     ],
+     "role": "half-buried field rock at the tree foot",
+     "story_set": "V3",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "S05_CartConvoy_v3_065",
+     "key": "LF_Rock_05",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_05",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 560636.5,
+     "y_cm": 410891.2,
+     "ground_z_cm": -34151.6,
+     "yaw": 30.79,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.36,
+     "scale_range": [
+      0.36,
+      0.36
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 19,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 8,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "rocks",
+     "folder": "Set/S05_CartConvoy/rocks",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.641,
+      0.796,
+      0.464
+     ],
+     "slope_deg": 3.1,
+     "road_clear_m": 10.24,
+     "contact": "lie",
+     "site_uv": [
+      -12.29,
+      -10.7
+     ],
+     "role": "half-buried field rock at the tree foot",
+     "story_set": "V3",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "S05_CartConvoy_v3_066",
+     "key": "LF_Rock_02",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_02",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 557798.4,
+     "y_cm": 411209.8,
+     "ground_z_cm": -34096.6,
+     "yaw": 222.96,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.5,
+     "scale_range": [
+      0.5,
+      0.5
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 32,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 8,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "rocks",
+     "folder": "Set/S05_CartConvoy/rocks",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.865,
+      1.43,
+      0.795
+     ],
+     "slope_deg": 3.2,
+     "road_clear_m": 10.68,
+     "contact": "lie",
+     "site_uv": [
+      5.8,
+      11.4
+     ],
+     "role": "half-buried field rock on the bank above the tipped cart",
+     "story_set": "V3",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "S05_CartConvoy_v3_067",
+     "key": "LF_Rock_04",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_04",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 560342.0,
+     "y_cm": 409891.3,
+     "ground_z_cm": -34150.0,
+     "yaw": 212.21,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.46,
+     "scale_range": [
+      0.46,
+      0.46
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 27,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 8,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "rocks",
+     "folder": "Set/S05_CartConvoy/rocks",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      1.076,
+      1.145,
+      0.672
+     ],
+     "slope_deg": 3.1,
+     "road_clear_m": 15.13,
+     "contact": "lie",
+     "site_uv": [
+      -3.2,
+      -15.8
+     ],
+     "role": "half-buried field rock out on the flat, behind the file",
+     "story_set": "V3",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "S05_CartConvoy_v3_068",
+     "key": "LF_Rock_05",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_05",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 559141.6,
+     "y_cm": 408887.8,
+     "ground_z_cm": -34205.7,
+     "yaw": 151.66,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.4,
+     "scale_range": [
+      0.4,
+      0.4
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 21,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 8,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "rocks",
+     "folder": "Set/S05_CartConvoy/rocks",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.712,
+      0.884,
+      0.516
+     ],
+     "slope_deg": 5.4,
+     "road_clear_m": 14.13,
+     "contact": "lie",
+     "site_uv": [
+      12.4,
+      -14.6
+     ],
+     "role": "half-buried field rock out on the flat, beyond the lead cart",
+     "story_set": "V3",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "S05_CartConvoy_v3_069",
+     "key": "FAB_Shrub_F",
+     "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarF",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 558834.3,
+     "y_cm": 409494.7,
+     "ground_z_cm": -34176.8,
+     "yaw": 4.73,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.031,
+     "scale_range": [
+      1.031,
+      1.031
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/S05_CartConvoy/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.742,
+      0.608,
+      0.546
+     ],
+     "slope_deg": 2.8,
+     "road_clear_m": 7.64,
+     "contact": "lie",
+     "site_uv": [
+      10.36,
+      -8.11
+     ],
+     "role": "dead shrub against the outer side of C1",
+     "story_set": "V3",
+     "block": "creep"
+    },
+    {
+     "id": "S05_CartConvoy_v3_070",
+     "key": "FAB_Shrub_H",
+     "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarH",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 559004.5,
+     "y_cm": 409829.6,
+     "ground_z_cm": -34159.2,
+     "yaw": 181.15,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.848,
+     "scale_range": [
+      0.848,
+      0.848
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/S05_CartConvoy/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.814,
+      0.484,
+      0.458
+     ],
+     "slope_deg": 2.2,
+     "road_clear_m": 6.45,
+     "contact": "lie",
+     "site_uv": [
+      6.8,
+      -6.9
+     ],
+     "role": "dead shrub in the lee of the tail of C1",
+     "story_set": "V3",
+     "block": "creep"
+    },
+    {
+     "id": "S05_CartConvoy_v3_071",
+     "key": "FAB_Shrub_D",
+     "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarD",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 559620.5,
+     "y_cm": 410378.2,
+     "ground_z_cm": -34141.2,
+     "yaw": 188.99,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.065,
+     "scale_range": [
+      1.065,
+      1.065
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/S05_CartConvoy/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.447,
+      0.426,
+      0.352
+     ],
+     "slope_deg": 2.8,
+     "road_clear_m": 6.97,
+     "contact": "lie",
+     "site_uv": [
+      -1.44,
+      -7.28
+     ],
+     "role": "dead shrub against the outer side of C4",
+     "story_set": "V3",
+     "block": "creep"
+    },
+    {
+     "id": "S05_CartConvoy_v3_072",
+     "key": "FAB_Shrub_F",
+     "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarF",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 559962.5,
+     "y_cm": 410743.1,
+     "ground_z_cm": -34143.4,
+     "yaw": 328.71,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.821,
+     "scale_range": [
+      0.821,
+      0.821
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/S05_CartConvoy/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.591,
+      0.485,
+      0.435
+     ],
+     "slope_deg": 3.5,
+     "road_clear_m": 6.71,
+     "contact": "lie",
+     "site_uv": [
+      -6.43,
+      -7.05
+     ],
+     "role": "dead shrub against the outer side of C5",
+     "story_set": "V3",
+     "block": "creep"
+    },
+    {
+     "id": "S05_CartConvoy_v3_073",
+     "key": "FAB_Shrub_G",
+     "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarG",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 560602.3,
+     "y_cm": 410623.6,
+     "ground_z_cm": -34147.8,
+     "yaw": 281.64,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.991,
+     "scale_range": [
+      0.991,
+      0.991
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/S05_CartConvoy/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      1.149,
+      1.021,
+      0.654
+     ],
+     "slope_deg": 2.2,
+     "road_clear_m": 11.62,
+     "contact": "lie",
+     "site_uv": [
+      -10.18,
+      -12.38
+     ],
+     "role": "dead shrub at the tree foot",
+     "story_set": "V3",
+     "block": "creep"
+    },
+    {
+     "id": "S05_CartConvoy_v3_074",
+     "key": "FAB_Shrub_E",
+     "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarE",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 560719.4,
+     "y_cm": 410734.6,
+     "ground_z_cm": -34153.3,
+     "yaw": 44.0,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.888,
+     "scale_range": [
+      0.888,
+      0.888
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/S05_CartConvoy/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.657,
+      0.604,
+      0.426
+     ],
+     "slope_deg": 2.5,
+     "road_clear_m": 12.1,
+     "contact": "lie",
+     "site_uv": [
+      -11.79,
+      -12.4
+     ],
+     "role": "dead shrub at the tree foot",
+     "story_set": "V3",
+     "block": "creep"
+    },
+    {
+     "id": "S05_CartConvoy_v3_075",
+     "key": "FAB_Shrub_C",
+     "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarC",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 560519.0,
+     "y_cm": 410825.4,
+     "ground_z_cm": -34145.0,
+     "yaw": 285.0,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.869,
+     "scale_range": [
+      0.869,
+      0.869
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/S05_CartConvoy/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.712,
+      0.634,
+      0.391
+     ],
+     "slope_deg": 1.9,
+     "road_clear_m": 9.88,
+     "contact": "lie",
+     "site_uv": [
+      -10.99,
+      -10.35
+     ],
+     "role": "dead shrub at the tree foot",
+     "story_set": "V3",
+     "block": "creep"
+    },
+    {
+     "id": "S05_CartConvoy_v3_076",
+     "key": "FAB_Shrub_D",
+     "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarD",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 558207.5,
+     "y_cm": 411298.1,
+     "ground_z_cm": -34109.6,
+     "yaw": 2.7,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.129,
+     "scale_range": [
+      1.129,
+      1.129
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/S05_CartConvoy/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.474,
+      0.452,
+      0.373
+     ],
+     "slope_deg": 2.2,
+     "road_clear_m": 8.85,
+     "contact": "lie",
+     "site_uv": [
+      2.25,
+      9.17
+     ],
+     "role": "dead shrub against the bottom of the tipped cart",
+     "story_set": "V3",
+     "block": "creep"
+    },
+    {
+     "id": "S05_CartConvoy_v3_077",
+     "key": "FAB_Shrub_E",
+     "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarE",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 558657.1,
+     "y_cm": 411265.6,
+     "ground_z_cm": -34135.3,
+     "yaw": 222.51,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.899,
+     "scale_range": [
+      0.899,
+      0.899
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/S05_CartConvoy/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.665,
+      0.612,
+      0.432
+     ],
+     "slope_deg": 7.9,
+     "road_clear_m": 5.49,
+     "contact": "lie",
+     "site_uv": [
+      -0.74,
+      5.8
+     ],
+     "role": "dead shrub through the old spill",
+     "story_set": "V3",
+     "block": "creep"
+    },
+    {
+     "id": "S05_CartConvoy_v3_078",
+     "key": "FAB_Shrub_G",
+     "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarG",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 558722.3,
+     "y_cm": 411580.2,
+     "ground_z_cm": -34140.4,
+     "yaw": 170.24,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.969,
+     "scale_range": [
+      0.969,
+      0.969
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/S05_CartConvoy/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      1.124,
+      0.998,
+      0.64
+     ],
+     "slope_deg": 8.1,
+     "road_clear_m": 6.85,
+     "contact": "lie",
+     "site_uv": [
+      -3.4,
+      7.6
+     ],
+     "role": "dead shrub on the bank edge",
+     "story_set": "V3",
+     "block": "creep"
+    },
+    {
+     "id": "S05_CartConvoy_v3_079",
+     "key": "FAB_Shrub_C",
+     "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarC",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 557874.0,
+     "y_cm": 411032.0,
+     "ground_z_cm": -34110.4,
+     "yaw": 279.09,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.143,
+     "scale_range": [
+      1.143,
+      1.143
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/S05_CartConvoy/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.937,
+      0.834,
+      0.514
+     ],
+     "slope_deg": 4.0,
+     "road_clear_m": 8.98,
+     "contact": "lie",
+     "site_uv": [
+      6.5,
+      9.6
+     ],
+     "role": "dead shrub on the bank",
+     "story_set": "V3",
+     "block": "creep"
+    },
+    {
+     "id": "S05_CartConvoy_v3_080",
+     "key": "FAB_Shrub_C",
+     "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarC",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 560712.8,
+     "y_cm": 411279.4,
+     "ground_z_cm": -34174.3,
+     "yaw": 24.63,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.85,
+     "scale_range": [
+      0.85,
+      0.85
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/S05_CartConvoy/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.697,
+      0.62,
+      0.382
+     ],
+     "slope_deg": 3.2,
+     "road_clear_m": 8.04,
+     "contact": "lie",
+     "site_uv": [
+      -15.55,
+      -8.45
+     ],
+     "role": "dead shrub a clump on the flat",
+     "story_set": "V3",
+     "block": "creep"
+    },
+    {
+     "id": "S05_CartConvoy_v3_081",
+     "key": "FAB_Shrub_G",
+     "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarG",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 560814.0,
+     "y_cm": 411253.0,
+     "ground_z_cm": -34175.7,
+     "yaw": 56.53,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.996,
+     "scale_range": [
+      0.996,
+      0.996
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/S05_CartConvoy/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      1.155,
+      1.026,
+      0.657
+     ],
+     "slope_deg": 2.6,
+     "road_clear_m": 8.73,
+     "contact": "lie",
+     "site_uv": [
+      -16.09,
+      -9.35
+     ],
+     "role": "dead shrub a clump on the flat",
+     "story_set": "V3",
+     "block": "creep"
+    },
+    {
+     "id": "S05_CartConvoy_v3_082",
+     "key": "FAB_Shrub_C",
+     "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarC",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 559468.5,
+     "y_cm": 409356.9,
+     "ground_z_cm": -34186.8,
+     "yaw": 232.89,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.941,
+     "scale_range": [
+      0.941,
+      0.941
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/S05_CartConvoy/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.771,
+      0.687,
+      0.423
+     ],
+     "slope_deg": 4.2,
+     "road_clear_m": 13.13,
+     "contact": "lie",
+     "site_uv": [
+      6.79,
+      -13.53
+     ],
+     "role": "dead shrub a clump on the flat",
+     "story_set": "V3",
+     "block": "creep"
+    },
+    {
+     "id": "S05_CartConvoy_v3_083",
+     "key": "FAB_Shrub_G",
+     "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarG",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 559372.7,
+     "y_cm": 409329.9,
+     "ground_z_cm": -34187.0,
+     "yaw": 95.37,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.922,
+     "scale_range": [
+      0.922,
+      0.922
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/S05_CartConvoy/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      1.069,
+      0.949,
+      0.608
+     ],
+     "slope_deg": 4.0,
+     "road_clear_m": 12.34,
+     "contact": "lie",
+     "site_uv": [
+      7.66,
+      -13.05
+     ],
+     "role": "dead shrub a clump on the flat",
+     "story_set": "V3",
+     "block": "creep"
+    },
+    {
+     "id": "S05_CartConvoy_v3_084",
+     "key": "FAB_Shrub_E",
+     "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarE",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 559223.5,
+     "y_cm": 409229.0,
+     "ground_z_cm": -34187.6,
+     "yaw": 45.94,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.971,
+     "scale_range": [
+      0.971,
+      0.971
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/S05_CartConvoy/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.719,
+      0.661,
+      0.466
+     ],
+     "slope_deg": 2.3,
+     "road_clear_m": 12.39,
+     "contact": "lie",
+     "site_uv": [
+      9.43,
+      -12.73
+     ],
+     "role": "dead shrub a clump on the flat",
+     "story_set": "V3",
+     "block": "creep"
+    },
+    {
+     "id": "S05_CartConvoy_v3_085",
+     "key": "FAB_Shrub_C",
+     "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarC",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 558910.4,
+     "y_cm": 412256.9,
+     "ground_z_cm": -34150.4,
+     "yaw": 136.89,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.086,
+     "scale_range": [
+      1.086,
+      1.086
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/S05_CartConvoy/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.891,
+      0.793,
+      0.489
+     ],
+     "slope_deg": 3.4,
+     "road_clear_m": 10.67,
+     "contact": "lie",
+     "site_uv": [
+      -9.47,
+      11.13
+     ],
+     "role": "dead shrub a clump on the flat",
+     "story_set": "V3",
+     "block": "creep"
+    },
+    {
+     "id": "S05_CartConvoy_v3_086",
+     "key": "FAB_Shrub_C",
+     "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarC",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 558790.7,
+     "y_cm": 412188.8,
+     "ground_z_cm": -34143.3,
+     "yaw": 15.47,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.027,
+     "scale_range": [
+      1.027,
+      1.027
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/S05_CartConvoy/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.842,
+      0.749,
+      0.462
+     ],
+     "slope_deg": 3.1,
+     "road_clear_m": 10.95,
+     "contact": "lie",
+     "site_uv": [
+      -8.14,
+      11.48
+     ],
+     "role": "dead shrub a clump on the flat",
+     "story_set": "V3",
+     "block": "creep"
+    },
+    {
+     "id": "S05_CartConvoy_v3_087",
+     "key": "FAB_Shrub_F",
+     "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarF",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 559021.8,
+     "y_cm": 412334.2,
+     "ground_z_cm": -34157.4,
+     "yaw": 281.74,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.042,
+     "scale_range": [
+      1.042,
+      1.042
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/S05_CartConvoy/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.75,
+      0.615,
+      0.552
+     ],
+     "slope_deg": 3.7,
+     "road_clear_m": 10.42,
+     "contact": "lie",
+     "site_uv": [
+      -10.81,
+      10.9
+     ],
+     "role": "dead shrub a clump on the flat",
+     "story_set": "V3",
+     "block": "creep"
+    },
+    {
+     "id": "S05_CartConvoy_v3_088",
+     "key": "FAB_Shrub_F",
+     "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarF",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 557467.0,
+     "y_cm": 410542.6,
+     "ground_z_cm": -34162.8,
+     "yaw": 15.64,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.055,
+     "scale_range": [
+      1.055,
+      1.055
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/S05_CartConvoy/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.759,
+      0.622,
+      0.559
+     ],
+     "slope_deg": 8.4,
+     "road_clear_m": 8.48,
+     "contact": "lie",
+     "site_uv": [
+      12.83,
+      8.94
+     ],
+     "role": "dead shrub a clump on the flat",
+     "story_set": "V3",
+     "block": "creep"
+    },
+    {
+     "id": "S05_CartConvoy_v3_089",
+     "key": "FAB_Shrub_F",
+     "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarF",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 557418.7,
+     "y_cm": 410454.0,
+     "ground_z_cm": -34173.6,
+     "yaw": 225.88,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.821,
+     "scale_range": [
+      0.821,
+      0.821
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/S05_CartConvoy/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.591,
+      0.485,
+      0.435
+     ],
+     "slope_deg": 6.2,
+     "road_clear_m": 8.39,
+     "contact": "lie",
+     "site_uv": [
+      13.8,
+      8.64
+     ],
+     "role": "dead shrub a clump on the flat",
+     "story_set": "V3",
+     "block": "creep"
+    },
+    {
+     "id": "S05_CartConvoy_v3_090",
+     "key": "FAB_Shrub_H",
+     "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarH",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 557380.7,
+     "y_cm": 410522.2,
+     "ground_z_cm": -34173.5,
+     "yaw": 342.1,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.926,
+     "scale_range": [
+      0.926,
+      0.926
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/S05_CartConvoy/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.889,
+      0.528,
+      0.5
+     ],
+     "slope_deg": 6.5,
+     "road_clear_m": 8.88,
+     "contact": "lie",
+     "site_uv": [
+      13.59,
+      9.4
+     ],
+     "role": "dead shrub a clump on the flat",
+     "story_set": "V3",
+     "block": "creep"
+    },
+    {
+     "id": "S05_CartConvoy_v3_091",
+     "key": "FAB_Shrub_F",
+     "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarF",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 559750.6,
+     "y_cm": 412616.5,
+     "ground_z_cm": -34186.9,
+     "yaw": 88.23,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.984,
+     "scale_range": [
+      0.984,
+      0.984
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/S05_CartConvoy/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.709,
+      0.581,
+      0.522
+     ],
+     "slope_deg": 1.2,
+     "road_clear_m": 7.38,
+     "contact": "lie",
+     "site_uv": [
+      -18.0,
+      7.84
+     ],
+     "role": "dead shrub a clump on the flat",
+     "story_set": "V3",
+     "block": "creep"
+    },
+    {
+     "id": "S05_CartConvoy_v3_092",
+     "key": "FAB_Shrub_G",
+     "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarG",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 560010.2,
+     "y_cm": 412646.4,
+     "ground_z_cm": -34182.3,
+     "yaw": 212.36,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.908,
+     "scale_range": [
+      0.908,
+      0.908
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/S05_CartConvoy/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      1.053,
+      0.935,
+      0.599
+     ],
+     "slope_deg": 1.3,
+     "road_clear_m": 5.67,
+     "contact": "lie",
+     "site_uv": [
+      -20.06,
+      6.24
+     ],
+     "role": "dead shrub a clump on the flat",
+     "story_set": "V3",
+     "block": "creep"
+    },
+    {
+     "id": "S05_CartConvoy_v3_093",
+     "key": "FAB_Shrub_F",
+     "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarF",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 559941.4,
+     "y_cm": 412750.9,
+     "ground_z_cm": -34182.4,
+     "yaw": 46.93,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.89,
+     "scale_range": [
+      0.89,
+      0.89
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/S05_CartConvoy/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.641,
+      0.525,
+      0.472
+     ],
+     "slope_deg": 1.9,
+     "road_clear_m": 7.19,
+     "contact": "lie",
+     "site_uv": [
+      -20.3,
+      7.47
+     ],
+     "role": "dead shrub a clump on the flat",
+     "story_set": "V3",
+     "block": "creep"
+    }
+   ],
+   "ground": [
+    {
+     "id": "S05_CartConvoy_v3_g00",
+     "surface": "path",
+     "shape": "capsule",
+     "x_cm": 558969.0,
+     "y_cm": 410062.2,
+     "z_cm": -34156.4,
+     "yaw": 248.8,
+     "length_m": 1.48,
+     "width_m": 0.24,
+     "depth_m": 2.0,
+     "strength": 0.62,
+     "sort": 3,
+     "role": "C1 wheel rut, off the road"
+    },
+    {
+     "id": "S05_CartConvoy_v3_g01",
+     "surface": "path",
+     "shape": "capsule",
+     "x_cm": 558913.2,
+     "y_cm": 409947.7,
+     "z_cm": -34159.9,
+     "yaw": 239.6,
+     "length_m": 1.56,
+     "width_m": 0.24,
+     "depth_m": 2.0,
+     "strength": 0.62,
+     "sort": 3,
+     "role": "C1 wheel rut, off the road"
+    },
+    {
+     "id": "S05_CartConvoy_v3_g02",
+     "surface": "path",
+     "shape": "capsule",
+     "x_cm": 558849.2,
+     "y_cm": 409856.8,
+     "z_cm": -34163.3,
+     "yaw": 228.1,
+     "length_m": 1.16,
+     "width_m": 0.24,
+     "depth_m": 2.0,
+     "strength": 0.62,
+     "sort": 3,
+     "role": "C1 wheel rut, off the road"
+    },
+    {
+     "id": "S05_CartConvoy_v3_g03",
+     "surface": "path",
+     "shape": "capsule",
+     "x_cm": 559204.0,
+     "y_cm": 410204.2,
+     "z_cm": -34151.9,
+     "yaw": 257.4,
+     "length_m": 3.16,
+     "width_m": 0.24,
+     "depth_m": 2.0,
+     "strength": 0.62,
+     "sort": 3,
+     "role": "C1 wheel rut, off the road"
+    },
+    {
+     "id": "S05_CartConvoy_v3_g04",
+     "surface": "path",
+     "shape": "capsule",
+     "x_cm": 559120.9,
+     "y_cm": 409947.3,
+     "z_cm": -34154.4,
+     "yaw": 245.9,
+     "length_m": 2.75,
+     "width_m": 0.24,
+     "depth_m": 2.0,
+     "strength": 0.62,
+     "sort": 3,
+     "role": "C1 wheel rut, off the road"
+    },
+    {
+     "id": "S05_CartConvoy_v3_g05",
+     "surface": "path",
+     "shape": "capsule",
+     "x_cm": 559008.1,
+     "y_cm": 409757.5,
+     "z_cm": -34161.8,
+     "yaw": 230.7,
+     "length_m": 2.18,
+     "width_m": 0.24,
+     "depth_m": 2.0,
+     "strength": 0.62,
+     "sort": 3,
+     "role": "C1 wheel rut, off the road"
+    },
+    {
+     "id": "S05_CartConvoy_v3_g06",
+     "surface": "path",
+     "shape": "capsule",
+     "x_cm": 559216.7,
+     "y_cm": 410328.8,
+     "z_cm": -34153.0,
+     "yaw": 241.9,
+     "length_m": 1.13,
+     "width_m": 0.24,
+     "depth_m": 2.0,
+     "strength": 0.62,
+     "sort": 3,
+     "role": "C2 wheel rut, off the road"
+    },
+    {
+     "id": "S05_CartConvoy_v3_g07",
+     "surface": "path",
+     "shape": "capsule",
+     "x_cm": 559165.8,
+     "y_cm": 410244.5,
+     "z_cm": -34152.1,
+     "yaw": 236.4,
+     "length_m": 1.32,
+     "width_m": 0.24,
+     "depth_m": 2.0,
+     "strength": 0.62,
+     "sort": 3,
+     "role": "C2 wheel rut, off the road"
+    },
+    {
+     "id": "S05_CartConvoy_v3_g08",
+     "surface": "path",
+     "shape": "capsule",
+     "x_cm": 559111.9,
+     "y_cm": 410170.5,
+     "z_cm": -34151.5,
+     "yaw": 230.2,
+     "length_m": 0.99,
+     "width_m": 0.24,
+     "depth_m": 2.0,
+     "strength": 0.62,
+     "sort": 3,
+     "role": "C2 wheel rut, off the road"
+    },
+    {
+     "id": "S05_CartConvoy_v3_g09",
+     "surface": "path",
+     "shape": "capsule",
+     "x_cm": 559446.8,
+     "y_cm": 410508.6,
+     "z_cm": -34152.1,
+     "yaw": 251.1,
+     "length_m": 2.52,
+     "width_m": 0.24,
+     "depth_m": 2.0,
+     "strength": 0.62,
+     "sort": 3,
+     "role": "C2 wheel rut, off the road"
+    },
+    {
+     "id": "S05_CartConvoy_v3_g10",
+     "surface": "path",
+     "shape": "capsule",
+     "x_cm": 559356.7,
+     "y_cm": 410295.0,
+     "z_cm": -34148.8,
+     "yaw": 243.2,
+     "length_m": 2.6,
+     "width_m": 0.24,
+     "depth_m": 2.0,
+     "strength": 0.62,
+     "sort": 3,
+     "role": "C2 wheel rut, off the road"
+    },
+    {
+     "id": "S05_CartConvoy_v3_g11",
+     "surface": "path",
+     "shape": "capsule",
+     "x_cm": 559248.6,
+     "y_cm": 410116.7,
+     "z_cm": -34149.8,
+     "yaw": 233.0,
+     "length_m": 2.06,
+     "width_m": 0.24,
+     "depth_m": 2.0,
+     "strength": 0.62,
+     "sort": 3,
+     "role": "C2 wheel rut, off the road"
+    },
+    {
+     "id": "S05_CartConvoy_v3_g12",
+     "surface": "path",
+     "shape": "capsule",
+     "x_cm": 559759.1,
+     "y_cm": 410842.9,
+     "z_cm": -34155.1,
+     "yaw": 246.9,
+     "length_m": 1.49,
+     "width_m": 0.24,
+     "depth_m": 2.0,
+     "strength": 0.62,
+     "sort": 3,
+     "role": "C4 wheel rut, off the road"
+    },
+    {
+     "id": "S05_CartConvoy_v3_g13",
+     "surface": "path",
+     "shape": "capsule",
+     "x_cm": 559698.6,
+     "y_cm": 410727.0,
+     "z_cm": -34151.4,
+     "yaw": 238.4,
+     "length_m": 1.61,
+     "width_m": 0.24,
+     "depth_m": 2.0,
+     "strength": 0.62,
+     "sort": 3,
+     "role": "C4 wheel rut, off the road"
+    },
+    {
+     "id": "S05_CartConvoy_v3_g14",
+     "surface": "path",
+     "shape": "capsule",
+     "x_cm": 559630.1,
+     "y_cm": 410632.5,
+     "z_cm": -34149.9,
+     "yaw": 228.0,
+     "length_m": 1.21,
+     "width_m": 0.24,
+     "depth_m": 2.0,
+     "strength": 0.62,
+     "sort": 3,
+     "role": "C4 wheel rut, off the road"
+    },
+    {
+     "id": "S05_CartConvoy_v3_g15",
+     "surface": "path",
+     "shape": "capsule",
+     "x_cm": 559951.1,
+     "y_cm": 410965.7,
+     "z_cm": -34159.1,
+     "yaw": 254.4,
+     "length_m": 2.61,
+     "width_m": 0.24,
+     "depth_m": 2.0,
+     "strength": 0.62,
+     "sort": 3,
+     "role": "C4 wheel rut, off the road"
+    },
+    {
+     "id": "S05_CartConvoy_v3_g16",
+     "surface": "path",
+     "shape": "capsule",
+     "x_cm": 559866.5,
+     "y_cm": 410742.7,
+     "z_cm": -34146.7,
+     "yaw": 244.2,
+     "length_m": 2.66,
+     "width_m": 0.24,
+     "depth_m": 2.0,
+     "strength": 0.62,
+     "sort": 3,
+     "role": "C4 wheel rut, off the road"
+    },
+    {
+     "id": "S05_CartConvoy_v3_g17",
+     "surface": "path",
+     "shape": "capsule",
+     "x_cm": 559754.6,
+     "y_cm": 410562.3,
+     "z_cm": -34141.1,
+     "yaw": 230.4,
+     "length_m": 2.1,
+     "width_m": 0.24,
+     "depth_m": 2.0,
+     "strength": 0.62,
+     "sort": 3,
+     "role": "C4 wheel rut, off the road"
+    },
+    {
+     "id": "S05_CartConvoy_v3_g18",
+     "surface": "path",
+     "shape": "capsule",
+     "x_cm": 560052.3,
+     "y_cm": 411144.6,
+     "z_cm": -34169.6,
+     "yaw": 242.5,
+     "length_m": 1.43,
+     "width_m": 0.24,
+     "depth_m": 2.0,
+     "strength": 0.62,
+     "sort": 3,
+     "role": "C5 wheel rut, off the road"
+    },
+    {
+     "id": "S05_CartConvoy_v3_g19",
+     "surface": "path",
+     "shape": "capsule",
+     "x_cm": 559994.7,
+     "y_cm": 411047.0,
+     "z_cm": -34164.9,
+     "yaw": 236.0,
+     "length_m": 1.32,
+     "width_m": 0.24,
+     "depth_m": 2.0,
+     "strength": 0.62,
+     "sort": 3,
+     "role": "C5 wheel rut, off the road"
+    },
+    {
+     "id": "S05_CartConvoy_v3_g20",
+     "surface": "path",
+     "shape": "capsule",
+     "x_cm": 559940.3,
+     "y_cm": 410974.0,
+     "z_cm": -34160.2,
+     "yaw": 229.4,
+     "length_m": 0.98,
+     "width_m": 0.24,
+     "depth_m": 2.0,
+     "strength": 0.62,
+     "sort": 3,
+     "role": "C5 wheel rut, off the road"
+    },
+    {
+     "id": "S05_CartConvoy_v3_g21",
+     "surface": "path",
+     "shape": "capsule",
+     "x_cm": 560275.1,
+     "y_cm": 411311.6,
+     "z_cm": -34172.4,
+     "yaw": 251.6,
+     "length_m": 2.54,
+     "width_m": 0.24,
+     "depth_m": 2.0,
+     "strength": 0.62,
+     "sort": 3,
+     "role": "C5 wheel rut, off the road"
+    },
+    {
+     "id": "S05_CartConvoy_v3_g22",
+     "surface": "path",
+     "shape": "capsule",
+     "x_cm": 560185.4,
+     "y_cm": 411096.8,
+     "z_cm": -34164.8,
+     "yaw": 243.2,
+     "length_m": 2.61,
+     "width_m": 0.24,
+     "depth_m": 2.0,
+     "strength": 0.62,
+     "sort": 3,
+     "role": "C5 wheel rut, off the road"
+    },
+    {
+     "id": "S05_CartConvoy_v3_g23",
+     "surface": "path",
+     "shape": "capsule",
+     "x_cm": 560076.1,
+     "y_cm": 410918.6,
+     "z_cm": -34156.2,
+     "yaw": 232.3,
+     "length_m": 2.07,
+     "width_m": 0.24,
+     "depth_m": 2.0,
+     "strength": 0.62,
+     "sort": 3,
+     "role": "C5 wheel rut, off the road"
+    },
+    {
+     "id": "S05_CartConvoy_v3_g24",
+     "surface": "path",
+     "shape": "capsule",
+     "x_cm": 558865.4,
+     "y_cm": 411450.3,
+     "z_cm": -34156.3,
+     "yaw": 174.5,
+     "length_m": 2.98,
+     "width_m": 0.24,
+     "depth_m": 2.0,
+     "strength": 0.62,
+     "sort": 3,
+     "role": "C3 wheel rut, up the bank"
+    },
+    {
+     "id": "S05_CartConvoy_v3_g25",
+     "surface": "path",
+     "shape": "capsule",
+     "x_cm": 558619.4,
+     "y_cm": 411460.2,
+     "z_cm": -34128.7,
+     "yaw": 181.7,
+     "length_m": 2.43,
+     "width_m": 0.24,
+     "depth_m": 2.0,
+     "strength": 0.62,
+     "sort": 3,
+     "role": "C3 wheel rut, up the bank"
+    },
+    {
+     "id": "S05_CartConvoy_v3_g26",
+     "surface": "path",
+     "shape": "capsule",
+     "x_cm": 558425.5,
+     "y_cm": 411435.2,
+     "z_cm": -34112.3,
+     "yaw": 194.4,
+     "length_m": 1.98,
+     "width_m": 0.24,
+     "depth_m": 2.0,
+     "strength": 0.62,
+     "sort": 3,
+     "role": "C3 wheel rut, up the bank"
+    },
+    {
+     "id": "S05_CartConvoy_v3_g27",
+     "surface": "path",
+     "shape": "capsule",
+     "x_cm": 558747.5,
+     "y_cm": 411316.0,
+     "z_cm": -34146.2,
+     "yaw": 177.0,
+     "length_m": 2.18,
+     "width_m": 0.24,
+     "depth_m": 2.0,
+     "strength": 0.62,
+     "sort": 3,
+     "role": "C3 wheel rut, up the bank"
+    },
+    {
+     "id": "S05_CartConvoy_v3_g28",
+     "surface": "path",
+     "shape": "capsule",
+     "x_cm": 558575.9,
+     "y_cm": 411315.7,
+     "z_cm": -34124.1,
+     "yaw": 184.1,
+     "length_m": 1.73,
+     "width_m": 0.24,
+     "depth_m": 2.0,
+     "strength": 0.62,
+     "sort": 3,
+     "role": "C3 wheel rut, up the bank"
+    },
+    {
+     "id": "S05_CartConvoy_v3_g29",
+     "surface": "path",
+     "shape": "capsule",
+     "x_cm": 558450.9,
+     "y_cm": 411296.3,
+     "z_cm": -34112.4,
+     "yaw": 195.5,
+     "length_m": 1.29,
+     "width_m": 0.24,
+     "depth_m": 2.0,
+     "strength": 0.62,
+     "sort": 3,
+     "role": "C3 wheel rut, up the bank"
+    },
+    {
+     "id": "S05_CartConvoy_v3_g30",
+     "surface": "path",
+     "shape": "capsule",
+     "x_cm": 560081.5,
+     "y_cm": 411041.2,
+     "z_cm": -34162.6,
+     "yaw": 322.9,
+     "length_m": 3.13,
+     "width_m": 0.8,
+     "depth_m": 2.0,
+     "strength": 0.8,
+     "sort": 3,
+     "role": "the trodden way from the road to the hearth"
+    },
+    {
+     "id": "S05_CartConvoy_v3_g31",
+     "surface": "path",
+     "shape": "capsule",
+     "x_cm": 560183.0,
+     "y_cm": 410947.0,
+     "z_cm": -34156.3,
+     "yaw": 289.8,
+     "length_m": 1.31,
+     "width_m": 0.8,
+     "depth_m": 2.0,
+     "strength": 0.8,
+     "sort": 3,
+     "role": "the trodden way from the road to the hearth"
+    },
+    {
+     "id": "S05_CartConvoy_v3_g32",
+     "surface": "path",
+     "shape": "capsule",
+     "x_cm": 560062.8,
+     "y_cm": 410613.0,
+     "z_cm": -34141.1,
+     "yaw": 227.3,
+     "length_m": 3.21,
+     "width_m": 0.7,
+     "depth_m": 2.0,
+     "strength": 0.62,
+     "sort": 3,
+     "role": "the way along the outer side of the file"
+    },
+    {
+     "id": "S05_CartConvoy_v3_g33",
+     "surface": "path",
+     "shape": "capsule",
+     "x_cm": 559877.3,
+     "y_cm": 410440.3,
+     "z_cm": -34137.2,
+     "yaw": 218.7,
+     "length_m": 3.28,
+     "width_m": 0.7,
+     "depth_m": 2.0,
+     "strength": 0.62,
+     "sort": 3,
+     "role": "the way along the outer side of the file"
+    },
+    {
+     "id": "S05_CartConvoy_v3_g34",
+     "surface": "path",
+     "shape": "capsule",
+     "x_cm": 559618.4,
+     "y_cm": 410173.8,
+     "z_cm": -34140.8,
+     "yaw": 229.6,
+     "length_m": 5.59,
+     "width_m": 0.7,
+     "depth_m": 2.0,
+     "strength": 0.62,
+     "sort": 3,
+     "role": "the way along the outer side of the file"
+    },
+    {
+     "id": "S05_CartConvoy_v3_g35",
+     "surface": "path",
+     "shape": "capsule",
+     "x_cm": 559206.9,
+     "y_cm": 409754.9,
+     "z_cm": -34160.5,
+     "yaw": 222.6,
+     "length_m": 7.58,
+     "width_m": 0.7,
+     "depth_m": 2.0,
+     "strength": 0.62,
+     "sort": 3,
+     "role": "the way along the outer side of the file"
+    },
+    {
+     "id": "S05_CartConvoy_v3_g36",
+     "surface": "packed_earth",
+     "shape": "ellipse",
+     "x_cm": 559430.0,
+     "y_cm": 410196.1,
+     "z_cm": -34166.7,
+     "yaw": 224.3,
+     "length_m": 23.0,
+     "width_m": 5.0,
+     "depth_m": 2.0,
+     "strength": 0.55,
+     "sort": 0,
+     "role": "the halt: the verge the column stood on"
+    },
+    {
+     "id": "S05_CartConvoy_v3_g37",
+     "surface": "packed_earth",
+     "shape": "ellipse",
+     "x_cm": 560409.4,
+     "y_cm": 410823.2,
+     "z_cm": -34152.8,
+     "yaw": 204.3,
+     "length_m": 6.5,
+     "width_m": 5.0,
+     "depth_m": 2.0,
+     "strength": 0.6,
+     "sort": 0,
+     "role": "the shade under the tree"
+    },
+    {
+     "id": "S05_CartConvoy_v3_g38",
+     "surface": "soot",
+     "shape": "ellipse",
+     "x_cm": 560235.9,
+     "y_cm": 410800.6,
+     "z_cm": -34146.5,
+     "yaw": 224.3,
+     "length_m": 1.25,
+     "width_m": 1.1,
+     "depth_m": 2.0,
+     "strength": 0.8,
+     "sort": 4,
+     "role": "the cold hearth"
+    },
+    {
+     "id": "S05_CartConvoy_v3_g39",
+     "surface": "rubble_dust",
+     "shape": "ellipse",
+     "x_cm": 559043.3,
+     "y_cm": 409819.8,
+     "z_cm": -34159.7,
+     "yaw": 19.9,
+     "length_m": 3.4,
+     "width_m": 1.35,
+     "depth_m": 2.0,
+     "strength": 0.55,
+     "sort": 1,
+     "role": "C1: dust drifted in its lee"
+    },
+    {
+     "id": "S05_CartConvoy_v3_g40",
+     "surface": "rubble_dust",
+     "shape": "ellipse",
+     "x_cm": 559330.3,
+     "y_cm": 410191.7,
+     "z_cm": -34146.4,
+     "yaw": 19.9,
+     "length_m": 3.4,
+     "width_m": 1.35,
+     "depth_m": 2.0,
+     "strength": 0.55,
+     "sort": 1,
+     "role": "C2: dust drifted in its lee"
+    },
+    {
+     "id": "S05_CartConvoy_v3_g41",
+     "surface": "rubble_dust",
+     "shape": "ellipse",
+     "x_cm": 559858.4,
+     "y_cm": 410658.5,
+     "z_cm": -34143.3,
+     "yaw": 19.9,
+     "length_m": 3.4,
+     "width_m": 1.35,
+     "depth_m": 2.0,
+     "strength": 0.55,
+     "sort": 1,
+     "role": "C4: dust drifted in its lee"
+    },
+    {
+     "id": "S05_CartConvoy_v3_g42",
+     "surface": "rubble_dust",
+     "shape": "ellipse",
+     "x_cm": 560157.2,
+     "y_cm": 410995.2,
+     "z_cm": -34159.6,
+     "yaw": 19.9,
+     "length_m": 3.4,
+     "width_m": 1.35,
+     "depth_m": 2.0,
+     "strength": 0.55,
+     "sort": 1,
+     "role": "C5: dust drifted in its lee"
+    },
+    {
+     "id": "S05_CartConvoy_v3_g43",
+     "surface": "rubble_dust",
+     "shape": "ellipse",
+     "x_cm": 558627.7,
+     "y_cm": 411443.8,
+     "z_cm": -34133.0,
+     "yaw": 19.9,
+     "length_m": 3.4,
+     "width_m": 1.35,
+     "depth_m": 2.0,
+     "strength": 0.55,
+     "sort": 1,
+     "role": "C3: dust drifted in its lee"
+    },
+    {
+     "id": "S05_CartConvoy_v3_g44",
+     "surface": "rubble_dust",
+     "shape": "ellipse",
+     "x_cm": 558523.6,
+     "y_cm": 411239.7,
+     "z_cm": -34127.3,
+     "yaw": 216.3,
+     "length_m": 3.6,
+     "width_m": 1.5,
+     "depth_m": 2.0,
+     "strength": 0.7,
+     "sort": 1,
+     "role": "C3's spilled grain, pale in the dust"
+    }
+   ],
+   "units": [],
+   "waivers": [],
+   "facing_probe": [
+    {
+     "id": "S05_CartConvoy_v3_000",
+     "cart": "C1",
+     "key": "AB_Cart_A_texturing",
+     "want_nose_yaw": 222.3,
+     "flipped": false
+    },
+    {
+     "id": "S05_CartConvoy_v3_001",
+     "cart": "C2",
+     "key": "MV_cart_02",
+     "want_nose_yaw": 227.3,
+     "flipped": false
+    },
+    {
+     "id": "S05_CartConvoy_v3_004",
+     "cart": "C3",
+     "key": "MV_cart_01",
+     "want_nose_yaw": 204.3,
+     "flipped": false
+    },
+    {
+     "id": "S05_CartConvoy_v3_002",
+     "cart": "C4",
+     "key": "MV_cart_01",
+     "want_nose_yaw": 222.8,
+     "flipped": false
+    },
+    {
+     "id": "S05_CartConvoy_v3_003",
+     "cart": "C5",
+     "key": "MV_cart_02",
+     "want_nose_yaw": 226.3,
+     "flipped": false
+    }
+   ],
+   "v2": {
+    "frame": {
+     "origin_road_m": 810.0,
+     "origin_cm": [
+      559009.6,
+      410798.8
+     ],
+     "u": "along travel",
+     "v": "left of travel"
+    },
+    "lanes": [
+     {
+      "pts": [
+       [
+        4.8725806336364315,
+        -4.732215558954072
+       ],
+       [
+        5.99673005383936,
+        -5.244821367422324
+       ],
+       [
+        7.269470340138713,
+        -5.59229845419581
+       ],
+       [
+        8.18251556841162,
+        -5.65269816070458
+       ]
+      ],
+      "width": 0.24,
+      "role": "C1 wheel rut, off the road"
+     },
+     {
+      "pts": [
+       [
+        1.5406976586821295,
+        -4.815934905644693
+       ],
+       [
+        3.981875918838657,
+        -6.410501920406437
+       ],
+       [
+        6.316946575469955,
+        -7.334177782106957
+       ],
+       [
+        8.248824612146372,
+        -7.551540732040862
+       ]
+      ],
+      "width": 0.24,
+      "role": "C1 wheel rut, off the road"
+     },
+     {
+      "pts": [
+       [
+        1.3771962365186599,
+        -4.676739160573922
+       ],
+       [
+        2.222443591727526,
+        -4.944346946531109
+       ],
+       [
+        3.2829558296557044,
+        -5.172659507325035
+       ],
+       [
+        4.02816155133082,
+        -5.249981150292526
+       ]
+      ],
+      "width": 0.24,
+      "role": "C2 wheel rut, off the road"
+     },
+     {
+      "pts": [
+       [
+        -2.121864344963697,
+        -4.615153692455714
+       ],
+       [
+        -0.08352725298922681,
+        -5.645811216575645
+       ],
+       [
+        2.152013233102134,
+        -6.413689785870441
+       ],
+       [
+        3.9527977743409815,
+        -6.688007680339113
+       ]
+      ],
+      "width": 0.24,
+      "role": "C2 wheel rut, off the road"
+     },
+     {
+      "pts": [
+       [
+        -6.2504112636017695,
+        -4.677698624210143
+       ],
+       [
+        -5.094530835381196,
+        -5.15841816235293
+       ],
+       [
+        -3.7651638871118007,
+        -5.491888757990529
+       ],
+       [
+        -2.7937274665231118,
+        -5.5546606579250115
+       ]
+      ],
+      "width": 0.24,
+      "role": "C4 wheel rut, off the road"
+     },
+     {
+      "pts": [
+       [
+        -8.930585320937041,
+        -4.785849565381131
+       ],
+       [
+        -6.877079363247891,
+        -5.974188922240144
+       ],
+       [
+        -4.6051030929385615,
+        -6.7964904303949485
+       ],
+       [
+        -2.7560326609597747,
+        -6.994167205889814
+       ]
+      ],
+      "width": 0.24,
+      "role": "C4 wheel rut, off the road"
+     },
+     {
+      "pts": [
+       [
+        -10.444048192615409,
+        -4.619888442472806
+       ],
+       [
+        -9.311607248356461,
+        -4.993031587001116
+       ],
+       [
+        -8.25589512396248,
+        -5.2120699971970765
+       ],
+       [
+        -7.51465915183088,
+        -5.278271780699939
+       ]
+      ],
+      "width": 0.24,
+      "role": "C5 wheel rut, off the road"
+     },
+     {
+      "pts": [
+       [
+        -13.659370939230556,
+        -4.640594247476109
+       ],
+       [
+        -11.617974656752962,
+        -5.692595001407705
+       ],
+       [
+        -9.375173130874462,
+        -6.462616416347642
+       ],
+       [
+        -7.564914427082481,
+        -6.717394571607436
+       ]
+      ],
+      "width": 0.24,
+      "role": "C5 wheel rut, off the road"
+     },
+     {
+      "pts": [
+       [
+        -4.402753041587279,
+        4.622094266719798
+       ],
+       [
+        -2.631132550973684,
+        6.718131360735013
+       ],
+       [
+        -1.019385560130632,
+        8.200294185807879
+       ],
+       [
+        0.4929960294424542,
+        9.068234218735231
+       ]
+      ],
+      "width": 0.24,
+      "role": "C3 wheel rut, up the bank"
+     },
+     {
+      "pts": [
+       [
+        -2.395104726906858,
+        4.818064976231319
+       ],
+       [
+        -1.0757827700915197,
+        6.245908428448127
+       ],
+       [
+        0.06537819550353663,
+        7.2102526551791914
+       ],
+       [
+        0.9855050358314172,
+        7.715076844803523
+       ]
+      ],
+      "width": 0.24,
+      "role": "C3 wheel rut, up the bank"
+     },
+     {
+      "pts": [
+       [
+        -9.189999999999998,
+        -4.6
+       ],
+       [
+        -9.539999999999997,
+        -6.9
+       ],
+       [
+        -9.327943827591536,
+        -7.366523579298614
+       ]
+      ],
+      "width": 0.8,
+      "role": "the trodden way from the road to the hearth"
+     },
+     {
+      "pts": [
+       [
+        -7.491796821867735,
+        -8.618326483059594
+       ],
+       [
+        -4.9899999999999975,
+        -8.75
+       ],
+       [
+        -2.424999999999998,
+        -8.5
+       ],
+       [
+        2.4400000000000017,
+        -8.95
+       ],
+       [
+        9.315000000000001,
+        -8.75
+       ]
+      ],
+      "width": 0.7,
+      "role": "the way along the outer side of the file"
+     }
+    ],
+    "frames": [
+     {
+      "road_m": 700.0,
+      "pitch": -3.0,
+      "eye_m": 1.22,
+      "lamp_dist_m": 102.4,
+      "hidden_below_m": {
+       "last_cart": 1.02,
+       "tree": 0.84
+      },
+      "lamp_screen": [
+       0.059,
+       0.21
+      ],
+      "lamp_in_frame": true,
+      "lamp_covered_by": [],
+      "lamp_terrain_los": true,
+      "last_cart_box": [
+       0.05,
+       0.07,
+       0.19,
+       0.2
+      ],
+      "cm_per_px_1920": 10.7
+     },
+     {
+      "road_m": 740.0,
+      "pitch": 0.0,
+      "eye_m": 1.22,
+      "lamp_dist_m": 62.5,
+      "hidden_below_m": {
+       "last_cart": 0.67,
+       "tree": 0.43
+      },
+      "lamp_screen": [
+       0.096,
+       0.104
+      ],
+      "lamp_in_frame": true,
+      "lamp_covered_by": [],
+      "lamp_terrain_los": true,
+      "last_cart_box": [
+       0.08,
+       0.11,
+       0.07,
+       0.09
+      ],
+      "cm_per_px_1920": 6.5
+     },
+     {
+      "road_m": 770.0,
+      "pitch": 0.0,
+      "eye_m": 1.22,
+      "lamp_dist_m": 32.8,
+      "hidden_below_m": {
+       "last_cart": 0.0,
+       "tree": 0.0
+      },
+      "lamp_screen": [
+       0.185,
+       0.067
+      ],
+      "lamp_in_frame": true,
+      "lamp_covered_by": [],
+      "lamp_terrain_los": true,
+      "last_cart_box": [
+       0.16,
+       0.21,
+       0.01,
+       0.03
+      ],
+      "cm_per_px_1920": 3.4
+     },
+     {
+      "road_m": 790.0,
+      "pitch": 0.0,
+      "eye_m": 1.22,
+      "lamp_dist_m": 13.6,
+      "hidden_below_m": {
+       "last_cart": 0.0,
+       "tree": 0.0
+      },
+      "lamp_screen": [
+       0.486,
+       0.055
+      ],
+      "lamp_in_frame": true,
+      "lamp_covered_by": [],
+      "lamp_terrain_los": true,
+      "last_cart_box": [
+       0.38,
+       0.59,
+       -0.11,
+       -0.03
+      ],
+      "cm_per_px_1920": 1.4
+     },
+     {
+      "road_m": 798.0,
+      "pitch": 0.0,
+      "eye_m": 1.22,
+      "lamp_dist_m": 7.3,
+      "hidden_below_m": {
+       "last_cart": 0.0,
+       "tree": 0.0
+      },
+      "lamp_screen": [
+       1.399,
+       0.12
+      ],
+      "lamp_in_frame": false,
+      "lamp_covered_by": [],
+      "lamp_terrain_los": true,
+      "last_cart_box": [
+       0.85,
+       2.05,
+       -0.43,
+       -0.09
+      ],
+      "cm_per_px_1920": 0.8
+     }
+    ],
+    "checks": [
+     "C3 tipped: yaw 331.5 pitch 87.6 roll -142.8; down-face gaps [-0.5, 0.1, 1.1, -7.4, -7.6, -7.3, 1.4, 1.1, 0.8] cm (bed top faces the road)",
+     "ISM declash: 25 of 68 pieces moved (max 0.69 m), 6 left out, 0 overlaps left",
+     "Stele_WayStone_5: nearest V3 piece 32.9 m away",
+     "Stele_WayStone_6: nearest V3 piece 86.0 m away",
+     "offline judge (setdress_contact) on 16 ground pieces: 0 violations []",
+     "C1 settle: ground tilt 2.1 deg, sink 3 cm, corner gaps [-3, -2, -3, -2] cm, centre -3 cm",
+     "C2 settle: ground tilt 1.6 deg, sink 3 cm, corner gaps [-1, -1, -1, -1] cm, centre -2 cm",
+     "C4 settle: ground tilt 3.1 deg, sink 3 cm, corner gaps [-3, -2, -3, -2] cm, centre -2 cm",
+     "C5 settle: ground tilt 4.4 deg, sink 3 cm, corner gaps [0, -2, 0, -2] cm, centre -2 cm",
+     "MV_cart_02_wheels settle: ground tilt 1.8 deg, sink 2 cm, corner gaps [-2, -2, -2, -2] cm, centre -2 cm"
+    ],
+    "violations": [],
+    "flips": [],
+    "facing_measured": false
+   },
+   "load_box_cm": [
+    551578,
+    403414,
+    572483,
+    424080
+   ]
+  }
+ ]
+}

@@ -1,0 +1,4869 @@
+{
+ "generated_by": "Tools/World/story_sets/v2_promise_stones.py",
+ "method": "docs/world/SETDRESS_V2.md",
+ "design": "docs/world/story_sets/V2.md",
+ "level": "/Game/level/Saskarta_WP",
+ "conventions": {
+  "xy": "world cm; yaw = UE yaw deg",
+  "bounds": "x_cm/y_cm is the mesh BOUNDS CENTRE",
+  "ground": "decal patches: DecalActor pitch -90, yaw, size (depth/2, width/2, length/2)",
+  "contact": "stand | lie | rest (SETDRESS_V2.md section 3; stand = an upright stone set by this file's `stand` step and judged by `standcheck`)",
+  "size_m": "stones: in the stone yaw frame (forward = thickness, right = face width, up = height)",
+  "site_uv": "u m along travel from road 490, v m left of travel"
+ },
+ "rejected": [],
+ "checks": [],
+ "sites": [
+  {
+   "id": "S04_PromiseStones",
+   "story_set": "V2",
+   "name": "Zrir Siziman, the Promise Stones (V2)",
+   "kind": "marker pair",
+   "order": 3,
+   "road_m": 490,
+   "side": "left",
+   "lateral_m": -13.0,
+   "centre_cm": [
+    584099.7,
+    430628.4,
+    -35512.4
+   ],
+   "road_yaw": -164.7,
+   "radius_m": 16.0,
+   "zone": "Z1 Emptied Valley",
+   "storm": "storm-dusk at its worst: dust sheets and gusts; landmarks read as silhouettes through the haze",
+   "role": "landmark",
+   "story": "B03 the promise: G03_PROMISE frames the High Voice crown in the notch above the gap; the Keeper reads the inscription (RADIO_B03_01)",
+   "decay": 0,
+   "style": "bazaar stone: two unequal inscribed stones stood upright, chocked, with a worn paving before them",
+   "layout": "  ==== road (aims at the mountain 430-540 m) ====  way-stone at 482.9 (left 4.8 m): the path leaves the road beside it\n        path -> [worn paving: where people stood to read]\n   cairn [SHORT x1.5, downhill]  <- 5 m gap, square to the G03 eye; the crown in the notch ->  [TALL x2.2, inscribed] cairn\n        packing stones round both bases; the last flower at the tall stone\n     rock (behind, downhill)                                   rock (behind)\n   ... the hollow falls away left; the High Voice 2.9 km beyond the gap ...",
+   "notes": "Story set V2 on the road site S04_PromiseStones. The V1 cairns (S04_PromiseStones_000..010) are removed by `clear`. The stones stand left of the road on the crown bearing from the G03 mid-hold eye, not the storyline's left 8 m / right 6 m (which cannot frame the crown). The glance target moves into the gap (`hooks`). Nothing religious, nothing modern.",
+   "story_owned": [
+    "V2 the Promise Stones (this file is the story set)",
+    "Saskarta.Glance.PromiseStones (moved by `hooks`)"
+   ],
+   "verify_only": false,
+   "layer": "road",
+   "poi": null,
+   "counts": {
+    "placements": 68,
+    "actors": 27,
+    "ism_instances": 55,
+    "physics": 7,
+    "batch01": 0,
+    "decals": 5,
+    "text": 2
+   },
+   "views": [
+    {
+     "name": "carrier_a",
+     "cam_cm": [
+      591087.3,
+      431354.6,
+      -35242.8
+     ],
+     "look_cm": [
+      584099.7,
+      430628.4,
+      -35352.4
+     ]
+    },
+    {
+     "name": "carrier_b",
+     "cam_cm": [
+      589221.3,
+      430679.6,
+      -35148.4
+     ],
+     "look_cm": [
+      584099.7,
+      430628.4,
+      -35352.4
+     ]
+    },
+    {
+     "name": "carrier_c",
+     "cam_cm": [
+      587774.2,
+      430284.9,
+      -35121.8
+     ],
+     "look_cm": [
+      584099.7,
+      430628.4,
+      -35352.4
+     ]
+    },
+    {
+     "name": "glance_hold",
+     "cam_cm": [
+      587050.6,
+      430087.5,
+      -35254.4
+     ],
+     "look_cm": [
+      584099.7,
+      430628.4,
+      -34901.4
+     ]
+    },
+    {
+     "name": "orbit_a",
+     "cam_cm": [
+      583106.3,
+      430200.5,
+      -35193.2
+     ],
+     "look_cm": [
+      584099.7,
+      430628.4,
+      -35352.4
+     ]
+    },
+    {
+     "name": "orbit_b",
+     "cam_cm": [
+      584662.1,
+      429813.6,
+      -35131.4
+     ],
+     "look_cm": [
+      584099.7,
+      430628.4,
+      -35352.4
+     ]
+    },
+    {
+     "name": "orbit_c",
+     "cam_cm": [
+      585075.1,
+      430957.9,
+      -35387.8
+     ],
+     "look_cm": [
+      584099.7,
+      430628.4,
+      -35352.4
+     ]
+    },
+    {
+     "name": "contact",
+     "cam_cm": [
+      584362.3,
+      430459.4,
+      -35414.5
+     ],
+     "look_cm": [
+      584133.4,
+      430295.6,
+      -35467.7
+     ]
+    },
+    {
+     "name": "reading",
+     "cam_cm": [
+      584338.7,
+      430406.7,
+      -35337.2
+     ],
+     "look_cm": [
+      584054.7,
+      430244.1,
+      -35312.7
+     ]
+    },
+    {
+     "name": "standing",
+     "cam_cm": [
+      584375.1,
+      430577.9,
+      -35353.0
+     ],
+     "look_cm": [
+      298079.6,
+      483050.0,
+      15118.7
+     ]
+    },
+    {
+     "name": "high34",
+     "cam_cm": [
+      585889.9,
+      431520.3,
+      -33892.0
+     ],
+     "look_cm": [
+      584099.7,
+      430628.4,
+      -35352.4
+     ]
+    },
+    {
+     "name": "far300",
+     "cam_cm": [
+      554591.3,
+      436036.7,
+      -32812.6
+     ],
+     "look_cm": [
+      584099.7,
+      430628.4,
+      -35352.4
+     ]
+    }
+   ],
+   "view_notes": {
+    "carrier_a": "approach, carrier eye (capture_look EYE 2.5 m) at road 420 m",
+    "carrier_b": "approach, carrier eye (capture_look EYE 2.5 m) at road 440 m",
+    "carrier_c": "approach, carrier eye (capture_look EYE 2.5 m) at road 455 m",
+    "glance_hold": "G03 mid-hold at road 462.5, eye 1.22 m, on the new target (capture at 60 deg; the POV is 90)",
+    "contact": "the tall stone's front outer corner at the ground: packing, sink, the flower and cairn",
+    "reading": "a walker on the paving reading the inscription (the TextRender greybox)",
+    "standing": "a walker on the paving, on the crown line: the High Voice stands in the gap between the stones",
+    "far300": "from the valley side, 300 m out on the crown bearing, looking back"
+   },
+   "placements": [
+    {
+     "id": "S04_PromiseStones_v2_000",
+     "key": "FAB_TempleStones",
+     "asset": "/Game/Fab/Megascans/3D/Ancient_Temple_Stones_tixjegefa/Medium/tixjegefa_tier_2/StaticMeshes/tixjegefa_tier_2",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 584054.7,
+     "y_cm": 430244.1,
+     "ground_z_cm": -35468.0,
+     "yaw": 177.01,
+     "pitch": 90.0,
+     "roll": 0.0,
+     "scale": 2.2,
+     "scale_range": [
+      2.2,
+      2.2
+     ],
+     "settle": {
+      "mode": "none",
+      "sink_cm": 38,
+      "max_tilt_deg": 0,
+      "rand_tilt_deg": 0,
+      "z_rule": "min",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S04_PromiseStones/stones",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 80000.0,
+     "cast_shadow": true,
+     "size_m": [
+      1.518,
+      2.222,
+      4.246
+     ],
+     "slope_deg": 7.5,
+     "road_clear_m": 8.1,
+     "contact": "stand",
+     "site_uv": [
+      0.99,
+      9.39
+     ],
+     "role": "FOCAL: the tall promise stone x2.2, inscribed",
+     "story_set": "V2",
+     "block": "stone_tall",
+     "material_set": "stone",
+     "stand": {
+      "base_z_cm": -35520.7,
+      "top_z_cm": -35096.1,
+      "sink_cm": 38,
+      "relief_cm": 31.6,
+      "proud_m": [
+       3.55,
+       3.87
+      ]
+     }
+    },
+    {
+     "id": "S04_PromiseStones_v2_001",
+     "key": "FAB_TempleStones",
+     "asset": "/Game/Fab/Megascans/3D/Ancient_Temple_Stones_tixjegefa/Medium/tixjegefa_tier_2/StaticMeshes/tixjegefa_tier_2",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 584138.4,
+     "y_cm": 430977.9,
+     "ground_z_cm": -35568.4,
+     "yaw": 163.0,
+     "pitch": 90.0,
+     "roll": 0.0,
+     "scale": 1.5,
+     "scale_range": [
+      1.5,
+      1.5
+     ],
+     "settle": {
+      "mode": "none",
+      "sink_cm": 28,
+      "max_tilt_deg": 0,
+      "rand_tilt_deg": 0,
+      "z_rule": "min",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S04_PromiseStones/stones",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 80000.0,
+     "cast_shadow": true,
+     "size_m": [
+      1.035,
+      1.515,
+      2.895
+     ],
+     "slope_deg": 11.5,
+     "road_clear_m": 15.34,
+     "contact": "stand",
+     "site_uv": [
+      -1.75,
+      16.25
+     ],
+     "role": "FOCAL: the short promise stone x1.5",
+     "story_set": "V2",
+     "block": "stone_short",
+     "material_set": "stone",
+     "stand": {
+      "base_z_cm": -35612.0,
+      "top_z_cm": -35322.5,
+      "sink_cm": 28,
+      "relief_cm": 32.4,
+      "proud_m": [
+       2.29,
+       2.62
+      ]
+     }
+    },
+    {
+     "id": "S04_PromiseStones_v2_002",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 583961.7,
+     "y_cm": 430254.2,
+     "ground_z_cm": -35463.8,
+     "yaw": 4.74,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.795,
+     "scale_range": [
+      0.795,
+      0.795
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 8,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "packing",
+     "folder": "Set/S04_PromiseStones/packing",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.366,
+      0.358,
+      0.223
+     ],
+     "slope_deg": 8.3,
+     "road_clear_m": 9.53,
+     "contact": "lie",
+     "site_uv": [
+      1.86,
+      9.74
+     ],
+     "role": "packing stone wedged at the base of the tall stone",
+     "story_set": "V2",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "S04_PromiseStones_v2_003",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 583963.2,
+     "y_cm": 430207.4,
+     "ground_z_cm": -35458.0,
+     "yaw": 358.43,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.693,
+     "scale_range": [
+      0.693,
+      0.693
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 7,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "packing",
+     "folder": "Set/S04_PromiseStones/packing",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.319,
+      0.312,
+      0.194
+     ],
+     "slope_deg": 7.9,
+     "road_clear_m": 9.08,
+     "contact": "lie",
+     "site_uv": [
+      1.97,
+      9.28
+     ],
+     "role": "packing stone wedged at the base of the tall stone",
+     "story_set": "V2",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "S04_PromiseStones_v2_004",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 584155.6,
+     "y_cm": 430309.1,
+     "ground_z_cm": -35479.9,
+     "yaw": 142.97,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.771,
+     "scale_range": [
+      0.771,
+      0.771
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 8,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "packing",
+     "folder": "Set/S04_PromiseStones/packing",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.355,
+      0.347,
+      0.216
+     ],
+     "slope_deg": 7.1,
+     "road_clear_m": 9.51,
+     "contact": "lie",
+     "site_uv": [
+      -0.15,
+      9.76
+     ],
+     "role": "packing stone wedged at the base of the tall stone",
+     "story_set": "V2",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "S04_PromiseStones_v2_005",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 584149.6,
+     "y_cm": 430267.0,
+     "ground_z_cm": -35474.5,
+     "yaw": 333.3,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.685,
+     "scale_range": [
+      0.685,
+      0.685
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 7,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "packing",
+     "folder": "Set/S04_PromiseStones/packing",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.315,
+      0.308,
+      0.192
+     ],
+     "slope_deg": 7.3,
+     "road_clear_m": 9.14,
+     "contact": "lie",
+     "site_uv": [
+      0.02,
+      9.36
+     ],
+     "role": "packing stone wedged at the base of the tall stone",
+     "story_set": "V2",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "S04_PromiseStones_v2_006",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 584151.4,
+     "y_cm": 430213.3,
+     "ground_z_cm": -35468.0,
+     "yaw": 23.05,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.828,
+     "scale_range": [
+      0.828,
+      0.828
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 9,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "packing",
+     "folder": "Set/S04_PromiseStones/packing",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.381,
+      0.372,
+      0.232
+     ],
+     "slope_deg": 7.5,
+     "road_clear_m": 8.63,
+     "contact": "lie",
+     "site_uv": [
+      0.14,
+      8.84
+     ],
+     "role": "packing stone wedged at the base of the tall stone",
+     "story_set": "V2",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "S04_PromiseStones_v2_007",
+     "key": "AB_Cobble_04",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_04",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 584144.3,
+     "y_cm": 430165.1,
+     "ground_z_cm": -35461.7,
+     "yaw": 296.49,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.013,
+     "scale_range": [
+      1.013,
+      1.013
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "packing",
+     "folder": "Set/S04_PromiseStones/packing",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.284,
+      0.314,
+      0.122
+     ],
+     "slope_deg": 7.8,
+     "road_clear_m": 8.23,
+     "contact": "lie",
+     "site_uv": [
+      0.33,
+      8.4
+     ],
+     "role": "packing stone wedged at the base of the tall stone",
+     "story_set": "V2",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "S04_PromiseStones_v2_008",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 584077.4,
+     "y_cm": 430110.5,
+     "ground_z_cm": -35452.1,
+     "yaw": 316.37,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.752,
+     "scale_range": [
+      0.752,
+      0.752
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 8,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "packing",
+     "folder": "Set/S04_PromiseStones/packing",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.346,
+      0.339,
+      0.211
+     ],
+     "slope_deg": 8.1,
+     "road_clear_m": 7.81,
+     "contact": "lie",
+     "site_uv": [
+      1.12,
+      8.04
+     ],
+     "role": "packing stone wedged at the base of the tall stone",
+     "story_set": "V2",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "S04_PromiseStones_v2_009",
+     "key": "AB_Cobble_04",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_04",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 584016.8,
+     "y_cm": 430118.9,
+     "ground_z_cm": -35450.1,
+     "yaw": 262.13,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.236,
+     "scale_range": [
+      1.236,
+      1.236
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 6,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "packing",
+     "folder": "Set/S04_PromiseStones/packing",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.346,
+      0.383,
+      0.148
+     ],
+     "slope_deg": 7.6,
+     "road_clear_m": 8.05,
+     "contact": "lie",
+     "site_uv": [
+      1.69,
+      8.29
+     ],
+     "role": "packing stone wedged at the base of the tall stone",
+     "story_set": "V2",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "S04_PromiseStones_v2_010",
+     "key": "AB_Cobble_04",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_04",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 584099.3,
+     "y_cm": 430373.7,
+     "ground_z_cm": -35484.8,
+     "yaw": 316.39,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.133,
+     "scale_range": [
+      1.133,
+      1.133
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "packing",
+     "folder": "Set/S04_PromiseStones/packing",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.317,
+      0.351,
+      0.136
+     ],
+     "slope_deg": 6.5,
+     "road_clear_m": 10.3,
+     "contact": "lie",
+     "site_uv": [
+      0.22,
+      10.53
+     ],
+     "role": "packing stone wedged at the base of the tall stone",
+     "story_set": "V2",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "S04_PromiseStones_v2_011",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 584061.3,
+     "y_cm": 430367.9,
+     "ground_z_cm": -35482.7,
+     "yaw": 92.87,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.63,
+     "scale_range": [
+      0.63,
+      0.63
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 7,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "packing",
+     "folder": "Set/S04_PromiseStones/packing",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.29,
+      0.284,
+      0.176
+     ],
+     "slope_deg": 6.8,
+     "road_clear_m": 10.4,
+     "contact": "lie",
+     "site_uv": [
+      0.6,
+      10.57
+     ],
+     "role": "packing stone wedged at the base of the tall stone",
+     "story_set": "V2",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "S04_PromiseStones_v2_012",
+     "key": "AB_Cobble_04",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_04",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 584015.6,
+     "y_cm": 430375.0,
+     "ground_z_cm": -35482.5,
+     "yaw": 108.37,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.131,
+     "scale_range": [
+      1.131,
+      1.131
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "packing",
+     "folder": "Set/S04_PromiseStones/packing",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.317,
+      0.351,
+      0.136
+     ],
+     "slope_deg": 7.4,
+     "road_clear_m": 10.59,
+     "contact": "lie",
+     "site_uv": [
+      1.02,
+      10.76
+     ],
+     "role": "packing stone wedged at the base of the tall stone",
+     "story_set": "V2",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "S04_PromiseStones_v2_013",
+     "key": "AB_Cobble_04",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_04",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 584078.9,
+     "y_cm": 431034.6,
+     "ground_z_cm": -35578.7,
+     "yaw": 192.28,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.25,
+     "scale_range": [
+      1.25,
+      1.25
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 6,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "packing",
+     "folder": "Set/S04_PromiseStones/packing",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.35,
+      0.388,
+      0.15
+     ],
+     "slope_deg": 12.1,
+     "road_clear_m": 16.75,
+     "contact": "lie",
+     "site_uv": [
+      -1.32,
+      16.96
+     ],
+     "role": "packing stone wedged at the base of the short stone",
+     "story_set": "V2",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "S04_PromiseStones_v2_014",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 584071.4,
+     "y_cm": 430993.3,
+     "ground_z_cm": -35572.1,
+     "yaw": 245.51,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.784,
+     "scale_range": [
+      0.784,
+      0.784
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 8,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "packing",
+     "folder": "Set/S04_PromiseStones/packing",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.36,
+      0.353,
+      0.219
+     ],
+     "slope_deg": 11.1,
+     "road_clear_m": 16.33,
+     "contact": "lie",
+     "site_uv": [
+      -1.14,
+      16.58
+     ],
+     "role": "packing stone wedged at the base of the short stone",
+     "story_set": "V2",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "S04_PromiseStones_v2_015",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 584055.9,
+     "y_cm": 430907.3,
+     "ground_z_cm": -35558.2,
+     "yaw": 241.66,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.86,
+     "scale_range": [
+      0.86,
+      0.86
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 9,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "packing",
+     "folder": "Set/S04_PromiseStones/packing",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.396,
+      0.387,
+      0.241
+     ],
+     "slope_deg": 10.3,
+     "road_clear_m": 15.51,
+     "contact": "lie",
+     "site_uv": [
+      -0.77,
+      15.79
+     ],
+     "role": "packing stone wedged at the base of the short stone",
+     "story_set": "V2",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "S04_PromiseStones_v2_016",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 584219.5,
+     "y_cm": 430988.9,
+     "ground_z_cm": -35572.5,
+     "yaw": 195.04,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.816,
+     "scale_range": [
+      0.816,
+      0.816
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 9,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "packing",
+     "folder": "Set/S04_PromiseStones/packing",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.375,
+      0.367,
+      0.228
+     ],
+     "slope_deg": 12.8,
+     "road_clear_m": 15.96,
+     "contact": "lie",
+     "site_uv": [
+      -2.56,
+      16.15
+     ],
+     "role": "packing stone wedged at the base of the short stone",
+     "story_set": "V2",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "S04_PromiseStones_v2_017",
+     "key": "AB_Cobble_04",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_04",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 584193.0,
+     "y_cm": 430924.8,
+     "ground_z_cm": -35557.5,
+     "yaw": 76.0,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.171,
+     "scale_range": [
+      1.171,
+      1.171
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "packing",
+     "folder": "Set/S04_PromiseStones/packing",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.328,
+      0.363,
+      0.14
+     ],
+     "slope_deg": 11.8,
+     "road_clear_m": 15.36,
+     "contact": "lie",
+     "site_uv": [
+      -2.13,
+      15.6
+     ],
+     "role": "packing stone wedged at the base of the short stone",
+     "story_set": "V2",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "S04_PromiseStones_v2_018",
+     "key": "AB_Cobble_04",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_04",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 584136.8,
+     "y_cm": 430882.2,
+     "ground_z_cm": -35549.7,
+     "yaw": 173.52,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.08,
+     "scale_range": [
+      1.08,
+      1.08
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "packing",
+     "folder": "Set/S04_PromiseStones/packing",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.302,
+      0.335,
+      0.13
+     ],
+     "slope_deg": 10.6,
+     "road_clear_m": 15.12,
+     "contact": "lie",
+     "site_uv": [
+      -1.48,
+      15.33
+     ],
+     "role": "packing stone wedged at the base of the short stone",
+     "story_set": "V2",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "S04_PromiseStones_v2_019",
+     "key": "AB_Cobble_04",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_04",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 584095.3,
+     "y_cm": 430886.8,
+     "ground_z_cm": -35552.5,
+     "yaw": 288.21,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.297,
+     "scale_range": [
+      1.297,
+      1.297
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 6,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "packing",
+     "folder": "Set/S04_PromiseStones/packing",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.363,
+      0.402,
+      0.156
+     ],
+     "slope_deg": 10.3,
+     "road_clear_m": 15.3,
+     "contact": "lie",
+     "site_uv": [
+      -1.09,
+      15.49
+     ],
+     "role": "packing stone wedged at the base of the short stone",
+     "story_set": "V2",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "S04_PromiseStones_v2_020",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 584221.1,
+     "y_cm": 431048.2,
+     "ground_z_cm": -35585.0,
+     "yaw": 153.77,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.871,
+     "scale_range": [
+      0.871,
+      0.871
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 9,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "packing",
+     "folder": "Set/S04_PromiseStones/packing",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.401,
+      0.392,
+      0.244
+     ],
+     "slope_deg": 13.2,
+     "road_clear_m": 16.43,
+     "contact": "lie",
+     "site_uv": [
+      -2.73,
+      16.71
+     ],
+     "role": "packing stone wedged at the base of the short stone",
+     "story_set": "V2",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "S04_PromiseStones_v2_021",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 584184.0,
+     "y_cm": 431071.6,
+     "ground_z_cm": -35588.5,
+     "yaw": 221.23,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.864,
+     "scale_range": [
+      0.864,
+      0.864
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 9,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "packing",
+     "folder": "Set/S04_PromiseStones/packing",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.398,
+      0.389,
+      0.242
+     ],
+     "slope_deg": 13.0,
+     "road_clear_m": 16.77,
+     "contact": "lie",
+     "site_uv": [
+      -2.43,
+      17.04
+     ],
+     "role": "packing stone wedged at the base of the short stone",
+     "story_set": "V2",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "S04_PromiseStones_v2_022",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 584139.2,
+     "y_cm": 431077.8,
+     "ground_z_cm": -35589.3,
+     "yaw": 198.31,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.726,
+     "scale_range": [
+      0.726,
+      0.726
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 8,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "packing",
+     "folder": "Set/S04_PromiseStones/packing",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.334,
+      0.327,
+      0.203
+     ],
+     "slope_deg": 12.9,
+     "road_clear_m": 17.04,
+     "contact": "lie",
+     "site_uv": [
+      -2.02,
+      17.21
+     ],
+     "role": "packing stone wedged at the base of the short stone",
+     "story_set": "V2",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "S04_PromiseStones_v2_023",
+     "key": "AB_Cobble_01",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_01",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 584378.5,
+     "y_cm": 430579.1,
+     "ground_z_cm": -35513.2,
+     "yaw": 261.41,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.96,
+     "scale_range": [
+      0.96,
+      0.96
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 7,
+      "max_tilt_deg": 9,
+      "rand_tilt_deg": 2,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "paving",
+     "folder": "Set/S04_PromiseStones/paving",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": false,
+     "size_m": [
+      0.384,
+      0.47,
+      0.115
+     ],
+     "slope_deg": 4.8,
+     "road_clear_m": 11.5,
+     "contact": "lie",
+     "site_uv": [
+      -3.01,
+      11.77
+     ],
+     "role": "the paving where people stood to read",
+     "story_set": "V2",
+     "block": "paving",
+     "material_set": "stone"
+    },
+    {
+     "id": "S04_PromiseStones_v2_024",
+     "key": "AB_Cobble_03",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_03",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 584384.0,
+     "y_cm": 430528.3,
+     "ground_z_cm": -35509.7,
+     "yaw": 266.75,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.075,
+     "scale_range": [
+      1.075,
+      1.075
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 7,
+      "max_tilt_deg": 9,
+      "rand_tilt_deg": 2,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "paving",
+     "folder": "Set/S04_PromiseStones/paving",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": false,
+     "size_m": [
+      0.43,
+      0.527,
+      0.129
+     ],
+     "slope_deg": 4.5,
+     "road_clear_m": 10.98,
+     "contact": "lie",
+     "site_uv": [
+      -2.93,
+      11.27
+     ],
+     "role": "the paving where people stood to read",
+     "story_set": "V2",
+     "block": "paving",
+     "material_set": "stone"
+    },
+    {
+     "id": "S04_PromiseStones_v2_025",
+     "key": "AB_Cobble_01",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_01",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 584331.4,
+     "y_cm": 430535.4,
+     "ground_z_cm": -35508.4,
+     "yaw": 259.74,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.072,
+     "scale_range": [
+      1.072,
+      1.072
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 7,
+      "max_tilt_deg": 9,
+      "rand_tilt_deg": 2,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "paving",
+     "folder": "Set/S04_PromiseStones/paving",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": false,
+     "size_m": [
+      0.429,
+      0.525,
+      0.129
+     ],
+     "slope_deg": 4.8,
+     "road_clear_m": 11.17,
+     "contact": "lie",
+     "site_uv": [
+      -2.44,
+      11.48
+     ],
+     "role": "the paving where people stood to read",
+     "story_set": "V2",
+     "block": "paving",
+     "material_set": "stone"
+    },
+    {
+     "id": "S04_PromiseStones_v2_026",
+     "key": "AB_Cobble_03",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_03",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 584282.3,
+     "y_cm": 430542.3,
+     "ground_z_cm": -35507.3,
+     "yaw": 256.07,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.984,
+     "scale_range": [
+      0.984,
+      0.984
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 7,
+      "max_tilt_deg": 9,
+      "rand_tilt_deg": 2,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "paving",
+     "folder": "Set/S04_PromiseStones/paving",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": false,
+     "size_m": [
+      0.393,
+      0.482,
+      0.118
+     ],
+     "slope_deg": 5.0,
+     "road_clear_m": 11.38,
+     "contact": "lie",
+     "site_uv": [
+      -1.99,
+      11.67
+     ],
+     "role": "the paving where people stood to read",
+     "story_set": "V2",
+     "block": "paving",
+     "material_set": "stone"
+    },
+    {
+     "id": "S04_PromiseStones_v2_027",
+     "key": "AB_Cobble_04",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_04",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 584233.0,
+     "y_cm": 430550.8,
+     "ground_z_cm": -35505.7,
+     "yaw": 261.99,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.03,
+     "scale_range": [
+      1.03,
+      1.03
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 7,
+      "max_tilt_deg": 9,
+      "rand_tilt_deg": 2,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "paving",
+     "folder": "Set/S04_PromiseStones/paving",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": false,
+     "size_m": [
+      0.288,
+      0.319,
+      0.124
+     ],
+     "slope_deg": 5.1,
+     "road_clear_m": 11.69,
+     "contact": "lie",
+     "site_uv": [
+      -1.54,
+      11.88
+     ],
+     "role": "the paving where people stood to read",
+     "story_set": "V2",
+     "block": "paving",
+     "material_set": "stone"
+    },
+    {
+     "id": "S04_PromiseStones_v2_028",
+     "key": "AB_Cobble_03",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_03",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 584322.1,
+     "y_cm": 430486.5,
+     "ground_z_cm": -35504.6,
+     "yaw": 259.43,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.986,
+     "scale_range": [
+      0.986,
+      0.986
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 7,
+      "max_tilt_deg": 9,
+      "rand_tilt_deg": 2,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "paving",
+     "folder": "Set/S04_PromiseStones/paving",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": false,
+     "size_m": [
+      0.395,
+      0.483,
+      0.118
+     ],
+     "slope_deg": 5.2,
+     "road_clear_m": 10.75,
+     "contact": "lie",
+     "site_uv": [
+      -2.23,
+      11.03
+     ],
+     "role": "the paving where people stood to read",
+     "story_set": "V2",
+     "block": "paving",
+     "material_set": "stone"
+    },
+    {
+     "id": "S04_PromiseStones_v2_029",
+     "key": "AB_Cobble_03",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_03",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 584274.7,
+     "y_cm": 430490.9,
+     "ground_z_cm": -35503.0,
+     "yaw": 261.28,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.009,
+     "scale_range": [
+      1.009,
+      1.009
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 7,
+      "max_tilt_deg": 9,
+      "rand_tilt_deg": 2,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "paving",
+     "folder": "Set/S04_PromiseStones/paving",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": false,
+     "size_m": [
+      0.404,
+      0.495,
+      0.121
+     ],
+     "slope_deg": 5.5,
+     "road_clear_m": 10.91,
+     "contact": "lie",
+     "site_uv": [
+      -1.78,
+      11.2
+     ],
+     "role": "the paving where people stood to read",
+     "story_set": "V2",
+     "block": "paving",
+     "material_set": "stone"
+    },
+    {
+     "id": "S04_PromiseStones_v2_030",
+     "key": "AB_Cobble_03",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_03",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 584229.9,
+     "y_cm": 430503.9,
+     "ground_z_cm": -35502.2,
+     "yaw": 264.79,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.984,
+     "scale_range": [
+      0.984,
+      0.984
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 7,
+      "max_tilt_deg": 9,
+      "rand_tilt_deg": 2,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "paving",
+     "folder": "Set/S04_PromiseStones/paving",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": false,
+     "size_m": [
+      0.394,
+      0.482,
+      0.118
+     ],
+     "slope_deg": 5.3,
+     "road_clear_m": 11.17,
+     "contact": "lie",
+     "site_uv": [
+      -1.38,
+      11.44
+     ],
+     "role": "the paving where people stood to read",
+     "story_set": "V2",
+     "block": "paving",
+     "material_set": "stone"
+    },
+    {
+     "id": "S04_PromiseStones_v2_031",
+     "key": "AB_Cobble_02",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_02",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 584303.7,
+     "y_cm": 430434.7,
+     "ground_z_cm": -35499.6,
+     "yaw": 265.08,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.979,
+     "scale_range": [
+      0.979,
+      0.979
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 7,
+      "max_tilt_deg": 9,
+      "rand_tilt_deg": 2,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "paving",
+     "folder": "Set/S04_PromiseStones/paving",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": false,
+     "size_m": [
+      0.392,
+      0.48,
+      0.117
+     ],
+     "slope_deg": 5.8,
+     "road_clear_m": 10.31,
+     "contact": "lie",
+     "site_uv": [
+      -1.91,
+      10.58
+     ],
+     "role": "the paving where people stood to read",
+     "story_set": "V2",
+     "block": "paving",
+     "material_set": "stone"
+    },
+    {
+     "id": "S04_PromiseStones_v2_032",
+     "key": "AB_Cobble_04",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_04",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 584263.5,
+     "y_cm": 430448.4,
+     "ground_z_cm": -35499.3,
+     "yaw": 256.62,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.992,
+     "scale_range": [
+      0.992,
+      0.992
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 7,
+      "max_tilt_deg": 9,
+      "rand_tilt_deg": 2,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "paving",
+     "folder": "Set/S04_PromiseStones/paving",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": false,
+     "size_m": [
+      0.278,
+      0.307,
+      0.119
+     ],
+     "slope_deg": 5.8,
+     "road_clear_m": 10.62,
+     "contact": "lie",
+     "site_uv": [
+      -1.56,
+      10.81
+     ],
+     "role": "the paving where people stood to read",
+     "story_set": "V2",
+     "block": "paving",
+     "material_set": "stone"
+    },
+    {
+     "id": "S04_PromiseStones_v2_033",
+     "key": "AB_Cobble_04",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_04",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 584216.5,
+     "y_cm": 430455.0,
+     "ground_z_cm": -35498.4,
+     "yaw": 254.54,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.046,
+     "scale_range": [
+      1.046,
+      1.046
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 7,
+      "max_tilt_deg": 9,
+      "rand_tilt_deg": 2,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "paving",
+     "folder": "Set/S04_PromiseStones/paving",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": false,
+     "size_m": [
+      0.293,
+      0.324,
+      0.126
+     ],
+     "slope_deg": 5.5,
+     "road_clear_m": 10.79,
+     "contact": "lie",
+     "site_uv": [
+      -1.12,
+      11.0
+     ],
+     "role": "the paving where people stood to read",
+     "story_set": "V2",
+     "block": "paving",
+     "material_set": "stone"
+    },
+    {
+     "id": "S04_PromiseStones_v2_034",
+     "key": "AB_Cobble_01",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_01",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 584352.5,
+     "y_cm": 430378.8,
+     "ground_z_cm": -35497.3,
+     "yaw": 265.14,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.975,
+     "scale_range": [
+      0.975,
+      0.975
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 7,
+      "max_tilt_deg": 9,
+      "rand_tilt_deg": 2,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "paving",
+     "folder": "Set/S04_PromiseStones/paving",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": false,
+     "size_m": [
+      0.39,
+      0.478,
+      0.117
+     ],
+     "slope_deg": 6.5,
+     "road_clear_m": 9.64,
+     "contact": "lie",
+     "site_uv": [
+      -2.24,
+      9.91
+     ],
+     "role": "the paving where people stood to read",
+     "story_set": "V2",
+     "block": "paving",
+     "material_set": "stone"
+    },
+    {
+     "id": "S04_PromiseStones_v2_035",
+     "key": "AB_Cobble_01",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_01",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 584303.9,
+     "y_cm": 430390.3,
+     "ground_z_cm": -35495.1,
+     "yaw": 252.95,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.995,
+     "scale_range": [
+      0.995,
+      0.995
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 7,
+      "max_tilt_deg": 9,
+      "rand_tilt_deg": 2,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "paving",
+     "folder": "Set/S04_PromiseStones/paving",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": false,
+     "size_m": [
+      0.398,
+      0.487,
+      0.119
+     ],
+     "slope_deg": 6.4,
+     "road_clear_m": 9.85,
+     "contact": "lie",
+     "site_uv": [
+      -1.8,
+      10.15
+     ],
+     "role": "the paving where people stood to read",
+     "story_set": "V2",
+     "block": "paving",
+     "material_set": "stone"
+    },
+    {
+     "id": "S04_PromiseStones_v2_036",
+     "key": "AB_Cobble_03",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_03",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 584254.9,
+     "y_cm": 430394.2,
+     "ground_z_cm": -35493.1,
+     "yaw": 260.84,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.988,
+     "scale_range": [
+      0.988,
+      0.988
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 7,
+      "max_tilt_deg": 9,
+      "rand_tilt_deg": 2,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "paving",
+     "folder": "Set/S04_PromiseStones/paving",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": false,
+     "size_m": [
+      0.395,
+      0.484,
+      0.119
+     ],
+     "slope_deg": 6.4,
+     "road_clear_m": 10.03,
+     "contact": "lie",
+     "site_uv": [
+      -1.34,
+      10.31
+     ],
+     "role": "the paving where people stood to read",
+     "story_set": "V2",
+     "block": "paving",
+     "material_set": "stone"
+    },
+    {
+     "id": "S04_PromiseStones_v2_037",
+     "key": "AB_Cobble_05",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_05",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 584331.7,
+     "y_cm": 430334.1,
+     "ground_z_cm": -35491.3,
+     "yaw": 263.52,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.078,
+     "scale_range": [
+      1.078,
+      1.078
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 7,
+      "max_tilt_deg": 9,
+      "rand_tilt_deg": 2,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "paving",
+     "folder": "Set/S04_PromiseStones/paving",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": false,
+     "size_m": [
+      0.431,
+      0.528,
+      0.129
+     ],
+     "slope_deg": 7.1,
+     "road_clear_m": 9.24,
+     "contact": "lie",
+     "site_uv": [
+      -1.92,
+      9.53
+     ],
+     "role": "the paving where people stood to read",
+     "story_set": "V2",
+     "block": "paving",
+     "material_set": "stone"
+    },
+    {
+     "id": "S04_PromiseStones_v2_038",
+     "key": "AB_Cobble_03",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_03",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 584244.7,
+     "y_cm": 430345.9,
+     "ground_z_cm": -35487.5,
+     "yaw": 266.12,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.066,
+     "scale_range": [
+      1.066,
+      1.066
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 7,
+      "max_tilt_deg": 9,
+      "rand_tilt_deg": 2,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "paving",
+     "folder": "Set/S04_PromiseStones/paving",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": false,
+     "size_m": [
+      0.426,
+      0.522,
+      0.128
+     ],
+     "slope_deg": 7.0,
+     "road_clear_m": 9.59,
+     "contact": "lie",
+     "site_uv": [
+      -1.11,
+      9.88
+     ],
+     "role": "the paving where people stood to read",
+     "story_set": "V2",
+     "block": "paving",
+     "material_set": "stone"
+    },
+    {
+     "id": "S04_PromiseStones_v2_039",
+     "key": "AB_Cobble_04",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_04",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 584203.5,
+     "y_cm": 430351.4,
+     "ground_z_cm": -35486.8,
+     "yaw": 263.1,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.067,
+     "scale_range": [
+      1.067,
+      1.067
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 7,
+      "max_tilt_deg": 9,
+      "rand_tilt_deg": 2,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "paving",
+     "folder": "Set/S04_PromiseStones/paving",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": false,
+     "size_m": [
+      0.299,
+      0.331,
+      0.128
+     ],
+     "slope_deg": 7.0,
+     "road_clear_m": 9.84,
+     "contact": "lie",
+     "site_uv": [
+      -0.73,
+      10.04
+     ],
+     "role": "the paving where people stood to read",
+     "story_set": "V2",
+     "block": "paving",
+     "material_set": "stone"
+    },
+    {
+     "id": "S04_PromiseStones_v2_040",
+     "key": "AB_Cobble_04",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_04",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 584318.3,
+     "y_cm": 430280.1,
+     "ground_z_cm": -35484.0,
+     "yaw": 253.71,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.047,
+     "scale_range": [
+      1.047,
+      1.047
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 7,
+      "max_tilt_deg": 9,
+      "rand_tilt_deg": 2,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "paving",
+     "folder": "Set/S04_PromiseStones/paving",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": false,
+     "size_m": [
+      0.293,
+      0.325,
+      0.126
+     ],
+     "slope_deg": 7.6,
+     "road_clear_m": 8.84,
+     "contact": "lie",
+     "site_uv": [
+      -1.65,
+      9.05
+     ],
+     "role": "the paving where people stood to read",
+     "story_set": "V2",
+     "block": "paving",
+     "material_set": "stone"
+    },
+    {
+     "id": "S04_PromiseStones_v2_041",
+     "key": "AB_Cobble_04",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_04",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 584278.3,
+     "y_cm": 430289.3,
+     "ground_z_cm": -35482.4,
+     "yaw": 252.66,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.069,
+     "scale_range": [
+      1.069,
+      1.069
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 7,
+      "max_tilt_deg": 9,
+      "rand_tilt_deg": 2,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "paving",
+     "folder": "Set/S04_PromiseStones/paving",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": false,
+     "size_m": [
+      0.299,
+      0.331,
+      0.128
+     ],
+     "slope_deg": 7.5,
+     "road_clear_m": 9.03,
+     "contact": "lie",
+     "site_uv": [
+      -1.29,
+      9.24
+     ],
+     "role": "the paving where people stood to read",
+     "story_set": "V2",
+     "block": "paving",
+     "material_set": "stone"
+    },
+    {
+     "id": "S04_PromiseStones_v2_042",
+     "key": "AB_Cobble_01",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_01",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 584201.1,
+     "y_cm": 430304.6,
+     "ground_z_cm": -35481.1,
+     "yaw": 260.24,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.976,
+     "scale_range": [
+      0.976,
+      0.976
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 7,
+      "max_tilt_deg": 9,
+      "rand_tilt_deg": 2,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "paving",
+     "folder": "Set/S04_PromiseStones/paving",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": false,
+     "size_m": [
+      0.39,
+      0.478,
+      0.117
+     ],
+     "slope_deg": 7.2,
+     "road_clear_m": 9.31,
+     "contact": "lie",
+     "site_uv": [
+      -0.58,
+      9.59
+     ],
+     "role": "the paving where people stood to read",
+     "story_set": "V2",
+     "block": "paving",
+     "material_set": "stone"
+    },
+    {
+     "id": "S04_PromiseStones_v2_043",
+     "key": "AB_Cobble_02",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_02",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 584320.4,
+     "y_cm": 430233.4,
+     "ground_z_cm": -35478.4,
+     "yaw": 261.93,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.951,
+     "scale_range": [
+      0.951,
+      0.951
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 7,
+      "max_tilt_deg": 9,
+      "rand_tilt_deg": 2,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "paving",
+     "folder": "Set/S04_PromiseStones/paving",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": false,
+     "size_m": [
+      0.38,
+      0.466,
+      0.114
+     ],
+     "slope_deg": 8.0,
+     "road_clear_m": 8.32,
+     "contact": "lie",
+     "site_uv": [
+      -1.54,
+      8.59
+     ],
+     "role": "the paving where people stood to read",
+     "story_set": "V2",
+     "block": "paving",
+     "material_set": "stone"
+    },
+    {
+     "id": "S04_PromiseStones_v2_044",
+     "key": "AB_Cobble_03",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_03",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 584272.2,
+     "y_cm": 430244.6,
+     "ground_z_cm": -35477.0,
+     "yaw": 251.53,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.018,
+     "scale_range": [
+      1.018,
+      1.018
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 7,
+      "max_tilt_deg": 9,
+      "rand_tilt_deg": 2,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "paving",
+     "folder": "Set/S04_PromiseStones/paving",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": false,
+     "size_m": [
+      0.407,
+      0.499,
+      0.122
+     ],
+     "slope_deg": 7.8,
+     "road_clear_m": 8.52,
+     "contact": "lie",
+     "site_uv": [
+      -1.11,
+      8.83
+     ],
+     "role": "the paving where people stood to read",
+     "story_set": "V2",
+     "block": "paving",
+     "material_set": "stone"
+    },
+    {
+     "id": "S04_PromiseStones_v2_045",
+     "key": "AB_Cobble_04",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_04",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 584180.5,
+     "y_cm": 430254.8,
+     "ground_z_cm": -35474.1,
+     "yaw": 268.16,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.959,
+     "scale_range": [
+      0.959,
+      0.959
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 7,
+      "max_tilt_deg": 9,
+      "rand_tilt_deg": 2,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "paving",
+     "folder": "Set/S04_PromiseStones/paving",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": false,
+     "size_m": [
+      0.268,
+      0.297,
+      0.115
+     ],
+     "slope_deg": 7.4,
+     "road_clear_m": 8.99,
+     "contact": "lie",
+     "site_uv": [
+      -0.25,
+      9.17
+     ],
+     "role": "the paving where people stood to read",
+     "story_set": "V2",
+     "block": "paving",
+     "material_set": "stone"
+    },
+    {
+     "id": "S04_PromiseStones_v2_046",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 584069.8,
+     "y_cm": 430053.9,
+     "ground_z_cm": -35444.0,
+     "yaw": 307.6,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.15,
+     "scale_range": [
+      1.15,
+      1.15
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 10,
+      "max_tilt_deg": 25,
+      "rand_tilt_deg": 4,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "cairns",
+     "folder": "Set/S04_PromiseStones/cairns",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.529,
+      0.517,
+      0.322
+     ],
+     "slope_deg": 8.1,
+     "road_clear_m": 7.18,
+     "contact": "lie",
+     "site_uv": [
+      1.35,
+      7.52
+     ],
+     "role": "cairn base at the tall stone",
+     "story_set": "V2",
+     "block": "cairn_tall",
+     "material_set": "stone"
+    },
+    {
+     "id": "S04_PromiseStones_v2_047",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 584065.7,
+     "y_cm": 430054.0,
+     "ground_z_cm": -35443.9,
+     "yaw": 113.72,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.82,
+     "scale_range": [
+      0.82,
+      0.82
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 0,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 6,
+      "z_rule": "max",
+      "drop_cm": 34,
+      "z_offset_cm": 0
+     },
+     "group": "cairns",
+     "folder": "Set/S04_PromiseStones/cairns",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.377,
+      0.369,
+      0.23
+     ],
+     "slope_deg": 8.1,
+     "road_clear_m": 7.32,
+     "contact": "rest",
+     "site_uv": [
+      1.39,
+      7.53
+     ],
+     "role": "cairn stone at the tall stone",
+     "story_set": "V2",
+     "block": "cairn_tall",
+     "material_set": "stone"
+    },
+    {
+     "id": "S04_PromiseStones_v2_048",
+     "key": "LF_Rock_07",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_07",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 584068.0,
+     "y_cm": 430052.5,
+     "ground_z_cm": -35443.7,
+     "yaw": 232.89,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.35,
+     "scale_range": [
+      1.35,
+      1.35
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 0,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 6,
+      "z_rule": "max",
+      "drop_cm": 58,
+      "z_offset_cm": 0
+     },
+     "group": "cairns",
+     "folder": "Set/S04_PromiseStones/cairns",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.365,
+      0.419,
+      0.149
+     ],
+     "slope_deg": 8.1,
+     "road_clear_m": 7.23,
+     "contact": "rest",
+     "site_uv": [
+      1.37,
+      7.51
+     ],
+     "role": "cairn stone at the tall stone",
+     "story_set": "V2",
+     "block": "cairn_tall",
+     "material_set": "stone"
+    },
+    {
+     "id": "S04_PromiseStones_v2_049",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 584070.7,
+     "y_cm": 430052.6,
+     "ground_z_cm": -35443.8,
+     "yaw": 68.79,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.58,
+     "scale_range": [
+      0.58,
+      0.58
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 0,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 6,
+      "z_rule": "max",
+      "drop_cm": 78,
+      "z_offset_cm": 0
+     },
+     "group": "cairns",
+     "folder": "Set/S04_PromiseStones/cairns",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.267,
+      0.261,
+      0.162
+     ],
+     "slope_deg": 8.1,
+     "road_clear_m": 7.32,
+     "contact": "rest",
+     "site_uv": [
+      1.34,
+      7.5
+     ],
+     "role": "cairn stone at the tall stone",
+     "story_set": "V2",
+     "block": "cairn_tall",
+     "material_set": "stone"
+    },
+    {
+     "id": "S04_PromiseStones_v2_050",
+     "key": "LF_Rock_07",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_07",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 584068.1,
+     "y_cm": 430050.2,
+     "ground_z_cm": -35443.4,
+     "yaw": 199.99,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.95,
+     "scale_range": [
+      0.95,
+      0.95
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 0,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 6,
+      "z_rule": "max",
+      "drop_cm": 94,
+      "z_offset_cm": 0
+     },
+     "group": "cairns",
+     "folder": "Set/S04_PromiseStones/cairns",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.257,
+      0.294,
+      0.104
+     ],
+     "slope_deg": 8.1,
+     "road_clear_m": 7.33,
+     "contact": "rest",
+     "site_uv": [
+      1.37,
+      7.49
+     ],
+     "role": "cairn stone at the tall stone",
+     "story_set": "V2",
+     "block": "cairn_tall",
+     "material_set": "stone"
+    },
+    {
+     "id": "S04_PromiseStones_v2_051",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 584207.2,
+     "y_cm": 431117.6,
+     "ground_z_cm": -35601.4,
+     "yaw": 257.78,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.15,
+     "scale_range": [
+      1.15,
+      1.15
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 10,
+      "max_tilt_deg": 25,
+      "rand_tilt_deg": 4,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "cairns",
+     "folder": "Set/S04_PromiseStones/cairns",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.529,
+      0.517,
+      0.322
+     ],
+     "slope_deg": 13.2,
+     "road_clear_m": 17.07,
+     "contact": "lie",
+     "site_uv": [
+      -2.78,
+      17.42
+     ],
+     "role": "cairn base at the short stone",
+     "story_set": "V2",
+     "block": "cairn_short",
+     "material_set": "stone"
+    },
+    {
+     "id": "S04_PromiseStones_v2_052",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 584206.0,
+     "y_cm": 431113.4,
+     "ground_z_cm": -35600.3,
+     "yaw": 64.28,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.82,
+     "scale_range": [
+      0.82,
+      0.82
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 0,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 6,
+      "z_rule": "max",
+      "drop_cm": 34,
+      "z_offset_cm": 0
+     },
+     "group": "cairns",
+     "folder": "Set/S04_PromiseStones/cairns",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.377,
+      0.369,
+      0.23
+     ],
+     "slope_deg": 13.2,
+     "road_clear_m": 17.12,
+     "contact": "rest",
+     "site_uv": [
+      -2.76,
+      17.38
+     ],
+     "role": "cairn stone at the short stone",
+     "story_set": "V2",
+     "block": "cairn_short",
+     "material_set": "stone"
+    },
+    {
+     "id": "S04_PromiseStones_v2_053",
+     "key": "LF_Rock_07",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_07",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 584206.0,
+     "y_cm": 431118.6,
+     "ground_z_cm": -35601.6,
+     "yaw": 281.74,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.35,
+     "scale_range": [
+      1.35,
+      1.35
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 0,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 6,
+      "z_rule": "max",
+      "drop_cm": 58,
+      "z_offset_cm": 0
+     },
+     "group": "cairns",
+     "folder": "Set/S04_PromiseStones/cairns",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.365,
+      0.419,
+      0.149
+     ],
+     "slope_deg": 13.2,
+     "road_clear_m": 17.24,
+     "contact": "rest",
+     "site_uv": [
+      -2.77,
+      17.43
+     ],
+     "role": "cairn stone at the short stone",
+     "story_set": "V2",
+     "block": "cairn_short",
+     "material_set": "stone"
+    },
+    {
+     "id": "S04_PromiseStones_v2_054",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 584206.0,
+     "y_cm": 431120.6,
+     "ground_z_cm": -35602.1,
+     "yaw": 224.25,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.58,
+     "scale_range": [
+      0.58,
+      0.58
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 0,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 6,
+      "z_rule": "max",
+      "drop_cm": 78,
+      "z_offset_cm": 0
+     },
+     "group": "cairns",
+     "folder": "Set/S04_PromiseStones/cairns",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.267,
+      0.261,
+      0.162
+     ],
+     "slope_deg": 13.2,
+     "road_clear_m": 17.27,
+     "contact": "rest",
+     "site_uv": [
+      -2.78,
+      17.45
+     ],
+     "role": "cairn stone at the short stone",
+     "story_set": "V2",
+     "block": "cairn_short",
+     "material_set": "stone"
+    },
+    {
+     "id": "S04_PromiseStones_v2_055",
+     "key": "LF_Flowers_01",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Flowers_01",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 584167.2,
+     "y_cm": 430137.0,
+     "ground_z_cm": -35458.7,
+     "yaw": 155.37,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.35,
+     "scale_range": [
+      0.35,
+      0.35
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 3,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "flower",
+     "folder": "Set/S04_PromiseStones/flower",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.28,
+      0.27,
+      0.319
+     ],
+     "slope_deg": 7.8,
+     "road_clear_m": 7.87,
+     "contact": "lie",
+     "site_uv": [
+      0.19,
+      8.06
+     ],
+     "role": "the last flower, at the tall stone",
+     "story_set": "V2",
+     "block": "creep"
+    },
+    {
+     "id": "S04_PromiseStones_v2_056",
+     "key": "LF_Rock_05",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_05",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 583981.5,
+     "y_cm": 431069.4,
+     "ground_z_cm": -35593.8,
+     "yaw": 193.0,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.55,
+     "scale_range": [
+      0.55,
+      0.55
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 28,
+      "max_tilt_deg": 25,
+      "rand_tilt_deg": 5,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "rocks",
+     "folder": "Set/S04_PromiseStones/rocks",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.979,
+      1.216,
+      0.71
+     ],
+     "slope_deg": 13.5,
+     "road_clear_m": 16.92,
+     "contact": "lie",
+     "site_uv": [
+      -0.47,
+      17.55
+     ],
+     "role": "natural rock behind the short stone",
+     "story_set": "V2",
+     "block": "rock_short",
+     "material_set": "stone"
+    },
+    {
+     "id": "S04_PromiseStones_v2_057",
+     "key": "LF_Rock_03",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_03",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 583875.9,
+     "y_cm": 430192.2,
+     "ground_z_cm": -35452.0,
+     "yaw": 157.01,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.44,
+     "scale_range": [
+      0.44,
+      0.44
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 22,
+      "max_tilt_deg": 25,
+      "rand_tilt_deg": 5,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "rocks",
+     "folder": "Set/S04_PromiseStones/rocks",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.748,
+      1.1,
+      0.546
+     ],
+     "slope_deg": 7.9,
+     "road_clear_m": 8.7,
+     "contact": "lie",
+     "site_uv": [
+      2.85,
+      9.36
+     ],
+     "role": "natural rock behind the tall stone",
+     "story_set": "V2",
+     "block": "rock_tall",
+     "material_set": "stone"
+    },
+    {
+     "id": "S04_PromiseStones_v2_058",
+     "key": "FAB_Shrub_C",
+     "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarC",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 583944.1,
+     "y_cm": 430341.0,
+     "ground_z_cm": -35476.2,
+     "yaw": 134.07,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.9,
+     "scale_range": [
+      0.9,
+      0.9
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/S04_PromiseStones/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.738,
+      0.657,
+      0.405
+     ],
+     "slope_deg": 8.7,
+     "road_clear_m": 10.14,
+     "contact": "lie",
+     "site_uv": [
+      1.8,
+      10.62
+     ],
+     "role": "dead shrub creeping in",
+     "story_set": "V2",
+     "block": "creep"
+    },
+    {
+     "id": "S04_PromiseStones_v2_059",
+     "key": "FAB_Shrub_D",
+     "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarD",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 583934.9,
+     "y_cm": 430172.5,
+     "ground_z_cm": -35452.3,
+     "yaw": 178.61,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.1,
+     "scale_range": [
+      1.1,
+      1.1
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/S04_PromiseStones/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.462,
+      0.44,
+      0.363
+     ],
+     "slope_deg": 7.6,
+     "road_clear_m": 8.74,
+     "contact": "lie",
+     "site_uv": [
+      2.34,
+      9.02
+     ],
+     "role": "dead shrub creeping in",
+     "story_set": "V2",
+     "block": "creep"
+    },
+    {
+     "id": "S04_PromiseStones_v2_060",
+     "key": "FAB_Shrub_C",
+     "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarC",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 584088.0,
+     "y_cm": 431094.9,
+     "ground_z_cm": -35593.3,
+     "yaw": 253.04,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.9,
+     "scale_range": [
+      0.9,
+      0.9
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/S04_PromiseStones/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.738,
+      0.657,
+      0.405
+     ],
+     "slope_deg": 13.2,
+     "road_clear_m": 17.03,
+     "contact": "lie",
+     "site_uv": [
+      -1.57,
+      17.51
+     ],
+     "role": "dead shrub creeping in",
+     "story_set": "V2",
+     "block": "creep"
+    },
+    {
+     "id": "S04_PromiseStones_v2_061",
+     "key": "FAB_Shrub_D",
+     "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarD",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 584035.1,
+     "y_cm": 430954.0,
+     "ground_z_cm": -35567.6,
+     "yaw": 151.39,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.1,
+     "scale_range": [
+      1.1,
+      1.1
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/S04_PromiseStones/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.462,
+      0.44,
+      0.363
+     ],
+     "slope_deg": 10.5,
+     "road_clear_m": 15.97,
+     "contact": "lie",
+     "site_uv": [
+      -0.69,
+      16.29
+     ],
+     "role": "dead shrub creeping in",
+     "story_set": "V2",
+     "block": "creep"
+    },
+    {
+     "id": "S04_PromiseStones_v2_062",
+     "key": "FAB_Shrub_G",
+     "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarG",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 583884.0,
+     "y_cm": 431036.4,
+     "ground_z_cm": -35596.8,
+     "yaw": 249.88,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.8,
+     "scale_range": [
+      0.8,
+      0.8
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/S04_PromiseStones/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.928,
+      0.824,
+      0.528
+     ],
+     "slope_deg": 13.3,
+     "road_clear_m": 16.87,
+     "contact": "lie",
+     "site_uv": [
+      0.55,
+      17.49
+     ],
+     "role": "dead shrub creeping in",
+     "story_set": "V2",
+     "block": "creep"
+    },
+    {
+     "id": "S04_PromiseStones_v2_063",
+     "key": "FAB_Shrub_E",
+     "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarE",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 583999.7,
+     "y_cm": 431166.9,
+     "ground_z_cm": -35616.8,
+     "yaw": 165.9,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.9,
+     "scale_range": [
+      0.9,
+      0.9
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/S04_PromiseStones/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.666,
+      0.612,
+      0.432
+     ],
+     "slope_deg": 14.0,
+     "road_clear_m": 18.01,
+     "contact": "lie",
+     "site_uv": [
+      -0.91,
+      18.44
+     ],
+     "role": "dead shrub creeping in",
+     "story_set": "V2",
+     "block": "creep"
+    },
+    {
+     "id": "S04_PromiseStones_v2_064",
+     "key": "FAB_Shrub_G",
+     "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarG",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 583778.3,
+     "y_cm": 430159.3,
+     "ground_z_cm": -35443.3,
+     "yaw": 88.23,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.8,
+     "scale_range": [
+      0.8,
+      0.8
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/S04_PromiseStones/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.928,
+      0.824,
+      0.528
+     ],
+     "slope_deg": 6.4,
+     "road_clear_m": 8.74,
+     "contact": "lie",
+     "site_uv": [
+      3.88,
+      9.3
+     ],
+     "role": "dead shrub creeping in",
+     "story_set": "V2",
+     "block": "creep"
+    },
+    {
+     "id": "S04_PromiseStones_v2_065",
+     "key": "FAB_Shrub_E",
+     "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarE",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 583893.0,
+     "y_cm": 430285.7,
+     "ground_z_cm": -35466.0,
+     "yaw": 192.9,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.9,
+     "scale_range": [
+      0.9,
+      0.9
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/S04_PromiseStones/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.666,
+      0.612,
+      0.432
+     ],
+     "slope_deg": 9.0,
+     "road_clear_m": 9.9,
+     "contact": "lie",
+     "site_uv": [
+      2.44,
+      10.22
+     ],
+     "role": "dead shrub creeping in",
+     "story_set": "V2",
+     "block": "creep"
+    },
+    {
+     "id": "S04_PromiseStones_v2_066",
+     "key": "FAB_Shrub_C",
+     "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarC",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 584316.9,
+     "y_cm": 430176.8,
+     "ground_z_cm": -35470.6,
+     "yaw": 250.26,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.75,
+     "scale_range": [
+      0.75,
+      0.75
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/S04_PromiseStones/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.615,
+      0.547,
+      0.338
+     ],
+     "slope_deg": 8.1,
+     "road_clear_m": 7.65,
+     "contact": "lie",
+     "site_uv": [
+      -1.36,
+      8.05
+     ],
+     "role": "dead shrub creeping in",
+     "story_set": "V2",
+     "block": "creep"
+    },
+    {
+     "id": "S04_PromiseStones_v2_067",
+     "key": "FAB_Shrub_E",
+     "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarE",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 584431.1,
+     "y_cm": 430633.7,
+     "ground_z_cm": -35519.1,
+     "yaw": 25.77,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.8,
+     "scale_range": [
+      0.8,
+      0.8
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/S04_PromiseStones/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.592,
+      0.544,
+      0.384
+     ],
+     "slope_deg": 5.6,
+     "road_clear_m": 11.84,
+     "contact": "lie",
+     "site_uv": [
+      -3.67,
+      12.16
+     ],
+     "role": "dead shrub creeping in",
+     "story_set": "V2",
+     "block": "creep"
+    }
+   ],
+   "ground": [
+    {
+     "id": "S04_PromiseStones_v2_g00",
+     "surface": "path",
+     "shape": "capsule",
+     "x_cm": 584708.5,
+     "y_cm": 430024.7,
+     "z_cm": -35473.8,
+     "yaw": 136.9,
+     "length_m": 3.95,
+     "width_m": 1.0,
+     "depth_m": 3.0,
+     "strength": 0.8,
+     "sort": 3,
+     "role": "the trodden way from the way-stone to the stones"
+    },
+    {
+     "id": "S04_PromiseStones_v2_g01",
+     "surface": "path",
+     "shape": "capsule",
+     "x_cm": 584501.0,
+     "y_cm": 430270.5,
+     "z_cm": -35493.1,
+     "yaw": 124.5,
+     "length_m": 4.52,
+     "width_m": 1.0,
+     "depth_m": 3.0,
+     "strength": 0.8,
+     "sort": 3,
+     "role": "the trodden way from the way-stone to the stones"
+    },
+    {
+     "id": "S04_PromiseStones_v2_g02",
+     "surface": "packed_earth",
+     "shape": "ellipse",
+     "x_cm": 584314.1,
+     "y_cm": 430411.2,
+     "z_cm": -35493.5,
+     "yaw": 259.6,
+     "length_m": 5.0,
+     "width_m": 3.2,
+     "depth_m": 3.0,
+     "strength": 0.78,
+     "sort": 0,
+     "role": "the standing place: packed earth under and round the paving"
+    },
+    {
+     "id": "S04_PromiseStones_v2_g03",
+     "surface": "rubble_dust",
+     "shape": "ellipse",
+     "x_cm": 584054.7,
+     "y_cm": 430244.1,
+     "z_cm": -35466.8,
+     "yaw": 267.0,
+     "length_m": 3.2,
+     "width_m": 2.6,
+     "depth_m": 3.0,
+     "strength": 0.55,
+     "sort": 1,
+     "role": "the disturbed ground where the tall stone was set"
+    },
+    {
+     "id": "S04_PromiseStones_v2_g04",
+     "surface": "rubble_dust",
+     "shape": "ellipse",
+     "x_cm": 584138.4,
+     "y_cm": 430977.9,
+     "z_cm": -35569.4,
+     "yaw": 253.0,
+     "length_m": 2.4,
+     "width_m": 2.0,
+     "depth_m": 3.0,
+     "strength": 0.55,
+     "sort": 1,
+     "role": "the disturbed ground where the short stone was set"
+    }
+   ],
+   "units": [],
+   "waivers": [],
+   "inscription": {
+    "stone_id": "S04_PromiseStones_v2_000",
+    "face": "the stone local +Z face (its original top), facing the road",
+    "lines": [
+     {
+      "id": "S04_PromiseStones_v2_t00",
+      "text": "HOMES MAY EMPTY;",
+      "x_cm": 584133.5,
+      "y_cm": 430240.0,
+      "z_cm": -35292.8,
+      "yaw": 357.01,
+      "world_size_cm": 11.0,
+      "up_from_face_foot_cm": 178.0
+     },
+     {
+      "id": "S04_PromiseStones_v2_t01",
+      "text": "LET NAMES REMAIN.",
+      "x_cm": 584133.5,
+      "y_cm": 430240.0,
+      "z_cm": -35308.8,
+      "yaw": 357.01,
+      "world_size_cm": 11.0,
+      "up_from_face_foot_cm": 162.0
+     }
+    ],
+    "color_rgb": [
+     38,
+     30,
+     24
+    ],
+    "out_cm": 3.0,
+    "final": "a carved-glyph decal (M_Saskarta_CarvedGlyph + a new T_Inscription texture), inscriptions lane"
+   },
+   "story_hooks": {
+    "GlanceTarget": {
+     "tag": "Saskarta.Glance.PromiseStones",
+     "old_cm": [
+      584321.0,
+      431130.0,
+      -33983.0
+     ],
+     "new_cm": [
+      584099.7,
+      430628.4,
+      -34901.4
+     ],
+     "why": "the gap between the stones at the height between the tall top and the crown line (the old point is 16 m up: the hold would look 18-29 deg into the sky)"
+    }
+   },
+   "v2": {
+    "frame": {
+     "origin_road_m": 490.0,
+     "origin_cm": [
+      584397.5,
+      429364.0
+     ],
+     "u": "along travel",
+     "v": "left of travel",
+     "hold_eye_road_m": 462.5,
+     "crown_bearing_deg": 169.61,
+     "gap_distance_m": 30.0,
+     "gap_m": 5.5
+    },
+    "lanes": [
+     {
+      "pts": [
+       [
+        -5.51,
+        4.3
+       ],
+       [
+        -3.96,
+        6.81
+       ],
+       [
+        -2.8,
+        10.13
+       ]
+      ],
+      "width": 1.0
+     }
+    ],
+    "glance": [
+     {
+      "crown": [
+       -0.478,
+       0.337
+      ],
+      "tall": [
+       -0.258,
+       -0.199,
+       -0.114,
+       0.075
+      ],
+      "short": [
+       -0.448,
+       -0.401,
+       -0.165,
+       -0.026
+      ],
+      "town": [
+       -0.229,
+       -0.009
+      ],
+      "crown_in_gap": false,
+      "crown_clear": true,
+      "t": 0.0,
+      "road_m": 450.0,
+      "yaw": -164.74,
+      "pitch": 0.0,
+      "ease": 0.0
+     },
+     {
+      "crown": [
+       -0.448,
+       0.321
+      ],
+      "tall": [
+       -0.241,
+       -0.181,
+       -0.13,
+       0.064
+      ],
+      "short": [
+       -0.435,
+       -0.387,
+       -0.182,
+       -0.04
+      ],
+      "town": [
+       -0.204,
+       -0.021
+      ],
+      "crown_in_gap": false,
+      "crown_clear": true,
+      "t": 0.25,
+      "road_m": 451.25,
+      "yaw": -166.13,
+      "pitch": 0.38,
+      "ease": 0.07
+     },
+     {
+      "crown": [
+       -0.373,
+       0.282
+      ],
+      "tall": [
+       -0.183,
+       -0.123,
+       -0.165,
+       0.033
+      ],
+      "short": [
+       -0.377,
+       -0.33,
+       -0.217,
+       -0.073
+      ],
+      "town": [
+       -0.139,
+       -0.051
+      ],
+      "crown_in_gap": false,
+      "crown_clear": true,
+      "t": 0.5,
+      "road_m": 452.5,
+      "yaw": -169.75,
+      "pitch": 1.34,
+      "ease": 0.26
+     },
+     {
+      "crown": [
+       -0.277,
+       0.232
+      ],
+      "tall": [
+       -0.104,
+       -0.042,
+       -0.21,
+       -0.008
+      ],
+      "short": [
+       -0.297,
+       -0.25,
+       -0.26,
+       -0.115
+      ],
+      "town": [
+       -0.053,
+       -0.091
+      ],
+      "crown_in_gap": false,
+      "crown_clear": true,
+      "t": 0.75,
+      "road_m": 453.75,
+      "yaw": -174.71,
+      "pitch": 2.63,
+      "ease": 0.5
+     },
+     {
+      "crown": [
+       -0.18,
+       0.183
+      ],
+      "tall": [
+       -0.02,
+       0.043,
+       -0.258,
+       -0.049
+      ],
+      "short": [
+       -0.215,
+       -0.168,
+       -0.307,
+       -0.159
+      ],
+      "town": [
+       0.04,
+       -0.134
+      ],
+      "crown_in_gap": false,
+      "crown_clear": true,
+      "t": 1.0,
+      "road_m": 455.0,
+      "yaw": -180.0,
+      "pitch": 3.99,
+      "ease": 0.74
+     },
+     {
+      "crown": [
+       -0.102,
+       0.143
+      ],
+      "tall": [
+       0.049,
+       0.115,
+       -0.3,
+       -0.082
+      ],
+      "short": [
+       -0.151,
+       -0.104,
+       -0.348,
+       -0.196
+      ],
+      "town": [
+       0.118,
+       -0.17
+      ],
+      "crown_in_gap": true,
+      "crown_clear": true,
+      "t": 1.25,
+      "road_m": 456.25,
+      "yaw": -184.47,
+      "pitch": 5.16,
+      "ease": 0.93
+     },
+     {
+      "crown": [
+       -0.061,
+       0.123
+      ],
+      "tall": [
+       0.079,
+       0.148,
+       -0.325,
+       -0.098
+      ],
+      "short": [
+       -0.126,
+       -0.079,
+       -0.373,
+       -0.216
+      ],
+      "town": [
+       0.159,
+       -0.189
+      ],
+      "crown_in_gap": true,
+      "crown_clear": true,
+      "t": 1.5,
+      "road_m": 457.5,
+      "yaw": -186.8,
+      "pitch": 5.76,
+      "ease": 1.0
+     },
+     {
+      "crown": [
+       -0.047,
+       0.118
+      ],
+      "tall": [
+       0.083,
+       0.153,
+       -0.336,
+       -0.101
+      ],
+      "short": [
+       -0.13,
+       -0.082,
+       -0.386,
+       -0.224
+      ],
+      "town": [
+       0.173,
+       -0.195
+      ],
+      "crown_in_gap": true,
+      "crown_clear": true,
+      "t": 1.75,
+      "road_m": 458.75,
+      "yaw": -187.6,
+      "pitch": 5.95,
+      "ease": 1.0
+     },
+     {
+      "crown": [
+       -0.033,
+       0.112
+      ],
+      "tall": [
+       0.085,
+       0.159,
+       -0.349,
+       -0.104
+      ],
+      "short": [
+       -0.135,
+       -0.085,
+       -0.399,
+       -0.232
+      ],
+      "town": [
+       0.188,
+       -0.201
+      ],
+      "crown_in_gap": true,
+      "crown_clear": true,
+      "t": 2.0,
+      "road_m": 460.0,
+      "yaw": -188.46,
+      "pitch": 6.14,
+      "ease": 1.0
+     },
+     {
+      "crown": [
+       -0.017,
+       0.103
+      ],
+      "tall": [
+       0.088,
+       0.165,
+       -0.363,
+       -0.107
+      ],
+      "short": [
+       -0.139,
+       -0.088,
+       -0.414,
+       -0.24
+      ],
+      "town": [
+       0.205,
+       -0.21
+      ],
+      "crown_in_gap": true,
+      "crown_clear": true,
+      "t": 2.25,
+      "road_m": 461.25,
+      "yaw": -189.39,
+      "pitch": 6.4,
+      "ease": 1.0
+     },
+     {
+      "crown": [
+       0.0,
+       0.094
+      ],
+      "tall": [
+       0.091,
+       0.172,
+       -0.377,
+       -0.111
+      ],
+      "short": [
+       -0.145,
+       -0.091,
+       -0.43,
+       -0.249
+      ],
+      "town": [
+       0.223,
+       -0.219
+      ],
+      "crown_in_gap": true,
+      "crown_clear": true,
+      "t": 2.5,
+      "road_m": 462.5,
+      "yaw": -190.39,
+      "pitch": 6.71,
+      "ease": 1.0
+     },
+     {
+      "crown": [
+       0.018,
+       0.082
+      ],
+      "tall": [
+       0.095,
+       0.179,
+       -0.393,
+       -0.114
+      ],
+      "short": [
+       -0.15,
+       -0.095,
+       -0.446,
+       -0.259
+      ],
+      "town": [
+       0.242,
+       -0.232
+      ],
+      "crown_in_gap": true,
+      "crown_clear": true,
+      "t": 2.75,
+      "road_m": 463.75,
+      "yaw": -191.46,
+      "pitch": 7.11,
+      "ease": 1.0
+     },
+     {
+      "crown": [
+       0.038,
+       0.068
+      ],
+      "tall": [
+       0.098,
+       0.186,
+       -0.41,
+       -0.118
+      ],
+      "short": [
+       -0.157,
+       -0.098,
+       -0.464,
+       -0.269
+      ],
+      "town": [
+       0.264,
+       -0.246
+      ],
+      "crown_in_gap": true,
+      "crown_clear": true,
+      "t": 3.0,
+      "road_m": 465.0,
+      "yaw": -192.62,
+      "pitch": 7.56,
+      "ease": 1.0
+     },
+     {
+      "crown": [
+       0.06,
+       0.054
+      ],
+      "tall": [
+       0.102,
+       0.194,
+       -0.428,
+       -0.122
+      ],
+      "short": [
+       -0.163,
+       -0.101,
+       -0.483,
+       -0.28
+      ],
+      "town": [
+       0.287,
+       -0.261
+      ],
+      "crown_in_gap": true,
+      "crown_clear": true,
+      "t": 3.25,
+      "road_m": 466.25,
+      "yaw": -193.87,
+      "pitch": 8.03,
+      "ease": 1.0
+     },
+     {
+      "crown": [
+       0.083,
+       0.037
+      ],
+      "tall": [
+       0.105,
+       0.204,
+       -0.447,
+       -0.125
+      ],
+      "short": [
+       -0.17,
+       -0.104,
+       -0.503,
+       -0.292
+      ],
+      "town": [
+       0.313,
+       -0.278
+      ],
+      "crown_in_gap": true,
+      "crown_clear": true,
+      "t": 3.5,
+      "road_m": 467.5,
+      "yaw": -195.24,
+      "pitch": 8.59,
+      "ease": 1.0
+     },
+     {
+      "crown": [
+       0.083,
+       0.037
+      ],
+      "tall": [
+       0.083,
+       0.186,
+       -0.449,
+       -0.112
+      ],
+      "short": [
+       -0.204,
+       -0.133,
+       -0.507,
+       -0.287
+      ],
+      "town": [
+       0.313,
+       -0.278
+      ],
+      "crown_in_gap": true,
+      "crown_clear": true,
+      "t": 3.75,
+      "road_m": 468.75,
+      "yaw": -195.24,
+      "pitch": 8.59,
+      "ease": 1.0
+     },
+     {
+      "crown": [
+       0.083,
+       0.037
+      ],
+      "tall": [
+       0.059,
+       0.167,
+       -0.455,
+       -0.102
+      ],
+      "short": [
+       -0.242,
+       -0.165,
+       -0.516,
+       -0.285
+      ],
+      "town": [
+       0.312,
+       -0.278
+      ],
+      "crown_in_gap": false,
+      "crown_clear": true,
+      "t": 4.0,
+      "road_m": 470.0,
+      "yaw": -195.24,
+      "pitch": 8.59,
+      "ease": 1.0
+     },
+     {
+      "crown": [
+       0.082,
+       0.037
+      ],
+      "tall": [
+       0.032,
+       0.146,
+       -0.465,
+       -0.093
+      ],
+      "short": [
+       -0.283,
+       -0.2,
+       -0.528,
+       -0.286
+      ],
+      "town": [
+       0.311,
+       -0.278
+      ],
+      "crown_in_gap": false,
+      "crown_clear": true,
+      "t": 4.25,
+      "road_m": 471.25,
+      "yaw": -195.24,
+      "pitch": 8.59,
+      "ease": 1.0
+     },
+     {
+      "crown": [
+       0.082,
+       0.038
+      ],
+      "tall": [
+       0.002,
+       0.123,
+       -0.475,
+       -0.083
+      ],
+      "short": [
+       -0.328,
+       -0.239,
+       -0.541,
+       -0.286
+      ],
+      "town": [
+       0.311,
+       -0.278
+      ],
+      "crown_in_gap": false,
+      "crown_clear": true,
+      "t": 4.5,
+      "road_m": 472.5,
+      "yaw": -195.24,
+      "pitch": 8.59,
+      "ease": 1.0
+     },
+     {
+      "crown": [
+       0.082,
+       0.038
+      ],
+      "tall": [
+       -0.032,
+       0.097,
+       -0.487,
+       -0.072
+      ],
+      "short": [
+       -0.379,
+       -0.281,
+       -0.555,
+       -0.287
+      ],
+      "town": [
+       0.31,
+       -0.278
+      ],
+      "crown_in_gap": false,
+      "crown_clear": true,
+      "t": 4.75,
+      "road_m": 473.75,
+      "yaw": -195.24,
+      "pitch": 8.59,
+      "ease": 1.0
+     },
+     {
+      "crown": [
+       0.082,
+       0.038
+      ],
+      "tall": [
+       -0.07,
+       0.068,
+       -0.499,
+       -0.059
+      ],
+      "short": [
+       -0.435,
+       -0.328,
+       -0.571,
+       -0.287
+      ],
+      "town": [
+       0.31,
+       -0.278
+      ],
+      "crown_in_gap": false,
+      "crown_clear": true,
+      "t": 5.0,
+      "road_m": 475.0,
+      "yaw": -195.24,
+      "pitch": 8.59,
+      "ease": 1.0
+     }
+    ],
+    "approach": [
+     {
+      "crown": [
+       -0.853,
+       0.397
+      ],
+      "tall": [
+       -0.264,
+       -0.239,
+       0.062,
+       0.135
+      ],
+      "short": [
+       -0.33,
+       -0.311,
+       0.049,
+       0.101
+      ],
+      "town": [
+       -0.489,
+       0.011
+      ],
+      "crown_in_gap": false,
+      "crown_clear": true,
+      "road_m": 380.0,
+      "dist_m": 107.8,
+      "terrain_los": false
+     },
+     {
+      "crown": [
+       -0.861,
+       0.397
+      ],
+      "tall": [
+       -0.326,
+       -0.294,
+       -0.002,
+       0.087
+      ],
+      "short": [
+       -0.411,
+       -0.387,
+       -0.022,
+       0.041
+      ],
+      "town": [
+       -0.508,
+       -0.001
+      ],
+      "crown_in_gap": false,
+      "crown_clear": true,
+      "road_m": 400.0,
+      "dist_m": 88.8,
+      "terrain_los": true
+     },
+     {
+      "crown": [
+       -0.868,
+       0.4
+      ],
+      "tall": [
+       -0.424,
+       -0.383,
+       -0.041,
+       0.075
+      ],
+      "short": [
+       -0.545,
+       -0.512,
+       -0.071,
+       0.014
+      ],
+      "town": [
+       -0.527,
+       -0.006
+      ],
+      "crown_in_gap": false,
+      "crown_clear": true,
+      "road_m": 420.0,
+      "dist_m": 70.3,
+      "terrain_los": true
+     },
+     {
+      "crown": [
+       -0.474,
+       0.334
+      ],
+      "tall": [
+       -0.174,
+       -0.134,
+       -0.06,
+       0.066
+      ],
+      "short": [
+       -0.295,
+       -0.263,
+       -0.091,
+       -0.001
+      ],
+      "town": [
+       -0.221,
+       -0.007
+      ],
+      "crown_in_gap": false,
+      "crown_clear": true,
+      "road_m": 430.0,
+      "dist_m": 60.9,
+      "terrain_los": true
+     },
+     {
+      "crown": [
+       -0.476,
+       0.335
+      ],
+      "tall": [
+       -0.208,
+       -0.16,
+       -0.087,
+       0.064
+      ],
+      "short": [
+       -0.356,
+       -0.318,
+       -0.126,
+       -0.017
+      ],
+      "town": [
+       -0.225,
+       -0.009
+      ],
+      "crown_in_gap": false,
+      "crown_clear": true,
+      "road_m": 440.0,
+      "dist_m": 51.2,
+      "terrain_los": true
+     },
+     {
+      "crown": [
+       -0.478,
+       0.337
+      ],
+      "tall": [
+       -0.258,
+       -0.199,
+       -0.114,
+       0.075
+      ],
+      "short": [
+       -0.448,
+       -0.401,
+       -0.165,
+       -0.026
+      ],
+      "town": [
+       -0.229,
+       -0.009
+      ],
+      "crown_in_gap": false,
+      "crown_clear": true,
+      "road_m": 450.0,
+      "dist_m": 41.6,
+      "terrain_los": true
+     }
+    ],
+    "checks": [
+     "Stele_WayStone_3 (INSCR lane, road 482.9, 4.8 m left): nearest dressing footprint 6.14 m away",
+     "path edge to the way-stone centre: 1.18 m",
+     "ISM declash: 32 of 55 ISM pieces moved (max 0.54 m), 1 left out; 0 overlaps left beyond {'stone': 0.05, 'shrub': 0.1, 'ism': 0.04}",
+     "tall stone x2.2: base -355.21 m, top -350.96 m; ground -354.83..-354.51 under the footprint (relief 0.32); buried 0.38..0.70 m; stands 3.55..3.87 m proud",
+     "short stone x1.5: base -356.12 m, top -353.22 m; ground -355.84..-355.52 under the footprint (relief 0.32); buried 0.28..0.60 m; stands 2.29..2.62 m proud",
+     "G03 hold, eye 1.22 m: the crown is in the notch above the gap in 100 % of the hold (nearest inner edge 0.018 frame-halves, 1.0 deg); never behind a stone: True",
+     "  with the OLD target (glance_targets.json, 16 m up): pitch 20.8..27.2 deg, crown in the gap in 100 % of the hold, crown screen x 0.10..0.32",
+     "G03 hold, eye 1.55 m: the crown is in the notch above the gap in 100 % of the hold (nearest inner edge 0.018 frame-halves, 1.0 deg); never behind a stone: True",
+     "  with the OLD target (glance_targets.json, 16 m up): pitch 20.3..26.6 deg, crown in the gap in 100 % of the hold, crown screen x 0.10..0.32",
+     "standing on the paving on the crown line (eye 1.6 m, 2.8 m before the gap): the crown at (0.0, -0.0) is framed in the notch (between the inner faces, below the tall top): True (short (-2.132, -0.771, -2.68, -0.085), tall (0.745, 3.622, -2.561, 1.932))",
+     "crown occluded by the dressing anywhere on 380-540 m (both eyes): never",
+     "Old Town (L14) centre covered by a stone during the G03 hold: never; at mid-hold a stone hides 26 % of its width (the site's 80 m radius at 560 m)",
+     "new glance target: (584100, 430628, -34901) cm, 6.11 m above the ground in the gap; it moves 10.7 m from the old one"
+    ],
+    "violations": []
+   },
+   "load_box_cm": [
+    578506,
+    425214,
+    595687,
+    436120
+   ]
+  }
+ ]
+}

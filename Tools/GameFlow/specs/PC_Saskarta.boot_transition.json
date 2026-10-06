@@ -1,0 +1,299 @@
+{
+ "asset": "/Game/SaskartaGaea/GameFlow/PC_Saskarta",
+ "graphs": [
+  {
+   "graph": "StartGame",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "flow": {
+     "get": "FlowState"
+    },
+    "isTitle": {
+     "call": "EqualEqual_NameName",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "ifTitle": {
+     "branch": true
+    },
+    "toBooting": {
+     "set": "FlowState"
+    },
+    "vision": {
+     "get": "CarrierVision"
+    },
+    "disableTitle": {
+     "call": "DisableTitle",
+     "class": "/Game/SaskartaGaea/GameFlow/BPC_CarrierVision.BPC_CarrierVision_C"
+    },
+    "music": {
+     "get": "TitleMusic"
+    },
+    "fadeOutMusic": {
+     "call": "FadeOut",
+     "class": "/Script/Engine.AudioComponent"
+    },
+    "fadeToBlack": {
+     "call": "FadeToBlack",
+     "class": "/Game/SaskartaGaea/GameFlow/BPC_CarrierVision.BPC_CarrierVision_C"
+    }
+   },
+   "links": [
+    [
+     "entry.then",
+     "ifTitle.execute"
+    ],
+    [
+     "flow.FlowState",
+     "isTitle.A"
+    ],
+    [
+     "isTitle.ReturnValue",
+     "ifTitle.Condition"
+    ],
+    [
+     "ifTitle.then",
+     "toBooting.execute"
+    ],
+    [
+     "toBooting.then",
+     "disableTitle.execute"
+    ],
+    [
+     "vision.CarrierVision",
+     "disableTitle.self"
+    ],
+    [
+     "disableTitle.then",
+     "fadeOutMusic.execute"
+    ],
+    [
+     "music.TitleMusic",
+     "fadeOutMusic.self"
+    ],
+    [
+     "fadeOutMusic.then",
+     "fadeToBlack.execute"
+    ],
+    [
+     "vision.CarrierVision",
+     "fadeToBlack.self"
+    ]
+   ],
+   "defaults": {
+    "isTitle.B": "Title",
+    "toBooting.FlowState": "Booting",
+    "fadeOutMusic.FadeOutDuration": "1.5",
+    "fadeOutMusic.FadeVolumeLevel": "0.0"
+   }
+  },
+  {
+   "graph": "HandleBlackout",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "flow": {
+     "get": "FlowState"
+    },
+    "isBooting": {
+     "call": "EqualEqual_NameName",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "ifBooting": {
+     "branch": true
+    },
+    "stopThenView": {
+     "sequence": 2
+    },
+    "findSeqActor2": {
+     "call": "GetActorOfClass",
+     "class": "/Script/Engine.GameplayStatics"
+    },
+    "castSeqActor2": {
+     "cast": "/Script/LevelSequence.LevelSequenceActor"
+    },
+    "getPlayer2": {
+     "call": "GetSequencePlayer",
+     "class": "/Script/LevelSequence.LevelSequenceActor"
+    },
+    "stopSeq": {
+     "call": "Stop",
+     "class": "/Script/LevelSequence.LevelSequencePlayer"
+    },
+    "pawn": {
+     "call": "K2_GetPawn",
+     "class": "/Script/Engine.Controller"
+    },
+    "viewPawn": {
+     "call": "SetViewTargetWithBlend",
+     "class": "/Script/Engine.PlayerController"
+    },
+    "vision": {
+     "get": "CarrierVision"
+    },
+    "removeTitle": {
+     "call": "RemoveTitle",
+     "class": "/Game/SaskartaGaea/GameFlow/BPC_CarrierVision.BPC_CarrierVision_C"
+    },
+    "me": {
+     "self": true
+    },
+    "gameOnly": {
+     "call": "SetInputMode_GameOnly",
+     "class": "/Script/UMG.WidgetBlueprintLibrary"
+    },
+    "cursorOff": {
+     "set": "bShowMouseCursor"
+    },
+    "firstBoot": {
+     "call": "PlayBoot",
+     "class": "/Game/SaskartaGaea/GameFlow/BPC_CarrierVision.BPC_CarrierVision_C"
+    },
+    "isRebooting": {
+     "call": "EqualEqual_NameName",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "ifRebooting": {
+     "branch": true
+    },
+    "resetTries": {
+     "set": "RespawnTries"
+    },
+    "resetStep": {
+     "set": "RespawnStep"
+    },
+    "respawn": {
+     "call": "TryRespawn"
+    }
+   },
+   "links": [
+    [
+     "entry.then",
+     "ifBooting.execute"
+    ],
+    [
+     "flow.FlowState",
+     "isBooting.A"
+    ],
+    [
+     "isBooting.ReturnValue",
+     "ifBooting.Condition"
+    ],
+    [
+     "ifBooting.then",
+     "stopThenView.execute"
+    ],
+    [
+     "stopThenView.then_0",
+     "findSeqActor2.execute"
+    ],
+    [
+     "findSeqActor2.then",
+     "castSeqActor2.execute"
+    ],
+    [
+     "findSeqActor2.ReturnValue",
+     "castSeqActor2.Object"
+    ],
+    [
+     "castSeqActor2.AsLevel Sequence Actor",
+     "getPlayer2.self"
+    ],
+    [
+     "castSeqActor2.then",
+     "stopSeq.execute"
+    ],
+    [
+     "getPlayer2.ReturnValue",
+     "stopSeq.self"
+    ],
+    [
+     "stopThenView.then_1",
+     "viewPawn.execute"
+    ],
+    [
+     "pawn.ReturnValue",
+     "viewPawn.NewViewTarget"
+    ],
+    [
+     "viewPawn.then",
+     "removeTitle.execute"
+    ],
+    [
+     "vision.CarrierVision",
+     "removeTitle.self"
+    ],
+    [
+     "removeTitle.then",
+     "gameOnly.execute"
+    ],
+    [
+     "me.self",
+     "gameOnly.PlayerController"
+    ],
+    [
+     "gameOnly.then",
+     "cursorOff.execute"
+    ],
+    [
+     "cursorOff.then",
+     "firstBoot.execute"
+    ],
+    [
+     "vision.CarrierVision",
+     "firstBoot.self"
+    ],
+    [
+     "ifBooting.else",
+     "ifRebooting.execute"
+    ],
+    [
+     "flow.FlowState",
+     "isRebooting.A"
+    ],
+    [
+     "isRebooting.ReturnValue",
+     "ifRebooting.Condition"
+    ],
+    [
+     "ifRebooting.then",
+     "resetTries.execute"
+    ],
+    [
+     "resetTries.then",
+     "resetStep.execute"
+    ],
+    [
+     "resetStep.then",
+     "respawn.execute"
+    ]
+   ],
+   "defaults": {
+    "isBooting.B": "Booting",
+    "findSeqActor2.ActorClass": "/Script/LevelSequence.LevelSequenceActor",
+    "viewPawn.BlendTime": "0.0",
+    "cursorOff.bShowMouseCursor": "false",
+    "firstBoot.Kind": "FirstBoot",
+    "isRebooting.B": "Rebooting",
+    "resetTries.RespawnTries": "0",
+    "resetStep.RespawnStep": "0.0"
+   }
+  }
+ ],
+ "functions": [
+  {
+   "name": "StartGame",
+   "pure": false,
+   "inputs": [],
+   "outputs": []
+  },
+  {
+   "name": "HandleBlackout",
+   "pure": false,
+   "inputs": [],
+   "outputs": []
+  }
+ ]
+}

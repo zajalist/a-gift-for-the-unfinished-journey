@@ -1,0 +1,2856 @@
+{
+ "asset": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_BootLog",
+ "description": "Retro 1980s boot terminal. BPC_CarrierVision calls ConfigureTerminal, ClearTerminal, BeginTerminal, TypeLine, PrintLine and SetBlackOpacity; everything else runs on widget-owned timers (no Tick). Needs BootBlack, TermHeader, TermSubHeader, MemLabelText, MemCountText, MemStatusText, Row0Text..Row5Text and Row0Status..Row5Status exposed as variables. Layout and timing: Tools/GameFlow/RETRO_BOOT.md.",
+ "variables": [
+  {
+   "name": "CharsPerSecond",
+   "type": "float",
+   "default": "40.0"
+  },
+  {
+   "name": "StatusDelay",
+   "type": "float",
+   "default": "0.14"
+  },
+  {
+   "name": "StallBudget",
+   "type": "float",
+   "default": "0.12"
+  },
+  {
+   "name": "MemDelay",
+   "type": "float",
+   "default": "0.2"
+  },
+  {
+   "name": "MemCountTime",
+   "type": "float",
+   "default": "0.7"
+  },
+  {
+   "name": "StallChance",
+   "type": "float",
+   "default": "0.08"
+  },
+  {
+   "name": "StallStep",
+   "type": "float",
+   "default": "0.06"
+  },
+  {
+   "name": "TypeTick",
+   "type": "float",
+   "default": "0.02"
+  },
+  {
+   "name": "MemTick",
+   "type": "float",
+   "default": "0.03"
+  },
+  {
+   "name": "BlinkHalfPeriod",
+   "type": "float",
+   "default": "0.265"
+  },
+  {
+   "name": "MemStepKB",
+   "type": "int",
+   "default": "16"
+  },
+  {
+   "name": "CursorString",
+   "type": "string",
+   "default": "_"
+  },
+  {
+   "name": "BlankString",
+   "type": "string"
+  },
+  {
+   "name": "BlankText",
+   "type": "text"
+  },
+  {
+   "name": "OkText",
+   "type": "text",
+   "default": "[ OK ]"
+  },
+  {
+   "name": "FailText",
+   "type": "text",
+   "default": "[FAIL]"
+  },
+  {
+   "name": "SfxOkBlip",
+   "type": "object:/Script/Engine.SoundBase",
+   "default": "/Game/SaskartaGaea/Audio/Terminal/SFX_Term_OK_Blip.SFX_Term_OK_Blip"
+  },
+  {
+   "name": "SfxLineFeed",
+   "type": "object:/Script/Engine.SoundBase",
+   "default": "/Game/SaskartaGaea/Audio/Terminal/SFX_Term_LineFeed.SFX_Term_LineFeed"
+  },
+  {
+   "name": "SfxKey1",
+   "type": "object:/Script/Engine.SoundBase",
+   "default": "/Game/SaskartaGaea/Audio/Terminal/SFX_Term_Key_01.SFX_Term_Key_01"
+  },
+  {
+   "name": "SfxKey2",
+   "type": "object:/Script/Engine.SoundBase",
+   "default": "/Game/SaskartaGaea/Audio/Terminal/SFX_Term_Key_02.SFX_Term_Key_02"
+  },
+  {
+   "name": "SfxKey3",
+   "type": "object:/Script/Engine.SoundBase",
+   "default": "/Game/SaskartaGaea/Audio/Terminal/SFX_Term_Key_03.SFX_Term_Key_03"
+  },
+  {
+   "name": "SfxKey4",
+   "type": "object:/Script/Engine.SoundBase",
+   "default": "/Game/SaskartaGaea/Audio/Terminal/SFX_Term_Key_04.SFX_Term_Key_04"
+  },
+  {
+   "name": "SfxKey5",
+   "type": "object:/Script/Engine.SoundBase",
+   "default": "/Game/SaskartaGaea/Audio/Terminal/SFX_Term_Key_05.SFX_Term_Key_05"
+  },
+  {
+   "name": "SfxKey6",
+   "type": "object:/Script/Engine.SoundBase",
+   "default": "/Game/SaskartaGaea/Audio/Terminal/SFX_Term_Key_06.SFX_Term_Key_06"
+  },
+  {
+   "name": "Row",
+   "type": "int",
+   "default": "0"
+  },
+  {
+   "name": "TypeString",
+   "type": "string"
+  },
+  {
+   "name": "TypeResult",
+   "type": "name"
+  },
+  {
+   "name": "Shown",
+   "type": "int",
+   "default": "0"
+  },
+  {
+   "name": "TypeClock",
+   "type": "float"
+  },
+  {
+   "name": "StallLeft",
+   "type": "float"
+  },
+  {
+   "name": "bLineOpen",
+   "type": "bool",
+   "default": "false"
+  },
+  {
+   "name": "bCursorOn",
+   "type": "bool",
+   "default": "false"
+  },
+  {
+   "name": "MemKB",
+   "type": "int",
+   "default": "0"
+  },
+  {
+   "name": "MemTotal",
+   "type": "int",
+   "default": "0"
+  },
+  {
+   "name": "MemStart",
+   "type": "float"
+  },
+  {
+   "name": "TypeTimer",
+   "type": "struct:/Script/Engine.TimerHandle"
+  },
+  {
+   "name": "StatusTimer",
+   "type": "struct:/Script/Engine.TimerHandle"
+  },
+  {
+   "name": "BlinkTimer",
+   "type": "struct:/Script/Engine.TimerHandle"
+  },
+  {
+   "name": "MemTimer",
+   "type": "struct:/Script/Engine.TimerHandle"
+  }
+ ],
+ "functions": [
+  {
+   "name": "SetBlackOpacity",
+   "inputs": [
+    {
+     "name": "Opacity",
+     "type": "float"
+    }
+   ],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "ConfigureTerminal",
+   "inputs": [
+    {
+     "name": "InCharsPerSecond",
+     "type": "float"
+    },
+    {
+     "name": "InStatusDelay",
+     "type": "float"
+    },
+    {
+     "name": "InStallBudget",
+     "type": "float"
+    },
+    {
+     "name": "InMemDelay",
+     "type": "float"
+    },
+    {
+     "name": "InMemCountTime",
+     "type": "float"
+    }
+   ],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "ClearTerminal",
+   "inputs": [],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "BeginTerminal",
+   "inputs": [
+    {
+     "name": "Header",
+     "type": "text"
+    },
+    {
+     "name": "SubHeader",
+     "type": "text"
+    },
+    {
+     "name": "MemLabel",
+     "type": "text"
+    },
+    {
+     "name": "MemoryKB",
+     "type": "int"
+    }
+   ],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "TypeLine",
+   "inputs": [
+    {
+     "name": "Line",
+     "type": "text"
+    },
+    {
+     "name": "Result",
+     "type": "name"
+    }
+   ],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "PrintLine",
+   "inputs": [
+    {
+     "name": "Line",
+     "type": "text"
+    },
+    {
+     "name": "Result",
+     "type": "name"
+    }
+   ],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "TypeStep",
+   "inputs": [],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "ShowStatus",
+   "inputs": [],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "FinishLine",
+   "inputs": [],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "BlinkCursor",
+   "inputs": [],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "CountMemory",
+   "inputs": [],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "MemoryDone",
+   "inputs": [],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "SetRow",
+   "inputs": [
+    {
+     "name": "Content",
+     "type": "string"
+    }
+   ],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "GetRowText",
+   "inputs": [],
+   "outputs": [
+    {
+     "name": "RowText",
+     "type": "object:/Script/UMG.TextBlock"
+    }
+   ],
+   "pure": true
+  },
+  {
+   "name": "GetRowStatus",
+   "inputs": [],
+   "outputs": [
+    {
+     "name": "RowStatus",
+     "type": "object:/Script/UMG.TextBlock"
+    }
+   ],
+   "pure": true
+  }
+ ],
+ "graphs": [
+  {
+   "graph": "SetBlackOpacity",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "getBlack": {
+     "get": "BootBlack"
+    },
+    "apply": {
+     "call": "SetRenderOpacity",
+     "class": "/Script/UMG.Widget"
+    }
+   },
+   "links": [
+    [
+     "entry.then",
+     "apply.execute"
+    ],
+    [
+     "getBlack.BootBlack",
+     "apply.self"
+    ],
+    [
+     "entry.Opacity",
+     "apply.InOpacity"
+    ]
+   ],
+   "defaults": {}
+  },
+  {
+   "graph": "ConfigureTerminal",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "setCharsPerSecond": {
+     "set": "CharsPerSecond"
+    },
+    "setStatusDelay": {
+     "set": "StatusDelay"
+    },
+    "setStallBudget": {
+     "set": "StallBudget"
+    },
+    "setMemDelay": {
+     "set": "MemDelay"
+    },
+    "setMemCountTime": {
+     "set": "MemCountTime"
+    }
+   },
+   "links": [
+    [
+     "entry.then",
+     "setCharsPerSecond.execute"
+    ],
+    [
+     "entry.InCharsPerSecond",
+     "setCharsPerSecond.CharsPerSecond"
+    ],
+    [
+     "setCharsPerSecond.then",
+     "setStatusDelay.execute"
+    ],
+    [
+     "entry.InStatusDelay",
+     "setStatusDelay.StatusDelay"
+    ],
+    [
+     "setStatusDelay.then",
+     "setStallBudget.execute"
+    ],
+    [
+     "entry.InStallBudget",
+     "setStallBudget.StallBudget"
+    ],
+    [
+     "setStallBudget.then",
+     "setMemDelay.execute"
+    ],
+    [
+     "entry.InMemDelay",
+     "setMemDelay.MemDelay"
+    ],
+    [
+     "setMemDelay.then",
+     "setMemCountTime.execute"
+    ],
+    [
+     "entry.InMemCountTime",
+     "setMemCountTime.MemCountTime"
+    ]
+   ],
+   "defaults": {}
+  },
+  {
+   "graph": "ClearTerminal",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "getClearTypeTimer": {
+     "get": "TypeTimer"
+    },
+    "clearTypeTimer": {
+     "call": "K2_ClearAndInvalidateTimerHandle",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "getClearStatusTimer": {
+     "get": "StatusTimer"
+    },
+    "clearStatusTimer": {
+     "call": "K2_ClearAndInvalidateTimerHandle",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "getClearBlinkTimer": {
+     "get": "BlinkTimer"
+    },
+    "clearBlinkTimer": {
+     "call": "K2_ClearAndInvalidateTimerHandle",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "getClearMemTimer": {
+     "get": "MemTimer"
+    },
+    "clearMemTimer": {
+     "call": "K2_ClearAndInvalidateTimerHandle",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "setLineOpen": {
+     "set": "bLineOpen"
+    },
+    "setCursorOn": {
+     "set": "bCursorOn"
+    },
+    "setRow": {
+     "set": "Row"
+    },
+    "setShown": {
+     "set": "Shown"
+    },
+    "getBlank": {
+     "get": "BlankText"
+    },
+    "getTermHeader": {
+     "get": "TermHeader"
+    },
+    "blankTermHeader": {
+     "call": "SetText",
+     "class": "/Script/UMG.TextBlock"
+    },
+    "getTermSubHeader": {
+     "get": "TermSubHeader"
+    },
+    "blankTermSubHeader": {
+     "call": "SetText",
+     "class": "/Script/UMG.TextBlock"
+    },
+    "getMemLabelText": {
+     "get": "MemLabelText"
+    },
+    "blankMemLabelText": {
+     "call": "SetText",
+     "class": "/Script/UMG.TextBlock"
+    },
+    "getMemCountText": {
+     "get": "MemCountText"
+    },
+    "blankMemCountText": {
+     "call": "SetText",
+     "class": "/Script/UMG.TextBlock"
+    },
+    "getMemStatusText": {
+     "get": "MemStatusText"
+    },
+    "blankMemStatusText": {
+     "call": "SetText",
+     "class": "/Script/UMG.TextBlock"
+    },
+    "getRow0Text": {
+     "get": "Row0Text"
+    },
+    "blankRow0Text": {
+     "call": "SetText",
+     "class": "/Script/UMG.TextBlock"
+    },
+    "getRow1Text": {
+     "get": "Row1Text"
+    },
+    "blankRow1Text": {
+     "call": "SetText",
+     "class": "/Script/UMG.TextBlock"
+    },
+    "getRow2Text": {
+     "get": "Row2Text"
+    },
+    "blankRow2Text": {
+     "call": "SetText",
+     "class": "/Script/UMG.TextBlock"
+    },
+    "getRow3Text": {
+     "get": "Row3Text"
+    },
+    "blankRow3Text": {
+     "call": "SetText",
+     "class": "/Script/UMG.TextBlock"
+    },
+    "getRow4Text": {
+     "get": "Row4Text"
+    },
+    "blankRow4Text": {
+     "call": "SetText",
+     "class": "/Script/UMG.TextBlock"
+    },
+    "getRow5Text": {
+     "get": "Row5Text"
+    },
+    "blankRow5Text": {
+     "call": "SetText",
+     "class": "/Script/UMG.TextBlock"
+    },
+    "getRow0Status": {
+     "get": "Row0Status"
+    },
+    "blankRow0Status": {
+     "call": "SetText",
+     "class": "/Script/UMG.TextBlock"
+    },
+    "getRow1Status": {
+     "get": "Row1Status"
+    },
+    "blankRow1Status": {
+     "call": "SetText",
+     "class": "/Script/UMG.TextBlock"
+    },
+    "getRow2Status": {
+     "get": "Row2Status"
+    },
+    "blankRow2Status": {
+     "call": "SetText",
+     "class": "/Script/UMG.TextBlock"
+    },
+    "getRow3Status": {
+     "get": "Row3Status"
+    },
+    "blankRow3Status": {
+     "call": "SetText",
+     "class": "/Script/UMG.TextBlock"
+    },
+    "getRow4Status": {
+     "get": "Row4Status"
+    },
+    "blankRow4Status": {
+     "call": "SetText",
+     "class": "/Script/UMG.TextBlock"
+    },
+    "getRow5Status": {
+     "get": "Row5Status"
+    },
+    "blankRow5Status": {
+     "call": "SetText",
+     "class": "/Script/UMG.TextBlock"
+    }
+   },
+   "links": [
+    [
+     "getClearTypeTimer.TypeTimer",
+     "clearTypeTimer.Handle"
+    ],
+    [
+     "getClearStatusTimer.StatusTimer",
+     "clearStatusTimer.Handle"
+    ],
+    [
+     "getClearBlinkTimer.BlinkTimer",
+     "clearBlinkTimer.Handle"
+    ],
+    [
+     "getClearMemTimer.MemTimer",
+     "clearMemTimer.Handle"
+    ],
+    [
+     "getTermHeader.TermHeader",
+     "blankTermHeader.self"
+    ],
+    [
+     "getBlank.BlankText",
+     "blankTermHeader.InText"
+    ],
+    [
+     "getTermSubHeader.TermSubHeader",
+     "blankTermSubHeader.self"
+    ],
+    [
+     "getBlank.BlankText",
+     "blankTermSubHeader.InText"
+    ],
+    [
+     "getMemLabelText.MemLabelText",
+     "blankMemLabelText.self"
+    ],
+    [
+     "getBlank.BlankText",
+     "blankMemLabelText.InText"
+    ],
+    [
+     "getMemCountText.MemCountText",
+     "blankMemCountText.self"
+    ],
+    [
+     "getBlank.BlankText",
+     "blankMemCountText.InText"
+    ],
+    [
+     "getMemStatusText.MemStatusText",
+     "blankMemStatusText.self"
+    ],
+    [
+     "getBlank.BlankText",
+     "blankMemStatusText.InText"
+    ],
+    [
+     "getRow0Text.Row0Text",
+     "blankRow0Text.self"
+    ],
+    [
+     "getBlank.BlankText",
+     "blankRow0Text.InText"
+    ],
+    [
+     "getRow1Text.Row1Text",
+     "blankRow1Text.self"
+    ],
+    [
+     "getBlank.BlankText",
+     "blankRow1Text.InText"
+    ],
+    [
+     "getRow2Text.Row2Text",
+     "blankRow2Text.self"
+    ],
+    [
+     "getBlank.BlankText",
+     "blankRow2Text.InText"
+    ],
+    [
+     "getRow3Text.Row3Text",
+     "blankRow3Text.self"
+    ],
+    [
+     "getBlank.BlankText",
+     "blankRow3Text.InText"
+    ],
+    [
+     "getRow4Text.Row4Text",
+     "blankRow4Text.self"
+    ],
+    [
+     "getBlank.BlankText",
+     "blankRow4Text.InText"
+    ],
+    [
+     "getRow5Text.Row5Text",
+     "blankRow5Text.self"
+    ],
+    [
+     "getBlank.BlankText",
+     "blankRow5Text.InText"
+    ],
+    [
+     "getRow0Status.Row0Status",
+     "blankRow0Status.self"
+    ],
+    [
+     "getBlank.BlankText",
+     "blankRow0Status.InText"
+    ],
+    [
+     "getRow1Status.Row1Status",
+     "blankRow1Status.self"
+    ],
+    [
+     "getBlank.BlankText",
+     "blankRow1Status.InText"
+    ],
+    [
+     "getRow2Status.Row2Status",
+     "blankRow2Status.self"
+    ],
+    [
+     "getBlank.BlankText",
+     "blankRow2Status.InText"
+    ],
+    [
+     "getRow3Status.Row3Status",
+     "blankRow3Status.self"
+    ],
+    [
+     "getBlank.BlankText",
+     "blankRow3Status.InText"
+    ],
+    [
+     "getRow4Status.Row4Status",
+     "blankRow4Status.self"
+    ],
+    [
+     "getBlank.BlankText",
+     "blankRow4Status.InText"
+    ],
+    [
+     "getRow5Status.Row5Status",
+     "blankRow5Status.self"
+    ],
+    [
+     "getBlank.BlankText",
+     "blankRow5Status.InText"
+    ],
+    [
+     "entry.then",
+     "clearTypeTimer.execute"
+    ],
+    [
+     "clearTypeTimer.then",
+     "clearStatusTimer.execute"
+    ],
+    [
+     "clearStatusTimer.then",
+     "clearBlinkTimer.execute"
+    ],
+    [
+     "clearBlinkTimer.then",
+     "clearMemTimer.execute"
+    ],
+    [
+     "clearMemTimer.then",
+     "setLineOpen.execute"
+    ],
+    [
+     "setLineOpen.then",
+     "setCursorOn.execute"
+    ],
+    [
+     "setCursorOn.then",
+     "setRow.execute"
+    ],
+    [
+     "setRow.then",
+     "setShown.execute"
+    ],
+    [
+     "setShown.then",
+     "blankTermHeader.execute"
+    ],
+    [
+     "blankTermHeader.then",
+     "blankTermSubHeader.execute"
+    ],
+    [
+     "blankTermSubHeader.then",
+     "blankMemLabelText.execute"
+    ],
+    [
+     "blankMemLabelText.then",
+     "blankMemCountText.execute"
+    ],
+    [
+     "blankMemCountText.then",
+     "blankMemStatusText.execute"
+    ],
+    [
+     "blankMemStatusText.then",
+     "blankRow0Text.execute"
+    ],
+    [
+     "blankRow0Text.then",
+     "blankRow1Text.execute"
+    ],
+    [
+     "blankRow1Text.then",
+     "blankRow2Text.execute"
+    ],
+    [
+     "blankRow2Text.then",
+     "blankRow3Text.execute"
+    ],
+    [
+     "blankRow3Text.then",
+     "blankRow4Text.execute"
+    ],
+    [
+     "blankRow4Text.then",
+     "blankRow5Text.execute"
+    ],
+    [
+     "blankRow5Text.then",
+     "blankRow0Status.execute"
+    ],
+    [
+     "blankRow0Status.then",
+     "blankRow1Status.execute"
+    ],
+    [
+     "blankRow1Status.then",
+     "blankRow2Status.execute"
+    ],
+    [
+     "blankRow2Status.then",
+     "blankRow3Status.execute"
+    ],
+    [
+     "blankRow3Status.then",
+     "blankRow4Status.execute"
+    ],
+    [
+     "blankRow4Status.then",
+     "blankRow5Status.execute"
+    ]
+   ],
+   "defaults": {
+    "setLineOpen.bLineOpen": "false",
+    "setCursorOn.bCursorOn": "false",
+    "setRow.Row": "0",
+    "setShown.Shown": "0"
+   }
+  },
+  {
+   "graph": "BeginTerminal",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "clear": {
+     "call": "ClearTerminal"
+    },
+    "getHeader": {
+     "get": "TermHeader"
+    },
+    "header": {
+     "call": "SetText",
+     "class": "/Script/UMG.TextBlock"
+    },
+    "getSub": {
+     "get": "TermSubHeader"
+    },
+    "sub": {
+     "call": "SetText",
+     "class": "/Script/UMG.TextBlock"
+    },
+    "getLF": {
+     "get": "SfxLineFeed"
+    },
+    "playLF": {
+     "call": "PlaySound2D",
+     "class": "/Script/Engine.GameplayStatics"
+    },
+    "hasMem": {
+     "call": "Greater_IntInt",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "getBlank": {
+     "get": "BlankText"
+    },
+    "label": {
+     "call": "SelectText",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "getMemLabel": {
+     "get": "MemLabelText"
+    },
+    "setLabel": {
+     "call": "SetText",
+     "class": "/Script/UMG.TextBlock"
+    },
+    "setTotal": {
+     "set": "MemTotal"
+    },
+    "setKB": {
+     "set": "MemKB"
+    },
+    "ifMem": {
+     "branch": true
+    },
+    "now": {
+     "call": "GetTimeSeconds",
+     "class": "/Script/Engine.GameplayStatics"
+    },
+    "getMemDelay": {
+     "get": "MemDelay"
+    },
+    "startAt": {
+     "call": "Add_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "setStart": {
+     "set": "MemStart"
+    },
+    "getClearMem": {
+     "get": "MemTimer"
+    },
+    "clearMem": {
+     "call": "K2_ClearAndInvalidateTimerHandle",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "getMemTick": {
+     "get": "MemTick"
+    },
+    "safeMemTick": {
+     "call": "FClamp",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "me": {
+     "self": true
+    },
+    "memTimer": {
+     "timer": true
+    },
+    "setMemTimer": {
+     "set": "MemTimer"
+    },
+    "setCursorOn": {
+     "set": "bCursorOn"
+    },
+    "getCursor": {
+     "get": "CursorString"
+    },
+    "cursorRow": {
+     "call": "SetRow"
+    },
+    "getClearBlink": {
+     "get": "BlinkTimer"
+    },
+    "clearBlink": {
+     "call": "K2_ClearAndInvalidateTimerHandle",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "getBlinkHalf": {
+     "get": "BlinkHalfPeriod"
+    },
+    "safeBlink": {
+     "call": "FClamp",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "blink": {
+     "timer": true
+    },
+    "setBlink": {
+     "set": "BlinkTimer"
+    }
+   },
+   "links": [
+    [
+     "getHeader.TermHeader",
+     "header.self"
+    ],
+    [
+     "entry.Header",
+     "header.InText"
+    ],
+    [
+     "getSub.TermSubHeader",
+     "sub.self"
+    ],
+    [
+     "entry.SubHeader",
+     "sub.InText"
+    ],
+    [
+     "getLF.SfxLineFeed",
+     "playLF.Sound"
+    ],
+    [
+     "entry.MemoryKB",
+     "hasMem.A"
+    ],
+    [
+     "entry.MemLabel",
+     "label.A"
+    ],
+    [
+     "getBlank.BlankText",
+     "label.B"
+    ],
+    [
+     "hasMem.ReturnValue",
+     "label.bPickA"
+    ],
+    [
+     "getMemLabel.MemLabelText",
+     "setLabel.self"
+    ],
+    [
+     "label.ReturnValue",
+     "setLabel.InText"
+    ],
+    [
+     "entry.MemoryKB",
+     "setTotal.MemTotal"
+    ],
+    [
+     "hasMem.ReturnValue",
+     "ifMem.Condition"
+    ],
+    [
+     "now.ReturnValue",
+     "startAt.A"
+    ],
+    [
+     "getMemDelay.MemDelay",
+     "startAt.B"
+    ],
+    [
+     "startAt.ReturnValue",
+     "setStart.MemStart"
+    ],
+    [
+     "getClearMem.MemTimer",
+     "clearMem.Handle"
+    ],
+    [
+     "getMemTick.MemTick",
+     "safeMemTick.Value"
+    ],
+    [
+     "me.self",
+     "memTimer.Object"
+    ],
+    [
+     "safeMemTick.ReturnValue",
+     "memTimer.Time"
+    ],
+    [
+     "memTimer.ReturnValue",
+     "setMemTimer.MemTimer"
+    ],
+    [
+     "getCursor.CursorString",
+     "cursorRow.Content"
+    ],
+    [
+     "getClearBlink.BlinkTimer",
+     "clearBlink.Handle"
+    ],
+    [
+     "getBlinkHalf.BlinkHalfPeriod",
+     "safeBlink.Value"
+    ],
+    [
+     "me.self",
+     "blink.Object"
+    ],
+    [
+     "safeBlink.ReturnValue",
+     "blink.Time"
+    ],
+    [
+     "blink.ReturnValue",
+     "setBlink.BlinkTimer"
+    ],
+    [
+     "entry.then",
+     "clear.execute"
+    ],
+    [
+     "clear.then",
+     "header.execute"
+    ],
+    [
+     "header.then",
+     "sub.execute"
+    ],
+    [
+     "sub.then",
+     "playLF.execute"
+    ],
+    [
+     "playLF.then",
+     "setLabel.execute"
+    ],
+    [
+     "setLabel.then",
+     "setTotal.execute"
+    ],
+    [
+     "setTotal.then",
+     "setKB.execute"
+    ],
+    [
+     "setKB.then",
+     "ifMem.execute"
+    ],
+    [
+     "ifMem.then",
+     "setStart.execute"
+    ],
+    [
+     "setStart.then",
+     "clearMem.execute"
+    ],
+    [
+     "clearMem.then",
+     "memTimer.execute"
+    ],
+    [
+     "memTimer.then",
+     "setMemTimer.execute"
+    ],
+    [
+     "setMemTimer.then",
+     "setCursorOn.execute"
+    ],
+    [
+     "ifMem.else",
+     "setCursorOn.execute"
+    ],
+    [
+     "setCursorOn.then",
+     "cursorRow.execute"
+    ],
+    [
+     "cursorRow.then",
+     "clearBlink.execute"
+    ],
+    [
+     "clearBlink.then",
+     "blink.execute"
+    ],
+    [
+     "blink.then",
+     "setBlink.execute"
+    ]
+   ],
+   "defaults": {
+    "hasMem.B": "0",
+    "setKB.MemKB": "0",
+    "safeMemTick.Min": "0.01",
+    "safeMemTick.Max": "60.0",
+    "memTimer.FunctionName": "CountMemory",
+    "memTimer.bLooping": "true",
+    "memTimer.bMaxOncePerFrame": "true",
+    "setCursorOn.bCursorOn": "true",
+    "safeBlink.Min": "0.01",
+    "safeBlink.Max": "60.0",
+    "blink.FunctionName": "BlinkCursor",
+    "blink.bLooping": "true",
+    "blink.bMaxOncePerFrame": "true"
+   }
+  },
+  {
+   "graph": "TypeLine",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "getOpen": {
+     "get": "bLineOpen"
+    },
+    "ifOpen": {
+     "branch": true
+    },
+    "finish": {
+     "call": "FinishLine"
+    },
+    "toString": {
+     "call": "Conv_TextToString",
+     "class": "/Script/Engine.KismetTextLibrary"
+    },
+    "setString": {
+     "set": "TypeString"
+    },
+    "setResult": {
+     "set": "TypeResult"
+    },
+    "setOpen": {
+     "set": "bLineOpen"
+    },
+    "setShown": {
+     "set": "Shown"
+    },
+    "now": {
+     "call": "GetTimeSeconds",
+     "class": "/Script/Engine.GameplayStatics"
+    },
+    "setClock": {
+     "set": "TypeClock"
+    },
+    "getBudget": {
+     "get": "StallBudget"
+    },
+    "setStall": {
+     "set": "StallLeft"
+    },
+    "getCursor": {
+     "get": "CursorString"
+    },
+    "cursorRow": {
+     "call": "SetRow"
+    },
+    "getClearType": {
+     "get": "TypeTimer"
+    },
+    "clearType": {
+     "call": "K2_ClearAndInvalidateTimerHandle",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "getTick": {
+     "get": "TypeTick"
+    },
+    "safeTick": {
+     "call": "FClamp",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "me": {
+     "self": true
+    },
+    "typeTimer": {
+     "timer": true
+    },
+    "setTypeTimer": {
+     "set": "TypeTimer"
+    }
+   },
+   "links": [
+    [
+     "getOpen.bLineOpen",
+     "ifOpen.Condition"
+    ],
+    [
+     "entry.Line",
+     "toString.InText"
+    ],
+    [
+     "toString.ReturnValue",
+     "setString.TypeString"
+    ],
+    [
+     "entry.Result",
+     "setResult.TypeResult"
+    ],
+    [
+     "entry.then",
+     "ifOpen.execute"
+    ],
+    [
+     "ifOpen.then",
+     "finish.execute"
+    ],
+    [
+     "finish.then",
+     "setString.execute"
+    ],
+    [
+     "ifOpen.else",
+     "setString.execute"
+    ],
+    [
+     "setString.then",
+     "setResult.execute"
+    ],
+    [
+     "setResult.then",
+     "setOpen.execute"
+    ],
+    [
+     "now.ReturnValue",
+     "setClock.TypeClock"
+    ],
+    [
+     "getBudget.StallBudget",
+     "setStall.StallLeft"
+    ],
+    [
+     "getCursor.CursorString",
+     "cursorRow.Content"
+    ],
+    [
+     "getClearType.TypeTimer",
+     "clearType.Handle"
+    ],
+    [
+     "getTick.TypeTick",
+     "safeTick.Value"
+    ],
+    [
+     "me.self",
+     "typeTimer.Object"
+    ],
+    [
+     "safeTick.ReturnValue",
+     "typeTimer.Time"
+    ],
+    [
+     "typeTimer.ReturnValue",
+     "setTypeTimer.TypeTimer"
+    ],
+    [
+     "setOpen.then",
+     "setShown.execute"
+    ],
+    [
+     "setShown.then",
+     "setClock.execute"
+    ],
+    [
+     "setClock.then",
+     "setStall.execute"
+    ],
+    [
+     "setStall.then",
+     "cursorRow.execute"
+    ],
+    [
+     "cursorRow.then",
+     "clearType.execute"
+    ],
+    [
+     "clearType.then",
+     "typeTimer.execute"
+    ],
+    [
+     "typeTimer.then",
+     "setTypeTimer.execute"
+    ]
+   ],
+   "defaults": {
+    "setOpen.bLineOpen": "true",
+    "setShown.Shown": "0",
+    "safeTick.Min": "0.01",
+    "safeTick.Max": "60.0",
+    "typeTimer.FunctionName": "TypeStep",
+    "typeTimer.bLooping": "true",
+    "typeTimer.bMaxOncePerFrame": "true"
+   }
+  },
+  {
+   "graph": "PrintLine",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "getOpen": {
+     "get": "bLineOpen"
+    },
+    "ifOpen": {
+     "branch": true
+    },
+    "finish": {
+     "call": "FinishLine"
+    },
+    "toString": {
+     "call": "Conv_TextToString",
+     "class": "/Script/Engine.KismetTextLibrary"
+    },
+    "setString": {
+     "set": "TypeString"
+    },
+    "setResult": {
+     "set": "TypeResult"
+    },
+    "setOpen": {
+     "set": "bLineOpen"
+    },
+    "getString": {
+     "get": "TypeString"
+    },
+    "len": {
+     "call": "Len",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "setShown": {
+     "set": "Shown"
+    },
+    "getLF": {
+     "get": "SfxLineFeed"
+    },
+    "playLF": {
+     "call": "PlaySound2D",
+     "class": "/Script/Engine.GameplayStatics"
+    },
+    "status": {
+     "call": "ShowStatus"
+    }
+   },
+   "links": [
+    [
+     "getOpen.bLineOpen",
+     "ifOpen.Condition"
+    ],
+    [
+     "entry.Line",
+     "toString.InText"
+    ],
+    [
+     "toString.ReturnValue",
+     "setString.TypeString"
+    ],
+    [
+     "entry.Result",
+     "setResult.TypeResult"
+    ],
+    [
+     "entry.then",
+     "ifOpen.execute"
+    ],
+    [
+     "ifOpen.then",
+     "finish.execute"
+    ],
+    [
+     "finish.then",
+     "setString.execute"
+    ],
+    [
+     "ifOpen.else",
+     "setString.execute"
+    ],
+    [
+     "setString.then",
+     "setResult.execute"
+    ],
+    [
+     "setResult.then",
+     "setOpen.execute"
+    ],
+    [
+     "getString.TypeString",
+     "len.S"
+    ],
+    [
+     "len.ReturnValue",
+     "setShown.Shown"
+    ],
+    [
+     "getLF.SfxLineFeed",
+     "playLF.Sound"
+    ],
+    [
+     "setOpen.then",
+     "setShown.execute"
+    ],
+    [
+     "setShown.then",
+     "playLF.execute"
+    ],
+    [
+     "playLF.then",
+     "status.execute"
+    ]
+   ],
+   "defaults": {
+    "setOpen.bLineOpen": "true"
+   }
+  },
+  {
+   "graph": "TypeStep",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "getStallLeft": {
+     "get": "StallLeft"
+    },
+    "hasBudget": {
+     "call": "Greater_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "roll": {
+     "call": "RandomFloat",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "getChance": {
+     "get": "StallChance"
+    },
+    "lucky": {
+     "call": "Less_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "doStall": {
+     "call": "BooleanAND",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "ifStall": {
+     "branch": true
+    },
+    "getStep": {
+     "get": "StallStep"
+    },
+    "getClock": {
+     "get": "TypeClock"
+    },
+    "later": {
+     "call": "Add_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "setClock": {
+     "set": "TypeClock"
+    },
+    "spend": {
+     "call": "Subtract_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "setStallLeft": {
+     "set": "StallLeft"
+    },
+    "now": {
+     "call": "GetTimeSeconds",
+     "class": "/Script/Engine.GameplayStatics"
+    },
+    "getClock2": {
+     "get": "TypeClock"
+    },
+    "elapsed": {
+     "call": "Subtract_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "getCps": {
+     "get": "CharsPerSecond"
+    },
+    "chars": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "whole": {
+     "call": "FTrunc",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "getString": {
+     "get": "TypeString"
+    },
+    "len": {
+     "call": "Len",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "due": {
+     "call": "Clamp",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "getShown": {
+     "get": "Shown"
+    },
+    "keep": {
+     "call": "Max",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "setShown": {
+     "set": "Shown"
+    },
+    "getShownAfter": {
+     "get": "Shown"
+    },
+    "typed": {
+     "call": "Left",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "getCursor": {
+     "get": "CursorString"
+    },
+    "withCursor": {
+     "call": "Concat_StrStr",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "render": {
+     "call": "SetRow"
+    },
+    "done": {
+     "call": "GreaterEqual_IntInt",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "ifDone": {
+     "branch": true
+    },
+    "getClearType": {
+     "get": "TypeTimer"
+    },
+    "clearType": {
+     "call": "K2_ClearAndInvalidateTimerHandle",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "getClearStatus": {
+     "get": "StatusTimer"
+    },
+    "clearStatus": {
+     "call": "K2_ClearAndInvalidateTimerHandle",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "getDelay": {
+     "get": "StatusDelay"
+    },
+    "safeDelay": {
+     "call": "FClamp",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "me": {
+     "self": true
+    },
+    "statusTimer": {
+     "timer": true
+    },
+    "setStatusTimer": {
+     "set": "StatusTimer"
+    }
+   },
+   "links": [
+    [
+     "getStallLeft.StallLeft",
+     "hasBudget.A"
+    ],
+    [
+     "roll.ReturnValue",
+     "lucky.A"
+    ],
+    [
+     "getChance.StallChance",
+     "lucky.B"
+    ],
+    [
+     "hasBudget.ReturnValue",
+     "doStall.A"
+    ],
+    [
+     "lucky.ReturnValue",
+     "doStall.B"
+    ],
+    [
+     "doStall.ReturnValue",
+     "ifStall.Condition"
+    ],
+    [
+     "getClock.TypeClock",
+     "later.A"
+    ],
+    [
+     "getStep.StallStep",
+     "later.B"
+    ],
+    [
+     "later.ReturnValue",
+     "setClock.TypeClock"
+    ],
+    [
+     "getStallLeft.StallLeft",
+     "spend.A"
+    ],
+    [
+     "getStep.StallStep",
+     "spend.B"
+    ],
+    [
+     "spend.ReturnValue",
+     "setStallLeft.StallLeft"
+    ],
+    [
+     "now.ReturnValue",
+     "elapsed.A"
+    ],
+    [
+     "getClock2.TypeClock",
+     "elapsed.B"
+    ],
+    [
+     "elapsed.ReturnValue",
+     "chars.A"
+    ],
+    [
+     "getCps.CharsPerSecond",
+     "chars.B"
+    ],
+    [
+     "chars.ReturnValue",
+     "whole.A"
+    ],
+    [
+     "getString.TypeString",
+     "len.S"
+    ],
+    [
+     "whole.ReturnValue",
+     "due.Value"
+    ],
+    [
+     "len.ReturnValue",
+     "due.Max"
+    ],
+    [
+     "getShown.Shown",
+     "keep.A"
+    ],
+    [
+     "due.ReturnValue",
+     "keep.B"
+    ],
+    [
+     "keep.ReturnValue",
+     "setShown.Shown"
+    ],
+    [
+     "getString.TypeString",
+     "typed.SourceString"
+    ],
+    [
+     "getShownAfter.Shown",
+     "typed.Count"
+    ],
+    [
+     "typed.ReturnValue",
+     "withCursor.A"
+    ],
+    [
+     "getCursor.CursorString",
+     "withCursor.B"
+    ],
+    [
+     "withCursor.ReturnValue",
+     "render.Content"
+    ],
+    [
+     "getShownAfter.Shown",
+     "done.A"
+    ],
+    [
+     "len.ReturnValue",
+     "done.B"
+    ],
+    [
+     "done.ReturnValue",
+     "ifDone.Condition"
+    ],
+    [
+     "getClearType.TypeTimer",
+     "clearType.Handle"
+    ],
+    [
+     "getClearStatus.StatusTimer",
+     "clearStatus.Handle"
+    ],
+    [
+     "getDelay.StatusDelay",
+     "safeDelay.Value"
+    ],
+    [
+     "me.self",
+     "statusTimer.Object"
+    ],
+    [
+     "safeDelay.ReturnValue",
+     "statusTimer.Time"
+    ],
+    [
+     "statusTimer.ReturnValue",
+     "setStatusTimer.StatusTimer"
+    ],
+    [
+     "entry.then",
+     "ifStall.execute"
+    ],
+    [
+     "ifStall.then",
+     "setClock.execute"
+    ],
+    [
+     "setClock.then",
+     "setStallLeft.execute"
+    ],
+    [
+     "setStallLeft.then",
+     "setShown.execute"
+    ],
+    [
+     "ifStall.else",
+     "setShown.execute"
+    ],
+    [
+     "setShown.then",
+     "render.execute"
+    ],
+    [
+     "render.then",
+     "ifDone.execute"
+    ],
+    [
+     "ifDone.then",
+     "clearType.execute"
+    ],
+    [
+     "clearType.then",
+     "clearStatus.execute"
+    ],
+    [
+     "clearStatus.then",
+     "statusTimer.execute"
+    ],
+    [
+     "statusTimer.then",
+     "setStatusTimer.execute"
+    ]
+   ],
+   "defaults": {
+    "hasBudget.B": "0.0",
+    "due.Min": "0",
+    "safeDelay.Min": "0.01",
+    "safeDelay.Max": "60.0",
+    "statusTimer.FunctionName": "ShowStatus",
+    "statusTimer.bLooping": "false"
+   }
+  },
+  {
+   "graph": "ShowStatus",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "getResult": {
+     "get": "TypeResult"
+    },
+    "isFail": {
+     "call": "EqualEqual_NameName",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "isNone": {
+     "call": "EqualEqual_NameName",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "getFail": {
+     "get": "FailText"
+    },
+    "getOk": {
+     "get": "OkText"
+    },
+    "getBlank": {
+     "get": "BlankText"
+    },
+    "failOrOk": {
+     "call": "SelectText",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "token": {
+     "call": "SelectText",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "rowStatus": {
+     "call": "GetRowStatus"
+    },
+    "stamp": {
+     "call": "SetText",
+     "class": "/Script/UMG.TextBlock"
+    },
+    "getString": {
+     "get": "TypeString"
+    },
+    "fullRow": {
+     "call": "SetRow"
+    },
+    "getRow": {
+     "get": "Row"
+    },
+    "key": {
+     "select": 6
+    },
+    "getKey1": {
+     "get": "SfxKey1"
+    },
+    "getKey2": {
+     "get": "SfxKey2"
+    },
+    "getKey3": {
+     "get": "SfxKey3"
+    },
+    "getKey4": {
+     "get": "SfxKey4"
+    },
+    "getKey5": {
+     "get": "SfxKey5"
+    },
+    "getKey6": {
+     "get": "SfxKey6"
+    },
+    "click": {
+     "call": "PlaySound2D",
+     "class": "/Script/Engine.GameplayStatics"
+    },
+    "setClosed": {
+     "set": "bLineOpen"
+    },
+    "getRowBefore": {
+     "get": "Row"
+    },
+    "next": {
+     "call": "Add_IntInt",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "lastRow": {
+     "call": "Min",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "setRow": {
+     "set": "Row"
+    },
+    "setCursorOn": {
+     "set": "bCursorOn"
+    },
+    "getCursor": {
+     "get": "CursorString"
+    },
+    "cursorRow": {
+     "call": "SetRow"
+    },
+    "getClearBlink": {
+     "get": "BlinkTimer"
+    },
+    "clearBlink": {
+     "call": "K2_ClearAndInvalidateTimerHandle",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "getBlinkHalf": {
+     "get": "BlinkHalfPeriod"
+    },
+    "safeBlink": {
+     "call": "FClamp",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "me": {
+     "self": true
+    },
+    "blink": {
+     "timer": true
+    },
+    "setBlink": {
+     "set": "BlinkTimer"
+    }
+   },
+   "links": [
+    [
+     "getResult.TypeResult",
+     "isFail.A"
+    ],
+    [
+     "getResult.TypeResult",
+     "isNone.A"
+    ],
+    [
+     "getFail.FailText",
+     "failOrOk.A"
+    ],
+    [
+     "getOk.OkText",
+     "failOrOk.B"
+    ],
+    [
+     "isFail.ReturnValue",
+     "failOrOk.bPickA"
+    ],
+    [
+     "getBlank.BlankText",
+     "token.A"
+    ],
+    [
+     "failOrOk.ReturnValue",
+     "token.B"
+    ],
+    [
+     "isNone.ReturnValue",
+     "token.bPickA"
+    ],
+    [
+     "rowStatus.RowStatus",
+     "stamp.self"
+    ],
+    [
+     "token.ReturnValue",
+     "stamp.InText"
+    ],
+    [
+     "getString.TypeString",
+     "fullRow.Content"
+    ],
+    [
+     "getRow.Row",
+     "key.Index"
+    ],
+    [
+     "getKey1.SfxKey1",
+     "key.Option 0"
+    ],
+    [
+     "getKey2.SfxKey2",
+     "key.Option 1"
+    ],
+    [
+     "getKey3.SfxKey3",
+     "key.Option 2"
+    ],
+    [
+     "getKey4.SfxKey4",
+     "key.Option 3"
+    ],
+    [
+     "getKey5.SfxKey5",
+     "key.Option 4"
+    ],
+    [
+     "getKey6.SfxKey6",
+     "key.Option 5"
+    ],
+    [
+     "key.ReturnValue",
+     "click.Sound"
+    ],
+    [
+     "getRowBefore.Row",
+     "next.A"
+    ],
+    [
+     "next.ReturnValue",
+     "lastRow.A"
+    ],
+    [
+     "lastRow.ReturnValue",
+     "setRow.Row"
+    ],
+    [
+     "getCursor.CursorString",
+     "cursorRow.Content"
+    ],
+    [
+     "getClearBlink.BlinkTimer",
+     "clearBlink.Handle"
+    ],
+    [
+     "getBlinkHalf.BlinkHalfPeriod",
+     "safeBlink.Value"
+    ],
+    [
+     "me.self",
+     "blink.Object"
+    ],
+    [
+     "safeBlink.ReturnValue",
+     "blink.Time"
+    ],
+    [
+     "blink.ReturnValue",
+     "setBlink.BlinkTimer"
+    ],
+    [
+     "entry.then",
+     "stamp.execute"
+    ],
+    [
+     "stamp.then",
+     "fullRow.execute"
+    ],
+    [
+     "fullRow.then",
+     "click.execute"
+    ],
+    [
+     "click.then",
+     "setClosed.execute"
+    ],
+    [
+     "setClosed.then",
+     "setRow.execute"
+    ],
+    [
+     "setRow.then",
+     "setCursorOn.execute"
+    ],
+    [
+     "setCursorOn.then",
+     "cursorRow.execute"
+    ],
+    [
+     "cursorRow.then",
+     "clearBlink.execute"
+    ],
+    [
+     "clearBlink.then",
+     "blink.execute"
+    ],
+    [
+     "blink.then",
+     "setBlink.execute"
+    ]
+   ],
+   "defaults": {
+    "isFail.B": "FAIL",
+    "isNone.B": "NONE",
+    "setClosed.bLineOpen": "false",
+    "next.B": "1",
+    "lastRow.B": "5",
+    "setCursorOn.bCursorOn": "true",
+    "safeBlink.Min": "0.01",
+    "safeBlink.Max": "60.0",
+    "blink.FunctionName": "BlinkCursor",
+    "blink.bLooping": "true",
+    "blink.bMaxOncePerFrame": "true"
+   }
+  },
+  {
+   "graph": "FinishLine",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "getClearType": {
+     "get": "TypeTimer"
+    },
+    "clearType": {
+     "call": "K2_ClearAndInvalidateTimerHandle",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "getClearStatus": {
+     "get": "StatusTimer"
+    },
+    "clearStatus": {
+     "call": "K2_ClearAndInvalidateTimerHandle",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "getString": {
+     "get": "TypeString"
+    },
+    "len": {
+     "call": "Len",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "setShown": {
+     "set": "Shown"
+    },
+    "status": {
+     "call": "ShowStatus"
+    }
+   },
+   "links": [
+    [
+     "getClearType.TypeTimer",
+     "clearType.Handle"
+    ],
+    [
+     "getClearStatus.StatusTimer",
+     "clearStatus.Handle"
+    ],
+    [
+     "getString.TypeString",
+     "len.S"
+    ],
+    [
+     "len.ReturnValue",
+     "setShown.Shown"
+    ],
+    [
+     "entry.then",
+     "clearType.execute"
+    ],
+    [
+     "clearType.then",
+     "clearStatus.execute"
+    ],
+    [
+     "clearStatus.then",
+     "setShown.execute"
+    ],
+    [
+     "setShown.then",
+     "status.execute"
+    ]
+   ],
+   "defaults": {}
+  },
+  {
+   "graph": "BlinkCursor",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "getOpen": {
+     "get": "bLineOpen"
+    },
+    "ifOpen": {
+     "branch": true
+    },
+    "getOn": {
+     "get": "bCursorOn"
+    },
+    "flip": {
+     "call": "Not_PreBool",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "setOn": {
+     "set": "bCursorOn"
+    },
+    "getOnAfter": {
+     "get": "bCursorOn"
+    },
+    "getCursor": {
+     "get": "CursorString"
+    },
+    "getBlank": {
+     "get": "BlankString"
+    },
+    "glyph": {
+     "call": "SelectString",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "render": {
+     "call": "SetRow"
+    }
+   },
+   "links": [
+    [
+     "getOpen.bLineOpen",
+     "ifOpen.Condition"
+    ],
+    [
+     "getOn.bCursorOn",
+     "flip.A"
+    ],
+    [
+     "flip.ReturnValue",
+     "setOn.bCursorOn"
+    ],
+    [
+     "getCursor.CursorString",
+     "glyph.A"
+    ],
+    [
+     "getBlank.BlankString",
+     "glyph.B"
+    ],
+    [
+     "getOnAfter.bCursorOn",
+     "glyph.bPickA"
+    ],
+    [
+     "glyph.ReturnValue",
+     "render.Content"
+    ],
+    [
+     "entry.then",
+     "ifOpen.execute"
+    ],
+    [
+     "ifOpen.else",
+     "setOn.execute"
+    ],
+    [
+     "setOn.then",
+     "render.execute"
+    ]
+   ],
+   "defaults": {}
+  },
+  {
+   "graph": "CountMemory",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "now": {
+     "call": "GetTimeSeconds",
+     "class": "/Script/Engine.GameplayStatics"
+    },
+    "getStart": {
+     "get": "MemStart"
+    },
+    "elapsed": {
+     "call": "Subtract_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "getCountTime": {
+     "get": "MemCountTime"
+    },
+    "safeCount": {
+     "call": "FClamp",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "frac": {
+     "call": "Divide_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "getTotal": {
+     "get": "MemTotal"
+    },
+    "totalF": {
+     "call": "Conv_IntToDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "getStepKB": {
+     "get": "MemStepKB"
+    },
+    "safeStepKB": {
+     "call": "Max",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "stepF": {
+     "call": "Conv_IntToDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "kbF": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "stepsF": {
+     "call": "Divide_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "steps": {
+     "call": "FTrunc",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "kb": {
+     "call": "Multiply_IntInt",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "kbClamped": {
+     "call": "Clamp",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "setKB": {
+     "set": "MemKB"
+    },
+    "getKB": {
+     "get": "MemKB"
+    },
+    "digits": {
+     "call": "Conv_IntToText",
+     "class": "/Script/Engine.KismetTextLibrary"
+    },
+    "digitsStr": {
+     "call": "Conv_TextToString",
+     "class": "/Script/Engine.KismetTextLibrary"
+    },
+    "withK": {
+     "call": "Concat_StrStr",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "asText": {
+     "call": "Conv_StringToText",
+     "class": "/Script/Engine.KismetTextLibrary"
+    },
+    "getCount": {
+     "get": "MemCountText"
+    },
+    "show": {
+     "call": "SetText",
+     "class": "/Script/UMG.TextBlock"
+    },
+    "full": {
+     "call": "GreaterEqual_IntInt",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "ifFull": {
+     "branch": true
+    },
+    "getClearMem": {
+     "get": "MemTimer"
+    },
+    "clearMem": {
+     "call": "K2_ClearAndInvalidateTimerHandle",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "getClearStatus": {
+     "get": "StatusTimer"
+    },
+    "clearStatus": {
+     "call": "K2_ClearAndInvalidateTimerHandle",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "getDelay": {
+     "get": "StatusDelay"
+    },
+    "safeDelay": {
+     "call": "FClamp",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "me": {
+     "self": true
+    },
+    "memOk": {
+     "timer": true
+    },
+    "setStatusTimer": {
+     "set": "StatusTimer"
+    }
+   },
+   "links": [
+    [
+     "now.ReturnValue",
+     "elapsed.A"
+    ],
+    [
+     "getStart.MemStart",
+     "elapsed.B"
+    ],
+    [
+     "getCountTime.MemCountTime",
+     "safeCount.Value"
+    ],
+    [
+     "elapsed.ReturnValue",
+     "frac.A"
+    ],
+    [
+     "safeCount.ReturnValue",
+     "frac.B"
+    ],
+    [
+     "getTotal.MemTotal",
+     "totalF.InInt"
+    ],
+    [
+     "getStepKB.MemStepKB",
+     "safeStepKB.A"
+    ],
+    [
+     "safeStepKB.ReturnValue",
+     "stepF.InInt"
+    ],
+    [
+     "frac.ReturnValue",
+     "kbF.A"
+    ],
+    [
+     "totalF.ReturnValue",
+     "kbF.B"
+    ],
+    [
+     "kbF.ReturnValue",
+     "stepsF.A"
+    ],
+    [
+     "stepF.ReturnValue",
+     "stepsF.B"
+    ],
+    [
+     "stepsF.ReturnValue",
+     "steps.A"
+    ],
+    [
+     "steps.ReturnValue",
+     "kb.A"
+    ],
+    [
+     "safeStepKB.ReturnValue",
+     "kb.B"
+    ],
+    [
+     "kb.ReturnValue",
+     "kbClamped.Value"
+    ],
+    [
+     "getTotal.MemTotal",
+     "kbClamped.Max"
+    ],
+    [
+     "kbClamped.ReturnValue",
+     "setKB.MemKB"
+    ],
+    [
+     "getKB.MemKB",
+     "digits.Value"
+    ],
+    [
+     "digits.ReturnValue",
+     "digitsStr.InText"
+    ],
+    [
+     "digitsStr.ReturnValue",
+     "withK.A"
+    ],
+    [
+     "withK.ReturnValue",
+     "asText.InString"
+    ],
+    [
+     "getCount.MemCountText",
+     "show.self"
+    ],
+    [
+     "asText.ReturnValue",
+     "show.InText"
+    ],
+    [
+     "getKB.MemKB",
+     "full.A"
+    ],
+    [
+     "getTotal.MemTotal",
+     "full.B"
+    ],
+    [
+     "full.ReturnValue",
+     "ifFull.Condition"
+    ],
+    [
+     "getClearMem.MemTimer",
+     "clearMem.Handle"
+    ],
+    [
+     "getClearStatus.StatusTimer",
+     "clearStatus.Handle"
+    ],
+    [
+     "getDelay.StatusDelay",
+     "safeDelay.Value"
+    ],
+    [
+     "me.self",
+     "memOk.Object"
+    ],
+    [
+     "safeDelay.ReturnValue",
+     "memOk.Time"
+    ],
+    [
+     "memOk.ReturnValue",
+     "setStatusTimer.StatusTimer"
+    ],
+    [
+     "entry.then",
+     "setKB.execute"
+    ],
+    [
+     "setKB.then",
+     "show.execute"
+    ],
+    [
+     "show.then",
+     "ifFull.execute"
+    ],
+    [
+     "ifFull.then",
+     "clearMem.execute"
+    ],
+    [
+     "clearMem.then",
+     "clearStatus.execute"
+    ],
+    [
+     "clearStatus.then",
+     "memOk.execute"
+    ],
+    [
+     "memOk.then",
+     "setStatusTimer.execute"
+    ]
+   ],
+   "defaults": {
+    "safeCount.Min": "0.01",
+    "safeCount.Max": "60.0",
+    "safeStepKB.B": "1",
+    "kbClamped.Min": "0",
+    "digits.bAlwaysSign": "false",
+    "digits.bUseGrouping": "false",
+    "digits.MinimumIntegralDigits": "4",
+    "digits.MaximumIntegralDigits": "324",
+    "withK.B": "K",
+    "safeDelay.Min": "0.01",
+    "safeDelay.Max": "60.0",
+    "memOk.FunctionName": "MemoryDone",
+    "memOk.bLooping": "false"
+   }
+  },
+  {
+   "graph": "MemoryDone",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "getStatus": {
+     "get": "MemStatusText"
+    },
+    "getOk": {
+     "get": "OkText"
+    },
+    "stamp": {
+     "call": "SetText",
+     "class": "/Script/UMG.TextBlock"
+    },
+    "getBlip": {
+     "get": "SfxOkBlip"
+    },
+    "beep": {
+     "call": "PlaySound2D",
+     "class": "/Script/Engine.GameplayStatics"
+    }
+   },
+   "links": [
+    [
+     "getStatus.MemStatusText",
+     "stamp.self"
+    ],
+    [
+     "getOk.OkText",
+     "stamp.InText"
+    ],
+    [
+     "getBlip.SfxOkBlip",
+     "beep.Sound"
+    ],
+    [
+     "entry.then",
+     "stamp.execute"
+    ],
+    [
+     "stamp.then",
+     "beep.execute"
+    ]
+   ],
+   "defaults": {}
+  },
+  {
+   "graph": "SetRow",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "row": {
+     "call": "GetRowText"
+    },
+    "asText": {
+     "call": "Conv_StringToText",
+     "class": "/Script/Engine.KismetTextLibrary"
+    },
+    "apply": {
+     "call": "SetText",
+     "class": "/Script/UMG.TextBlock"
+    }
+   },
+   "links": [
+    [
+     "entry.Content",
+     "asText.InString"
+    ],
+    [
+     "row.RowText",
+     "apply.self"
+    ],
+    [
+     "asText.ReturnValue",
+     "apply.InText"
+    ],
+    [
+     "entry.then",
+     "apply.execute"
+    ]
+   ],
+   "defaults": {}
+  },
+  {
+   "graph": "GetRowText",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "result": {
+     "result": true
+    },
+    "getRow": {
+     "get": "Row"
+    },
+    "pick": {
+     "select": 6
+    },
+    "getRow0Text": {
+     "get": "Row0Text"
+    },
+    "getRow1Text": {
+     "get": "Row1Text"
+    },
+    "getRow2Text": {
+     "get": "Row2Text"
+    },
+    "getRow3Text": {
+     "get": "Row3Text"
+    },
+    "getRow4Text": {
+     "get": "Row4Text"
+    },
+    "getRow5Text": {
+     "get": "Row5Text"
+    }
+   },
+   "links": [
+    [
+     "getRow.Row",
+     "pick.Index"
+    ],
+    [
+     "getRow0Text.Row0Text",
+     "pick.Option 0"
+    ],
+    [
+     "getRow1Text.Row1Text",
+     "pick.Option 1"
+    ],
+    [
+     "getRow2Text.Row2Text",
+     "pick.Option 2"
+    ],
+    [
+     "getRow3Text.Row3Text",
+     "pick.Option 3"
+    ],
+    [
+     "getRow4Text.Row4Text",
+     "pick.Option 4"
+    ],
+    [
+     "getRow5Text.Row5Text",
+     "pick.Option 5"
+    ],
+    [
+     "entry.then",
+     "result.execute"
+    ],
+    [
+     "pick.ReturnValue",
+     "result.RowText"
+    ]
+   ],
+   "defaults": {}
+  },
+  {
+   "graph": "GetRowStatus",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "result": {
+     "result": true
+    },
+    "getRow": {
+     "get": "Row"
+    },
+    "pick": {
+     "select": 6
+    },
+    "getRow0Status": {
+     "get": "Row0Status"
+    },
+    "getRow1Status": {
+     "get": "Row1Status"
+    },
+    "getRow2Status": {
+     "get": "Row2Status"
+    },
+    "getRow3Status": {
+     "get": "Row3Status"
+    },
+    "getRow4Status": {
+     "get": "Row4Status"
+    },
+    "getRow5Status": {
+     "get": "Row5Status"
+    }
+   },
+   "links": [
+    [
+     "getRow.Row",
+     "pick.Index"
+    ],
+    [
+     "getRow0Status.Row0Status",
+     "pick.Option 0"
+    ],
+    [
+     "getRow1Status.Row1Status",
+     "pick.Option 1"
+    ],
+    [
+     "getRow2Status.Row2Status",
+     "pick.Option 2"
+    ],
+    [
+     "getRow3Status.Row3Status",
+     "pick.Option 3"
+    ],
+    [
+     "getRow4Status.Row4Status",
+     "pick.Option 4"
+    ],
+    [
+     "getRow5Status.Row5Status",
+     "pick.Option 5"
+    ],
+    [
+     "entry.then",
+     "result.execute"
+    ],
+    [
+     "pick.ReturnValue",
+     "result.RowStatus"
+    ]
+   ],
+   "defaults": {}
+  }
+ ]
+}

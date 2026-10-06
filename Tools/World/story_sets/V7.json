@@ -1,0 +1,4917 @@
+{
+ "generated_by": "Tools/World/story_sets/v7_waystation.py",
+ "method": "docs/world/SETDRESS_V2.md",
+ "design": "docs/world/story_sets/V7.md",
+ "level": "/Game/level/Saskarta_WP",
+ "conventions": {
+  "xy": "world cm; yaw = UE yaw deg",
+  "bounds": "x_cm/y_cm is the mesh BOUNDS CENTRE",
+  "ground": "decal patches: DecalActor pitch -90, yaw, size (depth/2, width/2, length/2)",
+  "contact": "rigid | rest | lie | stack (SETDRESS_V2.md section 3)",
+  "optional": "Tripo models still to import: placed only with --with-optional",
+  "site_uv": "u m along travel from road 3,400, v m left of travel"
+ },
+ "rejected": [],
+ "checks": [],
+ "sites": [
+  {
+   "id": "V7_LastWaystation",
+   "story_set": "V7",
+   "road_site": "S19_LastWaystation",
+   "name": "Nefr Rzag, the Last Waystation (V7)",
+   "kind": "waystation berths",
+   "order": 2,
+   "road_m": 3400,
+   "side": "left",
+   "lateral_m": -11,
+   "centre_cm": [
+    373236.8,
+    376115.3,
+    -31997.6
+   ],
+   "road_yaw": 180.0,
+   "radius_m": 20.0,
+   "zone": "Z4 Mountain foot",
+   "storm": "the storm thins; wind rising; clearer light",
+   "role": "rest (the hinge)",
+   "story": "B11: CIN_11 (the spare dead in its cradle, the plaque), then the Elder's tape (RADIO_B11_01..03); CP2_WAYSTATION",
+   "decay": 1,
+   "style": "bazaar stone back wall + MedievalVillage timber and tarp lean-tos; riveted iron cradles (steampunk)",
+   "layout": "  (terrace behind the wall: dead shrubs, the way up round the wall end; optional keeper's hut)\n  outcrop | ====== back wall, AB fort wall x4 (2.4 m showing) ====== | woodpile\n          [bay 1: tarp lean-to | iron cradle + DEAD SPARE]  [bay 2: tarp | EMPTY cradle, crates, jar, rope]\n   cold fire ring, log + stone seats, lantern     .... trodden line along the berths ....      flag pole\n                      the spur  --> [PLAQUE, two posts]  (road face: the rule; back: TAKE WHAT IT CARRIED.)\n  ======================= road (3,390-3,413 m, then the bend left) ========================",
+   "notes": "Story set V7. Own site id (tag SD_V7_LastWaystation); the S19 V1 pieces it replaces are cleared with the V1 tool by id (clear_v1). The dead spare, the plaque lettering and the banner are this set's `rig` step. Nothing religious, nothing modern; the lantern and the fire are cold.",
+   "story_owned": [
+    "V7 the Last Waystation (this file is the story set)"
+   ],
+   "verify_only": false,
+   "layer": "road",
+   "poi": null,
+   "load_box_cm": [
+    368048,
+    370000,
+    388616,
+    381115
+   ],
+   "counts": {
+    "placements": 62,
+    "actors": 38,
+    "ism_instances": 33,
+    "physics": 9,
+    "batch01": 4,
+    "decals": 14,
+    "rig": 11,
+    "optional": 1
+   },
+   "views": [
+    {
+     "name": "carrier_a",
+     "cam_cm": [
+      383615.5,
+      375050.0,
+      -33110.3
+     ],
+     "look_cm": [
+      373377.0,
+      376298.3,
+      -31913.6
+     ]
+    },
+    {
+     "name": "carrier_b",
+     "cam_cm": [
+      378615.5,
+      375050.0,
+      -32251.5
+     ],
+     "look_cm": [
+      373377.0,
+      376298.3,
+      -31913.6
+     ]
+    },
+    {
+     "name": "carrier_c",
+     "cam_cm": [
+      375115.5,
+      375050.0,
+      -31953.8
+     ],
+     "look_cm": [
+      373377.0,
+      376298.3,
+      -31913.6
+     ]
+    },
+    {
+     "name": "orbit_a",
+     "cam_cm": [
+      374405.1,
+      376025.3,
+      -31862.5
+     ],
+     "look_cm": [
+      373377.0,
+      376298.3,
+      -31913.6
+     ]
+    },
+    {
+     "name": "orbit_b",
+     "cam_cm": [
+      373048.1,
+      375000.0,
+      -31798.7
+     ],
+     "look_cm": [
+      373377.0,
+      376298.3,
+      -31913.6
+     ]
+    },
+    {
+     "name": "orbit_c",
+     "cam_cm": [
+      373845.1,
+      375259.5,
+      -31957.4
+     ],
+     "look_cm": [
+      373377.0,
+      376298.3,
+      -31913.6
+     ]
+    },
+    {
+     "name": "contact",
+     "cam_cm": [
+      373374.0,
+      376026.3,
+      -31929.7
+     ],
+     "look_cm": [
+      373302.4,
+      376196.2,
+      -31982.7
+     ]
+    },
+    {
+     "name": "high34",
+     "cam_cm": [
+      374366.3,
+      374525.8,
+      -30378.6
+     ],
+     "look_cm": [
+      373377.0,
+      376298.3,
+      -31913.6
+     ]
+    },
+    {
+     "name": "far300",
+     "cam_cm": [
+      397976.0,
+      381050.0,
+      -30969.9
+     ],
+     "look_cm": [
+      373377.0,
+      376298.3,
+      -31913.6
+     ]
+    }
+   ],
+   "view_notes": {
+    "carrier_a": "the long straight, carrier eye (capture_look EYE 2.5 m) at road 3300 m",
+    "carrier_b": "the long straight, carrier eye (capture_look EYE 2.5 m) at road 3350 m",
+    "carrier_c": "the long straight, carrier eye (capture_look EYE 2.5 m) at road 3385 m",
+    "contact": "the cradle feet and a canopy post at the ground: packing stones, sink, the bay floor",
+    "far300": "from down the long straight, 280 m back and up the left slope"
+   },
+   "placements": [
+    {
+     "id": "V7_LastWaystation_000",
+     "key": "AB_Fort_Wall_Mid",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Fort_Wall_Mid",
+     "kind": "SM",
+     "cat": "wall",
+     "x_cm": 373479.4,
+     "y_cm": 376615.2,
+     "ground_z_cm": -31945.5,
+     "yaw": 305.39,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 166,
+      "max_tilt_deg": 0,
+      "rand_tilt_deg": 0,
+      "z_rule": "min",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "wall",
+     "folder": "Set/V7_LastWaystation/wall",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 80000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.34,
+      3.06,
+      4.06
+     ],
+     "slope_deg": 10.3,
+     "road_clear_m": 14.63,
+     "contact": "rigid",
+     "site_uv": [
+      1.36,
+      15.65
+     ],
+     "role": "back wall 1 of 4 (retains the cut; the lean-tos lean on it)",
+     "story_set": "V7",
+     "block": "wall",
+     "material_set": "stone"
+    },
+    {
+     "id": "V7_LastWaystation_001",
+     "key": "AB_Fort_Wall_Mid",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Fort_Wall_Mid",
+     "kind": "SM",
+     "cat": "wall",
+     "x_cm": 373230.0,
+     "y_cm": 376438.0,
+     "ground_z_cm": -31952.6,
+     "yaw": 305.39,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 166,
+      "max_tilt_deg": 0,
+      "rand_tilt_deg": 0,
+      "z_rule": "min",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "wall",
+     "folder": "Set/V7_LastWaystation/wall",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 80000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.34,
+      3.06,
+      4.06
+     ],
+     "slope_deg": 9.6,
+     "road_clear_m": 12.86,
+     "contact": "rigid",
+     "site_uv": [
+      3.85,
+      13.88
+     ],
+     "role": "back wall 2 of 4 (retains the cut; the lean-tos lean on it)",
+     "story_set": "V7",
+     "block": "wall",
+     "material_set": "stone"
+    },
+    {
+     "id": "V7_LastWaystation_002",
+     "key": "AB_Fort_Wall_Mid",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Fort_Wall_Mid",
+     "kind": "SM",
+     "cat": "wall",
+     "x_cm": 372980.5,
+     "y_cm": 376260.8,
+     "ground_z_cm": -31961.4,
+     "yaw": 305.39,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 166,
+      "max_tilt_deg": 0,
+      "rand_tilt_deg": 0,
+      "z_rule": "min",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "wall",
+     "folder": "Set/V7_LastWaystation/wall",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 80000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.34,
+      3.06,
+      4.06
+     ],
+     "slope_deg": 6.9,
+     "road_clear_m": 11.08,
+     "contact": "rigid",
+     "site_uv": [
+      6.35,
+      12.11
+     ],
+     "role": "back wall 3 of 4 (retains the cut; the lean-tos lean on it)",
+     "story_set": "V7",
+     "block": "wall",
+     "material_set": "stone"
+    },
+    {
+     "id": "V7_LastWaystation_003",
+     "key": "AB_Fort_Wall_Mid",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Fort_Wall_Mid",
+     "kind": "SM",
+     "cat": "wall",
+     "x_cm": 372731.1,
+     "y_cm": 376083.6,
+     "ground_z_cm": -31967.7,
+     "yaw": 305.39,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 166,
+      "max_tilt_deg": 0,
+      "rand_tilt_deg": 0,
+      "z_rule": "min",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "wall",
+     "folder": "Set/V7_LastWaystation/wall",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 80000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.34,
+      3.06,
+      4.06
+     ],
+     "slope_deg": 3.2,
+     "road_clear_m": 9.31,
+     "contact": "rigid",
+     "site_uv": [
+      8.84,
+      10.34
+     ],
+     "role": "back wall 4 of 4 (retains the cut; the lean-tos lean on it)",
+     "story_set": "V7",
+     "block": "wall",
+     "material_set": "stone"
+    },
+    {
+     "id": "V7_LastWaystation_004",
+     "key": "MV_Annex_Tarp_01",
+     "asset": "/Game/MedievalVillage/Meshes/Tarp_Annexes/SM_Annex_Tarp_01",
+     "kind": "SM",
+     "cat": "cloth",
+     "x_cm": 373381.7,
+     "y_cm": 376291.8,
+     "ground_z_cm": -31985.0,
+     "yaw": 215.39,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 3,
+      "max_tilt_deg": 0,
+      "rand_tilt_deg": 0,
+      "z_rule": "min",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "bay1",
+     "folder": "Set/V7_LastWaystation/bay1",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": true,
+     "draw_distance_cm": 25000.0,
+     "cast_shadow": true,
+     "size_m": [
+      3.74,
+      3.56,
+      2.75
+     ],
+     "slope_deg": 9.6,
+     "road_clear_m": 9.88,
+     "contact": "rigid",
+     "site_uv": [
+      2.34,
+      12.42
+     ],
+     "role": "lean-to over the spare's berth (canopy on four posts, backed on the wall)",
+     "story_set": "V7",
+     "block": "bay1",
+     "material_set": "cloth"
+    },
+    {
+     "id": "V7_LastWaystation_005",
+     "key": "B01_dock01",
+     "asset": "/Game/SaskartaGaea/Environment/Batch01/SM_B01_dock01",
+     "kind": "SM",
+     "cat": "prop_static",
+     "x_cm": 373371.2,
+     "y_cm": 376306.5,
+     "ground_z_cm": -31982.1,
+     "yaw": 215.39,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 4,
+      "max_tilt_deg": 0,
+      "rand_tilt_deg": 0,
+      "z_rule": "min",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "bay1",
+     "folder": "Set/V7_LastWaystation/bay1",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 25000.0,
+     "cast_shadow": true,
+     "size_m": [
+      3.08,
+      1.31,
+      1.92
+     ],
+     "slope_deg": 9.6,
+     "road_clear_m": 11.14,
+     "contact": "rigid",
+     "site_uv": [
+      2.44,
+      12.56
+     ],
+     "role": "FOCAL: the cradle (riveted iron frame, roller towers at its ends)",
+     "story_set": "V7",
+     "block": "bay1",
+     "fallback": {
+      "asset": "/Game/MedievalVillage/Meshes/Misc/SM_Manger",
+      "scale": 1.0
+     }
+    },
+    {
+     "id": "V7_LastWaystation_006",
+     "key": "MV_jute_bag_07",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_jute_bag_07",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 373541.4,
+     "y_cm": 376274.1,
+     "ground_z_cm": -32005.7,
+     "yaw": 238.39,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 2,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "bay1",
+     "folder": "Set/V7_LastWaystation/bay1",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.64,
+      0.88,
+      0.3
+     ],
+     "slope_deg": 10.8,
+     "road_clear_m": 11.74,
+     "contact": "rest",
+     "site_uv": [
+      0.74,
+      12.24
+     ],
+     "role": "an emptied bag by the cradle (the load was taken on)",
+     "story_set": "V7",
+     "material_set": "cloth"
+    },
+    {
+     "id": "V7_LastWaystation_007",
+     "key": "MV_jute_bag_08",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_jute_bag_08",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 373218.5,
+     "y_cm": 376357.4,
+     "ground_z_cm": -31963.8,
+     "yaw": 211.39,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 2,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "bay1",
+     "folder": "Set/V7_LastWaystation/bay1",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.63,
+      0.88,
+      0.29
+     ],
+     "slope_deg": 9.2,
+     "road_clear_m": 12.53,
+     "contact": "rest",
+     "site_uv": [
+      3.97,
+      13.07
+     ],
+     "role": "an emptied bag against the wall",
+     "story_set": "V7",
+     "material_set": "cloth"
+    },
+    {
+     "id": "V7_LastWaystation_008",
+     "key": "MV_Annex_Tarp_02",
+     "asset": "/Game/MedievalVillage/Meshes/Tarp_Annexes/SM_Annex_Tarp_02",
+     "kind": "SM",
+     "cat": "cloth",
+     "x_cm": 373029.2,
+     "y_cm": 376027.3,
+     "ground_z_cm": -31987.1,
+     "yaw": 215.39,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 3,
+      "max_tilt_deg": 0,
+      "rand_tilt_deg": 0,
+      "z_rule": "min",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "bay2",
+     "folder": "Set/V7_LastWaystation/bay2",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": true,
+     "draw_distance_cm": 80000.0,
+     "cast_shadow": true,
+     "size_m": [
+      4.27,
+      3.79,
+      2.78
+     ],
+     "slope_deg": 6.8,
+     "road_clear_m": 6.99,
+     "contact": "rigid",
+     "site_uv": [
+      5.86,
+      9.77
+     ],
+     "role": "lean-to over the empty berth",
+     "story_set": "V7",
+     "block": "bay2",
+     "material_set": "cloth"
+    },
+    {
+     "id": "V7_LastWaystation_009",
+     "key": "B01_dock01",
+     "asset": "/Game/SaskartaGaea/Environment/Batch01/SM_B01_dock01",
+     "kind": "SM",
+     "cat": "prop_static",
+     "x_cm": 373048.8,
+     "y_cm": 376077.4,
+     "ground_z_cm": -31984.2,
+     "yaw": 215.39,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 4,
+      "max_tilt_deg": 0,
+      "rand_tilt_deg": 0,
+      "z_rule": "min",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "bay2",
+     "folder": "Set/V7_LastWaystation/bay2",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 25000.0,
+     "cast_shadow": true,
+     "size_m": [
+      3.08,
+      1.31,
+      1.92
+     ],
+     "slope_deg": 6.9,
+     "road_clear_m": 8.85,
+     "contact": "rigid",
+     "site_uv": [
+      5.67,
+      10.27
+     ],
+     "role": "the second cradle, EMPTY: replacement carriers, none",
+     "story_set": "V7",
+     "block": "bay2",
+     "fallback": {
+      "asset": "/Game/MedievalVillage/Meshes/Misc/SM_Manger",
+      "scale": 1.0
+     }
+    },
+    {
+     "id": "V7_LastWaystation_010",
+     "key": "PH_wcrate",
+     "asset": "/Game/Pallbearer/PolyHaven/wooden_crate_02/wooden_crate_02_2k/StaticMeshes/wooden_crate_02_crate",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 372827.8,
+     "y_cm": 376043.1,
+     "ground_z_cm": -31972.9,
+     "yaw": 215.39,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 2,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "bay2",
+     "folder": "Set/V7_LastWaystation/bay2",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.53,
+      1.19,
+      0.45
+     ],
+     "slope_deg": 4.2,
+     "road_clear_m": 9.29,
+     "contact": "rest",
+     "site_uv": [
+      7.88,
+      9.93
+     ],
+     "role": "an unclaimed crate against the wall",
+     "story_set": "V7",
+     "material_set": "wood"
+    },
+    {
+     "id": "V7_LastWaystation_011",
+     "key": "PH_mcrate",
+     "asset": "/Game/Pallbearer/PolyHaven/old_military_crate/old_military_crate_2k/StaticMeshes/old_military_crate_a",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 372822.0,
+     "y_cm": 376051.3,
+     "ground_z_cm": -31972.2,
+     "yaw": 223.39,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 1,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 40,
+      "z_offset_cm": 0
+     },
+     "group": "bay2",
+     "folder": "Set/V7_LastWaystation/bay2",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.81,
+      0.45,
+      0.26
+     ],
+     "slope_deg": 4.2,
+     "road_clear_m": 9.57,
+     "contact": "rest",
+     "site_uv": [
+      7.93,
+      10.01
+     ],
+     "role": "a second crate, stacked on it",
+     "story_set": "V7",
+     "material_set": "wood"
+    },
+    {
+     "id": "V7_LastWaystation_012",
+     "key": "B01_tank01",
+     "asset": "/Game/SaskartaGaea/Environment/Batch01/SM_B01_tank01",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 372904.9,
+     "y_cm": 375934.7,
+     "ground_z_cm": -31984.0,
+     "yaw": 255.39,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.8,
+     "scale_range": [
+      0.8,
+      0.8
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 3,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "bay2",
+     "folder": "Set/V7_LastWaystation/bay2",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.688,
+      0.704,
+      0.992
+     ],
+     "slope_deg": 5.4,
+     "road_clear_m": 8.43,
+     "contact": "rest",
+     "site_uv": [
+      7.11,
+      8.85
+     ],
+     "role": "a wood-hooped clay fuel jar, sealed",
+     "story_set": "V7"
+    },
+    {
+     "id": "V7_LastWaystation_013",
+     "key": "MV_jute_bag_03",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_jute_bag_03",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 372983.2,
+     "y_cm": 375867.7,
+     "ground_z_cm": -31994.5,
+     "yaw": 280.39,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 2,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "bay2",
+     "folder": "Set/V7_LastWaystation/bay2",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.58,
+      0.44,
+      0.55
+     ],
+     "slope_deg": 6.2,
+     "road_clear_m": 7.85,
+     "contact": "rest",
+     "site_uv": [
+      6.32,
+      8.18
+     ],
+     "role": "a full bag nobody came for",
+     "story_set": "V7",
+     "material_set": "cloth"
+    },
+    {
+     "id": "V7_LastWaystation_014",
+     "key": "MV_Rope_01",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_Rope_01",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 373115.4,
+     "y_cm": 375983.7,
+     "ground_z_cm": -31999.2,
+     "yaw": 0.0,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 2.5,
+     "scale_range": [
+      2.5,
+      2.5
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 1,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "bay2",
+     "folder": "Set/V7_LastWaystation/bay2",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.475,
+      0.475,
+      0.075
+     ],
+     "slope_deg": 7.8,
+     "road_clear_m": 9.1,
+     "contact": "rest",
+     "site_uv": [
+      5.0,
+      9.34
+     ],
+     "role": "the berth's tow rope, coiled in front of the empty cradle",
+     "story_set": "V7"
+    },
+    {
+     "id": "V7_LastWaystation_015",
+     "key": "BPP_Logs_01",
+     "asset": "/Game/MedievalVillage/Blueprints/BPP_PLA_Logs_01",
+     "kind": "SM",
+     "cat": "bpp",
+     "x_cm": 372629.5,
+     "y_cm": 375886.3,
+     "ground_z_cm": -31971.8,
+     "yaw": 215.39,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 4,
+      "max_tilt_deg": 0,
+      "rand_tilt_deg": 0,
+      "z_rule": "min",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "woodpile",
+     "folder": "Set/V7_LastWaystation/woodpile",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 25000.0,
+     "cast_shadow": true,
+     "size_m": [
+      3.6,
+      1.5,
+      1.0
+     ],
+     "slope_deg": 2.8,
+     "road_clear_m": 6.71,
+     "contact": "rigid",
+     "site_uv": [
+      9.86,
+      8.36
+     ],
+     "role": "the woodpile against the wall's up-road end",
+     "story_set": "V7",
+     "block": "woodpile",
+     "material_set": "wood"
+    },
+    {
+     "id": "V7_LastWaystation_016",
+     "key": "LF_Rock_04",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_04",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 373715.2,
+     "y_cm": 376743.4,
+     "ground_z_cm": -31949.1,
+     "yaw": 219.39,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.85,
+     "scale_range": [
+      0.85,
+      0.85
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 50,
+      "max_tilt_deg": 25,
+      "rand_tilt_deg": 4,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "rocks",
+     "folder": "Set/V7_LastWaystation/rocks",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 25000.0,
+     "cast_shadow": true,
+     "size_m": [
+      1.989,
+      2.117,
+      1.241
+     ],
+     "slope_deg": 9.8,
+     "road_clear_m": 15.48,
+     "contact": "lie",
+     "site_uv": [
+      -1.0,
+      16.93
+     ],
+     "role": "the outcrop the wall butts onto (40 % buried)",
+     "story_set": "V7",
+     "block": "rock",
+     "material_set": "stone"
+    },
+    {
+     "id": "V7_LastWaystation_017",
+     "key": "LF_Rock_05",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_05",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 373901.5,
+     "y_cm": 376636.6,
+     "ground_z_cm": -31982.0,
+     "yaw": 180.39,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.55,
+     "scale_range": [
+      0.55,
+      0.55
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 28,
+      "max_tilt_deg": 25,
+      "rand_tilt_deg": 4,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "rocks",
+     "folder": "Set/V7_LastWaystation/rocks",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.979,
+      1.216,
+      0.71
+     ],
+     "slope_deg": 9.4,
+     "road_clear_m": 15.25,
+     "contact": "lie",
+     "site_uv": [
+      -2.86,
+      15.87
+     ],
+     "role": "a lower rock below the outcrop",
+     "story_set": "V7",
+     "block": "rock2",
+     "material_set": "stone"
+    },
+    {
+     "id": "V7_LastWaystation_018",
+     "key": "B01_sign02",
+     "asset": "/Game/SaskartaGaea/Environment/Batch01/SM_B01_sign02",
+     "kind": "SM",
+     "cat": "wood_post",
+     "x_cm": 373254.9,
+     "y_cm": 375638.3,
+     "ground_z_cm": -32039.7,
+     "yaw": 211.5,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.2,
+     "scale_range": [
+      1.2,
+      1.2
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 3,
+      "max_tilt_deg": 0,
+      "rand_tilt_deg": 0,
+      "z_rule": "min",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "plaque",
+     "folder": "Set/V7_LastWaystation/plaque",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.984,
+      0.156,
+      1.38
+     ],
+     "slope_deg": 8.1,
+     "road_clear_m": 5.56,
+     "contact": "rigid",
+     "site_uv": [
+      3.61,
+      5.88
+     ],
+     "role": "FOCAL: the plaque (rule on the road face, TAKE WHAT IT CARRIED. on the back)",
+     "story_set": "V7",
+     "block": "plaque",
+     "material_set": "wood"
+    },
+    {
+     "id": "V7_LastWaystation_019",
+     "key": "MV_Fence_01_Log1",
+     "asset": "/Game/MedievalVillage/Meshes/Fence_01/SM_Fence_01_Log1",
+     "kind": "SM",
+     "cat": "wood_post",
+     "x_cm": 373308.0,
+     "y_cm": 375670.8,
+     "ground_z_cm": -32045.5,
+     "yaw": 208.68,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.6,
+     "scale_range": [
+      1.6,
+      1.6
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 35,
+      "max_tilt_deg": 0,
+      "rand_tilt_deg": 0,
+      "z_rule": "min",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "plaque",
+     "folder": "Set/V7_LastWaystation/plaque",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 25000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.224,
+      0.224,
+      1.904
+     ],
+     "slope_deg": 8.5,
+     "road_clear_m": 6.06,
+     "contact": "rigid",
+     "site_uv": [
+      3.07,
+      6.21
+     ],
+     "role": "plaque post (planted 35 cm; the board is nailed to it)",
+     "story_set": "V7",
+     "block": "plaque",
+     "material_set": "wood"
+    },
+    {
+     "id": "V7_LastWaystation_020",
+     "key": "MV_Fence_01_Log1",
+     "asset": "/Game/MedievalVillage/Meshes/Fence_01/SM_Fence_01_Log1",
+     "kind": "SM",
+     "cat": "wood_post",
+     "x_cm": 373201.9,
+     "y_cm": 375605.8,
+     "ground_z_cm": -32034.5,
+     "yaw": 205.91,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.6,
+     "scale_range": [
+      1.6,
+      1.6
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 35,
+      "max_tilt_deg": 0,
+      "rand_tilt_deg": 0,
+      "z_rule": "min",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "plaque",
+     "folder": "Set/V7_LastWaystation/plaque",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 25000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.224,
+      0.224,
+      1.904
+     ],
+     "slope_deg": 7.9,
+     "road_clear_m": 5.41,
+     "contact": "rigid",
+     "site_uv": [
+      4.14,
+      5.56
+     ],
+     "role": "plaque post (planted 35 cm; the board is nailed to it)",
+     "story_set": "V7",
+     "block": "plaque",
+     "material_set": "wood"
+    },
+    {
+     "id": "V7_LastWaystation_021",
+     "key": "PH_fire_pit",
+     "asset": "/Game/Pallbearer/PolyHaven/stone_fire_pit/stone_fire_pit_2k/StaticMeshes/stone_fire_pit_2k",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 373720.3,
+     "y_cm": 375903.6,
+     "ground_z_cm": -32078.5,
+     "yaw": 234.34,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 8,
+      "max_tilt_deg": 25,
+      "rand_tilt_deg": 2,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "fire",
+     "folder": "Set/V7_LastWaystation/fire",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      1.46,
+      1.46,
+      0.41
+     ],
+     "slope_deg": 5.3,
+     "road_clear_m": 7.52,
+     "contact": "lie",
+     "site_uv": [
+      -1.05,
+      8.54
+     ],
+     "role": "the cold fire ring (\"the fire at the waystation's gone out\")",
+     "story_set": "V7",
+     "block": "fire",
+     "material_set": "stone"
+    },
+    {
+     "id": "V7_LastWaystation_022",
+     "key": "PH_trunk_02",
+     "asset": "/Game/Pallbearer/PolyHaven/dead_tree_trunk_02/dead_tree_trunk_02_2k/StaticMeshes/dead_tree_trunk_02_2k",
+     "kind": "SM",
+     "cat": "wood",
+     "x_cm": 373610.1,
+     "y_cm": 376015.5,
+     "ground_z_cm": -32054.5,
+     "yaw": 221.39,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.42,
+     "scale_range": [
+      0.42,
+      0.42
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 12,
+      "max_tilt_deg": 25,
+      "rand_tilt_deg": 2,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "fire",
+     "folder": "Set/V7_LastWaystation/fire",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 25000.0,
+     "cast_shadow": true,
+     "size_m": [
+      1.709,
+      0.445,
+      0.462
+     ],
+     "slope_deg": 11.2,
+     "road_clear_m": 8.92,
+     "contact": "lie",
+     "site_uv": [
+      0.05,
+      9.65
+     ],
+     "role": "the log seat, uphill of the fire",
+     "story_set": "V7",
+     "block": "seat_log",
+     "material_set": "wood"
+    },
+    {
+     "id": "V7_LastWaystation_023",
+     "key": "FAB_TempleStones",
+     "asset": "/Game/Fab/Megascans/3D/Ancient_Temple_Stones_tixjegefa/Medium/tixjegefa_tier_2/StaticMeshes/tixjegefa_tier_2",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 373806.6,
+     "y_cm": 376032.4,
+     "ground_z_cm": -32066.5,
+     "yaw": 285.39,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.42,
+     "scale_range": [
+      0.42,
+      0.42
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 9,
+      "max_tilt_deg": 25,
+      "rand_tilt_deg": 2,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "fire",
+     "folder": "Set/V7_LastWaystation/fire",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.811,
+      0.424,
+      0.29
+     ],
+     "slope_deg": 7.3,
+     "road_clear_m": 9.38,
+     "contact": "lie",
+     "site_uv": [
+      -1.91,
+      9.82
+     ],
+     "role": "the stone seat, down-road of the fire",
+     "story_set": "V7",
+     "block": "seat_stone",
+     "material_set": "stone"
+    },
+    {
+     "id": "V7_LastWaystation_024",
+     "key": "PH_lantern",
+     "asset": "/Game/Pallbearer/PolyHaven/Lantern_01/Lantern_01_2k/StaticMeshes/Lantern_01",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 373796.8,
+     "y_cm": 376025.5,
+     "ground_z_cm": -32067.3,
+     "yaw": 245.39,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 1,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 25,
+      "z_offset_cm": 0
+     },
+     "group": "fire",
+     "folder": "Set/V7_LastWaystation/fire",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.12,
+      0.1,
+      0.3
+     ],
+     "slope_deg": 7.3,
+     "road_clear_m": 9.68,
+     "contact": "rest",
+     "site_uv": [
+      -1.81,
+      9.75
+     ],
+     "role": "the lantern, set down on the stone seat, cold (never lit)",
+     "story_set": "V7"
+    },
+    {
+     "id": "V7_LastWaystation_025",
+     "key": "PH_lantern_glass",
+     "asset": "/Game/Pallbearer/PolyHaven/Lantern_01/Lantern_01_2k/StaticMeshes/Lantern_01_glass",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 373796.8,
+     "y_cm": 376025.5,
+     "ground_z_cm": -32067.3,
+     "yaw": 245.39,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "none",
+      "sink_cm": 6,
+      "max_tilt_deg": 0,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "fire",
+     "folder": "Set/V7_LastWaystation/fire",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": true,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.07,
+      0.07,
+      0.07
+     ],
+     "slope_deg": 7.3,
+     "road_clear_m": 9.71,
+     "contact": "rest",
+     "site_uv": [
+      -1.81,
+      9.75
+     ],
+     "role": "its glass, sharing the lantern pivot",
+     "story_set": "V7"
+    },
+    {
+     "id": "V7_LastWaystation_026",
+     "key": "MV_bucket_02",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_bucket_02",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 373595.8,
+     "y_cm": 375888.8,
+     "ground_z_cm": -32068.2,
+     "yaw": 165.39,
+     "pitch": 0.0,
+     "roll": 90.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 2,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "fire",
+     "folder": "Set/V7_LastWaystation/fire",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.44,
+      0.44,
+      0.5
+     ],
+     "slope_deg": 10.0,
+     "road_clear_m": 8.09,
+     "contact": "rest",
+     "site_uv": [
+      0.2,
+      8.39
+     ],
+     "role": "a tipped bucket by the fire",
+     "story_set": "V7"
+    },
+    {
+     "id": "V7_LastWaystation_027",
+     "key": "MV_Log_01",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_Log_01",
+     "kind": "SM",
+     "cat": "wood",
+     "x_cm": 372295.5,
+     "y_cm": 375910.0,
+     "ground_z_cm": -31956.4,
+     "yaw": 26.08,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 45,
+      "max_tilt_deg": 0,
+      "rand_tilt_deg": 0,
+      "z_rule": "min",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "flag",
+     "folder": "Set/V7_LastWaystation/flag",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 25000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.12,
+      0.12,
+      3.54
+     ],
+     "slope_deg": 4.7,
+     "road_clear_m": 8.52,
+     "contact": "rigid",
+     "site_uv": [
+      13.2,
+      8.6
+     ],
+     "role": "the flag pole (planted 45 cm)",
+     "story_set": "V7",
+     "block": "flag",
+     "material_set": "wood"
+    },
+    {
+     "id": "V7_LastWaystation_028",
+     "key": "T2_stone_hut",
+     "asset": "/Game/SaskartaGaea/Environment/Tripo02/SM_T2_stone_hut",
+     "kind": "SM",
+     "cat": "building",
+     "x_cm": 372669.8,
+     "y_cm": 376671.5,
+     "ground_z_cm": -31888.6,
+     "yaw": 215.39,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 12,
+      "max_tilt_deg": 0,
+      "rand_tilt_deg": 0,
+      "z_rule": "min",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "hut",
+     "folder": "Set/V7_LastWaystation/hut",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 80000.0,
+     "cast_shadow": true,
+     "size_m": [
+      6.0,
+      4.756,
+      4.242
+     ],
+     "slope_deg": 12.4,
+     "road_clear_m": 12.54,
+     "contact": "rigid",
+     "site_uv": [
+      9.46,
+      16.21
+     ],
+     "role": "OPTIONAL: the keeper's stone hut on the terrace behind the wall (Tripo stone_mud_hut)",
+     "story_set": "V7",
+     "block": "hut",
+     "material_set": "stone",
+     "optional": true,
+     "requires_import": true
+    },
+    {
+     "id": "V7_LastWaystation_029",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 372239.3,
+     "y_cm": 375906.5,
+     "ground_z_cm": -31953.2,
+     "yaw": 77.29,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.927,
+     "scale_range": [
+      0.927,
+      0.927
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 8,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/V7_LastWaystation/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": true,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.427,
+      0.417,
+      0.26
+     ],
+     "slope_deg": 5.5,
+     "road_clear_m": 8.3,
+     "contact": "lie",
+     "site_uv": [
+      13.76,
+      8.56
+     ],
+     "role": "the flag pole footing",
+     "story_set": "V7",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "V7_LastWaystation_030",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 372263.4,
+     "y_cm": 375939.3,
+     "ground_z_cm": -31952.6,
+     "yaw": 152.83,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.723,
+     "scale_range": [
+      0.723,
+      0.723
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 6,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/V7_LastWaystation/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": true,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.332,
+      0.325,
+      0.202
+     ],
+     "slope_deg": 5.7,
+     "road_clear_m": 8.67,
+     "contact": "lie",
+     "site_uv": [
+      13.52,
+      8.89
+     ],
+     "role": "the flag pole footing",
+     "story_set": "V7",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "V7_LastWaystation_031",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 372296.1,
+     "y_cm": 375965.5,
+     "ground_z_cm": -31953.0,
+     "yaw": 209.88,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.858,
+     "scale_range": [
+      0.858,
+      0.858
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 7,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/V7_LastWaystation/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": true,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.395,
+      0.386,
+      0.24
+     ],
+     "slope_deg": 5.6,
+     "road_clear_m": 8.89,
+     "contact": "lie",
+     "site_uv": [
+      13.19,
+      9.16
+     ],
+     "role": "the flag pole footing",
+     "story_set": "V7",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "V7_LastWaystation_032",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 372277.2,
+     "y_cm": 375879.6,
+     "ground_z_cm": -31957.4,
+     "yaw": 230.01,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.845,
+     "scale_range": [
+      0.845,
+      0.845
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 7,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/V7_LastWaystation/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": true,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.389,
+      0.38,
+      0.237
+     ],
+     "slope_deg": 4.4,
+     "road_clear_m": 8.03,
+     "contact": "lie",
+     "site_uv": [
+      13.38,
+      8.3
+     ],
+     "role": "the flag pole footing",
+     "story_set": "V7",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "V7_LastWaystation_033",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 373317.7,
+     "y_cm": 375703.4,
+     "ground_z_cm": -32045.0,
+     "yaw": 222.84,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.769,
+     "scale_range": [
+      0.769,
+      0.769
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 8,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/V7_LastWaystation/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": true,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.354,
+      0.346,
+      0.215
+     ],
+     "slope_deg": 8.5,
+     "road_clear_m": 6.29,
+     "contact": "lie",
+     "site_uv": [
+      2.98,
+      6.53
+     ],
+     "role": "packed at a plaque post",
+     "story_set": "V7",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "V7_LastWaystation_034",
+     "key": "AB_Cobble_04",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_04",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 373279.6,
+     "y_cm": 375671.3,
+     "ground_z_cm": -32041.2,
+     "yaw": 285.98,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.69,
+     "scale_range": [
+      0.69,
+      0.69
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 3,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/V7_LastWaystation/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": true,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.193,
+      0.214,
+      0.083
+     ],
+     "slope_deg": 8.3,
+     "road_clear_m": 6.09,
+     "contact": "lie",
+     "site_uv": [
+      3.36,
+      6.21
+     ],
+     "role": "packed at a plaque post",
+     "story_set": "V7",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "V7_LastWaystation_035",
+     "key": "AB_Cobble_04",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_04",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 373201.0,
+     "y_cm": 375629.8,
+     "ground_z_cm": -32033.3,
+     "yaw": 315.05,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.758,
+     "scale_range": [
+      0.758,
+      0.758
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 3,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/V7_LastWaystation/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": true,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.212,
+      0.235,
+      0.091
+     ],
+     "slope_deg": 8.0,
+     "road_clear_m": 5.64,
+     "contact": "lie",
+     "site_uv": [
+      4.14,
+      5.8
+     ],
+     "role": "packed at a plaque post",
+     "story_set": "V7",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "V7_LastWaystation_036",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 373509.8,
+     "y_cm": 376748.5,
+     "ground_z_cm": -31928.5,
+     "yaw": 59.39,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.905,
+     "scale_range": [
+      0.905,
+      0.905
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 9,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/V7_LastWaystation/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": true,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.416,
+      0.407,
+      0.253
+     ],
+     "slope_deg": 11.1,
+     "road_clear_m": 16.7,
+     "contact": "lie",
+     "site_uv": [
+      1.06,
+      16.99
+     ],
+     "role": "slumped at the wall's back foot",
+     "story_set": "V7",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "V7_LastWaystation_037",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 373396.6,
+     "y_cm": 376665.5,
+     "ground_z_cm": -31928.9,
+     "yaw": 240.56,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.716,
+     "scale_range": [
+      0.716,
+      0.716
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 7,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/V7_LastWaystation/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": true,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.329,
+      0.322,
+      0.2
+     ],
+     "slope_deg": 11.1,
+     "road_clear_m": 15.93,
+     "contact": "lie",
+     "site_uv": [
+      2.19,
+      16.16
+     ],
+     "role": "slumped at the wall's back foot",
+     "story_set": "V7",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "V7_LastWaystation_038",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 373267.6,
+     "y_cm": 376554.0,
+     "ground_z_cm": -31936.1,
+     "yaw": 126.06,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.836,
+     "scale_range": [
+      0.836,
+      0.836
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 8,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/V7_LastWaystation/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": true,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.385,
+      0.376,
+      0.234
+     ],
+     "slope_deg": 10.4,
+     "road_clear_m": 14.77,
+     "contact": "lie",
+     "site_uv": [
+      3.48,
+      15.04
+     ],
+     "role": "slumped at the wall's back foot",
+     "story_set": "V7",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "V7_LastWaystation_039",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 373180.0,
+     "y_cm": 376477.8,
+     "ground_z_cm": -31942.6,
+     "yaw": 340.09,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.036,
+     "scale_range": [
+      1.036,
+      1.036
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 10,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/V7_LastWaystation/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": true,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.477,
+      0.466,
+      0.29
+     ],
+     "slope_deg": 9.5,
+     "road_clear_m": 13.98,
+     "contact": "lie",
+     "site_uv": [
+      4.35,
+      14.28
+     ],
+     "role": "slumped at the wall's back foot",
+     "story_set": "V7",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "V7_LastWaystation_040",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 373062.4,
+     "y_cm": 376413.3,
+     "ground_z_cm": -31946.5,
+     "yaw": 111.46,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.992,
+     "scale_range": [
+      0.992,
+      0.992
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 10,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/V7_LastWaystation/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": true,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.457,
+      0.447,
+      0.278
+     ],
+     "slope_deg": 8.6,
+     "road_clear_m": 13.34,
+     "contact": "lie",
+     "site_uv": [
+      5.53,
+      13.63
+     ],
+     "role": "slumped at the wall's back foot",
+     "story_set": "V7",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "V7_LastWaystation_041",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 372944.3,
+     "y_cm": 376330.3,
+     "ground_z_cm": -31952.2,
+     "yaw": 138.88,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.814,
+     "scale_range": [
+      0.814,
+      0.814
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 8,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/V7_LastWaystation/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": true,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.374,
+      0.366,
+      0.228
+     ],
+     "slope_deg": 7.4,
+     "road_clear_m": 12.54,
+     "contact": "lie",
+     "site_uv": [
+      6.71,
+      12.8
+     ],
+     "role": "slumped at the wall's back foot",
+     "story_set": "V7",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "V7_LastWaystation_042",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 372844.7,
+     "y_cm": 376223.2,
+     "ground_z_cm": -31960.7,
+     "yaw": 219.93,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.842,
+     "scale_range": [
+      0.842,
+      0.842
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 8,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/V7_LastWaystation/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": true,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.387,
+      0.379,
+      0.236
+     ],
+     "slope_deg": 5.9,
+     "road_clear_m": 11.46,
+     "contact": "lie",
+     "site_uv": [
+      7.71,
+      11.73
+     ],
+     "role": "slumped at the wall's back foot",
+     "story_set": "V7",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "V7_LastWaystation_043",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 372740.1,
+     "y_cm": 376159.7,
+     "ground_z_cm": -31963.3,
+     "yaw": 89.14,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.752,
+     "scale_range": [
+      0.752,
+      0.752
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 8,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/V7_LastWaystation/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": true,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.346,
+      0.338,
+      0.21
+     ],
+     "slope_deg": 4.1,
+     "road_clear_m": 10.92,
+     "contact": "lie",
+     "site_uv": [
+      8.75,
+      11.1
+     ],
+     "role": "slumped at the wall's back foot",
+     "story_set": "V7",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "V7_LastWaystation_044",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 372618.9,
+     "y_cm": 376109.7,
+     "ground_z_cm": -31964.1,
+     "yaw": 144.59,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.767,
+     "scale_range": [
+      0.767,
+      0.767
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 8,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/V7_LastWaystation/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": true,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.353,
+      0.345,
+      0.215
+     ],
+     "slope_deg": 3.4,
+     "road_clear_m": 10.35,
+     "contact": "lie",
+     "site_uv": [
+      9.97,
+      10.6
+     ],
+     "role": "slumped at the wall's back foot",
+     "story_set": "V7",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "V7_LastWaystation_045",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 373805.4,
+     "y_cm": 376637.5,
+     "ground_z_cm": -31973.1,
+     "yaw": 54.33,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.275,
+     "scale_range": [
+      1.275,
+      1.275
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 13,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/V7_LastWaystation/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": true,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.586,
+      0.574,
+      0.357
+     ],
+     "slope_deg": 10.0,
+     "road_clear_m": 15.47,
+     "contact": "lie",
+     "site_uv": [
+      -1.9,
+      15.87
+     ],
+     "role": "scree below the outcrop",
+     "story_set": "V7",
+     "block": "fan",
+     "material_set": "stone"
+    },
+    {
+     "id": "V7_LastWaystation_046",
+     "key": "LF_Rock_07",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_07",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 373862.3,
+     "y_cm": 376708.7,
+     "ground_z_cm": -31968.1,
+     "yaw": 299.19,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.707,
+     "scale_range": [
+      0.707,
+      0.707
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 3,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/V7_LastWaystation/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": true,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.191,
+      0.219,
+      0.078
+     ],
+     "slope_deg": 9.9,
+     "road_clear_m": 16.45,
+     "contact": "lie",
+     "site_uv": [
+      -2.47,
+      16.59
+     ],
+     "role": "scree below the outcrop",
+     "story_set": "V7",
+     "block": "fan",
+     "material_set": "stone"
+    },
+    {
+     "id": "V7_LastWaystation_047",
+     "key": "LF_Rock_07",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_07",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 373824.4,
+     "y_cm": 376681.0,
+     "ground_z_cm": -31968.3,
+     "yaw": 132.93,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.951,
+     "scale_range": [
+      0.951,
+      0.951
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 4,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/V7_LastWaystation/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": true,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.257,
+      0.295,
+      0.105
+     ],
+     "slope_deg": 10.0,
+     "road_clear_m": 16.11,
+     "contact": "lie",
+     "site_uv": [
+      -2.09,
+      16.31
+     ],
+     "role": "scree below the outcrop",
+     "story_set": "V7",
+     "block": "fan",
+     "material_set": "stone"
+    },
+    {
+     "id": "V7_LastWaystation_048",
+     "key": "LF_Rock_07",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_07",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 373957.1,
+     "y_cm": 376436.4,
+     "ground_z_cm": -32012.8,
+     "yaw": 313.55,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.974,
+     "scale_range": [
+      0.974,
+      0.974
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 4,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/V7_LastWaystation/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": true,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.263,
+      0.302,
+      0.107
+     ],
+     "slope_deg": 8.1,
+     "road_clear_m": 13.66,
+     "contact": "lie",
+     "site_uv": [
+      -3.42,
+      13.86
+     ],
+     "role": "scree below the outcrop",
+     "story_set": "V7",
+     "block": "fan",
+     "material_set": "stone"
+    },
+    {
+     "id": "V7_LastWaystation_049",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 373806.8,
+     "y_cm": 376541.4,
+     "ground_z_cm": -31987.8,
+     "yaw": 141.88,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.939,
+     "scale_range": [
+      0.939,
+      0.939
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 9,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/V7_LastWaystation/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": true,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.432,
+      0.422,
+      0.263
+     ],
+     "slope_deg": 9.7,
+     "road_clear_m": 14.61,
+     "contact": "lie",
+     "site_uv": [
+      -1.91,
+      14.91
+     ],
+     "role": "scree below the outcrop",
+     "story_set": "V7",
+     "block": "fan",
+     "material_set": "stone"
+    },
+    {
+     "id": "V7_LastWaystation_050",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 374061.4,
+     "y_cm": 375674.0,
+     "ground_z_cm": -32099.2,
+     "yaw": 75.15,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.727,
+     "scale_range": [
+      0.727,
+      0.727
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 7,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/V7_LastWaystation/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": true,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.334,
+      0.327,
+      0.204
+     ],
+     "slope_deg": 5.1,
+     "road_clear_m": 6.04,
+     "contact": "lie",
+     "site_uv": [
+      -4.46,
+      6.24
+     ],
+     "role": "cleared from the yard to its downhill edge",
+     "story_set": "V7",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "V7_LastWaystation_051",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 373975.5,
+     "y_cm": 375670.4,
+     "ground_z_cm": -32098.8,
+     "yaw": 204.04,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.741,
+     "scale_range": [
+      0.741,
+      0.741
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 7,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/V7_LastWaystation/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": true,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.341,
+      0.333,
+      0.207
+     ],
+     "slope_deg": 3.9,
+     "road_clear_m": 5.98,
+     "contact": "lie",
+     "site_uv": [
+      -3.6,
+      6.2
+     ],
+     "role": "cleared from the yard to its downhill edge",
+     "story_set": "V7",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "V7_LastWaystation_052",
+     "key": "AB_Cobble_04",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_04",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 373848.1,
+     "y_cm": 375706.9,
+     "ground_z_cm": -32094.7,
+     "yaw": 314.76,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.71,
+     "scale_range": [
+      0.71,
+      0.71
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 3,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/V7_LastWaystation/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": true,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.199,
+      0.22,
+      0.085
+     ],
+     "slope_deg": 5.3,
+     "road_clear_m": 6.42,
+     "contact": "lie",
+     "site_uv": [
+      -2.33,
+      6.57
+     ],
+     "role": "cleared from the yard to its downhill edge",
+     "story_set": "V7",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "V7_LastWaystation_053",
+     "key": "LF_Rock_07",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_07",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 373738.4,
+     "y_cm": 375658.9,
+     "ground_z_cm": -32094.9,
+     "yaw": 216.82,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.082,
+     "scale_range": [
+      1.082,
+      1.082
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 4,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/V7_LastWaystation/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": true,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.292,
+      0.335,
+      0.119
+     ],
+     "slope_deg": 5.2,
+     "road_clear_m": 5.87,
+     "contact": "lie",
+     "site_uv": [
+      -1.23,
+      6.09
+     ],
+     "role": "cleared from the yard to its downhill edge",
+     "story_set": "V7",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "V7_LastWaystation_054",
+     "key": "LF_Rock_07",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_07",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 373641.8,
+     "y_cm": 375656.9,
+     "ground_z_cm": -32090.4,
+     "yaw": 167.76,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.097,
+     "scale_range": [
+      1.097,
+      1.097
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 4,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/V7_LastWaystation/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": true,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.296,
+      0.34,
+      0.121
+     ],
+     "slope_deg": 5.7,
+     "road_clear_m": 5.87,
+     "contact": "lie",
+     "site_uv": [
+      -0.26,
+      6.07
+     ],
+     "role": "cleared from the yard to its downhill edge",
+     "story_set": "V7",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "V7_LastWaystation_055",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 373536.2,
+     "y_cm": 375655.2,
+     "ground_z_cm": -32079.4,
+     "yaw": 266.53,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 10,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/V7_LastWaystation/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": true,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.46,
+      0.45,
+      0.28
+     ],
+     "slope_deg": 8.5,
+     "road_clear_m": 5.81,
+     "contact": "lie",
+     "site_uv": [
+      0.79,
+      6.05
+     ],
+     "role": "cleared from the yard to its downhill edge",
+     "story_set": "V7",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "V7_LastWaystation_056",
+     "key": "FAB_Shrub_G",
+     "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarG",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 373415.4,
+     "y_cm": 376762.3,
+     "ground_z_cm": -31915.0,
+     "yaw": 231.45,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/V7_LastWaystation/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      1.16,
+      1.03,
+      0.66
+     ],
+     "slope_deg": 11.2,
+     "road_clear_m": 16.35,
+     "contact": "lie",
+     "site_uv": [
+      2.0,
+      17.12
+     ],
+     "role": "dead shrub",
+     "story_set": "V7",
+     "block": "creep"
+    },
+    {
+     "id": "V7_LastWaystation_057",
+     "key": "FAB_Shrub_C",
+     "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarC",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 373131.2,
+     "y_cm": 376523.6,
+     "ground_z_cm": -31933.1,
+     "yaw": 32.76,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.9,
+     "scale_range": [
+      0.9,
+      0.9
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/V7_LastWaystation/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.738,
+      0.657,
+      0.405
+     ],
+     "slope_deg": 9.3,
+     "road_clear_m": 14.26,
+     "contact": "lie",
+     "site_uv": [
+      4.84,
+      14.74
+     ],
+     "role": "dead shrub",
+     "story_set": "V7",
+     "block": "creep"
+    },
+    {
+     "id": "V7_LastWaystation_058",
+     "key": "FAB_Shrub_C",
+     "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarC",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 373751.5,
+     "y_cm": 376586.6,
+     "ground_z_cm": -31976.3,
+     "yaw": 304.36,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/V7_LastWaystation/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.82,
+      0.73,
+      0.45
+     ],
+     "slope_deg": 10.2,
+     "road_clear_m": 14.82,
+     "contact": "lie",
+     "site_uv": [
+      -1.36,
+      15.37
+     ],
+     "role": "dead shrub",
+     "story_set": "V7",
+     "block": "creep"
+    },
+    {
+     "id": "V7_LastWaystation_059",
+     "key": "FAB_Shrub_D",
+     "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarD",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 373893.2,
+     "y_cm": 376781.3,
+     "ground_z_cm": -31960.9,
+     "yaw": 186.62,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.1,
+     "scale_range": [
+      1.1,
+      1.1
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/V7_LastWaystation/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.462,
+      0.44,
+      0.363
+     ],
+     "slope_deg": 9.9,
+     "road_clear_m": 17.07,
+     "contact": "lie",
+     "site_uv": [
+      -2.78,
+      17.31
+     ],
+     "role": "dead shrub",
+     "story_set": "V7",
+     "block": "creep"
+    },
+    {
+     "id": "V7_LastWaystation_060",
+     "key": "FAB_Shrub_D",
+     "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarD",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 373617.3,
+     "y_cm": 376624.8,
+     "ground_z_cm": -31958.3,
+     "yaw": 326.97,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.9,
+     "scale_range": [
+      0.9,
+      0.9
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/V7_LastWaystation/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.378,
+      0.36,
+      0.297
+     ],
+     "slope_deg": 10.2,
+     "road_clear_m": 15.49,
+     "contact": "lie",
+     "site_uv": [
+      -0.02,
+      15.75
+     ],
+     "role": "dead shrub",
+     "story_set": "V7",
+     "block": "creep"
+    },
+    {
+     "id": "V7_LastWaystation_061",
+     "key": "FAB_Shrub_G",
+     "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarG",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 374005.3,
+     "y_cm": 376121.5,
+     "ground_z_cm": -32054.6,
+     "yaw": 128.05,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.9,
+     "scale_range": [
+      0.9,
+      0.9
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/V7_LastWaystation/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      1.044,
+      0.927,
+      0.594
+     ],
+     "slope_deg": 7.3,
+     "road_clear_m": 10.02,
+     "contact": "lie",
+     "site_uv": [
+      -3.9,
+      10.71
+     ],
+     "role": "dead shrub",
+     "story_set": "V7",
+     "block": "creep"
+    }
+   ],
+   "ground": [
+    {
+     "id": "V7_LastWaystation_g00",
+     "surface": "packed_earth",
+     "shape": "ellipse",
+     "x_cm": 373430.5,
+     "y_cm": 375946.3,
+     "z_cm": -32029.6,
+     "yaw": 215.4,
+     "length_m": 13.5,
+     "width_m": 7.8,
+     "depth_m": 3.0,
+     "strength": 0.7,
+     "sort": 0,
+     "role": "the yard"
+    },
+    {
+     "id": "V7_LastWaystation_g01",
+     "surface": "packed_earth",
+     "shape": "ellipse",
+     "x_cm": 373381.7,
+     "y_cm": 376291.8,
+     "z_cm": -31985.2,
+     "yaw": 215.4,
+     "length_m": 4.3,
+     "width_m": 3.7,
+     "depth_m": 3.0,
+     "strength": 0.85,
+     "sort": 0,
+     "role": "bay 1 floor"
+    },
+    {
+     "id": "V7_LastWaystation_g02",
+     "surface": "packed_earth",
+     "shape": "ellipse",
+     "x_cm": 373028.3,
+     "y_cm": 376028.6,
+     "z_cm": -31990.1,
+     "yaw": 215.4,
+     "length_m": 4.7,
+     "width_m": 3.9,
+     "depth_m": 3.0,
+     "strength": 0.85,
+     "sort": 0,
+     "role": "bay 2 floor"
+    },
+    {
+     "id": "V7_LastWaystation_g03",
+     "surface": "soot",
+     "shape": "ellipse",
+     "x_cm": 373720.3,
+     "y_cm": 375903.6,
+     "z_cm": -32067.1,
+     "yaw": 195.4,
+     "length_m": 2.9,
+     "width_m": 2.6,
+     "depth_m": 3.0,
+     "strength": 0.8,
+     "sort": 3,
+     "role": "soot and ash round the cold fire"
+    },
+    {
+     "id": "V7_LastWaystation_g04",
+     "surface": "soot",
+     "shape": "ellipse",
+     "x_cm": 373382.8,
+     "y_cm": 376290.2,
+     "z_cm": -31985.7,
+     "yaw": 215.4,
+     "length_m": 1.9,
+     "width_m": 1.5,
+     "depth_m": 3.0,
+     "strength": 0.35,
+     "sort": 3,
+     "role": "the fuel stain where the spare stopped"
+    },
+    {
+     "id": "V7_LastWaystation_g05",
+     "surface": "rubble_dust",
+     "shape": "ellipse",
+     "x_cm": 373882.8,
+     "y_cm": 376611.0,
+     "z_cm": -31982.0,
+     "yaw": 190.4,
+     "length_m": 3.4,
+     "width_m": 2.3,
+     "depth_m": 3.0,
+     "strength": 0.6,
+     "sort": 1,
+     "role": "scree dust below the outcrop"
+    },
+    {
+     "id": "V7_LastWaystation_g06",
+     "surface": "rubble_dust",
+     "shape": "ellipse",
+     "x_cm": 373054.9,
+     "y_cm": 376420.3,
+     "z_cm": -31941.6,
+     "yaw": 215.4,
+     "length_m": 12.8,
+     "width_m": 1.3,
+     "depth_m": 3.0,
+     "strength": 0.45,
+     "sort": 1,
+     "role": "dust and stones along the wall's back foot"
+    },
+    {
+     "id": "V7_LastWaystation_g07",
+     "surface": "path",
+     "shape": "capsule",
+     "x_cm": 373417.4,
+     "y_cm": 375581.7,
+     "z_cm": -32066.5,
+     "yaw": 109.7,
+     "length_m": 2.78,
+     "width_m": 1.15,
+     "depth_m": 3.0,
+     "strength": 0.85,
+     "sort": 2,
+     "role": "the spur from the road, past the plaque, into the yard"
+    },
+    {
+     "id": "V7_LastWaystation_g08",
+     "surface": "path",
+     "shape": "capsule",
+     "x_cm": 373388.8,
+     "y_cm": 375823.9,
+     "z_cm": -32041.6,
+     "yaw": 90.4,
+     "length_m": 4.46,
+     "width_m": 1.15,
+     "depth_m": 3.0,
+     "strength": 0.85,
+     "sort": 2,
+     "role": "the spur from the road, past the plaque, into the yard"
+    },
+    {
+     "id": "V7_LastWaystation_g09",
+     "surface": "path",
+     "shape": "capsule",
+     "x_cm": 373517.3,
+     "y_cm": 375920.4,
+     "z_cm": -32049.7,
+     "yaw": 332.0,
+     "length_m": 4.09,
+     "width_m": 1.15,
+     "depth_m": 3.0,
+     "strength": 0.85,
+     "sort": 2,
+     "role": "the spur from the road, past the plaque, into the yard"
+    },
+    {
+     "id": "V7_LastWaystation_g10",
+     "surface": "path",
+     "shape": "capsule",
+     "x_cm": 373322.4,
+     "y_cm": 375943.1,
+     "z_cm": -32021.8,
+     "yaw": 216.3,
+     "length_m": 7.56,
+     "width_m": 0.95,
+     "depth_m": 3.0,
+     "strength": 0.6,
+     "sort": 2,
+     "role": "the trodden line along the berths"
+    },
+    {
+     "id": "V7_LastWaystation_g11",
+     "surface": "path",
+     "shape": "capsule",
+     "x_cm": 372412.9,
+     "y_cm": 375750.9,
+     "z_cm": -31967.9,
+     "yaw": 132.0,
+     "length_m": 3.42,
+     "width_m": 0.8,
+     "depth_m": 3.0,
+     "strength": 0.5,
+     "sort": 2,
+     "role": "the way up round the wall end to the terrace behind"
+    },
+    {
+     "id": "V7_LastWaystation_g12",
+     "surface": "path",
+     "shape": "capsule",
+     "x_cm": 372395.4,
+     "y_cm": 375986.2,
+     "z_cm": -31957.8,
+     "yaw": 63.1,
+     "length_m": 3.9,
+     "width_m": 0.8,
+     "depth_m": 3.0,
+     "strength": 0.5,
+     "sort": 2,
+     "role": "the way up round the wall end to the terrace behind"
+    },
+    {
+     "id": "V7_LastWaystation_g13",
+     "surface": "path",
+     "shape": "capsule",
+     "x_cm": 372642.2,
+     "y_cm": 376292.8,
+     "z_cm": -31941.2,
+     "yaw": 43.6,
+     "length_m": 5.69,
+     "width_m": 0.8,
+     "depth_m": 3.0,
+     "strength": 0.5,
+     "sort": 2,
+     "role": "the way up round the wall end to the terrace behind"
+    }
+   ],
+   "units": [],
+   "waivers": [],
+   "rig": {
+    "spare": {
+     "id": "V7_LastWaystation_rig_spare",
+     "asset": "/Game/SaskartaGaea/Characters/Carrier/SK_Carrier",
+     "anim": "/Game/SaskartaGaea/Characters/Carrier/Anims/A_Carrier_Shutdown",
+     "anim_pos": 4.95,
+     "x_cm": 373377.0,
+     "y_cm": 376298.3,
+     "ground_z_cm": -31983.6,
+     "yaw": 215.39,
+     "cradle": "V7_LastWaystation_005",
+     "size_m": [
+      1.31,
+      1.6,
+      1.05
+     ],
+     "folder": "Set/V7_LastWaystation/spare",
+     "note": "SkeletalMeshActor, single-node anim held at the end of A_Carrier_Shutdown (play rate 0). Lands on the ground between the roller towers (traced at its 4 wheels, the highest wins, so no wheel is buried), eyes (mesh +Y) toward the road"
+    },
+    "banner": {
+     "id": "V7_LastWaystation_rig_banner",
+     "asset": "/Game/Pallbearer/Tripo/extras/Untitled/StaticMeshes/Flag",
+     "scale": 6.0,
+     "pole": "V7_LastWaystation_027",
+     "yaw": 90.0,
+     "drop_cm": 8.0,
+     "gap_cm": 4.0,
+     "folder": "Set/V7_LastWaystation/flag",
+     "note": "hung from the settled pole: bounds top 8 cm under the pole top, its pole-side edge 4 cm off the pole, streaming to the left of the road (broadside to the long straight)"
+    },
+    "lettering": {
+     "board": "V7_LastWaystation_018",
+     "world_size_cm": 9.0,
+     "rgb": [
+      226,
+      214,
+      190
+     ],
+     "out_cm": 1.2,
+     "folder": "Set/V7_LastWaystation/plaque",
+     "lines": [
+      {
+       "id": "V7_LastWaystation_txt_front_00",
+       "face": "front",
+       "text": "LEAVE THE",
+       "z_frac": 0.745,
+       "dz_cm": 5.5
+      },
+      {
+       "id": "V7_LastWaystation_txt_front_01",
+       "face": "front",
+       "text": "BEARER",
+       "z_frac": 0.745,
+       "dz_cm": -5.5
+      },
+      {
+       "id": "V7_LastWaystation_txt_front_10",
+       "face": "front",
+       "text": "WHERE IT",
+       "z_frac": 0.5,
+       "dz_cm": 5.5
+      },
+      {
+       "id": "V7_LastWaystation_txt_front_11",
+       "face": "front",
+       "text": "RESTS.",
+       "z_frac": 0.5,
+       "dz_cm": -5.5
+      },
+      {
+       "id": "V7_LastWaystation_txt_front_20",
+       "face": "front",
+       "text": "TAKE WHAT",
+       "z_frac": 0.255,
+       "dz_cm": 5.5
+      },
+      {
+       "id": "V7_LastWaystation_txt_front_21",
+       "face": "front",
+       "text": "IT CARRIED.",
+       "z_frac": 0.255,
+       "dz_cm": -5.5
+      },
+      {
+       "id": "V7_LastWaystation_txt_back_20",
+       "face": "back",
+       "text": "TAKE WHAT",
+       "z_frac": 0.255,
+       "dz_cm": 5.5
+      },
+      {
+       "id": "V7_LastWaystation_txt_back_21",
+       "face": "back",
+       "text": "IT CARRIED.",
+       "z_frac": 0.255,
+       "dz_cm": -5.5
+      }
+     ],
+     "note": "TextRender greybox until the inscriptions lane makes a painted-letter decal. front = the board's local +Y face (toward the road), back = -Y. z_frac of the board's mesh bounds height"
+    }
+   },
+   "clear_v1": {
+    "site": "S19_LastWaystation",
+    "ids": [
+     "S19_LastWaystation_000",
+     "S19_LastWaystation_001",
+     "S19_LastWaystation_002",
+     "S19_LastWaystation_003",
+     "S19_LastWaystation_004",
+     "S19_LastWaystation_005",
+     "S19_LastWaystation_006",
+     "S19_LastWaystation_007",
+     "S19_LastWaystation_015"
+    ],
+    "what": [
+     {
+      "id": "S19_LastWaystation_000",
+      "key": "MV_Manger",
+      "group": "v7_placeholder"
+     },
+     {
+      "id": "S19_LastWaystation_001",
+      "key": "MV_Annex_Tarp_01",
+      "group": "v7_placeholder"
+     },
+     {
+      "id": "S19_LastWaystation_002",
+      "key": "MV_jute_bag_07",
+      "group": "bags"
+     },
+     {
+      "id": "S19_LastWaystation_003",
+      "key": "MV_jute_bag_08",
+      "group": "bags"
+     },
+     {
+      "id": "S19_LastWaystation_004",
+      "key": "MV_jute_bag_10",
+      "group": "bags"
+     },
+     {
+      "id": "S19_LastWaystation_005",
+      "key": "MV_Fence_01_Log1",
+      "group": "lantern"
+     },
+     {
+      "id": "S19_LastWaystation_006",
+      "key": "PH_lantern",
+      "group": "lantern"
+     },
+     {
+      "id": "S19_LastWaystation_007",
+      "key": "MV_Rope_01",
+      "group": "lantern"
+     },
+     {
+      "id": "S19_LastWaystation_015",
+      "key": "TRIPO_Flag",
+      "group": "flag"
+     }
+    ],
+    "why": "000/001 are the V7 stand-ins; 002-007 (bags, lantern post, lantern, rope) and 015 (the flag) were placed round the stand-in cradle and stand inside V7's berths; V7 remakes each role"
+   },
+   "ambient_repoint": [
+    {
+     "old": "S19_LastWaystation_001",
+     "new": [
+      "V7_LastWaystation_004",
+      "V7_LastWaystation_008"
+     ],
+     "method": "wpo_cloth"
+    },
+    {
+     "old": "S19_LastWaystation_015",
+     "new": [
+      "V7_LastWaystation_rig_banner"
+     ],
+     "method": "wpo_cloth (pin pole)"
+    },
+    {
+     "old": "S19_LastWaystation_006/007",
+     "new": [],
+     "method": "none: V7's lantern is set down, not hung"
+    }
+   ],
+   "keep_out": {
+    "uv": [
+     [
+      -6.69,
+      10.33
+     ],
+     [
+      -6.49,
+      7.42
+     ],
+     [
+      -5.64,
+      4.2
+     ],
+     [
+      -0.91,
+      3.77
+     ],
+     [
+      4.88,
+      3.4
+     ],
+     [
+      11.25,
+      4.62
+     ],
+     [
+      15.81,
+      7.27
+     ],
+     [
+      15.77,
+      8.08
+     ],
+     [
+      15.76,
+      8.18
+     ],
+     [
+      15.51,
+      9.78
+     ],
+     [
+      14.82,
+      11.07
+     ],
+     [
+      2.28,
+      20.0
+     ],
+     [
+      -1.3,
+      20.49
+     ],
+     [
+      -4.3,
+      19.22
+     ],
+     [
+      -4.83,
+      17.99
+     ]
+    ],
+    "cm": [
+     [
+      374284.5,
+      376083.3
+     ],
+     [
+      374264.9,
+      375792.5
+     ],
+     [
+      374179.5,
+      375470.3
+     ],
+     [
+      373706.6,
+      375426.8
+     ],
+     [
+      373127.4,
+      375390.4
+     ],
+     [
+      372490.8,
+      375511.8
+     ],
+     [
+      372034.9,
+      375776.9
+     ],
+     [
+      372038.8,
+      375858.4
+     ],
+     [
+      372039.3,
+      375867.5
+     ],
+     [
+      372064.6,
+      376027.7
+     ],
+     [
+      372133.5,
+      376157.0
+     ],
+     [
+      373387.5,
+      377050.5
+     ],
+     [
+      373745.7,
+      377099.4
+     ],
+     [
+      374045.3,
+      376972.1
+     ],
+     [
+      374099.0,
+      376848.7
+     ]
+    ],
+    "camera_corridors": [
+     {
+      "shot": "shot2",
+      "from_uv": [
+       3.15,
+       13.56
+      ],
+      "to_uv": [
+       -3.0,
+       0.0
+      ],
+      "width_m": 4.0
+     }
+    ],
+    "note": "for the S19 outpost lanes (V1/V2): place nothing inside this hull, nor in the CIN_11 corridors"
+   },
+   "cin11": {
+    "note": "Recommended re-aim of build_cinematics.plan_cin11 (its docstring: \"positions are first-pass guesses until the V7 dressing exists\"). Local frame: +X up-road, +Y right, +Z up from the road at the origin (the pawn projected on the spline, ~3,400). Not applied: build_cinematics.py is the cinematics lane's file.",
+    "CIN11_S1_POV90": [
+     [
+      0.0,
+      0,
+      0,
+      155.0,
+      0,
+      -2.0,
+      0,
+      "cubic"
+     ],
+     [
+      1.5,
+      0,
+      0,
+      155.0,
+      0,
+      -2.0,
+      -70.0,
+      "cubic"
+     ]
+    ],
+    "CIN11_S1_POV50": [
+     [
+      2.5,
+      0,
+      0,
+      155.0,
+      0,
+      -2.0,
+      -70.0,
+      "constant"
+     ]
+    ],
+    "CIN11_S2_Cradle": [
+     [
+      5.0,
+      314.9,
+      -1355.9,
+      283.1,
+      0,
+      -8.7,
+      104.6,
+      "cubic"
+     ],
+     [
+      10.0,
+      307.4,
+      -1327.2,
+      278.6,
+      0,
+      -8.7,
+      104.6,
+      "cubic"
+     ]
+    ]
+   },
+   "v2": {
+    "frame": {
+     "origin_road_m": 3400.0,
+     "origin_cm": [
+      373615.5,
+      375050.0
+     ],
+     "u": "along travel",
+     "v": "left of travel",
+     "row": {
+      "W0_uv": [
+       5.232,
+       12.693
+      ],
+      "e_uv": [
+       0.8152,
+       -0.5791
+      ],
+      "n_uv": [
+       -0.5791,
+       -0.8152
+      ],
+      "note": "berth row frame: a along the wall (up-road), b out from the wall face"
+     }
+    },
+    "lanes": [
+     {
+      "pts": [
+       [
+        1.7052400965400478,
+        4.55
+       ],
+       [
+        2.2552400965400476,
+        6.083217134043236
+       ],
+       [
+        2.2782954164928086,
+        9.394025107073318
+       ],
+       [
+        -0.31435303946722204,
+        8.014696272149777
+       ]
+      ],
+      "width": 1.15,
+      "role": "the spur from the road, past the plaque, into the yard"
+     },
+     {
+      "pts": [
+       [
+        0.26709257068294656,
+        10.884014826167483
+       ],
+       [
+        5.593895264644086,
+        6.977456486706988
+       ]
+      ],
+      "width": 0.95,
+      "role": "the trodden line along the berths"
+     },
+     {
+      "pts": [
+       [
+        11.150103449018761,
+        6.035821944069629
+       ],
+       [
+        12.900368601525045,
+        7.981733528885895
+       ],
+       [
+        11.500509746160322,
+        10.74245719942175
+       ],
+       [
+        7.964163324016433,
+        14.113136505227944
+       ]
+      ],
+      "width": 0.8,
+      "role": "the way up round the wall end to the terrace behind"
+     }
+    ],
+    "frames": {
+     "shot1": {
+      "eye": [
+       3736.1546448750223,
+       3750.5,
+       -319.6042056093778
+      ],
+      "yaw": 110.0,
+      "pitch": -2.0,
+      "hfov": 50.0,
+      "boxes": {
+       "spare": [
+        -0.52,
+        -0.19,
+        0.03,
+        0.38
+       ],
+       "cradle": [
+        -0.64,
+        -0.06,
+        0.01,
+        0.64
+       ],
+       "bay1": [
+        -0.83,
+        0.04,
+        -0.09,
+        0.94
+       ],
+       "bay2": [
+        -0.09,
+        0.92,
+        -0.12,
+        1.09
+       ],
+       "plaque": [
+        0.2,
+        0.69,
+        -0.55,
+        0.6
+       ],
+       "wall": [
+        -0.78,
+        1.1,
+        -0.41,
+        0.86
+       ],
+       "fire": [
+        -1.41,
+        -0.56,
+        -0.58,
+        -0.1
+       ],
+       "hut": [
+        -0.02,
+        0.79,
+        0.14,
+        1.21
+       ]
+      },
+      "spare_face_visible": 1.0,
+      "text": [
+       {
+        "panel": 0,
+        "visible": 1.0,
+        "in_frame": true,
+        "dist_m": 6.81,
+        "incidence_deg": 1.3,
+        "cap_px": 19.0,
+        "cap_px_h": 19.0
+       },
+       {
+        "panel": 1,
+        "visible": 1.0,
+        "in_frame": true,
+        "dist_m": 6.81,
+        "incidence_deg": 1.5,
+        "cap_px": 19.0,
+        "cap_px_h": 19.0
+       },
+       {
+        "panel": 2,
+        "visible": 1.0,
+        "in_frame": true,
+        "dist_m": 6.83,
+        "incidence_deg": 4.4,
+        "cap_px": 19.0,
+        "cap_px_h": 18.9
+       }
+      ]
+     },
+     "shot1_eye122": {
+      "eye": [
+       3736.1546448750223,
+       3750.5,
+       -319.9342056093778
+      ],
+      "yaw": 110.0,
+      "pitch": -2.0,
+      "hfov": 50.0,
+      "boxes": {
+       "spare": [
+        -0.52,
+        -0.19,
+        0.14,
+        0.49
+       ],
+       "cradle": [
+        -0.64,
+        -0.06,
+        0.12,
+        0.75
+       ],
+       "bay1": [
+        -0.83,
+        0.04,
+        0.03,
+        1.07
+       ],
+       "bay2": [
+        -0.09,
+        0.92,
+        0.02,
+        1.24
+       ],
+       "plaque": [
+        0.2,
+        0.69,
+        -0.37,
+        0.8
+       ],
+       "wall": [
+        -0.78,
+        1.1,
+        -0.31,
+        0.97
+       ],
+       "fire": [
+        -1.41,
+        -0.57,
+        -0.39,
+        0.03
+       ],
+       "hut": [
+        -0.02,
+        0.79,
+        0.2,
+        1.29
+       ]
+      },
+      "spare_face_visible": 1.0,
+      "text": [
+       {
+        "panel": 0,
+        "visible": 1.0,
+        "in_frame": true,
+        "dist_m": 6.83,
+        "incidence_deg": 4.1,
+        "cap_px": 19.0,
+        "cap_px_h": 18.9
+       },
+       {
+        "panel": 1,
+        "visible": 1.0,
+        "in_frame": true,
+        "dist_m": 6.81,
+        "incidence_deg": 1.2,
+        "cap_px": 19.0,
+        "cap_px_h": 19.0
+       },
+       {
+        "panel": 2,
+        "visible": 1.0,
+        "in_frame": true,
+        "dist_m": 6.81,
+        "incidence_deg": 1.6,
+        "cap_px": 19.0,
+        "cap_px_h": 19.0
+       }
+      ]
+     },
+     "shot1_with_hut": {
+      "eye": [
+       3736.1546448750223,
+       3750.5,
+       -319.6042056093778
+      ],
+      "yaw": 110.0,
+      "pitch": -2.0,
+      "hfov": 50.0,
+      "boxes": {
+       "spare": [
+        -0.52,
+        -0.19,
+        0.03,
+        0.38
+       ],
+       "cradle": [
+        -0.64,
+        -0.06,
+        0.01,
+        0.64
+       ],
+       "bay1": [
+        -0.83,
+        0.04,
+        -0.09,
+        0.94
+       ],
+       "bay2": [
+        -0.09,
+        0.92,
+        -0.12,
+        1.09
+       ],
+       "plaque": [
+        0.2,
+        0.69,
+        -0.55,
+        0.6
+       ],
+       "wall": [
+        -0.78,
+        1.1,
+        -0.41,
+        0.86
+       ],
+       "fire": [
+        -1.41,
+        -0.56,
+        -0.58,
+        -0.1
+       ],
+       "hut": [
+        -0.02,
+        0.79,
+        0.14,
+        1.21
+       ]
+      },
+      "spare_face_visible": 1.0,
+      "text": [
+       {
+        "panel": 0,
+        "visible": 1.0,
+        "in_frame": true,
+        "dist_m": 6.81,
+        "incidence_deg": 1.3,
+        "cap_px": 19.0,
+        "cap_px_h": 19.0
+       },
+       {
+        "panel": 1,
+        "visible": 1.0,
+        "in_frame": true,
+        "dist_m": 6.81,
+        "incidence_deg": 1.5,
+        "cap_px": 19.0,
+        "cap_px_h": 19.0
+       },
+       {
+        "panel": 2,
+        "visible": 1.0,
+        "in_frame": true,
+        "dist_m": 6.83,
+        "incidence_deg": 4.4,
+        "cap_px": 19.0,
+        "cap_px_h": 18.9
+       }
+      ]
+     },
+     "shot1_plan_pitch": {
+      "eye": [
+       3736.1546448750223,
+       3750.5,
+       -319.6042056093778
+      ],
+      "yaw": 110.0,
+      "pitch": -4.0,
+      "hfov": 50.0,
+      "boxes": {
+       "spare": [
+        -0.52,
+        -0.19,
+        0.17,
+        0.52
+       ],
+       "cradle": [
+        -0.64,
+        -0.06,
+        0.14,
+        0.78
+       ],
+       "bay1": [
+        -0.84,
+        0.04,
+        0.05,
+        1.08
+       ],
+       "bay2": [
+        -0.09,
+        0.93,
+        0.01,
+        1.24
+       ],
+       "plaque": [
+        0.2,
+        0.69,
+        -0.42,
+        0.74
+       ],
+       "wall": [
+        -0.79,
+        1.11,
+        -0.28,
+        1.01
+       ],
+       "fire": [
+        -1.4,
+        -0.56,
+        -0.44,
+        0.03
+       ],
+       "hut": [
+        -0.02,
+        0.8,
+        0.28,
+        1.36
+       ]
+      },
+      "spare_face_visible": 1.0,
+      "text": [
+       {
+        "panel": 0,
+        "visible": 1.0,
+        "in_frame": true,
+        "dist_m": 6.81,
+        "incidence_deg": 1.3,
+        "cap_px": 19.0,
+        "cap_px_h": 19.0
+       },
+       {
+        "panel": 1,
+        "visible": 1.0,
+        "in_frame": true,
+        "dist_m": 6.81,
+        "incidence_deg": 1.5,
+        "cap_px": 19.0,
+        "cap_px_h": 19.0
+       },
+       {
+        "panel": 2,
+        "visible": 1.0,
+        "in_frame": true,
+        "dist_m": 6.83,
+        "incidence_deg": 4.4,
+        "cap_px": 19.0,
+        "cap_px_h": 18.9
+       }
+      ]
+     },
+     "shot1_90": {
+      "eye": [
+       3736.1546448750223,
+       3750.5,
+       -319.6042056093778
+      ],
+      "yaw": 110.0,
+      "pitch": -2.0,
+      "hfov": 90.0,
+      "boxes": {
+       "spare": [
+        -0.24,
+        -0.09,
+        0.02,
+        0.18
+       ],
+       "cradle": [
+        -0.3,
+        -0.03,
+        0.0,
+        0.3
+       ],
+       "bay1": [
+        -0.39,
+        0.02,
+        -0.04,
+        0.44
+       ],
+       "bay2": [
+        -0.04,
+        0.43,
+        -0.06,
+        0.51
+       ],
+       "plaque": [
+        0.09,
+        0.32,
+        -0.26,
+        0.28
+       ],
+       "wall": [
+        -0.37,
+        0.51,
+        -0.19,
+        0.4
+       ],
+       "fire": [
+        -0.66,
+        -0.26,
+        -0.27,
+        -0.05
+       ],
+       "hut": [
+        -0.01,
+        0.37,
+        0.07,
+        0.56
+       ]
+      },
+      "spare_face_visible": 1.0,
+      "text": [
+       {
+        "panel": 0,
+        "visible": 1.0,
+        "in_frame": true,
+        "dist_m": 6.81,
+        "incidence_deg": 1.3,
+        "cap_px": 8.9,
+        "cap_px_h": 8.9
+       },
+       {
+        "panel": 1,
+        "visible": 1.0,
+        "in_frame": true,
+        "dist_m": 6.81,
+        "incidence_deg": 1.5,
+        "cap_px": 8.9,
+        "cap_px_h": 8.9
+       },
+       {
+        "panel": 2,
+        "visible": 1.0,
+        "in_frame": true,
+        "dist_m": 6.83,
+        "incidence_deg": 4.4,
+        "cap_px": 8.9,
+        "cap_px_h": 8.8
+       }
+      ]
+     },
+     "shot2": {
+      "cam": [
+       3733.0057733219824,
+       3764.0594306624153,
+       -318.3233849534328
+      ],
+      "yaw": -75.43203923288354,
+      "pitch": -8.679446793704336,
+      "hfov": 26.731283946000662,
+      "rows": [
+       {
+        "stop": 0.0,
+        "lat": -2.0,
+        "carrier": [
+         -0.46,
+         0.02,
+         -0.27,
+         0.33
+        ],
+        "capsule": [
+         0.12,
+         0.82,
+         -0.19,
+         0.52
+        ],
+        "in_frame": true,
+        "visible": 1.0
+       },
+       {
+        "stop": 0.0,
+        "lat": 0.0,
+        "carrier": [
+         -0.38,
+         0.18,
+         -0.46,
+         0.23
+        ],
+        "capsule": [
+         0.27,
+         1.08,
+         -0.35,
+         0.46
+        ],
+        "in_frame": false,
+        "visible": 1.0
+       },
+       {
+        "stop": 0.0,
+        "lat": 2.0,
+        "carrier": [
+         -0.27,
+         0.39,
+         -0.72,
+         0.11
+        ],
+        "capsule": [
+         0.47,
+         1.42,
+         -0.53,
+         0.42
+        ],
+        "in_frame": false,
+        "visible": 1.0
+       },
+       {
+        "stop": 2.0,
+        "lat": -2.0,
+        "carrier": [
+         -0.99,
+         -0.52,
+         -0.18,
+         0.43
+        ],
+        "capsule": [
+         -0.37,
+         0.32,
+         -0.15,
+         0.58
+        ],
+        "in_frame": false,
+        "visible": 0.67
+       },
+       {
+        "stop": 2.0,
+        "lat": 0.0,
+        "carrier": [
+         -0.98,
+         -0.43,
+         -0.36,
+         0.36
+        ],
+        "capsule": [
+         -0.27,
+         0.52,
+         -0.32,
+         0.51
+        ],
+        "in_frame": true,
+        "visible": 0.67
+       },
+       {
+        "stop": 2.0,
+        "lat": 2.0,
+        "carrier": [
+         -0.96,
+         -0.32,
+         -0.59,
+         0.26
+        ],
+        "capsule": [
+         -0.15,
+         0.78,
+         -0.55,
+         0.44
+        ],
+        "in_frame": true,
+        "visible": 0.67
+       }
+      ],
+      "spare": [
+       -2.28,
+       10.16,
+       -23.32,
+       -0.62
+      ],
+      "spare_near_m": 0.99,
+      "plaque": [
+       -1.76,
+       -0.92,
+       -1.46,
+       0.66
+      ]
+     },
+     "shot3": null,
+     "pitch1": -2.0
+    },
+    "approach": [
+     {
+      "road_m": 3250.0,
+      "dist_m": 153.3,
+      "box": [
+       -0.11,
+       -0.05,
+       0.27,
+       0.34
+      ],
+      "terrain_los": false
+     },
+     {
+      "road_m": 3300.0,
+      "dist_m": 105.0,
+      "box": [
+       -0.17,
+       -0.07,
+       0.18,
+       0.27
+      ],
+      "terrain_los": false
+     },
+     {
+      "road_m": 3350.0,
+      "dist_m": 55.6,
+      "box": [
+       -0.33,
+       -0.12,
+       0.07,
+       0.24
+      ],
+      "terrain_los": true
+     },
+     {
+      "road_m": 3380.0,
+      "dist_m": 26.9,
+      "box": [
+       -0.83,
+       -0.26,
+       -0.0,
+       0.37
+      ],
+      "terrain_los": true
+     },
+     {
+      "road_m": 3395.0,
+      "dist_m": 14.8,
+      "box": [
+       -3.27,
+       -0.47,
+       -0.31,
+       1.13
+      ],
+      "terrain_los": true
+     }
+    ],
+    "checks": [
+     "Stele_WayStone_24 (the I05 way-stone on the bend) is 23.0 m from the nearest V7 piece",
+     "ISM declash: 11 of 33 ISM pieces moved (max 0.42 m), 8 left out; 0 overlaps left beyond {'stone': 0.05, 'shrub': 0.1, 'ism': 0.04}",
+     "back wall 1 of 4 (retains the cut; the lean- rigid: bottom -321.16, ground -319.50..-319.43, uphill side buried 1.74 m",
+     "back wall 2 of 4 (retains the cut; the lean- rigid: bottom -321.26, ground -319.60..-319.45, uphill side buried 1.80 m",
+     "back wall 3 of 4 (retains the cut; the lean- rigid: bottom -321.33, ground -319.67..-319.56, uphill side buried 1.77 m",
+     "back wall 4 of 4 (retains the cut; the lean- rigid: bottom -321.35, ground -319.69..-319.64, uphill side buried 1.71 m",
+     "lean-to over the spare's berth (canopy on fo rigid: bottom -320.20, ground -320.17..-319.54, uphill side buried 0.65 m",
+     "FOCAL: the cradle (riveted iron frame, rolle rigid: bottom -319.99, ground -319.95..-319.71, uphill side buried 0.28 m",
+     "lean-to over the empty berth                 rigid: bottom -320.19, ground -320.16..-319.65, uphill side buried 0.54 m",
+     "the second cradle, EMPTY: replacement carrie rigid: bottom -319.99, ground -319.95..-319.77, uphill side buried 0.23 m",
+     "the woodpile against the wall's up-road end  rigid: bottom -319.82, ground -319.78..-319.66, uphill side buried 0.16 m",
+     "FOCAL: the plaque (rule on the road face, TA rigid: bottom -320.48, ground -320.45..-320.35, uphill side buried 0.12 m",
+     "plaque post (planted 35 cm; the board is nai rigid: bottom -320.83, ground -320.48..-320.43, uphill side buried 0.40 m",
+     "plaque post (planted 35 cm; the board is nai rigid: bottom -320.71, ground -320.36..-320.33, uphill side buried 0.39 m",
+     "the flag pole (planted 45 cm)                rigid: bottom -320.02, ground -319.57..-319.56, uphill side buried 0.46 m",
+     "OPTIONAL: the keeper's stone hut on the terr rigid: bottom -319.56, ground -319.44..-318.15, uphill side buried 1.40 m (optional)",
+     "back wall 1 of 4: yard face shows 2.38..2.40 m, top at -317.10",
+     "back wall 2 of 4: yard face shows 2.31..2.40 m, top at -317.20",
+     "back wall 3 of 4: yard face shows 2.34..2.40 m, top at -317.27",
+     "back wall 4 of 4: yard face shows 2.39..2.40 m, top at -317.29",
+     "wall tops step [-317.1, -317.2, -317.27, -317.29] (m; joint steps [0.1, 0.07, 0.02])",
+     "setdress_contact.offline_reports + judge (working copy, cross-check): 0 violations []"
+    ],
+    "violations": [
+     "SHOT 2: rig not framed/visible at stop 0 lat 0: {'stop': 0.0, 'lat': 0.0, 'carrier': (-0.38, 0.18, -0.46, 0.23), 'capsule': (0.27, 1.08, -0.35, 0.46), 'in_frame': False, 'visible': 1.0}",
+     "SHOT 2: rig not framed/visible at stop 2 lat 0: {'stop': 2.0, 'lat': 0.0, 'carrier': (-0.98, -0.43, -0.36, 0.36), 'capsule': (-0.27, 0.52, -0.32, 0.51), 'in_frame': True, 'visible': 0.67}",
+     "SHOT 3: no insert camera frames the back lettering and the capsule mark together"
+    ],
+    "cin_views": [
+     {
+      "name": "cin11_s1",
+      "cam_cm": [
+       373615.5,
+       375050.0,
+       -31960.4
+      ],
+      "look_cm": [
+       373273.7,
+       375989.1,
+       -31995.3
+      ],
+      "fov": 50.0
+     },
+     {
+      "name": "cin11_s2",
+      "cam_cm": [
+       373300.6,
+       376405.9,
+       -31832.3
+      ],
+      "look_cm": [
+       373549.2,
+       375449.2,
+       -31983.2
+      ],
+      "fov": 26.73
+     }
+    ]
+   }
+  }
+ ]
+}

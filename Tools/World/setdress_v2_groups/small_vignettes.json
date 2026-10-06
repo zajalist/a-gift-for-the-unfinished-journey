@@ -1,0 +1,6769 @@
+{
+ "generated_by": "Tools/World/setdress_v2_groups/small_vignettes.py",
+ "group": "small_vignettes",
+ "level": "/Game/level/Saskarta_WP",
+ "sites": [
+  {
+   "id": "R01_Verge620",
+   "name": "Tipped cart and bags",
+   "kind": "roadside vignette",
+   "order": 40,
+   "road_m": 620,
+   "side": "left",
+   "lateral_m": -8,
+   "centre_cm": [
+    572302.8,
+    424616.9,
+    -35412.4
+   ],
+   "road_yaw": -149.0,
+   "radius_m": 8,
+   "zone": "Z1 Valley",
+   "storm": "storm-dusk at its worst: dust sheets and gusts; cloth and tarps flap (WPO); dust drifts on the lee side of walls; landmarks must read as silhouettes through 3 km transmittance ~0.15 haze",
+   "role": "reveal",
+   "story": "the caravan echoes (road bible layer)",
+   "decay": 2,
+   "style": "props",
+   "layout": "  Tipped cart and bags",
+   "notes": "",
+   "story_owned": [],
+   "verify_only": false,
+   "layer": "road",
+   "poi": null,
+   "load_box_cm": [
+    569503,
+    421817,
+    575103,
+    427417
+   ],
+   "counts": {
+    "placements": 4,
+    "actors": 4,
+    "ism_instances": 0,
+    "physics": 4,
+    "batch01": 0,
+    "decals": 4
+   },
+   "views": [
+    {
+     "name": "carrier_a",
+     "cam_cm": [
+      583432.7,
+      429100.9,
+      -35052.5
+     ],
+     "look_cm": [
+      572302.8,
+      424616.9,
+      -35112.4
+     ]
+    },
+    {
+     "name": "carrier_b",
+     "cam_cm": [
+      578716.8,
+      427532.3,
+      -34976.6
+     ],
+     "look_cm": [
+      572302.8,
+      424616.9,
+      -35112.4
+     ]
+    },
+    {
+     "name": "carrier_c",
+     "cam_cm": [
+      575286.9,
+      425474.4,
+      -35238.9
+     ],
+     "look_cm": [
+      572302.8,
+      424616.9,
+      -35112.4
+     ]
+    },
+    {
+     "name": "orbit_a",
+     "cam_cm": [
+      571218.0,
+      422254.0,
+      -34309.1
+     ],
+     "look_cm": [
+      572302.8,
+      424616.9,
+      -35112.4
+     ]
+    },
+    {
+     "name": "orbit_b",
+     "cam_cm": [
+      574890.1,
+      424873.4,
+      -34517.8
+     ],
+     "look_cm": [
+      572302.8,
+      424616.9,
+      -35112.4
+     ]
+    },
+    {
+     "name": "orbit_c",
+     "cam_cm": [
+      570775.2,
+      426720.8,
+      -34869.4
+     ],
+     "look_cm": [
+      572302.8,
+      424616.9,
+      -35112.4
+     ]
+    },
+    {
+     "name": "high34",
+     "cam_cm": [
+      569677.1,
+      427902.6,
+      -31383.8
+     ],
+     "look_cm": [
+      572302.8,
+      424616.9,
+      -35112.4
+     ]
+    },
+    {
+     "name": "far300",
+     "cam_cm": [
+      598946.2,
+      437416.6,
+      -35531.2
+     ],
+     "look_cm": [
+      572302.8,
+      424616.9,
+      -35112.4
+     ]
+    }
+   ],
+   "placements": [
+    {
+     "id": "R01_Verge620_000",
+     "key": "MV_cart_02",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_cart_02",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 572302.8,
+     "y_cm": 424616.9,
+     "ground_z_cm": -35412.4,
+     "yaw": 221.0,
+     "pitch": -75.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 8,
+      "max_tilt_deg": 25,
+      "rand_tilt_deg": 10,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "v",
+     "folder": "Set/R01_Verge620/v",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 25000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.44,
+      3.18,
+      1.21
+     ],
+     "slope_deg": 7.4,
+     "relief_m": 0.39,
+     "road_clear_m": 6.4,
+     "note": "on its side: long along Y, so the tip is a pitch (LANE_SD)",
+     "contact": "lie",
+     "material_set": "stone"
+    },
+    {
+     "id": "R01_Verge620_001",
+     "key": "MV_jute_bag_01",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_jute_bag_01",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 572022.3,
+     "y_cm": 424653.8,
+     "ground_z_cm": -35428.9,
+     "yaw": 255.8,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.908,
+     "scale_range": [
+      0.9,
+      1.1
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 3,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 40,
+      "z_offset_cm": 0
+     },
+     "group": "v",
+     "folder": "Set/R01_Verge620/v",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.52,
+      0.56,
+      0.38
+     ],
+     "slope_deg": 7.9,
+     "relief_m": 0.1,
+     "road_clear_m": 9.38,
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "R01_Verge620_002",
+     "key": "MV_jute_bag_02",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_jute_bag_02",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 572030.5,
+     "y_cm": 424608.5,
+     "ground_z_cm": -35422.6,
+     "yaw": 30.3,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.942,
+     "scale_range": [
+      0.9,
+      1.1
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 3,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 40,
+      "z_offset_cm": 0
+     },
+     "group": "v",
+     "folder": "Set/R01_Verge620/v",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.62,
+      0.51,
+      0.49
+     ],
+     "slope_deg": 7.8,
+     "relief_m": 0.09,
+     "road_clear_m": 9.07,
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "R01_Verge620_003",
+     "key": "MV_jute_bag_03",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_jute_bag_03",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 572088.6,
+     "y_cm": 424576.1,
+     "ground_z_cm": -35415.9,
+     "yaw": 227.1,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.066,
+     "scale_range": [
+      0.9,
+      1.1
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 3,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 40,
+      "z_offset_cm": 0
+     },
+     "group": "v",
+     "folder": "Set/R01_Verge620/v",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.62,
+      0.47,
+      0.59
+     ],
+     "slope_deg": 7.8,
+     "relief_m": 0.1,
+     "road_clear_m": 8.44,
+     "contact": "rest",
+     "material_set": "stone"
+    }
+   ],
+   "ground": [
+    {
+     "id": "R01_Verge620_g000",
+     "surface": "packed_earth",
+     "shape": "ellipse",
+     "x_cm": 572302.8,
+     "y_cm": 424616.9,
+     "z_cm": -35415.6,
+     "yaw": 221.0,
+     "length_m": 5.18,
+     "width_m": 3.57,
+     "depth_m": 3.0,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "R01_Verge620_g001",
+     "surface": "packed_earth",
+     "shape": "ellipse",
+     "x_cm": 572022.3,
+     "y_cm": 424653.8,
+     "z_cm": -35429.0,
+     "yaw": 255.8,
+     "length_m": 3.0,
+     "width_m": 2.15,
+     "depth_m": 3.0,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "R01_Verge620_g002",
+     "surface": "packed_earth",
+     "shape": "ellipse",
+     "x_cm": 572030.5,
+     "y_cm": 424608.5,
+     "z_cm": -35422.8,
+     "yaw": 30.3,
+     "length_m": 3.0,
+     "width_m": 2.15,
+     "depth_m": 3.0,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "R01_Verge620_g003",
+     "surface": "packed_earth",
+     "shape": "ellipse",
+     "x_cm": 572088.6,
+     "y_cm": 424576.1,
+     "z_cm": -35416.2,
+     "yaw": 227.1,
+     "length_m": 3.0,
+     "width_m": 2.15,
+     "depth_m": 3.0,
+     "strength": 0.45,
+     "sort": 0
+    }
+   ],
+   "v2": {
+    "core": [
+     -0.0003133544083902924,
+     -0.00023749831268250683
+    ],
+    "walls": [],
+    "rows": [],
+    "lanes": [],
+    "doors": [],
+    "fans": [],
+    "rooms": [],
+    "units": []
+   },
+   "units": [],
+   "archetype": "vignette",
+   "offline_check": {
+    "violations": [],
+    "waived": []
+   }
+  },
+  {
+   "id": "R02_Verge1080",
+   "name": "Two boxes and a pot at a verge stone",
+   "kind": "roadside vignette",
+   "order": 40,
+   "road_m": 1080,
+   "side": "right",
+   "lateral_m": 7.5,
+   "centre_cm": [
+    547261.9,
+    388044.1,
+    -36197.6
+   ],
+   "road_yaw": -92.6,
+   "radius_m": 8,
+   "zone": "Z1 Valley",
+   "storm": "storm-dusk at its worst: dust sheets and gusts; cloth and tarps flap (WPO); dust drifts on the lee side of walls; landmarks must read as silhouettes through 3 km transmittance ~0.15 haze",
+   "role": "reveal",
+   "story": "the caravan echoes (road bible layer)",
+   "decay": 2,
+   "style": "props",
+   "layout": "  Two boxes and a pot at a verge stone",
+   "notes": "",
+   "story_owned": [],
+   "verify_only": false,
+   "layer": "road",
+   "poi": null,
+   "load_box_cm": [
+    544462,
+    385244,
+    550062,
+    390844
+   ],
+   "counts": {
+    "placements": 4,
+    "actors": 4,
+    "ism_instances": 0,
+    "physics": 3,
+    "batch01": 1,
+    "decals": 4
+   },
+   "views": [
+    {
+     "name": "carrier_a",
+     "cam_cm": [
+      549513.6,
+      399418.0,
+      -34146.2
+     ],
+     "look_cm": [
+      547261.9,
+      388044.1,
+      -35897.6
+     ]
+    },
+    {
+     "name": "carrier_b",
+     "cam_cm": [
+      548316.0,
+      394650.4,
+      -34929.6
+     ],
+     "look_cm": [
+      547261.9,
+      388044.1,
+      -35897.6
+     ]
+    },
+    {
+     "name": "carrier_c",
+     "cam_cm": [
+      547365.1,
+      390859.1,
+      -35450.5
+     ],
+     "look_cm": [
+      547261.9,
+      388044.1,
+      -35897.6
+     ]
+    },
+    {
+     "name": "orbit_a",
+     "cam_cm": [
+      548631.0,
+      385833.8,
+      -34898.2
+     ],
+     "look_cm": [
+      547261.9,
+      388044.1,
+      -35897.6
+     ]
+    },
+    {
+     "name": "orbit_b",
+     "cam_cm": [
+      548478.7,
+      390341.8,
+      -34858.3
+     ],
+     "look_cm": [
+      547261.9,
+      388044.1,
+      -35897.6
+     ]
+    },
+    {
+     "name": "orbit_c",
+     "cam_cm": [
+      544664.2,
+      387934.4,
+      -35216.1
+     ],
+     "look_cm": [
+      547261.9,
+      388044.1,
+      -35897.6
+     ]
+    },
+    {
+     "name": "high34",
+     "cam_cm": [
+      543314.4,
+      386592.4,
+      -31800.7
+     ],
+     "look_cm": [
+      547261.9,
+      388044.1,
+      -35897.6
+     ]
+    },
+    {
+     "name": "far300",
+     "cam_cm": [
+      561157.0,
+      412893.8,
+      -33951.4
+     ],
+     "look_cm": [
+      547261.9,
+      388044.1,
+      -35897.6
+     ]
+    }
+   ],
+   "placements": [
+    {
+     "id": "R02_Verge1080_000",
+     "key": "B01_marker01",
+     "asset": "/Game/SaskartaGaea/Environment/Batch01/SM_B01_marker01",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 547311.9,
+     "y_cm": 388041.8,
+     "ground_z_cm": -36171.6,
+     "yaw": 357.4,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 6,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "v",
+     "folder": "Set/R02_Verge1080/v",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.41,
+      0.36,
+      0.81
+     ],
+     "slope_deg": 29.4,
+     "relief_m": 0.24,
+     "road_clear_m": 7.79,
+     "requires_import": true,
+     "verdict": "use",
+     "imported": true,
+     "fallback": {
+      "asset": "/Game/Fab/Megascans/3D/Ancient_Temple_Stones_tixjegefa/Medium/tixjegefa_tier_2/StaticMeshes/tixjegefa_tier_2",
+      "scale": 0.45
+     },
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "R02_Verge1080_001",
+     "key": "AB_Box_A",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Box_A",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 547251.3,
+     "y_cm": 387933.4,
+     "ground_z_cm": -36187.0,
+     "yaw": 315.6,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.949,
+     "scale_range": [
+      0.9,
+      1.1
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 3,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 40,
+      "z_offset_cm": 0
+     },
+     "group": "v",
+     "folder": "Set/R02_Verge1080/v",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      1.11,
+      0.61,
+      0.31
+     ],
+     "slope_deg": 25.0,
+     "relief_m": 0.62,
+     "road_clear_m": 6.83,
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "R02_Verge1080_002",
+     "key": "AB_Box_C",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Box_C",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 547276.5,
+     "y_cm": 387934.6,
+     "ground_z_cm": -36176.1,
+     "yaw": 47.3,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.963,
+     "scale_range": [
+      0.9,
+      1.1
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 3,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 40,
+      "z_offset_cm": 0
+     },
+     "group": "v",
+     "folder": "Set/R02_Verge1080/v",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      1.07,
+      0.68,
+      0.54
+     ],
+     "slope_deg": 26.7,
+     "relief_m": 0.52,
+     "road_clear_m": 7.09,
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "R02_Verge1080_003",
+     "key": "AB_Clay_Pot_A",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Clay_Pot_A",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 547341.8,
+     "y_cm": 387820.2,
+     "ground_z_cm": -36116.3,
+     "yaw": 267.4,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 3,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "v",
+     "folder": "Set/R02_Verge1080/v",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.36,
+      0.36,
+      0.64
+     ],
+     "slope_deg": 32.5,
+     "relief_m": 0.33,
+     "road_clear_m": 8.22,
+     "contact": "rest",
+     "material_set": "stone"
+    }
+   ],
+   "ground": [
+    {
+     "id": "R02_Verge1080_g000",
+     "surface": "rubble_dust",
+     "shape": "ellipse",
+     "x_cm": 547311.9,
+     "y_cm": 388041.8,
+     "z_cm": -36156.4,
+     "yaw": 357.4,
+     "length_m": 3.0,
+     "width_m": 2.15,
+     "depth_m": 3.36,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "R02_Verge1080_g001",
+     "surface": "packed_earth",
+     "shape": "ellipse",
+     "x_cm": 547251.3,
+     "y_cm": 387933.4,
+     "z_cm": -36172.7,
+     "yaw": 315.6,
+     "length_m": 3.11,
+     "width_m": 2.22,
+     "depth_m": 3.49,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "R02_Verge1080_g002",
+     "surface": "packed_earth",
+     "shape": "ellipse",
+     "x_cm": 547276.5,
+     "y_cm": 387934.6,
+     "z_cm": -36162.4,
+     "yaw": 47.3,
+     "length_m": 3.07,
+     "width_m": 2.2,
+     "depth_m": 3.57,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "R02_Verge1080_g003",
+     "surface": "packed_earth",
+     "shape": "ellipse",
+     "x_cm": 547341.8,
+     "y_cm": 387820.2,
+     "z_cm": -36101.7,
+     "yaw": 267.4,
+     "length_m": 3.0,
+     "width_m": 2.15,
+     "depth_m": 4.05,
+     "strength": 0.45,
+     "sort": 0
+    }
+   ],
+   "v2": {
+    "core": [
+     9.056456837141448e-05,
+     -0.00024368436929839534
+    ],
+    "walls": [],
+    "rows": [],
+    "lanes": [],
+    "doors": [],
+    "fans": [],
+    "rooms": [],
+    "units": []
+   },
+   "units": [],
+   "archetype": "vignette",
+   "offline_check": {
+    "violations": [],
+    "waived": []
+   }
+  },
+  {
+   "id": "R03_Verge3300",
+   "name": "A handcart and a stack of bags",
+   "kind": "roadside vignette",
+   "order": 40,
+   "road_m": 3300,
+   "side": "left",
+   "lateral_m": -8,
+   "centre_cm": [
+    383615.5,
+    375850.0,
+    -33229.6
+   ],
+   "road_yaw": 180.0,
+   "radius_m": 8,
+   "zone": "Z4 Mountain foot",
+   "storm": "the storm thins; wind rising; clearer light on the cistern stone",
+   "role": "reveal",
+   "story": "the caravan echoes (road bible layer)",
+   "decay": 2,
+   "style": "props",
+   "layout": "  A handcart and a stack of bags",
+   "notes": "",
+   "story_owned": [],
+   "verify_only": false,
+   "layer": "road",
+   "poi": null,
+   "load_box_cm": [
+    380815,
+    373050,
+    386415,
+    378650
+   ],
+   "counts": {
+    "placements": 6,
+    "actors": 6,
+    "ism_instances": 0,
+    "physics": 6,
+    "batch01": 0,
+    "decals": 6
+   },
+   "views": [
+    {
+     "name": "carrier_a",
+     "cam_cm": [
+      394202.9,
+      370464.2,
+      -36829.5
+     ],
+     "look_cm": [
+      383615.5,
+      375850.0,
+      -32929.6
+     ]
+    },
+    {
+     "name": "carrier_b",
+     "cam_cm": [
+      390342.4,
+      373499.9,
+      -35423.8
+     ],
+     "look_cm": [
+      383615.5,
+      375850.0,
+      -32929.6
+     ]
+    },
+    {
+     "name": "carrier_c",
+     "cam_cm": [
+      386583.2,
+      374866.9,
+      -33770.2
+     ],
+     "look_cm": [
+      383615.5,
+      375850.0,
+      -32929.6
+     ]
+    },
+    {
+     "name": "orbit_a",
+     "cam_cm": [
+      381469.6,
+      374381.9,
+      -32142.4
+     ],
+     "look_cm": [
+      383615.5,
+      375850.0,
+      -32929.6
+     ]
+    },
+    {
+     "name": "orbit_b",
+     "cam_cm": [
+      385966.1,
+      374738.8,
+      -32907.3
+     ],
+     "look_cm": [
+      383615.5,
+      375850.0,
+      -32929.6
+     ]
+    },
+    {
+     "name": "orbit_c",
+     "cam_cm": [
+      383388.0,
+      378440.0,
+      -31860.4
+     ],
+     "look_cm": [
+      383615.5,
+      375850.0,
+      -32929.6
+     ]
+    },
+    {
+     "name": "high34",
+     "cam_cm": [
+      387808.0,
+      375514.5,
+      -29873.6
+     ],
+     "look_cm": [
+      383615.5,
+      375850.0,
+      -32929.6
+     ]
+    },
+    {
+     "name": "far300",
+     "cam_cm": [
+      407022.1,
+      357828.1,
+      -38909.7
+     ],
+     "look_cm": [
+      383615.5,
+      375850.0,
+      -32929.6
+     ]
+    }
+   ],
+   "placements": [
+    {
+     "id": "R03_Verge3300_000",
+     "key": "AB_Cart_A_texturing",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cart_A_texturing",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 383615.5,
+     "y_cm": 375850.0,
+     "ground_z_cm": -33229.6,
+     "yaw": 270.0,
+     "pitch": -6.0,
+     "roll": 0.0,
+     "scale": 0.7,
+     "scale_range": [
+      0.7,
+      0.7
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 3,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "v",
+     "folder": "Set/R03_Verge3300/v",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 25000.0,
+     "cast_shadow": true,
+     "size_m": [
+      1.46,
+      2.78,
+      1.13
+     ],
+     "slope_deg": 12.2,
+     "relief_m": 0.68,
+     "road_clear_m": 7.27,
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "R03_Verge3300_001",
+     "key": "MV_jute_bag_06",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_jute_bag_06",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 383306.5,
+     "y_cm": 375883.1,
+     "ground_z_cm": -33171.5,
+     "yaw": 160.1,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.988,
+     "scale_range": [
+      0.9,
+      1.1
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 3,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 40,
+      "z_offset_cm": 0
+     },
+     "group": "v",
+     "folder": "Set/R03_Verge3300/v",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.62,
+      0.68,
+      0.41
+     ],
+     "slope_deg": 12.0,
+     "relief_m": 0.16,
+     "road_clear_m": 7.9,
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "R03_Verge3300_002",
+     "key": "MV_jute_bag_07",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_jute_bag_07",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 383304.0,
+     "y_cm": 376007.1,
+     "ground_z_cm": -33158.6,
+     "yaw": 215.9,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.046,
+     "scale_range": [
+      0.9,
+      1.1
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 3,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 40,
+      "z_offset_cm": 0
+     },
+     "group": "v",
+     "folder": "Set/R03_Verge3300/v",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.67,
+      0.92,
+      0.31
+     ],
+     "slope_deg": 11.9,
+     "relief_m": 0.24,
+     "road_clear_m": 9.0,
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "R03_Verge3300_003",
+     "key": "MV_jute_bag_08",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_jute_bag_08",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 383373.4,
+     "y_cm": 375972.9,
+     "ground_z_cm": -33174.8,
+     "yaw": 118.0,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.087,
+     "scale_range": [
+      0.9,
+      1.1
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 3,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 40,
+      "z_offset_cm": 0
+     },
+     "group": "v",
+     "folder": "Set/R03_Verge3300/v",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.68,
+      0.96,
+      0.32
+     ],
+     "slope_deg": 11.5,
+     "relief_m": 0.23,
+     "road_clear_m": 8.7,
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "R03_Verge3300_004",
+     "key": "MV_jute_bag_09",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_jute_bag_09",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 383388.5,
+     "y_cm": 375896.4,
+     "ground_z_cm": -33184.8,
+     "yaw": 306.7,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.065,
+     "scale_range": [
+      0.9,
+      1.1
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 3,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 75,
+      "z_offset_cm": 0
+     },
+     "group": "v",
+     "folder": "Set/R03_Verge3300/v",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.7,
+      0.92,
+      0.34
+     ],
+     "slope_deg": 11.7,
+     "relief_m": 0.21,
+     "road_clear_m": 7.91,
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "R03_Verge3300_005",
+     "key": "MV_jute_bag_10",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_jute_bag_10",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 383376.7,
+     "y_cm": 375893.1,
+     "ground_z_cm": -33182.9,
+     "yaw": 7.0,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.927,
+     "scale_range": [
+      0.9,
+      1.1
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 3,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 75,
+      "z_offset_cm": 0
+     },
+     "group": "v",
+     "folder": "Set/R03_Verge3300/v",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.59,
+      0.82,
+      0.26
+     ],
+     "slope_deg": 11.7,
+     "relief_m": 0.2,
+     "road_clear_m": 7.99,
+     "contact": "rest",
+     "material_set": "stone"
+    }
+   ],
+   "ground": [
+    {
+     "id": "R03_Verge3300_g000",
+     "surface": "packed_earth",
+     "shape": "ellipse",
+     "x_cm": 383615.5,
+     "y_cm": 375850.0,
+     "z_cm": -33231.8,
+     "yaw": 270.0,
+     "length_m": 4.78,
+     "width_m": 3.31,
+     "depth_m": 3.24,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "R03_Verge3300_g001",
+     "surface": "packed_earth",
+     "shape": "ellipse",
+     "x_cm": 383306.5,
+     "y_cm": 375883.1,
+     "z_cm": -33172.2,
+     "yaw": 160.1,
+     "length_m": 3.0,
+     "width_m": 2.15,
+     "depth_m": 3.0,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "R03_Verge3300_g002",
+     "surface": "packed_earth",
+     "shape": "ellipse",
+     "x_cm": 383304.0,
+     "y_cm": 376007.1,
+     "z_cm": -33158.2,
+     "yaw": 215.9,
+     "length_m": 3.0,
+     "width_m": 2.15,
+     "depth_m": 3.0,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "R03_Verge3300_g003",
+     "surface": "packed_earth",
+     "shape": "ellipse",
+     "x_cm": 383373.4,
+     "y_cm": 375972.9,
+     "z_cm": -33174.2,
+     "yaw": 118.0,
+     "length_m": 3.0,
+     "width_m": 2.15,
+     "depth_m": 3.0,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "R03_Verge3300_g004",
+     "surface": "packed_earth",
+     "shape": "ellipse",
+     "x_cm": 383388.5,
+     "y_cm": 375896.4,
+     "z_cm": -33185.1,
+     "yaw": 306.7,
+     "length_m": 3.0,
+     "width_m": 2.15,
+     "depth_m": 3.0,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "R03_Verge3300_g005",
+     "surface": "packed_earth",
+     "shape": "ellipse",
+     "x_cm": 383376.7,
+     "y_cm": 375893.1,
+     "z_cm": -33183.4,
+     "yaw": 7.0,
+     "length_m": 3.0,
+     "width_m": 2.15,
+     "depth_m": 3.0,
+     "strength": 0.45,
+     "sort": 0
+    }
+   ],
+   "v2": {
+    "core": [
+     -0.0003551249778865895,
+     0.0
+    ],
+    "walls": [],
+    "rows": [],
+    "lanes": [],
+    "doors": [],
+    "fans": [],
+    "rooms": [],
+    "units": []
+   },
+   "units": [],
+   "archetype": "vignette",
+   "offline_check": {
+    "violations": [],
+    "waived": []
+   }
+  },
+  {
+   "id": "R04_Verge3750",
+   "name": "A single dropped bundle",
+   "kind": "roadside vignette",
+   "order": 40,
+   "road_m": 3750,
+   "side": "on/both",
+   "lateral_m": 0,
+   "centre_cm": [
+    352064.6,
+    397376.4,
+    -15307.3
+   ],
+   "road_yaw": 151.4,
+   "radius_m": 8,
+   "zone": "Z5 Cloud",
+   "storm": "inside the cloud deck: drizzle and fog, 50-150 m visibility; dressing is near-road silhouettes only, nothing that needs to read from far",
+   "role": "reveal",
+   "story": "the caravan echoes (road bible layer)",
+   "decay": 2,
+   "style": "props",
+   "layout": "  A single dropped bundle",
+   "notes": "",
+   "story_owned": [],
+   "verify_only": false,
+   "layer": "road",
+   "poi": null,
+   "load_box_cm": [
+    349265,
+    394576,
+    354865,
+    400176
+   ],
+   "counts": {
+    "placements": 2,
+    "actors": 2,
+    "ism_instances": 0,
+    "physics": 2,
+    "batch01": 0,
+    "decals": 2
+   },
+   "views": [
+    {
+     "name": "carrier_a",
+     "cam_cm": [
+      354480.7,
+      386648.9,
+      -23371.7
+     ],
+     "look_cm": [
+      352064.6,
+      397376.4,
+      -15007.3
+     ]
+    },
+    {
+     "name": "carrier_b",
+     "cam_cm": [
+      353579.6,
+      391275.7,
+      -19580.8
+     ],
+     "look_cm": [
+      352064.6,
+      397376.4,
+      -15007.3
+     ]
+    },
+    {
+     "name": "carrier_c",
+     "cam_cm": [
+      353579.6,
+      395275.7,
+      -16358.1
+     ],
+     "look_cm": [
+      352064.6,
+      397376.4,
+      -15007.3
+     ]
+    },
+    {
+     "name": "orbit_a",
+     "cam_cm": [
+      349477.8,
+      397115.1,
+      -13999.5
+     ],
+     "look_cm": [
+      352064.6,
+      397376.4,
+      -15007.3
+     ]
+    },
+    {
+     "name": "orbit_b",
+     "cam_cm": [
+      353596.1,
+      395275.3,
+      -15707.9
+     ],
+     "look_cm": [
+      352064.6,
+      397376.4,
+      -15007.3
+     ]
+    },
+    {
+     "name": "orbit_c",
+     "cam_cm": [
+      353105.1,
+      399759.1,
+      -13874.3
+     ],
+     "look_cm": [
+      352064.6,
+      397376.4,
+      -15007.3
+     ]
+    },
+    {
+     "name": "high34",
+     "cam_cm": [
+      353323.6,
+      393363.3,
+      -13730.5
+     ],
+     "look_cm": [
+      352064.6,
+      397376.4,
+      -15007.3
+     ]
+    },
+    {
+     "name": "far300",
+     "cam_cm": [
+      369034.0,
+      376595.6,
+      -31324.2
+     ],
+     "look_cm": [
+      352064.6,
+      397376.4,
+      -15007.3
+     ]
+    }
+   ],
+   "placements": [
+    {
+     "id": "R04_Verge3750_000",
+     "key": "MV_jute_bag_03",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_jute_bag_03",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 352366.3,
+     "y_cm": 397929.4,
+     "ground_z_cm": -15065.9,
+     "yaw": 151.4,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 3,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "v",
+     "folder": "Set/R04_Verge3750/v",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.58,
+      0.44,
+      0.55
+     ],
+     "slope_deg": 14.7,
+     "relief_m": 0.2,
+     "road_clear_m": 6.08,
+     "note": "placed on the outer verge by the resolver",
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "R04_Verge3750_001",
+     "key": "MV_Cloth_02",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_Cloth_02",
+     "kind": "SM",
+     "cat": "cloth",
+     "x_cm": 352366.3,
+     "y_cm": 397929.4,
+     "ground_z_cm": -15065.9,
+     "yaw": 181.4,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.25,
+     "scale_range": [
+      0.25,
+      0.25
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 3,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 60,
+      "z_offset_cm": 0
+     },
+     "group": "v",
+     "folder": "Set/R04_Verge3750/v",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": true,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.58,
+      0.02,
+      0.5
+     ],
+     "slope_deg": 14.7,
+     "relief_m": 0.1,
+     "road_clear_m": 6.07,
+     "contact": "rest",
+     "material_set": "wood"
+    }
+   ],
+   "ground": [
+    {
+     "id": "R04_Verge3750_g000",
+     "surface": "packed_earth",
+     "shape": "ellipse",
+     "x_cm": 352366.3,
+     "y_cm": 397929.4,
+     "z_cm": -15085.7,
+     "yaw": 151.4,
+     "length_m": 3.0,
+     "width_m": 2.15,
+     "depth_m": 3.0,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "R04_Verge3750_g001",
+     "surface": "packed_earth",
+     "shape": "ellipse",
+     "x_cm": 352366.3,
+     "y_cm": 397929.4,
+     "z_cm": -15085.7,
+     "yaw": 181.4,
+     "length_m": 3.0,
+     "width_m": 2.15,
+     "depth_m": 3.0,
+     "strength": 0.45,
+     "sort": 0
+    }
+   ],
+   "v2": {
+    "core": [
+     0.00015182100511077726,
+     -0.000319234754287599
+    ],
+    "walls": [],
+    "rows": [],
+    "lanes": [],
+    "doors": [],
+    "fans": [],
+    "rooms": [],
+    "units": []
+   },
+   "units": [],
+   "archetype": "vignette",
+   "offline_check": {
+    "violations": [],
+    "waived": []
+   }
+  },
+  {
+   "id": "R05_Verge4150",
+   "name": "A water jar on a verge stone",
+   "kind": "roadside vignette",
+   "order": 40,
+   "road_m": 4150,
+   "side": "right",
+   "lateral_m": 6.5,
+   "centre_cm": [
+    341910.9,
+    421041.0,
+    -1850.8
+   ],
+   "road_yaw": 172.9,
+   "radius_m": 8,
+   "zone": "Z5 Cloud",
+   "storm": "inside the cloud deck: drizzle and fog, 50-150 m visibility; dressing is near-road silhouettes only, nothing that needs to read from far",
+   "role": "reveal",
+   "story": "the caravan echoes (road bible layer)",
+   "decay": 2,
+   "style": "props",
+   "layout": "  A water jar on a verge stone",
+   "notes": "",
+   "story_owned": [],
+   "verify_only": false,
+   "layer": "road",
+   "poi": null,
+   "load_box_cm": [
+    339111,
+    418241,
+    344711,
+    423841
+   ],
+   "counts": {
+    "placements": 2,
+    "actors": 2,
+    "ism_instances": 0,
+    "physics": 1,
+    "batch01": 1,
+    "decals": 2
+   },
+   "views": [
+    {
+     "name": "carrier_a",
+     "cam_cm": [
+      352519.7,
+      417129.9,
+      -4947.4
+     ],
+     "look_cm": [
+      341910.9,
+      421041.0,
+      -1550.8
+     ]
+    },
+    {
+     "name": "carrier_b",
+     "cam_cm": [
+      348754.3,
+      420212.7,
+      -3170.2
+     ],
+     "look_cm": [
+      341910.9,
+      421041.0,
+      -1550.8
+     ]
+    },
+    {
+     "name": "carrier_c",
+     "cam_cm": [
+      344968.3,
+      421313.9,
+      -2156.0
+     ],
+     "look_cm": [
+      341910.9,
+      421041.0,
+      -1550.8
+     ]
+    },
+    {
+     "name": "orbit_a",
+     "cam_cm": [
+      339599.5,
+      419850.4,
+      -819.9
+     ],
+     "look_cm": [
+      341910.9,
+      421041.0,
+      -1550.8
+     ]
+    },
+    {
+     "name": "orbit_b",
+     "cam_cm": [
+      344105.5,
+      419646.8,
+      -1823.0
+     ],
+     "look_cm": [
+      341910.9,
+      421041.0,
+      -1550.8
+     ]
+    },
+    {
+     "name": "orbit_c",
+     "cam_cm": [
+      342006.4,
+      423639.2,
+      -181.2
+     ],
+     "look_cm": [
+      341910.9,
+      421041.0,
+      -1550.8
+     ]
+    },
+    {
+     "name": "high34",
+     "cam_cm": [
+      345895.8,
+      419695.3,
+      1486.3
+     ],
+     "look_cm": [
+      341910.9,
+      421041.0,
+      -1550.8
+     ]
+    },
+    {
+     "name": "far300",
+     "cam_cm": [
+      344218.3,
+      403411.3,
+      -10526.6
+     ],
+     "look_cm": [
+      341910.9,
+      421041.0,
+      -1550.8
+     ]
+    }
+   ],
+   "placements": [
+    {
+     "id": "R05_Verge4150_000",
+     "key": "B01_marker01",
+     "asset": "/Game/SaskartaGaea/Environment/Batch01/SM_B01_marker01",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 341910.9,
+     "y_cm": 421041.0,
+     "ground_z_cm": -1850.8,
+     "yaw": 262.9,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 6,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "v",
+     "folder": "Set/R05_Verge4150/v",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.41,
+      0.36,
+      0.81
+     ],
+     "slope_deg": 21.7,
+     "relief_m": 0.22,
+     "road_clear_m": 6.3,
+     "requires_import": true,
+     "verdict": "use",
+     "imported": true,
+     "fallback": {
+      "asset": "/Game/Fab/Megascans/3D/Ancient_Temple_Stones_tixjegefa/Medium/tixjegefa_tier_2/StaticMeshes/tixjegefa_tier_2",
+      "scale": 0.45
+     },
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "R05_Verge4150_001",
+     "key": "AB_Clay_Pot_B",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Clay_Pot_B",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 341910.9,
+     "y_cm": 421041.0,
+     "ground_z_cm": -1850.8,
+     "yaw": 172.9,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 3,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 120,
+      "z_offset_cm": 0
+     },
+     "group": "v",
+     "folder": "Set/R05_Verge4150/v",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.29,
+      0.29,
+      0.45
+     ],
+     "slope_deg": 21.7,
+     "relief_m": 0.16,
+     "road_clear_m": 6.35,
+     "note": "canteen stand-in (canteen missing)",
+     "contact": "rest",
+     "material_set": "stone"
+    }
+   ],
+   "ground": [
+    {
+     "id": "R05_Verge4150_g000",
+     "surface": "rubble_dust",
+     "shape": "ellipse",
+     "x_cm": 341910.9,
+     "y_cm": 421041.0,
+     "z_cm": -1847.6,
+     "yaw": 262.9,
+     "length_m": 3.0,
+     "width_m": 2.15,
+     "depth_m": 3.41,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "R05_Verge4150_g001",
+     "surface": "packed_earth",
+     "shape": "ellipse",
+     "x_cm": 341910.9,
+     "y_cm": 421041.0,
+     "z_cm": -1847.6,
+     "yaw": 172.9,
+     "length_m": 3.0,
+     "width_m": 2.15,
+     "depth_m": 3.41,
+     "strength": 0.45,
+     "sort": 0
+    }
+   ],
+   "v2": {
+    "core": [
+     -0.000134419220468825,
+     0.0002883356164571813
+    ],
+    "walls": [],
+    "rows": [],
+    "lanes": [],
+    "doors": [],
+    "fans": [],
+    "rooms": [],
+    "units": []
+   },
+   "units": [],
+   "archetype": "vignette",
+   "offline_check": {
+    "violations": [],
+    "waived": []
+   }
+  },
+  {
+   "id": "L06_DescentCarts",
+   "name": "Two Carts on the Descent",
+   "kind": "caravan vignette (lone)",
+   "order": 25,
+   "road_m": 2250,
+   "side": "on/both",
+   "lateral_m": 0,
+   "centre_cm": [
+    468346.2,
+    322258.1,
+    -36983.1
+   ],
+   "road_yaw": 136.0,
+   "radius_m": 20,
+   "zone": "Z3 Basin",
+   "storm": "heavy, still, dusty air; low fog cards and heat shimmer at the platform and works; Geiger peak; the storm is worst here with the valley",
+   "role": "reveal",
+   "story": "the steep descent broke carts: two nose-down, one on its side",
+   "decay": 2,
+   "style": "carts + props",
+   "layout": "\n  L verge: cart on its side, wheel off           R verge: cart nose-down, bags slid forward\n  ==================== road (steep, down ->) =====================\n",
+   "notes": "",
+   "story_owned": [],
+   "verify_only": false,
+   "layer": "road",
+   "poi": null,
+   "load_box_cm": [
+    464346,
+    318258,
+    472346,
+    326258
+   ],
+   "counts": {
+    "placements": 10,
+    "actors": 10,
+    "ism_instances": 0,
+    "physics": 10,
+    "batch01": 0,
+    "decals": 10
+   },
+   "views": [
+    {
+     "name": "carrier_a",
+     "cam_cm": [
+      479970.0,
+      320550.0,
+      -34585.7
+     ],
+     "look_cm": [
+      468346.2,
+      322258.1,
+      -36683.1
+     ]
+    },
+    {
+     "name": "carrier_b",
+     "cam_cm": [
+      474970.0,
+      320550.0,
+      -35281.3
+     ],
+     "look_cm": [
+      468346.2,
+      322258.1,
+      -36683.1
+     ]
+    },
+    {
+     "name": "carrier_c",
+     "cam_cm": [
+      471028.2,
+      321195.7,
+      -36024.8
+     ],
+     "look_cm": [
+      468346.2,
+      322258.1,
+      -36683.1
+     ]
+    },
+    {
+     "name": "orbit_a",
+     "cam_cm": [
+      465782.7,
+      322692.5,
+      -36723.8
+     ],
+     "look_cm": [
+      468346.2,
+      322258.1,
+      -36683.1
+     ]
+    },
+    {
+     "name": "orbit_b",
+     "cam_cm": [
+      469265.4,
+      319826.0,
+      -35466.1
+     ],
+     "look_cm": [
+      468346.2,
+      322258.1,
+      -36683.1
+     ]
+    },
+    {
+     "name": "orbit_c",
+     "cam_cm": [
+      469981.6,
+      324279.4,
+      -35850.7
+     ],
+     "look_cm": [
+      468346.2,
+      322258.1,
+      -36683.1
+     ]
+    },
+    {
+     "name": "high34",
+     "cam_cm": [
+      464143.7,
+      322428.7,
+      -33524.6
+     ],
+     "look_cm": [
+      468346.2,
+      322258.1,
+      -36683.1
+     ]
+    },
+    {
+     "name": "far300",
+     "cam_cm": [
+      497364.7,
+      323040.3,
+      -30061.4
+     ],
+     "look_cm": [
+      468346.2,
+      322258.1,
+      -36683.1
+     ]
+    }
+   ],
+   "placements": [
+    {
+     "id": "L06_DescentCarts_000",
+     "key": "MV_cart_02",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_cart_02",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 467804.4,
+     "y_cm": 321697.0,
+     "ground_z_cm": -37029.3,
+     "yaw": 136.0,
+     "pitch": -10.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 3,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "carts",
+     "folder": "Set/L06_DescentCarts/carts",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 25000.0,
+     "cast_shadow": true,
+     "size_m": [
+      1.21,
+      3.18,
+      0.44
+     ],
+     "slope_deg": 21.5,
+     "relief_m": 0.67,
+     "road_clear_m": 6.21,
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "L06_DescentCarts_001",
+     "key": "AB_Cart_A_texturing",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cart_A_texturing",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 468498.0,
+     "y_cm": 323279.2,
+     "ground_z_cm": -37037.9,
+     "yaw": 228.0,
+     "pitch": 78.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 8,
+      "max_tilt_deg": 25,
+      "rand_tilt_deg": 10,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "carts",
+     "folder": "Set/L06_DescentCarts/carts",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 25000.0,
+     "cast_shadow": true,
+     "size_m": [
+      1.61,
+      3.97,
+      2.09
+     ],
+     "slope_deg": 12.9,
+     "relief_m": 1.03,
+     "road_clear_m": 7.53,
+     "note": "on its side: the mesh is long along Y, so the tip is a pitch (LANE_SD)",
+     "contact": "lie",
+     "material_set": "stone"
+    },
+    {
+     "id": "L06_DescentCarts_002",
+     "key": "AB_Cart_Wheel",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cart_Wheel",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 468460.3,
+     "y_cm": 323816.0,
+     "ground_z_cm": -37071.0,
+     "yaw": 156.0,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 3,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "carts",
+     "folder": "Set/L06_DescentCarts/carts",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      1.18,
+      1.18,
+      0.31
+     ],
+     "slope_deg": 17.4,
+     "relief_m": 0.45,
+     "road_clear_m": 11.24,
+     "note": "the mesh is modelled flat; a lone upright wheel would lean on nothing",
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "L06_DescentCarts_003",
+     "key": "MV_jute_bag_05",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_jute_bag_05",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 467454.1,
+     "y_cm": 321909.3,
+     "ground_z_cm": -37172.2,
+     "yaw": 28.7,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.091,
+     "scale_range": [
+      0.9,
+      1.1
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 3,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 40,
+      "z_offset_cm": 0
+     },
+     "group": "load",
+     "folder": "Set/L06_DescentCarts/load",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.68,
+      0.74,
+      0.35
+     ],
+     "slope_deg": 18.8,
+     "relief_m": 0.35,
+     "road_clear_m": 8.27,
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "L06_DescentCarts_004",
+     "key": "MV_jute_bag_06",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_jute_bag_06",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 467449.8,
+     "y_cm": 321914.8,
+     "ground_z_cm": -37174.6,
+     "yaw": 44.2,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.034,
+     "scale_range": [
+      0.9,
+      1.1
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 3,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 40,
+      "z_offset_cm": 0
+     },
+     "group": "load",
+     "folder": "Set/L06_DescentCarts/load",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.65,
+      0.71,
+      0.43
+     ],
+     "slope_deg": 18.7,
+     "relief_m": 0.3,
+     "road_clear_m": 8.36,
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "L06_DescentCarts_005",
+     "key": "MV_jute_bag_07",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_jute_bag_07",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 467436.7,
+     "y_cm": 321888.4,
+     "ground_z_cm": -37173.2,
+     "yaw": 98.1,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.981,
+     "scale_range": [
+      0.9,
+      1.1
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 3,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 40,
+      "z_offset_cm": 0
+     },
+     "group": "load",
+     "folder": "Set/L06_DescentCarts/load",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.63,
+      0.86,
+      0.29
+     ],
+     "slope_deg": 18.7,
+     "relief_m": 0.39,
+     "road_clear_m": 8.44,
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "L06_DescentCarts_006",
+     "key": "MV_jute_bag_08",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_jute_bag_08",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 467433.5,
+     "y_cm": 321781.7,
+     "ground_z_cm": -37156.4,
+     "yaw": 227.6,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.026,
+     "scale_range": [
+      0.9,
+      1.1
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 3,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 75,
+      "z_offset_cm": 0
+     },
+     "group": "load",
+     "folder": "Set/L06_DescentCarts/load",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.65,
+      0.9,
+      0.3
+     ],
+     "slope_deg": 19.5,
+     "relief_m": 0.41,
+     "road_clear_m": 9.43,
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "L06_DescentCarts_007",
+     "key": "MV_jute_bag_09",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_jute_bag_09",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 467289.1,
+     "y_cm": 321817.9,
+     "ground_z_cm": -37205.4,
+     "yaw": 95.0,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.098,
+     "scale_range": [
+      0.9,
+      1.1
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 3,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 75,
+      "z_offset_cm": 0
+     },
+     "group": "load",
+     "folder": "Set/L06_DescentCarts/load",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.72,
+      0.94,
+      0.35
+     ],
+     "slope_deg": 16.6,
+     "relief_m": 0.35,
+     "road_clear_m": 9.92,
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "L06_DescentCarts_008",
+     "key": "AB_Clay_Pot_A",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Clay_Pot_A",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 468445.1,
+     "y_cm": 323721.0,
+     "ground_z_cm": -37069.2,
+     "yaw": 68.7,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.157,
+     "scale_range": [
+      0.8,
+      1.2
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 3,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "load",
+     "folder": "Set/L06_DescentCarts/load",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.42,
+      0.42,
+      0.74
+     ],
+     "slope_deg": 16.4,
+     "relief_m": 0.14,
+     "road_clear_m": 10.94,
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "L06_DescentCarts_009",
+     "key": "AB_Clay_Pot_B",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Clay_Pot_B",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 468578.3,
+     "y_cm": 323646.8,
+     "ground_z_cm": -37026.9,
+     "yaw": 175.7,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.04,
+     "scale_range": [
+      0.8,
+      1.2
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 3,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "load",
+     "folder": "Set/L06_DescentCarts/load",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.3,
+      0.3,
+      0.47
+     ],
+     "slope_deg": 15.4,
+     "relief_m": 0.09,
+     "road_clear_m": 11.39,
+     "contact": "rest",
+     "material_set": "stone"
+    }
+   ],
+   "ground": [
+    {
+     "id": "L06_DescentCarts_g000",
+     "surface": "packed_earth",
+     "shape": "ellipse",
+     "x_cm": 467804.4,
+     "y_cm": 321697.0,
+     "z_cm": -37027.8,
+     "yaw": 136.0,
+     "length_m": 5.18,
+     "width_m": 3.57,
+     "depth_m": 4.1,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "L06_DescentCarts_g001",
+     "surface": "packed_earth",
+     "shape": "ellipse",
+     "x_cm": 468498.0,
+     "y_cm": 323279.2,
+     "z_cm": -37031.2,
+     "yaw": 228.0,
+     "length_m": 5.97,
+     "width_m": 4.08,
+     "depth_m": 3.64,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "L06_DescentCarts_g002",
+     "surface": "packed_earth",
+     "shape": "ellipse",
+     "x_cm": 468460.3,
+     "y_cm": 323816.0,
+     "z_cm": -37070.1,
+     "yaw": 156.0,
+     "length_m": 3.18,
+     "width_m": 2.27,
+     "depth_m": 3.18,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "L06_DescentCarts_g003",
+     "surface": "packed_earth",
+     "shape": "ellipse",
+     "x_cm": 467454.1,
+     "y_cm": 321909.3,
+     "z_cm": -37170.7,
+     "yaw": 28.7,
+     "length_m": 3.0,
+     "width_m": 2.15,
+     "depth_m": 3.11,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "L06_DescentCarts_g004",
+     "surface": "packed_earth",
+     "shape": "ellipse",
+     "x_cm": 467449.8,
+     "y_cm": 321914.8,
+     "z_cm": -37172.7,
+     "yaw": 44.2,
+     "length_m": 3.0,
+     "width_m": 2.15,
+     "depth_m": 3.11,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "L06_DescentCarts_g005",
+     "surface": "packed_earth",
+     "shape": "ellipse",
+     "x_cm": 467436.7,
+     "y_cm": 321888.4,
+     "z_cm": -37172.6,
+     "yaw": 98.1,
+     "length_m": 3.0,
+     "width_m": 2.15,
+     "depth_m": 3.1,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "L06_DescentCarts_g006",
+     "surface": "packed_earth",
+     "shape": "ellipse",
+     "x_cm": 467433.5,
+     "y_cm": 321781.7,
+     "z_cm": -37156.2,
+     "yaw": 227.6,
+     "length_m": 3.0,
+     "width_m": 2.15,
+     "depth_m": 3.15,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "L06_DescentCarts_g007",
+     "surface": "packed_earth",
+     "shape": "ellipse",
+     "x_cm": 467289.1,
+     "y_cm": 321817.9,
+     "z_cm": -37202.4,
+     "yaw": 95.0,
+     "length_m": 3.0,
+     "width_m": 2.15,
+     "depth_m": 3.07,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "L06_DescentCarts_g008",
+     "surface": "packed_earth",
+     "shape": "ellipse",
+     "x_cm": 468445.1,
+     "y_cm": 323721.0,
+     "z_cm": -37069.4,
+     "yaw": 68.7,
+     "length_m": 3.0,
+     "width_m": 2.15,
+     "depth_m": 3.06,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "L06_DescentCarts_g009",
+     "surface": "packed_earth",
+     "shape": "ellipse",
+     "x_cm": 468578.3,
+     "y_cm": 323646.8,
+     "z_cm": -37029.2,
+     "yaw": 175.7,
+     "length_m": 3.0,
+     "width_m": 2.15,
+     "depth_m": 3.01,
+     "strength": 0.45,
+     "sort": 0
+    }
+   ],
+   "v2": {
+    "core": [
+     -0.00013775802725388692,
+     7.442084066715856e-05
+    ],
+    "walls": [],
+    "rows": [],
+    "lanes": [],
+    "doors": [],
+    "fans": [],
+    "rooms": [],
+    "units": []
+   },
+   "units": [],
+   "archetype": "vignette",
+   "offline_check": {
+    "violations": [],
+    "waived": []
+   }
+  },
+  {
+   "id": "L13_ShoulderCairns",
+   "name": "The Cairn Line on the Shoulder",
+   "kind": "cairn line (lone)",
+   "order": 32,
+   "road_m": 4640,
+   "side": "on/both",
+   "lateral_m": 0,
+   "centre_cm": [
+    309004.1,
+    451125.5,
+    10809.1
+   ],
+   "road_yaw": 135.0,
+   "radius_m": 60,
+   "zone": "Z6 Summit",
+   "storm": "above the cloud: clear, calm, gold light; bare wind-scoured rock; the fewest objects on the road",
+   "role": "guidance",
+   "story": "B15/B16: the road's nearest pass to the summit; cairns lead the eye to the mast",
+   "decay": 0,
+   "style": "stacked stone",
+   "layout": "\n  every ~40 m, alternating verges: a cairn of 4 stones; a cloth strip on the first\n",
+   "notes": "Replaces the road bible's cable-pole line (P25): the author ruled out poles and wires.",
+   "story_owned": [],
+   "verify_only": false,
+   "layer": "road",
+   "poi": null,
+   "load_box_cm": [
+    301004,
+    443125,
+    317004,
+    459125
+   ],
+   "counts": {
+    "placements": 18,
+    "actors": 18,
+    "ism_instances": 0,
+    "physics": 16,
+    "batch01": 0,
+    "decals": 18
+   },
+   "views": [
+    {
+     "name": "carrier_a",
+     "cam_cm": [
+      318533.6,
+      443977.6,
+      10637.6
+     ],
+     "look_cm": [
+      309004.1,
+      451125.5,
+      11109.1
+     ]
+    },
+    {
+     "name": "carrier_b",
+     "cam_cm": [
+      314246.1,
+      446550.1,
+      10600.5
+     ],
+     "look_cm": [
+      309004.1,
+      451125.5,
+      11109.1
+     ]
+    },
+    {
+     "name": "carrier_c",
+     "cam_cm": [
+      311125.4,
+      449004.2,
+      10540.6
+     ],
+     "look_cm": [
+      309004.1,
+      451125.5,
+      11109.1
+     ]
+    },
+    {
+     "name": "orbit_a",
+     "cam_cm": [
+      306448.7,
+      451604.8,
+      12642.8
+     ],
+     "look_cm": [
+      309004.1,
+      451125.5,
+      11109.1
+     ]
+    },
+    {
+     "name": "orbit_b",
+     "cam_cm": [
+      309880.5,
+      448677.7,
+      11580.7
+     ],
+     "look_cm": [
+      309004.1,
+      451125.5,
+      11109.1
+     ]
+    },
+    {
+     "name": "orbit_c",
+     "cam_cm": [
+      310674.7,
+      453117.8,
+      11687.1
+     ],
+     "look_cm": [
+      309004.1,
+      451125.5,
+      11109.1
+     ]
+    },
+    {
+     "name": "high34",
+     "cam_cm": [
+      313203.4,
+      451361.4,
+      14617.7
+     ],
+     "look_cm": [
+      309004.1,
+      451125.5,
+      11109.1
+     ]
+    },
+    {
+     "name": "far300",
+     "cam_cm": [
+      325420.5,
+      428709.1,
+      5896.7
+     ],
+     "look_cm": [
+      309004.1,
+      451125.5,
+      11109.1
+     ]
+    }
+   ],
+   "placements": [
+    {
+     "id": "L13_ShoulderCairns_000",
+     "key": "LF_Rock_05",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_05",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 312292.2,
+     "y_cm": 448756.7,
+     "ground_z_cm": 10084.7,
+     "yaw": 135.0,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.45,
+     "scale_range": [
+      0.45,
+      0.45
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 6,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 60,
+      "z_offset_cm": 0
+     },
+     "group": "cairn_0",
+     "folder": "Set/L13_ShoulderCairns/cairn_0",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.8,
+      0.99,
+      0.58
+     ],
+     "slope_deg": 10.6,
+     "relief_m": 0.24,
+     "road_clear_m": 6.0,
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "L13_ShoulderCairns_001",
+     "key": "LF_Rock_01",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_01",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 312288.6,
+     "y_cm": 448760.2,
+     "ground_z_cm": 10084.3,
+     "yaw": 205.0,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.35,
+     "scale_range": [
+      0.35,
+      0.35
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 6,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 110,
+      "z_offset_cm": 0
+     },
+     "group": "cairn_0",
+     "folder": "Set/L13_ShoulderCairns/cairn_0",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.47,
+      0.64,
+      0.35
+     ],
+     "slope_deg": 10.4,
+     "relief_m": 0.14,
+     "road_clear_m": 6.17,
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "L13_ShoulderCairns_002",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 312285.1,
+     "y_cm": 448763.8,
+     "ground_z_cm": 10083.8,
+     "yaw": 275.0,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.2,
+     "scale_range": [
+      1.2,
+      1.2
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 3,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 160,
+      "z_offset_cm": 0
+     },
+     "group": "cairn_0",
+     "folder": "Set/L13_ShoulderCairns/cairn_0",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.55,
+      0.54,
+      0.34
+     ],
+     "slope_deg": 10.2,
+     "relief_m": 0.13,
+     "road_clear_m": 6.12,
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "L13_ShoulderCairns_003",
+     "key": "LF_Rock_07",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_07",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 312281.5,
+     "y_cm": 448767.3,
+     "ground_z_cm": 10083.4,
+     "yaw": 345.0,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.5,
+     "scale_range": [
+      1.5,
+      1.5
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 3,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 210,
+      "z_offset_cm": 0
+     },
+     "group": "cairn_0",
+     "folder": "Set/L13_ShoulderCairns/cairn_0",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.41,
+      0.46,
+      0.17
+     ],
+     "slope_deg": 10.0,
+     "relief_m": 0.08,
+     "road_clear_m": 6.2,
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "L13_ShoulderCairns_004",
+     "key": "MV_Fence_01_Log1",
+     "asset": "/Game/MedievalVillage/Meshes/Fence_01/SM_Fence_01_Log1",
+     "kind": "SM",
+     "cat": "wood_post",
+     "x_cm": 312207.3,
+     "y_cm": 448841.5,
+     "ground_z_cm": 10083.8,
+     "yaw": 135.0,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.2,
+     "scale_range": [
+      1.2,
+      1.2
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 25,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "cairn_0",
+     "folder": "Set/L13_ShoulderCairns/cairn_0",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.17,
+      0.17,
+      1.43
+     ],
+     "slope_deg": 6.3,
+     "relief_m": 0.04,
+     "road_clear_m": 6.4,
+     "contact": "rest",
+     "material_set": "wood"
+    },
+    {
+     "id": "L13_ShoulderCairns_005",
+     "key": "MV_Cloth_02",
+     "asset": "/Game/MedievalVillage/Meshes/Misc/SM_Cloth_02",
+     "kind": "SM",
+     "cat": "cloth",
+     "x_cm": 312207.3,
+     "y_cm": 448841.5,
+     "ground_z_cm": 10083.8,
+     "yaw": 135.0,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.2,
+     "scale_range": [
+      0.2,
+      0.2
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 3,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 110
+     },
+     "group": "cairn_0",
+     "folder": "Set/L13_ShoulderCairns/cairn_0",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": true,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": true,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.47,
+      0.02,
+      0.4
+     ],
+     "slope_deg": 6.3,
+     "relief_m": 0.06,
+     "road_clear_m": 6.4,
+     "contact": "rest",
+     "material_set": "wood"
+    },
+    {
+     "id": "L13_ShoulderCairns_006",
+     "key": "LF_Rock_05",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_05",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 308544.5,
+     "y_cm": 450665.9,
+     "ground_z_cm": 10980.4,
+     "yaw": 135.0,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.45,
+     "scale_range": [
+      0.45,
+      0.45
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 6,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 60,
+      "z_offset_cm": 0
+     },
+     "group": "cairn_1",
+     "folder": "Set/L13_ShoulderCairns/cairn_1",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.8,
+      0.99,
+      0.58
+     ],
+     "slope_deg": 26.3,
+     "relief_m": 0.62,
+     "road_clear_m": 6.0,
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "L13_ShoulderCairns_007",
+     "key": "LF_Rock_01",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_01",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 308541.0,
+     "y_cm": 450669.4,
+     "ground_z_cm": 10982.1,
+     "yaw": 205.0,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.35,
+     "scale_range": [
+      0.35,
+      0.35
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 6,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 110,
+      "z_offset_cm": 0
+     },
+     "group": "cairn_1",
+     "folder": "Set/L13_ShoulderCairns/cairn_1",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.47,
+      0.64,
+      0.35
+     ],
+     "slope_deg": 26.3,
+     "relief_m": 0.34,
+     "road_clear_m": 6.17,
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "L13_ShoulderCairns_008",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 308537.4,
+     "y_cm": 450672.9,
+     "ground_z_cm": 10983.9,
+     "yaw": 275.0,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.2,
+     "scale_range": [
+      1.2,
+      1.2
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 3,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 160,
+      "z_offset_cm": 0
+     },
+     "group": "cairn_1",
+     "folder": "Set/L13_ShoulderCairns/cairn_1",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.55,
+      0.54,
+      0.34
+     ],
+     "slope_deg": 26.4,
+     "relief_m": 0.28,
+     "road_clear_m": 6.12,
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "L13_ShoulderCairns_009",
+     "key": "LF_Rock_07",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_07",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 308533.9,
+     "y_cm": 450676.5,
+     "ground_z_cm": 10985.5,
+     "yaw": 345.0,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.5,
+     "scale_range": [
+      1.5,
+      1.5
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 3,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 210,
+      "z_offset_cm": 0
+     },
+     "group": "cairn_1",
+     "folder": "Set/L13_ShoulderCairns/cairn_1",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.41,
+      0.46,
+      0.17
+     ],
+     "slope_deg": 26.4,
+     "relief_m": 0.26,
+     "road_clear_m": 6.2,
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "L13_ShoulderCairns_010",
+     "key": "LF_Rock_05",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_05",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 306635.3,
+     "y_cm": 454413.5,
+     "ground_z_cm": 11217.8,
+     "yaw": 135.0,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.45,
+     "scale_range": [
+      0.45,
+      0.45
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 6,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 60,
+      "z_offset_cm": 0
+     },
+     "group": "cairn_2",
+     "folder": "Set/L13_ShoulderCairns/cairn_2",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.8,
+      0.99,
+      0.58
+     ],
+     "slope_deg": 32.0,
+     "relief_m": 0.71,
+     "road_clear_m": 14.68,
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "L13_ShoulderCairns_011",
+     "key": "LF_Rock_01",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_01",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 306631.8,
+     "y_cm": 454417.1,
+     "ground_z_cm": 11220.7,
+     "yaw": 205.0,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.35,
+     "scale_range": [
+      0.35,
+      0.35
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 6,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 110,
+      "z_offset_cm": 0
+     },
+     "group": "cairn_2",
+     "folder": "Set/L13_ShoulderCairns/cairn_2",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.47,
+      0.64,
+      0.35
+     ],
+     "slope_deg": 32.0,
+     "relief_m": 0.49,
+     "road_clear_m": 14.99,
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "L13_ShoulderCairns_012",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 306628.2,
+     "y_cm": 454420.6,
+     "ground_z_cm": 11223.6,
+     "yaw": 275.0,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.2,
+     "scale_range": [
+      1.2,
+      1.2
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 3,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 160,
+      "z_offset_cm": 0
+     },
+     "group": "cairn_2",
+     "folder": "Set/L13_ShoulderCairns/cairn_2",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.55,
+      0.54,
+      0.34
+     ],
+     "slope_deg": 32.0,
+     "relief_m": 0.46,
+     "road_clear_m": 15.08,
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "L13_ShoulderCairns_013",
+     "key": "LF_Rock_07",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_07",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 306624.7,
+     "y_cm": 454424.1,
+     "ground_z_cm": 11226.5,
+     "yaw": 345.0,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.5,
+     "scale_range": [
+      1.5,
+      1.5
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 3,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 210,
+      "z_offset_cm": 0
+     },
+     "group": "cairn_2",
+     "folder": "Set/L13_ShoulderCairns/cairn_2",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.41,
+      0.46,
+      0.17
+     ],
+     "slope_deg": 32.0,
+     "relief_m": 0.28,
+     "road_clear_m": 15.17,
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "L13_ShoulderCairns_014",
+     "key": "LF_Rock_05",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_05",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 302887.6,
+     "y_cm": 456322.7,
+     "ground_z_cm": 13096.0,
+     "yaw": 135.0,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.45,
+     "scale_range": [
+      0.45,
+      0.45
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 6,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 60,
+      "z_offset_cm": 0
+     },
+     "group": "cairn_3",
+     "folder": "Set/L13_ShoulderCairns/cairn_3",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.8,
+      0.99,
+      0.58
+     ],
+     "slope_deg": 30.2,
+     "relief_m": 0.73,
+     "road_clear_m": 52.83,
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "L13_ShoulderCairns_015",
+     "key": "LF_Rock_01",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_01",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 302884.1,
+     "y_cm": 456326.3,
+     "ground_z_cm": 13097.4,
+     "yaw": 205.0,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.35,
+     "scale_range": [
+      0.35,
+      0.35
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 6,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 110,
+      "z_offset_cm": 0
+     },
+     "group": "cairn_3",
+     "folder": "Set/L13_ShoulderCairns/cairn_3",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.47,
+      0.64,
+      0.35
+     ],
+     "slope_deg": 30.3,
+     "relief_m": 0.34,
+     "road_clear_m": 53.15,
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "L13_ShoulderCairns_016",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 302880.6,
+     "y_cm": 456329.8,
+     "ground_z_cm": 13098.9,
+     "yaw": 275.0,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.2,
+     "scale_range": [
+      1.2,
+      1.2
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 3,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 160,
+      "z_offset_cm": 0
+     },
+     "group": "cairn_3",
+     "folder": "Set/L13_ShoulderCairns/cairn_3",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.55,
+      0.54,
+      0.34
+     ],
+     "slope_deg": 30.3,
+     "relief_m": 0.36,
+     "road_clear_m": 53.24,
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "L13_ShoulderCairns_017",
+     "key": "LF_Rock_07",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_07",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 302877.0,
+     "y_cm": 456333.3,
+     "ground_z_cm": 13100.5,
+     "yaw": 345.0,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.5,
+     "scale_range": [
+      1.5,
+      1.5
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 3,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 210,
+      "z_offset_cm": 0
+     },
+     "group": "cairn_3",
+     "folder": "Set/L13_ShoulderCairns/cairn_3",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.41,
+      0.46,
+      0.17
+     ],
+     "slope_deg": 30.3,
+     "relief_m": 0.34,
+     "road_clear_m": 53.33,
+     "contact": "rest",
+     "material_set": "stone"
+    }
+   ],
+   "ground": [
+    {
+     "id": "L13_ShoulderCairns_g000",
+     "surface": "rubble_dust",
+     "shape": "ellipse",
+     "x_cm": 312292.2,
+     "y_cm": 448756.7,
+     "z_cm": 10095.5,
+     "yaw": 135.0,
+     "length_m": 3.0,
+     "width_m": 2.15,
+     "depth_m": 3.0,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "L13_ShoulderCairns_g001",
+     "surface": "rubble_dust",
+     "shape": "ellipse",
+     "x_cm": 312288.6,
+     "y_cm": 448760.2,
+     "z_cm": 10094.9,
+     "yaw": 205.0,
+     "length_m": 3.0,
+     "width_m": 2.15,
+     "depth_m": 3.0,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "L13_ShoulderCairns_g002",
+     "surface": "rubble_dust",
+     "shape": "ellipse",
+     "x_cm": 312285.1,
+     "y_cm": 448763.8,
+     "z_cm": 10094.3,
+     "yaw": 275.0,
+     "length_m": 3.0,
+     "width_m": 2.15,
+     "depth_m": 3.0,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "L13_ShoulderCairns_g003",
+     "surface": "rubble_dust",
+     "shape": "ellipse",
+     "x_cm": 312281.5,
+     "y_cm": 448767.3,
+     "z_cm": 10093.7,
+     "yaw": 345.0,
+     "length_m": 3.0,
+     "width_m": 2.15,
+     "depth_m": 3.0,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "L13_ShoulderCairns_g004",
+     "surface": "packed_earth",
+     "shape": "ellipse",
+     "x_cm": 312207.3,
+     "y_cm": 448841.5,
+     "z_cm": 10084.8,
+     "yaw": 135.0,
+     "length_m": 3.0,
+     "width_m": 2.15,
+     "depth_m": 3.0,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "L13_ShoulderCairns_g005",
+     "surface": "packed_earth",
+     "shape": "ellipse",
+     "x_cm": 312207.3,
+     "y_cm": 448841.5,
+     "z_cm": 10084.8,
+     "yaw": 135.0,
+     "length_m": 3.0,
+     "width_m": 2.15,
+     "depth_m": 3.0,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "L13_ShoulderCairns_g006",
+     "surface": "rubble_dust",
+     "shape": "ellipse",
+     "x_cm": 308544.5,
+     "y_cm": 450665.9,
+     "z_cm": 10981.9,
+     "yaw": 135.0,
+     "length_m": 3.0,
+     "width_m": 2.15,
+     "depth_m": 3.77,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "L13_ShoulderCairns_g007",
+     "surface": "rubble_dust",
+     "shape": "ellipse",
+     "x_cm": 308541.0,
+     "y_cm": 450669.4,
+     "z_cm": 10983.4,
+     "yaw": 205.0,
+     "length_m": 3.0,
+     "width_m": 2.15,
+     "depth_m": 3.76,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "L13_ShoulderCairns_g008",
+     "surface": "rubble_dust",
+     "shape": "ellipse",
+     "x_cm": 308537.4,
+     "y_cm": 450672.9,
+     "z_cm": 10984.9,
+     "yaw": 275.0,
+     "length_m": 3.0,
+     "width_m": 2.15,
+     "depth_m": 3.75,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "L13_ShoulderCairns_g009",
+     "surface": "rubble_dust",
+     "shape": "ellipse",
+     "x_cm": 308533.9,
+     "y_cm": 450676.5,
+     "z_cm": 10986.4,
+     "yaw": 345.0,
+     "length_m": 3.0,
+     "width_m": 2.15,
+     "depth_m": 3.73,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "L13_ShoulderCairns_g010",
+     "surface": "rubble_dust",
+     "shape": "ellipse",
+     "x_cm": 306635.3,
+     "y_cm": 454413.5,
+     "z_cm": 11225.3,
+     "yaw": 135.0,
+     "length_m": 3.0,
+     "width_m": 2.15,
+     "depth_m": 4.14,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "L13_ShoulderCairns_g011",
+     "surface": "rubble_dust",
+     "shape": "ellipse",
+     "x_cm": 306631.8,
+     "y_cm": 454417.1,
+     "z_cm": 11227.0,
+     "yaw": 205.0,
+     "length_m": 3.0,
+     "width_m": 2.15,
+     "depth_m": 4.15,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "L13_ShoulderCairns_g012",
+     "surface": "rubble_dust",
+     "shape": "ellipse",
+     "x_cm": 306628.2,
+     "y_cm": 454420.6,
+     "z_cm": 11228.8,
+     "yaw": 275.0,
+     "length_m": 3.0,
+     "width_m": 2.15,
+     "depth_m": 4.16,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "L13_ShoulderCairns_g013",
+     "surface": "rubble_dust",
+     "shape": "ellipse",
+     "x_cm": 306624.7,
+     "y_cm": 454424.1,
+     "z_cm": 11230.5,
+     "yaw": 345.0,
+     "length_m": 3.0,
+     "width_m": 2.15,
+     "depth_m": 4.17,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "L13_ShoulderCairns_g014",
+     "surface": "rubble_dust",
+     "shape": "ellipse",
+     "x_cm": 302887.6,
+     "y_cm": 456322.7,
+     "z_cm": 13096.9,
+     "yaw": 135.0,
+     "length_m": 3.0,
+     "width_m": 2.15,
+     "depth_m": 4.07,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "L13_ShoulderCairns_g015",
+     "surface": "rubble_dust",
+     "shape": "ellipse",
+     "x_cm": 302884.1,
+     "y_cm": 456326.3,
+     "z_cm": 13098.4,
+     "yaw": 205.0,
+     "length_m": 3.0,
+     "width_m": 2.15,
+     "depth_m": 4.07,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "L13_ShoulderCairns_g016",
+     "surface": "rubble_dust",
+     "shape": "ellipse",
+     "x_cm": 302880.6,
+     "y_cm": 456329.8,
+     "z_cm": 13099.9,
+     "yaw": 275.0,
+     "length_m": 3.0,
+     "width_m": 2.15,
+     "depth_m": 4.07,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "L13_ShoulderCairns_g017",
+     "surface": "rubble_dust",
+     "shape": "ellipse",
+     "x_cm": 302877.0,
+     "y_cm": 456333.3,
+     "z_cm": 13101.5,
+     "yaw": 345.0,
+     "length_m": 3.0,
+     "width_m": 2.15,
+     "depth_m": 4.07,
+     "strength": 0.45,
+     "sort": 0
+    }
+   ],
+   "v2": {
+    "core": [
+     0.00010331428852280793,
+     -3.215549368115224e-13
+    ],
+    "walls": [],
+    "rows": [],
+    "lanes": [],
+    "doors": [],
+    "fans": [],
+    "rooms": [],
+    "units": []
+   },
+   "units": [],
+   "archetype": "vignette",
+   "offline_check": {
+    "violations": [],
+    "waived": []
+   }
+  },
+  {
+   "id": "S20_LongStair",
+   "name": "The Long Stair (the Knees)",
+   "kind": "switchback fortifications",
+   "order": 1,
+   "road_m": 3650,
+   "side": "on/both",
+   "lateral_m": 0,
+   "centre_cm": [
+    353579.6,
+    388275.7,
+    -21342.9
+   ],
+   "road_yaw": 90.0,
+   "radius_m": 90,
+   "zone": "Z5 Cloud",
+   "storm": "inside the cloud deck: drizzle and fog, 50-150 m visibility; dressing is near-road silhouettes only, nothing that needs to read from far",
+   "role": "landmark",
+   "story": "B12 knee fault on the 79 % pitch (3,600) and the steep bursts: slumped paving (RVT), retaining walls",
+   "decay": 2,
+   "style": "BAZAAR STONE: fort-wall retaining walls, pillars, way-stones on each outer apex",
+   "layout": "\n      outer apex 3,605: retaining wall run (Fort_Wall_Mid x4) + pillar + way-stone + rockfall fan below\n      outer apex 3,695: same\n      3,560-3,720: a way-stone every ~20 m on the outer verge (the stair of stones)\n",
+   "notes": "Positions are per-apex in world space (computed from the turn direction).",
+   "story_owned": [],
+   "verify_only": false,
+   "layer": "road",
+   "poi": null,
+   "load_box_cm": [
+    342580,
+    377276,
+    364580,
+    399276
+   ],
+   "counts": {
+    "placements": 41,
+    "actors": 32,
+    "ism_instances": 13,
+    "physics": 0,
+    "batch01": 13,
+    "decals": 33
+   },
+   "views": [
+    {
+     "name": "carrier_a",
+     "cam_cm": [
+      362873.9,
+      381515.0,
+      -29708.7
+     ],
+     "look_cm": [
+      353579.6,
+      388275.7,
+      -21042.9
+     ]
+    },
+    {
+     "name": "carrier_b",
+     "cam_cm": [
+      358293.1,
+      383519.1,
+      -27600.7
+     ],
+     "look_cm": [
+      353579.6,
+      388275.7,
+      -21042.9
+     ]
+    },
+    {
+     "name": "carrier_c",
+     "cam_cm": [
+      355187.8,
+      385941.8,
+      -24268.5
+     ],
+     "look_cm": [
+      353579.6,
+      388275.7,
+      -21042.9
+     ]
+    },
+    {
+     "name": "orbit_a",
+     "cam_cm": [
+      352111.5,
+      390421.6,
+      -18820.1
+     ],
+     "look_cm": [
+      353579.6,
+      388275.7,
+      -21042.9
+     ]
+    },
+    {
+     "name": "orbit_b",
+     "cam_cm": [
+      352468.4,
+      385925.1,
+      -21515.9
+     ],
+     "look_cm": [
+      353579.6,
+      388275.7,
+      -21042.9
+     ]
+    },
+    {
+     "name": "orbit_c",
+     "cam_cm": [
+      356169.6,
+      388503.2,
+      -21842.9
+     ],
+     "look_cm": [
+      353579.6,
+      388275.7,
+      -21042.9
+     ]
+    },
+    {
+     "name": "high34",
+     "cam_cm": [
+      357492.2,
+      386732.4,
+      -20679.4
+     ],
+     "look_cm": [
+      353579.6,
+      388275.7,
+      -21042.9
+     ]
+    },
+    {
+     "name": "far300",
+     "cam_cm": [
+      378615.5,
+      375050.0,
+      -32251.5
+     ],
+     "look_cm": [
+      353579.6,
+      388275.7,
+      -21042.9
+     ]
+    }
+   ],
+   "placements": [
+    {
+     "id": "S20_LongStair_000",
+     "key": "AB_Fort_Wall_Mid",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Fort_Wall_Mid",
+     "kind": "SM",
+     "cat": "wall",
+     "x_cm": 352919.6,
+     "y_cm": 383325.7,
+     "ground_z_cm": -23171.5,
+     "yaw": 0.5,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 12,
+      "max_tilt_deg": 0,
+      "rand_tilt_deg": 0,
+      "z_rule": "min",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "retaining_3605",
+     "folder": "Set/S20_LongStair/retaining_3605",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": 1,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 80000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.34,
+      3.06,
+      4.06
+     ],
+     "slope_deg": 34.3,
+     "relief_m": 0.53,
+     "road_clear_m": 33.34,
+     "contact": "rigid",
+     "material_set": "stone"
+    },
+    {
+     "id": "S20_LongStair_001",
+     "key": "AB_Fort_Wall_Mid",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Fort_Wall_Mid",
+     "kind": "SM",
+     "cat": "wall",
+     "x_cm": 352919.6,
+     "y_cm": 383925.7,
+     "ground_z_cm": -23249.3,
+     "yaw": 1.3,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 12,
+      "max_tilt_deg": 0,
+      "rand_tilt_deg": 0,
+      "z_rule": "min",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "retaining_3605",
+     "folder": "Set/S20_LongStair/retaining_3605",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": 1,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 80000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.34,
+      3.06,
+      4.06
+     ],
+     "slope_deg": 35.6,
+     "relief_m": 0.57,
+     "road_clear_m": 29.12,
+     "contact": "rigid",
+     "material_set": "stone"
+    },
+    {
+     "id": "S20_LongStair_002",
+     "key": "AB_Fort_Wall_Mid",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Fort_Wall_Mid",
+     "kind": "SM",
+     "cat": "wall",
+     "x_cm": 352919.6,
+     "y_cm": 384225.7,
+     "ground_z_cm": -23266.5,
+     "yaw": 1.9,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 12,
+      "max_tilt_deg": 0,
+      "rand_tilt_deg": 0,
+      "z_rule": "min",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "retaining_3605",
+     "folder": "Set/S20_LongStair/retaining_3605",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": 1,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 80000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.34,
+      3.06,
+      4.06
+     ],
+     "slope_deg": 35.7,
+     "relief_m": 0.56,
+     "road_clear_m": 27.0,
+     "contact": "rigid",
+     "material_set": "stone"
+    },
+    {
+     "id": "S20_LongStair_003",
+     "key": "AB_Damaged_Pillar_A",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Damaged_Pillar_A",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 352629.6,
+     "y_cm": 383775.7,
+     "ground_z_cm": -22979.5,
+     "yaw": 90.0,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.45,
+     "scale_range": [
+      0.45,
+      0.45
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 6,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "apex_3605",
+     "folder": "Set/S20_LongStair/apex_3605",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 25000.0,
+     "cast_shadow": true,
+     "size_m": [
+      1.21,
+      1.34,
+      3.36
+     ],
+     "slope_deg": 38.1,
+     "relief_m": 1.23,
+     "road_clear_m": 32.51,
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "S20_LongStair_004",
+     "key": "B01_marker01",
+     "asset": "/Game/SaskartaGaea/Environment/Batch01/SM_B01_marker01",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 352999.6,
+     "y_cm": 383975.7,
+     "ground_z_cm": -23307.7,
+     "yaw": 180.0,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 6,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "apex_3605",
+     "folder": "Set/S20_LongStair/apex_3605",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.41,
+      0.36,
+      0.81
+     ],
+     "slope_deg": 31.3,
+     "relief_m": 0.25,
+     "road_clear_m": 29.1,
+     "requires_import": true,
+     "verdict": "use",
+     "imported": true,
+     "fallback": {
+      "asset": "/Game/Fab/Megascans/3D/Ancient_Temple_Stones_tixjegefa/Medium/tixjegefa_tier_2/StaticMeshes/tixjegefa_tier_2",
+      "scale": 0.45
+     },
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "S20_LongStair_005",
+     "key": "B01_rubble01",
+     "asset": "/Game/SaskartaGaea/Environment/Batch01/SM_B01_rubble01",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 352179.6,
+     "y_cm": 383575.7,
+     "ground_z_cm": -22669.9,
+     "yaw": 120.0,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.2,
+     "scale_range": [
+      1.2,
+      1.2
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 6,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "rockfall_3605",
+     "folder": "Set/S20_LongStair/rockfall_3605",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 25000.0,
+     "cast_shadow": true,
+     "size_m": [
+      3.66,
+      2.66,
+      1.2
+     ],
+     "slope_deg": 37.8,
+     "relief_m": 2.87,
+     "road_clear_m": 36.24,
+     "requires_import": true,
+     "verdict": "use",
+     "imported": true,
+     "fallback": {
+      "asset": "/Game/AshesOfBazaar/Meshes/SM_Pillar_A_05",
+      "scale": 2.16
+     },
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "S20_LongStair_006",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 352522.2,
+     "y_cm": 383896.3,
+     "ground_z_cm": -22938.2,
+     "yaw": 105.0,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.587,
+     "scale_range": [
+      0.4,
+      1.2
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 3,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "rockfall_3605",
+     "folder": "Set/S20_LongStair/rockfall_3605",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.27,
+      0.26,
+      0.16
+     ],
+     "slope_deg": 37.2,
+     "relief_m": 0.24,
+     "road_clear_m": 33.13,
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "S20_LongStair_007",
+     "key": "LF_Rock_07",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_07",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 351970.6,
+     "y_cm": 384026.1,
+     "ground_z_cm": -22605.2,
+     "yaw": 142.1,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.085,
+     "scale_range": [
+      0.4,
+      1.2
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 3,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "rockfall_3605",
+     "folder": "Set/S20_LongStair/rockfall_3605",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.29,
+      0.34,
+      0.12
+     ],
+     "slope_deg": 39.2,
+     "relief_m": 0.37,
+     "road_clear_m": 36.11,
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "S20_LongStair_008",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 351796.2,
+     "y_cm": 383463.6,
+     "ground_z_cm": -22308.6,
+     "yaw": 334.6,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.633,
+     "scale_range": [
+      0.4,
+      1.2
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 3,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "rockfall_3605",
+     "folder": "Set/S20_LongStair/rockfall_3605",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.29,
+      0.28,
+      0.18
+     ],
+     "slope_deg": 44.4,
+     "relief_m": 0.38,
+     "road_clear_m": 41.32,
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "S20_LongStair_009",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 352388.8,
+     "y_cm": 384143.3,
+     "ground_z_cm": -22878.2,
+     "yaw": 265.5,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.78,
+     "scale_range": [
+      0.4,
+      1.2
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 3,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "rockfall_3605",
+     "folder": "Set/S20_LongStair/rockfall_3605",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.36,
+      0.35,
+      0.22
+     ],
+     "slope_deg": 34.8,
+     "relief_m": 0.32,
+     "road_clear_m": 32.26,
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "S20_LongStair_010",
+     "key": "LF_Rock_05",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_05",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 352591.6,
+     "y_cm": 384051.5,
+     "ground_z_cm": -23030.7,
+     "yaw": 147.9,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.911,
+     "scale_range": [
+      0.4,
+      1.2
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 6,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "rockfall_3605",
+     "folder": "Set/S20_LongStair/rockfall_3605",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 25000.0,
+     "cast_shadow": true,
+     "size_m": [
+      1.62,
+      2.01,
+      1.18
+     ],
+     "slope_deg": 38.3,
+     "relief_m": 1.99,
+     "road_clear_m": 30.56,
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "S20_LongStair_011",
+     "key": "LF_Rock_07",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_07",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 352336.5,
+     "y_cm": 383578.9,
+     "ground_z_cm": -22789.3,
+     "yaw": 102.5,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.824,
+     "scale_range": [
+      0.4,
+      1.2
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 3,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "rockfall_3605",
+     "folder": "Set/S20_LongStair/rockfall_3605",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.22,
+      0.26,
+      0.09
+     ],
+     "slope_deg": 35.0,
+     "relief_m": 0.21,
+     "road_clear_m": 36.7,
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "S20_LongStair_012",
+     "key": "LF_Rock_05",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_05",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 352299.2,
+     "y_cm": 383300.7,
+     "ground_z_cm": -22739.0,
+     "yaw": 88.1,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.949,
+     "scale_range": [
+      0.4,
+      1.2
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 6,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "rockfall_3605",
+     "folder": "Set/S20_LongStair/rockfall_3605",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 25000.0,
+     "cast_shadow": true,
+     "size_m": [
+      1.69,
+      2.1,
+      1.22
+     ],
+     "slope_deg": 36.6,
+     "relief_m": 1.7,
+     "road_clear_m": 37.63,
+     "note": "nudged 0.39 m out of an overlap",
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "S20_LongStair_013",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 352461.1,
+     "y_cm": 383554.0,
+     "ground_z_cm": -22872.2,
+     "yaw": 37.6,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.642,
+     "scale_range": [
+      0.4,
+      1.2
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 3,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "rockfall_3605",
+     "folder": "Set/S20_LongStair/rockfall_3605",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.3,
+      0.29,
+      0.18
+     ],
+     "slope_deg": 31.8,
+     "relief_m": 0.26,
+     "road_clear_m": 36.0,
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "S20_LongStair_014",
+     "key": "LF_Rock_05",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_05",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 352235.1,
+     "y_cm": 384238.8,
+     "ground_z_cm": -22819.0,
+     "yaw": 261.4,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.809,
+     "scale_range": [
+      0.4,
+      1.2
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 6,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "rockfall_3605",
+     "folder": "Set/S20_LongStair/rockfall_3605",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 25000.0,
+     "cast_shadow": true,
+     "size_m": [
+      1.44,
+      1.79,
+      1.04
+     ],
+     "slope_deg": 29.6,
+     "relief_m": 1.31,
+     "road_clear_m": 31.81,
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "S20_LongStair_015",
+     "key": "LF_Rock_05",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_05",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 351736.2,
+     "y_cm": 383885.8,
+     "ground_z_cm": -22358.1,
+     "yaw": 298.9,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.881,
+     "scale_range": [
+      0.4,
+      1.2
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 6,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "rockfall_3605",
+     "folder": "Set/S20_LongStair/rockfall_3605",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 25000.0,
+     "cast_shadow": true,
+     "size_m": [
+      1.57,
+      1.95,
+      1.14
+     ],
+     "slope_deg": 45.0,
+     "relief_m": 2.32,
+     "road_clear_m": 37.79,
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "S20_LongStair_016",
+     "key": "AB_Fort_Wall_Mid",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Fort_Wall_Mid",
+     "kind": "SM",
+     "cat": "wall",
+     "x_cm": 352919.6,
+     "y_cm": 392325.7,
+     "ground_z_cm": -18738.0,
+     "yaw": 0.7,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 12,
+      "max_tilt_deg": 0,
+      "rand_tilt_deg": 0,
+      "z_rule": "min",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "retaining_3695",
+     "folder": "Set/S20_LongStair/retaining_3695",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": 2,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 80000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.34,
+      3.06,
+      4.06
+     ],
+     "slope_deg": 40.3,
+     "relief_m": 2.37,
+     "road_clear_m": 6.41,
+     "contact": "rigid",
+     "material_set": "stone"
+    },
+    {
+     "id": "S20_LongStair_017",
+     "key": "AB_Fort_Wall_Mid",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Fort_Wall_Mid",
+     "kind": "SM",
+     "cat": "wall",
+     "x_cm": 352919.6,
+     "y_cm": 392925.7,
+     "ground_z_cm": -18329.7,
+     "yaw": 359.5,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 12,
+      "max_tilt_deg": 0,
+      "rand_tilt_deg": 0,
+      "z_rule": "min",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "retaining_3695",
+     "folder": "Set/S20_LongStair/retaining_3695",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": 2,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 80000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.34,
+      3.06,
+      4.06
+     ],
+     "slope_deg": 42.4,
+     "relief_m": 2.62,
+     "road_clear_m": 6.42,
+     "contact": "rigid",
+     "material_set": "stone"
+    },
+    {
+     "id": "S20_LongStair_018",
+     "key": "AB_Fort_Wall_Mid",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Fort_Wall_Mid",
+     "kind": "SM",
+     "cat": "wall",
+     "x_cm": 352919.6,
+     "y_cm": 393225.7,
+     "ground_z_cm": -18099.4,
+     "yaw": 358.4,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 12,
+      "max_tilt_deg": 0,
+      "rand_tilt_deg": 0,
+      "z_rule": "min",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "retaining_3695",
+     "folder": "Set/S20_LongStair/retaining_3695",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": 2,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 80000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.34,
+      3.06,
+      4.06
+     ],
+     "slope_deg": 36.4,
+     "relief_m": 2.03,
+     "road_clear_m": 6.39,
+     "contact": "rigid",
+     "material_set": "stone"
+    },
+    {
+     "id": "S20_LongStair_019",
+     "key": "AB_Damaged_Pillar_A",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Damaged_Pillar_A",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 352629.6,
+     "y_cm": 392775.7,
+     "ground_z_cm": -18345.5,
+     "yaw": 90.0,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.45,
+     "scale_range": [
+      0.45,
+      0.45
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 6,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "apex_3695",
+     "folder": "Set/S20_LongStair/apex_3695",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 25000.0,
+     "cast_shadow": true,
+     "size_m": [
+      1.21,
+      1.34,
+      3.36
+     ],
+     "slope_deg": 42.9,
+     "relief_m": 1.48,
+     "road_clear_m": 8.83,
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "S20_LongStair_020",
+     "key": "B01_marker01",
+     "asset": "/Game/SaskartaGaea/Environment/Batch01/SM_B01_marker01",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 352999.6,
+     "y_cm": 392975.7,
+     "ground_z_cm": -18307.8,
+     "yaw": 180.0,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 6,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "apex_3695",
+     "folder": "Set/S20_LongStair/apex_3695",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.41,
+      0.36,
+      0.81
+     ],
+     "slope_deg": 41.6,
+     "relief_m": 0.39,
+     "road_clear_m": 5.6,
+     "requires_import": true,
+     "verdict": "use",
+     "imported": true,
+     "fallback": {
+      "asset": "/Game/Fab/Megascans/3D/Ancient_Temple_Stones_tixjegefa/Medium/tixjegefa_tier_2/StaticMeshes/tixjegefa_tier_2",
+      "scale": 0.45
+     },
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "S20_LongStair_021",
+     "key": "B01_rubble01",
+     "asset": "/Game/SaskartaGaea/Environment/Batch01/SM_B01_rubble01",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 352179.6,
+     "y_cm": 392575.7,
+     "ground_z_cm": -18297.6,
+     "yaw": 120.0,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.2,
+     "scale_range": [
+      1.2,
+      1.2
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 6,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "rockfall_3695",
+     "folder": "Set/S20_LongStair/rockfall_3695",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 25000.0,
+     "cast_shadow": true,
+     "size_m": [
+      3.66,
+      2.66,
+      1.2
+     ],
+     "slope_deg": 39.5,
+     "relief_m": 3.01,
+     "road_clear_m": 11.93,
+     "requires_import": true,
+     "verdict": "use",
+     "imported": true,
+     "fallback": {
+      "asset": "/Game/AshesOfBazaar/Meshes/SM_Pillar_A_05",
+      "scale": 2.16
+     },
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "S20_LongStair_022",
+     "key": "LF_Rock_05",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_05",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 352449.0,
+     "y_cm": 392982.4,
+     "ground_z_cm": -18133.9,
+     "yaw": 198.3,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.168,
+     "scale_range": [
+      0.4,
+      1.2
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 6,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "rockfall_3695",
+     "folder": "Set/S20_LongStair/rockfall_3695",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 25000.0,
+     "cast_shadow": true,
+     "size_m": [
+      2.08,
+      2.58,
+      1.51
+     ],
+     "slope_deg": 41.6,
+     "relief_m": 2.24,
+     "road_clear_m": 9.91,
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "S20_LongStair_023",
+     "key": "LF_Rock_05",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_05",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 352526.6,
+     "y_cm": 392490.3,
+     "ground_z_cm": -18521.3,
+     "yaw": 205.4,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.162,
+     "scale_range": [
+      0.4,
+      1.2
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 6,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "rockfall_3695",
+     "folder": "Set/S20_LongStair/rockfall_3695",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 25000.0,
+     "cast_shadow": true,
+     "size_m": [
+      2.07,
+      2.57,
+      1.5
+     ],
+     "slope_deg": 35.3,
+     "relief_m": 2.05,
+     "road_clear_m": 9.05,
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "S20_LongStair_024",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 352387.4,
+     "y_cm": 392376.9,
+     "ground_z_cm": -18542.3,
+     "yaw": 301.0,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.065,
+     "scale_range": [
+      0.4,
+      1.2
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 3,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "rockfall_3695",
+     "folder": "Set/S20_LongStair/rockfall_3695",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.49,
+      0.48,
+      0.3
+     ],
+     "slope_deg": 41.1,
+     "relief_m": 0.5,
+     "road_clear_m": 11.59,
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "S20_LongStair_025",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 351852.9,
+     "y_cm": 392803.1,
+     "ground_z_cm": -18079.2,
+     "yaw": 212.6,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.713,
+     "scale_range": [
+      0.4,
+      1.2
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 3,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "rockfall_3695",
+     "folder": "Set/S20_LongStair/rockfall_3695",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.33,
+      0.32,
+      0.2
+     ],
+     "slope_deg": 22.0,
+     "relief_m": 0.13,
+     "road_clear_m": 17.04,
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "S20_LongStair_026",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 352199.9,
+     "y_cm": 392824.2,
+     "ground_z_cm": -18149.9,
+     "yaw": 199.0,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.11,
+     "scale_range": [
+      0.4,
+      1.2
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 3,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "rockfall_3695",
+     "folder": "Set/S20_LongStair/rockfall_3695",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.51,
+      0.5,
+      0.31
+     ],
+     "slope_deg": 38.1,
+     "relief_m": 0.49,
+     "road_clear_m": 13.47,
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "S20_LongStair_027",
+     "key": "LF_Rock_07",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_07",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 352519.6,
+     "y_cm": 392600.3,
+     "ground_z_cm": -18451.5,
+     "yaw": 204.8,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.639,
+     "scale_range": [
+      0.4,
+      1.2
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 3,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "rockfall_3695",
+     "folder": "Set/S20_LongStair/rockfall_3695",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.17,
+      0.2,
+      0.07
+     ],
+     "slope_deg": 39.4,
+     "relief_m": 0.19,
+     "road_clear_m": 10.47,
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "S20_LongStair_028",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 352172.1,
+     "y_cm": 393199.0,
+     "ground_z_cm": -17902.6,
+     "yaw": 178.6,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.415,
+     "scale_range": [
+      0.4,
+      1.2
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 3,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "rockfall_3695",
+     "folder": "Set/S20_LongStair/rockfall_3695",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.19,
+      0.19,
+      0.12
+     ],
+     "slope_deg": 30.6,
+     "relief_m": 0.14,
+     "road_clear_m": 13.97,
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "S20_LongStair_029",
+     "key": "LF_Rock_05",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_05",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 351929.2,
+     "y_cm": 392507.0,
+     "ground_z_cm": -18272.1,
+     "yaw": 190.7,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.106,
+     "scale_range": [
+      0.4,
+      1.2
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 6,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "rockfall_3695",
+     "folder": "Set/S20_LongStair/rockfall_3695",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 25000.0,
+     "cast_shadow": true,
+     "size_m": [
+      1.97,
+      2.44,
+      1.43
+     ],
+     "slope_deg": 37.7,
+     "relief_m": 2.04,
+     "road_clear_m": 15.13,
+     "note": "nudged 0.18 m out of an overlap",
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "S20_LongStair_030",
+     "key": "LF_Rock_07",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_07",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 352371.6,
+     "y_cm": 393183.4,
+     "ground_z_cm": -17943.5,
+     "yaw": 91.6,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.977,
+     "scale_range": [
+      0.4,
+      1.2
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 3,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "rockfall_3695",
+     "folder": "Set/S20_LongStair/rockfall_3695",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.26,
+      0.3,
+      0.11
+     ],
+     "slope_deg": 37.5,
+     "relief_m": 0.25,
+     "road_clear_m": 11.93,
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "S20_LongStair_031",
+     "key": "LF_Rock_07",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_07",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 352373.6,
+     "y_cm": 392423.1,
+     "ground_z_cm": -18498.4,
+     "yaw": 75.9,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.501,
+     "scale_range": [
+      0.4,
+      1.2
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 3,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "rockfall_3695",
+     "folder": "Set/S20_LongStair/rockfall_3695",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.14,
+      0.16,
+      0.06
+     ],
+     "slope_deg": 41.0,
+     "relief_m": 0.26,
+     "road_clear_m": 11.94,
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "S20_LongStair_032",
+     "key": "B01_marker01",
+     "asset": "/Game/SaskartaGaea/Environment/Batch01/SM_B01_marker01",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 352999.6,
+     "y_cm": 379275.7,
+     "ground_z_cm": -23253.7,
+     "yaw": 180.0,
+     "pitch": 0.0,
+     "roll": 3.0839641648076483,
+     "scale": 1.081,
+     "scale_range": [
+      1.0807710645778057,
+      1.0807710645778057
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 6,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stair_of_stones",
+     "folder": "Set/S20_LongStair/stair_of_stones",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.44,
+      0.39,
+      0.88
+     ],
+     "slope_deg": 35.7,
+     "relief_m": 0.41,
+     "road_clear_m": 62.51,
+     "requires_import": true,
+     "verdict": "use",
+     "imported": true,
+     "fallback": {
+      "asset": "/Game/Fab/Megascans/3D/Ancient_Temple_Stones_tixjegefa/Medium/tixjegefa_tier_2/StaticMeshes/tixjegefa_tier_2",
+      "scale": 0.486
+     },
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "S20_LongStair_033",
+     "key": "B01_marker01",
+     "asset": "/Game/SaskartaGaea/Environment/Batch01/SM_B01_marker01",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 352999.6,
+     "y_cm": 381275.7,
+     "ground_z_cm": -23015.3,
+     "yaw": 180.0,
+     "pitch": 0.0,
+     "roll": -8.432435376363385,
+     "scale": 1.071,
+     "scale_range": [
+      1.071117841536763,
+      1.071117841536763
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 6,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stair_of_stones",
+     "folder": "Set/S20_LongStair/stair_of_stones",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.44,
+      0.39,
+      0.87
+     ],
+     "slope_deg": 39.9,
+     "relief_m": 0.39,
+     "road_clear_m": 48.18,
+     "requires_import": true,
+     "verdict": "use",
+     "imported": true,
+     "fallback": {
+      "asset": "/Game/Fab/Megascans/3D/Ancient_Temple_Stones_tixjegefa/Medium/tixjegefa_tier_2/StaticMeshes/tixjegefa_tier_2",
+      "scale": 0.482
+     },
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "S20_LongStair_034",
+     "key": "B01_marker01",
+     "asset": "/Game/SaskartaGaea/Environment/Batch01/SM_B01_marker01",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 352999.6,
+     "y_cm": 383275.7,
+     "ground_z_cm": -23236.9,
+     "yaw": 180.0,
+     "pitch": 0.0,
+     "roll": 7.740317637415348,
+     "scale": 1.095,
+     "scale_range": [
+      1.0953836011123697,
+      1.0953836011123697
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 6,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stair_of_stones",
+     "folder": "Set/S20_LongStair/stair_of_stones",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.45,
+      0.39,
+      0.89
+     ],
+     "slope_deg": 37.0,
+     "relief_m": 0.41,
+     "road_clear_m": 34.03,
+     "requires_import": true,
+     "verdict": "use",
+     "imported": true,
+     "fallback": {
+      "asset": "/Game/Fab/Megascans/3D/Ancient_Temple_Stones_tixjegefa/Medium/tixjegefa_tier_2/StaticMeshes/tixjegefa_tier_2",
+      "scale": 0.493
+     },
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "S20_LongStair_035",
+     "key": "B01_marker01",
+     "asset": "/Game/SaskartaGaea/Environment/Batch01/SM_B01_marker01",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 352999.6,
+     "y_cm": 385275.7,
+     "ground_z_cm": -23177.5,
+     "yaw": 180.0,
+     "pitch": 0.0,
+     "roll": -7.2184699943181,
+     "scale": 0.973,
+     "scale_range": [
+      0.973030473958131,
+      0.973030473958131
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 6,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stair_of_stones",
+     "folder": "Set/S20_LongStair/stair_of_stones",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.4,
+      0.35,
+      0.79
+     ],
+     "slope_deg": 49.7,
+     "relief_m": 0.61,
+     "road_clear_m": 19.92,
+     "requires_import": true,
+     "verdict": "use",
+     "imported": true,
+     "fallback": {
+      "asset": "/Game/Fab/Megascans/3D/Ancient_Temple_Stones_tixjegefa/Medium/tixjegefa_tier_2/StaticMeshes/tixjegefa_tier_2",
+      "scale": 0.438
+     },
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "S20_LongStair_036",
+     "key": "B01_marker01",
+     "asset": "/Game/SaskartaGaea/Environment/Batch01/SM_B01_marker01",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 352999.6,
+     "y_cm": 387275.7,
+     "ground_z_cm": -21731.0,
+     "yaw": 180.0,
+     "pitch": 0.0,
+     "roll": 1.235166309058835,
+     "scale": 0.996,
+     "scale_range": [
+      0.9963341379656296,
+      0.9963341379656296
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 6,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stair_of_stones",
+     "folder": "Set/S20_LongStair/stair_of_stones",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.41,
+      0.36,
+      0.81
+     ],
+     "slope_deg": 48.0,
+     "relief_m": 0.59,
+     "road_clear_m": 6.16,
+     "requires_import": true,
+     "verdict": "use",
+     "imported": true,
+     "fallback": {
+      "asset": "/Game/Fab/Megascans/3D/Ancient_Temple_Stones_tixjegefa/Medium/tixjegefa_tier_2/StaticMeshes/tixjegefa_tier_2",
+      "scale": 0.448
+     },
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "S20_LongStair_037",
+     "key": "B01_marker01",
+     "asset": "/Game/SaskartaGaea/Environment/Batch01/SM_B01_marker01",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 352999.6,
+     "y_cm": 389275.7,
+     "ground_z_cm": -20526.2,
+     "yaw": 180.0,
+     "pitch": 0.0,
+     "roll": 7.61936530774793,
+     "scale": 0.914,
+     "scale_range": [
+      0.9143345939956664,
+      0.9143345939956664
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 6,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stair_of_stones",
+     "folder": "Set/S20_LongStair/stair_of_stones",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.37,
+      0.33,
+      0.74
+     ],
+     "slope_deg": 24.6,
+     "relief_m": 0.21,
+     "road_clear_m": 5.61,
+     "requires_import": true,
+     "verdict": "use",
+     "imported": true,
+     "fallback": {
+      "asset": "/Game/Fab/Megascans/3D/Ancient_Temple_Stones_tixjegefa/Medium/tixjegefa_tier_2/StaticMeshes/tixjegefa_tier_2",
+      "scale": 0.411
+     },
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "S20_LongStair_038",
+     "key": "B01_marker01",
+     "asset": "/Game/SaskartaGaea/Environment/Batch01/SM_B01_marker01",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 352999.6,
+     "y_cm": 391275.7,
+     "ground_z_cm": -19516.6,
+     "yaw": 180.0,
+     "pitch": 0.0,
+     "roll": 7.17695366205939,
+     "scale": 0.903,
+     "scale_range": [
+      0.9029594779201163,
+      0.9029594779201163
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 6,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stair_of_stones",
+     "folder": "Set/S20_LongStair/stair_of_stones",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.37,
+      0.33,
+      0.73
+     ],
+     "slope_deg": 39.9,
+     "relief_m": 0.43,
+     "road_clear_m": 5.61,
+     "requires_import": true,
+     "verdict": "use",
+     "imported": true,
+     "fallback": {
+      "asset": "/Game/Fab/Megascans/3D/Ancient_Temple_Stones_tixjegefa/Medium/tixjegefa_tier_2/StaticMeshes/tixjegefa_tier_2",
+      "scale": 0.406
+     },
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "S20_LongStair_039",
+     "key": "B01_marker01",
+     "asset": "/Game/SaskartaGaea/Environment/Batch01/SM_B01_marker01",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 354159.6,
+     "y_cm": 393275.7,
+     "ground_z_cm": -18391.9,
+     "yaw": 180.0,
+     "pitch": 0.0,
+     "roll": -4.01412666824376,
+     "scale": 1.004,
+     "scale_range": [
+      1.004193724235621,
+      1.004193724235621
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 6,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stair_of_stones",
+     "folder": "Set/S20_LongStair/stair_of_stones",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.41,
+      0.36,
+      0.81
+     ],
+     "slope_deg": 47.6,
+     "relief_m": 0.47,
+     "road_clear_m": 5.59,
+     "requires_import": true,
+     "verdict": "use",
+     "imported": true,
+     "fallback": {
+      "asset": "/Game/Fab/Megascans/3D/Ancient_Temple_Stones_tixjegefa/Medium/tixjegefa_tier_2/StaticMeshes/tixjegefa_tier_2",
+      "scale": 0.452
+     },
+     "contact": "rest",
+     "material_set": "stone"
+    },
+    {
+     "id": "S20_LongStair_040",
+     "key": "B01_marker01",
+     "asset": "/Game/SaskartaGaea/Environment/Batch01/SM_B01_marker01",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 354159.6,
+     "y_cm": 395275.7,
+     "ground_z_cm": -16874.8,
+     "yaw": 180.0,
+     "pitch": 0.0,
+     "roll": -7.496294148584914,
+     "scale": 0.86,
+     "scale_range": [
+      0.8604876565376083,
+      0.8604876565376083
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 6,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stair_of_stones",
+     "folder": "Set/S20_LongStair/stair_of_stones",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.35,
+      0.31,
+      0.7
+     ],
+     "slope_deg": 32.6,
+     "relief_m": 0.34,
+     "road_clear_m": 5.62,
+     "requires_import": true,
+     "verdict": "use",
+     "imported": true,
+     "fallback": {
+      "asset": "/Game/Fab/Megascans/3D/Ancient_Temple_Stones_tixjegefa/Medium/tixjegefa_tier_2/StaticMeshes/tixjegefa_tier_2",
+      "scale": 0.387
+     },
+     "contact": "rest",
+     "material_set": "stone"
+    }
+   ],
+   "ground": [
+    {
+     "id": "S20_LongStair_g000",
+     "surface": "packed_earth",
+     "shape": "ellipse",
+     "x_cm": 352919.6,
+     "y_cm": 383325.7,
+     "z_cm": -23184.0,
+     "yaw": 0.5,
+     "length_m": 5.06,
+     "width_m": 3.49,
+     "depth_m": 5.22,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "S20_LongStair_g001",
+     "surface": "packed_earth",
+     "shape": "ellipse",
+     "x_cm": 352919.6,
+     "y_cm": 383925.7,
+     "z_cm": -23236.4,
+     "yaw": 1.3,
+     "length_m": 5.06,
+     "width_m": 3.49,
+     "depth_m": 5.32,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "S20_LongStair_g002",
+     "surface": "packed_earth",
+     "shape": "ellipse",
+     "x_cm": 352919.6,
+     "y_cm": 384225.7,
+     "z_cm": -23277.8,
+     "yaw": 1.9,
+     "length_m": 5.06,
+     "width_m": 3.49,
+     "depth_m": 4.99,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "S20_LongStair_g003",
+     "surface": "rubble_dust",
+     "shape": "ellipse",
+     "x_cm": 352629.6,
+     "y_cm": 383775.7,
+     "z_cm": -22998.0,
+     "yaw": 90.0,
+     "length_m": 3.34,
+     "width_m": 2.37,
+     "depth_m": 4.26,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "S20_LongStair_g004",
+     "surface": "rubble_dust",
+     "shape": "ellipse",
+     "x_cm": 352999.6,
+     "y_cm": 383975.7,
+     "z_cm": -23303.3,
+     "yaw": 180.0,
+     "length_m": 3.0,
+     "width_m": 2.15,
+     "depth_m": 3.83,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "S20_LongStair_g005",
+     "surface": "rubble_dust",
+     "shape": "ellipse",
+     "x_cm": 352179.6,
+     "y_cm": 383575.7,
+     "z_cm": -22664.9,
+     "yaw": 120.0,
+     "length_m": 5.66,
+     "width_m": 3.88,
+     "depth_m": 5.72,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "S20_LongStair_g006",
+     "surface": "rubble_dust",
+     "shape": "ellipse",
+     "x_cm": 352522.2,
+     "y_cm": 383896.3,
+     "z_cm": -22938.2,
+     "yaw": 105.0,
+     "length_m": 3.0,
+     "width_m": 2.15,
+     "depth_m": 4.19,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "S20_LongStair_g007",
+     "surface": "rubble_dust",
+     "shape": "ellipse",
+     "x_cm": 352388.8,
+     "y_cm": 384143.3,
+     "z_cm": -22888.6,
+     "yaw": 265.5,
+     "length_m": 3.0,
+     "width_m": 2.15,
+     "depth_m": 3.94,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "S20_LongStair_g008",
+     "surface": "rubble_dust",
+     "shape": "ellipse",
+     "x_cm": 352591.6,
+     "y_cm": 384051.5,
+     "z_cm": -23015.8,
+     "yaw": 147.9,
+     "length_m": 4.01,
+     "width_m": 2.81,
+     "depth_m": 4.67,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "S20_LongStair_g009",
+     "surface": "rubble_dust",
+     "shape": "ellipse",
+     "x_cm": 352299.2,
+     "y_cm": 383300.7,
+     "z_cm": -22741.5,
+     "yaw": 88.1,
+     "length_m": 4.1,
+     "width_m": 2.87,
+     "depth_m": 4.43,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "S20_LongStair_g010",
+     "surface": "rubble_dust",
+     "shape": "ellipse",
+     "x_cm": 352235.1,
+     "y_cm": 384238.8,
+     "z_cm": -22814.9,
+     "yaw": 261.4,
+     "length_m": 3.79,
+     "width_m": 2.66,
+     "depth_m": 4.38,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "S20_LongStair_g011",
+     "surface": "rubble_dust",
+     "shape": "ellipse",
+     "x_cm": 351736.2,
+     "y_cm": 383885.8,
+     "z_cm": -22357.8,
+     "yaw": 298.9,
+     "length_m": 3.95,
+     "width_m": 2.77,
+     "depth_m": 5.47,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "S20_LongStair_g012",
+     "surface": "packed_earth",
+     "shape": "ellipse",
+     "x_cm": 352919.6,
+     "y_cm": 392325.7,
+     "z_cm": -18771.0,
+     "yaw": 0.7,
+     "length_m": 5.06,
+     "width_m": 3.49,
+     "depth_m": 6.98,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "S20_LongStair_g013",
+     "surface": "packed_earth",
+     "shape": "ellipse",
+     "x_cm": 352919.6,
+     "y_cm": 392925.7,
+     "z_cm": -18326.9,
+     "yaw": 359.5,
+     "length_m": 5.06,
+     "width_m": 3.49,
+     "depth_m": 7.08,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "S20_LongStair_g014",
+     "surface": "packed_earth",
+     "shape": "ellipse",
+     "x_cm": 352919.6,
+     "y_cm": 393225.7,
+     "z_cm": -18119.4,
+     "yaw": 358.4,
+     "length_m": 5.06,
+     "width_m": 3.49,
+     "depth_m": 6.31,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "S20_LongStair_g015",
+     "surface": "rubble_dust",
+     "shape": "ellipse",
+     "x_cm": 352629.6,
+     "y_cm": 392775.7,
+     "z_cm": -18351.0,
+     "yaw": 90.0,
+     "length_m": 3.34,
+     "width_m": 2.37,
+     "depth_m": 5.5,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "S20_LongStair_g016",
+     "surface": "rubble_dust",
+     "shape": "ellipse",
+     "x_cm": 352999.6,
+     "y_cm": 392975.7,
+     "z_cm": -18313.0,
+     "yaw": 180.0,
+     "length_m": 3.0,
+     "width_m": 2.15,
+     "depth_m": 5.05,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "S20_LongStair_g017",
+     "surface": "rubble_dust",
+     "shape": "ellipse",
+     "x_cm": 352179.6,
+     "y_cm": 392575.7,
+     "z_cm": -18322.4,
+     "yaw": 120.0,
+     "length_m": 5.66,
+     "width_m": 3.88,
+     "depth_m": 7.27,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "S20_LongStair_g018",
+     "surface": "rubble_dust",
+     "shape": "ellipse",
+     "x_cm": 352449.0,
+     "y_cm": 392982.4,
+     "z_cm": -18125.4,
+     "yaw": 198.3,
+     "length_m": 4.58,
+     "width_m": 3.18,
+     "depth_m": 6.47,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "S20_LongStair_g019",
+     "surface": "rubble_dust",
+     "shape": "ellipse",
+     "x_cm": 352526.6,
+     "y_cm": 392490.3,
+     "z_cm": -18515.2,
+     "yaw": 205.4,
+     "length_m": 4.57,
+     "width_m": 3.17,
+     "depth_m": 6.14,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "S20_LongStair_g020",
+     "surface": "rubble_dust",
+     "shape": "ellipse",
+     "x_cm": 352387.4,
+     "y_cm": 392376.9,
+     "z_cm": -18541.9,
+     "yaw": 301.0,
+     "length_m": 3.0,
+     "width_m": 2.15,
+     "depth_m": 5.15,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "S20_LongStair_g021",
+     "surface": "rubble_dust",
+     "shape": "ellipse",
+     "x_cm": 352519.6,
+     "y_cm": 392600.3,
+     "z_cm": -18438.9,
+     "yaw": 204.8,
+     "length_m": 3.0,
+     "width_m": 2.15,
+     "depth_m": 4.75,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "S20_LongStair_g022",
+     "surface": "rubble_dust",
+     "shape": "ellipse",
+     "x_cm": 351929.2,
+     "y_cm": 392507.0,
+     "z_cm": -18281.3,
+     "yaw": 190.7,
+     "length_m": 4.44,
+     "width_m": 3.09,
+     "depth_m": 5.95,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "S20_LongStair_g023",
+     "surface": "rubble_dust",
+     "shape": "ellipse",
+     "x_cm": 352371.6,
+     "y_cm": 393183.4,
+     "z_cm": -17953.4,
+     "yaw": 91.6,
+     "length_m": 3.0,
+     "width_m": 2.15,
+     "depth_m": 4.65,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "S20_LongStair_g024",
+     "surface": "rubble_dust",
+     "shape": "ellipse",
+     "x_cm": 352999.6,
+     "y_cm": 379275.7,
+     "z_cm": -23260.7,
+     "yaw": 180.0,
+     "length_m": 3.0,
+     "width_m": 2.15,
+     "depth_m": 4.64,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "S20_LongStair_g025",
+     "surface": "rubble_dust",
+     "shape": "ellipse",
+     "x_cm": 352999.6,
+     "y_cm": 381275.7,
+     "z_cm": -23016.1,
+     "yaw": 180.0,
+     "length_m": 3.0,
+     "width_m": 2.15,
+     "depth_m": 4.58,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "S20_LongStair_g026",
+     "surface": "rubble_dust",
+     "shape": "ellipse",
+     "x_cm": 352999.6,
+     "y_cm": 383275.7,
+     "z_cm": -23240.2,
+     "yaw": 180.0,
+     "length_m": 3.0,
+     "width_m": 2.15,
+     "depth_m": 4.22,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "S20_LongStair_g027",
+     "surface": "rubble_dust",
+     "shape": "ellipse",
+     "x_cm": 352999.6,
+     "y_cm": 385275.7,
+     "z_cm": -23187.8,
+     "yaw": 180.0,
+     "length_m": 3.0,
+     "width_m": 2.15,
+     "depth_m": 5.59,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "S20_LongStair_g028",
+     "surface": "rubble_dust",
+     "shape": "ellipse",
+     "x_cm": 352999.6,
+     "y_cm": 387275.7,
+     "z_cm": -21733.0,
+     "yaw": 180.0,
+     "length_m": 3.0,
+     "width_m": 2.15,
+     "depth_m": 6.07,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "S20_LongStair_g029",
+     "surface": "rubble_dust",
+     "shape": "ellipse",
+     "x_cm": 352999.6,
+     "y_cm": 389275.7,
+     "z_cm": -20519.4,
+     "yaw": 180.0,
+     "length_m": 3.0,
+     "width_m": 2.15,
+     "depth_m": 3.8,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "S20_LongStair_g030",
+     "surface": "rubble_dust",
+     "shape": "ellipse",
+     "x_cm": 352999.6,
+     "y_cm": 391275.7,
+     "z_cm": -19527.2,
+     "yaw": 180.0,
+     "length_m": 3.0,
+     "width_m": 2.15,
+     "depth_m": 4.94,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "S20_LongStair_g031",
+     "surface": "rubble_dust",
+     "shape": "ellipse",
+     "x_cm": 354159.6,
+     "y_cm": 393275.7,
+     "z_cm": -18379.9,
+     "yaw": 180.0,
+     "length_m": 3.0,
+     "width_m": 2.15,
+     "depth_m": 5.43,
+     "strength": 0.45,
+     "sort": 0
+    },
+    {
+     "id": "S20_LongStair_g032",
+     "surface": "rubble_dust",
+     "shape": "ellipse",
+     "x_cm": 354159.6,
+     "y_cm": 395275.7,
+     "z_cm": -16860.8,
+     "yaw": 180.0,
+     "length_m": 3.0,
+     "width_m": 2.15,
+     "depth_m": 4.25,
+     "strength": 0.45,
+     "sort": 0
+    }
+   ],
+   "v2": {
+    "core": [
+     -0.00020011659171359497,
+     0.0
+    ],
+    "walls": [],
+    "rows": [],
+    "lanes": [],
+    "doors": [],
+    "fans": [],
+    "rooms": [],
+    "units": []
+   },
+   "units": [],
+   "archetype": "vignette",
+   "offline_check": {
+    "violations": [],
+    "waived": []
+   }
+  }
+ ]
+}

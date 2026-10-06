@@ -1,0 +1,319 @@
+{
+  "status": "prepared_not_installed",
+  "asset": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Caption",
+  "requested_asset": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Subtitle",
+  "asset_resolution": "Subtitle is the carrier warning widget; Caption contains the screenshot's RADIO HOST, SpeakerLabel and EnglishLine. Root must confirm current runtime owner and actual native tree before applying this Caption-only packet.",
+  "expected_widgets": {
+    "SubtitleBox": "VerticalBox",
+    "SpeakerPlate": "Border",
+    "SpeakerLabel": "TextBlock",
+    "SubtitlePlate": "Border",
+    "SubtitleStack": "VerticalBox",
+    "EnglishBox": "SizeBox",
+    "EnglishLine": "TextBlock",
+    "CarrierBox": "SizeBox",
+    "CarrierLine": "TextBlock",
+    "SaskartanBox": "SizeBox"
+  },
+  "expected_parent_relationships": {
+    "SpeakerPlate": "SubtitleBox",
+    "SpeakerLabel": "SpeakerPlate",
+    "SubtitlePlate": "SubtitleBox",
+    "SubtitleStack": "SubtitlePlate",
+    "EnglishBox": "SubtitleStack",
+    "EnglishLine": "EnglishBox",
+    "CarrierBox": "SubtitleStack",
+    "CarrierLine": "CarrierBox"
+  },
+  "preflight": [
+    {
+      "command": "ui_query",
+      "params": {
+        "path": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Subtitle",
+        "flatten": true,
+        "include_properties": true,
+        "include_slot": true,
+        "include_guid": true
+      }
+    },
+    {
+      "command": "ui_query",
+      "params": {
+        "path": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Caption",
+        "flatten": true,
+        "include_properties": true,
+        "include_slot": true,
+        "include_guid": true,
+        "name_pattern": "Subtitle"
+      }
+    },
+    {
+      "command": "ui_query",
+      "params": {
+        "path": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Caption",
+        "flatten": true,
+        "include_properties": true,
+        "include_slot": true,
+        "include_guid": true,
+        "name_pattern": "Speaker"
+      }
+    },
+    {
+      "command": "ui_query",
+      "params": {
+        "path": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Caption",
+        "flatten": true,
+        "include_properties": true,
+        "include_slot": true,
+        "include_guid": true,
+        "name_pattern": "English"
+      }
+    },
+    {
+      "command": "ui_query",
+      "params": {
+        "path": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Caption",
+        "flatten": true,
+        "include_properties": true,
+        "include_slot": true,
+        "include_guid": true,
+        "name_pattern": "Carrier"
+      }
+    },
+    {
+      "command": "ui_query",
+      "params": {
+        "path": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Caption",
+        "flatten": true,
+        "include_properties": true,
+        "include_slot": true,
+        "include_guid": true,
+        "name_pattern": "Saskartan"
+      }
+    }
+  ],
+  "commands": [
+    {
+      "command": "ui_set_widget_properties",
+      "params": {
+        "widget_blueprint_path": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Caption",
+        "widget_name": "SpeakerPlate",
+        "properties": {
+          "BrushColor": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "Padding": {
+            "Left": 10,
+            "Top": 0,
+            "Right": 10,
+            "Bottom": 0
+          }
+        }
+      }
+    },
+    {
+      "command": "ui_set_slot_layout",
+      "params": {
+        "widget_blueprint_path": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Caption",
+        "widget_name": "SpeakerPlate",
+        "padding": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "fill": 0,
+        "horizontal_alignment": "Center"
+      }
+    },
+    {
+      "command": "ui_set_widget_properties",
+      "params": {
+        "widget_blueprint_path": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Caption",
+        "widget_name": "SubtitlePlate",
+        "properties": {
+          "Background": {
+            "ResourceObject": "/Game/SaskartaGaea/GameFlow/UI/Textures/T_UI_SoftPlate.T_UI_SoftPlate",
+            "DrawAs": "Box",
+            "ImageSize": {
+              "X": 190,
+              "Y": 84
+            },
+            "Margin": {
+              "Left": 0.4,
+              "Top": 0.4,
+              "Right": 0.4,
+              "Bottom": 0.4
+            },
+            "TintColor": {
+              "SpecifiedColor": [
+                0,
+                0,
+                0,
+                0.36
+              ]
+            }
+          },
+          "BrushColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "Padding": {
+            "Left": 40,
+            "Top": 4,
+            "Right": 40,
+            "Bottom": 10
+          }
+        }
+      }
+    },
+    {
+      "command": "ui_set_slot_layout",
+      "params": {
+        "widget_blueprint_path": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Caption",
+        "widget_name": "SubtitlePlate",
+        "padding": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "fill": 0,
+        "horizontal_alignment": "Center"
+      }
+    }
+  ],
+  "compile": {
+    "command": "ui_compile_widget",
+    "params": {
+      "widget_blueprint_path": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Caption",
+      "save_on_success": false
+    }
+  },
+  "save": {
+    "command": "ui_save_widget",
+    "params": {
+      "widget_blueprint_path": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Caption",
+      "compile_first": false
+    }
+  },
+  "readback": [
+    {
+      "command": "ui_query",
+      "params": {
+        "path": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Caption",
+        "flatten": true,
+        "include_properties": true,
+        "include_slot": true,
+        "include_guid": true,
+        "name_pattern": "Subtitle"
+      }
+    },
+    {
+      "command": "ui_query",
+      "params": {
+        "path": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Caption",
+        "flatten": true,
+        "include_properties": true,
+        "include_slot": true,
+        "include_guid": true,
+        "name_pattern": "Speaker"
+      }
+    },
+    {
+      "command": "ui_query",
+      "params": {
+        "path": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Caption",
+        "flatten": true,
+        "include_properties": true,
+        "include_slot": true,
+        "include_guid": true,
+        "name_pattern": "English"
+      }
+    },
+    {
+      "command": "ui_query",
+      "params": {
+        "path": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Caption",
+        "flatten": true,
+        "include_properties": true,
+        "include_slot": true,
+        "include_guid": true,
+        "name_pattern": "Carrier"
+      }
+    }
+  ],
+  "designer_geometry_readback": [
+    {
+      "command": "ui_layout_snapshot",
+      "params": {
+        "widget_blueprint_path": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Caption",
+        "screen_width": 1280,
+        "screen_height": 720,
+        "widget_names": [
+          "SubtitleBox",
+          "SpeakerPlate",
+          "SpeakerLabel",
+          "SubtitlePlate",
+          "EnglishBox",
+          "EnglishLine",
+          "CarrierBox",
+          "CarrierLine"
+        ],
+        "limit": 12
+      }
+    },
+    {
+      "command": "ui_layout_snapshot",
+      "params": {
+        "widget_blueprint_path": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Caption",
+        "screen_width": 1920,
+        "screen_height": 1080,
+        "widget_names": [
+          "SubtitleBox",
+          "SpeakerPlate",
+          "SpeakerLabel",
+          "SubtitlePlate",
+          "EnglishBox",
+          "EnglishLine",
+          "CarrierBox",
+          "CarrierLine"
+        ],
+        "limit": 12
+      }
+    }
+  ],
+  "preserved_runtime_behavior": [
+    "Existing Layout/UpdateMaxW adaptive widths, line breaking, paging and settings-driven font behavior, if present in loaded asset. No Font or fixed WidthOverride writes.",
+    "Existing SubtitleBox bottom-centre anchors, auto-size, fade, hold, replacement, visibility and letterbox translation.",
+    "Existing Aref Ruqaa dialogue, gold speaker, terminal carrier, and all named widget identities."
+  ],
+  "acceptance": [
+    "Root alone owns editor operations. Apply after PIE is stopped and root has actual current asset state for rollback.",
+    "Require exact widget classes/relationships and actual parent class; never rebuild tree or redirect this packet to the warning Subtitle asset.",
+    "Keep every preflight/mutation/compile/save/readback receipt. Reject failed_properties, unknown_slot_props, compile errors and unresolved saves. Require package_dirty_after_save=false.",
+    "Readback: SpeakerPlate BrushColor alpha0 and Padding10/0/10/0; speaker slot padding0 and SizeRule Auto; SubtitlePlate Background texture/9-slice retained, tint alpha.36, BrushColor alpha1 and Padding40/4/40/10; subtitle slot padding0, center, SizeRule Auto.",
+    "Do not force Font.Size, text, WidthOverride, render opacity or runtime visibility for the visual change.",
+    "Designer SubtitleBox defaults Collapsed: layout_snapshot may produce zero or missing visible geometry. Such a receipt does not prove runtime layout; actual subtitle PIE capture is required for visual acceptance.",
+    "Inspect actual one-line, two-line, carrier, long timed page and no-speaker cues against bright terrain. Speaker should sit in the same centered group with about 4-12 visible pixels to the first dialogue glyph, with no isolated dark speaker box.",
+    "At720p/1080p check last line above the viewport edge and cinematic bar; no clipped glyph/feather, hard black strip or scene-wide band. Preserve adaptive line-length behavior; text remains readable at all three settings sizes.",
+    "Authored gen_caption_specs.py and Caption graph do not currently contain a SubtitleSize/saskarta.subtitles.size/SetFont connection; settings emits the cvar. Root must read actual loaded behavior before claiming font-size settings work. This patch introduces no font-size regression.",
+    "Apply source_sync_proposal.patch only after root's actual native readback acceptance; regenerate tree spec, retaining graph behavior."
+  ],
+  "prediction_design_pixels": {
+    "speaker_to_dialogue_padding_before": 33,
+    "speaker_to_dialogue_padding_after": 4,
+    "main_plate_horizontal_padding_before": 132,
+    "main_plate_horizontal_padding_after": 80,
+    "main_plate_vertical_padding_before": 48,
+    "main_plate_vertical_padding_after": 14,
+    "main_plate_alpha_before": 0.62,
+    "main_plate_alpha_after": 0.36,
+    "note": "Predictions from source only; font ascenders/descenders and actual DPI affect visible gap."
+  }
+}

@@ -1,0 +1,207 @@
+{
+  "asset": "/Game/SaskartaGaea/Perf/BP_Saskarta_Flythrough",
+  "create": { "parent": "/Script/Engine.Pawn" },
+  "variables": [
+    { "name": "RoadSpline", "type": "object:/Script/Engine.SplineComponent" },
+    { "name": "SpeedCmPerSec", "type": "float", "default": "800.0" },
+    { "name": "TickIntervalSec", "type": "float", "default": "0.02" },
+    { "name": "DistanceAlongSpline", "type": "float", "default": "0.0" },
+    { "name": "SplineLength", "type": "float", "default": "0.0" },
+    { "name": "MoveTimer", "type": "struct:/Script/Engine.TimerHandle" }
+  ],
+  "components": [
+    { "name": "Cam", "class": "/Script/Engine.CameraComponent" }
+  ],
+  "functions": [
+    { "name": "FindRoad", "pure": false, "inputs": [], "outputs": [] },
+    { "name": "StartFlythrough", "pure": false, "inputs": [], "outputs": [] },
+    { "name": "AdvanceFlythrough", "pure": false, "inputs": [], "outputs": [] },
+    { "name": "FinishFlythrough", "pure": false, "inputs": [], "outputs": [] }
+  ],
+  "graphs": [
+    {
+      "graph": "FindRoad",
+      "nodes": {
+        "entry": { "entry": true },
+        "findActor": { "call": "GetActorOfClass", "class": "/Script/Engine.GameplayStatics" },
+        "actorValid": { "call": "IsValid", "class": "/Script/Engine.KismetSystemLibrary" },
+        "ifActor": { "branch": true },
+        "getSpline": { "call": "GetComponentByClass", "class": "/Script/Engine.Actor" },
+        "castSpline": { "cast": "/Script/Engine.SplineComponent" },
+        "setRoad": { "set": "RoadSpline" },
+        "warn": { "call": "PrintString", "class": "/Script/Engine.KismetSystemLibrary" }
+      },
+      "links": [
+        ["entry.then", "findActor.execute"],
+        ["findActor.then", "ifActor.execute"],
+        ["findActor.ReturnValue", "actorValid.Object"],
+        ["actorValid.ReturnValue", "ifActor.Condition"],
+        ["ifActor.then", "castSpline.execute"],
+        ["findActor.ReturnValue", "getSpline.self"],
+        ["getSpline.ReturnValue", "castSpline.Object"],
+        ["castSpline.then", "setRoad.execute"],
+        ["castSpline.AsSpline Component", "setRoad.RoadSpline"],
+        ["ifActor.else", "warn.execute"],
+        ["castSpline.CastFailed", "warn.execute"]
+      ],
+      "defaults": {
+        "findActor.ActorClass": "/Game/SaskartaGaea/Road/BP_Saskarta_Road.BP_Saskarta_Road_C",
+        "getSpline.ComponentClass": "/Script/Engine.SplineComponent",
+        "warn.InString": "Saskarta flythrough: road not found",
+        "warn.bPrintToScreen": "true",
+        "warn.bPrintToLog": "true",
+        "warn.Duration": "10.0"
+      }
+    },
+    {
+      "graph": "StartFlythrough",
+      "nodes": {
+        "entry": { "entry": true },
+        "road": { "get": "RoadSpline" },
+        "roadValid": { "call": "IsValid", "class": "/Script/Engine.KismetSystemLibrary" },
+        "ifRoad": { "branch": true },
+        "getLen": { "call": "GetSplineLength", "class": "/Script/Engine.SplineComponent" },
+        "setLen": { "set": "SplineLength" },
+        "resetDist": { "set": "DistanceAlongSpline" },
+        "startLoc": { "call": "GetLocationAtDistanceAlongSpline", "class": "/Script/Engine.SplineComponent" },
+        "startRot": { "call": "GetRotationAtDistanceAlongSpline", "class": "/Script/Engine.SplineComponent" },
+        "me": { "self": true },
+        "placeCam": { "call": "K2_SetActorLocationAndRotation", "class": "/Script/Engine.Actor" },
+        "startProfile": { "call": "ExecuteConsoleCommand", "class": "/Script/Engine.KismetSystemLibrary" },
+        "interval": { "get": "TickIntervalSec" },
+        "timer": { "timer": true },
+        "keepTimer": { "set": "MoveTimer" },
+        "warn": { "call": "PrintString", "class": "/Script/Engine.KismetSystemLibrary" }
+      },
+      "links": [
+        ["entry.then", "ifRoad.execute"],
+        ["road.RoadSpline", "roadValid.Object"],
+        ["roadValid.ReturnValue", "ifRoad.Condition"],
+        ["ifRoad.then", "setLen.execute"],
+        ["road.RoadSpline", "getLen.self"],
+        ["getLen.ReturnValue", "setLen.SplineLength"],
+        ["setLen.then", "resetDist.execute"],
+        ["resetDist.then", "placeCam.execute"],
+        ["road.RoadSpline", "startLoc.self"],
+        ["road.RoadSpline", "startRot.self"],
+        ["me.self", "placeCam.self"],
+        ["startLoc.ReturnValue", "placeCam.NewLocation"],
+        ["startRot.ReturnValue", "placeCam.NewRotation"],
+        ["placeCam.then", "startProfile.execute"],
+        ["startProfile.then", "timer.execute"],
+        ["me.self", "timer.Object"],
+        ["interval.TickIntervalSec", "timer.Time"],
+        ["timer.then", "keepTimer.execute"],
+        ["timer.ReturnValue", "keepTimer.MoveTimer"],
+        ["ifRoad.else", "warn.execute"]
+      ],
+      "defaults": {
+        "resetDist.DistanceAlongSpline": "0.0",
+        "startLoc.Distance": "0.0",
+        "startLoc.CoordinateSpace": "World",
+        "startRot.Distance": "0.0",
+        "startRot.CoordinateSpace": "World",
+        "placeCam.bSweep": "false",
+        "placeCam.bTeleport": "true",
+        "startProfile.Command": "csvprofile start",
+        "timer.FunctionName": "AdvanceFlythrough",
+        "timer.bLooping": "true",
+        "warn.InString": "Saskarta flythrough: cannot start, road missing",
+        "warn.bPrintToScreen": "true",
+        "warn.bPrintToLog": "true",
+        "warn.Duration": "10.0"
+      }
+    },
+    {
+      "graph": "AdvanceFlythrough",
+      "nodes": {
+        "entry": { "entry": true },
+        "dist": { "get": "DistanceAlongSpline" },
+        "speed": { "get": "SpeedCmPerSec" },
+        "tick": { "get": "TickIntervalSec" },
+        "splineLen": { "get": "SplineLength" },
+        "road": { "get": "RoadSpline" },
+        "step": { "call": "Multiply_DoubleDouble", "class": "/Script/Engine.KismetMathLibrary" },
+        "newDist": { "call": "Add_DoubleDouble", "class": "/Script/Engine.KismetMathLibrary" },
+        "lessThan": { "call": "Less_DoubleDouble", "class": "/Script/Engine.KismetMathLibrary" },
+        "finished": { "call": "Not_PreBool", "class": "/Script/Engine.KismetMathLibrary" },
+        "clamped": { "call": "SelectFloat", "class": "/Script/Engine.KismetMathLibrary" },
+        "setDist": { "set": "DistanceAlongSpline" },
+        "loc": { "call": "GetLocationAtDistanceAlongSpline", "class": "/Script/Engine.SplineComponent" },
+        "rot": { "call": "GetRotationAtDistanceAlongSpline", "class": "/Script/Engine.SplineComponent" },
+        "me": { "self": true },
+        "place": { "call": "K2_SetActorLocationAndRotation", "class": "/Script/Engine.Actor" },
+        "ifFinished": { "branch": true },
+        "finish": { "call": "FinishFlythrough" }
+      },
+      "links": [
+        ["entry.then", "setDist.execute"],
+        ["speed.SpeedCmPerSec", "step.A"],
+        ["tick.TickIntervalSec", "step.B"],
+        ["step.ReturnValue", "newDist.A"],
+        ["dist.DistanceAlongSpline", "newDist.B"],
+        ["newDist.ReturnValue", "lessThan.A"],
+        ["splineLen.SplineLength", "lessThan.B"],
+        ["lessThan.ReturnValue", "finished.A"],
+        ["finished.ReturnValue", "ifFinished.Condition"],
+        ["splineLen.SplineLength", "clamped.A"],
+        ["newDist.ReturnValue", "clamped.B"],
+        ["finished.ReturnValue", "clamped.bPickA"],
+        ["clamped.ReturnValue", "setDist.DistanceAlongSpline"],
+        ["setDist.then", "place.execute"],
+        ["road.RoadSpline", "loc.self"],
+        ["clamped.ReturnValue", "loc.Distance"],
+        ["road.RoadSpline", "rot.self"],
+        ["clamped.ReturnValue", "rot.Distance"],
+        ["me.self", "place.self"],
+        ["loc.ReturnValue", "place.NewLocation"],
+        ["rot.ReturnValue", "place.NewRotation"],
+        ["place.then", "ifFinished.execute"],
+        ["ifFinished.then", "finish.execute"]
+      ],
+      "defaults": {
+        "loc.CoordinateSpace": "World",
+        "rot.CoordinateSpace": "World",
+        "place.bSweep": "false",
+        "place.bTeleport": "true"
+      }
+    },
+    {
+      "graph": "FinishFlythrough",
+      "nodes": {
+        "entry": { "entry": true },
+        "handle": { "get": "MoveTimer" },
+        "clear": { "call": "K2_ClearAndInvalidateTimerHandle", "class": "/Script/Engine.KismetSystemLibrary" },
+        "stopProfile": { "call": "ExecuteConsoleCommand", "class": "/Script/Engine.KismetSystemLibrary" },
+        "quit": { "call": "QuitGame", "class": "/Script/Engine.KismetSystemLibrary" }
+      },
+      "links": [
+        ["entry.then", "clear.execute"],
+        ["handle.MoveTimer", "clear.Handle"],
+        ["clear.then", "stopProfile.execute"],
+        ["stopProfile.then", "quit.execute"]
+      ],
+      "defaults": {
+        "stopProfile.Command": "csvprofile stop",
+        "quit.QuitPreference": "Quit",
+        "quit.bIgnorePlatformRestrictions": "false"
+      }
+    },
+    {
+      "graph": "EventGraph",
+      "nodes": {
+        "beginPlay": { "event": "ReceiveBeginPlay" },
+        "findRoad": { "call": "FindRoad" },
+        "startFly": { "call": "StartFlythrough" }
+      },
+      "links": [
+        ["beginPlay.then", "findRoad.execute"],
+        ["findRoad.then", "startFly.execute"]
+      ],
+      "defaults": {}
+    }
+  ],
+  "cdo_defaults": {
+    "AutoPossessPlayer": "PLAYER0"
+  }
+}

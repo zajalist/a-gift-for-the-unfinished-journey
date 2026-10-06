@@ -1,0 +1,342 @@
+{
+  "asset": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Title",
+  "tree": [
+    {
+      "class": "Image",
+      "name": "Scrim",
+      "properties": {
+        "Brush": {
+          "ResourceObject": "/Game/SaskartaGaea/GameFlow/UI/Textures/T_UI_TitleScrim.T_UI_TitleScrim",
+          "ImageSize": { "X": 1024, "Y": 576 },
+          "DrawAs": "Image"
+        }
+      }
+    },
+    {
+      "class": "Image",
+      "name": "TitleShadow",
+      "properties": {
+        "Brush": {
+          "ResourceObject": "/Game/SaskartaGaea/GameFlow/UI/Textures/T_Saskarta_TitleName_Shadow.T_Saskarta_TitleName_Shadow",
+          "ImageSize": { "X": 464, "Y": 704 },
+          "DrawAs": "Image"
+        },
+        "ColorAndOpacity": [1, 1, 1, 0.6]
+      }
+    },
+    {
+      "class": "Image",
+      "name": "TitleArt",
+      "properties": {
+        "Brush": {
+          "ResourceObject": "/Game/SaskartaGaea/GameFlow/UI/Textures/T_Saskarta_TitleName_Ivory.T_Saskarta_TitleName_Ivory",
+          "ImageSize": { "X": 360, "Y": 584 },
+          "DrawAs": "Image"
+        }
+      }
+    },
+    {
+      "class": "TextBlock",
+      "name": "Title",
+      "properties": {
+        "Text": "Najzen dînefferesen, enisetre",
+        "Font": { "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa.F_ArefRuqaa", "TypefaceFontName": "Bold", "Size": 22, "LetterSpacing": 0 },
+        "ColorAndOpacity": { "SpecifiedColor": [0.8469, 0.7835, 0.7011, 1] },
+        "Visibility": "Collapsed",
+        "RenderOpacity": 0,
+        "AutoWrapText": true
+      }
+    },
+    {
+      "class": "VerticalBox",
+      "name": "Menu",
+      "children": [
+        {
+          "class": "Button",
+          "name": "ContinueButton",
+          "properties": {
+            "WidgetStyle": {
+              "Normal": { "DrawAs": "NoDrawType" },
+              "Hovered": { "DrawAs": "NoDrawType" },
+              "Pressed": { "DrawAs": "NoDrawType" },
+              "Disabled": { "DrawAs": "NoDrawType" },
+              "NormalPadding": { "Left": 0, "Top": 0, "Right": 0, "Bottom": 0 },
+              "PressedPadding": { "Left": 0, "Top": 0, "Right": 0, "Bottom": 0 }
+            }
+          },
+          "slot_props": { "padding": [0, 0, 0, 30], "horizontal_alignment": "Left" },
+          "children": [
+            {
+              "class": "HorizontalBox",
+              "name": "ContinueEntry",
+              "children": [
+                {
+                  "class": "Image",
+                  "name": "ContinueMark",
+                  "properties": {
+                    "Brush": {
+                      "ResourceObject": "/Game/SaskartaGaea/GameFlow/UI/Textures/T_UI_FocusMark.T_UI_FocusMark",
+                      "ImageSize": { "X": 48, "Y": 24 },
+                      "DrawAs": "Image"
+                    },
+                    "RenderOpacity": 0
+                  },
+                  "slot_props": { "vertical_alignment": "Center" }
+                },
+                {
+                  "class": "TextBlock",
+                  "name": "ContinueLabel",
+                  "properties": {
+                    "Text": "Continue",
+                    "Font": {
+                      "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa.F_ArefRuqaa",
+                      "TypefaceFontName": "Bold",
+                      "Size": 30,
+                      "LetterSpacing": 50
+                    },
+                    "ColorAndOpacity": { "SpecifiedColor": [0.8469, 0.7835, 0.7011, 1] },
+                    "RenderOpacity": 0.6
+                  },
+                  "slot_props": { "vertical_alignment": "Center", "padding": [6, 0, 0, 0] }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "class": "Button",
+          "name": "StartButton",
+          "properties": {
+            "WidgetStyle": {
+              "Normal": { "DrawAs": "NoDrawType" },
+              "Hovered": { "DrawAs": "NoDrawType" },
+              "Pressed": { "DrawAs": "NoDrawType" },
+              "Disabled": { "DrawAs": "NoDrawType" },
+              "NormalPadding": { "Left": 0, "Top": 0, "Right": 0, "Bottom": 0 },
+              "PressedPadding": { "Left": 0, "Top": 0, "Right": 0, "Bottom": 0 }
+            }
+          },
+          "slot_props": { "padding": [0, 0, 0, 30], "horizontal_alignment": "Left" },
+          "children": [
+            {
+              "class": "HorizontalBox",
+              "name": "StartEntry",
+              "children": [
+                {
+                  "class": "Image",
+                  "name": "StartMark",
+                  "properties": {
+                    "Brush": {
+                      "ResourceObject": "/Game/SaskartaGaea/GameFlow/UI/Textures/T_UI_FocusMark.T_UI_FocusMark",
+                      "ImageSize": { "X": 48, "Y": 24 },
+                      "DrawAs": "Image"
+                    },
+                    "RenderOpacity": 0
+                  },
+                  "slot_props": { "vertical_alignment": "Center" }
+                },
+                {
+                  "class": "TextBlock",
+                  "name": "StartLabel",
+                  "properties": {
+                    "Text": "Begin",
+                    "Font": {
+                      "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa.F_ArefRuqaa",
+                      "TypefaceFontName": "Bold",
+                      "Size": 30,
+                      "LetterSpacing": 50
+                    },
+                    "ColorAndOpacity": { "SpecifiedColor": [0.8469, 0.7835, 0.7011, 1] },
+                    "RenderOpacity": 0.6
+                  },
+                  "slot_props": { "vertical_alignment": "Center", "padding": [6, 0, 0, 0] }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "class": "Button",
+          "name": "SettingsButton",
+          "properties": {
+            "WidgetStyle": {
+              "Normal": { "DrawAs": "NoDrawType" },
+              "Hovered": { "DrawAs": "NoDrawType" },
+              "Pressed": { "DrawAs": "NoDrawType" },
+              "Disabled": { "DrawAs": "NoDrawType" },
+              "NormalPadding": { "Left": 0, "Top": 0, "Right": 0, "Bottom": 0 },
+              "PressedPadding": { "Left": 0, "Top": 0, "Right": 0, "Bottom": 0 }
+            }
+          },
+          "slot_props": { "padding": [0, 0, 0, 30], "horizontal_alignment": "Left" },
+          "children": [
+            {
+              "class": "HorizontalBox",
+              "name": "SettingsEntry",
+              "children": [
+                {
+                  "class": "Image",
+                  "name": "SettingsMark",
+                  "properties": {
+                    "Brush": {
+                      "ResourceObject": "/Game/SaskartaGaea/GameFlow/UI/Textures/T_UI_FocusMark.T_UI_FocusMark",
+                      "ImageSize": { "X": 48, "Y": 24 },
+                      "DrawAs": "Image"
+                    },
+                    "RenderOpacity": 0
+                  },
+                  "slot_props": { "vertical_alignment": "Center" }
+                },
+                {
+                  "class": "TextBlock",
+                  "name": "SettingsLabel",
+                  "properties": {
+                    "Text": "Settings",
+                    "Font": {
+                      "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa.F_ArefRuqaa",
+                      "TypefaceFontName": "Bold",
+                      "Size": 30,
+                      "LetterSpacing": 50
+                    },
+                    "ColorAndOpacity": { "SpecifiedColor": [0.8469, 0.7835, 0.7011, 1] },
+                    "RenderOpacity": 0.6
+                  },
+                  "slot_props": { "vertical_alignment": "Center", "padding": [6, 0, 0, 0] }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "class": "Button",
+          "name": "QuitButton",
+          "properties": {
+            "WidgetStyle": {
+              "Normal": { "DrawAs": "NoDrawType" },
+              "Hovered": { "DrawAs": "NoDrawType" },
+              "Pressed": { "DrawAs": "NoDrawType" },
+              "Disabled": { "DrawAs": "NoDrawType" },
+              "NormalPadding": { "Left": 0, "Top": 0, "Right": 0, "Bottom": 0 },
+              "PressedPadding": { "Left": 0, "Top": 0, "Right": 0, "Bottom": 0 }
+            }
+          },
+          "slot_props": { "padding": [0, 0, 0, 30], "horizontal_alignment": "Left" },
+          "children": [
+            {
+              "class": "HorizontalBox",
+              "name": "QuitEntry",
+              "children": [
+                {
+                  "class": "Image",
+                  "name": "QuitMark",
+                  "properties": {
+                    "Brush": {
+                      "ResourceObject": "/Game/SaskartaGaea/GameFlow/UI/Textures/T_UI_FocusMark.T_UI_FocusMark",
+                      "ImageSize": { "X": 48, "Y": 24 },
+                      "DrawAs": "Image"
+                    },
+                    "RenderOpacity": 0
+                  },
+                  "slot_props": { "vertical_alignment": "Center" }
+                },
+                {
+                  "class": "TextBlock",
+                  "name": "QuitLabel",
+                  "properties": {
+                    "Text": "Quit",
+                    "Font": {
+                      "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa.F_ArefRuqaa",
+                      "TypefaceFontName": "Bold",
+                      "Size": 30,
+                      "LetterSpacing": 50
+                    },
+                    "ColorAndOpacity": { "SpecifiedColor": [0.8469, 0.7835, 0.7011, 1] },
+                    "RenderOpacity": 0.6
+                  },
+                  "slot_props": { "vertical_alignment": "Center", "padding": [6, 0, 0, 0] }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "class": "HorizontalBox",
+      "name": "Hints",
+      "properties": { "RenderOpacity": 0.85 },
+      "children": [
+        { "class": "Spacer", "name": "HintsSpacer", "slot_props": { "fill": 1 } },
+        {
+          "class": "Border",
+          "name": "HintEnterChip",
+          "properties": {
+            "Background": {
+              "ResourceObject": "/Game/SaskartaGaea/GameFlow/UI/Textures/T_UI_Chip.T_UI_Chip",
+              "DrawAs": "Box",
+              "Margin": { "Left": 0.25, "Top": 0.25, "Right": 0.25, "Bottom": 0.25 },
+              "TintColor": { "SpecifiedColor": [0.8469, 0.7835, 0.7011, 0.35] }
+            },
+            "Padding": { "Left": 10, "Top": 0, "Right": 10, "Bottom": 3 }
+          },
+          "slot_props": { "vertical_alignment": "Center" },
+          "children": [
+            {
+              "class": "TextBlock",
+              "name": "HintEnterKey",
+              "properties": {
+                "Text": "Enter / A",
+                "Font": {
+                  "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa.F_ArefRuqaa",
+                  "TypefaceFontName": "Regular",
+                  "Size": 15,
+                  "LetterSpacing": 20
+                },
+                "ColorAndOpacity": { "SpecifiedColor": [0.8469, 0.7835, 0.7011, 0.85] }
+              }
+            }
+          ]
+        },
+        {
+          "class": "TextBlock",
+          "name": "HintEnterLabel",
+          "properties": {
+            "Text": "Select",
+            "Font": {
+              "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa.F_ArefRuqaa",
+              "TypefaceFontName": "Regular",
+              "Size": 16,
+              "LetterSpacing": 60
+            },
+            "ColorAndOpacity": { "SpecifiedColor": [0.8469, 0.7835, 0.7011, 0.55] }
+          },
+          "slot_props": { "vertical_alignment": "Center", "padding": [12, 0, 0, 0] }
+        }
+      ]
+    }
+  ],
+  "slots": {
+    "Scrim": { "anchors": [0, 0, 1, 1], "position": [0, 0], "size": [0, 0], "z_order": -2 },
+    "TitleShadow": { "anchors": [0, 0.5, 0, 0.5], "position": [87, -330], "size": [436, 661], "z_order": -1 },
+    "TitleArt": { "anchors": [0, 0.5, 0, 0.5], "position": [125, -300], "size": [360, 584] },
+    "Title": { "anchors": [0, 0.5, 0, 0.5], "position": [125, -300], "size": [360, 584] },
+    "Menu": { "anchors": [0, 0.5, 0, 0.5], "position": [580, -110], "size": [420, 400] },
+    "Hints": { "anchors": [1, 1, 1, 1], "position": [-67, -50], "size": [420, 32], "alignment": [1, 0.5] }
+  },
+  "variables": [
+    "ContinueButton",
+    "ContinueLabel",
+    "ContinueMark",
+    "StartButton",
+    "StartLabel",
+    "StartMark",
+    "SettingsButton",
+    "SettingsLabel",
+    "SettingsMark",
+    "QuitButton",
+    "QuitLabel",
+    "QuitMark",
+    "Title",
+    "TitleArt"
+  ]
+}

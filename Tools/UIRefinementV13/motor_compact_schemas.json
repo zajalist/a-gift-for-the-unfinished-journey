@@ -1,0 +1,51 @@
+{
+  "ui_set_widget_properties": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"command\": \"ui_set_widget_properties\",\n  \"params\": {\n    \"widget_blueprint_path\": \"string (required) — Full path of the target Widget Blueprint\",\n    \"widget_name\": \"string (required) — Name of the widget to set properties on\",\n    \"properties\": \"record (optional) — Property values keyed by their real UE property name (e.g. \\\"Text\\\", \\\"ColorAndOpacity\\\", \\\"Font\\\"). Values may be nested objects for struct properties, arrays for colors/vectors, or an asset path string for object references.\",\n    \"slot_props\": \"record (optional) — Layout properties applied to the widget’s PANEL SLOT rather than the widget: canvas (anchors/position/size/alignment/auto_size/z_order), box (fill/padding/alignment), grid (row/column/spans). Keys the slot type does not support come back in unknown_slot_props instead of being silently dropped.\"\n  },\n  \"returns\": \"{succeeded, failed, failed_properties?}\",\n  \"cost\": \"medium\"\n}"
+      }
+    ]
+  },
+  "ui_set_slot_layout": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"command\": \"ui_set_slot_layout\",\n  \"params\": {\n    \"widget_blueprint_path\": \"string (required) — Full path of the target Widget Blueprint\",\n    \"widget_name\": \"string (required) — Name of the widget whose SLOT is being laid out\",\n    \"anchors_min\": \"number (required)[] (optional) — Canvas: min anchor [X, Y] in 0-1 screen fractions\",\n    \"anchors_max\": \"number (required)[] (optional) — Canvas: max anchor [X, Y] in 0-1 screen fractions\",\n    \"anchors\": \"union (optional) — Canvas: anchors as [minX, minY, maxX, maxY] or {min:[x,y], max:[x,y]}. Sugar for anchors_min + anchors_max.\",\n    \"position\": \"number (required)[] (optional) — Canvas: position [X, Y] in px relative to the anchor\",\n    \"size\": \"number (required)[] (optional) — Canvas: size [Width, Height] in px\",\n    \"alignment\": \"number (required)[] (optional) — Canvas: pivot [X, Y] in 0-1 (0.5,0.5 centres on the position)\",\n    \"auto_size\": \"bool (optional) — Canvas: size to the widget’s desired size instead of the explicit size\",\n    \"z_order\": \"number (optional) — Canvas: draw order among siblings (higher draws on top)\",\n    \"padding\": \"union (optional) — Box/grid/overlay/border/size-box slots: padding as a single number, [L,T,R,B], or {left,top,right,bottom}. Zero is honoured, so this can clear padding.\",\n    \"fill\": \"number (optional) — Horizontal/VerticalBox slots: fill weight. 0 means size-to-content.\",\n    \"horizontal_alignment\": \"\\\"Fill\\\"|\\\"Left\\\"|\\\"Center\\\"|\\\"Right\\\" (optional) — Alignment within the slot\",\n    \"vertical_alignment\": \"\\\"Fill\\\"|\\\"Top\\\"|\\\"Center\\\"|\\\"Bottom\\\" (optional) — Alignment within the slot\",\n    \"row\": \"number (optional) — Grid/UniformGrid slots: row index\",\n    \"column\": \"number (optional) — Grid/UniformGrid slots: column index\",\n    \"row_span\": \"number (optional) — Grid slots: rows spanned\",\n    \"column_span\": \"number (optional) — Grid slots: columns spanned\"\n  },\n  \"returns\": \"{succeeded, failed}\",\n  \"cost\": \"low\"\n}"
+      }
+    ]
+  },
+  "ui_query": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"command\": \"ui_query\",\n  \"params\": {\n    \"path\": \"string (required) — Full path of the Widget Blueprint to inspect, e.g. \\\"/Game/Aphrosia/UI/WBP_StartScreen\\\"\",\n    \"include_properties\": \"bool (optional, default: false) — Include widget properties in the response\",\n    \"include_guid\": \"bool (optional, default: false) — Include GUIDs in the response\",\n    \"include_slot\": \"bool (optional, default: true) — Include slot layout info in the response\",\n    \"name_pattern\": \"string (optional) — Case-sensitive substring a widget name must contain. Returns a flat `matches` list instead of the tree.\",\n    \"class_filter\": \"string (optional) — Class a widget must be or derive from, e.g. \\\"PanelWidget\\\" for every panel. Returns a flat `matches` list instead of the tree.\",\n    \"flatten\": \"bool (optional) — Return the flat `matches` list even when no filter is given.\"\n  },\n  \"returns\": \"{path, parent_class, root:{name, class, slot, guid?, properties?, children:[…]}}\",\n  \"cost\": \"low\"\n}"
+      }
+    ]
+  },
+  "ui_layout_snapshot": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"command\": \"ui_layout_snapshot\",\n  \"params\": {\n    \"widget_blueprint_path\": \"string (required) — Full path of the Widget Blueprint to lay out\",\n    \"screen_width\": \"number (optional) — Resolution to lay out at. Defaults to the blueprint’s design-time size.\",\n    \"screen_height\": \"number (optional) — Resolution to lay out at. Defaults to the blueprint’s design-time size.\",\n    \"widget_names\": \"string (required)[] (optional) — Return only these exact widget names. Use this for targeted style/geometry reads on large trees.\",\n    \"offset\": \"number (optional) — Zero-based widget offset for paginating production-sized trees.\",\n    \"limit\": \"number (optional) — Widgets to return per page (maximum 50, matching the UE transport limit).\"\n  },\n  \"returns\": \"{widget_blueprint_path, screen_width, screen_height, layout_resolved, layout_error?, widget_count, widgets:[{name, class, x, y, width, height, depth, anchors?, text_info?, brush_info?}]}\",\n  \"cost\": \"medium\"\n}"
+      }
+    ]
+  },
+  "ui_compile_widget": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"command\": \"ui_compile_widget\",\n  \"params\": {\n    \"widget_blueprint_path\": \"string (required) — Full path of the Widget Blueprint to compile\",\n    \"save_on_success\": \"bool (optional, default: false) — Save the package on successful compile\"\n  },\n  \"returns\": \"{success, status, warnings, errors}\",\n  \"cost\": \"high\"\n}"
+      }
+    ]
+  },
+  "ui_save_widget": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"command\": \"ui_save_widget\",\n  \"params\": {\n    \"widget_blueprint_path\": \"string (required) — Full path of the Widget Blueprint to save\",\n    \"compile_first\": \"bool (optional, default: false) — Run compile before saving\"\n  },\n  \"returns\": \"{saved_path, success, package_dirty_after_save}\",\n  \"cost\": \"medium\"\n}"
+      }
+    ]
+  }
+}
+

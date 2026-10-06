@@ -1,0 +1,148 @@
+{
+  "asset": "/Game/SaskartaGaea/GameFlow/PC_Saskarta",
+  "variables": [
+    {
+      "name": "CapsuleExitOverlay",
+      "type": "object:/Game/SaskartaGaea/GameFlow/Video/WBP_CapsuleExitVideo.WBP_CapsuleExitVideo_C"
+    },
+    {
+      "name": "CapsuleExitMediaPlayer",
+      "type": "object:/Script/MediaAssets.MediaPlayer"
+    }
+  ],
+  "cdo_defaults": {
+    "CapsuleExitMediaPlayer": "/Game/SaskartaGaea/GameFlow/Video/MP_CapsuleExit.MP_CapsuleExit"
+  },
+  "functions": [
+    {
+      "name": "StartCapsuleExitVideo",
+      "inputs": [],
+      "outputs": [],
+      "pure": false
+    },
+    {
+      "name": "StopCapsuleExitVideo",
+      "inputs": [],
+      "outputs": [],
+      "pure": false
+    }
+  ],
+  "graphs": [
+    {
+      "graph": "StartCapsuleExitVideo",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "cleanup": {
+          "call": "StopCapsuleExitVideo"
+        },
+        "me": {
+          "self": true
+        },
+        "make": {
+          "create_widget": "/Game/SaskartaGaea/GameFlow/Video/WBP_CapsuleExitVideo.WBP_CapsuleExitVideo_C"
+        },
+        "store": {
+          "set": "CapsuleExitOverlay"
+        },
+        "add": {
+          "call": "AddToViewport",
+          "class": "/Script/UMG.UserWidget"
+        }
+      },
+      "defaults": {
+        "add.ZOrder": "10000"
+      },
+      "links": [
+        [
+          "entry.then",
+          "cleanup.execute"
+        ],
+        [
+          "cleanup.then",
+          "make.execute"
+        ],
+        [
+          "me.self",
+          "make.OwningPlayer"
+        ],
+        [
+          "make.then",
+          "store.execute"
+        ],
+        [
+          "make.ReturnValue",
+          "store.CapsuleExitOverlay"
+        ],
+        [
+          "store.then",
+          "add.execute"
+        ],
+        [
+          "make.ReturnValue",
+          "add.self"
+        ]
+      ]
+    },
+    {
+      "graph": "StopCapsuleExitVideo",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "player": {
+          "get": "CapsuleExitMediaPlayer"
+        },
+        "close": {
+          "call": "Close",
+          "class": "/Script/MediaAssets.MediaPlayer"
+        },
+        "overlay": {
+          "get": "CapsuleExitOverlay"
+        },
+        "valid": {
+          "call": "IsValid",
+          "class": "/Script/Engine.KismetSystemLibrary"
+        },
+        "branch": {
+          "branch": true
+        },
+        "remove": {
+          "call": "RemoveFromParent",
+          "class": "/Script/UMG.Widget"
+        }
+      },
+      "links": [
+        [
+          "entry.then",
+          "close.execute"
+        ],
+        [
+          "player.CapsuleExitMediaPlayer",
+          "close.self"
+        ],
+        [
+          "close.then",
+          "branch.execute"
+        ],
+        [
+          "overlay.CapsuleExitOverlay",
+          "valid.Object"
+        ],
+        [
+          "valid.ReturnValue",
+          "branch.Condition"
+        ],
+        [
+          "branch.then",
+          "remove.execute"
+        ],
+        [
+          "overlay.CapsuleExitOverlay",
+          "remove.self"
+        ]
+      ]
+    }
+  ]
+}

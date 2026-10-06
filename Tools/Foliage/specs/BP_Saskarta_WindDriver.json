@@ -1,0 +1,236 @@
+{
+  "asset": "/Game/SaskartaGaea/Foliage/BP_Saskarta_WindDriver",
+  "create": {
+    "parent": "/Script/Engine.Actor"
+  },
+  "variables": [
+    {
+      "name": "GustPhase",
+      "type": "float",
+      "default": "0.0"
+    },
+    {
+      "name": "GustRate",
+      "type": "float",
+      "default": "0.8"
+    },
+    {
+      "name": "Interval",
+      "type": "float",
+      "default": "0.1"
+    },
+    {
+      "name": "GustTimer",
+      "type": "struct:/Script/Engine.TimerHandle"
+    }
+  ],
+  "functions": [
+    {
+      "name": "UpdateGust",
+      "pure": false,
+      "inputs": [],
+      "outputs": []
+    }
+  ],
+  "graphs": [
+    {
+      "graph": "UpdateGust",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "phase": {
+          "get": "GustPhase"
+        },
+        "rate": {
+          "get": "GustRate"
+        },
+        "interval": {
+          "get": "Interval"
+        },
+        "jitter": {
+          "call": "RandomFloatInRange",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "rateDt": {
+          "call": "Multiply_DoubleDouble",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "step": {
+          "call": "Multiply_DoubleDouble",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "advanced": {
+          "call": "Add_DoubleDouble",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "setPhase": {
+          "set": "GustPhase"
+        },
+        "newPhase": {
+          "get": "GustPhase"
+        },
+        "push": {
+          "call": "SetScalarParameterValue",
+          "class": "/Script/Engine.KismetMaterialLibrary"
+        },
+        "pushPlayerGust": {
+          "call": "SetScalarParameterValue",
+          "class": "/Script/Engine.KismetMaterialLibrary"
+        },
+        "windStrength": {
+          "call": "GetScalarParameterValue",
+          "class": "/Script/Engine.KismetMaterialLibrary"
+        },
+        "pushPlayerStrength": {
+          "call": "SetScalarParameterValue",
+          "class": "/Script/Engine.KismetMaterialLibrary"
+        },
+        "windDirection": {
+          "call": "GetVectorParameterValue",
+          "class": "/Script/Engine.KismetMaterialLibrary"
+        },
+        "pushPlayerDirection": {
+          "call": "SetVectorParameterValue",
+          "class": "/Script/Engine.KismetMaterialLibrary"
+        }
+      },
+      "links": [
+        [
+          "entry.then",
+          "setPhase.execute"
+        ],
+        [
+          "rate.GustRate",
+          "rateDt.A"
+        ],
+        [
+          "interval.Interval",
+          "rateDt.B"
+        ],
+        [
+          "rateDt.ReturnValue",
+          "step.A"
+        ],
+        [
+          "jitter.ReturnValue",
+          "step.B"
+        ],
+        [
+          "phase.GustPhase",
+          "advanced.A"
+        ],
+        [
+          "step.ReturnValue",
+          "advanced.B"
+        ],
+        [
+          "advanced.ReturnValue",
+          "setPhase.GustPhase"
+        ],
+        [
+          "setPhase.then",
+          "push.execute"
+        ],
+        [
+          "newPhase.GustPhase",
+          "push.ParameterValue"
+        ],
+        [
+          "push.then",
+          "pushPlayerGust.execute"
+        ],
+        [
+          "newPhase.GustPhase",
+          "pushPlayerGust.ParameterValue"
+        ],
+        [
+          "windStrength.ReturnValue",
+          "pushPlayerStrength.ParameterValue"
+        ],
+        [
+          "windDirection.ReturnValue",
+          "pushPlayerDirection.ParameterValue"
+        ],
+        [
+          "pushPlayerGust.then",
+          "windStrength.execute"
+        ],
+        [
+          "windStrength.then",
+          "pushPlayerStrength.execute"
+        ],
+        [
+          "pushPlayerStrength.then",
+          "windDirection.execute"
+        ],
+        [
+          "windDirection.then",
+          "pushPlayerDirection.execute"
+        ]
+      ],
+      "defaults": {
+        "jitter.Min": "0.3",
+        "jitter.Max": "1.7",
+        "push.Collection": "/Game/SaskartaGaea/Foliage/MPC_Saskarta_Wind.MPC_Saskarta_Wind",
+        "push.ParameterName": "GustPhase",
+        "pushPlayerGust.Collection": "/Game/SaskartaGaea/Materials/MPC_Saskarta_Player.MPC_Saskarta_Player",
+        "pushPlayerGust.ParameterName": "GustPhase",
+        "windStrength.Collection": "/Game/SaskartaGaea/Foliage/MPC_Saskarta_Wind.MPC_Saskarta_Wind",
+        "windStrength.ParameterName": "WindStrength",
+        "pushPlayerStrength.Collection": "/Game/SaskartaGaea/Materials/MPC_Saskarta_Player.MPC_Saskarta_Player",
+        "pushPlayerStrength.ParameterName": "WindStrength",
+        "windDirection.Collection": "/Game/SaskartaGaea/Foliage/MPC_Saskarta_Wind.MPC_Saskarta_Wind",
+        "windDirection.ParameterName": "WindDirection",
+        "pushPlayerDirection.Collection": "/Game/SaskartaGaea/Materials/MPC_Saskarta_Player.MPC_Saskarta_Player",
+        "pushPlayerDirection.ParameterName": "WindDirection"
+      }
+    },
+    {
+      "graph": "EventGraph",
+      "nodes": {
+        "beginPlay": {
+          "event": "ReceiveBeginPlay"
+        },
+        "me": {
+          "self": true
+        },
+        "interval": {
+          "get": "Interval"
+        },
+        "timer": {
+          "timer": true
+        },
+        "keepTimer": {
+          "set": "GustTimer"
+        }
+      },
+      "links": [
+        [
+          "beginPlay.then",
+          "timer.execute"
+        ],
+        [
+          "me.self",
+          "timer.Object"
+        ],
+        [
+          "interval.Interval",
+          "timer.Time"
+        ],
+        [
+          "timer.then",
+          "keepTimer.execute"
+        ],
+        [
+          "timer.ReturnValue",
+          "keepTimer.GustTimer"
+        ]
+      ],
+      "defaults": {
+        "timer.FunctionName": "UpdateGust",
+        "timer.bLooping": "true"
+      }
+    }
+  ]
+}

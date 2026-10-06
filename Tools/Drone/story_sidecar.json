@@ -1,0 +1,59 @@
+{
+  "asset": "/Game/SaskartaGaea/Story/DA_Saskarta_Story",
+  "enable_tags": ["AuxSensors", "Drone"],
+  "beats": {
+    "OA1_OPTICS_FAIL": {"road_m": 3700.0},
+    "OB1_DRONE": {"road_m": 3770.0}
+  },
+  "cinematics": {
+    "CIN_A1_OPTICS_FAIL": {
+      "sequence": "/Game/SaskartaGaea/GameFlow/Cinematics/LS_CIN_A1_OpticsFail",
+      "duration_s": 9.0,
+      "blend_in_s": 0.0,
+      "blend_out_s": 0.0,
+      "letterbox": false,
+      "skip_rule": "HoldAfterSeen",
+      "skip_min_s": 1.0,
+      "stop_pawn": true,
+      "relative_to_pawn": true,
+      "hand_back": "CarrierPOV",
+      "cues": [
+        {"at_s": 3.2, "type": "PlayCarrierLine", "id": "CV_OPTICS_01"},
+        {"at_s": 5.0, "type": "SetMode", "id": "AuxSensors", "value": 1.0},
+        {"at_s": 6.0, "type": "PlayCarrierLine", "id": "CV_OPTICS_02"}
+      ],
+      "final_state": [
+        {"type": "SetMode", "id": "AuxSensors", "value": 1.0, "reapply_on_load": true},
+        {"type": "ShowCaption", "text": "Acoustic ranging. Keep between the left and right echoes.", "duration_s": 6.0, "first_playthrough_only": true}
+      ]
+    },
+    "CIN_B1_DRONE": {
+      "sequence": "/Game/SaskartaGaea/GameFlow/Cinematics/LS_CIN_B1_Drone",
+      "duration_s": 14.0,
+      "blend_in_s": 0.0,
+      "blend_out_s": 0.0,
+      "letterbox": false,
+      "skip_rule": "HoldAfterSeen",
+      "skip_min_s": 1.0,
+      "stop_pawn": false,
+      "relative_to_pawn": true,
+      "hand_back": "DroneCam",
+      "cues": [
+        {"at_s": 2.0, "type": "PlayCarrierLine", "id": "CV_DRONE_01"},
+        {"at_s": 10.6, "type": "PlayCarrierLine", "id": "CV_DRONE_02"},
+        {"at_s": 12.0, "type": "SetMode", "id": "AuxSensors", "value": 0.0},
+        {"at_s": 13.8, "type": "SetMode", "id": "DroneCam", "value": 1.0}
+      ],
+      "final_state": [
+        {"type": "SetMode", "id": "AuxSensors", "value": 0.0, "reapply_on_load": true},
+        {"type": "SetMode", "id": "DroneCam", "value": 1.0, "reapply_on_load": true}
+      ]
+    }
+  },
+  "lines": {
+    "CV_DRONE_02": {
+      "english": "Auxiliary units. Visual relay.",
+      "sound": "/Game/SaskartaGaea/Audio/CarrierVoice/VO_Carrier_CV_DRONE_02"
+    }
+  }
+}

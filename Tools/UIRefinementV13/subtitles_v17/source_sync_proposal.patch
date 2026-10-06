@@ -1,0 +1,24 @@
+--- a/Tools/GameFlow/gen_caption_specs.py
++++ b/Tools/GameFlow/gen_caption_specs.py
+@@ -183,15 +183,18 @@
+         {**plate("SpeakerPlate", text("SpeakerLabel", "RADIO HOST", AREF, 16, [1, 0.82, 0.5, 1], 1,
+                                         {"Justification": "Center", "ShadowOffset": {"X": 2, "Y": 2},
+                                          "ShadowColorAndOpacity": [0, 0, 0, 1]},
+-                                        typeface="Bold", spacing=180), pad=(18, 5, 18, 6), alpha=0.8),
+-         "slot_props": {"horizontal_alignment": "Center", "padding": [0, 0, 0, 5]}},
++                                        typeface="Bold", spacing=180), pad=(10, 0, 10, 0), alpha=0.8),
++         "slot_props": {"horizontal_alignment": "Center", "padding": [0, 0, 0, 0]}},
+         plate("SubtitlePlate", {"class": "VerticalBox", "name": "SubtitleStack", "children": [
+             {**wrapped("SaskartanBox", "SaskartanLine", "", AREF, SKS_SIZE, IVORY, 0.6),
+              "slot_props": {"horizontal_alignment": "Center", "padding": [0, 0, 0, 6]}},
+             wrapped("EnglishBox", "EnglishLine", "Homes may empty; let names remain.", AREF, EN_SIZE, [0.95, 0.92, 0.86, 1]),
+             wrapped("CarrierBox", "CarrierLine", "Route lock: Âlaawb.", TERM, TERM_SIZE, AMBER),
+-        ]}),
++        ]}, pad=(40, 4, 40, 10), alpha=0.36),
+     ]}
++    subtitle["children"][0]["properties"]["BrushColor"] = [1, 1, 1, 0]
++    subtitle["children"][1]["properties"]["BrushColor"] = [1, 1, 1, 1]
++    subtitle["children"][1]["slot_props"] = {"horizontal_alignment": "Center", "padding": [0, 0, 0, 0]}
+     caption = plate("CaptionBox", {**wrapped("CaptionTextBox", "CaptionLine", "W / RT  Drive", AREF, CAP_SIZE, [0.95, 0.92, 0.86, 1])})
+     caption["properties"]["Visibility"] = "Collapsed"
+     # the event Prompt ("Rise.", "Lay your hand on the mark."): the E / A key prompt in front of the line

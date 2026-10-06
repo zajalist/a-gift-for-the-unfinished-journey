@@ -1,0 +1,252 @@
+{
+  "asset": "/Game/SaskartaGaea/GameFlow/BPC_RoadTether",
+  "create": { "parent": "/Script/Engine.ActorComponent" },
+  "variables": [
+    { "name": "Road", "type": "object:/Script/Engine.SplineComponent" },
+    { "name": "Zone", "type": "name", "default": "Safe" },
+    { "name": "WarnDistance", "type": "float", "default": "1000.0" },
+    { "name": "ClearDistance", "type": "float", "default": "900.0" },
+    { "name": "BreachDistance", "type": "float", "default": "2000.0" },
+    { "name": "CheckInterval", "type": "float", "default": "0.2" },
+    { "name": "TravelSign", "type": "float", "default": "-1.0" },
+    { "name": "bDebugDraw", "type": "bool", "default": "false" },
+    { "name": "CheckTimer", "type": "struct:/Script/Engine.TimerHandle" },
+    { "name": "LastDistance", "type": "float", "default": "0.0" },
+    { "name": "BreachLocation", "type": "vector" }
+  ],
+  "functions": [
+    { "name": "FindRoad", "pure": false, "inputs": [], "outputs": [] },
+    { "name": "StartTether", "pure": false, "inputs": [], "outputs": [] },
+    { "name": "StopTether", "pure": false, "inputs": [], "outputs": [] },
+    { "name": "CheckRoad", "pure": false, "inputs": [], "outputs": [] },
+    {
+      "name": "ComputeRespawn",
+      "pure": false,
+      "inputs": [
+        { "name": "StepCm", "type": "float" }
+      ],
+      "outputs": [
+        { "name": "Found", "type": "bool" },
+        { "name": "Location", "type": "vector" },
+        { "name": "Rotation", "type": "rotator" }
+      ]
+    }
+  ],
+  "graphs": [
+    {
+      "graph": "FindRoad",
+      "nodes": {
+        "entry": { "entry": true },
+        "findActor": { "call": "GetActorOfClass", "class": "/Script/Engine.GameplayStatics" },
+        "actorValid": { "call": "IsValid", "class": "/Script/Engine.KismetSystemLibrary" },
+        "ifActor": { "branch": true },
+        "getSpline": { "call": "GetComponentByClass", "class": "/Script/Engine.Actor" },
+        "castSpline": { "cast": "/Script/Engine.SplineComponent" },
+        "setRoad": { "set": "Road" },
+        "warn": { "call": "PrintString", "class": "/Script/Engine.KismetSystemLibrary" }
+      },
+      "links": [
+        ["entry.then", "findActor.execute"],
+        ["findActor.then", "ifActor.execute"],
+        ["findActor.ReturnValue", "actorValid.Object"],
+        ["actorValid.ReturnValue", "ifActor.Condition"],
+        ["ifActor.then", "castSpline.execute"],
+        ["findActor.ReturnValue", "getSpline.self"],
+        ["getSpline.ReturnValue", "castSpline.Object"],
+        ["castSpline.then", "setRoad.execute"],
+        ["castSpline.AsSpline Component", "setRoad.Road"],
+        ["ifActor.else", "warn.execute"],
+        ["castSpline.CastFailed", "warn.execute"]
+      ],
+      "defaults": {
+        "findActor.ActorClass": "/Game/SaskartaGaea/Road/BP_Saskarta_Road.BP_Saskarta_Road_C",
+        "getSpline.ComponentClass": "/Script/Engine.SplineComponent",
+        "warn.InString": "Saskarta tether: road not found",
+        "warn.bPrintToScreen": "true",
+        "warn.bPrintToLog": "true",
+        "warn.Duration": "10.0"
+      }
+    },
+    {
+      "graph": "StartTether",
+      "nodes": {
+        "entry": { "entry": true },
+        "resetZone": { "set": "Zone" },
+        "me": { "self": true },
+        "interval": { "get": "CheckInterval" },
+        "timer": { "timer": true },
+        "keepTimer": { "set": "CheckTimer" }
+      },
+      "links": [
+        ["entry.then", "resetZone.execute"],
+        ["resetZone.then", "timer.execute"],
+        ["me.self", "timer.Object"],
+        ["interval.CheckInterval", "timer.Time"],
+        ["timer.then", "keepTimer.execute"],
+        ["timer.ReturnValue", "keepTimer.CheckTimer"]
+      ],
+      "defaults": {
+        "resetZone.Zone": "Safe",
+        "timer.FunctionName": "CheckRoad",
+        "timer.bLooping": "true"
+      }
+    },
+    {
+      "graph": "StopTether",
+      "nodes": {
+        "entry": { "entry": true },
+        "handle": { "get": "CheckTimer" },
+        "clear": { "call": "K2_ClearAndInvalidateTimerHandle", "class": "/Script/Engine.KismetSystemLibrary" }
+      },
+      "links": [
+        ["entry.then", "clear.execute"],
+        ["handle.CheckTimer", "clear.Handle"]
+      ],
+      "defaults": {}
+    },
+    {
+      "graph": "CheckRoad",
+      "nodes": {
+        "entry": { "entry": true },
+        "road": { "get": "Road" },
+        "roadValid": { "call": "IsValid", "class": "/Script/Engine.KismetSystemLibrary" },
+        "ifRoad": { "branch": true },
+        "disable": { "call": "StopTether" },
+        "owner": { "call": "GetOwner", "class": "/Script/Engine.ActorComponent" },
+        "castPC": { "cast": "/Game/SaskartaGaea/GameFlow/PC_Saskarta.PC_Saskarta_C" },
+        "pawn": { "call": "K2_GetPawn", "class": "/Script/Engine.Controller" },
+        "pawnValid": { "call": "IsValid", "class": "/Script/Engine.KismetSystemLibrary" },
+        "ifPawn": { "branch": true },
+        "pawnLocation": { "call": "K2_GetActorLocation", "class": "/Script/Engine.Actor" },
+        "closestKey": { "call": "FindInputKeyClosestToWorldLocation", "class": "/Script/Engine.SplineComponent" },
+        "roadPoint": { "call": "GetLocationAtSplineInputKey", "class": "/Script/Engine.SplineComponent" },
+        "distance": { "call": "Vector_Distance2D", "class": "/Script/Engine.KismetMathLibrary" },
+        "setLast": { "set": "LastDistance" },
+        "last": { "get": "LastDistance" },
+        "zone": { "get": "Zone" },
+        "warnDistance": { "get": "WarnDistance" },
+        "clearDistance": { "get": "ClearDistance" },
+        "breachDistance": { "get": "BreachDistance" },
+        "classify": { "call": "ClassifyTetherZone", "class": "/Game/SaskartaGaea/GameFlow/BFL_SaskartaRoad.BFL_SaskartaRoad_C" },
+        "same": { "call": "EqualEqual_NameName", "class": "/Script/Engine.KismetMathLibrary" },
+        "changed": { "call": "Not_PreBool", "class": "/Script/Engine.KismetMathLibrary" },
+        "ifChanged": { "branch": true },
+        "setZone": { "set": "Zone" },
+        "newZone": { "get": "Zone" },
+        "isBreach": { "call": "EqualEqual_NameName", "class": "/Script/Engine.KismetMathLibrary" },
+        "ifBreach": { "branch": true },
+        "stop": { "call": "StopTether" },
+        "setBreachLocation": { "set": "BreachLocation" },
+        "handleBreach": { "call": "HandleBreach", "class": "/Game/SaskartaGaea/GameFlow/PC_Saskarta.PC_Saskarta_C" },
+        "handleZone": { "call": "HandleZoneChanged", "class": "/Game/SaskartaGaea/GameFlow/PC_Saskarta.PC_Saskarta_C" }
+      },
+      "links": [
+        ["entry.then", "ifRoad.execute"],
+        ["road.Road", "roadValid.Object"],
+        ["roadValid.ReturnValue", "ifRoad.Condition"],
+        ["ifRoad.else", "disable.execute"],
+        ["ifRoad.then", "castPC.execute"],
+        ["owner.ReturnValue", "castPC.Object"],
+        ["castPC.CastFailed", "disable.execute"],
+        ["castPC.then", "ifPawn.execute"],
+        ["castPC.AsPC Saskarta", "pawn.self"],
+        ["pawn.ReturnValue", "pawnValid.Object"],
+        ["pawnValid.ReturnValue", "ifPawn.Condition"],
+        ["ifPawn.then", "setLast.execute"],
+        ["pawn.ReturnValue", "pawnLocation.self"],
+        ["road.Road", "closestKey.self"],
+        ["pawnLocation.ReturnValue", "closestKey.WorldLocation"],
+        ["road.Road", "roadPoint.self"],
+        ["closestKey.ReturnValue", "roadPoint.InKey"],
+        ["pawnLocation.ReturnValue", "distance.V1"],
+        ["roadPoint.ReturnValue", "distance.V2"],
+        ["distance.ReturnValue", "setLast.LastDistance"],
+        ["setLast.then", "ifChanged.execute"],
+        ["last.LastDistance", "classify.Distance"],
+        ["zone.Zone", "classify.CurrentZone"],
+        ["warnDistance.WarnDistance", "classify.WarnDistance"],
+        ["clearDistance.ClearDistance", "classify.ClearDistance"],
+        ["breachDistance.BreachDistance", "classify.BreachDistance"],
+        ["classify.NewZone", "same.A"],
+        ["zone.Zone", "same.B"],
+        ["same.ReturnValue", "changed.A"],
+        ["changed.ReturnValue", "ifChanged.Condition"],
+        ["ifChanged.then", "setZone.execute"],
+        ["classify.NewZone", "setZone.Zone"],
+        ["setZone.then", "ifBreach.execute"],
+        ["newZone.Zone", "isBreach.A"],
+        ["isBreach.ReturnValue", "ifBreach.Condition"],
+        ["ifBreach.then", "stop.execute"],
+        ["stop.then", "setBreachLocation.execute"],
+        ["pawnLocation.ReturnValue", "setBreachLocation.BreachLocation"],
+        ["setBreachLocation.then", "handleBreach.execute"],
+        ["castPC.AsPC Saskarta", "handleBreach.self"],
+        ["ifBreach.else", "handleZone.execute"],
+        ["castPC.AsPC Saskarta", "handleZone.self"],
+        ["newZone.Zone", "handleZone.NewZone"]
+      ],
+      "defaults": {
+        "roadPoint.CoordinateSpace": "World",
+        "isBreach.B": "Breach"
+      }
+    },
+    {
+      "graph": "ComputeRespawn",
+      "nodes": {
+        "entry": { "entry": true },
+        "result": { "result": true },
+        "road": { "get": "Road" },
+        "roadValid": { "call": "IsValid", "class": "/Script/Engine.KismetSystemLibrary" },
+        "ifRoad": { "branch": true },
+        "owner": { "call": "GetOwner", "class": "/Script/Engine.ActorComponent" },
+        "castPC": { "cast": "/Game/SaskartaGaea/GameFlow/PC_Saskarta.PC_Saskarta_C" },
+        "pawn": { "call": "K2_GetPawn", "class": "/Script/Engine.Controller" },
+        "capsuleComponent": { "call": "GetComponentByClass", "class": "/Script/Engine.Actor" },
+        "castCapsule": { "cast": "/Script/Engine.CapsuleComponent" },
+        "halfHeight": { "call": "GetScaledCapsuleHalfHeight", "class": "/Script/Engine.CapsuleComponent" },
+        "from": { "get": "BreachLocation" },
+        "sign": { "get": "TravelSign" },
+        "respawn": { "call": "ComputeRoadRespawn", "class": "/Game/SaskartaGaea/GameFlow/BFL_SaskartaRoad.BFL_SaskartaRoad_C" }
+      },
+      "links": [
+        ["entry.then", "ifRoad.execute"],
+        ["road.Road", "roadValid.Object"],
+        ["roadValid.ReturnValue", "ifRoad.Condition"],
+        ["ifRoad.then", "castPC.execute"],
+        ["ifRoad.else", "result.execute"],
+        ["owner.ReturnValue", "castPC.Object"],
+        ["castPC.then", "castCapsule.execute"],
+        ["castPC.CastFailed", "result.execute"],
+        ["castPC.AsPC Saskarta", "pawn.self"],
+        ["pawn.ReturnValue", "capsuleComponent.self"],
+        ["capsuleComponent.ReturnValue", "castCapsule.Object"],
+        ["castCapsule.then", "respawn.execute"],
+        ["castCapsule.CastFailed", "result.execute"],
+        ["castCapsule.AsCapsule Collision", "halfHeight.self"],
+        ["road.Road", "respawn.Road"],
+        ["from.BreachLocation", "respawn.From"],
+        ["halfHeight.ReturnValue", "respawn.CapsuleHalfHeight"],
+        ["sign.TravelSign", "respawn.TravelSign"],
+        ["entry.StepCm", "respawn.StepCm"],
+        ["respawn.then", "result.execute"],
+        ["respawn.Found", "result.Found"],
+        ["respawn.Location", "result.Location"],
+        ["respawn.Rotation", "result.Rotation"]
+      ],
+      "defaults": {
+        "capsuleComponent.ComponentClass": "/Script/Engine.CapsuleComponent"
+      }
+    },
+    {
+      "graph": "EventGraph",
+      "nodes": {
+        "beginPlay": { "event": "ReceiveBeginPlay" },
+        "findRoad": { "call": "FindRoad" }
+      },
+      "links": [
+        ["beginPlay.then", "findRoad.execute"]
+      ],
+      "defaults": {}
+    }
+  ]
+}

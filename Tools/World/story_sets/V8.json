@@ -1,0 +1,3641 @@
+{
+ "generated_by": "Tools/World/story_sets/v8_ledge.py",
+ "method": "docs/world/SETDRESS_V2.md",
+ "design": "docs/world/story_sets/V8.md",
+ "level": "/Game/level/Saskarta_WP",
+ "conventions": {
+  "xy": "world cm; yaw = UE yaw deg",
+  "bounds": "x_cm/y_cm is the mesh BOUNDS CENTRE",
+  "ground": "decal patches: DecalActor pitch -90, yaw, size (depth/2, width/2, length/2)",
+  "contact": "rigid | rest | lie | stack (SETDRESS_V2.md section 3)",
+  "site_uv": "u m along travel from road 4,476, v m left of travel"
+ },
+ "rejected": [],
+ "checks": [],
+ "sites": [
+  {
+   "id": "S24_Ledge",
+   "story_set": "V8",
+   "name": "Sleb Zdaw, the Ledge (V8)",
+   "kind": "rest seat",
+   "order": 3,
+   "road_m": 4476,
+   "side": "left",
+   "lateral_m": -9.0,
+   "centre_cm": [
+    320979.6,
+    440452.9,
+    9408.0
+   ],
+   "road_yaw": 90.0,
+   "radius_m": 18.0,
+   "zone": "Z6 Summit",
+   "storm": "above the cloud: clear, calm, gold light; bare wind-scoured rock; the fewest objects on the road",
+   "role": "rest",
+   "story": "B14 the look back (G14_LOOK_BACK over it); the Keeper stopped here once; then B15",
+   "decay": 1,
+   "style": "stone: a log bench behind two slabs laid level on the lip, held by a band of buried rock",
+   "layout": "  ==== road (4,466-4,488 m, climbing 14 %) ====   path leaves the road at 4,471\n     [log bench 3.5 m, along the contour]  shrubs in its lee\n  rock  [slab A x1.10][slab B x0.95, stepped out]  rock      <- the ledge, level, facing east\n        chinking stones at the downhill faces; the lantern fallen on slab A by the joint\n            keel rock          spill of stones down the fall line (rubble dust)\n   lower anchor rock + scree (down-road, downhill)            ... the valley, 3 km east ...",
+   "notes": "Story set V8 on the road site S24_Ledge. The V1 stand-ins (S24_Ledge_000..003) are removed by `clear`. The B14 trigger stays at 4,460; the set is centred 16 m up-road so the G14 hold frames it. Nothing religious, nothing modern; the lantern is never lit.",
+   "story_owned": [
+    "V8 the ledge (this file is the story set)"
+   ],
+   "verify_only": false,
+   "layer": "road",
+   "poi": null,
+   "load_box_cm": [
+    315280,
+    430186,
+    326630,
+    446053
+   ],
+   "counts": {
+    "placements": 56,
+    "actors": 19,
+    "ism_instances": 47,
+    "physics": 1,
+    "batch01": 0,
+    "decals": 5
+   },
+   "views": [
+    {
+     "name": "carrier_a",
+     "cam_cm": [
+      320489.6,
+      434986.3,
+      9040.9
+     ],
+     "look_cm": [
+      320939.6,
+      440442.9,
+      9484.5
+     ]
+    },
+    {
+     "name": "carrier_b",
+     "cam_cm": [
+      320079.6,
+      436852.9,
+      9537.9
+     ],
+     "look_cm": [
+      320939.6,
+      440442.9,
+      9484.5
+     ]
+    },
+    {
+     "name": "carrier_c",
+     "cam_cm": [
+      320079.6,
+      438452.9,
+      9732.8
+     ],
+     "look_cm": [
+      320939.6,
+      440442.9,
+      9484.5
+     ]
+    },
+    {
+     "name": "glance_hold",
+     "cam_cm": [
+      320079.6,
+      440352.9,
+      9814.6
+     ],
+     "look_cm": [
+      616580.0,
+      463550.0,
+      -35328.0
+     ]
+    },
+    {
+     "name": "glance_low",
+     "cam_cm": [
+      320079.6,
+      440352.9,
+      9814.6
+     ],
+     "look_cm": [
+      320939.6,
+      440442.9,
+      9484.5
+     ]
+    },
+    {
+     "name": "orbit_a",
+     "cam_cm": [
+      321379.6,
+      439552.9,
+      9355.1
+     ],
+     "look_cm": [
+      320939.6,
+      440442.9,
+      9484.5
+     ]
+    },
+    {
+     "name": "orbit_b",
+     "cam_cm": [
+      321479.6,
+      441252.9,
+      9634.6
+     ],
+     "look_cm": [
+      320939.6,
+      440442.9,
+      9484.5
+     ]
+    },
+    {
+     "name": "orbit_c",
+     "cam_cm": [
+      321829.6,
+      440502.9,
+      9183.3
+     ],
+     "look_cm": [
+      320939.6,
+      440442.9,
+      9484.5
+     ]
+    },
+    {
+     "name": "contact",
+     "cam_cm": [
+      321219.6,
+      440252.9,
+      9358.2
+     ],
+     "look_cm": [
+      320974.6,
+      440302.9,
+      9403.7
+     ]
+    },
+    {
+     "name": "high34",
+     "cam_cm": [
+      323079.6,
+      438652.9,
+      10510.9
+     ],
+     "look_cm": [
+      320939.6,
+      440442.9,
+      9484.5
+     ]
+    },
+    {
+     "name": "far300",
+     "cam_cm": [
+      349079.6,
+      434452.9,
+      -1076.6
+     ],
+     "look_cm": [
+      320939.6,
+      440442.9,
+      9484.5
+     ]
+    }
+   ],
+   "view_notes": {
+    "carrier_a": "approach, carrier eye (capture_look EYE 2.5 m) at road 4420 m",
+    "carrier_b": "approach, carrier eye (capture_look EYE 2.5 m) at road 4440 m",
+    "carrier_c": "approach, carrier eye (capture_look EYE 2.5 m) at road 4456 m",
+    "glance_hold": "G14 hold at road 4,475, eye 1.22 m, looking at ValleyEast (capture at 60 deg: the ledge is below it)",
+    "glance_low": "same eye, looking at the ledge (what the 90 deg hold frame holds low)",
+    "contact": "the downhill face of slab A: chinking, sink, spill",
+    "far300": "from the valley side, 300 m east"
+   },
+   "check_views": {
+    "cin24_wide": {
+     "cam_cm": [
+      365009.7,
+      348809.8,
+      13500.0
+     ],
+     "look_cm": [
+      298080.0,
+      483050.0,
+      13500.0
+     ],
+     "hfov_deg": 6.8,
+     "note": "CIN_24 shot 3 (probe_ending.json wide24, PROVISIONAL): not a capture view (it would widen the load box by 1 km); judge it with build_cinematics.py"
+    }
+   },
+   "placements": [
+    {
+     "id": "S24_Ledge_v8_000",
+     "key": "FAB_TempleStones",
+     "asset": "/Game/Fab/Megascans/3D/Ancient_Temple_Stones_tixjegefa/Medium/tixjegefa_tier_2/StaticMeshes/tixjegefa_tier_2",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 320917.3,
+     "y_cm": 440349.2,
+     "ground_z_cm": 9423.7,
+     "yaw": 67.7,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.1,
+     "scale_range": [
+      1.1,
+      1.1
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 3,
+      "max_tilt_deg": 0,
+      "rand_tilt_deg": 0,
+      "z_rule": "min",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "ledge",
+     "folder": "Set/S24_Ledge/ledge",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 25000.0,
+     "cast_shadow": true,
+     "size_m": [
+      2.123,
+      1.111,
+      0.759
+     ],
+     "slope_deg": 26.3,
+     "road_clear_m": 7.46,
+     "contact": "rigid",
+     "site_uv": [
+      -1.04,
+      8.38
+     ],
+     "role": "FOCAL: the ledge, slab A (the seat the lantern stood on)",
+     "story_set": "V8",
+     "block": "ledge",
+     "material_set": "stone"
+    },
+    {
+     "id": "S24_Ledge_v8_001",
+     "key": "FAB_TempleStones",
+     "asset": "/Game/Fab/Megascans/3D/Ancient_Temple_Stones_tixjegefa/Medium/tixjegefa_tier_2/StaticMeshes/tixjegefa_tier_2",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 320992.6,
+     "y_cm": 440546.6,
+     "ground_z_cm": 9409.9,
+     "yaw": 78.1,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.95,
+     "scale_range": [
+      0.95,
+      0.95
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 3,
+      "max_tilt_deg": 0,
+      "rand_tilt_deg": 0,
+      "z_rule": "min",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "ledge",
+     "folder": "Set/S24_Ledge/ledge",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 25000.0,
+     "cast_shadow": true,
+     "size_m": [
+      1.833,
+      0.959,
+      0.655
+     ],
+     "slope_deg": 22.8,
+     "road_clear_m": 8.47,
+     "contact": "rigid",
+     "site_uv": [
+      0.94,
+      9.13
+     ],
+     "role": "FOCAL: the ledge, slab B (stepped out 0.25 m)",
+     "story_set": "V8",
+     "block": "ledge",
+     "material_set": "stone"
+    },
+    {
+     "id": "S24_Ledge_v8_002",
+     "key": "PH_trunk",
+     "asset": "/Game/Pallbearer/PolyHaven/dead_tree_trunk/dead_tree_trunk_2k/StaticMeshes/dead_tree_trunk_2k",
+     "kind": "SM",
+     "cat": "wood",
+     "x_cm": 320838.1,
+     "y_cm": 440453.7,
+     "ground_z_cm": 9469.2,
+     "yaw": 77.4,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.15,
+     "scale_range": [
+      1.15,
+      1.15
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 6,
+      "max_tilt_deg": 25,
+      "rand_tilt_deg": 1,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "bench",
+     "folder": "Set/S24_Ledge/bench",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 25000.0,
+     "cast_shadow": true,
+     "size_m": [
+      3.519,
+      0.333,
+      0.345
+     ],
+     "slope_deg": 23.2,
+     "road_clear_m": 7.04,
+     "contact": "lie",
+     "site_uv": [
+      0.01,
+      7.59
+     ],
+     "role": "the bench (dead_tree_trunk_2k), behind the ledge",
+     "story_set": "V8",
+     "material_set": "wood"
+    },
+    {
+     "id": "S24_Ledge_v8_003",
+     "key": "PH_lantern",
+     "asset": "/Game/Pallbearer/PolyHaven/Lantern_01/Lantern_01_2k/StaticMeshes/Lantern_01",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 320946.0,
+     "y_cm": 440414.3,
+     "ground_z_cm": 9418.0,
+     "yaw": 13.9,
+     "pitch": 0.0,
+     "roll": 90.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "physics",
+      "sink_cm": 1,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 3,
+      "z_rule": "max",
+      "drop_cm": 20,
+      "z_offset_cm": 0
+     },
+     "group": "lantern",
+     "folder": "Set/S24_Ledge/lantern",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": true,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.12,
+      0.1,
+      0.3
+     ],
+     "slope_deg": 25.1,
+     "road_clear_m": 8.57,
+     "contact": "rest",
+     "site_uv": [
+      -0.39,
+      8.66
+     ],
+     "role": "the fallen, unlit lantern (never lit; no light, no emissive)",
+     "story_set": "V8"
+    },
+    {
+     "id": "S24_Ledge_v8_004",
+     "key": "PH_lantern_glass",
+     "asset": "/Game/Pallbearer/PolyHaven/Lantern_01/Lantern_01_2k/StaticMeshes/Lantern_01_glass",
+     "kind": "SM",
+     "cat": "prop",
+     "x_cm": 320946.0,
+     "y_cm": 440414.3,
+     "ground_z_cm": 9418.0,
+     "yaw": 13.9,
+     "pitch": 0.0,
+     "roll": 90.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "none",
+      "sink_cm": 6,
+      "max_tilt_deg": 0,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "lantern",
+     "folder": "Set/S24_Ledge/lantern",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": true,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.07,
+      0.07,
+      0.07
+     ],
+     "slope_deg": 25.1,
+     "road_clear_m": 8.62,
+     "contact": "rest",
+     "site_uv": [
+      -0.39,
+      8.66
+     ],
+     "role": "its glass, sharing the lantern pivot",
+     "story_set": "V8"
+    },
+    {
+     "id": "S24_Ledge_v8_005",
+     "key": "LF_Rock_05",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_05",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 320890.2,
+     "y_cm": 440117.6,
+     "ground_z_cm": 9370.1,
+     "yaw": 145.9,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.72,
+     "scale_range": [
+      0.72,
+      0.72
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 35,
+      "max_tilt_deg": 25,
+      "rand_tilt_deg": 6,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "rocks",
+     "folder": "Set/S24_Ledge/rocks",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 25000.0,
+     "cast_shadow": true,
+     "size_m": [
+      1.282,
+      1.591,
+      0.929
+     ],
+     "slope_deg": 27.6,
+     "road_clear_m": 7.13,
+     "contact": "lie",
+     "site_uv": [
+      -3.35,
+      8.11
+     ],
+     "role": "rock band: holds the down-road end of the ledge",
+     "story_set": "V8",
+     "block": "rockband",
+     "material_set": "stone"
+    },
+    {
+     "id": "S24_Ledge_v8_006",
+     "key": "LF_Rock_03",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_03",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 321068.3,
+     "y_cm": 440704.6,
+     "ground_z_cm": 9394.8,
+     "yaw": 83.9,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.62,
+     "scale_range": [
+      0.62,
+      0.62
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 29,
+      "max_tilt_deg": 25,
+      "rand_tilt_deg": 6,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "rocks",
+     "folder": "Set/S24_Ledge/rocks",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 25000.0,
+     "cast_shadow": true,
+     "size_m": [
+      1.054,
+      1.55,
+      0.769
+     ],
+     "slope_deg": 22.8,
+     "road_clear_m": 9.06,
+     "contact": "lie",
+     "site_uv": [
+      2.52,
+      9.89
+     ],
+     "role": "rock band: holds the up-road end of the ledge",
+     "story_set": "V8",
+     "block": "rockband",
+     "material_set": "stone"
+    },
+    {
+     "id": "S24_Ledge_v8_007",
+     "key": "LF_Rock_02",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_02",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 321145.2,
+     "y_cm": 440433.4,
+     "ground_z_cm": 9328.0,
+     "yaw": 60.9,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.48,
+     "scale_range": [
+      0.48,
+      0.48
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 29,
+      "max_tilt_deg": 25,
+      "rand_tilt_deg": 6,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "rocks",
+     "folder": "Set/S24_Ledge/rocks",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.83,
+      1.373,
+      0.763
+     ],
+     "slope_deg": 28.3,
+     "road_clear_m": 9.85,
+     "contact": "lie",
+     "site_uv": [
+      -0.2,
+      10.66
+     ],
+     "role": "rock band: the keel: a low rock under the joint",
+     "story_set": "V8",
+     "block": "rockband",
+     "material_set": "stone"
+    },
+    {
+     "id": "S24_Ledge_v8_008",
+     "key": "LF_Rock_04",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_04",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 321152.9,
+     "y_cm": 439931.5,
+     "ground_z_cm": 9209.8,
+     "yaw": 100.9,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.7,
+     "scale_range": [
+      0.7,
+      0.7
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 39,
+      "max_tilt_deg": 25,
+      "rand_tilt_deg": 6,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "rocks",
+     "folder": "Set/S24_Ledge/rocks",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 25000.0,
+     "cast_shadow": true,
+     "size_m": [
+      1.638,
+      1.743,
+      1.022
+     ],
+     "slope_deg": 27.1,
+     "road_clear_m": 9.72,
+     "contact": "lie",
+     "site_uv": [
+      -5.21,
+      10.73
+     ],
+     "role": "rock band: the lower anchor, down-road and downhill",
+     "story_set": "V8",
+     "block": "rockband",
+     "material_set": "stone"
+    },
+    {
+     "id": "S24_Ledge_v8_009",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 320951.5,
+     "y_cm": 440249.1,
+     "ground_z_cm": 9380.5,
+     "yaw": 253.7,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.688,
+     "scale_range": [
+      0.688,
+      0.688
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 7,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S24_Ledge/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.316,
+      0.31,
+      0.193
+     ],
+     "slope_deg": 28.5,
+     "road_clear_m": 8.53,
+     "contact": "lie",
+     "site_uv": [
+      -2.04,
+      8.72
+     ],
+     "role": "chinking under the downhill face",
+     "story_set": "V8",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "S24_Ledge_v8_010",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 320979.8,
+     "y_cm": 440289.1,
+     "ground_z_cm": 9377.5,
+     "yaw": 182.3,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.893,
+     "scale_range": [
+      0.893,
+      0.893
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 10,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S24_Ledge/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.411,
+      0.402,
+      0.25
+     ],
+     "slope_deg": 28.0,
+     "road_clear_m": 8.79,
+     "contact": "lie",
+     "site_uv": [
+      -1.64,
+      9.0
+     ],
+     "role": "chinking under the downhill face",
+     "story_set": "V8",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "S24_Ledge_v8_011",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 320992.7,
+     "y_cm": 440341.2,
+     "ground_z_cm": 9385.3,
+     "yaw": 163.1,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.788,
+     "scale_range": [
+      0.788,
+      0.788
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 8,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S24_Ledge/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.362,
+      0.354,
+      0.221
+     ],
+     "slope_deg": 27.5,
+     "road_clear_m": 8.91,
+     "contact": "lie",
+     "site_uv": [
+      -1.12,
+      9.13
+     ],
+     "role": "chinking under the downhill face",
+     "story_set": "V8",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "S24_Ledge_v8_012",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 321018.4,
+     "y_cm": 440388.0,
+     "ground_z_cm": 9381.2,
+     "yaw": 145.0,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.919,
+     "scale_range": [
+      0.919,
+      0.919
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 10,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S24_Ledge/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.423,
+      0.414,
+      0.257
+     ],
+     "slope_deg": 26.6,
+     "road_clear_m": 9.1,
+     "contact": "lie",
+     "site_uv": [
+      -0.65,
+      9.39
+     ],
+     "role": "chinking under the downhill face",
+     "story_set": "V8",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "S24_Ledge_v8_013",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 321045.4,
+     "y_cm": 440451.9,
+     "ground_z_cm": 9378.2,
+     "yaw": 187.3,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.86,
+     "scale_range": [
+      0.86,
+      0.86
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 9,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S24_Ledge/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.396,
+      0.387,
+      0.241
+     ],
+     "slope_deg": 25.5,
+     "road_clear_m": 9.44,
+     "contact": "lie",
+     "site_uv": [
+      -0.01,
+      9.66
+     ],
+     "role": "chinking under the downhill face",
+     "story_set": "V8",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "S24_Ledge_v8_014",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 321054.8,
+     "y_cm": 440497.2,
+     "ground_z_cm": 9378.6,
+     "yaw": 238.7,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.868,
+     "scale_range": [
+      0.868,
+      0.868
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 9,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S24_Ledge/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.399,
+      0.391,
+      0.243
+     ],
+     "slope_deg": 24.7,
+     "road_clear_m": 9.48,
+     "contact": "lie",
+     "site_uv": [
+      0.44,
+      9.75
+     ],
+     "role": "chinking under the downhill face",
+     "story_set": "V8",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "S24_Ledge_v8_015",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 321063.6,
+     "y_cm": 440554.5,
+     "ground_z_cm": 9380.7,
+     "yaw": 298.6,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.766,
+     "scale_range": [
+      0.766,
+      0.766
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 8,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S24_Ledge/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.352,
+      0.345,
+      0.214
+     ],
+     "slope_deg": 23.7,
+     "road_clear_m": 9.6,
+     "contact": "lie",
+     "site_uv": [
+      1.02,
+      9.84
+     ],
+     "role": "chinking under the downhill face",
+     "story_set": "V8",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "S24_Ledge_v8_016",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 321069.8,
+     "y_cm": 440595.9,
+     "ground_z_cm": 9382.5,
+     "yaw": 248.9,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.752,
+     "scale_range": [
+      0.752,
+      0.752
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 8,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S24_Ledge/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.346,
+      0.338,
+      0.21
+     ],
+     "slope_deg": 23.4,
+     "road_clear_m": 9.68,
+     "contact": "lie",
+     "site_uv": [
+      1.43,
+      9.9
+     ],
+     "role": "chinking under the downhill face",
+     "story_set": "V8",
+     "block": "base",
+     "material_set": "stone"
+    },
+    {
+     "id": "S24_Ledge_v8_017",
+     "key": "LF_Rock_07",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_07",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 321144.8,
+     "y_cm": 440312.7,
+     "ground_z_cm": 9304.9,
+     "yaw": 194.3,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.103,
+     "scale_range": [
+      1.103,
+      1.103
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 4,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S24_Ledge/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.298,
+      0.342,
+      0.121
+     ],
+     "slope_deg": 29.8,
+     "road_clear_m": 10.47,
+     "contact": "lie",
+     "site_uv": [
+      -1.4,
+      10.65
+     ],
+     "role": "the spill down the fall line",
+     "story_set": "V8",
+     "block": "fan",
+     "material_set": "stone"
+    },
+    {
+     "id": "S24_Ledge_v8_018",
+     "key": "AB_Cobble_04",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_04",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 321117.8,
+     "y_cm": 440339.1,
+     "ground_z_cm": 9325.0,
+     "yaw": 317.1,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.164,
+     "scale_range": [
+      1.164,
+      1.164
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S24_Ledge/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.326,
+      0.361,
+      0.14
+     ],
+     "slope_deg": 28.9,
+     "road_clear_m": 10.14,
+     "contact": "lie",
+     "site_uv": [
+      -1.14,
+      10.38
+     ],
+     "role": "the spill down the fall line",
+     "story_set": "V8",
+     "block": "fan",
+     "material_set": "stone"
+    },
+    {
+     "id": "S24_Ledge_v8_019",
+     "key": "LF_Rock_07",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_07",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 321076.5,
+     "y_cm": 440383.0,
+     "ground_z_cm": 9353.4,
+     "yaw": 216.5,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.879,
+     "scale_range": [
+      0.879,
+      0.879
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 3,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S24_Ledge/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.237,
+      0.273,
+      0.097
+     ],
+     "slope_deg": 27.1,
+     "road_clear_m": 9.79,
+     "contact": "lie",
+     "site_uv": [
+      -0.7,
+      9.97
+     ],
+     "role": "the spill down the fall line",
+     "story_set": "V8",
+     "block": "fan",
+     "material_set": "stone"
+    },
+    {
+     "id": "S24_Ledge_v8_020",
+     "key": "AB_Cobble_04",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_04",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 321029.1,
+     "y_cm": 440274.3,
+     "ground_z_cm": 9351.0,
+     "yaw": 71.2,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.052,
+     "scale_range": [
+      1.052,
+      1.052
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 4,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S24_Ledge/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.295,
+      0.326,
+      0.126
+     ],
+     "slope_deg": 28.2,
+     "road_clear_m": 9.29,
+     "contact": "lie",
+     "site_uv": [
+      -1.79,
+      9.5
+     ],
+     "role": "the spill down the fall line",
+     "story_set": "V8",
+     "block": "fan",
+     "material_set": "stone"
+    },
+    {
+     "id": "S24_Ledge_v8_021",
+     "key": "LF_Rock_07",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_07",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 321091.1,
+     "y_cm": 440356.5,
+     "ground_z_cm": 9342.2,
+     "yaw": 308.4,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.204,
+     "scale_range": [
+      1.204,
+      1.204
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S24_Ledge/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.325,
+      0.373,
+      0.132
+     ],
+     "slope_deg": 27.9,
+     "road_clear_m": 9.87,
+     "contact": "lie",
+     "site_uv": [
+      -0.96,
+      10.11
+     ],
+     "role": "the spill down the fall line",
+     "story_set": "V8",
+     "block": "fan",
+     "material_set": "stone"
+    },
+    {
+     "id": "S24_Ledge_v8_022",
+     "key": "LF_Rock_07",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_07",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 321019.0,
+     "y_cm": 440189.3,
+     "ground_z_cm": 9332.6,
+     "yaw": 79.1,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.948,
+     "scale_range": [
+      0.948,
+      0.948
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 4,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S24_Ledge/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.256,
+      0.294,
+      0.104
+     ],
+     "slope_deg": 27.7,
+     "road_clear_m": 9.23,
+     "contact": "lie",
+     "site_uv": [
+      -2.64,
+      9.39
+     ],
+     "role": "the spill down the fall line",
+     "story_set": "V8",
+     "block": "fan",
+     "material_set": "stone"
+    },
+    {
+     "id": "S24_Ledge_v8_023",
+     "key": "AB_Cobble_04",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_04",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 321026.9,
+     "y_cm": 440343.1,
+     "ground_z_cm": 9369.8,
+     "yaw": 142.7,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.888,
+     "scale_range": [
+      0.888,
+      0.888
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 4,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S24_Ledge/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.249,
+      0.275,
+      0.107
+     ],
+     "slope_deg": 27.6,
+     "road_clear_m": 9.29,
+     "contact": "lie",
+     "site_uv": [
+      -1.1,
+      9.47
+     ],
+     "role": "the spill down the fall line",
+     "story_set": "V8",
+     "block": "fan",
+     "material_set": "stone"
+    },
+    {
+     "id": "S24_Ledge_v8_024",
+     "key": "LF_Rock_07",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_07",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 321204.1,
+     "y_cm": 440645.0,
+     "ground_z_cm": 9329.6,
+     "yaw": 57.8,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.287,
+     "scale_range": [
+      1.287,
+      1.287
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S24_Ledge/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.347,
+      0.399,
+      0.142
+     ],
+     "slope_deg": 25.8,
+     "road_clear_m": 10.98,
+     "contact": "lie",
+     "site_uv": [
+      1.92,
+      11.24
+     ],
+     "role": "the spill down the fall line",
+     "story_set": "V8",
+     "block": "fan",
+     "material_set": "stone"
+    },
+    {
+     "id": "S24_Ledge_v8_025",
+     "key": "LF_Rock_07",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_07",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 321239.2,
+     "y_cm": 440596.3,
+     "ground_z_cm": 9304.6,
+     "yaw": 325.8,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.085,
+     "scale_range": [
+      1.085,
+      1.085
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 4,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S24_Ledge/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.293,
+      0.336,
+      0.119
+     ],
+     "slope_deg": 27.9,
+     "road_clear_m": 11.38,
+     "contact": "lie",
+     "site_uv": [
+      1.43,
+      11.6
+     ],
+     "role": "the spill down the fall line",
+     "story_set": "V8",
+     "block": "fan",
+     "material_set": "stone"
+    },
+    {
+     "id": "S24_Ledge_v8_026",
+     "key": "LF_Rock_07",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_07",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 321149.4,
+     "y_cm": 440585.8,
+     "ground_z_cm": 9347.2,
+     "yaw": 103.9,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.094,
+     "scale_range": [
+      1.094,
+      1.094
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 4,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S24_Ledge/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.295,
+      0.339,
+      0.12
+     ],
+     "slope_deg": 25.6,
+     "road_clear_m": 10.5,
+     "contact": "lie",
+     "site_uv": [
+      1.33,
+      10.7
+     ],
+     "role": "the spill down the fall line",
+     "story_set": "V8",
+     "block": "fan",
+     "material_set": "stone"
+    },
+    {
+     "id": "S24_Ledge_v8_027",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 321071.3,
+     "y_cm": 440522.8,
+     "ground_z_cm": 9374.0,
+     "yaw": 337.1,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.546,
+     "scale_range": [
+      0.546,
+      0.546
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S24_Ledge/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.251,
+      0.246,
+      0.153
+     ],
+     "slope_deg": 24.4,
+     "road_clear_m": 9.75,
+     "contact": "lie",
+     "site_uv": [
+      0.7,
+      9.92
+     ],
+     "role": "the spill down the fall line",
+     "story_set": "V8",
+     "block": "fan",
+     "material_set": "stone"
+    },
+    {
+     "id": "S24_Ledge_v8_028",
+     "key": "LF_Rock_07",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_07",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 321094.1,
+     "y_cm": 440539.5,
+     "ground_z_cm": 9365.9,
+     "yaw": 50.5,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.808,
+     "scale_range": [
+      0.808,
+      0.808
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 3,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S24_Ledge/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.218,
+      0.251,
+      0.089
+     ],
+     "slope_deg": 24.6,
+     "road_clear_m": 9.98,
+     "contact": "lie",
+     "site_uv": [
+      0.87,
+      10.15
+     ],
+     "role": "the spill down the fall line",
+     "story_set": "V8",
+     "block": "fan",
+     "material_set": "stone"
+    },
+    {
+     "id": "S24_Ledge_v8_029",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 321175.3,
+     "y_cm": 440563.7,
+     "ground_z_cm": 9333.3,
+     "yaw": 131.8,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.598,
+     "scale_range": [
+      0.598,
+      0.598
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 6,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S24_Ledge/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.275,
+      0.269,
+      0.167
+     ],
+     "slope_deg": 26.7,
+     "road_clear_m": 10.76,
+     "contact": "lie",
+     "site_uv": [
+      1.11,
+      10.96
+     ],
+     "role": "the spill down the fall line",
+     "story_set": "V8",
+     "block": "fan",
+     "material_set": "stone"
+    },
+    {
+     "id": "S24_Ledge_v8_030",
+     "key": "LF_Rock_07",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_07",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 321034.8,
+     "y_cm": 440109.2,
+     "ground_z_cm": 9304.7,
+     "yaw": 11.9,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.125,
+     "scale_range": [
+      1.125,
+      1.125
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 4,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S24_Ledge/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.304,
+      0.349,
+      0.124
+     ],
+     "slope_deg": 26.9,
+     "road_clear_m": 9.37,
+     "contact": "lie",
+     "site_uv": [
+      -3.44,
+      9.55
+     ],
+     "role": "scree under the rock band",
+     "story_set": "V8",
+     "block": "fan",
+     "material_set": "stone"
+    },
+    {
+     "id": "S24_Ledge_v8_031",
+     "key": "LF_Rock_07",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_07",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 321069.9,
+     "y_cm": 440147.5,
+     "ground_z_cm": 9298.9,
+     "yaw": 349.2,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.707,
+     "scale_range": [
+      0.707,
+      0.707
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 3,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S24_Ledge/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.191,
+      0.219,
+      0.078
+     ],
+     "slope_deg": 27.2,
+     "road_clear_m": 9.79,
+     "contact": "lie",
+     "site_uv": [
+      -3.05,
+      9.9
+     ],
+     "role": "scree under the rock band",
+     "story_set": "V8",
+     "block": "fan",
+     "material_set": "stone"
+    },
+    {
+     "id": "S24_Ledge_v8_032",
+     "key": "LF_Rock_07",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_07",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 320989.2,
+     "y_cm": 440089.6,
+     "ground_z_cm": 9319.8,
+     "yaw": 170.3,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.898,
+     "scale_range": [
+      0.898,
+      0.898
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 3,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S24_Ledge/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.243,
+      0.278,
+      0.099
+     ],
+     "slope_deg": 26.7,
+     "road_clear_m": 8.95,
+     "contact": "lie",
+     "site_uv": [
+      -3.63,
+      9.1
+     ],
+     "role": "scree under the rock band",
+     "story_set": "V8",
+     "block": "fan",
+     "material_set": "stone"
+    },
+    {
+     "id": "S24_Ledge_v8_033",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 321275.0,
+     "y_cm": 439869.6,
+     "ground_z_cm": 9140.7,
+     "yaw": 259.0,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.989,
+     "scale_range": [
+      0.989,
+      0.989
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 10,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S24_Ledge/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.455,
+      0.445,
+      0.277
+     ],
+     "slope_deg": 26.5,
+     "road_clear_m": 11.69,
+     "contact": "lie",
+     "site_uv": [
+      -5.83,
+      11.95
+     ],
+     "role": "scree under the rock band",
+     "story_set": "V8",
+     "block": "fan",
+     "material_set": "stone"
+    },
+    {
+     "id": "S24_Ledge_v8_034",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 321279.6,
+     "y_cm": 439946.6,
+     "ground_z_cm": 9155.5,
+     "yaw": 293.9,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.938,
+     "scale_range": [
+      0.938,
+      0.938
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 9,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S24_Ledge/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.432,
+      0.422,
+      0.263
+     ],
+     "slope_deg": 27.6,
+     "road_clear_m": 11.72,
+     "contact": "lie",
+     "site_uv": [
+      -5.06,
+      12.0
+     ],
+     "role": "scree under the rock band",
+     "story_set": "V8",
+     "block": "fan",
+     "material_set": "stone"
+    },
+    {
+     "id": "S24_Ledge_v8_035",
+     "key": "LF_Rock_07",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_07",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 321259.1,
+     "y_cm": 439918.4,
+     "ground_z_cm": 9158.6,
+     "yaw": 38.9,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.868,
+     "scale_range": [
+      0.868,
+      0.868
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 3,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S24_Ledge/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.234,
+      0.269,
+      0.095
+     ],
+     "slope_deg": 27.2,
+     "road_clear_m": 11.62,
+     "contact": "lie",
+     "site_uv": [
+      -5.35,
+      11.79
+     ],
+     "role": "scree under the rock band",
+     "story_set": "V8",
+     "block": "fan",
+     "material_set": "stone"
+    },
+    {
+     "id": "S24_Ledge_v8_036",
+     "key": "LF_Rock_07",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_07",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 321322.1,
+     "y_cm": 439940.8,
+     "ground_z_cm": 9133.0,
+     "yaw": 298.5,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.993,
+     "scale_range": [
+      0.993,
+      0.993
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 4,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S24_Ledge/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.268,
+      0.308,
+      0.109
+     ],
+     "slope_deg": 28.2,
+     "road_clear_m": 12.23,
+     "contact": "lie",
+     "site_uv": [
+      -5.12,
+      12.43
+     ],
+     "role": "scree under the rock band",
+     "story_set": "V8",
+     "block": "fan",
+     "material_set": "stone"
+    },
+    {
+     "id": "S24_Ledge_v8_037",
+     "key": "FAB_Shrub_D",
+     "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarD",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 320908.4,
+     "y_cm": 440477.8,
+     "ground_z_cm": 9440.2,
+     "yaw": 190.0,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.85,
+     "scale_range": [
+      0.85,
+      0.85
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/S24_Ledge/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.357,
+      0.34,
+      0.281
+     ],
+     "slope_deg": 23.4,
+     "road_clear_m": 8.08,
+     "contact": "lie",
+     "site_uv": [
+      0.25,
+      8.29
+     ],
+     "role": "dead shrub from the slab joint",
+     "story_set": "V8",
+     "block": "creep"
+    },
+    {
+     "id": "S24_Ledge_v8_038",
+     "key": "FAB_Shrub_G",
+     "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarG",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 320866.1,
+     "y_cm": 440662.8,
+     "ground_z_cm": 9467.6,
+     "yaw": 352.3,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.8,
+     "scale_range": [
+      0.8,
+      0.8
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/S24_Ledge/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.928,
+      0.824,
+      0.528
+     ],
+     "slope_deg": 21.5,
+     "road_clear_m": 7.35,
+     "contact": "lie",
+     "site_uv": [
+      2.1,
+      7.86
+     ],
+     "role": "dead shrub at the up-road end of the log",
+     "story_set": "V8",
+     "block": "creep"
+    },
+    {
+     "id": "S24_Ledge_v8_039",
+     "key": "FAB_Shrub_C",
+     "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarC",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 320966.0,
+     "y_cm": 440753.0,
+     "ground_z_cm": 9439.5,
+     "yaw": 269.6,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.9,
+     "scale_range": [
+      0.9,
+      0.9
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/S24_Ledge/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.738,
+      0.657,
+      0.405
+     ],
+     "slope_deg": 21.0,
+     "road_clear_m": 8.53,
+     "contact": "lie",
+     "site_uv": [
+      3.0,
+      8.86
+     ],
+     "role": "dead shrub uphill of the up-road rock",
+     "story_set": "V8",
+     "block": "creep"
+    },
+    {
+     "id": "S24_Ledge_v8_040",
+     "key": "FAB_Shrub_D",
+     "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarD",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 321236.8,
+     "y_cm": 440404.7,
+     "ground_z_cm": 9272.4,
+     "yaw": 216.1,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.2,
+     "scale_range": [
+      1.2,
+      1.2
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/S24_Ledge/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.504,
+      0.48,
+      0.396
+     ],
+     "slope_deg": 31.8,
+     "road_clear_m": 11.23,
+     "contact": "lie",
+     "site_uv": [
+      -0.48,
+      11.57
+     ],
+     "role": "dead shrub below the keel rock",
+     "story_set": "V8",
+     "block": "creep"
+    },
+    {
+     "id": "S24_Ledge_v8_041",
+     "key": "FAB_Shrub_C",
+     "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarC",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 321038.7,
+     "y_cm": 440031.4,
+     "ground_z_cm": 9284.1,
+     "yaw": 294.9,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.1,
+     "scale_range": [
+      1.1,
+      1.1
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/S24_Ledge/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.902,
+      0.803,
+      0.495
+     ],
+     "slope_deg": 26.5,
+     "road_clear_m": 9.04,
+     "contact": "lie",
+     "site_uv": [
+      -4.22,
+      9.59
+     ],
+     "role": "dead shrub uphill of the lower anchor",
+     "story_set": "V8",
+     "block": "creep"
+    },
+    {
+     "id": "S24_Ledge_v8_042",
+     "key": "FAB_Shrub_D",
+     "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarD",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 321171.6,
+     "y_cm": 440747.1,
+     "ground_z_cm": 9356.2,
+     "yaw": 204.8,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.9,
+     "scale_range": [
+      0.9,
+      0.9
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/S24_Ledge/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.378,
+      0.36,
+      0.297
+     ],
+     "slope_deg": 24.4,
+     "road_clear_m": 10.67,
+     "contact": "lie",
+     "site_uv": [
+      2.94,
+      10.92
+     ],
+     "role": "dead shrub at the foot of the up-road rock",
+     "story_set": "V8",
+     "block": "creep"
+    },
+    {
+     "id": "S24_Ledge_v8_043",
+     "key": "MV_Grass_V2_01",
+     "asset": "/Game/MedievalVillage/Demo/StaticMesh/Grass/SM_Grass_V2_01",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 320935.0,
+     "y_cm": 440615.2,
+     "ground_z_cm": 9438.3,
+     "yaw": 116.7,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.001,
+     "scale_range": [
+      1.001,
+      1.001
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 4,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/S24_Ledge/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.36,
+      0.47,
+      0.54
+     ],
+     "slope_deg": 21.8,
+     "road_clear_m": 8.26,
+     "contact": "lie",
+     "site_uv": [
+      1.62,
+      8.55
+     ],
+     "role": "dry tuft against slab B, past the log end",
+     "story_set": "V8",
+     "block": "creep",
+     "material": "/Game/SaskartaGaea/Foliage/Materials/MI_Saskarta_DryTuft_Ochre"
+    },
+    {
+     "id": "S24_Ledge_v8_044",
+     "key": "MV_Grass_V1_02",
+     "asset": "/Game/MedievalVillage/Demo/StaticMesh/Grass/SM_Grass_V1_02",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 320944.8,
+     "y_cm": 440660.1,
+     "ground_z_cm": 9438.4,
+     "yaw": 187.1,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.954,
+     "scale_range": [
+      0.954,
+      0.954
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 4,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/S24_Ledge/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.429,
+      0.648,
+      0.42
+     ],
+     "slope_deg": 21.4,
+     "road_clear_m": 8.4,
+     "contact": "lie",
+     "site_uv": [
+      2.07,
+      8.65
+     ],
+     "role": "dry tuft against slab B, by the up-road rock",
+     "story_set": "V8",
+     "block": "creep",
+     "material": "/Game/SaskartaGaea/Foliage/Materials/MI_Saskarta_DryTuft_Straw"
+    },
+    {
+     "id": "S24_Ledge_v8_045",
+     "key": "MV_Grass_V5_05",
+     "asset": "/Game/MedievalVillage/Demo/StaticMesh/Grass/SM_Grass_V5_05",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 320977.9,
+     "y_cm": 440450.9,
+     "ground_z_cm": 9408.6,
+     "yaw": 104.2,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.878,
+     "scale_range": [
+      0.878,
+      0.878
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 4,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/S24_Ledge/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.114,
+      0.132,
+      0.351
+     ],
+     "slope_deg": 24.6,
+     "road_clear_m": 8.9,
+     "contact": "lie",
+     "site_uv": [
+      -0.02,
+      8.98
+     ],
+     "role": "dry tuft from the mouth of the slab joint",
+     "story_set": "V8",
+     "block": "creep",
+     "material": "/Game/SaskartaGaea/Foliage/Materials/MI_Saskarta_DryTuft_Rust"
+    },
+    {
+     "id": "S24_Ledge_v8_046",
+     "key": "MV_Grass_V1_02",
+     "asset": "/Game/MedievalVillage/Demo/StaticMesh/Grass/SM_Grass_V1_02",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 321058.6,
+     "y_cm": 440296.1,
+     "ground_z_cm": 9343.1,
+     "yaw": 28.8,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.919,
+     "scale_range": [
+      0.919,
+      0.919
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 4,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/S24_Ledge/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.413,
+      0.625,
+      0.404
+     ],
+     "slope_deg": 28.1,
+     "road_clear_m": 9.46,
+     "contact": "lie",
+     "site_uv": [
+      -1.57,
+      9.79
+     ],
+     "role": "dry tuft in the old spill below slab A",
+     "story_set": "V8",
+     "block": "creep",
+     "material": "/Game/SaskartaGaea/Foliage/Materials/MI_Saskarta_DryTuft_Straw"
+    },
+    {
+     "id": "S24_Ledge_v8_047",
+     "key": "MV_Grass_V2_01",
+     "asset": "/Game/MedievalVillage/Demo/StaticMesh/Grass/SM_Grass_V2_01",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 321092.8,
+     "y_cm": 440314.3,
+     "ground_z_cm": 9331.4,
+     "yaw": 326.5,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.928,
+     "scale_range": [
+      0.928,
+      0.928
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 4,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/S24_Ledge/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.334,
+      0.436,
+      0.501
+     ],
+     "slope_deg": 28.3,
+     "road_clear_m": 9.87,
+     "contact": "lie",
+     "site_uv": [
+      -1.39,
+      10.13
+     ],
+     "role": "dry tuft in the old spill below slab A",
+     "story_set": "V8",
+     "block": "creep",
+     "material": "/Game/SaskartaGaea/Foliage/Materials/MI_Saskarta_DryTuft_Ochre"
+    },
+    {
+     "id": "S24_Ledge_v8_048",
+     "key": "MV_Grass_V5_05",
+     "asset": "/Game/MedievalVillage/Demo/StaticMesh/Grass/SM_Grass_V5_05",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 321112.0,
+     "y_cm": 440529.9,
+     "ground_z_cm": 9356.8,
+     "yaw": 227.6,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.961,
+     "scale_range": [
+      0.961,
+      0.961
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 4,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/S24_Ledge/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.125,
+      0.144,
+      0.384
+     ],
+     "slope_deg": 25.4,
+     "road_clear_m": 10.23,
+     "contact": "lie",
+     "site_uv": [
+      0.77,
+      10.32
+     ],
+     "role": "dry tuft in the old spill below slab B",
+     "story_set": "V8",
+     "block": "creep",
+     "material": "/Game/SaskartaGaea/Foliage/Materials/MI_Saskarta_DryTuft_Rust"
+    },
+    {
+     "id": "S24_Ledge_v8_049",
+     "key": "MV_Grass_V2_03",
+     "asset": "/Game/MedievalVillage/Demo/StaticMesh/Grass/SM_Grass_V2_03",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 320812.9,
+     "y_cm": 440557.2,
+     "ground_z_cm": 9483.2,
+     "yaw": 151.0,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.832,
+     "scale_range": [
+      0.832,
+      0.832
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 4,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/S24_Ledge/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.507,
+      0.499,
+      0.441
+     ],
+     "slope_deg": 22.9,
+     "road_clear_m": 6.99,
+     "contact": "lie",
+     "site_uv": [
+      1.04,
+      7.33
+     ],
+     "role": "dry tuft behind the log (nobody walks there)",
+     "story_set": "V8",
+     "block": "creep",
+     "material": "/Game/SaskartaGaea/Foliage/Materials/MI_Saskarta_DryTuft_Olive"
+    },
+    {
+     "id": "S24_Ledge_v8_050",
+     "key": "MV_Grass_V5_05",
+     "asset": "/Game/MedievalVillage/Demo/StaticMesh/Grass/SM_Grass_V5_05",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 320829.9,
+     "y_cm": 440596.5,
+     "ground_z_cm": 9478.2,
+     "yaw": 290.4,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.098,
+     "scale_range": [
+      1.098,
+      1.098
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 4,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/S24_Ledge/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.143,
+      0.165,
+      0.439
+     ],
+     "slope_deg": 22.5,
+     "road_clear_m": 7.4,
+     "contact": "lie",
+     "site_uv": [
+      1.44,
+      7.5
+     ],
+     "role": "dry tuft behind the log, with the olive tuft",
+     "story_set": "V8",
+     "block": "creep",
+     "material": "/Game/SaskartaGaea/Foliage/Materials/MI_Saskarta_DryTuft_Rust"
+    },
+    {
+     "id": "S24_Ledge_v8_051",
+     "key": "MV_Grass_V2_01",
+     "asset": "/Game/MedievalVillage/Demo/StaticMesh/Grass/SM_Grass_V2_01",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 321146.6,
+     "y_cm": 440633.1,
+     "ground_z_cm": 9354.1,
+     "yaw": 115.5,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.096,
+     "scale_range": [
+      1.096,
+      1.096
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 4,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/S24_Ledge/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.395,
+      0.515,
+      0.592
+     ],
+     "slope_deg": 24.7,
+     "road_clear_m": 10.35,
+     "contact": "lie",
+     "site_uv": [
+      1.8,
+      10.67
+     ],
+     "role": "dry tuft at the downhill foot of the up-road rock",
+     "story_set": "V8",
+     "block": "creep",
+     "material": "/Game/SaskartaGaea/Foliage/Materials/MI_Saskarta_DryTuft_Ochre"
+    },
+    {
+     "id": "S24_Ledge_v8_052",
+     "key": "MV_Grass_V1_02",
+     "asset": "/Game/MedievalVillage/Demo/StaticMesh/Grass/SM_Grass_V1_02",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 321175.7,
+     "y_cm": 440693.7,
+     "ground_z_cm": 9348.6,
+     "yaw": 299.3,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.921,
+     "scale_range": [
+      0.921,
+      0.921
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 4,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/S24_Ledge/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.414,
+      0.626,
+      0.405
+     ],
+     "slope_deg": 24.7,
+     "road_clear_m": 10.59,
+     "contact": "lie",
+     "site_uv": [
+      2.41,
+      10.96
+     ],
+     "role": "dry tuft at the downhill foot of the up-road rock",
+     "story_set": "V8",
+     "block": "creep",
+     "material": "/Game/SaskartaGaea/Foliage/Materials/MI_Saskarta_DryTuft_Straw"
+    },
+    {
+     "id": "S24_Ledge_v8_053",
+     "key": "MV_Grass_V2_03",
+     "asset": "/Game/MedievalVillage/Demo/StaticMesh/Grass/SM_Grass_V2_03",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 321036.5,
+     "y_cm": 439898.9,
+     "ground_z_cm": 9255.8,
+     "yaw": 322.3,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.943,
+     "scale_range": [
+      0.943,
+      0.943
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 4,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/S24_Ledge/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.575,
+      0.566,
+      0.5
+     ],
+     "slope_deg": 26.2,
+     "road_clear_m": 9.17,
+     "contact": "lie",
+     "site_uv": [
+      -5.54,
+      9.57
+     ],
+     "role": "dry tuft uphill of the lower anchor rock",
+     "story_set": "V8",
+     "block": "creep",
+     "material": "/Game/SaskartaGaea/Foliage/Materials/MI_Saskarta_DryTuft_Olive"
+    },
+    {
+     "id": "S24_Ledge_v8_054",
+     "key": "MV_Grass_V5_05",
+     "asset": "/Game/MedievalVillage/Demo/StaticMesh/Grass/SM_Grass_V5_05",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 321105.4,
+     "y_cm": 440030.9,
+     "ground_z_cm": 9254.4,
+     "yaw": 39.3,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.061,
+     "scale_range": [
+      1.061,
+      1.061
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 4,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/S24_Ledge/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.138,
+      0.159,
+      0.424
+     ],
+     "slope_deg": 26.9,
+     "road_clear_m": 10.15,
+     "contact": "lie",
+     "site_uv": [
+      -4.22,
+      10.26
+     ],
+     "role": "dry tuft uphill of the lower anchor rock",
+     "story_set": "V8",
+     "block": "creep",
+     "material": "/Game/SaskartaGaea/Foliage/Materials/MI_Saskarta_DryTuft_Rust"
+    },
+    {
+     "id": "S24_Ledge_v8_055",
+     "key": "MV_Grass_V2_01",
+     "asset": "/Game/MedievalVillage/Demo/StaticMesh/Grass/SM_Grass_V2_01",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 320801.0,
+     "y_cm": 440126.2,
+     "ground_z_cm": 9412.5,
+     "yaw": 136.3,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.994,
+     "scale_range": [
+      0.994,
+      0.994
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 4,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/S24_Ledge/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.358,
+      0.467,
+      0.537
+     ],
+     "slope_deg": 28.5,
+     "road_clear_m": 6.92,
+     "contact": "lie",
+     "site_uv": [
+      -3.27,
+      7.21
+     ],
+     "role": "dry tuft uphill of the down-road rock",
+     "story_set": "V8",
+     "block": "creep",
+     "material": "/Game/SaskartaGaea/Foliage/Materials/MI_Saskarta_DryTuft_Ochre"
+    }
+   ],
+   "ground": [
+    {
+     "id": "S24_Ledge_v8_g00",
+     "surface": "path",
+     "shape": "capsule",
+     "x_cm": 320602.1,
+     "y_cm": 440008.0,
+     "z_cm": 9458.3,
+     "yaw": 51.1,
+     "length_m": 2.57,
+     "width_m": 0.9,
+     "depth_m": 3.0,
+     "strength": 0.85,
+     "sort": 3,
+     "role": "the trodden way from the road down to the bench"
+    },
+    {
+     "id": "S24_Ledge_v8_g01",
+     "surface": "path",
+     "shape": "capsule",
+     "x_cm": 320717.5,
+     "y_cm": 440150.5,
+     "z_cm": 9454.5,
+     "yaw": 50.9,
+     "length_m": 2.9,
+     "width_m": 0.9,
+     "depth_m": 3.0,
+     "strength": 0.85,
+     "sort": 3,
+     "role": "the trodden way from the road down to the bench"
+    },
+    {
+     "id": "S24_Ledge_v8_g02",
+     "surface": "packed_earth",
+     "shape": "ellipse",
+     "x_cm": 320901.8,
+     "y_cm": 440431.2,
+     "z_cm": 9415.1,
+     "yaw": 75.9,
+     "length_m": 6.4,
+     "width_m": 3.2,
+     "depth_m": 3.1,
+     "strength": 0.72,
+     "sort": 0,
+     "role": "where people sat: bench and ledge"
+    },
+    {
+     "id": "S24_Ledge_v8_g03",
+     "surface": "rubble_dust",
+     "shape": "ellipse",
+     "x_cm": 321132.9,
+     "y_cm": 440428.5,
+     "z_cm": 9319.4,
+     "yaw": 75.9,
+     "length_m": 4.8,
+     "width_m": 2.4,
+     "depth_m": 3.0,
+     "strength": 0.65,
+     "sort": 1,
+     "role": "under the spill below the ledge"
+    },
+    {
+     "id": "S24_Ledge_v8_g04",
+     "surface": "rubble_dust",
+     "shape": "ellipse",
+     "x_cm": 321265.7,
+     "y_cm": 439930.7,
+     "z_cm": 9151.8,
+     "yaw": 55.9,
+     "length_m": 3.0,
+     "width_m": 2.0,
+     "depth_m": 3.0,
+     "strength": 0.55,
+     "sort": 1,
+     "role": "under the scree of the lower rock"
+    }
+   ],
+   "units": [],
+   "waivers": [],
+   "v2": {
+    "frame": {
+     "origin_road_m": 4476.0,
+     "origin_cm": [
+      320079.6,
+      440452.9
+     ],
+     "u": "along travel",
+     "v": "left of travel"
+    },
+    "lanes": [
+     {
+      "pts": [
+       [
+        -5.099182944772359,
+        4.7
+       ],
+       [
+        -3.799182944772359,
+        5.75
+       ],
+       [
+        -2.249182944772359,
+        7.007721762466027
+       ]
+      ],
+      "width": 0.9
+     }
+    ],
+    "glance": [
+     {
+      "t": 0.0,
+      "road_m": 4460.0,
+      "yaw": 90.0,
+      "pitch": -0.0,
+      "ease": 0.0,
+      "focal_in_frame": 1.0,
+      "focal_box": [
+       -0.62,
+       -0.44,
+       -0.29,
+       -0.11
+      ],
+      "target": [
+       -12.01,
+       -3.23
+      ]
+     },
+     {
+      "t": 0.5,
+      "road_m": 4462.5,
+      "yaw": 76.7,
+      "pitch": -1.3,
+      "ease": 0.16,
+      "focal_in_frame": 1.0,
+      "focal_box": [
+       -0.44,
+       -0.24,
+       -0.28,
+       -0.09
+      ],
+      "target": [
+       -3.04,
+       -0.82
+      ]
+     },
+     {
+      "t": 1.0,
+      "road_m": 4465.0,
+      "yaw": 47.3,
+      "pitch": -4.3,
+      "ease": 0.5,
+      "focal_in_frame": 1.0,
+      "focal_box": [
+       -0.02,
+       0.2,
+       -0.25,
+       -0.04
+      ],
+      "target": [
+       -0.91,
+       -0.23
+      ]
+     },
+     {
+      "t": 1.5,
+      "road_m": 4467.5,
+      "yaw": 18.0,
+      "pitch": -7.3,
+      "ease": 0.84,
+      "focal_in_frame": 1.0,
+      "focal_box": [
+       0.33,
+       0.69,
+       -0.32,
+       -0.06
+      ],
+      "target": [
+       -0.23,
+       -0.05
+      ]
+     },
+     {
+      "t": 2.0,
+      "road_m": 4470.0,
+      "yaw": 4.6,
+      "pitch": -8.6,
+      "ease": 1.0,
+      "focal_in_frame": 1.0,
+      "focal_box": [
+       0.34,
+       0.82,
+       -0.45,
+       -0.16
+      ],
+      "target": [
+       0.0,
+       -0.0
+      ]
+     },
+     {
+      "t": 2.5,
+      "road_m": 4472.5,
+      "yaw": 4.5,
+      "pitch": -8.6,
+      "ease": 1.0,
+      "focal_in_frame": 1.0,
+      "focal_box": [
+       0.07,
+       0.55,
+       -0.57,
+       -0.25
+      ],
+      "target": [
+       0.0,
+       0.0
+      ]
+     },
+     {
+      "t": 3.0,
+      "road_m": 4475.0,
+      "yaw": 4.5,
+      "pitch": -8.6,
+      "ease": 1.0,
+      "focal_in_frame": 1.0,
+      "focal_box": [
+       -0.21,
+       0.26,
+       -0.71,
+       -0.36
+      ],
+      "target": [
+       -0.0,
+       0.0
+      ]
+     },
+     {
+      "t": 3.5,
+      "road_m": 4477.5,
+      "yaw": 4.4,
+      "pitch": -8.6,
+      "ease": 1.0,
+      "focal_in_frame": 1.0,
+      "focal_box": [
+       -0.51,
+       -0.03,
+       -0.81,
+       -0.43
+      ],
+      "target": [
+       0.0,
+       0.0
+      ]
+     },
+     {
+      "t": 4.0,
+      "road_m": 4480.0,
+      "yaw": 4.4,
+      "pitch": -8.6,
+      "ease": 1.0,
+      "focal_in_frame": 1.0,
+      "focal_box": [
+       -0.87,
+       -0.29,
+       -0.92,
+       -0.51
+      ],
+      "target": [
+       -0.0,
+       0.0
+      ]
+     },
+     {
+      "t": 4.5,
+      "road_m": 4482.5,
+      "yaw": 4.4,
+      "pitch": -8.6,
+      "ease": 1.0,
+      "focal_in_frame": 0.75,
+      "focal_box": [
+       -0.89,
+       -0.55,
+       -0.79,
+       -0.5
+      ],
+      "target": [
+       -0.0,
+       0.0
+      ]
+     },
+     {
+      "t": 5.0,
+      "road_m": 4485.0,
+      "yaw": 4.4,
+      "pitch": -8.6,
+      "ease": 1.0,
+      "focal_in_frame": 0.19,
+      "focal_box": [
+       -0.99,
+       -0.82,
+       -0.66,
+       -0.46
+      ],
+      "target": [
+       -0.0,
+       0.0
+      ]
+     }
+    ],
+    "approach": [
+     {
+      "road_m": 4400.0,
+      "dist_m": 71.1,
+      "focal_in_frame": 1.0,
+      "focal_box": [
+       -0.61,
+       -0.55,
+       0.47,
+       0.51
+      ],
+      "elev_deg": 14.1,
+      "terrain_los": false
+     },
+     {
+      "road_m": 4420.0,
+      "dist_m": 54.8,
+      "focal_in_frame": 1.0,
+      "focal_box": [
+       -0.89,
+       -0.82,
+       0.2,
+       0.25
+      ],
+      "elev_deg": 6.3,
+      "terrain_los": true
+     },
+     {
+      "road_m": 4440.0,
+      "dist_m": 36.9,
+      "focal_in_frame": 1.0,
+      "focal_box": [
+       -0.26,
+       -0.21,
+       -0.01,
+       0.05
+      ],
+      "elev_deg": 1.7,
+      "terrain_los": true
+     },
+     {
+      "road_m": 4450.0,
+      "dist_m": 27.3,
+      "focal_in_frame": 1.0,
+      "focal_box": [
+       -0.36,
+       -0.28,
+       -0.11,
+       -0.02
+      ],
+      "elev_deg": -0.3,
+      "terrain_los": true
+     },
+     {
+      "road_m": 4456.0,
+      "dist_m": 21.7,
+      "focal_in_frame": 1.0,
+      "focal_box": [
+       -0.48,
+       -0.36,
+       -0.22,
+       -0.09
+      ],
+      "elev_deg": -2.3,
+      "terrain_los": true
+     }
+    ],
+    "wide24": {
+     "dist_m": 1018.0,
+     "centre_screen": [
+      -0.24,
+      -1.19
+     ],
+     "in_frame": 0.0,
+     "cm_per_px_1920": 6.3
+    },
+    "checks": [
+     "ISM declash: 21 of 47 ISM pieces moved (max 0.40 m), 0 left out (none); 0 overlaps left beyond {'stone': 0.05, 'shrub': 0.1, 'ism': 0.04, 'plant_stone': 0.1, 'plants': 0.2}",
+     "FOCAL: the ledge, slab A (the seat: top 94.59 m, ground 93.86..94.50, downhill face 0.73 m proud, uphill 0.09 m proud, buried 0.67 m uphill",
+     "FOCAL: the ledge, slab B (stepped : top 94.51 m, ground 93.89..94.32, downhill face 0.62 m proud, uphill 0.19 m proud, buried 0.46 m uphill",
+     "G14 hold, eye 1.22 m: under the boot point (+-0.2 wide), the nearest dressing is 0.30 frame-halves below it (LF_Rock_02 at 2.5 s)",
+     "G14 hold, eye 1.55 m: under the boot point (+-0.2 wide), the nearest dressing is 0.34 frame-halves below it (LF_Rock_02 at 2.5 s)",
+     "strict offline judge (setdress_contact.offline_reports + judge, the composer's rule): 9 solo actors, 0 violations, 0 waived"
+    ],
+    "violations": []
+   }
+  }
+ ]
+}

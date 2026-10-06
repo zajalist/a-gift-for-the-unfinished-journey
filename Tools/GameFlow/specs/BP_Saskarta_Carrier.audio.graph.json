@@ -1,0 +1,3158 @@
+{
+ "asset": "/Game/SaskartaGaea/Characters/Carrier/BP_Saskarta_Carrier",
+ "functions": [
+  {
+   "name": "CarrierAudioStep",
+   "pure": false,
+   "inputs": [],
+   "outputs": []
+  }
+ ],
+ "graphs": [
+  {
+   "graph": "CarrierAudioStep",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "g1": {
+     "get": "AC_Idle"
+    },
+    "IsVali2": {
+     "call": "IsValid",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "if3": {
+     "branch": true
+    },
+    "me": {
+     "self": true
+    },
+    "Should4": {
+     "call": "ShouldPlayDriveAudio",
+     "class": "/Script/SaskartaCore.SaskartaMotorAssistSubsystem"
+    },
+    "s5": {
+     "set": "bAudioControllerReady"
+    },
+    "g6": {
+     "get": "bAudioControllerReady"
+    },
+    "g7": {
+     "get": "AudioGate"
+    },
+    "Select8": {
+     "call": "SelectFloat",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "FInter9": {
+     "call": "FInterpTo_Constant",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "s10": {
+     "set": "AudioGate"
+    },
+    "g11": {
+     "get": "RPM"
+    },
+    "Subtra12": {
+     "call": "Subtract_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Multip13": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "FMax14": {
+     "call": "FMax",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "g15": {
+     "get": "DriveSpeed"
+    },
+    "g16": {
+     "get": "Throttle"
+    },
+    "g17": {
+     "get": "Slope"
+    },
+    "Greate18": {
+     "call": "Greater_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "g19": {
+     "get": "StrainW"
+    },
+    "Select20": {
+     "call": "SelectFloat",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "FInter21": {
+     "call": "FInterpTo",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "s22": {
+     "set": "StrainW"
+    },
+    "g23": {
+     "get": "W0"
+    },
+    "g24": {
+     "get": "Surface"
+    },
+    "EqualE25": {
+     "call": "EqualEqual_IntInt",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Select26": {
+     "call": "SelectFloat",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "FInter27": {
+     "call": "FInterpTo",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "s28": {
+     "set": "W0"
+    },
+    "g29": {
+     "get": "W1"
+    },
+    "g30": {
+     "get": "Surface"
+    },
+    "EqualE31": {
+     "call": "EqualEqual_IntInt",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Select32": {
+     "call": "SelectFloat",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "FInter33": {
+     "call": "FInterpTo",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "s34": {
+     "set": "W1"
+    },
+    "g35": {
+     "get": "W2"
+    },
+    "g36": {
+     "get": "Surface"
+    },
+    "EqualE37": {
+     "call": "EqualEqual_IntInt",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Select38": {
+     "call": "SelectFloat",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "FInter39": {
+     "call": "FInterpTo",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "s40": {
+     "set": "W2"
+    },
+    "g41": {
+     "get": "StrainW"
+    },
+    "Multip42": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Add_Do43": {
+     "call": "Add_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "MapRan44": {
+     "call": "MapRangeClamped",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Multip45": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Add_Do46": {
+     "call": "Add_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Multip47": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Multip48": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Subtra49": {
+     "call": "Subtract_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "g50": {
+     "get": "W0"
+    },
+    "Multip51": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "g52": {
+     "get": "W1"
+    },
+    "Multip53": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Add_Do54": {
+     "call": "Add_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "g55": {
+     "get": "W2"
+    },
+    "Add_Do56": {
+     "call": "Add_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "MapRan57": {
+     "call": "MapRangeClamped",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Multip58": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Subtra59": {
+     "call": "Subtract_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Multip60": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Multip61": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Add_Do62": {
+     "call": "Add_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "g63": {
+     "get": "AC_Idle"
+    },
+    "Multip64": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "g65": {
+     "get": "AudioGate"
+    },
+    "Multip66": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "SetVol67": {
+     "call": "SetVolumeMultiplier",
+     "class": "/Script/Engine.AudioComponent"
+    },
+    "g68": {
+     "get": "AC_Idle"
+    },
+    "SetPit69": {
+     "call": "SetPitchMultiplier",
+     "class": "/Script/Engine.AudioComponent"
+    },
+    "MapRan70": {
+     "call": "MapRangeClamped",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "MapRan71": {
+     "call": "MapRangeClamped",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Multip72": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Multip73": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Multip74": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Divide75": {
+     "call": "Divide_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "FClamp76": {
+     "call": "FClamp",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "g77": {
+     "get": "AC_Low"
+    },
+    "Multip78": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "g79": {
+     "get": "AudioGate"
+    },
+    "Multip80": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "SetVol81": {
+     "call": "SetVolumeMultiplier",
+     "class": "/Script/Engine.AudioComponent"
+    },
+    "g82": {
+     "get": "AC_Low"
+    },
+    "SetPit83": {
+     "call": "SetPitchMultiplier",
+     "class": "/Script/Engine.AudioComponent"
+    },
+    "MapRan84": {
+     "call": "MapRangeClamped",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Multip85": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Multip86": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Divide87": {
+     "call": "Divide_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "FClamp88": {
+     "call": "FClamp",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "g89": {
+     "get": "AC_High"
+    },
+    "Multip90": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "g91": {
+     "get": "AudioGate"
+    },
+    "Multip92": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "SetVol93": {
+     "call": "SetVolumeMultiplier",
+     "class": "/Script/Engine.AudioComponent"
+    },
+    "g94": {
+     "get": "AC_High"
+    },
+    "SetPit95": {
+     "call": "SetPitchMultiplier",
+     "class": "/Script/Engine.AudioComponent"
+    },
+    "g96": {
+     "get": "EngineLoad"
+    },
+    "Multip97": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Add_Do98": {
+     "call": "Add_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Divide99": {
+     "call": "Divide_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "FClamp100": {
+     "call": "FClamp",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "g101": {
+     "get": "AC_Strain"
+    },
+    "Multip102": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "g103": {
+     "get": "AudioGate"
+    },
+    "Multip104": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "SetVol105": {
+     "call": "SetVolumeMultiplier",
+     "class": "/Script/Engine.AudioComponent"
+    },
+    "g106": {
+     "get": "AC_Strain"
+    },
+    "SetPit107": {
+     "call": "SetPitchMultiplier",
+     "class": "/Script/Engine.AudioComponent"
+    },
+    "MapRan108": {
+     "call": "MapRangeClamped",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Multip109": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Add_Do110": {
+     "call": "Add_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Multip111": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Multip112": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Add_Do113": {
+     "call": "Add_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "g114": {
+     "get": "W0"
+    },
+    "Multip115": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Multip116": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "g117": {
+     "get": "AC_WDirt"
+    },
+    "Multip118": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "g119": {
+     "get": "AudioGate"
+    },
+    "Multip120": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "SetVol121": {
+     "call": "SetVolumeMultiplier",
+     "class": "/Script/Engine.AudioComponent"
+    },
+    "g122": {
+     "get": "AC_WDirt"
+    },
+    "SetPit123": {
+     "call": "SetPitchMultiplier",
+     "class": "/Script/Engine.AudioComponent"
+    },
+    "g124": {
+     "get": "W1"
+    },
+    "Multip125": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Multip126": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "g127": {
+     "get": "AC_WGravel"
+    },
+    "Multip128": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "g129": {
+     "get": "AudioGate"
+    },
+    "Multip130": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "SetVol131": {
+     "call": "SetVolumeMultiplier",
+     "class": "/Script/Engine.AudioComponent"
+    },
+    "g132": {
+     "get": "AC_WGravel"
+    },
+    "SetPit133": {
+     "call": "SetPitchMultiplier",
+     "class": "/Script/Engine.AudioComponent"
+    },
+    "g134": {
+     "get": "W2"
+    },
+    "Multip135": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Multip136": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "g137": {
+     "get": "AC_WSlabs"
+    },
+    "Multip138": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "g139": {
+     "get": "AudioGate"
+    },
+    "Multip140": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "SetVol141": {
+     "call": "SetVolumeMultiplier",
+     "class": "/Script/Engine.AudioComponent"
+    },
+    "g142": {
+     "get": "AC_WSlabs"
+    },
+    "SetPit143": {
+     "call": "SetPitchMultiplier",
+     "class": "/Script/Engine.AudioComponent"
+    },
+    "MapRan144": {
+     "call": "MapRangeClamped",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Multip145": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Multip146": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Add_Do147": {
+     "call": "Add_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Multip148": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "g149": {
+     "get": "AC_Creak"
+    },
+    "Multip150": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "g151": {
+     "get": "AudioGate"
+    },
+    "Multip152": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "SetVol153": {
+     "call": "SetVolumeMultiplier",
+     "class": "/Script/Engine.AudioComponent"
+    },
+    "g154": {
+     "get": "AC_Creak"
+    },
+    "SetPit155": {
+     "call": "SetPitchMultiplier",
+     "class": "/Script/Engine.AudioComponent"
+    },
+    "Multip156": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Add_Do157": {
+     "call": "Add_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "g158": {
+     "get": "W0"
+    },
+    "Multip159": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Multip160": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "g161": {
+     "get": "AC_TWDirt"
+    },
+    "Multip162": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "g163": {
+     "get": "AudioGate"
+    },
+    "Multip164": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "SetVol165": {
+     "call": "SetVolumeMultiplier",
+     "class": "/Script/Engine.AudioComponent"
+    },
+    "g166": {
+     "get": "AC_TWDirt"
+    },
+    "SetPit167": {
+     "call": "SetPitchMultiplier",
+     "class": "/Script/Engine.AudioComponent"
+    },
+    "g168": {
+     "get": "W1"
+    },
+    "Multip169": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Multip170": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "g171": {
+     "get": "AC_TWGravel"
+    },
+    "Multip172": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "g173": {
+     "get": "AudioGate"
+    },
+    "Multip174": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "SetVol175": {
+     "call": "SetVolumeMultiplier",
+     "class": "/Script/Engine.AudioComponent"
+    },
+    "g176": {
+     "get": "AC_TWGravel"
+    },
+    "SetPit177": {
+     "call": "SetPitchMultiplier",
+     "class": "/Script/Engine.AudioComponent"
+    },
+    "g178": {
+     "get": "W2"
+    },
+    "Multip179": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Multip180": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "g181": {
+     "get": "AC_TWSlabs"
+    },
+    "Multip182": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "g183": {
+     "get": "AudioGate"
+    },
+    "Multip184": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "SetVol185": {
+     "call": "SetVolumeMultiplier",
+     "class": "/Script/Engine.AudioComponent"
+    },
+    "g186": {
+     "get": "AC_TWSlabs"
+    },
+    "SetPit187": {
+     "call": "SetPitchMultiplier",
+     "class": "/Script/Engine.AudioComponent"
+    },
+    "MapRan188": {
+     "call": "MapRangeClamped",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Multip189": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Multip190": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Multip191": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Add_Do192": {
+     "call": "Add_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "g193": {
+     "get": "AC_Rattle"
+    },
+    "Multip194": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "g195": {
+     "get": "AudioGate"
+    },
+    "Multip196": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "SetVol197": {
+     "call": "SetVolumeMultiplier",
+     "class": "/Script/Engine.AudioComponent"
+    },
+    "g198": {
+     "get": "AC_Rattle"
+    },
+    "SetPit199": {
+     "call": "SetPitchMultiplier",
+     "class": "/Script/Engine.AudioComponent"
+    },
+    "g200": {
+     "get": "Steer"
+    },
+    "Abs201": {
+     "call": "Abs",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "g202": {
+     "get": "TurnRateNow"
+    },
+    "Multip203": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "MapRan204": {
+     "call": "MapRangeClamped",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "MapRan205": {
+     "call": "MapRangeClamped",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Multip206": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Multip207": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "g208": {
+     "get": "AC_Scrub"
+    },
+    "Multip209": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "g210": {
+     "get": "AudioGate"
+    },
+    "Multip211": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "SetVol212": {
+     "call": "SetVolumeMultiplier",
+     "class": "/Script/Engine.AudioComponent"
+    },
+    "g213": {
+     "get": "AC_Scrub"
+    },
+    "SetPit214": {
+     "call": "SetPitchMultiplier",
+     "class": "/Script/Engine.AudioComponent"
+    },
+    "g215": {
+     "get": "Steer"
+    },
+    "g216": {
+     "get": "PrevSteer"
+    },
+    "Greate217": {
+     "call": "Greater_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Less_D218": {
+     "call": "Less_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Boolea219": {
+     "call": "BooleanAND",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Less_D220": {
+     "call": "Less_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Greate221": {
+     "call": "Greater_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Boolea222": {
+     "call": "BooleanAND",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "g223": {
+     "get": "AudioGate"
+    },
+    "Greate224": {
+     "call": "Greater_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Boolea225": {
+     "call": "BooleanAND",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "if226": {
+     "branch": true
+    },
+    "pick227": {
+     "select": 3
+    },
+    "g228": {
+     "get": "S_ServoR0"
+    },
+    "g229": {
+     "get": "S_ServoR1"
+    },
+    "g230": {
+     "get": "S_ServoR2"
+    },
+    "Random231": {
+     "call": "RandomIntegerInRange",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Multip232": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "SpawnS233": {
+     "call": "SpawnSound2D",
+     "class": "/Script/Engine.GameplayStatics"
+    },
+    "g234": {
+     "get": "AudioGate"
+    },
+    "Greate235": {
+     "call": "Greater_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Boolea236": {
+     "call": "BooleanAND",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "if237": {
+     "branch": true
+    },
+    "pick238": {
+     "select": 3
+    },
+    "g239": {
+     "get": "S_ServoL0"
+    },
+    "g240": {
+     "get": "S_ServoL1"
+    },
+    "g241": {
+     "get": "S_ServoL2"
+    },
+    "Random242": {
+     "call": "RandomIntegerInRange",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Multip243": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "SpawnS244": {
+     "call": "SpawnSound2D",
+     "class": "/Script/Engine.GameplayStatics"
+    },
+    "g245": {
+     "get": "Steer"
+    },
+    "s246": {
+     "set": "PrevSteer"
+    },
+    "GetVel247": {
+     "call": "GetVelocity",
+     "class": "/Script/Engine.Actor"
+    },
+    "BreakV248": {
+     "call": "BreakVector",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "g249": {
+     "get": "PrevVz"
+    },
+    "Subtra250": {
+     "call": "Subtract_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Abs251": {
+     "call": "Abs",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Greate252": {
+     "call": "Greater_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Greate253": {
+     "call": "Greater_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Boolea254": {
+     "call": "BooleanAND",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "MapRan255": {
+     "call": "MapRangeClamped",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "g256": {
+     "get": "AudioGate"
+    },
+    "Greate257": {
+     "call": "Greater_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Boolea258": {
+     "call": "BooleanAND",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "if259": {
+     "branch": true
+    },
+    "pick260": {
+     "select": 8
+    },
+    "g261": {
+     "get": "S_Clunk0"
+    },
+    "g262": {
+     "get": "S_Clunk1"
+    },
+    "g263": {
+     "get": "S_Clunk2"
+    },
+    "g264": {
+     "get": "S_Clunk3"
+    },
+    "g265": {
+     "get": "S_Clunk4"
+    },
+    "g266": {
+     "get": "S_Clunk5"
+    },
+    "g267": {
+     "get": "S_Clunk6"
+    },
+    "g268": {
+     "get": "S_Clunk7"
+    },
+    "Random269": {
+     "call": "RandomIntegerInRange",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Multip270": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "SpawnS271": {
+     "call": "SpawnSound2D",
+     "class": "/Script/Engine.GameplayStatics"
+    },
+    "s272": {
+     "set": "PrevVz"
+    },
+    "g273": {
+     "get": "Throttle"
+    },
+    "g274": {
+     "get": "PrevThrottle"
+    },
+    "Subtra275": {
+     "call": "Subtract_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Abs276": {
+     "call": "Abs",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Greate277": {
+     "call": "Greater_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "g278": {
+     "get": "DriveAccel"
+    },
+    "Abs279": {
+     "call": "Abs",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Greate280": {
+     "call": "Greater_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Boolea281": {
+     "call": "BooleanAND",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "g282": {
+     "get": "AudioGate"
+    },
+    "Greate283": {
+     "call": "Greater_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Boolea284": {
+     "call": "BooleanAND",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "if285": {
+     "branch": true
+    },
+    "pick286": {
+     "select": 4
+    },
+    "g287": {
+     "get": "S_Clank0"
+    },
+    "g288": {
+     "get": "S_Clank1"
+    },
+    "g289": {
+     "get": "S_Clank2"
+    },
+    "g290": {
+     "get": "S_Clank3"
+    },
+    "Random291": {
+     "call": "RandomIntegerInRange",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Multip292": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "SpawnS293": {
+     "call": "SpawnSound2D",
+     "class": "/Script/Engine.GameplayStatics"
+    },
+    "g294": {
+     "get": "PrevStrain"
+    },
+    "Not_Pr295": {
+     "call": "Not_PreBool",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Boolea296": {
+     "call": "BooleanAND",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "g297": {
+     "get": "AudioGate"
+    },
+    "Greate298": {
+     "call": "Greater_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Boolea299": {
+     "call": "BooleanAND",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "if300": {
+     "branch": true
+    },
+    "pick301": {
+     "select": 4
+    },
+    "g302": {
+     "get": "S_Knee0"
+    },
+    "g303": {
+     "get": "S_Knee1"
+    },
+    "g304": {
+     "get": "S_Knee2"
+    },
+    "g305": {
+     "get": "S_Knee3"
+    },
+    "Random306": {
+     "call": "RandomIntegerInRange",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Multip307": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "SpawnS308": {
+     "call": "SpawnSound2D",
+     "class": "/Script/Engine.GameplayStatics"
+    },
+    "s309": {
+     "set": "PrevStrain"
+    },
+    "GetCon310": {
+     "call": "GetControlRotation",
+     "class": "/Script/Engine.Pawn"
+    },
+    "BreakR311": {
+     "call": "BreakRotator",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "g312": {
+     "get": "LastTickYaw"
+    },
+    "Subtra313": {
+     "call": "Subtract_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Normal314": {
+     "call": "NormalizeAxis",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Abs315": {
+     "call": "Abs",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Greate316": {
+     "call": "Greater_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "g317": {
+     "get": "AudioGate"
+    },
+    "Greate318": {
+     "call": "Greater_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Boolea319": {
+     "call": "BooleanAND",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "if320": {
+     "branch": true
+    },
+    "pick321": {
+     "select": 4
+    },
+    "g322": {
+     "get": "S_Tick0"
+    },
+    "g323": {
+     "get": "S_Tick1"
+    },
+    "g324": {
+     "get": "S_Tick2"
+    },
+    "g325": {
+     "get": "S_Tick3"
+    },
+    "Random326": {
+     "call": "RandomIntegerInRange",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "SpawnS327": {
+     "call": "SpawnSound2D",
+     "class": "/Script/Engine.GameplayStatics"
+    },
+    "s328": {
+     "set": "LastTickYaw"
+    },
+    "g329": {
+     "get": "AnimMode"
+    },
+    "g330": {
+     "get": "LastAnimMode"
+    },
+    "NotEqu331": {
+     "call": "NotEqual_NameName",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "EqualE332": {
+     "call": "EqualEqual_NameName",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Boolea333": {
+     "call": "BooleanAND",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "g334": {
+     "get": "AudioGate"
+    },
+    "Greate335": {
+     "call": "Greater_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Boolea336": {
+     "call": "BooleanOR",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Boolea337": {
+     "call": "BooleanAND",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "if338": {
+     "branch": true
+    },
+    "g339": {
+     "get": "S_StateStart"
+    },
+    "SpawnS340": {
+     "call": "SpawnSound2D",
+     "class": "/Script/Engine.GameplayStatics"
+    },
+    "EqualE341": {
+     "call": "EqualEqual_NameName",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Boolea342": {
+     "call": "BooleanAND",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "g343": {
+     "get": "AudioGate"
+    },
+    "Greate344": {
+     "call": "Greater_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Boolea345": {
+     "call": "BooleanOR",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Boolea346": {
+     "call": "BooleanAND",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "if347": {
+     "branch": true
+    },
+    "g348": {
+     "get": "S_StateStartStop"
+    },
+    "SpawnS349": {
+     "call": "SpawnSound2D",
+     "class": "/Script/Engine.GameplayStatics"
+    },
+    "EqualE350": {
+     "call": "EqualEqual_NameName",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Boolea351": {
+     "call": "BooleanAND",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "g352": {
+     "get": "AudioGate"
+    },
+    "Greate353": {
+     "call": "Greater_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Boolea354": {
+     "call": "BooleanOR",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "Boolea355": {
+     "call": "BooleanAND",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "if356": {
+     "branch": true
+    },
+    "g357": {
+     "get": "S_StateShutdown"
+    },
+    "SpawnS358": {
+     "call": "SpawnSound2D",
+     "class": "/Script/Engine.GameplayStatics"
+    },
+    "g359": {
+     "get": "AnimMode"
+    },
+    "s360": {
+     "set": "LastAnimMode"
+    }
+   },
+   "links": [
+    [
+     "g1.AC_Idle",
+     "IsVali2.Object"
+    ],
+    [
+     "IsVali2.ReturnValue",
+     "if3.Condition"
+    ],
+    [
+     "entry.then",
+     "if3.execute"
+    ],
+    [
+     "me.self",
+     "Should4.Carrier"
+    ],
+    [
+     "Should4.ReturnValue",
+     "s5.bAudioControllerReady"
+    ],
+    [
+     "if3.then",
+     "s5.execute"
+    ],
+    [
+     "g6.bAudioControllerReady",
+     "Select8.bPickA"
+    ],
+    [
+     "g7.AudioGate",
+     "FInter9.Current"
+    ],
+    [
+     "Select8.ReturnValue",
+     "FInter9.Target"
+    ],
+    [
+     "FInter9.ReturnValue",
+     "s10.AudioGate"
+    ],
+    [
+     "s5.then",
+     "s10.execute"
+    ],
+    [
+     "g11.RPM",
+     "Subtra12.A"
+    ],
+    [
+     "Subtra12.ReturnValue",
+     "Multip13.A"
+    ],
+    [
+     "Multip13.ReturnValue",
+     "FMax14.A"
+    ],
+    [
+     "g17.Slope",
+     "Greate18.A"
+    ],
+    [
+     "Greate18.ReturnValue",
+     "Select20.bPickA"
+    ],
+    [
+     "g19.StrainW",
+     "FInter21.Current"
+    ],
+    [
+     "Select20.ReturnValue",
+     "FInter21.Target"
+    ],
+    [
+     "FInter21.ReturnValue",
+     "s22.StrainW"
+    ],
+    [
+     "s10.then",
+     "s22.execute"
+    ],
+    [
+     "g24.Surface",
+     "EqualE25.A"
+    ],
+    [
+     "EqualE25.ReturnValue",
+     "Select26.bPickA"
+    ],
+    [
+     "g23.W0",
+     "FInter27.Current"
+    ],
+    [
+     "Select26.ReturnValue",
+     "FInter27.Target"
+    ],
+    [
+     "FInter27.ReturnValue",
+     "s28.W0"
+    ],
+    [
+     "s22.then",
+     "s28.execute"
+    ],
+    [
+     "g30.Surface",
+     "EqualE31.A"
+    ],
+    [
+     "EqualE31.ReturnValue",
+     "Select32.bPickA"
+    ],
+    [
+     "g29.W1",
+     "FInter33.Current"
+    ],
+    [
+     "Select32.ReturnValue",
+     "FInter33.Target"
+    ],
+    [
+     "FInter33.ReturnValue",
+     "s34.W1"
+    ],
+    [
+     "s28.then",
+     "s34.execute"
+    ],
+    [
+     "g36.Surface",
+     "EqualE37.A"
+    ],
+    [
+     "EqualE37.ReturnValue",
+     "Select38.bPickA"
+    ],
+    [
+     "g35.W2",
+     "FInter39.Current"
+    ],
+    [
+     "Select38.ReturnValue",
+     "FInter39.Target"
+    ],
+    [
+     "FInter39.ReturnValue",
+     "s40.W2"
+    ],
+    [
+     "s34.then",
+     "s40.execute"
+    ],
+    [
+     "g16.Throttle",
+     "Multip42.A"
+    ],
+    [
+     "Multip42.ReturnValue",
+     "Add_Do43.B"
+    ],
+    [
+     "FMax14.ReturnValue",
+     "MapRan44.Value"
+    ],
+    [
+     "MapRan44.ReturnValue",
+     "Multip45.A"
+    ],
+    [
+     "Multip45.ReturnValue",
+     "Add_Do46.B"
+    ],
+    [
+     "Add_Do43.ReturnValue",
+     "Multip47.A"
+    ],
+    [
+     "Add_Do46.ReturnValue",
+     "Multip47.B"
+    ],
+    [
+     "g41.StrainW",
+     "Multip48.A"
+    ],
+    [
+     "Multip48.ReturnValue",
+     "Subtra49.B"
+    ],
+    [
+     "g50.W0",
+     "Multip51.A"
+    ],
+    [
+     "g52.W1",
+     "Multip53.A"
+    ],
+    [
+     "Multip51.ReturnValue",
+     "Add_Do54.A"
+    ],
+    [
+     "Multip53.ReturnValue",
+     "Add_Do54.B"
+    ],
+    [
+     "Add_Do54.ReturnValue",
+     "Add_Do56.A"
+    ],
+    [
+     "g55.W2",
+     "Add_Do56.B"
+    ],
+    [
+     "g15.DriveSpeed",
+     "MapRan57.Value"
+    ],
+    [
+     "MapRan57.ReturnValue",
+     "Multip58.A"
+    ],
+    [
+     "Multip58.ReturnValue",
+     "Subtra59.B"
+    ],
+    [
+     "Subtra59.ReturnValue",
+     "Multip60.A"
+    ],
+    [
+     "g16.Throttle",
+     "Multip61.A"
+    ],
+    [
+     "Multip61.ReturnValue",
+     "Add_Do62.B"
+    ],
+    [
+     "Multip60.ReturnValue",
+     "Multip64.A"
+    ],
+    [
+     "Multip64.ReturnValue",
+     "Multip66.A"
+    ],
+    [
+     "g65.AudioGate",
+     "Multip66.B"
+    ],
+    [
+     "g63.AC_Idle",
+     "SetVol67.self"
+    ],
+    [
+     "Multip66.ReturnValue",
+     "SetVol67.NewVolumeMultiplier"
+    ],
+    [
+     "s40.then",
+     "SetVol67.execute"
+    ],
+    [
+     "g68.AC_Idle",
+     "SetPit69.self"
+    ],
+    [
+     "Add_Do62.ReturnValue",
+     "SetPit69.NewPitchMultiplier"
+    ],
+    [
+     "SetVol67.then",
+     "SetPit69.execute"
+    ],
+    [
+     "FMax14.ReturnValue",
+     "MapRan70.Value"
+    ],
+    [
+     "FMax14.ReturnValue",
+     "MapRan71.Value"
+    ],
+    [
+     "MapRan70.ReturnValue",
+     "Multip72.A"
+    ],
+    [
+     "MapRan71.ReturnValue",
+     "Multip72.B"
+    ],
+    [
+     "Multip72.ReturnValue",
+     "Multip73.A"
+    ],
+    [
+     "Multip47.ReturnValue",
+     "Multip73.B"
+    ],
+    [
+     "Multip73.ReturnValue",
+     "Multip74.A"
+    ],
+    [
+     "Subtra49.ReturnValue",
+     "Multip74.B"
+    ],
+    [
+     "FMax14.ReturnValue",
+     "Divide75.A"
+    ],
+    [
+     "Divide75.ReturnValue",
+     "FClamp76.Value"
+    ],
+    [
+     "Multip74.ReturnValue",
+     "Multip78.A"
+    ],
+    [
+     "Multip78.ReturnValue",
+     "Multip80.A"
+    ],
+    [
+     "g79.AudioGate",
+     "Multip80.B"
+    ],
+    [
+     "g77.AC_Low",
+     "SetVol81.self"
+    ],
+    [
+     "Multip80.ReturnValue",
+     "SetVol81.NewVolumeMultiplier"
+    ],
+    [
+     "SetPit69.then",
+     "SetVol81.execute"
+    ],
+    [
+     "g82.AC_Low",
+     "SetPit83.self"
+    ],
+    [
+     "FClamp76.ReturnValue",
+     "SetPit83.NewPitchMultiplier"
+    ],
+    [
+     "SetVol81.then",
+     "SetPit83.execute"
+    ],
+    [
+     "FMax14.ReturnValue",
+     "MapRan84.Value"
+    ],
+    [
+     "MapRan84.ReturnValue",
+     "Multip85.A"
+    ],
+    [
+     "Multip47.ReturnValue",
+     "Multip85.B"
+    ],
+    [
+     "Multip85.ReturnValue",
+     "Multip86.A"
+    ],
+    [
+     "Subtra49.ReturnValue",
+     "Multip86.B"
+    ],
+    [
+     "FMax14.ReturnValue",
+     "Divide87.A"
+    ],
+    [
+     "Divide87.ReturnValue",
+     "FClamp88.Value"
+    ],
+    [
+     "Multip86.ReturnValue",
+     "Multip90.A"
+    ],
+    [
+     "Multip90.ReturnValue",
+     "Multip92.A"
+    ],
+    [
+     "g91.AudioGate",
+     "Multip92.B"
+    ],
+    [
+     "g89.AC_High",
+     "SetVol93.self"
+    ],
+    [
+     "Multip92.ReturnValue",
+     "SetVol93.NewVolumeMultiplier"
+    ],
+    [
+     "SetPit83.then",
+     "SetVol93.execute"
+    ],
+    [
+     "g94.AC_High",
+     "SetPit95.self"
+    ],
+    [
+     "FClamp88.ReturnValue",
+     "SetPit95.NewPitchMultiplier"
+    ],
+    [
+     "SetVol93.then",
+     "SetPit95.execute"
+    ],
+    [
+     "g96.EngineLoad",
+     "Multip97.A"
+    ],
+    [
+     "g41.StrainW",
+     "Add_Do98.A"
+    ],
+    [
+     "Multip97.ReturnValue",
+     "Add_Do98.B"
+    ],
+    [
+     "g15.DriveSpeed",
+     "Divide99.A"
+    ],
+    [
+     "Divide99.ReturnValue",
+     "FClamp100.Value"
+    ],
+    [
+     "Add_Do98.ReturnValue",
+     "Multip102.A"
+    ],
+    [
+     "Multip102.ReturnValue",
+     "Multip104.A"
+    ],
+    [
+     "g103.AudioGate",
+     "Multip104.B"
+    ],
+    [
+     "g101.AC_Strain",
+     "SetVol105.self"
+    ],
+    [
+     "Multip104.ReturnValue",
+     "SetVol105.NewVolumeMultiplier"
+    ],
+    [
+     "SetPit95.then",
+     "SetVol105.execute"
+    ],
+    [
+     "g106.AC_Strain",
+     "SetPit107.self"
+    ],
+    [
+     "FClamp100.ReturnValue",
+     "SetPit107.NewPitchMultiplier"
+    ],
+    [
+     "SetVol105.then",
+     "SetPit107.execute"
+    ],
+    [
+     "g15.DriveSpeed",
+     "MapRan108.Value"
+    ],
+    [
+     "g15.DriveSpeed",
+     "Multip109.A"
+    ],
+    [
+     "Multip109.ReturnValue",
+     "Add_Do110.B"
+    ],
+    [
+     "MapRan108.ReturnValue",
+     "Multip111.A"
+    ],
+    [
+     "Add_Do110.ReturnValue",
+     "Multip111.B"
+    ],
+    [
+     "g15.DriveSpeed",
+     "Multip112.A"
+    ],
+    [
+     "Multip112.ReturnValue",
+     "Add_Do113.B"
+    ],
+    [
+     "g114.W0",
+     "Multip115.A"
+    ],
+    [
+     "Multip111.ReturnValue",
+     "Multip115.B"
+    ],
+    [
+     "Multip115.ReturnValue",
+     "Multip116.A"
+    ],
+    [
+     "Multip116.ReturnValue",
+     "Multip118.A"
+    ],
+    [
+     "Multip118.ReturnValue",
+     "Multip120.A"
+    ],
+    [
+     "g119.AudioGate",
+     "Multip120.B"
+    ],
+    [
+     "g117.AC_WDirt",
+     "SetVol121.self"
+    ],
+    [
+     "Multip120.ReturnValue",
+     "SetVol121.NewVolumeMultiplier"
+    ],
+    [
+     "SetPit107.then",
+     "SetVol121.execute"
+    ],
+    [
+     "g122.AC_WDirt",
+     "SetPit123.self"
+    ],
+    [
+     "Add_Do113.ReturnValue",
+     "SetPit123.NewPitchMultiplier"
+    ],
+    [
+     "SetVol121.then",
+     "SetPit123.execute"
+    ],
+    [
+     "g124.W1",
+     "Multip125.A"
+    ],
+    [
+     "Multip111.ReturnValue",
+     "Multip125.B"
+    ],
+    [
+     "Multip125.ReturnValue",
+     "Multip126.A"
+    ],
+    [
+     "Multip126.ReturnValue",
+     "Multip128.A"
+    ],
+    [
+     "Multip128.ReturnValue",
+     "Multip130.A"
+    ],
+    [
+     "g129.AudioGate",
+     "Multip130.B"
+    ],
+    [
+     "g127.AC_WGravel",
+     "SetVol131.self"
+    ],
+    [
+     "Multip130.ReturnValue",
+     "SetVol131.NewVolumeMultiplier"
+    ],
+    [
+     "SetPit123.then",
+     "SetVol131.execute"
+    ],
+    [
+     "g132.AC_WGravel",
+     "SetPit133.self"
+    ],
+    [
+     "Add_Do113.ReturnValue",
+     "SetPit133.NewPitchMultiplier"
+    ],
+    [
+     "SetVol131.then",
+     "SetPit133.execute"
+    ],
+    [
+     "g134.W2",
+     "Multip135.A"
+    ],
+    [
+     "Multip111.ReturnValue",
+     "Multip135.B"
+    ],
+    [
+     "Multip135.ReturnValue",
+     "Multip136.A"
+    ],
+    [
+     "Multip136.ReturnValue",
+     "Multip138.A"
+    ],
+    [
+     "Multip138.ReturnValue",
+     "Multip140.A"
+    ],
+    [
+     "g139.AudioGate",
+     "Multip140.B"
+    ],
+    [
+     "g137.AC_WSlabs",
+     "SetVol141.self"
+    ],
+    [
+     "Multip140.ReturnValue",
+     "SetVol141.NewVolumeMultiplier"
+    ],
+    [
+     "SetPit133.then",
+     "SetVol141.execute"
+    ],
+    [
+     "g142.AC_WSlabs",
+     "SetPit143.self"
+    ],
+    [
+     "Add_Do113.ReturnValue",
+     "SetPit143.NewPitchMultiplier"
+    ],
+    [
+     "SetVol141.then",
+     "SetPit143.execute"
+    ],
+    [
+     "g15.DriveSpeed",
+     "MapRan144.Value"
+    ],
+    [
+     "Add_Do56.ReturnValue",
+     "Multip145.A"
+    ],
+    [
+     "MapRan144.ReturnValue",
+     "Multip145.B"
+    ],
+    [
+     "g41.StrainW",
+     "Multip146.A"
+    ],
+    [
+     "Multip145.ReturnValue",
+     "Add_Do147.A"
+    ],
+    [
+     "Multip146.ReturnValue",
+     "Add_Do147.B"
+    ],
+    [
+     "Add_Do147.ReturnValue",
+     "Multip148.A"
+    ],
+    [
+     "Multip148.ReturnValue",
+     "Multip150.A"
+    ],
+    [
+     "Multip150.ReturnValue",
+     "Multip152.A"
+    ],
+    [
+     "g151.AudioGate",
+     "Multip152.B"
+    ],
+    [
+     "g149.AC_Creak",
+     "SetVol153.self"
+    ],
+    [
+     "Multip152.ReturnValue",
+     "SetVol153.NewVolumeMultiplier"
+    ],
+    [
+     "SetPit143.then",
+     "SetVol153.execute"
+    ],
+    [
+     "g154.AC_Creak",
+     "SetPit155.self"
+    ],
+    [
+     "SetVol153.then",
+     "SetPit155.execute"
+    ],
+    [
+     "g15.DriveSpeed",
+     "Multip156.A"
+    ],
+    [
+     "Multip156.ReturnValue",
+     "Add_Do157.B"
+    ],
+    [
+     "g158.W0",
+     "Multip159.A"
+    ],
+    [
+     "Multip111.ReturnValue",
+     "Multip159.B"
+    ],
+    [
+     "Multip159.ReturnValue",
+     "Multip160.A"
+    ],
+    [
+     "Multip160.ReturnValue",
+     "Multip162.A"
+    ],
+    [
+     "Multip162.ReturnValue",
+     "Multip164.A"
+    ],
+    [
+     "g163.AudioGate",
+     "Multip164.B"
+    ],
+    [
+     "g161.AC_TWDirt",
+     "SetVol165.self"
+    ],
+    [
+     "Multip164.ReturnValue",
+     "SetVol165.NewVolumeMultiplier"
+    ],
+    [
+     "SetPit155.then",
+     "SetVol165.execute"
+    ],
+    [
+     "g166.AC_TWDirt",
+     "SetPit167.self"
+    ],
+    [
+     "Add_Do157.ReturnValue",
+     "SetPit167.NewPitchMultiplier"
+    ],
+    [
+     "SetVol165.then",
+     "SetPit167.execute"
+    ],
+    [
+     "g168.W1",
+     "Multip169.A"
+    ],
+    [
+     "Multip111.ReturnValue",
+     "Multip169.B"
+    ],
+    [
+     "Multip169.ReturnValue",
+     "Multip170.A"
+    ],
+    [
+     "Multip170.ReturnValue",
+     "Multip172.A"
+    ],
+    [
+     "Multip172.ReturnValue",
+     "Multip174.A"
+    ],
+    [
+     "g173.AudioGate",
+     "Multip174.B"
+    ],
+    [
+     "g171.AC_TWGravel",
+     "SetVol175.self"
+    ],
+    [
+     "Multip174.ReturnValue",
+     "SetVol175.NewVolumeMultiplier"
+    ],
+    [
+     "SetPit167.then",
+     "SetVol175.execute"
+    ],
+    [
+     "g176.AC_TWGravel",
+     "SetPit177.self"
+    ],
+    [
+     "Add_Do157.ReturnValue",
+     "SetPit177.NewPitchMultiplier"
+    ],
+    [
+     "SetVol175.then",
+     "SetPit177.execute"
+    ],
+    [
+     "g178.W2",
+     "Multip179.A"
+    ],
+    [
+     "Multip111.ReturnValue",
+     "Multip179.B"
+    ],
+    [
+     "Multip179.ReturnValue",
+     "Multip180.A"
+    ],
+    [
+     "Multip180.ReturnValue",
+     "Multip182.A"
+    ],
+    [
+     "Multip182.ReturnValue",
+     "Multip184.A"
+    ],
+    [
+     "g183.AudioGate",
+     "Multip184.B"
+    ],
+    [
+     "g181.AC_TWSlabs",
+     "SetVol185.self"
+    ],
+    [
+     "Multip184.ReturnValue",
+     "SetVol185.NewVolumeMultiplier"
+    ],
+    [
+     "SetPit177.then",
+     "SetVol185.execute"
+    ],
+    [
+     "g186.AC_TWSlabs",
+     "SetPit187.self"
+    ],
+    [
+     "Add_Do157.ReturnValue",
+     "SetPit187.NewPitchMultiplier"
+    ],
+    [
+     "SetVol185.then",
+     "SetPit187.execute"
+    ],
+    [
+     "g15.DriveSpeed",
+     "MapRan188.Value"
+    ],
+    [
+     "Add_Do56.ReturnValue",
+     "Multip189.A"
+    ],
+    [
+     "MapRan188.ReturnValue",
+     "Multip189.B"
+    ],
+    [
+     "Multip189.ReturnValue",
+     "Multip190.A"
+    ],
+    [
+     "g15.DriveSpeed",
+     "Multip191.A"
+    ],
+    [
+     "Multip191.ReturnValue",
+     "Add_Do192.B"
+    ],
+    [
+     "Multip190.ReturnValue",
+     "Multip194.A"
+    ],
+    [
+     "Multip194.ReturnValue",
+     "Multip196.A"
+    ],
+    [
+     "g195.AudioGate",
+     "Multip196.B"
+    ],
+    [
+     "g193.AC_Rattle",
+     "SetVol197.self"
+    ],
+    [
+     "Multip196.ReturnValue",
+     "SetVol197.NewVolumeMultiplier"
+    ],
+    [
+     "SetPit187.then",
+     "SetVol197.execute"
+    ],
+    [
+     "g198.AC_Rattle",
+     "SetPit199.self"
+    ],
+    [
+     "Add_Do192.ReturnValue",
+     "SetPit199.NewPitchMultiplier"
+    ],
+    [
+     "SetVol197.then",
+     "SetPit199.execute"
+    ],
+    [
+     "g200.Steer",
+     "Abs201.A"
+    ],
+    [
+     "Abs201.ReturnValue",
+     "Multip203.A"
+    ],
+    [
+     "g202.TurnRateNow",
+     "Multip203.B"
+    ],
+    [
+     "Multip203.ReturnValue",
+     "MapRan204.Value"
+    ],
+    [
+     "g15.DriveSpeed",
+     "MapRan205.Value"
+    ],
+    [
+     "MapRan204.ReturnValue",
+     "Multip206.A"
+    ],
+    [
+     "MapRan205.ReturnValue",
+     "Multip206.B"
+    ],
+    [
+     "Multip206.ReturnValue",
+     "Multip207.A"
+    ],
+    [
+     "Multip207.ReturnValue",
+     "Multip209.A"
+    ],
+    [
+     "Multip209.ReturnValue",
+     "Multip211.A"
+    ],
+    [
+     "g210.AudioGate",
+     "Multip211.B"
+    ],
+    [
+     "g208.AC_Scrub",
+     "SetVol212.self"
+    ],
+    [
+     "Multip211.ReturnValue",
+     "SetVol212.NewVolumeMultiplier"
+    ],
+    [
+     "SetPit199.then",
+     "SetVol212.execute"
+    ],
+    [
+     "g213.AC_Scrub",
+     "SetPit214.self"
+    ],
+    [
+     "SetVol212.then",
+     "SetPit214.execute"
+    ],
+    [
+     "g215.Steer",
+     "Greate217.A"
+    ],
+    [
+     "g216.PrevSteer",
+     "Less_D218.A"
+    ],
+    [
+     "Greate217.ReturnValue",
+     "Boolea219.A"
+    ],
+    [
+     "Less_D218.ReturnValue",
+     "Boolea219.B"
+    ],
+    [
+     "g215.Steer",
+     "Less_D220.A"
+    ],
+    [
+     "g216.PrevSteer",
+     "Greate221.A"
+    ],
+    [
+     "Less_D220.ReturnValue",
+     "Boolea222.A"
+    ],
+    [
+     "Greate221.ReturnValue",
+     "Boolea222.B"
+    ],
+    [
+     "g223.AudioGate",
+     "Greate224.A"
+    ],
+    [
+     "Boolea219.ReturnValue",
+     "Boolea225.A"
+    ],
+    [
+     "Greate224.ReturnValue",
+     "Boolea225.B"
+    ],
+    [
+     "Boolea225.ReturnValue",
+     "if226.Condition"
+    ],
+    [
+     "SetPit214.then",
+     "if226.execute"
+    ],
+    [
+     "g228.S_ServoR0",
+     "pick227.Option 0"
+    ],
+    [
+     "g229.S_ServoR1",
+     "pick227.Option 1"
+    ],
+    [
+     "g230.S_ServoR2",
+     "pick227.Option 2"
+    ],
+    [
+     "Random231.ReturnValue",
+     "pick227.Index"
+    ],
+    [
+     "pick227.ReturnValue",
+     "SpawnS233.Sound"
+    ],
+    [
+     "Multip232.ReturnValue",
+     "SpawnS233.VolumeMultiplier"
+    ],
+    [
+     "if226.then",
+     "SpawnS233.execute"
+    ],
+    [
+     "g234.AudioGate",
+     "Greate235.A"
+    ],
+    [
+     "Boolea222.ReturnValue",
+     "Boolea236.A"
+    ],
+    [
+     "Greate235.ReturnValue",
+     "Boolea236.B"
+    ],
+    [
+     "Boolea236.ReturnValue",
+     "if237.Condition"
+    ],
+    [
+     "SpawnS233.then",
+     "if237.execute"
+    ],
+    [
+     "if226.else",
+     "if237.execute"
+    ],
+    [
+     "g239.S_ServoL0",
+     "pick238.Option 0"
+    ],
+    [
+     "g240.S_ServoL1",
+     "pick238.Option 1"
+    ],
+    [
+     "g241.S_ServoL2",
+     "pick238.Option 2"
+    ],
+    [
+     "Random242.ReturnValue",
+     "pick238.Index"
+    ],
+    [
+     "pick238.ReturnValue",
+     "SpawnS244.Sound"
+    ],
+    [
+     "Multip243.ReturnValue",
+     "SpawnS244.VolumeMultiplier"
+    ],
+    [
+     "if237.then",
+     "SpawnS244.execute"
+    ],
+    [
+     "g245.Steer",
+     "s246.PrevSteer"
+    ],
+    [
+     "SpawnS244.then",
+     "s246.execute"
+    ],
+    [
+     "if237.else",
+     "s246.execute"
+    ],
+    [
+     "GetVel247.ReturnValue",
+     "BreakV248.InVec"
+    ],
+    [
+     "BreakV248.Z",
+     "Subtra250.A"
+    ],
+    [
+     "g249.PrevVz",
+     "Subtra250.B"
+    ],
+    [
+     "Subtra250.ReturnValue",
+     "Abs251.A"
+    ],
+    [
+     "Abs251.ReturnValue",
+     "Greate252.A"
+    ],
+    [
+     "g15.DriveSpeed",
+     "Greate253.A"
+    ],
+    [
+     "Greate252.ReturnValue",
+     "Boolea254.A"
+    ],
+    [
+     "Greate253.ReturnValue",
+     "Boolea254.B"
+    ],
+    [
+     "Abs251.ReturnValue",
+     "MapRan255.Value"
+    ],
+    [
+     "g256.AudioGate",
+     "Greate257.A"
+    ],
+    [
+     "Boolea254.ReturnValue",
+     "Boolea258.A"
+    ],
+    [
+     "Greate257.ReturnValue",
+     "Boolea258.B"
+    ],
+    [
+     "Boolea258.ReturnValue",
+     "if259.Condition"
+    ],
+    [
+     "s246.then",
+     "if259.execute"
+    ],
+    [
+     "g261.S_Clunk0",
+     "pick260.Option 0"
+    ],
+    [
+     "g262.S_Clunk1",
+     "pick260.Option 1"
+    ],
+    [
+     "g263.S_Clunk2",
+     "pick260.Option 2"
+    ],
+    [
+     "g264.S_Clunk3",
+     "pick260.Option 3"
+    ],
+    [
+     "g265.S_Clunk4",
+     "pick260.Option 4"
+    ],
+    [
+     "g266.S_Clunk5",
+     "pick260.Option 5"
+    ],
+    [
+     "g267.S_Clunk6",
+     "pick260.Option 6"
+    ],
+    [
+     "g268.S_Clunk7",
+     "pick260.Option 7"
+    ],
+    [
+     "Random269.ReturnValue",
+     "pick260.Index"
+    ],
+    [
+     "MapRan255.ReturnValue",
+     "Multip270.A"
+    ],
+    [
+     "pick260.ReturnValue",
+     "SpawnS271.Sound"
+    ],
+    [
+     "Multip270.ReturnValue",
+     "SpawnS271.VolumeMultiplier"
+    ],
+    [
+     "if259.then",
+     "SpawnS271.execute"
+    ],
+    [
+     "BreakV248.Z",
+     "s272.PrevVz"
+    ],
+    [
+     "SpawnS271.then",
+     "s272.execute"
+    ],
+    [
+     "if259.else",
+     "s272.execute"
+    ],
+    [
+     "g273.Throttle",
+     "Subtra275.A"
+    ],
+    [
+     "g274.PrevThrottle",
+     "Subtra275.B"
+    ],
+    [
+     "Subtra275.ReturnValue",
+     "Abs276.A"
+    ],
+    [
+     "Abs276.ReturnValue",
+     "Greate277.A"
+    ],
+    [
+     "g278.DriveAccel",
+     "Abs279.A"
+    ],
+    [
+     "Abs279.ReturnValue",
+     "Greate280.A"
+    ],
+    [
+     "Greate277.ReturnValue",
+     "Boolea281.A"
+    ],
+    [
+     "Greate280.ReturnValue",
+     "Boolea281.B"
+    ],
+    [
+     "g282.AudioGate",
+     "Greate283.A"
+    ],
+    [
+     "Boolea281.ReturnValue",
+     "Boolea284.A"
+    ],
+    [
+     "Greate283.ReturnValue",
+     "Boolea284.B"
+    ],
+    [
+     "Boolea284.ReturnValue",
+     "if285.Condition"
+    ],
+    [
+     "s272.then",
+     "if285.execute"
+    ],
+    [
+     "g287.S_Clank0",
+     "pick286.Option 0"
+    ],
+    [
+     "g288.S_Clank1",
+     "pick286.Option 1"
+    ],
+    [
+     "g289.S_Clank2",
+     "pick286.Option 2"
+    ],
+    [
+     "g290.S_Clank3",
+     "pick286.Option 3"
+    ],
+    [
+     "Random291.ReturnValue",
+     "pick286.Index"
+    ],
+    [
+     "pick286.ReturnValue",
+     "SpawnS293.Sound"
+    ],
+    [
+     "Multip292.ReturnValue",
+     "SpawnS293.VolumeMultiplier"
+    ],
+    [
+     "if285.then",
+     "SpawnS293.execute"
+    ],
+    [
+     "g294.PrevStrain",
+     "Not_Pr295.A"
+    ],
+    [
+     "Greate18.ReturnValue",
+     "Boolea296.A"
+    ],
+    [
+     "Not_Pr295.ReturnValue",
+     "Boolea296.B"
+    ],
+    [
+     "g297.AudioGate",
+     "Greate298.A"
+    ],
+    [
+     "Boolea296.ReturnValue",
+     "Boolea299.A"
+    ],
+    [
+     "Greate298.ReturnValue",
+     "Boolea299.B"
+    ],
+    [
+     "Boolea299.ReturnValue",
+     "if300.Condition"
+    ],
+    [
+     "SpawnS293.then",
+     "if300.execute"
+    ],
+    [
+     "if285.else",
+     "if300.execute"
+    ],
+    [
+     "g302.S_Knee0",
+     "pick301.Option 0"
+    ],
+    [
+     "g303.S_Knee1",
+     "pick301.Option 1"
+    ],
+    [
+     "g304.S_Knee2",
+     "pick301.Option 2"
+    ],
+    [
+     "g305.S_Knee3",
+     "pick301.Option 3"
+    ],
+    [
+     "Random306.ReturnValue",
+     "pick301.Index"
+    ],
+    [
+     "pick301.ReturnValue",
+     "SpawnS308.Sound"
+    ],
+    [
+     "Multip307.ReturnValue",
+     "SpawnS308.VolumeMultiplier"
+    ],
+    [
+     "if300.then",
+     "SpawnS308.execute"
+    ],
+    [
+     "Greate18.ReturnValue",
+     "s309.PrevStrain"
+    ],
+    [
+     "SpawnS308.then",
+     "s309.execute"
+    ],
+    [
+     "if300.else",
+     "s309.execute"
+    ],
+    [
+     "GetCon310.ReturnValue",
+     "BreakR311.InRot"
+    ],
+    [
+     "BreakR311.Yaw",
+     "Subtra313.A"
+    ],
+    [
+     "g312.LastTickYaw",
+     "Subtra313.B"
+    ],
+    [
+     "Subtra313.ReturnValue",
+     "Normal314.Angle"
+    ],
+    [
+     "Normal314.ReturnValue",
+     "Abs315.A"
+    ],
+    [
+     "Abs315.ReturnValue",
+     "Greate316.A"
+    ],
+    [
+     "g317.AudioGate",
+     "Greate318.A"
+    ],
+    [
+     "Greate316.ReturnValue",
+     "Boolea319.A"
+    ],
+    [
+     "Greate318.ReturnValue",
+     "Boolea319.B"
+    ],
+    [
+     "Boolea319.ReturnValue",
+     "if320.Condition"
+    ],
+    [
+     "s309.then",
+     "if320.execute"
+    ],
+    [
+     "g322.S_Tick0",
+     "pick321.Option 0"
+    ],
+    [
+     "g323.S_Tick1",
+     "pick321.Option 1"
+    ],
+    [
+     "g324.S_Tick2",
+     "pick321.Option 2"
+    ],
+    [
+     "g325.S_Tick3",
+     "pick321.Option 3"
+    ],
+    [
+     "Random326.ReturnValue",
+     "pick321.Index"
+    ],
+    [
+     "pick321.ReturnValue",
+     "SpawnS327.Sound"
+    ],
+    [
+     "if320.then",
+     "SpawnS327.execute"
+    ],
+    [
+     "BreakR311.Yaw",
+     "s328.LastTickYaw"
+    ],
+    [
+     "SpawnS327.then",
+     "s328.execute"
+    ],
+    [
+     "g329.AnimMode",
+     "NotEqu331.A"
+    ],
+    [
+     "g330.LastAnimMode",
+     "NotEqu331.B"
+    ],
+    [
+     "g329.AnimMode",
+     "EqualE332.A"
+    ],
+    [
+     "NotEqu331.ReturnValue",
+     "Boolea333.A"
+    ],
+    [
+     "EqualE332.ReturnValue",
+     "Boolea333.B"
+    ],
+    [
+     "g334.AudioGate",
+     "Greate335.A"
+    ],
+    [
+     "g6.bAudioControllerReady",
+     "Boolea336.A"
+    ],
+    [
+     "Greate335.ReturnValue",
+     "Boolea336.B"
+    ],
+    [
+     "Boolea333.ReturnValue",
+     "Boolea337.A"
+    ],
+    [
+     "Boolea336.ReturnValue",
+     "Boolea337.B"
+    ],
+    [
+     "Boolea337.ReturnValue",
+     "if338.Condition"
+    ],
+    [
+     "s328.then",
+     "if338.execute"
+    ],
+    [
+     "if320.else",
+     "if338.execute"
+    ],
+    [
+     "g339.S_StateStart",
+     "SpawnS340.Sound"
+    ],
+    [
+     "if338.then",
+     "SpawnS340.execute"
+    ],
+    [
+     "g329.AnimMode",
+     "EqualE341.A"
+    ],
+    [
+     "NotEqu331.ReturnValue",
+     "Boolea342.A"
+    ],
+    [
+     "EqualE341.ReturnValue",
+     "Boolea342.B"
+    ],
+    [
+     "g343.AudioGate",
+     "Greate344.A"
+    ],
+    [
+     "g6.bAudioControllerReady",
+     "Boolea345.A"
+    ],
+    [
+     "Greate344.ReturnValue",
+     "Boolea345.B"
+    ],
+    [
+     "Boolea342.ReturnValue",
+     "Boolea346.A"
+    ],
+    [
+     "Boolea345.ReturnValue",
+     "Boolea346.B"
+    ],
+    [
+     "Boolea346.ReturnValue",
+     "if347.Condition"
+    ],
+    [
+     "SpawnS340.then",
+     "if347.execute"
+    ],
+    [
+     "if338.else",
+     "if347.execute"
+    ],
+    [
+     "g348.S_StateStartStop",
+     "SpawnS349.Sound"
+    ],
+    [
+     "if347.then",
+     "SpawnS349.execute"
+    ],
+    [
+     "g329.AnimMode",
+     "EqualE350.A"
+    ],
+    [
+     "NotEqu331.ReturnValue",
+     "Boolea351.A"
+    ],
+    [
+     "EqualE350.ReturnValue",
+     "Boolea351.B"
+    ],
+    [
+     "g352.AudioGate",
+     "Greate353.A"
+    ],
+    [
+     "g6.bAudioControllerReady",
+     "Boolea354.A"
+    ],
+    [
+     "Greate353.ReturnValue",
+     "Boolea354.B"
+    ],
+    [
+     "Boolea351.ReturnValue",
+     "Boolea355.A"
+    ],
+    [
+     "Boolea354.ReturnValue",
+     "Boolea355.B"
+    ],
+    [
+     "Boolea355.ReturnValue",
+     "if356.Condition"
+    ],
+    [
+     "SpawnS349.then",
+     "if356.execute"
+    ],
+    [
+     "if347.else",
+     "if356.execute"
+    ],
+    [
+     "g357.S_StateShutdown",
+     "SpawnS358.Sound"
+    ],
+    [
+     "if356.then",
+     "SpawnS358.execute"
+    ],
+    [
+     "g359.AnimMode",
+     "s360.LastAnimMode"
+    ],
+    [
+     "SpawnS358.then",
+     "s360.execute"
+    ],
+    [
+     "if356.else",
+     "s360.execute"
+    ]
+   ],
+   "defaults": {
+    "Select8.A": "1.0",
+    "Select8.B": "0.0",
+    "FInter9.DeltaTime": "0.03333333333333333",
+    "FInter9.InterpSpeed": "1.0",
+    "Subtra12.B": "800.0",
+    "Multip13.B": "0.20833333333333334",
+    "FMax14.B": "0.0",
+    "Greate18.B": "12.0",
+    "Select20.A": "1.0",
+    "Select20.B": "0.0",
+    "FInter21.DeltaTime": "0.03333333333333333",
+    "FInter21.InterpSpeed": "2.0",
+    "EqualE25.B": "0",
+    "Select26.A": "1.0",
+    "Select26.B": "0.0",
+    "FInter27.DeltaTime": "0.03333333333333333",
+    "FInter27.InterpSpeed": "3.0",
+    "EqualE31.B": "1",
+    "Select32.A": "1.0",
+    "Select32.B": "0.0",
+    "FInter33.DeltaTime": "0.03333333333333333",
+    "FInter33.InterpSpeed": "3.0",
+    "EqualE37.B": "2",
+    "Select38.A": "1.0",
+    "Select38.B": "0.0",
+    "FInter39.DeltaTime": "0.03333333333333333",
+    "FInter39.InterpSpeed": "3.0",
+    "Multip42.B": "0.25",
+    "Add_Do43.A": "0.75",
+    "MapRan44.InRangeA": "0.0",
+    "MapRan44.InRangeB": "500.0",
+    "MapRan44.OutRangeA": "0.0",
+    "MapRan44.OutRangeB": "1.0",
+    "Multip45.B": "0.55",
+    "Add_Do46.A": "0.45",
+    "Multip48.B": "0.36904265551980675",
+    "Subtra49.A": "1.0",
+    "Multip51.B": "0.45",
+    "Multip53.B": "0.75",
+    "MapRan57.InRangeA": "0.0",
+    "MapRan57.InRangeB": "150.0",
+    "MapRan57.OutRangeA": "0.0",
+    "MapRan57.OutRangeB": "1.0",
+    "Multip58.B": "0.5",
+    "Subtra59.A": "1.0",
+    "Multip60.B": "0.251188643150958",
+    "Multip61.B": "0.03",
+    "Add_Do62.A": "1.0",
+    "Multip64.B": "0.35481338923357547",
+    "MapRan70.InRangeA": "3.0",
+    "MapRan70.InRangeB": "60.0",
+    "MapRan70.OutRangeA": "0.0",
+    "MapRan70.OutRangeB": "1.0",
+    "MapRan71.InRangeA": "210.0",
+    "MapRan71.InRangeB": "310.0",
+    "MapRan71.OutRangeA": "1.0",
+    "MapRan71.OutRangeB": "0.0",
+    "Divide75.B": "157.1",
+    "FClamp76.Min": "0.3",
+    "FClamp76.Max": "2.0",
+    "Multip78.B": "0.35481338923357547",
+    "MapRan84.InRangeA": "210.0",
+    "MapRan84.InRangeB": "310.0",
+    "MapRan84.OutRangeA": "0.0",
+    "MapRan84.OutRangeB": "1.0",
+    "Divide87.B": "392.7",
+    "FClamp88.Min": "0.5",
+    "FClamp88.Max": "1.3",
+    "Multip90.B": "0.35481338923357547",
+    "Multip97.B": "0.25",
+    "Divide99.B": "117.8",
+    "FClamp100.Min": "0.6",
+    "FClamp100.Max": "1.5",
+    "Multip102.B": "0.35481338923357547",
+    "MapRan108.InRangeA": "2.0",
+    "MapRan108.InRangeB": "90.0",
+    "MapRan108.OutRangeA": "0.0",
+    "MapRan108.OutRangeB": "1.0",
+    "Multip109.B": "0.0009",
+    "Add_Do110.A": "0.55",
+    "Multip112.B": "0.0008",
+    "Add_Do113.A": "0.8",
+    "Multip116.B": "0.5011872336272722",
+    "Multip118.B": "0.5623413251903491",
+    "Multip126.B": "0.5011872336272722",
+    "Multip128.B": "0.5623413251903491",
+    "Multip136.B": "0.5011872336272722",
+    "Multip138.B": "0.5623413251903491",
+    "MapRan144.InRangeA": "20.0",
+    "MapRan144.InRangeB": "250.0",
+    "MapRan144.OutRangeA": "0.0",
+    "MapRan144.OutRangeB": "1.0",
+    "Multip146.B": "0.6",
+    "Multip148.B": "0.19952623149688797",
+    "Multip150.B": "0.5623413251903491",
+    "SetPit155.NewPitchMultiplier": "1.0",
+    "Multip156.B": "0.0009",
+    "Add_Do157.A": "0.85",
+    "Multip160.B": "0.22387211385683395",
+    "Multip162.B": "0.5623413251903491",
+    "Multip170.B": "0.22387211385683395",
+    "Multip172.B": "0.5623413251903491",
+    "Multip180.B": "0.22387211385683395",
+    "Multip182.B": "0.5623413251903491",
+    "MapRan188.InRangeA": "30.0",
+    "MapRan188.InRangeB": "320.0",
+    "MapRan188.OutRangeA": "0.0",
+    "MapRan188.OutRangeB": "1.0",
+    "Multip190.B": "0.19952623149688797",
+    "Multip191.B": "0.0004",
+    "Add_Do192.A": "0.9",
+    "Multip194.B": "0.5623413251903491",
+    "MapRan204.InRangeA": "10.0",
+    "MapRan204.InRangeB": "60.0",
+    "MapRan204.OutRangeA": "0.0",
+    "MapRan204.OutRangeB": "1.0",
+    "MapRan205.InRangeA": "120.0",
+    "MapRan205.InRangeB": "400.0",
+    "MapRan205.OutRangeA": "0.0",
+    "MapRan205.OutRangeB": "1.0",
+    "Multip207.B": "0.3981071705534972",
+    "Multip209.B": "0.5623413251903491",
+    "SetPit214.NewPitchMultiplier": "0.72",
+    "Greate217.B": "0.25",
+    "Less_D218.B": "0.25",
+    "Less_D220.B": "-0.25",
+    "Greate221.B": "-0.25",
+    "Greate224.B": "0.5",
+    "Random231.Min": "0",
+    "Random231.Max": "2",
+    "Multip232.A": "0.5011872336272722",
+    "Multip232.B": "0.5623413251903491",
+    "Greate235.B": "0.5",
+    "Random242.Min": "0",
+    "Random242.Max": "2",
+    "Multip243.A": "0.5011872336272722",
+    "Multip243.B": "0.5623413251903491",
+    "Greate252.B": "120.0",
+    "Greate253.B": "20.0",
+    "MapRan255.InRangeA": "120.0",
+    "MapRan255.InRangeB": "600.0",
+    "MapRan255.OutRangeA": "0.31622776601683794",
+    "MapRan255.OutRangeB": "1.0",
+    "Greate257.B": "0.5",
+    "Random269.Min": "0",
+    "Random269.Max": "7",
+    "Multip270.B": "0.5623413251903491",
+    "Greate277.B": "0.04",
+    "Greate280.B": "120.0",
+    "Greate283.B": "0.5",
+    "Random291.Min": "0",
+    "Random291.Max": "3",
+    "Multip292.A": "0.3981071705534972",
+    "Multip292.B": "0.5623413251903491",
+    "Greate298.B": "0.5",
+    "Random306.Min": "0",
+    "Random306.Max": "3",
+    "Multip307.A": "0.5011872336272722",
+    "Multip307.B": "0.5623413251903491",
+    "Greate316.B": "25.0",
+    "Greate318.B": "0.5",
+    "Random326.Min": "0",
+    "Random326.Max": "3",
+    "SpawnS327.VolumeMultiplier": "0.14125375446227545",
+    "EqualE332.B": "Start",
+    "Greate335.B": "0.5",
+    "SpawnS340.VolumeMultiplier": "0.35481338923357547",
+    "EqualE341.B": "StartStop",
+    "Greate344.B": "0.5",
+    "SpawnS349.VolumeMultiplier": "0.35481338923357547",
+    "EqualE350.B": "Shutdown",
+    "Greate353.B": "0.5",
+    "SpawnS358.VolumeMultiplier": "0.35481338923357547"
+   }
+  }
+ ]
+}

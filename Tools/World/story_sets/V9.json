@@ -1,0 +1,3023 @@
+{
+ "generated_by": "Tools/World/story_sets/v9_segalen_wall.py",
+ "method": "docs/world/SETDRESS_V2.md",
+ "design": "docs/world/story_sets/V9.md",
+ "level": "/Game/level/Saskarta_WP",
+ "story_set": "V9",
+ "conventions": {
+  "xy": "world cm; yaw/pitch = UE degrees (pitch lifts local +X)",
+  "bounds": "x_cm/y_cm is the mesh BOUNDS CENTRE",
+  "ground": "decal patches: DecalActor pitch -90, yaw, size (depth/2, width/2, length/2)",
+  "contact": "rigid | lie (SETDRESS_V2.md section 3); the wall pieces are rigid with a fixed pitch (the rake)",
+  "site_uv": "u m along leg B from the bend (spline point 3), v m left of it"
+ },
+ "rejected": [
+  "AB_Broken_Walls (the storyline's wall, 0.71 m deep, 0.48 m tall): on the 24-27 deg cross slope a plumb piece of that depth stands only ~0.1 m over the road-side grade (a kerb); two courses need a bearing settle this pipeline lacks, and its broken top does not read as kept",
+  "tixjegefa_tier_2 upright (the storyline's stone): a rough temple block with a raised boss, no flat face for the lines, and upright needs a 90 deg roll that check2 cannot judge",
+  "the storyline's 6 lines at ~5 cm: from the third-person boom (6-12 m away) they are 5-8 px tall at 1080p",
+  "the old G21 target (10 m out, 3.5 m down): it centred a point on the slope, with the Keeper beside it and the boot point near the left edge"
+ ],
+ "checks": [],
+ "sites": [
+  {
+   "id": "S25_LastLookBack",
+   "story_set": "V9",
+   "name": "Ibartegh, the Last Look Back: the Segalen wall (V9)",
+   "kind": "wall + inscribed stone",
+   "order": 5,
+   "road_m": 4877,
+   "side": "left",
+   "lateral_m": -6.2,
+   "centre_cm": [
+    302650.3,
+    471799.9,
+    11810.2
+   ],
+   "road_yaw": 90.0,
+   "radius_m": 14.0,
+   "zone": "Z6 Summit",
+   "storm": "above the cloud: clear, calm, gold light; bare wind-scoured rock; the fewest objects on the road",
+   "role": "rest",
+   "story": "B21 the last look back (G21_LAST_LOOK, 10 s, move locked); the Segalen stone (never cut)",
+   "decay": 0,
+   "style": "kept stone: a raked parapet round the inside of the crest bend, a dressed stele at its crown",
+   "layout": "  road leg A (climbing 26 %) ====\\            /==== road leg B (falling 16 %)\n                                  \\  B21   /   (the bend, 4,877 m, the high point)\n        rest bay (packed earth) + spur to the carved face\n   parapet run A (2 x MV_Foundation, raked) --[STELE]-- parapet run B (2 x MV_Foundation, raked)\n   rock (run A dies into it)      outcrop under the stele        rock (run B ends on it)\n        footing stones, dust, dead shrubs on the valley side        lower anchor rock\n                         ... the valley, the boot point 3.1 km east ...",
+   "notes": "Story set V9 on the road site S25_LastLookBack (the V1 lane placed nothing here: verify-only). Runs inside V10's load (window B, after B12). The carved lines are a decal (MI_Glyph_V9_Carved from SourceArt/Inscriptions/T_Inscription_V9*), placed by this set's `inscription` step after the settle. The G21 target moves (`glance`). Nothing religious, nothing modern.",
+   "story_owned": [
+    "V9 the Segalen wall (this file is the story set)",
+    "Saskarta.Glance.SegalenWall (moved by `glance`)"
+   ],
+   "verify_only": false,
+   "layer": "road",
+   "poi": null,
+   "load_box_cm": [
+    297400,
+    465098,
+    308636,
+    476944
+   ],
+   "counts": {
+    "placements": 35,
+    "actors": 15,
+    "ism_instances": 26,
+    "physics": 0,
+    "batch01": 0,
+    "decals": 7,
+    "inscription_decals": 1
+   },
+   "views": [
+    {
+     "name": "carrier_a",
+     "cam_cm": [
+      304236.3,
+      469498.0,
+      11892.9
+     ],
+     "look_cm": [
+      302609.1,
+      471781.8,
+      11916.1
+     ]
+    },
+    {
+     "name": "carrier_b",
+     "cam_cm": [
+      303060.6,
+      470583.2,
+      11978.2
+     ],
+     "look_cm": [
+      302609.1,
+      471781.8,
+      11916.1
+     ]
+    },
+    {
+     "name": "carrier_c",
+     "cam_cm": [
+      301800.2,
+      471718.2,
+      12317.8
+     ],
+     "look_cm": [
+      303690.7,
+      471265.5,
+      11847.5
+     ]
+    },
+    {
+     "name": "glance_in",
+     "cam_cm": [
+      302075.7,
+      471802.2,
+      12186.6
+     ],
+     "look_cm": [
+      303963.0,
+      471325.3,
+      11727.5
+     ]
+    },
+    {
+     "name": "glance_face",
+     "cam_cm": [
+      302075.7,
+      471802.2,
+      12186.6
+     ],
+     "look_cm": [
+      302609.1,
+      471781.8,
+      11946.1
+     ]
+    },
+    {
+     "name": "orbit_a",
+     "cam_cm": [
+      302106.1,
+      472544.1,
+      12139.8
+     ],
+     "look_cm": [
+      302609.1,
+      471781.8,
+      11916.1
+     ]
+    },
+    {
+     "name": "orbit_b",
+     "cam_cm": [
+      303291.8,
+      471207.4,
+      12046.1
+     ],
+     "look_cm": [
+      302609.1,
+      471781.8,
+      11916.1
+     ]
+    },
+    {
+     "name": "orbit_c",
+     "cam_cm": [
+      303698.1,
+      472149.4,
+      11966.1
+     ],
+     "look_cm": [
+      302609.1,
+      471781.8,
+      11916.1
+     ]
+    },
+    {
+     "name": "contact",
+     "cam_cm": [
+      303003.6,
+      471790.8,
+      11744.0
+     ],
+     "look_cm": [
+      302762.0,
+      471627.8,
+      11795.6
+     ]
+    },
+    {
+     "name": "high34",
+     "cam_cm": [
+      301849.1,
+      470139.1,
+      14016.9
+     ],
+     "look_cm": [
+      302609.1,
+      471781.8,
+      11916.1
+     ]
+    },
+    {
+     "name": "far300",
+     "cam_cm": [
+      330131.7,
+      483832.1,
+      3368.6
+     ],
+     "look_cm": [
+      302609.1,
+      471781.8,
+      11916.1
+     ]
+    },
+    {
+     "name": "glance_fp",
+     "cam_cm": [
+      302079.6,
+      471605.0,
+      12259.1
+     ],
+     "look_cm": [
+      313422.4,
+      468888.7,
+      9431.3
+     ]
+    }
+   ],
+   "view_notes": {
+    "carrier_a": "the walk up to the bend: the Keeper camera at road 4850 m",
+    "carrier_b": "the walk up to the bend: the Keeper camera at road 4866 m",
+    "carrier_c": "G21 hold, the Keeper on the centreline, third person (capture at 60 deg: the 90 deg frame is wider)",
+    "glance_in": "G21 hold, the Keeper cutting the inside of the bend",
+    "glance_face": "the same eye, aimed at the carved face: can the lines be read",
+    "contact": "the valley face: footing stones, the outcrop under the stele, the wall base",
+    "far300": "from the valley side, 300 m out along the bisector",
+    "glance_fp": "G21 hold, README_Ending's first-person option"
+   },
+   "check_views": {
+    "cin24_wide": {
+     "cam_cm": [
+      365009.7,
+      348809.8,
+      13500.0
+     ],
+     "look_cm": [
+      298080.0,
+      483050.0,
+      13500.0
+     ],
+     "hfov_deg": 6.8,
+     "note": "CIN_24 shot 3 (probe_ending.json wide24, PROVISIONAL): judge with build_cinematics.py"
+    }
+   },
+   "placements": [
+    {
+     "id": "S25_LastLookBack_v9_000",
+     "key": "AB_Pillar_A_02",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Pillar_A_02",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 302650.3,
+     "y_cm": 471799.9,
+     "ground_z_cm": 11810.2,
+     "yaw": 203.65,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.45,
+     "scale_range": [
+      1.45,
+      1.45
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 61,
+      "max_tilt_deg": 0,
+      "rand_tilt_deg": 0,
+      "z_rule": "min",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stele",
+     "folder": "Set/S25_LastLookBack/stele",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 200000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.899,
+      1.218,
+      2.958
+     ],
+     "slope_deg": 27.3,
+     "contact": "rigid",
+     "site_uv": [
+      2.5,
+      5.71
+     ],
+     "role": "FOCAL: the Segalen stele (carved face to the bend)",
+     "story_set": "V9",
+     "block": "wall",
+     "material_set": "stone",
+     "road_clear_m": 5.05,
+     "predicted_centre_z_cm": 11869.9
+    },
+    {
+     "id": "S25_LastLookBack_v9_001",
+     "key": "MV_Foundation",
+     "asset": "/Game/MedievalVillage/Meshes/House/SM_Foundation",
+     "kind": "SM",
+     "cat": "wall",
+     "x_cm": 302762.0,
+     "y_cm": 471627.8,
+     "ground_z_cm": 11775.6,
+     "yaw": 317.29,
+     "pitch": -17.12,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 29,
+      "max_tilt_deg": 0,
+      "rand_tilt_deg": 0,
+      "z_rule": "min",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "wall",
+     "folder": "Set/S25_LastLookBack/wall",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 25000.0,
+     "cast_shadow": true,
+     "size_m": [
+      3.32,
+      0.3,
+      0.9
+     ],
+     "slope_deg": 26.1,
+     "contact": "rigid",
+     "site_uv": [
+      0.78,
+      6.82
+     ],
+     "role": "parapet run A, piece 1 (raked -17.1 deg with the verge)",
+     "story_set": "V9",
+     "block": "wall",
+     "material_set": "stone",
+     "road_clear_m": 5.05,
+     "predicted_centre_z_cm": 11782.9
+    },
+    {
+     "id": "S25_LastLookBack_v9_002",
+     "key": "MV_Foundation",
+     "asset": "/Game/MedievalVillage/Meshes/House/SM_Foundation",
+     "kind": "SM",
+     "cat": "wall",
+     "x_cm": 303004.4,
+     "y_cm": 471404.0,
+     "ground_z_cm": 11667.6,
+     "yaw": 317.29,
+     "pitch": -18.54,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 35,
+      "max_tilt_deg": 0,
+      "rand_tilt_deg": 0,
+      "z_rule": "min",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "wall",
+     "folder": "Set/S25_LastLookBack/wall",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 25000.0,
+     "cast_shadow": true,
+     "size_m": [
+      3.32,
+      0.3,
+      0.9
+     ],
+     "slope_deg": 23.1,
+     "contact": "rigid",
+     "site_uv": [
+      -1.46,
+      9.25
+     ],
+     "role": "parapet run A, piece 2 (raked -18.5 deg with the verge)",
+     "story_set": "V9",
+     "block": "wall",
+     "material_set": "stone",
+     "road_clear_m": 5.05,
+     "predicted_centre_z_cm": 11674.3
+    },
+    {
+     "id": "S25_LastLookBack_v9_003",
+     "key": "MV_Foundation",
+     "asset": "/Game/MedievalVillage/Meshes/House/SM_Foundation",
+     "kind": "SM",
+     "cat": "wall",
+     "x_cm": 302599.6,
+     "y_cm": 471998.6,
+     "ground_z_cm": 11810.8,
+     "yaw": 90.0,
+     "pitch": -7.39,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 25,
+      "max_tilt_deg": 0,
+      "rand_tilt_deg": 0,
+      "z_rule": "min",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "wall",
+     "folder": "Set/S25_LastLookBack/wall",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 25000.0,
+     "cast_shadow": true,
+     "size_m": [
+      3.32,
+      0.3,
+      0.9
+     ],
+     "slope_deg": 26.7,
+     "contact": "rigid",
+     "site_uv": [
+      4.49,
+      5.2
+     ],
+     "role": "parapet run B, piece 1 (raked -7.4 deg with the verge)",
+     "story_set": "V9",
+     "block": "wall",
+     "material_set": "stone",
+     "road_clear_m": 5.05,
+     "predicted_centre_z_cm": 11823.4
+    },
+    {
+     "id": "S25_LastLookBack_v9_004",
+     "key": "MV_Foundation",
+     "asset": "/Game/MedievalVillage/Meshes/House/SM_Foundation",
+     "kind": "SM",
+     "cat": "wall",
+     "x_cm": 302599.6,
+     "y_cm": 472328.6,
+     "ground_z_cm": 11758.5,
+     "yaw": 90.0,
+     "pitch": -12.83,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 22,
+      "max_tilt_deg": 0,
+      "rand_tilt_deg": 0,
+      "z_rule": "min",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "wall",
+     "folder": "Set/S25_LastLookBack/wall",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 25000.0,
+     "cast_shadow": true,
+     "size_m": [
+      3.32,
+      0.3,
+      0.9
+     ],
+     "slope_deg": 26.9,
+     "contact": "rigid",
+     "site_uv": [
+      7.79,
+      5.2
+     ],
+     "role": "parapet run B, piece 2 (raked -12.8 deg with the verge)",
+     "story_set": "V9",
+     "block": "wall",
+     "material_set": "stone",
+     "road_clear_m": 5.05,
+     "predicted_centre_z_cm": 11767.5
+    },
+    {
+     "id": "S25_LastLookBack_v9_005",
+     "key": "PH_rock_face",
+     "asset": "/Game/Pallbearer/PolyHaven/rock_face_02/rock_face_02_2k/StaticMeshes/rock_face_02_2k",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 302773.7,
+     "y_cm": 471853.9,
+     "ground_z_cm": 11743.0,
+     "yaw": 215.65,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.55,
+     "scale_range": [
+      0.55,
+      0.55
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 61,
+      "max_tilt_deg": 25,
+      "rand_tilt_deg": 4,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "rocks",
+     "folder": "Set/S25_LastLookBack/rocks",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      1.496,
+      1.171,
+      1.364
+     ],
+     "slope_deg": 26.4,
+     "contact": "lie",
+     "site_uv": [
+      3.04,
+      6.94
+     ],
+     "role": "rock: the outcrop the stele is founded on",
+     "story_set": "V9",
+     "block": "outcrop",
+     "material_set": "stone",
+     "road_clear_m": 5.99
+    },
+    {
+     "id": "S25_LastLookBack_v9_006",
+     "key": "LF_Rock_05",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_05",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 303224.0,
+     "y_cm": 471289.8,
+     "ground_z_cm": 11576.1,
+     "yaw": 342.29,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.55,
+     "scale_range": [
+      0.55,
+      0.55
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 28,
+      "max_tilt_deg": 25,
+      "rand_tilt_deg": 4,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "rocks",
+     "folder": "Set/S25_LastLookBack/rocks",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.979,
+      1.216,
+      0.71
+     ],
+     "slope_deg": 17.7,
+     "contact": "lie",
+     "site_uv": [
+      -2.6,
+      11.44
+     ],
+     "role": "rock: run A ends against it",
+     "story_set": "V9",
+     "block": "outcrop",
+     "material_set": "stone",
+     "road_clear_m": 5.09
+    },
+    {
+     "id": "S25_LastLookBack_v9_007",
+     "key": "LF_Rock_03",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_03",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 302664.6,
+     "y_cm": 472569.1,
+     "ground_z_cm": 11673.7,
+     "yaw": 60.0,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.5,
+     "scale_range": [
+      0.5,
+      0.5
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 25,
+      "max_tilt_deg": 25,
+      "rand_tilt_deg": 4,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "rocks",
+     "folder": "Set/S25_LastLookBack/rocks",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.85,
+      1.25,
+      0.62
+     ],
+     "slope_deg": 24.7,
+     "contact": "lie",
+     "site_uv": [
+      10.19,
+      5.85
+     ],
+     "role": "rock: run B ends against it",
+     "story_set": "V9",
+     "block": "outcrop",
+     "material_set": "stone",
+     "road_clear_m": 5.1
+    },
+    {
+     "id": "S25_LastLookBack_v9_008",
+     "key": "LF_Rock_04",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_04",
+     "kind": "SM",
+     "cat": "stone",
+     "x_cm": 302959.6,
+     "y_cm": 471970.0,
+     "ground_z_cm": 11637.2,
+     "yaw": 40.21,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.5,
+     "scale_range": [
+      0.5,
+      0.5
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 29,
+      "max_tilt_deg": 25,
+      "rand_tilt_deg": 4,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "rocks",
+     "folder": "Set/S25_LastLookBack/rocks",
+     "data_layer": "DL_SetDress",
+     "ism": false,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": true,
+     "foliage_exclude": true,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      1.17,
+      1.245,
+      0.73
+     ],
+     "slope_deg": 26.9,
+     "contact": "lie",
+     "site_uv": [
+      4.2,
+      8.8
+     ],
+     "role": "rock: the lower anchor: leads the eye down the fall line",
+     "story_set": "V9",
+     "block": "outcrop",
+     "material_set": "stone",
+     "road_clear_m": 7.95
+    },
+    {
+     "id": "S25_LastLookBack_v9_009",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 302725.5,
+     "y_cm": 471704.0,
+     "ground_z_cm": 11785.5,
+     "yaw": 243.59,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.706,
+     "scale_range": [
+      0.706,
+      0.706
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 8,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S25_LastLookBack/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.325,
+      0.318,
+      0.198
+     ],
+     "slope_deg": 26.2,
+     "contact": "lie",
+     "site_uv": [
+      1.54,
+      6.46
+     ],
+     "role": "footing stone, valley face of run A",
+     "story_set": "V9",
+     "block": "footing",
+     "material_set": "stone",
+     "road_clear_m": 5.31
+    },
+    {
+     "id": "S25_LastLookBack_v9_010",
+     "key": "AB_Cobble_04",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_04",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 302782.7,
+     "y_cm": 471650.3,
+     "ground_z_cm": 11764.1,
+     "yaw": 199.54,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.024,
+     "scale_range": [
+      1.024,
+      1.024
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S25_LastLookBack/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.287,
+      0.318,
+      0.123
+     ],
+     "slope_deg": 26.2,
+     "contact": "lie",
+     "site_uv": [
+      1.0,
+      7.03
+     ],
+     "role": "footing stone, valley face of run A",
+     "story_set": "V9",
+     "block": "footing",
+     "material_set": "stone",
+     "road_clear_m": 5.31
+    },
+    {
+     "id": "S25_LastLookBack_v9_011",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 302864.0,
+     "y_cm": 471579.7,
+     "ground_z_cm": 11729.2,
+     "yaw": 340.64,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.701,
+     "scale_range": [
+      0.701,
+      0.701
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 7,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S25_LastLookBack/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.322,
+      0.315,
+      0.196
+     ],
+     "slope_deg": 25.5,
+     "contact": "lie",
+     "site_uv": [
+      0.3,
+      7.84
+     ],
+     "role": "footing stone, valley face of run A",
+     "story_set": "V9",
+     "block": "footing",
+     "material_set": "stone",
+     "road_clear_m": 5.33
+    },
+    {
+     "id": "S25_LastLookBack_v9_012",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 302955.3,
+     "y_cm": 471500.3,
+     "ground_z_cm": 11689.1,
+     "yaw": 39.94,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.721,
+     "scale_range": [
+      0.721,
+      0.721
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 8,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S25_LastLookBack/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.332,
+      0.325,
+      0.202
+     ],
+     "slope_deg": 24.3,
+     "contact": "lie",
+     "site_uv": [
+      -0.5,
+      8.76
+     ],
+     "role": "footing stone, valley face of run A",
+     "story_set": "V9",
+     "block": "footing",
+     "material_set": "stone",
+     "road_clear_m": 5.39
+    },
+    {
+     "id": "S25_LastLookBack_v9_013",
+     "key": "AB_Cobble_04",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_04",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 303018.4,
+     "y_cm": 471430.9,
+     "ground_z_cm": 11661.8,
+     "yaw": 247.84,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.019,
+     "scale_range": [
+      1.019,
+      1.019
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S25_LastLookBack/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.285,
+      0.316,
+      0.122
+     ],
+     "slope_deg": 23.0,
+     "contact": "lie",
+     "site_uv": [
+      -1.19,
+      9.39
+     ],
+     "role": "footing stone, valley face of run A",
+     "story_set": "V9",
+     "block": "footing",
+     "material_set": "stone",
+     "road_clear_m": 5.3
+    },
+    {
+     "id": "S25_LastLookBack_v9_014",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 303120.3,
+     "y_cm": 471360.7,
+     "ground_z_cm": 11617.6,
+     "yaw": 80.75,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.711,
+     "scale_range": [
+      0.711,
+      0.711
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 8,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S25_LastLookBack/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.327,
+      0.32,
+      0.199
+     ],
+     "slope_deg": 24.2,
+     "contact": "lie",
+     "site_uv": [
+      -1.89,
+      10.41
+     ],
+     "role": "footing stone, valley face of run A",
+     "story_set": "V9",
+     "block": "footing",
+     "material_set": "stone",
+     "road_clear_m": 5.44
+    },
+    {
+     "id": "S25_LastLookBack_v9_015",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 302643.0,
+     "y_cm": 471893.4,
+     "ground_z_cm": 11802.7,
+     "yaw": 142.76,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.923,
+     "scale_range": [
+      0.923,
+      0.923
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 10,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S25_LastLookBack/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.425,
+      0.416,
+      0.259
+     ],
+     "slope_deg": 27.2,
+     "contact": "lie",
+     "site_uv": [
+      3.43,
+      5.63
+     ],
+     "role": "footing stone, valley face of run B",
+     "story_set": "V9",
+     "block": "footing",
+     "material_set": "stone",
+     "road_clear_m": 5.34
+    },
+    {
+     "id": "S25_LastLookBack_v9_016",
+     "key": "AB_Cobble_04",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_04",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 302636.2,
+     "y_cm": 471998.3,
+     "ground_z_cm": 11793.1,
+     "yaw": 316.57,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.266,
+     "scale_range": [
+      1.266,
+      1.266
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 6,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S25_LastLookBack/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.354,
+      0.392,
+      0.152
+     ],
+     "slope_deg": 26.6,
+     "contact": "lie",
+     "site_uv": [
+      4.48,
+      5.57
+     ],
+     "role": "footing stone, valley face of run B",
+     "story_set": "V9",
+     "block": "footing",
+     "material_set": "stone",
+     "road_clear_m": 5.3
+    },
+    {
+     "id": "S25_LastLookBack_v9_017",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 302636.2,
+     "y_cm": 472083.7,
+     "ground_z_cm": 11781.8,
+     "yaw": 85.22,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.692,
+     "scale_range": [
+      0.692,
+      0.692
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 7,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S25_LastLookBack/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.318,
+      0.311,
+      0.194
+     ],
+     "slope_deg": 27.3,
+     "contact": "lie",
+     "site_uv": [
+      5.34,
+      5.57
+     ],
+     "role": "footing stone, valley face of run B",
+     "story_set": "V9",
+     "block": "footing",
+     "material_set": "stone",
+     "road_clear_m": 5.4
+    },
+    {
+     "id": "S25_LastLookBack_v9_018",
+     "key": "AB_Cobble_04",
+     "asset": "/Game/AshesOfBazaar/Meshes/SM_Cobble_Stone_A_SM_Cobble_Stone_A_04",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 302645.6,
+     "y_cm": 472218.6,
+     "ground_z_cm": 11757.5,
+     "yaw": 275.17,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.001,
+     "scale_range": [
+      1.001,
+      1.001
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S25_LastLookBack/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.28,
+      0.31,
+      0.12
+     ],
+     "slope_deg": 27.9,
+     "contact": "lie",
+     "site_uv": [
+      6.69,
+      5.66
+     ],
+     "role": "footing stone, valley face of run B",
+     "story_set": "V9",
+     "block": "footing",
+     "material_set": "stone",
+     "road_clear_m": 5.49
+    },
+    {
+     "id": "S25_LastLookBack_v9_019",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 302645.6,
+     "y_cm": 472308.2,
+     "ground_z_cm": 11741.7,
+     "yaw": 30.06,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.652,
+     "scale_range": [
+      0.652,
+      0.652
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 7,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S25_LastLookBack/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.3,
+      0.294,
+      0.183
+     ],
+     "slope_deg": 27.0,
+     "contact": "lie",
+     "site_uv": [
+      7.58,
+      5.66
+     ],
+     "role": "footing stone, valley face of run B",
+     "story_set": "V9",
+     "block": "footing",
+     "material_set": "stone",
+     "road_clear_m": 5.46
+    },
+    {
+     "id": "S25_LastLookBack_v9_020",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 302635.3,
+     "y_cm": 472433.1,
+     "ground_z_cm": 11716.8,
+     "yaw": 193.53,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.822,
+     "scale_range": [
+      0.822,
+      0.822
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 9,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S25_LastLookBack/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.378,
+      0.37,
+      0.23
+     ],
+     "slope_deg": 26.2,
+     "contact": "lie",
+     "site_uv": [
+      8.83,
+      5.56
+     ],
+     "role": "footing stone, valley face of run B",
+     "story_set": "V9",
+     "block": "footing",
+     "material_set": "stone",
+     "road_clear_m": 5.33
+    },
+    {
+     "id": "S25_LastLookBack_v9_021",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 302679.2,
+     "y_cm": 471881.4,
+     "ground_z_cm": 11785.9,
+     "yaw": 143.33,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.684,
+     "scale_range": [
+      0.684,
+      0.684
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 8,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S25_LastLookBack/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.315,
+      0.308,
+      0.192
+     ],
+     "slope_deg": 27.0,
+     "contact": "lie",
+     "site_uv": [
+      3.31,
+      6.0
+     ],
+     "role": "packing stone at the stele foot (valley side)",
+     "story_set": "V9",
+     "block": "footing",
+     "material_set": "stone",
+     "road_clear_m": 5.78
+    },
+    {
+     "id": "S25_LastLookBack_v9_022",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 302704.9,
+     "y_cm": 471734.3,
+     "ground_z_cm": 11791.6,
+     "yaw": 199.82,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.611,
+     "scale_range": [
+      0.611,
+      0.611
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 7,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S25_LastLookBack/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.281,
+      0.275,
+      0.171
+     ],
+     "slope_deg": 26.3,
+     "contact": "lie",
+     "site_uv": [
+      1.84,
+      6.25
+     ],
+     "role": "packing stone at the stele foot (valley side)",
+     "story_set": "V9",
+     "block": "footing",
+     "material_set": "stone",
+     "road_clear_m": 5.41
+    },
+    {
+     "id": "S25_LastLookBack_v9_023",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 302893.3,
+     "y_cm": 471876.2,
+     "ground_z_cm": 11683.6,
+     "yaw": 43.68,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.749,
+     "scale_range": [
+      0.749,
+      0.749
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 8,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S25_LastLookBack/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.345,
+      0.337,
+      0.21
+     ],
+     "slope_deg": 26.3,
+     "contact": "lie",
+     "site_uv": [
+      3.26,
+      8.14
+     ],
+     "role": "scree below the outcrop",
+     "story_set": "V9",
+     "block": "scree",
+     "material_set": "stone",
+     "road_clear_m": 7.73
+    },
+    {
+     "id": "S25_LastLookBack_v9_024",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 303176.2,
+     "y_cm": 471900.9,
+     "ground_z_cm": 11554.4,
+     "yaw": 264.96,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.626,
+     "scale_range": [
+      0.626,
+      0.626
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 6,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S25_LastLookBack/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.288,
+      0.282,
+      0.175
+     ],
+     "slope_deg": 21.7,
+     "contact": "lie",
+     "site_uv": [
+      3.51,
+      10.97
+     ],
+     "role": "scree below the outcrop",
+     "story_set": "V9",
+     "block": "scree",
+     "material_set": "stone",
+     "road_clear_m": 9.82
+    },
+    {
+     "id": "S25_LastLookBack_v9_025",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 302944.4,
+     "y_cm": 471820.5,
+     "ground_z_cm": 11667.5,
+     "yaw": 124.99,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.522,
+     "scale_range": [
+      0.522,
+      0.522
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S25_LastLookBack/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.24,
+      0.235,
+      0.146
+     ],
+     "slope_deg": 26.1,
+     "contact": "lie",
+     "site_uv": [
+      2.7,
+      8.65
+     ],
+     "role": "scree below the outcrop",
+     "story_set": "V9",
+     "block": "scree",
+     "material_set": "stone",
+     "road_clear_m": 7.71
+    },
+    {
+     "id": "S25_LastLookBack_v9_026",
+     "key": "LF_Rock_07",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_07",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 302968.9,
+     "y_cm": 471836.3,
+     "ground_z_cm": 11653.8,
+     "yaw": 340.89,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.899,
+     "scale_range": [
+      0.899,
+      0.899
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 4,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S25_LastLookBack/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.243,
+      0.279,
+      0.099
+     ],
+     "slope_deg": 26.1,
+     "contact": "lie",
+     "site_uv": [
+      2.86,
+      8.89
+     ],
+     "role": "scree below the outcrop",
+     "story_set": "V9",
+     "block": "scree",
+     "material_set": "stone",
+     "road_clear_m": 7.96
+    },
+    {
+     "id": "S25_LastLookBack_v9_027",
+     "key": "LF_Rock_07",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_07",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 302930.9,
+     "y_cm": 471850.0,
+     "ground_z_cm": 11669.7,
+     "yaw": 76.83,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.017,
+     "scale_range": [
+      1.017,
+      1.017
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 4,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S25_LastLookBack/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.275,
+      0.315,
+      0.112
+     ],
+     "slope_deg": 26.1,
+     "contact": "lie",
+     "site_uv": [
+      3.0,
+      8.51
+     ],
+     "role": "scree below the outcrop",
+     "story_set": "V9",
+     "block": "scree",
+     "material_set": "stone",
+     "road_clear_m": 7.78
+    },
+    {
+     "id": "S25_LastLookBack_v9_028",
+     "key": "LF_Rock_08",
+     "asset": "/Game/Light_Foliage/Meshes/SM_Rock_08",
+     "kind": "SM",
+     "cat": "rubble",
+     "x_cm": 302913.9,
+     "y_cm": 471904.6,
+     "ground_z_cm": 11669.7,
+     "yaw": 186.3,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.571,
+     "scale_range": [
+      0.571,
+      0.571
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 6,
+      "max_tilt_deg": 35,
+      "rand_tilt_deg": 25,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "stones",
+     "folder": "Set/S25_LastLookBack/stones",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.263,
+      0.257,
+      0.16
+     ],
+     "slope_deg": 26.5,
+     "contact": "lie",
+     "site_uv": [
+      3.55,
+      8.34
+     ],
+     "role": "scree below the outcrop",
+     "story_set": "V9",
+     "block": "scree",
+     "material_set": "stone",
+     "road_clear_m": 8.08
+    },
+    {
+     "id": "S25_LastLookBack_v9_029",
+     "key": "FAB_Shrub_C",
+     "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarC",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 303076.3,
+     "y_cm": 471446.5,
+     "ground_z_cm": 11637.3,
+     "yaw": 137.3,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.9,
+     "scale_range": [
+      0.9,
+      0.9
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/S25_LastLookBack/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.738,
+      0.657,
+      0.405
+     ],
+     "slope_deg": 22.9,
+     "contact": "lie",
+     "site_uv": [
+      -1.04,
+      9.97
+     ],
+     "role": "dead shrub in the lee of run A, lower",
+     "story_set": "V9",
+     "block": "creep",
+     "road_clear_m": 5.67
+    },
+    {
+     "id": "S25_LastLookBack_v9_030",
+     "key": "FAB_Shrub_D",
+     "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarD",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 303162.6,
+     "y_cm": 471321.1,
+     "ground_z_cm": 11597.1,
+     "yaw": 201.76,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.9,
+     "scale_range": [
+      0.9,
+      0.9
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/S25_LastLookBack/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.378,
+      0.36,
+      0.297
+     ],
+     "slope_deg": 22.6,
+     "contact": "lie",
+     "site_uv": [
+      -2.29,
+      10.83
+     ],
+     "role": "dead shrub where run A dies into its rock",
+     "story_set": "V9",
+     "block": "creep",
+     "road_clear_m": 5.42
+    },
+    {
+     "id": "S25_LastLookBack_v9_031",
+     "key": "FAB_Shrub_E",
+     "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarE",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 302694.6,
+     "y_cm": 471992.6,
+     "ground_z_cm": 11765.2,
+     "yaw": 154.31,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.9,
+     "scale_range": [
+      0.9,
+      0.9
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/S25_LastLookBack/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.666,
+      0.612,
+      0.432
+     ],
+     "slope_deg": 27.2,
+     "contact": "lie",
+     "site_uv": [
+      4.43,
+      6.15
+     ],
+     "role": "dead shrub in the lee of run B",
+     "story_set": "V9",
+     "block": "creep",
+     "road_clear_m": 5.72
+    },
+    {
+     "id": "S25_LastLookBack_v9_032",
+     "key": "FAB_Shrub_C",
+     "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarC",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 302709.6,
+     "y_cm": 472272.6,
+     "ground_z_cm": 11716.7,
+     "yaw": 124.59,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 1.0,
+     "scale_range": [
+      1.0,
+      1.0
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/S25_LastLookBack/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.82,
+      0.73,
+      0.45
+     ],
+     "slope_deg": 28.0,
+     "contact": "lie",
+     "site_uv": [
+      7.23,
+      6.3
+     ],
+     "role": "dead shrub in the lee of run B, lower",
+     "story_set": "V9",
+     "block": "creep",
+     "road_clear_m": 5.77
+    },
+    {
+     "id": "S25_LastLookBack_v9_033",
+     "key": "FAB_Shrub_D",
+     "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarD",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 302654.4,
+     "y_cm": 472505.6,
+     "ground_z_cm": 11692.0,
+     "yaw": 280.0,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.85,
+     "scale_range": [
+      0.85,
+      0.85
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/S25_LastLookBack/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 4000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.357,
+      0.34,
+      0.281
+     ],
+     "slope_deg": 25.2,
+     "contact": "lie",
+     "site_uv": [
+      9.56,
+      5.75
+     ],
+     "role": "dead shrub where run B dies into its rock",
+     "story_set": "V9",
+     "block": "creep",
+     "road_clear_m": 5.55
+    },
+    {
+     "id": "S25_LastLookBack_v9_034",
+     "key": "FAB_Shrub_E",
+     "asset": "/Game/Fab/Megascans/Plants/Dead_Shrubs_vdknafgha/Raw/vdknafgha_tier_0/StaticMeshes/SM_vdknafgha_VarE",
+     "kind": "SM",
+     "cat": "shrub",
+     "x_cm": 302881.7,
+     "y_cm": 471800.6,
+     "ground_z_cm": 11699.7,
+     "yaw": 23.86,
+     "pitch": 0.0,
+     "roll": 0.0,
+     "scale": 0.9,
+     "scale_range": [
+      0.9,
+      0.9
+     ],
+     "settle": {
+      "mode": "trace",
+      "sink_cm": 5,
+      "max_tilt_deg": 15,
+      "rand_tilt_deg": 0,
+      "z_rule": "mean",
+      "drop_cm": 0,
+      "z_offset_cm": 0
+     },
+     "group": "creep",
+     "folder": "Set/S25_LastLookBack/creep",
+     "data_layer": "DL_SetDress",
+     "ism": true,
+     "stack": false,
+     "attach": false,
+     "run_id": null,
+     "collision": false,
+     "foliage_exclude": false,
+     "draw_distance_cm": 6000.0,
+     "cast_shadow": true,
+     "size_m": [
+      0.666,
+      0.612,
+      0.432
+     ],
+     "slope_deg": 26.1,
+     "contact": "lie",
+     "site_uv": [
+      2.51,
+      8.02
+     ],
+     "role": "dead shrub at the foot of the outcrop",
+     "story_set": "V9",
+     "block": "creep",
+     "road_clear_m": 6.85
+    }
+   ],
+   "ground": [
+    {
+     "id": "S25_LastLookBack_v9_g00",
+     "surface": "packed_earth",
+     "shape": "ellipse",
+     "x_cm": 302459.8,
+     "y_cm": 471716.4,
+     "z_cm": 11899.2,
+     "yaw": 293.6,
+     "length_m": 6.2,
+     "width_m": 2.4,
+     "depth_m": 3.0,
+     "strength": 0.7,
+     "sort": 0,
+     "role": "the rest bay at the bend, where walkers stop to look"
+    },
+    {
+     "id": "S25_LastLookBack_v9_g01",
+     "surface": "path",
+     "shape": "capsule",
+     "x_cm": 302497.8,
+     "y_cm": 471733.1,
+     "z_cm": 11894.6,
+     "yaw": 23.6,
+     "length_m": 2.73,
+     "width_m": 0.8,
+     "depth_m": 3.0,
+     "strength": 0.85,
+     "sort": 3,
+     "role": "the worn spur to the carved face"
+    },
+    {
+     "id": "S25_LastLookBack_v9_g02",
+     "surface": "gravel",
+     "shape": "capsule",
+     "x_cm": 302854.4,
+     "y_cm": 471492.1,
+     "z_cm": 11732.6,
+     "yaw": 317.3,
+     "length_m": 6.77,
+     "width_m": 0.45,
+     "depth_m": 3.6,
+     "strength": 0.55,
+     "sort": 2,
+     "role": "the gravel strip where the road meets the wall (run A)"
+    },
+    {
+     "id": "S25_LastLookBack_v9_g03",
+     "surface": "rubble_dust",
+     "shape": "capsule",
+     "x_cm": 302927.6,
+     "y_cm": 471556.6,
+     "z_cm": 11697.3,
+     "yaw": 317.3,
+     "length_m": 7.22,
+     "width_m": 0.9,
+     "depth_m": 3.7,
+     "strength": 0.5,
+     "sort": 1,
+     "role": "dust along the footing, valley side (run A)"
+    },
+    {
+     "id": "S25_LastLookBack_v9_g04",
+     "surface": "gravel",
+     "shape": "capsule",
+     "x_cm": 302562.6,
+     "y_cm": 472158.6,
+     "z_cm": 11793.5,
+     "yaw": 90.0,
+     "length_m": 6.77,
+     "width_m": 0.45,
+     "depth_m": 3.0,
+     "strength": 0.55,
+     "sort": 2,
+     "role": "the gravel strip where the road meets the wall (run B)"
+    },
+    {
+     "id": "S25_LastLookBack_v9_g05",
+     "surface": "rubble_dust",
+     "shape": "capsule",
+     "x_cm": 302659.6,
+     "y_cm": 472168.6,
+     "z_cm": 11746.7,
+     "yaw": 90.0,
+     "length_m": 7.22,
+     "width_m": 0.9,
+     "depth_m": 3.0,
+     "strength": 0.5,
+     "sort": 1,
+     "role": "dust along the footing, valley side (run B)"
+    },
+    {
+     "id": "S25_LastLookBack_v9_g06",
+     "surface": "rubble_dust",
+     "shape": "ellipse",
+     "x_cm": 302957.0,
+     "y_cm": 471904.2,
+     "z_cm": 11649.2,
+     "yaw": 15.4,
+     "length_m": 3.0,
+     "width_m": 1.8,
+     "depth_m": 3.0,
+     "strength": 0.5,
+     "sort": 1,
+     "role": "under the scree below the outcrop"
+    }
+   ],
+   "units": [],
+   "waivers": [],
+   "v2": {
+    "frame": {
+     "origin": "spline point 3 (the bend)",
+     "origin_cm": [
+      302079.6,
+      471550.0
+     ],
+     "u": "along leg B (world +Y)",
+     "v": "left of leg B (world +X, east)"
+    },
+    "lanes": [
+     {
+      "pts": [
+       [
+        1.4438645830858705,
+        3.2977651623046578
+       ],
+       [
+        2.2181369657656496,
+        5.066191730590487
+       ]
+      ],
+      "width": 0.8
+     }
+    ],
+    "b21_frames": [
+     {
+      "stop": "leg B, -3.0 m",
+      "mode": "tp",
+      "keeper_uv": [
+       0.55,
+       -3.0
+      ],
+      "ue_m": 133.24,
+      "yaw": -13.1,
+      "pitch": -13.8,
+      "boot": [
+       0.2,
+       0.16
+      ],
+      "boot_covered_by": [],
+      "text_box": [
+       0.23,
+       0.32,
+       -0.45,
+       -0.25
+      ],
+      "text_in_frame": true,
+      "text_hidden_by_keeper": false,
+      "keeper_box": [
+       -0.27,
+       -0.04,
+       -0.84,
+       0.16
+      ],
+      "text_dist_m": 12.17,
+      "cap_px_1080": 7.6,
+      "cap_px_1440": 10.1,
+      "face_angle_deg": 20.3,
+      "cam_clear_m": 1.12
+     },
+     {
+      "stop": "leg B, -3.0 m",
+      "mode": "fp",
+      "keeper_uv": [
+       0.55,
+       -3.0
+      ],
+      "ue_m": 133.24,
+      "yaw": -13.1,
+      "pitch": -13.8,
+      "boot": [
+       0.2,
+       0.16
+      ],
+      "boot_covered_by": [],
+      "text_box": [
+       0.36,
+       0.51,
+       -0.66,
+       -0.38
+      ],
+      "text_in_frame": true,
+      "text_hidden_by_keeper": false,
+      "keeper_box": null,
+      "text_dist_m": 9.4,
+      "cap_px_1080": 10.2,
+      "cap_px_1440": 13.6,
+      "face_angle_deg": 11.1,
+      "cam_clear_m": 1.62
+     },
+     {
+      "stop": "leg B, -3.0 m",
+      "mode": "drone",
+      "keeper_uv": [
+       0.55,
+       -3.0
+      ],
+      "ue_m": 133.24,
+      "yaw": -13.1,
+      "pitch": -13.8,
+      "boot": [
+       0.2,
+       0.16
+      ],
+      "boot_covered_by": [],
+      "text_box": [
+       0.21,
+       0.29,
+       -0.41,
+       -0.23
+      ],
+      "text_in_frame": true,
+      "text_hidden_by_keeper": false,
+      "keeper_box": [
+       -0.18,
+       -0.03,
+       -0.59,
+       0.12
+      ],
+      "text_dist_m": 13.41,
+      "cap_px_1080": 6.9,
+      "cap_px_1440": 9.2,
+      "face_angle_deg": 21.9,
+      "cam_clear_m": 0.94
+     },
+     {
+      "stop": "leg B, -1.5 m",
+      "mode": "tp",
+      "keeper_uv": [
+       0.55,
+       -1.5
+      ],
+      "ue_m": 133.24,
+      "yaw": -13.3,
+      "pitch": -13.7,
+      "boot": [
+       0.21,
+       0.15
+      ],
+      "boot_covered_by": [],
+      "text_box": [
+       0.23,
+       0.34,
+       -0.48,
+       -0.25
+      ],
+      "text_in_frame": true,
+      "text_hidden_by_keeper": false,
+      "keeper_box": [
+       -0.27,
+       -0.04,
+       -0.84,
+       0.16
+      ],
+      "text_dist_m": 10.54,
+      "cap_px_1080": 8.8,
+      "cap_px_1440": 11.7,
+      "face_angle_deg": 19.8,
+      "cam_clear_m": 1.1
+     },
+     {
+      "stop": "leg B, -1.5 m",
+      "mode": "fp",
+      "keeper_uv": [
+       0.55,
+       -1.5
+      ],
+      "ue_m": 133.24,
+      "yaw": -13.3,
+      "pitch": -13.7,
+      "boot": [
+       0.21,
+       0.15
+      ],
+      "boot_covered_by": [],
+      "text_box": [
+       0.4,
+       0.59,
+       -0.76,
+       -0.4
+      ],
+      "text_in_frame": true,
+      "text_hidden_by_keeper": false,
+      "keeper_box": null,
+      "text_dist_m": 7.82,
+      "cap_px_1080": 12.5,
+      "cap_px_1440": 16.7,
+      "face_angle_deg": 8.4,
+      "cam_clear_m": 1.62
+     },
+     {
+      "stop": "leg B, -1.5 m",
+      "mode": "drone",
+      "keeper_uv": [
+       0.55,
+       -1.5
+      ],
+      "ue_m": 133.24,
+      "yaw": -13.3,
+      "pitch": -13.7,
+      "boot": [
+       0.21,
+       0.15
+      ],
+      "boot_covered_by": [],
+      "text_box": [
+       0.21,
+       0.3,
+       -0.43,
+       -0.22
+      ],
+      "text_in_frame": true,
+      "text_hidden_by_keeper": false,
+      "keeper_box": [
+       -0.18,
+       -0.03,
+       -0.59,
+       0.12
+      ],
+      "text_dist_m": 11.78,
+      "cap_px_1080": 7.8,
+      "cap_px_1440": 10.4,
+      "face_angle_deg": 21.8,
+      "cam_clear_m": 0.92
+     },
+     {
+      "stop": "leg B, +0.0 m",
+      "mode": "tp",
+      "keeper_uv": [
+       0.55,
+       0.0
+      ],
+      "ue_m": 133.24,
+      "yaw": -13.5,
+      "pitch": -13.6,
+      "boot": [
+       0.21,
+       0.15
+      ],
+      "boot_covered_by": [],
+      "text_box": [
+       0.23,
+       0.37,
+       -0.52,
+       -0.25
+      ],
+      "text_in_frame": true,
+      "text_hidden_by_keeper": false,
+      "keeper_box": [
+       -0.27,
+       -0.04,
+       -0.84,
+       0.16
+      ],
+      "text_dist_m": 8.93,
+      "cap_px_1080": 10.4,
+      "cap_px_1440": 13.9,
+      "face_angle_deg": 19.1,
+      "cam_clear_m": 1.11
+     },
+     {
+      "stop": "leg B, +0.0 m",
+      "mode": "fp",
+      "keeper_uv": [
+       0.55,
+       0.0
+      ],
+      "ue_m": 133.24,
+      "yaw": -13.5,
+      "pitch": -13.6,
+      "boot": [
+       0.21,
+       0.15
+      ],
+      "boot_covered_by": [],
+      "text_box": [
+       0.45,
+       0.72,
+       -0.91,
+       -0.44
+      ],
+      "text_in_frame": true,
+      "text_hidden_by_keeper": false,
+      "keeper_box": null,
+      "text_dist_m": 6.27,
+      "cap_px_1080": 16.1,
+      "cap_px_1440": 21.4,
+      "face_angle_deg": 4.3,
+      "cam_clear_m": 1.62
+     },
+     {
+      "stop": "leg B, +0.0 m",
+      "mode": "drone",
+      "keeper_uv": [
+       0.55,
+       0.0
+      ],
+      "ue_m": 133.24,
+      "yaw": -13.5,
+      "pitch": -13.6,
+      "boot": [
+       0.21,
+       0.15
+      ],
+      "boot_covered_by": [],
+      "text_box": [
+       0.2,
+       0.32,
+       -0.45,
+       -0.21
+      ],
+      "text_in_frame": true,
+      "text_hidden_by_keeper": false,
+      "keeper_box": [
+       -0.18,
+       -0.03,
+       -0.59,
+       0.12
+      ],
+      "text_dist_m": 10.16,
+      "cap_px_1080": 9.1,
+      "cap_px_1440": 12.1,
+      "face_angle_deg": 21.5,
+      "cam_clear_m": 0.93
+     },
+     {
+      "stop": "inside, 1.5 m",
+      "mode": "tp",
+      "keeper_uv": [
+       0.75,
+       1.37
+      ],
+      "ue_m": 133.04,
+      "yaw": -13.7,
+      "pitch": -13.5,
+      "boot": [
+       0.21,
+       0.15
+      ],
+      "boot_covered_by": [],
+      "text_box": [
+       0.21,
+       0.37,
+       -0.56,
+       -0.22
+      ],
+      "text_in_frame": true,
+      "text_hidden_by_keeper": false,
+      "keeper_box": [
+       -0.27,
+       -0.04,
+       -0.84,
+       0.16
+      ],
+      "text_dist_m": 7.41,
+      "cap_px_1080": 12.5,
+      "cap_px_1440": 16.7,
+      "face_angle_deg": 20.1,
+      "cam_clear_m": 1.09
+     },
+     {
+      "stop": "inside, 1.5 m",
+      "mode": "fp",
+      "keeper_uv": [
+       0.75,
+       1.37
+      ],
+      "ue_m": 133.04,
+      "yaw": -13.7,
+      "pitch": -13.5,
+      "boot": [
+       0.22,
+       0.15
+      ],
+      "boot_covered_by": [],
+      "text_box": [
+       0.48,
+       0.87,
+       -1.14,
+       -0.47
+      ],
+      "text_in_frame": false,
+      "text_hidden_by_keeper": false,
+      "keeper_box": null,
+      "text_dist_m": 4.79,
+      "cap_px_1080": 21.7,
+      "cap_px_1440": 29.0,
+      "face_angle_deg": 0.5,
+      "cam_clear_m": 1.63
+     },
+     {
+      "stop": "inside, 1.5 m",
+      "mode": "drone",
+      "keeper_uv": [
+       0.75,
+       1.37
+      ],
+      "ue_m": 133.04,
+      "yaw": -13.7,
+      "pitch": -13.5,
+      "boot": [
+       0.21,
+       0.15
+      ],
+      "boot_covered_by": [],
+      "text_box": [
+       0.18,
+       0.31,
+       -0.47,
+       -0.19
+      ],
+      "text_in_frame": true,
+      "text_hidden_by_keeper": false,
+      "keeper_box": [
+       -0.18,
+       -0.03,
+       -0.59,
+       0.12
+      ],
+      "text_dist_m": 8.64,
+      "cap_px_1080": 10.7,
+      "cap_px_1440": 14.2,
+      "face_angle_deg": 22.8,
+      "cam_clear_m": 0.91
+     },
+     {
+      "stop": "inside, 3.0 m",
+      "mode": "tp",
+      "keeper_uv": [
+       1.35,
+       2.75
+      ],
+      "ue_m": 132.42,
+      "yaw": -14.2,
+      "pitch": -13.3,
+      "boot": [
+       0.22,
+       0.14
+      ],
+      "boot_covered_by": [],
+      "text_box": [
+       0.11,
+       0.3,
+       -0.58,
+       -0.16
+      ],
+      "text_in_frame": true,
+      "text_hidden_by_keeper": false,
+      "keeper_box": [
+       -0.27,
+       -0.04,
+       -0.84,
+       0.16
+      ],
+      "text_dist_m": 5.85,
+      "cap_px_1080": 15.5,
+      "cap_px_1440": 20.7,
+      "face_angle_deg": 25.8,
+      "cam_clear_m": 1.1
+     },
+     {
+      "stop": "inside, 3.0 m",
+      "mode": "fp",
+      "keeper_uv": [
+       1.35,
+       2.75
+      ],
+      "ue_m": 132.42,
+      "yaw": -14.2,
+      "pitch": -13.3,
+      "boot": [
+       0.22,
+       0.14
+      ],
+      "boot_covered_by": [],
+      "text_box": [
+       0.39,
+       1.0,
+       -1.52,
+       -0.46
+      ],
+      "text_in_frame": false,
+      "text_hidden_by_keeper": false,
+      "keeper_box": null,
+      "text_dist_m": 3.17,
+      "cap_px_1080": 32.3,
+      "cap_px_1440": 43.0,
+      "face_angle_deg": 0.9,
+      "cam_clear_m": 1.63
+     },
+     {
+      "stop": "inside, 3.0 m",
+      "mode": "drone",
+      "keeper_uv": [
+       1.35,
+       2.75
+      ],
+      "ue_m": 132.42,
+      "yaw": -14.2,
+      "pitch": -13.3,
+      "boot": [
+       0.22,
+       0.14
+      ],
+      "boot_covered_by": [],
+      "text_box": [
+       0.09,
+       0.24,
+       -0.46,
+       -0.13
+      ],
+      "text_in_frame": true,
+      "text_hidden_by_keeper": false,
+      "keeper_box": [
+       -0.18,
+       -0.03,
+       -0.6,
+       0.12
+      ],
+      "text_dist_m": 7.11,
+      "cap_px_1080": 12.8,
+      "cap_px_1440": 17.1,
+      "face_angle_deg": 28.1,
+      "cam_clear_m": 0.89
+     },
+     {
+      "stop": "inside, 4.0 m",
+      "mode": "tp",
+      "keeper_uv": [
+       1.75,
+       3.66
+      ],
+      "ue_m": 132.01,
+      "yaw": -14.5,
+      "pitch": -13.1,
+      "boot": [
+       0.23,
+       0.13
+      ],
+      "boot_covered_by": [],
+      "text_box": [
+       0.02,
+       0.22,
+       -0.58,
+       -0.09
+      ],
+      "text_in_frame": true,
+      "text_hidden_by_keeper": false,
+      "keeper_box": [
+       -0.27,
+       -0.04,
+       -0.85,
+       0.16
+      ],
+      "text_dist_m": 4.85,
+      "cap_px_1080": 18.5,
+      "cap_px_1440": 24.7,
+      "face_angle_deg": 31.6,
+      "cam_clear_m": 1.08
+     },
+     {
+      "stop": "inside, 4.0 m",
+      "mode": "fp",
+      "keeper_uv": [
+       1.75,
+       3.66
+      ],
+      "ue_m": 132.01,
+      "yaw": -14.5,
+      "pitch": -13.1,
+      "boot": [
+       0.23,
+       0.13
+      ],
+      "boot_covered_by": [],
+      "text_box": [
+       0.27,
+       1.25,
+       -2.14,
+       -0.4
+      ],
+      "text_in_frame": false,
+      "text_hidden_by_keeper": false,
+      "keeper_box": null,
+      "text_dist_m": 2.08,
+      "cap_px_1080": 47.4,
+      "cap_px_1440": 63.3,
+      "face_angle_deg": 1.4,
+      "cam_clear_m": 1.63
+     },
+     {
+      "stop": "inside, 4.0 m",
+      "mode": "drone",
+      "keeper_uv": [
+       1.75,
+       3.66
+      ],
+      "ue_m": 132.01,
+      "yaw": -14.5,
+      "pitch": -13.1,
+      "boot": [
+       0.23,
+       0.13
+      ],
+      "boot_covered_by": [],
+      "text_box": [
+       0.01,
+       0.17,
+       -0.45,
+       -0.07
+      ],
+      "text_in_frame": true,
+      "text_hidden_by_keeper": false,
+      "keeper_box": [
+       -0.18,
+       -0.03,
+       -0.6,
+       0.11
+      ],
+      "text_dist_m": 6.13,
+      "cap_px_1080": 14.8,
+      "cap_px_1440": 19.7,
+      "face_angle_deg": 33.1,
+      "cam_clear_m": 0.91
+     }
+    ],
+    "approach": [
+     {
+      "road_m": 4840.0,
+      "dist_m": 37.8,
+      "stele_box": [
+       -0.18,
+       -0.15,
+       0.14,
+       0.29
+      ],
+      "terrain_los_top": true,
+      "stele_top_against": "sky"
+     },
+     {
+      "road_m": 4850.0,
+      "dist_m": 28.0,
+      "stele_box": [
+       -0.25,
+       -0.2,
+       0.04,
+       0.24
+      ],
+      "terrain_los_top": true,
+      "stele_top_against": "sky"
+     },
+     {
+      "road_m": 4860.0,
+      "dist_m": 18.3,
+      "stele_box": [
+       -0.39,
+       -0.32,
+       -0.07,
+       0.25
+      ],
+      "terrain_los_top": true,
+      "stele_top_against": "sky"
+     },
+     {
+      "road_m": 4868.0,
+      "dist_m": 11.1,
+      "stele_box": [
+       -0.75,
+       -0.59,
+       -0.43,
+       0.18
+      ],
+      "terrain_los_top": true,
+      "stele_top_against": "sky"
+     }
+    ],
+    "wide24": {
+     "dist_m": 1379,
+     "stele_screen_box": [
+      0.108,
+      0.119,
+      -0.386,
+      -0.322
+     ],
+     "cm_per_px_1920": 8.5,
+     "stele_px": [
+      14,
+      24
+     ]
+    },
+    "checks": [
+     "ISM declash: 15 of 26 moved (max 0.48 m), 3 left out (LF_Rock_08 (packing stone at the stele f), FAB_Shrub_G (dead shrub in the lee of run), FAB_Shrub_G (dead shrub at the foot of th))",
+     "FOCAL: the Segalen stele (carved f: sink 61 cm, top 120.18 m, carved face 1.85 m over its grade, valley foot 2.35 m under the top, check2 gap max -63 cm",
+     "parapet run A, piece 1 (raked -17.1 deg with the verge): sink 29 cm, road-side top over the verge 0.49..0.52 m (mean 0.50), valley face 0.61 m, check2 gap max -30 cm",
+     "parapet run A, piece 2 (raked -18.5 deg with the verge): sink 35 cm, road-side top over the verge 0.48..0.52 m (mean 0.50), valley face 0.55 m, check2 gap max -35 cm",
+     "parapet run B, piece 1 (raked -7.4 deg with the verge): sink 25 cm, road-side top over the verge 0.50..0.51 m (mean 0.50), valley face 0.65 m, check2 gap max -26 cm",
+     "parapet run B, piece 2 (raked -12.8 deg with the verge): sink 22 cm, road-side top over the verge 0.48..0.53 m (mean 0.50), valley face 0.68 m, check2 gap max -24 cm",
+     "inscription: 8 lines, cap 10.0 cm, ink 1.08 x 1.11 m on a 1.22 m face; ink 0.57..1.69 m over the verge grade; decal box [12.0, 62.5, 64.3] cm (half extents)",
+     "G21 third person: letters 7.6..18.5 px at 1080p (10.1..24.7 at 1440p), 4.8..12.2 m from the camera, the face 19..32 deg off square",
+     "approach 4840 m: stele 37.8 m from the camera, screen box [-0.18, -0.15, 0.14, 0.29], terrain LOS True, top against sky",
+     "approach 4850 m: stele 28.0 m from the camera, screen box [-0.25, -0.2, 0.04, 0.24], terrain LOS True, top against sky",
+     "approach 4860 m: stele 18.3 m from the camera, screen box [-0.39, -0.32, -0.07, 0.25], terrain LOS True, top against sky",
+     "approach 4868 m: stele 11.1 m from the camera, screen box [-0.75, -0.59, -0.43, 0.18], terrain LOS True, top against sky"
+    ],
+    "violations": []
+   }
+  }
+ ],
+ "inscription": {
+  "text": [
+   "IN HOMAGE TO",
+   "YOUR ALTITUDE,",
+   "MOUNTAIN.",
+   "WEARY MY ROAD:",
+   "LET IT BE HARSH,",
+   "LET IT BE HARD;",
+   "LET IT GO",
+   "VERY HIGH."
+  ],
+  "source": "Victor Segalen, Steles (1912), public domain: \"En hommage a ton altitude, Montagne. Fatigue ma route : qu'elle soit apre, qu'elle soit dure ; qu'elle aille tres haut.\" The English is storyline.md's.",
+  "glyph_id": "V9",
+  "material": "/Game/SaskartaGaea/Inscriptions/MI_Glyph_V9_Carved",
+  "textures": [
+   "/Game/SaskartaGaea/Inscriptions/T_Inscription_V9",
+   "/Game/SaskartaGaea/Inscriptions/T_Inscription_V9_N",
+   "/Game/SaskartaGaea/Inscriptions/T_Inscription_V9_AO"
+  ],
+  "source_png": "SourceArt/Inscriptions/T_Inscription_V9.png",
+  "font": "DejaVuSerif-Bold.ttf (matplotlib), squashed x0.74",
+  "cap_cm": 10.0,
+  "ink_m": [
+   1.078,
+   1.114
+  ],
+  "on": "S25_LastLookBack_v9_000",
+  "face_normal_yaw": -156.35,
+  "decal_yaw": 23.65,
+  "decal_size_cm": [
+   12.0,
+   62.5,
+   64.3
+  ],
+  "top_below_stele_top_cm": 16.0,
+  "predicted_centre_cm": [
+   302609.1,
+   471781.8,
+   11946.1
+  ],
+  "wear": 0.15,
+  "greybox": "TextRender fallback (the storyline's): one per line, world size = the cap height, dark stone colour"
+ },
+ "glance_target": {
+  "tag": "Saskarta.Glance.SegalenWall",
+  "old_cm": [
+   302963.0,
+   472105.0,
+   11749.0
+  ],
+  "new_cm": [
+   313422.4,
+   468888.7,
+   9431.3
+  ],
+  "look_yaw": -13.47,
+  "look_pitch": -13.6,
+  "left_of_boot_deg": 12.0,
+  "under_boot_deg": 5.0,
+  "distance_m": 120.0,
+  "follow_up": "Tools/GameFlow/glance_targets.json (GameFlow lane) still holds old_cm: copy new_cm there"
+ }
+}

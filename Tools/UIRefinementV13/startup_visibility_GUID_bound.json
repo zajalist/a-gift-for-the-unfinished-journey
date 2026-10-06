@@ -1,0 +1,293 @@
+{
+  "status": "native_commands_GUID_bound_NOT_executed",
+  "asset": "/Game/SaskartaGaea/GameFlow/PC_Saskarta",
+  "root_preconditions": [
+    "PIE stopped, exclusive native editor lease valid, exact PC backed up and writable.",
+    "Actual graph before node IDs still match root receipts; no prior SetVisibility gates.",
+    "Capture three created node IDs/pins. Resolve dollar references from actual native returns; never guess IDs."
+  ],
+  "verified_existing_GUIDs": {
+    "BeginIntro": {
+      "makeLoading": "1D8A750849092E065B7D9E8C09734BDA",
+      "addLoading": "F5F8F24E4DD5972CE2F3FE948D141E2C",
+      "makeEvent": "25B7A05545FA91A74C2676BF836FCE0A"
+    },
+    "StepCards": {
+      "removeHayba": "A89E032C45916F44880B999A5BC00C62",
+      "world": "32EBA4704D9AFBBDD2176E837D0B5693"
+    }
+  },
+  "commands": [
+    {
+      "id": "hidden",
+      "capture": "hidden.node_id",
+      "call": {
+        "name": "blueprint_add_node",
+        "args": {
+          "path": "/Game/SaskartaGaea/GameFlow/PC_Saskarta",
+          "graph_name": "BeginIntro",
+          "node_type": "call_function",
+          "function_name": "SetVisibility",
+          "class_path": "/Script/UMG.Widget",
+          "x": 1536,
+          "y": 1024
+        }
+      }
+    },
+    {
+      "id": "shown",
+      "capture": "shown.node_id",
+      "call": {
+        "name": "blueprint_add_node",
+        "args": {
+          "path": "/Game/SaskartaGaea/GameFlow/PC_Saskarta",
+          "graph_name": "StepCards",
+          "node_type": "call_function",
+          "function_name": "SetVisibility",
+          "class_path": "/Script/UMG.Widget",
+          "x": 1536,
+          "y": 1024
+        }
+      }
+    },
+    {
+      "id": "loadingGetter",
+      "capture": "loadingGetter.node_id",
+      "call": {
+        "name": "blueprint_add_node",
+        "args": {
+          "path": "/Game/SaskartaGaea/GameFlow/PC_Saskarta",
+          "graph_name": "StepCards",
+          "node_type": "variable_get",
+          "variable_name": "LoadingWidget",
+          "x": 1280,
+          "y": 1152
+        }
+      }
+    },
+    {
+      "id": "hiddenDefault",
+      "call": {
+        "name": "blueprint_set_pin_default",
+        "args": {
+          "path": "/Game/SaskartaGaea/GameFlow/PC_Saskarta",
+          "graph_name": "BeginIntro",
+          "node_id": "$hidden.node_id",
+          "pin_name": "InVisibility",
+          "value": "Collapsed"
+        }
+      }
+    },
+    {
+      "id": "shownDefault",
+      "call": {
+        "name": "blueprint_set_pin_default",
+        "args": {
+          "path": "/Game/SaskartaGaea/GameFlow/PC_Saskarta",
+          "graph_name": "StepCards",
+          "node_id": "$shown.node_id",
+          "pin_name": "InVisibility",
+          "value": "HitTestInvisible"
+        }
+      }
+    },
+    {
+      "id": "wire5",
+      "call": {
+        "name": "blueprint_connect_nodes",
+        "args": {
+          "path": "/Game/SaskartaGaea/GameFlow/PC_Saskarta",
+          "graph_name": "BeginIntro",
+          "from_node": "1D8A750849092E065B7D9E8C09734BDA",
+          "from_pin": "ReturnValue",
+          "to_node": "$hidden.node_id",
+          "to_pin": "self"
+        }
+      }
+    },
+    {
+      "id": "wire6",
+      "call": {
+        "name": "blueprint_connect_nodes",
+        "args": {
+          "path": "/Game/SaskartaGaea/GameFlow/PC_Saskarta",
+          "graph_name": "BeginIntro",
+          "from_node": "$hidden.node_id",
+          "from_pin": "then",
+          "to_node": "25B7A05545FA91A74C2676BF836FCE0A",
+          "to_pin": "execute"
+        }
+      }
+    },
+    {
+      "id": "wire7",
+      "call": {
+        "name": "blueprint_connect_nodes",
+        "args": {
+          "path": "/Game/SaskartaGaea/GameFlow/PC_Saskarta",
+          "graph_name": "BeginIntro",
+          "from_node": "F5F8F24E4DD5972CE2F3FE948D141E2C",
+          "from_pin": "then",
+          "to_node": "$hidden.node_id",
+          "to_pin": "execute"
+        }
+      }
+    },
+    {
+      "id": "wire8",
+      "call": {
+        "name": "blueprint_connect_nodes",
+        "args": {
+          "path": "/Game/SaskartaGaea/GameFlow/PC_Saskarta",
+          "graph_name": "StepCards",
+          "from_node": "$loadingGetter.node_id",
+          "from_pin": "LoadingWidget",
+          "to_node": "$shown.node_id",
+          "to_pin": "self"
+        }
+      }
+    },
+    {
+      "id": "wire9",
+      "call": {
+        "name": "blueprint_connect_nodes",
+        "args": {
+          "path": "/Game/SaskartaGaea/GameFlow/PC_Saskarta",
+          "graph_name": "StepCards",
+          "from_node": "$shown.node_id",
+          "from_pin": "then",
+          "to_node": "32EBA4704D9AFBBDD2176E837D0B5693",
+          "to_pin": "execute"
+        }
+      }
+    },
+    {
+      "id": "wire10",
+      "call": {
+        "name": "blueprint_connect_nodes",
+        "args": {
+          "path": "/Game/SaskartaGaea/GameFlow/PC_Saskarta",
+          "graph_name": "StepCards",
+          "from_node": "A89E032C45916F44880B999A5BC00C62",
+          "from_pin": "then",
+          "to_node": "$shown.node_id",
+          "to_pin": "execute"
+        }
+      }
+    },
+    {
+      "id": "readBeginAfter",
+      "call": {
+        "name": "blueprint_inspect_graph",
+        "args": {
+          "path": "/Game/SaskartaGaea/GameFlow/PC_Saskarta",
+          "graph_name": "BeginIntro"
+        }
+      }
+    },
+    {
+      "id": "readCardsAfter",
+      "call": {
+        "name": "blueprint_inspect_graph",
+        "args": {
+          "path": "/Game/SaskartaGaea/GameFlow/PC_Saskarta",
+          "graph_name": "StepCards"
+        }
+      }
+    },
+    {
+      "id": "compileOnly",
+      "call": {
+        "name": "blueprint_compile",
+        "args": {
+          "path": "/Game/SaskartaGaea/GameFlow/PC_Saskarta",
+          "save": false
+        }
+      }
+    }
+  ],
+  "expected_delta": {
+    "BeginIntro": {
+      "nodes_before": 44,
+      "nodes_after": 45,
+      "edges_before": 68,
+      "edges_after": 70,
+      "remove": [
+        "F5F8F24E4DD5972CE2F3FE948D141E2C.then",
+        "25B7A05545FA91A74C2676BF836FCE0A.execute"
+      ]
+    },
+    "StepCards": {
+      "nodes_before": 39,
+      "nodes_after": 41,
+      "edges_before": 45,
+      "edges_after": 47,
+      "remove": [
+        "A89E032C45916F44880B999A5BC00C62.then",
+        "32EBA4704D9AFBBDD2176E837D0B5693.execute"
+      ]
+    }
+  },
+  "acceptance": [
+    "Defaults setter returns verified=true and applied exact enum.",
+    "All connect calls return connected=true and verified=true.",
+    "Old two exec edges absent, exactly three edges per gate present, all original nodes retained.",
+    "BeginIntro edges are transport-truncated after50; a complete-edge preservation claim needs untruncated native readback. Existing gate edge is before truncation and visible.",
+    "Compile returns compiled/ok true, error_count=warning_count=0 and empty errors/warnings."
+  ],
+  "save_fallback": {
+    "native_call": {
+      "name": "blueprint_compile",
+      "via": "ue_legacy",
+      "args": {
+        "path": "/Game/SaskartaGaea/GameFlow/PC_Saskarta",
+        "save": true
+      }
+    },
+    "reason": "Local native handler Compile directly invokes UPackage::SavePackage when save=true; it does not use python_run or asset_save TS helper. Require saved=true AND dirty=false; failed save means in-memory-only, never replay graph mutation."
+  },
+  "preserve": [
+    "Every preexisting node/pin/default unaffected except two stated exec edges.",
+    "Card/LoadPhase setters, fire/Tripo/Hayba classes/durations and opacity, world-rendering and listener gates, movement/look locks, readiness polling/timeout, Continue, skip behavior and title music unchanged.",
+    "Loading is collapsed after addition and visible immediately after removal of completed Hayba card.",
+    "No tutorial or CRT appearance changes."
+  ],
+  "exact_native_signature_params": {
+    "blueprint_inspect_graph": {
+      "path": "required string",
+      "graph_name": "optional string"
+    },
+    "blueprint_add_node": {
+      "path": "required string",
+      "graph_name": "optional string",
+      "node_type": "required string",
+      "function_name": "optional string",
+      "class_path": "optional string",
+      "variable_name": "optional string",
+      "x": "optional number",
+      "y": "optional number"
+    },
+    "blueprint_set_pin_default": {
+      "path": "required string",
+      "graph_name": "optional string",
+      "node_id": "required string",
+      "pin_name": "required string",
+      "value": "required string"
+    },
+    "blueprint_connect_nodes": {
+      "path": "required string",
+      "graph_name": "optional string",
+      "from_node": "required string",
+      "from_pin": "required string",
+      "to_node": "required string",
+      "to_pin": "required string"
+    },
+    "blueprint_compile": {
+      "path": "required string",
+      "save": "optional boolean, default true; confirmed local native handler, abbreviated metadata omits it"
+    },
+    "asset_save": {
+      "asset_paths": "optional string array; must pass exactly PC, never omit"
+    }
+  }
+}

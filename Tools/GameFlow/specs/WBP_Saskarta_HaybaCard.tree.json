@@ -1,0 +1,74 @@
+{
+  "asset": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_HaybaCard",
+  "tree": [
+    {
+      "class": "Image",
+      "name": "Backdrop",
+      "properties": { "Brush": { "ImageSize": { "X": 1, "Y": 1 }, "DrawAs": "Image" }, "ColorAndOpacity": [0.0037, 0.003, 0.0024, 1.0] }
+    },
+    {
+      "class": "Image",
+      "name": "Glow",
+      "properties": {
+        "Brush": { "ResourceObject": "/Game/SaskartaGaea/GameFlow/UI/Textures/T_UI_EmberGlow.T_UI_EmberGlow", "DrawAs": "Image" },
+        "ColorAndOpacity": [0.578, 0.162, 0.042, 0.32]
+      }
+    },
+    {
+      "class": "Button",
+      "name": "SkipButton",
+      "properties": {
+        "WidgetStyle": {
+          "Normal": { "DrawAs": "NoDrawType" },
+          "Hovered": { "DrawAs": "NoDrawType" },
+          "Pressed": { "DrawAs": "NoDrawType" },
+          "Disabled": { "DrawAs": "NoDrawType" },
+          "NormalPadding": { "Left": 0, "Top": 0, "Right": 0, "Bottom": 0 },
+          "PressedPadding": { "Left": 0, "Top": 0, "Right": 0, "Bottom": 0 }
+        }
+      }
+    },
+    {
+      "class": "VerticalBox",
+      "name": "Content",
+      "properties": { "RenderOpacity": 0.0 },
+      "children": [
+        {
+          "class": "Image",
+          "name": "HaybaLogo",
+          "properties": {
+            "Brush": {
+              "ResourceObject": "/Game/SaskartaGaea/GameFlow/UI/Textures/T_Hayba_Logo.T_Hayba_Logo",
+              "ImageSize": { "X": 196, "Y": 238 },
+              "DrawAs": "Image"
+            }
+          },
+          "slot_props": { "horizontal_alignment": "Center", "padding": [0, 0, 0, 40] }
+        },
+        {
+          "class": "TextBlock",
+          "name": "Caption",
+          "properties": {
+            "Text": "Made with Hayba",
+            "Font": {
+              "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa.F_ArefRuqaa",
+              "TypefaceFontName": "Bold",
+              "Size": 34,
+              "LetterSpacing": 50
+            },
+            "ColorAndOpacity": { "SpecifiedColor": [0.8469, 0.7835, 0.7011, 1.0] },
+            "Justification": "Center"
+          },
+          "slot_props": { "horizontal_alignment": "Center" }
+        }
+      ]
+    }
+  ],
+  "slots": {
+    "Backdrop": { "anchors": [0, 0, 1, 1], "position": [0, 0], "size": [0, 0], "z_order": -3 },
+    "Glow": { "anchors": [0, 1, 1, 1], "position": [0, -420], "size": [0, 420], "z_order": -2 },
+    "SkipButton": { "anchors": [0, 0, 1, 1], "position": [0, 0], "size": [0, 0], "z_order": 10 },
+    "Content": { "anchors": [0.5, 0.5, 0.5, 0.5], "position": [0, 0], "size": [700, 340], "alignment": [0.5, 0.5] }
+  },
+  "variables": ["Content", "SkipButton", "HaybaLogo", "Caption"]
+}

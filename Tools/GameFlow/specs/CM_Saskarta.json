@@ -1,0 +1,3001 @@
+{
+ "asset": "/Game/SaskartaGaea/GameFlow/Debug/CM_Saskarta",
+ "create": {
+  "parent": "/Script/Engine.CheatManager"
+ },
+ "description": "LANE5 debug mode: exec functions for the console (SaskartaDebug, SaskartaTP, SaskartaBeat, SaskartaSkip, SaskartaResetBeats, SaskartaSpeed, SaskartaGod, SaskartaFly, SaskartaNext, SaskartaPrev, SaskartaStorm, SaskartaLook) and the logic behind WBP_Saskarta_Debug. PC_Saskarta.CheatClass = this. README_Debug.md.",
+ "variables": [
+  {
+   "name": "DebugWidget",
+   "type": "object:/Game/SaskartaGaea/GameFlow/Debug/WBP_Saskarta_Debug.WBP_Saskarta_Debug_C"
+  },
+  {
+   "name": "bMenuOpen",
+   "type": "bool",
+   "default": "false"
+  },
+  {
+   "name": "BeatIds",
+   "type": "array<name>"
+  },
+  {
+   "name": "BeatRoadMs",
+   "type": "array<float>"
+  },
+  {
+   "name": "SelIndex",
+   "type": "int",
+   "default": "0"
+  },
+  {
+   "name": "ArmedBeat",
+   "type": "name",
+   "default": "None"
+  },
+  {
+   "name": "ArmedRoadM",
+   "type": "float",
+   "default": "0.0"
+  },
+  {
+   "name": "bArmReady",
+   "type": "bool",
+   "default": "false"
+  },
+  {
+   "name": "ArmTimer",
+   "type": "struct:/Script/Engine.TimerHandle"
+  },
+  {
+   "name": "bAutoTrigger",
+   "type": "bool",
+   "default": "false"
+  },
+  {
+   "name": "BackCm",
+   "type": "float",
+   "default": "3000.0"
+  },
+  {
+   "name": "PlaceStepCm",
+   "type": "float",
+   "default": "0.0"
+  },
+  {
+   "name": "PlaceTries",
+   "type": "int",
+   "default": "0"
+  },
+  {
+   "name": "PlaceTimer",
+   "type": "struct:/Script/Engine.TimerHandle"
+  },
+  {
+   "name": "SpeedMul",
+   "type": "float",
+   "default": "1.0"
+  },
+  {
+   "name": "bGod",
+   "type": "bool",
+   "default": "false"
+  },
+  {
+   "name": "GodTimer",
+   "type": "struct:/Script/Engine.TimerHandle"
+  },
+  {
+   "name": "StormOverride",
+   "type": "float",
+   "default": "-1.0"
+  },
+  {
+   "name": "StormTimer",
+   "type": "struct:/Script/Engine.TimerHandle"
+  },
+  {
+   "name": "DebugLog",
+   "type": "string"
+  },
+  {
+   "name": "SavedLocation",
+   "type": "vector"
+  },
+  {
+   "name": "SavedRotation",
+   "type": "rotator"
+  }
+ ],
+ "functions": [
+  {
+   "name": "SaskartaDebug",
+   "inputs": [],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "SaskartaTP",
+   "inputs": [
+    {
+     "name": "Target",
+     "type": "string"
+    }
+   ],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "SaskartaBeat",
+   "inputs": [
+    {
+     "name": "BeatId",
+     "type": "name"
+    }
+   ],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "SaskartaSkip",
+   "inputs": [],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "SaskartaResetBeats",
+   "inputs": [],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "SaskartaSpeed",
+   "inputs": [
+    {
+     "name": "Multiplier",
+     "type": "float"
+    }
+   ],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "SaskartaGod",
+   "inputs": [],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "SaskartaFly",
+   "inputs": [],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "SaskartaNext",
+   "inputs": [],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "SaskartaPrev",
+   "inputs": [],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "SaskartaStorm",
+   "inputs": [
+    {
+     "name": "Intensity",
+     "type": "float"
+    }
+   ],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "SaskartaLook",
+   "inputs": [
+    {
+     "name": "RoadM",
+     "type": "float"
+    }
+   ],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "DebugGoTo",
+   "inputs": [
+    {
+     "name": "BeatId",
+     "type": "name"
+    },
+    {
+     "name": "RoadM",
+     "type": "float"
+    }
+   ],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "DebugGoToRoad",
+   "inputs": [
+    {
+     "name": "RoadM",
+     "type": "float"
+    }
+   ],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "SelectIndex",
+   "inputs": [
+    {
+     "name": "Index",
+     "type": "int"
+    }
+   ],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "TriggerSelected",
+   "inputs": [],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "SetAutoTrigger",
+   "inputs": [
+    {
+     "name": "bOn",
+     "type": "bool"
+    }
+   ],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "StatUnit",
+   "inputs": [],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "RestartFlow",
+   "inputs": [],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "AddLog",
+   "inputs": [
+    {
+     "name": "Line",
+     "type": "string"
+    }
+   ],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "GetStatusText",
+   "inputs": [],
+   "outputs": [
+    {
+     "name": "Text",
+     "type": "string"
+    }
+   ],
+   "pure": false
+  },
+  {
+   "name": "PlaceOnRoad",
+   "inputs": [
+    {
+     "name": "StepCm",
+     "type": "float"
+    }
+   ],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "TryPlace",
+   "inputs": [],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "CheckArmed",
+   "inputs": [],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "KeepGod",
+   "inputs": [],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "ApplyStorm",
+   "inputs": [],
+   "outputs": [],
+   "pure": false
+  }
+ ],
+ "graphs": [
+  {
+   "graph": "EventGraph",
+   "nodes": {
+    "init": {
+     "event": "ReceiveInitCheatManager"
+    },
+    "n2": {
+     "call": "AddLog"
+    }
+   },
+   "links": [
+    [
+     "init.then",
+     "n2.execute"
+    ]
+   ],
+   "defaults": {
+    "n2.Line": "debug ready: F9 or SaskartaDebug opens the menu"
+   }
+  },
+  {
+   "graph": "AddLog",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "n2": {
+     "get": "DebugLog"
+    },
+    "n3": {
+     "call": "Left",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n4": {
+     "call": "Concat_StrStr",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n5": {
+     "call": "Concat_StrStr",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n6": {
+     "set": "DebugLog"
+    }
+   },
+   "links": [
+    [
+     "n2.DebugLog",
+     "n3.SourceString"
+    ],
+    [
+     "entry.Line",
+     "n4.A"
+    ],
+    [
+     "n4.ReturnValue",
+     "n5.A"
+    ],
+    [
+     "n3.ReturnValue",
+     "n5.B"
+    ],
+    [
+     "n5.ReturnValue",
+     "n6.DebugLog"
+    ],
+    [
+     "entry.then",
+     "n6.execute"
+    ]
+   ],
+   "defaults": {
+    "n3.Count": "900",
+    "n4.B": "\n"
+   }
+  },
+  {
+   "graph": "SaskartaDebug",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "n2": {
+     "get": "bMenuOpen"
+    },
+    "ifOpen": {
+     "branch": true
+    },
+    "n4": {
+     "get": "DebugWidget"
+    },
+    "n5": {
+     "call": "RemoveFromParent",
+     "class": "/Script/UMG.Widget"
+    },
+    "n6": {
+     "call": "GetPlayerController",
+     "class": "/Script/Engine.CheatManager"
+    },
+    "n7": {
+     "call": "SetInputMode_GameOnly",
+     "class": "/Script/UMG.WidgetBlueprintLibrary"
+    },
+    "n8": {
+     "call": "GetPlayerController",
+     "class": "/Script/Engine.CheatManager"
+    },
+    "n9": {
+     "call": "SetBoolPropertyByName",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "n10": {
+     "set": "bMenuOpen"
+    },
+    "n11": {
+     "get": "DebugWidget"
+    },
+    "n12": {
+     "call": "IsValid",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "ifHave": {
+     "branch": true
+    },
+    "n14": {
+     "call": "GetPlayerController",
+     "class": "/Script/Engine.CheatManager"
+    },
+    "create": {
+     "create_widget": "/Game/SaskartaGaea/GameFlow/Debug/WBP_Saskarta_Debug.WBP_Saskarta_Debug_C"
+    },
+    "n16": {
+     "set": "DebugWidget"
+    },
+    "n17": {
+     "get": "DebugWidget"
+    },
+    "n18": {
+     "self": true
+    },
+    "n19": {
+     "call": "InitDebug",
+     "class": "/Game/SaskartaGaea/GameFlow/Debug/WBP_Saskarta_Debug.WBP_Saskarta_Debug_C"
+    },
+    "n20": {
+     "get": "DebugWidget"
+    },
+    "n21": {
+     "call": "AddToViewport",
+     "class": "/Script/UMG.UserWidget"
+    },
+    "n22": {
+     "call": "GetPlayerController",
+     "class": "/Script/Engine.CheatManager"
+    },
+    "n23": {
+     "get": "DebugWidget"
+    },
+    "n24": {
+     "call": "SetInputMode_GameAndUIEx",
+     "class": "/Script/UMG.WidgetBlueprintLibrary"
+    },
+    "n25": {
+     "call": "GetPlayerController",
+     "class": "/Script/Engine.CheatManager"
+    },
+    "n26": {
+     "call": "SetBoolPropertyByName",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "n27": {
+     "set": "bMenuOpen"
+    }
+   },
+   "links": [
+    [
+     "n2.bMenuOpen",
+     "ifOpen.Condition"
+    ],
+    [
+     "n4.DebugWidget",
+     "n5.self"
+    ],
+    [
+     "n6.ReturnValue",
+     "n7.PlayerController"
+    ],
+    [
+     "n8.ReturnValue",
+     "n9.Object"
+    ],
+    [
+     "entry.then",
+     "ifOpen.execute"
+    ],
+    [
+     "ifOpen.then",
+     "n5.execute"
+    ],
+    [
+     "n5.then",
+     "n7.execute"
+    ],
+    [
+     "n7.then",
+     "n9.execute"
+    ],
+    [
+     "n9.then",
+     "n10.execute"
+    ],
+    [
+     "n11.DebugWidget",
+     "n12.Object"
+    ],
+    [
+     "n12.ReturnValue",
+     "ifHave.Condition"
+    ],
+    [
+     "n14.ReturnValue",
+     "create.OwningPlayer"
+    ],
+    [
+     "create.ReturnValue",
+     "n16.DebugWidget"
+    ],
+    [
+     "n17.DebugWidget",
+     "n19.self"
+    ],
+    [
+     "n18.self",
+     "n19.InCM"
+    ],
+    [
+     "n20.DebugWidget",
+     "n21.self"
+    ],
+    [
+     "n22.ReturnValue",
+     "n24.PlayerController"
+    ],
+    [
+     "n23.DebugWidget",
+     "n24.InWidgetToFocus"
+    ],
+    [
+     "n25.ReturnValue",
+     "n26.Object"
+    ],
+    [
+     "ifOpen.else",
+     "ifHave.execute"
+    ],
+    [
+     "ifHave.else",
+     "create.execute"
+    ],
+    [
+     "create.then",
+     "n16.execute"
+    ],
+    [
+     "n16.then",
+     "n19.execute"
+    ],
+    [
+     "ifHave.then",
+     "n21.execute"
+    ],
+    [
+     "n19.then",
+     "n21.execute"
+    ],
+    [
+     "n21.then",
+     "n24.execute"
+    ],
+    [
+     "n24.then",
+     "n26.execute"
+    ],
+    [
+     "n26.then",
+     "n27.execute"
+    ]
+   ],
+   "defaults": {
+    "n9.PropertyName": "bShowMouseCursor",
+    "n9.Value": "false",
+    "n10.bMenuOpen": "false",
+    "n21.ZOrder": "500",
+    "n24.InMouseLockMode": "DoNotLock",
+    "n24.bHideCursorDuringCapture": "false",
+    "n26.PropertyName": "bShowMouseCursor",
+    "n26.Value": "true",
+    "n27.bMenuOpen": "true"
+   }
+  },
+  {
+   "graph": "PlaceOnRoad",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "n2": {
+     "set": "PlaceStepCm"
+    },
+    "n3": {
+     "set": "PlaceTries"
+    },
+    "n4": {
+     "call": "TryPlace"
+    }
+   },
+   "links": [
+    [
+     "entry.StepCm",
+     "n2.PlaceStepCm"
+    ],
+    [
+     "entry.then",
+     "n2.execute"
+    ],
+    [
+     "n2.then",
+     "n3.execute"
+    ],
+    [
+     "n3.then",
+     "n4.execute"
+    ]
+   ],
+   "defaults": {
+    "n3.PlaceTries": "0"
+   }
+  },
+  {
+   "graph": "TryPlace",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "n2": {
+     "call": "GetActorOfClass",
+     "class": "/Script/Engine.GameplayStatics"
+    },
+    "n3": {
+     "call": "GetComponentByClass",
+     "class": "/Script/Engine.Actor"
+    },
+    "castSpline": {
+     "cast": "/Script/Engine.SplineComponent"
+    },
+    "n5": {
+     "call": "GetPlayerController",
+     "class": "/Script/Engine.CheatManager"
+    },
+    "n6": {
+     "call": "K2_GetPawn",
+     "class": "/Script/Engine.Controller"
+    },
+    "n7": {
+     "call": "GetComponentByClass",
+     "class": "/Script/Engine.Actor"
+    },
+    "castCapsule": {
+     "cast": "/Script/Engine.CapsuleComponent"
+    },
+    "n9": {
+     "call": "GetScaledCapsuleHalfHeight",
+     "class": "/Script/Engine.CapsuleComponent"
+    },
+    "n10": {
+     "call": "K2_GetActorLocation",
+     "class": "/Script/Engine.Actor"
+    },
+    "n11": {
+     "get": "PlaceStepCm"
+    },
+    "n12": {
+     "call": "ComputeRoadRespawn",
+     "class": "/Game/SaskartaGaea/GameFlow/BFL_SaskartaRoad.BFL_SaskartaRoad_C"
+    },
+    "n13": {
+     "get": "PlaceTries"
+    },
+    "n14": {
+     "call": "GreaterEqual_IntInt",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n15": {
+     "call": "BooleanOR",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "ifGround": {
+     "branch": true
+    },
+    "n17": {
+     "call": "K2_TeleportTo",
+     "class": "/Script/Engine.Actor"
+    },
+    "n18": {
+     "call": "GetPlayerController",
+     "class": "/Script/Engine.CheatManager"
+    },
+    "n19": {
+     "call": "SetControlRotation",
+     "class": "/Script/Engine.Controller"
+    },
+    "n20": {
+     "call": "GetComponentByClass",
+     "class": "/Script/Engine.Actor"
+    },
+    "castMove": {
+     "cast": "/Script/Engine.CharacterMovementComponent"
+    },
+    "n22": {
+     "call": "SetMovementMode",
+     "class": "/Script/Engine.CharacterMovementComponent"
+    },
+    "n23": {
+     "call": "Conv_BoolToString",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n24": {
+     "call": "Concat_StrStr",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n25": {
+     "call": "AddLog"
+    },
+    "n26": {
+     "call": "GetComponentByClass",
+     "class": "/Script/Engine.Actor"
+    },
+    "castMove2": {
+     "cast": "/Script/Engine.CharacterMovementComponent"
+    },
+    "n28": {
+     "call": "SetMovementMode",
+     "class": "/Script/Engine.CharacterMovementComponent"
+    },
+    "n29": {
+     "get": "PlaceTries"
+    },
+    "n30": {
+     "call": "Add_IntInt",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n31": {
+     "set": "PlaceTries"
+    },
+    "retry": {
+     "timer": true
+    },
+    "n33": {
+     "set": "PlaceTimer"
+    }
+   },
+   "links": [
+    [
+     "n2.ReturnValue",
+     "n3.self"
+    ],
+    [
+     "n3.ReturnValue",
+     "castSpline.Object"
+    ],
+    [
+     "n5.ReturnValue",
+     "n6.self"
+    ],
+    [
+     "n6.ReturnValue",
+     "n7.self"
+    ],
+    [
+     "n7.ReturnValue",
+     "castCapsule.Object"
+    ],
+    [
+     "castCapsule.AsCapsule Collision",
+     "n9.self"
+    ],
+    [
+     "n6.ReturnValue",
+     "n10.self"
+    ],
+    [
+     "castSpline.AsSpline Component",
+     "n12.Road"
+    ],
+    [
+     "n10.ReturnValue",
+     "n12.From"
+    ],
+    [
+     "n9.ReturnValue",
+     "n12.CapsuleHalfHeight"
+    ],
+    [
+     "n11.PlaceStepCm",
+     "n12.StepCm"
+    ],
+    [
+     "n13.PlaceTries",
+     "n14.A"
+    ],
+    [
+     "n12.Found",
+     "n15.A"
+    ],
+    [
+     "n14.ReturnValue",
+     "n15.B"
+    ],
+    [
+     "n15.ReturnValue",
+     "ifGround.Condition"
+    ],
+    [
+     "n6.ReturnValue",
+     "n17.self"
+    ],
+    [
+     "n12.Location",
+     "n17.DestLocation"
+    ],
+    [
+     "n12.Rotation",
+     "n17.DestRotation"
+    ],
+    [
+     "n18.ReturnValue",
+     "n19.self"
+    ],
+    [
+     "n12.Rotation",
+     "n19.NewRotation"
+    ],
+    [
+     "n6.ReturnValue",
+     "n20.self"
+    ],
+    [
+     "n20.ReturnValue",
+     "castMove.Object"
+    ],
+    [
+     "castMove.AsCharacter Movement Component",
+     "n22.self"
+    ],
+    [
+     "n12.Found",
+     "n23.InBool"
+    ],
+    [
+     "n23.ReturnValue",
+     "n24.B"
+    ],
+    [
+     "n24.ReturnValue",
+     "n25.Line"
+    ],
+    [
+     "n6.ReturnValue",
+     "n26.self"
+    ],
+    [
+     "n26.ReturnValue",
+     "castMove2.Object"
+    ],
+    [
+     "castMove2.AsCharacter Movement Component",
+     "n28.self"
+    ],
+    [
+     "n29.PlaceTries",
+     "n30.A"
+    ],
+    [
+     "n30.ReturnValue",
+     "n31.PlaceTries"
+    ],
+    [
+     "retry.ReturnValue",
+     "n33.PlaceTimer"
+    ],
+    [
+     "entry.then",
+     "n2.execute"
+    ],
+    [
+     "n2.then",
+     "castSpline.execute"
+    ],
+    [
+     "castSpline.then",
+     "castCapsule.execute"
+    ],
+    [
+     "castCapsule.then",
+     "n12.execute"
+    ],
+    [
+     "n12.then",
+     "ifGround.execute"
+    ],
+    [
+     "ifGround.then",
+     "n17.execute"
+    ],
+    [
+     "n17.then",
+     "n19.execute"
+    ],
+    [
+     "n19.then",
+     "castMove.execute"
+    ],
+    [
+     "castMove.then",
+     "n22.execute"
+    ],
+    [
+     "n22.then",
+     "n25.execute"
+    ],
+    [
+     "ifGround.else",
+     "castMove2.execute"
+    ],
+    [
+     "castMove2.then",
+     "n28.execute"
+    ],
+    [
+     "n28.then",
+     "n31.execute"
+    ],
+    [
+     "n31.then",
+     "retry.execute"
+    ],
+    [
+     "retry.then",
+     "n33.execute"
+    ]
+   ],
+   "defaults": {
+    "n2.ActorClass": "/Game/SaskartaGaea/Road/BP_Saskarta_Road.BP_Saskarta_Road_C",
+    "n3.ComponentClass": "/Script/Engine.SplineComponent",
+    "n7.ComponentClass": "/Script/Engine.CapsuleComponent",
+    "n12.TravelSign": "-1.0",
+    "n14.B": "40",
+    "n20.ComponentClass": "/Script/Engine.CharacterMovementComponent",
+    "n22.NewMovementMode": "MOVE_Walking",
+    "n24.A": "placed on the road, ground trace hit: ",
+    "n26.ComponentClass": "/Script/Engine.CharacterMovementComponent",
+    "n28.NewMovementMode": "MOVE_None",
+    "n30.B": "1",
+    "retry.FunctionName": "TryPlace",
+    "retry.Time": "0.25",
+    "retry.bLooping": "false"
+   }
+  },
+  {
+   "graph": "DebugGoTo",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "n2": {
+     "self": true
+    },
+    "n3": {
+     "call": "ArmBeat",
+     "class": "/Script/SaskartaCore.SaskartaDebugLibrary"
+    },
+    "n4": {
+     "call": "Conv_NameToString",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n5": {
+     "call": "Concat_StrStr",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n6": {
+     "call": "Concat_StrStr",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n7": {
+     "call": "Round",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n8": {
+     "call": "Conv_IntToString",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n9": {
+     "call": "Concat_StrStr",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n10": {
+     "call": "Concat_StrStr",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n11": {
+     "call": "AddLog"
+    },
+    "n12": {
+     "get": "bAutoTrigger"
+    },
+    "ifAuto": {
+     "branch": true
+    },
+    "n14": {
+     "self": true
+    },
+    "n15": {
+     "call": "GetEventRunner",
+     "class": "/Script/SaskartaCore.SaskartaEventRunner"
+    },
+    "n16": {
+     "call": "FireBeat",
+     "class": "/Script/SaskartaCore.SaskartaEventRunner"
+    },
+    "n17": {
+     "call": "AddLog"
+    }
+   },
+   "links": [
+    [
+     "n2.self",
+     "n3.WorldContext"
+    ],
+    [
+     "entry.BeatId",
+     "n3.BeatId"
+    ],
+    [
+     "entry.BeatId",
+     "n4.InName"
+    ],
+    [
+     "n4.ReturnValue",
+     "n5.B"
+    ],
+    [
+     "n5.ReturnValue",
+     "n6.A"
+    ],
+    [
+     "entry.RoadM",
+     "n7.A"
+    ],
+    [
+     "n7.ReturnValue",
+     "n8.InInt"
+    ],
+    [
+     "n6.ReturnValue",
+     "n9.A"
+    ],
+    [
+     "n8.ReturnValue",
+     "n9.B"
+    ],
+    [
+     "n9.ReturnValue",
+     "n10.A"
+    ],
+    [
+     "n10.ReturnValue",
+     "n11.Line"
+    ],
+    [
+     "n12.bAutoTrigger",
+     "ifAuto.Condition"
+    ],
+    [
+     "n14.self",
+     "n15.WorldContextObject"
+    ],
+    [
+     "n15.ReturnValue",
+     "n16.self"
+    ],
+    [
+     "entry.BeatId",
+     "n16.BeatId"
+    ],
+    [
+     "entry.then",
+     "n3.execute"
+    ],
+    [
+     "n3.then",
+     "n11.execute"
+    ],
+    [
+     "n11.then",
+     "ifAuto.execute"
+    ],
+    [
+     "ifAuto.then",
+     "n16.execute"
+    ],
+    [
+     "n16.then",
+     "n17.execute"
+    ]
+   ],
+   "defaults": {
+    "n3.LeadM": "30.0",
+    "n5.A": "tp before ",
+    "n6.B": " at ",
+    "n10.B": " m (armed)",
+    "n16.bForce": "true",
+    "n17.Line": "auto-trigger: fired now"
+   }
+  },
+  {
+   "graph": "DebugGoToRoad",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "n2": {
+     "self": true
+    },
+    "n3": {
+     "call": "GetEventRunner",
+     "class": "/Script/SaskartaCore.SaskartaEventRunner"
+    },
+    "n4": {
+     "call": "GoToRoadM",
+     "class": "/Script/SaskartaCore.SaskartaEventRunner"
+    },
+    "n5": {
+     "call": "PlaceOnRoad"
+    },
+    "n6": {
+     "call": "Round",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n7": {
+     "call": "Conv_IntToString",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n8": {
+     "call": "Concat_StrStr",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n9": {
+     "call": "AddLog"
+    }
+   },
+   "links": [
+    [
+     "n2.self",
+     "n3.WorldContextObject"
+    ],
+    [
+     "n3.ReturnValue",
+     "n4.self"
+    ],
+    [
+     "entry.RoadM",
+     "n4.RoadM"
+    ],
+    [
+     "entry.RoadM",
+     "n6.A"
+    ],
+    [
+     "n6.ReturnValue",
+     "n7.InInt"
+    ],
+    [
+     "n7.ReturnValue",
+     "n8.B"
+    ],
+    [
+     "n8.ReturnValue",
+     "n9.Line"
+    ],
+    [
+     "entry.then",
+     "n4.execute"
+    ],
+    [
+     "n4.then",
+     "n5.execute"
+    ],
+    [
+     "n5.then",
+     "n9.execute"
+    ]
+   ],
+   "defaults": {
+    "n5.StepCm": "0.0",
+    "n8.A": "tp to road "
+   }
+  },
+  {
+   "graph": "CheckArmed",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "n2": {
+     "get": "ArmedBeat"
+    },
+    "n3": {
+     "call": "EqualEqual_NameName",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "ifNone": {
+     "branch": true
+    },
+    "n5": {
+     "get": "ArmTimer"
+    },
+    "n6": {
+     "call": "K2_ClearAndInvalidateTimerHandle",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "n7": {
+     "self": true
+    },
+    "n8": {
+     "call": "GetEventRunner",
+     "class": "/Script/SaskartaCore.SaskartaEventRunner"
+    },
+    "n9": {
+     "call": "GetRoadM",
+     "class": "/Script/SaskartaCore.SaskartaEventRunner"
+    },
+    "n10": {
+     "get": "ArmedRoadM"
+    },
+    "n11": {
+     "call": "Subtract_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n12": {
+     "call": "Less_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "ifBehind": {
+     "branch": true
+    },
+    "n14": {
+     "set": "bArmReady"
+    },
+    "n15": {
+     "get": "bArmReady"
+    },
+    "n16": {
+     "get": "ArmedRoadM"
+    },
+    "n17": {
+     "call": "GreaterEqual_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n18": {
+     "call": "BooleanAND",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "ifReached": {
+     "branch": true
+    },
+    "n20": {
+     "self": true
+    },
+    "n21": {
+     "call": "GetEventRunner",
+     "class": "/Script/SaskartaCore.SaskartaEventRunner"
+    },
+    "n22": {
+     "get": "ArmedBeat"
+    },
+    "n23": {
+     "call": "FireBeat",
+     "class": "/Script/SaskartaCore.SaskartaEventRunner"
+    },
+    "n24": {
+     "get": "ArmedBeat"
+    },
+    "n25": {
+     "call": "Conv_NameToString",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n26": {
+     "call": "Concat_StrStr",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n27": {
+     "call": "AddLog"
+    },
+    "n28": {
+     "set": "ArmedBeat"
+    },
+    "n29": {
+     "get": "ArmTimer"
+    },
+    "n30": {
+     "call": "K2_ClearAndInvalidateTimerHandle",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    }
+   },
+   "links": [
+    [
+     "n2.ArmedBeat",
+     "n3.A"
+    ],
+    [
+     "n3.ReturnValue",
+     "ifNone.Condition"
+    ],
+    [
+     "n5.ArmTimer",
+     "n6.Handle"
+    ],
+    [
+     "n7.self",
+     "n8.WorldContextObject"
+    ],
+    [
+     "n8.ReturnValue",
+     "n9.self"
+    ],
+    [
+     "n10.ArmedRoadM",
+     "n11.A"
+    ],
+    [
+     "n9.ReturnValue",
+     "n12.A"
+    ],
+    [
+     "n11.ReturnValue",
+     "n12.B"
+    ],
+    [
+     "n12.ReturnValue",
+     "ifBehind.Condition"
+    ],
+    [
+     "n9.ReturnValue",
+     "n17.A"
+    ],
+    [
+     "n16.ArmedRoadM",
+     "n17.B"
+    ],
+    [
+     "n15.bArmReady",
+     "n18.A"
+    ],
+    [
+     "n17.ReturnValue",
+     "n18.B"
+    ],
+    [
+     "n18.ReturnValue",
+     "ifReached.Condition"
+    ],
+    [
+     "n20.self",
+     "n21.WorldContextObject"
+    ],
+    [
+     "n21.ReturnValue",
+     "n23.self"
+    ],
+    [
+     "n22.ArmedBeat",
+     "n23.BeatId"
+    ],
+    [
+     "n24.ArmedBeat",
+     "n25.InName"
+    ],
+    [
+     "n25.ReturnValue",
+     "n26.B"
+    ],
+    [
+     "n26.ReturnValue",
+     "n27.Line"
+    ],
+    [
+     "n29.ArmTimer",
+     "n30.Handle"
+    ],
+    [
+     "entry.then",
+     "ifNone.execute"
+    ],
+    [
+     "ifNone.then",
+     "n6.execute"
+    ],
+    [
+     "ifNone.else",
+     "ifBehind.execute"
+    ],
+    [
+     "ifBehind.then",
+     "n14.execute"
+    ],
+    [
+     "ifBehind.else",
+     "ifReached.execute"
+    ],
+    [
+     "ifReached.then",
+     "n23.execute"
+    ],
+    [
+     "n23.then",
+     "n27.execute"
+    ],
+    [
+     "n27.then",
+     "n28.execute"
+    ],
+    [
+     "n28.then",
+     "n30.execute"
+    ]
+   ],
+   "defaults": {
+    "n3.B": "None",
+    "n11.B": "5.0",
+    "n14.bArmReady": "true",
+    "n23.bForce": "true",
+    "n26.A": "armed beat reached, fired ",
+    "n28.ArmedBeat": "None"
+   }
+  },
+  {
+   "graph": "SaskartaTP",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "n2": {
+     "call": "IsNumeric",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "ifNumber": {
+     "branch": true
+    },
+    "n4": {
+     "call": "Conv_StringToDouble",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n5": {
+     "call": "DebugGoToRoad"
+    },
+    "n6": {
+     "call": "Conv_StringToName",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n7": {
+     "get": "BeatIds"
+    },
+    "n8": {
+     "call": "Array_Find",
+     "class": "/Script/Engine.KismetArrayLibrary"
+    },
+    "n9": {
+     "call": "GreaterEqual_IntInt",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "ifFound": {
+     "branch": true
+    },
+    "n11": {
+     "call": "SelectIndex"
+    },
+    "n12": {
+     "call": "Concat_StrStr",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n13": {
+     "call": "AddLog"
+    }
+   },
+   "links": [
+    [
+     "entry.Target",
+     "n2.SourceString"
+    ],
+    [
+     "n2.ReturnValue",
+     "ifNumber.Condition"
+    ],
+    [
+     "entry.Target",
+     "n4.InString"
+    ],
+    [
+     "n4.ReturnValue",
+     "n5.RoadM"
+    ],
+    [
+     "entry.Target",
+     "n6.InString"
+    ],
+    [
+     "n7.BeatIds",
+     "n8.TargetArray"
+    ],
+    [
+     "n6.ReturnValue",
+     "n8.ItemToFind"
+    ],
+    [
+     "n8.ReturnValue",
+     "n9.A"
+    ],
+    [
+     "n9.ReturnValue",
+     "ifFound.Condition"
+    ],
+    [
+     "n8.ReturnValue",
+     "n11.Index"
+    ],
+    [
+     "entry.Target",
+     "n12.B"
+    ],
+    [
+     "n12.ReturnValue",
+     "n13.Line"
+    ],
+    [
+     "entry.then",
+     "ifNumber.execute"
+    ],
+    [
+     "ifNumber.then",
+     "n5.execute"
+    ],
+    [
+     "ifNumber.else",
+     "ifFound.execute"
+    ],
+    [
+     "ifFound.then",
+     "n11.execute"
+    ],
+    [
+     "ifFound.else",
+     "n13.execute"
+    ]
+   ],
+   "defaults": {
+    "n9.B": "0",
+    "n12.A": "SaskartaTP: no beat named "
+   }
+  },
+  {
+   "graph": "SelectIndex",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "n2": {
+     "get": "BeatIds"
+    },
+    "n3": {
+     "call": "Array_Length",
+     "class": "/Script/Engine.KismetArrayLibrary"
+    },
+    "n4": {
+     "call": "Subtract_IntInt",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n5": {
+     "call": "Clamp",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n6": {
+     "set": "SelIndex"
+    },
+    "n7": {
+     "get": "SelIndex"
+    },
+    "n8": {
+     "get": "BeatIds"
+    },
+    "n9": {
+     "call": "Array_Get",
+     "class": "/Script/Engine.KismetArrayLibrary"
+    },
+    "n10": {
+     "get": "BeatRoadMs"
+    },
+    "n11": {
+     "call": "Array_Get",
+     "class": "/Script/Engine.KismetArrayLibrary"
+    },
+    "n12": {
+     "call": "DebugGoTo"
+    }
+   },
+   "links": [
+    [
+     "n2.BeatIds",
+     "n3.TargetArray"
+    ],
+    [
+     "n3.ReturnValue",
+     "n4.A"
+    ],
+    [
+     "entry.Index",
+     "n5.Value"
+    ],
+    [
+     "n4.ReturnValue",
+     "n5.Max"
+    ],
+    [
+     "n5.ReturnValue",
+     "n6.SelIndex"
+    ],
+    [
+     "n8.BeatIds",
+     "n9.TargetArray"
+    ],
+    [
+     "n7.SelIndex",
+     "n9.Index"
+    ],
+    [
+     "n10.BeatRoadMs",
+     "n11.TargetArray"
+    ],
+    [
+     "n7.SelIndex",
+     "n11.Index"
+    ],
+    [
+     "n9.Item",
+     "n12.BeatId"
+    ],
+    [
+     "n11.Item",
+     "n12.RoadM"
+    ],
+    [
+     "entry.then",
+     "n6.execute"
+    ],
+    [
+     "n6.then",
+     "n12.execute"
+    ]
+   ],
+   "defaults": {
+    "n4.B": "1",
+    "n5.Min": "0"
+   }
+  },
+  {
+   "graph": "SaskartaNext",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "n2": {
+     "get": "SelIndex"
+    },
+    "n3": {
+     "call": "Add_IntInt",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n4": {
+     "call": "SelectIndex"
+    }
+   },
+   "links": [
+    [
+     "n2.SelIndex",
+     "n3.A"
+    ],
+    [
+     "n3.ReturnValue",
+     "n4.Index"
+    ],
+    [
+     "entry.then",
+     "n4.execute"
+    ]
+   ],
+   "defaults": {
+    "n3.B": "1"
+   }
+  },
+  {
+   "graph": "SaskartaPrev",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "n2": {
+     "get": "SelIndex"
+    },
+    "n3": {
+     "call": "Add_IntInt",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n4": {
+     "call": "SelectIndex"
+    }
+   },
+   "links": [
+    [
+     "n2.SelIndex",
+     "n3.A"
+    ],
+    [
+     "n3.ReturnValue",
+     "n4.Index"
+    ],
+    [
+     "entry.then",
+     "n4.execute"
+    ]
+   ],
+   "defaults": {
+    "n3.B": "-1"
+   }
+  },
+  {
+   "graph": "SaskartaBeat",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "n2": {
+     "self": true
+    },
+    "n3": {
+     "call": "GetEventRunner",
+     "class": "/Script/SaskartaCore.SaskartaEventRunner"
+    },
+    "n4": {
+     "call": "FireBeat",
+     "class": "/Script/SaskartaCore.SaskartaEventRunner"
+    },
+    "n5": {
+     "call": "Conv_NameToString",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n6": {
+     "call": "Conv_BoolToString",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n7": {
+     "call": "Concat_StrStr",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n8": {
+     "call": "Concat_StrStr",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n9": {
+     "call": "Concat_StrStr",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n10": {
+     "call": "AddLog"
+    }
+   },
+   "links": [
+    [
+     "n2.self",
+     "n3.WorldContextObject"
+    ],
+    [
+     "n3.ReturnValue",
+     "n4.self"
+    ],
+    [
+     "entry.BeatId",
+     "n4.BeatId"
+    ],
+    [
+     "entry.BeatId",
+     "n5.InName"
+    ],
+    [
+     "n4.ReturnValue",
+     "n6.InBool"
+    ],
+    [
+     "n5.ReturnValue",
+     "n7.B"
+    ],
+    [
+     "n7.ReturnValue",
+     "n8.A"
+    ],
+    [
+     "n8.ReturnValue",
+     "n9.A"
+    ],
+    [
+     "n6.ReturnValue",
+     "n9.B"
+    ],
+    [
+     "n9.ReturnValue",
+     "n10.Line"
+    ],
+    [
+     "entry.then",
+     "n4.execute"
+    ],
+    [
+     "n4.then",
+     "n10.execute"
+    ]
+   ],
+   "defaults": {
+    "n4.bForce": "true",
+    "n7.A": "trigger ",
+    "n8.B": " queued: "
+   }
+  },
+  {
+   "graph": "TriggerSelected",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "n2": {
+     "get": "BeatIds"
+    },
+    "n3": {
+     "get": "SelIndex"
+    },
+    "n4": {
+     "call": "Array_Get",
+     "class": "/Script/Engine.KismetArrayLibrary"
+    },
+    "n5": {
+     "call": "SaskartaBeat"
+    }
+   },
+   "links": [
+    [
+     "n2.BeatIds",
+     "n4.TargetArray"
+    ],
+    [
+     "n3.SelIndex",
+     "n4.Index"
+    ],
+    [
+     "n4.Item",
+     "n5.BeatId"
+    ],
+    [
+     "entry.then",
+     "n5.execute"
+    ]
+   ],
+   "defaults": {}
+  },
+  {
+   "graph": "SaskartaSkip",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "n2": {
+     "call": "GetPlayerController",
+     "class": "/Script/Engine.CheatManager"
+    },
+    "n3": {
+     "call": "ExecuteConsoleCommand",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "n4": {
+     "self": true
+    },
+    "n5": {
+     "call": "SkipCurrentCinematic",
+     "class": "/Script/SaskartaCore.SaskartaEventLibrary"
+    },
+    "n6": {
+     "call": "AddLog"
+    }
+   },
+   "links": [
+    [
+     "n2.ReturnValue",
+     "n3.SpecificPlayer"
+    ],
+    [
+     "n4.self",
+     "n5.WorldContext"
+    ],
+    [
+     "entry.then",
+     "n3.execute"
+    ],
+    [
+     "n3.then",
+     "n5.execute"
+    ],
+    [
+     "n5.then",
+     "n6.execute"
+    ]
+   ],
+   "defaults": {
+    "n3.Command": "Saskarta.Cine.AllowSkipAll 1",
+    "n6.Line": "skip cinematic"
+   }
+  },
+  {
+   "graph": "SaskartaResetBeats",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "n2": {
+     "self": true
+    },
+    "n3": {
+     "call": "ResetAllBeats",
+     "class": "/Script/SaskartaCore.SaskartaDebugLibrary"
+    },
+    "n4": {
+     "call": "AddLog"
+    }
+   },
+   "links": [
+    [
+     "n2.self",
+     "n3.WorldContext"
+    ],
+    [
+     "entry.then",
+     "n3.execute"
+    ],
+    [
+     "n3.then",
+     "n4.execute"
+    ]
+   ],
+   "defaults": {
+    "n4.Line": "reset all beats"
+   }
+  },
+  {
+   "graph": "SaskartaSpeed",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "n2": {
+     "set": "SpeedMul"
+    },
+    "n3": {
+     "call": "GetPlayerController",
+     "class": "/Script/Engine.CheatManager"
+    },
+    "n4": {
+     "call": "K2_GetPawn",
+     "class": "/Script/Engine.Controller"
+    },
+    "n5": {
+     "call": "SetDoublePropertyByName",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "n6": {
+     "call": "Round",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n7": {
+     "call": "Conv_IntToString",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n8": {
+     "call": "Concat_StrStr",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n9": {
+     "call": "AddLog"
+    }
+   },
+   "links": [
+    [
+     "entry.Multiplier",
+     "n2.SpeedMul"
+    ],
+    [
+     "n3.ReturnValue",
+     "n4.self"
+    ],
+    [
+     "n4.ReturnValue",
+     "n5.Object"
+    ],
+    [
+     "entry.Multiplier",
+     "n5.Value"
+    ],
+    [
+     "entry.Multiplier",
+     "n6.A"
+    ],
+    [
+     "n6.ReturnValue",
+     "n7.InInt"
+    ],
+    [
+     "n7.ReturnValue",
+     "n8.B"
+    ],
+    [
+     "n8.ReturnValue",
+     "n9.Line"
+    ],
+    [
+     "entry.then",
+     "n2.execute"
+    ],
+    [
+     "n2.then",
+     "n5.execute"
+    ],
+    [
+     "n5.then",
+     "n9.execute"
+    ]
+   ],
+   "defaults": {
+    "n5.PropertyName": "CustomTimeDilation",
+    "n8.A": "carrier speed x"
+   }
+  },
+  {
+   "graph": "SaskartaGod",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "n2": {
+     "get": "bGod"
+    },
+    "n3": {
+     "call": "Not_PreBool",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n4": {
+     "set": "bGod"
+    },
+    "n5": {
+     "get": "bGod"
+    },
+    "ifOn": {
+     "branch": true
+    },
+    "n7": {
+     "call": "KeepGod"
+    },
+    "godTimer": {
+     "timer": true
+    },
+    "n9": {
+     "set": "GodTimer"
+    },
+    "n10": {
+     "call": "AddLog"
+    },
+    "n11": {
+     "get": "GodTimer"
+    },
+    "n12": {
+     "call": "K2_ClearAndInvalidateTimerHandle",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "n13": {
+     "call": "GetPlayerController",
+     "class": "/Script/Engine.CheatManager"
+    },
+    "n14": {
+     "call": "GetComponentByClass",
+     "class": "/Script/Engine.Actor"
+    },
+    "castTether": {
+     "cast": "/Game/SaskartaGaea/GameFlow/BPC_RoadTether.BPC_RoadTether_C"
+    },
+    "n16": {
+     "call": "StartTether",
+     "class": "/Game/SaskartaGaea/GameFlow/BPC_RoadTether.BPC_RoadTether_C"
+    },
+    "n17": {
+     "call": "AddLog"
+    }
+   },
+   "links": [
+    [
+     "n2.bGod",
+     "n3.A"
+    ],
+    [
+     "n3.ReturnValue",
+     "n4.bGod"
+    ],
+    [
+     "n5.bGod",
+     "ifOn.Condition"
+    ],
+    [
+     "godTimer.ReturnValue",
+     "n9.GodTimer"
+    ],
+    [
+     "n11.GodTimer",
+     "n12.Handle"
+    ],
+    [
+     "n13.ReturnValue",
+     "n14.self"
+    ],
+    [
+     "n14.ReturnValue",
+     "castTether.Object"
+    ],
+    [
+     "castTether.AsBPC Road Tether",
+     "n16.self"
+    ],
+    [
+     "entry.then",
+     "n4.execute"
+    ],
+    [
+     "n4.then",
+     "ifOn.execute"
+    ],
+    [
+     "ifOn.then",
+     "n7.execute"
+    ],
+    [
+     "n7.then",
+     "godTimer.execute"
+    ],
+    [
+     "godTimer.then",
+     "n9.execute"
+    ],
+    [
+     "n9.then",
+     "n10.execute"
+    ],
+    [
+     "ifOn.else",
+     "n12.execute"
+    ],
+    [
+     "n12.then",
+     "castTether.execute"
+    ],
+    [
+     "castTether.then",
+     "n16.execute"
+    ],
+    [
+     "n16.then",
+     "n17.execute"
+    ]
+   ],
+   "defaults": {
+    "godTimer.FunctionName": "KeepGod",
+    "godTimer.Time": "1.0",
+    "godTimer.bLooping": "true",
+    "n10.Line": "god mode ON (tether off)",
+    "n14.ComponentClass": "/Game/SaskartaGaea/GameFlow/BPC_RoadTether.BPC_RoadTether_C",
+    "n17.Line": "god mode OFF (tether on)"
+   }
+  },
+  {
+   "graph": "KeepGod",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "n2": {
+     "call": "GetPlayerController",
+     "class": "/Script/Engine.CheatManager"
+    },
+    "n3": {
+     "call": "GetComponentByClass",
+     "class": "/Script/Engine.Actor"
+    },
+    "castTether": {
+     "cast": "/Game/SaskartaGaea/GameFlow/BPC_RoadTether.BPC_RoadTether_C"
+    },
+    "n5": {
+     "call": "StopTether",
+     "class": "/Game/SaskartaGaea/GameFlow/BPC_RoadTether.BPC_RoadTether_C"
+    }
+   },
+   "links": [
+    [
+     "n2.ReturnValue",
+     "n3.self"
+    ],
+    [
+     "n3.ReturnValue",
+     "castTether.Object"
+    ],
+    [
+     "castTether.AsBPC Road Tether",
+     "n5.self"
+    ],
+    [
+     "entry.then",
+     "castTether.execute"
+    ],
+    [
+     "castTether.then",
+     "n5.execute"
+    ]
+   ],
+   "defaults": {
+    "n3.ComponentClass": "/Game/SaskartaGaea/GameFlow/BPC_RoadTether.BPC_RoadTether_C"
+   }
+  },
+  {
+   "graph": "SaskartaFly",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "n2": {
+     "call": "GetPlayerController",
+     "class": "/Script/Engine.CheatManager"
+    },
+    "n3": {
+     "call": "ExecuteConsoleCommand",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "n4": {
+     "call": "AddLog"
+    }
+   },
+   "links": [
+    [
+     "n2.ReturnValue",
+     "n3.SpecificPlayer"
+    ],
+    [
+     "entry.then",
+     "n3.execute"
+    ],
+    [
+     "n3.then",
+     "n4.execute"
+    ]
+   ],
+   "defaults": {
+    "n3.Command": "ToggleDebugCamera",
+    "n4.Line": "free camera toggled"
+   }
+  },
+  {
+   "graph": "StatUnit",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "n2": {
+     "call": "GetPlayerController",
+     "class": "/Script/Engine.CheatManager"
+    },
+    "n3": {
+     "call": "ExecuteConsoleCommand",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    }
+   },
+   "links": [
+    [
+     "n2.ReturnValue",
+     "n3.SpecificPlayer"
+    ],
+    [
+     "entry.then",
+     "n3.execute"
+    ]
+   ],
+   "defaults": {
+    "n3.Command": "stat unit"
+   }
+  },
+  {
+   "graph": "RestartFlow",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "n2": {
+     "call": "GetPlayerController",
+     "class": "/Script/Engine.CheatManager"
+    },
+    "castPC": {
+     "cast": "/Game/SaskartaGaea/GameFlow/PC_Saskarta.PC_Saskarta_C"
+    },
+    "n4": {
+     "call": "QuitToTitle",
+     "class": "/Game/SaskartaGaea/GameFlow/PC_Saskarta.PC_Saskarta_C"
+    }
+   },
+   "links": [
+    [
+     "n2.ReturnValue",
+     "castPC.Object"
+    ],
+    [
+     "castPC.AsPC Saskarta",
+     "n4.self"
+    ],
+    [
+     "entry.then",
+     "castPC.execute"
+    ],
+    [
+     "castPC.then",
+     "n4.execute"
+    ]
+   ],
+   "defaults": {}
+  },
+  {
+   "graph": "SetAutoTrigger",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "n2": {
+     "set": "bAutoTrigger"
+    }
+   },
+   "links": [
+    [
+     "entry.bOn",
+     "n2.bAutoTrigger"
+    ],
+    [
+     "entry.then",
+     "n2.execute"
+    ]
+   ],
+   "defaults": {}
+  },
+  {
+   "graph": "SaskartaStorm",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "n2": {
+     "self": true
+    },
+    "n3": {
+     "call": "GetLightingDirector",
+     "class": "/Script/SaskartaCore.SaskartaLightingDirector"
+    },
+    "n4": {
+     "call": "SetStormOverride",
+     "class": "/Script/SaskartaCore.SaskartaLightingDirector"
+    },
+    "n5": {
+     "call": "Round",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n6": {
+     "call": "Conv_IntToString",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n7": {
+     "call": "Concat_StrStr",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n8": {
+     "call": "AddLog"
+    }
+   },
+   "links": [
+    [
+     "n2.self",
+     "n3.WorldContextObject"
+    ],
+    [
+     "n3.ReturnValue",
+     "n4.self"
+    ],
+    [
+     "entry.Intensity",
+     "n4.Intensity"
+    ],
+    [
+     "entry.Intensity",
+     "n5.A"
+    ],
+    [
+     "n5.ReturnValue",
+     "n6.InInt"
+    ],
+    [
+     "n6.ReturnValue",
+     "n7.B"
+    ],
+    [
+     "n7.ReturnValue",
+     "n8.Line"
+    ],
+    [
+     "entry.then",
+     "n4.execute"
+    ],
+    [
+     "n4.then",
+     "n8.execute"
+    ]
+   ],
+   "defaults": {
+    "n7.A": "storm override "
+   }
+  },
+  {
+   "graph": "ApplyStorm",
+   "nodes": {
+    "entry": {
+     "entry": true
+    }
+   },
+   "links": [],
+   "defaults": {}
+  },
+  {
+   "graph": "SaskartaLook",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "n2": {
+     "self": true
+    },
+    "n3": {
+     "call": "GetLightingDirector",
+     "class": "/Script/SaskartaCore.SaskartaLightingDirector"
+    },
+    "n4": {
+     "call": "PushLookOverrideAtRoadM",
+     "class": "/Script/SaskartaCore.SaskartaLightingDirector"
+    },
+    "n5": {
+     "call": "Round",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n6": {
+     "call": "Conv_IntToString",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n7": {
+     "call": "Concat_StrStr",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n8": {
+     "call": "AddLog"
+    }
+   },
+   "links": [
+    [
+     "n2.self",
+     "n3.WorldContextObject"
+    ],
+    [
+     "n3.ReturnValue",
+     "n4.self"
+    ],
+    [
+     "entry.RoadM",
+     "n4.RoadM"
+    ],
+    [
+     "entry.RoadM",
+     "n5.A"
+    ],
+    [
+     "n5.ReturnValue",
+     "n6.InInt"
+    ],
+    [
+     "n6.ReturnValue",
+     "n7.B"
+    ],
+    [
+     "n7.ReturnValue",
+     "n8.Line"
+    ],
+    [
+     "entry.then",
+     "n4.execute"
+    ],
+    [
+     "n4.then",
+     "n8.execute"
+    ]
+   ],
+   "defaults": {
+    "n4.BlendS": "1.0",
+    "n7.A": "look pinned to road "
+   }
+  },
+  {
+   "graph": "GetStatusText",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "result": {
+     "result": true
+    },
+    "n3": {
+     "self": true
+    },
+    "n4": {
+     "call": "GetEventRunner",
+     "class": "/Script/SaskartaCore.SaskartaEventRunner"
+    },
+    "n5": {
+     "call": "GetRoadM",
+     "class": "/Script/SaskartaCore.SaskartaEventRunner"
+    },
+    "n6": {
+     "call": "GetFlowState",
+     "class": "/Script/SaskartaCore.SaskartaEventRunner"
+    },
+    "n7": {
+     "call": "Conv_NameToString",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n8": {
+     "call": "IsCinematicActive",
+     "class": "/Script/SaskartaCore.SaskartaEventRunner"
+    },
+    "n9": {
+     "call": "Conv_BoolToString",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n10": {
+     "call": "IsVoiceBusy",
+     "class": "/Script/SaskartaCore.SaskartaEventRunner"
+    },
+    "n11": {
+     "call": "Conv_BoolToString",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n12": {
+     "call": "GetSecondsToNextBeat",
+     "class": "/Script/SaskartaCore.SaskartaEventRunner"
+    },
+    "n13": {
+     "call": "GetSpeedMps",
+     "class": "/Script/SaskartaCore.SaskartaEventRunner"
+    },
+    "n14": {
+     "get": "ArmedBeat"
+    },
+    "n15": {
+     "call": "Conv_NameToString",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n16": {
+     "get": "SpeedMul"
+    },
+    "n17": {
+     "get": "bGod"
+    },
+    "n18": {
+     "call": "Conv_BoolToString",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n19": {
+     "get": "DebugLog"
+    },
+    "n20": {
+     "call": "Round",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n21": {
+     "call": "Conv_IntToString",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n22": {
+     "call": "Round",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n23": {
+     "call": "Conv_IntToString",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n24": {
+     "call": "Round",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n25": {
+     "call": "Conv_IntToString",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n26": {
+     "call": "Round",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n27": {
+     "call": "Conv_IntToString",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n28": {
+     "call": "Concat_StrStr",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n29": {
+     "call": "Concat_StrStr",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n30": {
+     "call": "Concat_StrStr",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n31": {
+     "call": "Concat_StrStr",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n32": {
+     "call": "Concat_StrStr",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n33": {
+     "call": "Concat_StrStr",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n34": {
+     "call": "Concat_StrStr",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n35": {
+     "call": "Concat_StrStr",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n36": {
+     "call": "Concat_StrStr",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n37": {
+     "call": "Concat_StrStr",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n38": {
+     "call": "Concat_StrStr",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n39": {
+     "call": "Concat_StrStr",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n40": {
+     "call": "Concat_StrStr",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n41": {
+     "call": "Concat_StrStr",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n42": {
+     "call": "Concat_StrStr",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n43": {
+     "call": "Concat_StrStr",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n44": {
+     "call": "Concat_StrStr",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n45": {
+     "call": "Concat_StrStr",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n46": {
+     "call": "Concat_StrStr",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n47": {
+     "call": "Concat_StrStr",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n48": {
+     "call": "GetRecentEventLog",
+     "class": "/Script/SaskartaCore.SaskartaDebugLibrary"
+    },
+    "n49": {
+     "call": "Concat_StrStr",
+     "class": "/Script/Engine.KismetStringLibrary"
+    },
+    "n50": {
+     "call": "Concat_StrStr",
+     "class": "/Script/Engine.KismetStringLibrary"
+    }
+   },
+   "links": [
+    [
+     "n3.self",
+     "n4.WorldContextObject"
+    ],
+    [
+     "n4.ReturnValue",
+     "n5.self"
+    ],
+    [
+     "n4.ReturnValue",
+     "n6.self"
+    ],
+    [
+     "n6.ReturnValue",
+     "n7.InName"
+    ],
+    [
+     "n4.ReturnValue",
+     "n8.self"
+    ],
+    [
+     "n8.ReturnValue",
+     "n9.InBool"
+    ],
+    [
+     "n4.ReturnValue",
+     "n10.self"
+    ],
+    [
+     "n10.ReturnValue",
+     "n11.InBool"
+    ],
+    [
+     "n4.ReturnValue",
+     "n12.self"
+    ],
+    [
+     "n4.ReturnValue",
+     "n13.self"
+    ],
+    [
+     "n14.ArmedBeat",
+     "n15.InName"
+    ],
+    [
+     "n17.bGod",
+     "n18.InBool"
+    ],
+    [
+     "n5.ReturnValue",
+     "n20.A"
+    ],
+    [
+     "n20.ReturnValue",
+     "n21.InInt"
+    ],
+    [
+     "n13.ReturnValue",
+     "n22.A"
+    ],
+    [
+     "n22.ReturnValue",
+     "n23.InInt"
+    ],
+    [
+     "n12.ReturnValue",
+     "n24.A"
+    ],
+    [
+     "n24.ReturnValue",
+     "n25.InInt"
+    ],
+    [
+     "n16.SpeedMul",
+     "n26.A"
+    ],
+    [
+     "n26.ReturnValue",
+     "n27.InInt"
+    ],
+    [
+     "n21.ReturnValue",
+     "n28.B"
+    ],
+    [
+     "n28.ReturnValue",
+     "n29.A"
+    ],
+    [
+     "n29.ReturnValue",
+     "n30.A"
+    ],
+    [
+     "n23.ReturnValue",
+     "n30.B"
+    ],
+    [
+     "n30.ReturnValue",
+     "n31.A"
+    ],
+    [
+     "n31.ReturnValue",
+     "n32.A"
+    ],
+    [
+     "n7.ReturnValue",
+     "n32.B"
+    ],
+    [
+     "n32.ReturnValue",
+     "n33.A"
+    ],
+    [
+     "n33.ReturnValue",
+     "n34.A"
+    ],
+    [
+     "n9.ReturnValue",
+     "n34.B"
+    ],
+    [
+     "n34.ReturnValue",
+     "n35.A"
+    ],
+    [
+     "n35.ReturnValue",
+     "n36.A"
+    ],
+    [
+     "n11.ReturnValue",
+     "n36.B"
+    ],
+    [
+     "n36.ReturnValue",
+     "n37.A"
+    ],
+    [
+     "n37.ReturnValue",
+     "n38.A"
+    ],
+    [
+     "n25.ReturnValue",
+     "n38.B"
+    ],
+    [
+     "n38.ReturnValue",
+     "n39.A"
+    ],
+    [
+     "n39.ReturnValue",
+     "n40.A"
+    ],
+    [
+     "n40.ReturnValue",
+     "n41.A"
+    ],
+    [
+     "n15.ReturnValue",
+     "n41.B"
+    ],
+    [
+     "n41.ReturnValue",
+     "n42.A"
+    ],
+    [
+     "n42.ReturnValue",
+     "n43.A"
+    ],
+    [
+     "n27.ReturnValue",
+     "n43.B"
+    ],
+    [
+     "n43.ReturnValue",
+     "n44.A"
+    ],
+    [
+     "n44.ReturnValue",
+     "n45.A"
+    ],
+    [
+     "n18.ReturnValue",
+     "n45.B"
+    ],
+    [
+     "n45.ReturnValue",
+     "n46.A"
+    ],
+    [
+     "n46.ReturnValue",
+     "n47.A"
+    ],
+    [
+     "n19.DebugLog",
+     "n47.B"
+    ],
+    [
+     "n47.ReturnValue",
+     "n49.A"
+    ],
+    [
+     "n49.ReturnValue",
+     "n50.A"
+    ],
+    [
+     "n48.ReturnValue",
+     "n50.B"
+    ],
+    [
+     "n50.ReturnValue",
+     "result.Text"
+    ],
+    [
+     "entry.then",
+     "n48.execute"
+    ],
+    [
+     "n48.then",
+     "result.execute"
+    ]
+   ],
+   "defaults": {
+    "n28.A": "road ",
+    "n29.B": " m   ",
+    "n31.B": " m/s   flow ",
+    "n33.B": "\ncinematic ",
+    "n35.B": "   voice busy ",
+    "n37.B": "   next beat in ",
+    "n39.B": " s",
+    "n40.B": "\narmed ",
+    "n42.B": "   speed x",
+    "n44.B": "   god ",
+    "n46.B": "\n\n",
+    "n48.MaxLines": "10",
+    "n49.B": "\n-- events --\n"
+   }
+  }
+ ]
+}

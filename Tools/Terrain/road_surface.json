@@ -1,0 +1,10 @@
+{
+  "blend_m": 15,
+  "stretches": [
+    {"from_m": 0,    "to_m": 2050, "surface": "dirt",   "wear": 0.5, "neglect_bias": 0.25},
+    {"from_m": 2050, "to_m": 2800, "surface": "paving", "wear": 0.7, "neglect_bias": 0.10},
+    {"from_m": 2800, "to_m": 3490, "surface": "paving", "wear": 0.85, "neglect_bias": 0.0},
+    {"from_m": 3490, "to_m": 4460, "surface": "dirt",   "wear": 0.4, "neglect_bias": -0.25},
+    {"from_m": 4460, "to_m": 5009, "surface": "dirt",   "wear": 0.3, "neglect_bias": -0.35}
+  ]
+}

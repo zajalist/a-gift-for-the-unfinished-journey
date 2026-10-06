@@ -1,0 +1,116 @@
+{
+  "date": "2026-10-01",
+  "authorization": "User authorized production-quality Tripo assets with 10k-15k credit budget; hard aggregate cap 15000 including prior 110.",
+  "budget": {
+    "maximum_credits": 15000,
+    "prior_spent_credits": 110,
+    "spent_credits": 275,
+    "committed_credits": 0,
+    "unallocated_credits": 14615,
+    "observed_pre_balance": 23370,
+    "observed_post_balance": 23095
+  },
+  "operations": [
+    {
+      "key": "S26_fence_panel",
+      "quote": 55,
+      "reserved_credits": 0,
+      "spent_credits": 55,
+      "status": "runtime_source_prepared",
+      "utc": "2026-10-01T02:28:01.258175+00:00",
+      "settings": {
+        "model": "H3.1 Best Quality",
+        "ultra_mesh": true,
+        "texture": "4K PBR",
+        "topology": "Triangle",
+        "polycount": 150000
+      },
+      "task_id": "a19cfd1f-ee86-42e7-a24a-66f636991b68",
+      "observed_post_balance": 23315,
+      "faces": 134009,
+      "vertices": 83980,
+      "project_id": "bceebcaf-d402-4298-95b7-fccbf07ff20f"
+    },
+    {
+      "key": "S26_open_gate",
+      "quote": 55,
+      "reserved_credits": 0,
+      "spent_credits": 55,
+      "status": "runtime_source_prepared",
+      "utc": "2026-10-01T02:29:42.164506+00:00",
+      "settings": {
+        "model": "H3.1 Best Quality",
+        "ultra_mesh": true,
+        "texture": "4K PBR",
+        "topology": "Triangle",
+        "polycount": 150000
+      },
+      "task_id": "d252c2d9-6308-4f13-8aab-dd82eb0a4f15",
+      "observed_post_balance": 23260,
+      "project_id": "2c21502b-0ed7-492c-ae68-7098d38bff14",
+      "acceptance": "Generated arch and partly open leaf: not accepted for main walk path."
+    },
+    {
+      "key": "S26_transmitter_cabinet",
+      "quote": 55,
+      "reserved_credits": 0,
+      "spent_credits": 55,
+      "status": "runtime_source_prepared",
+      "utc": "2026-10-01T02:31:19.484198+00:00",
+      "settings": {
+        "model": "H3.1 Best Quality",
+        "ultra_mesh": true,
+        "texture": "4K PBR",
+        "topology": "Triangle",
+        "polycount": 150000
+      },
+      "task_id": "b21d288d-a57f-42dc-9967-aab0bce189dc",
+      "observed_post_balance": 23205,
+      "faces": 132596,
+      "vertices": 77479,
+      "project_id": "74c1ec0a-4483-4c58-99eb-60a095966fdd"
+    },
+    {
+      "key": "S26_radio_station_shell",
+      "quote": 55,
+      "reserved_credits": 0,
+      "spent_credits": 55,
+      "status": "runtime_source_prepared",
+      "utc": "2026-10-01T02:44:53.982461+00:00",
+      "settings": {
+        "model": "H3.1 Best Quality",
+        "ultra_mesh": true,
+        "texture": "4K PBR",
+        "topology": "Triangle",
+        "polycount": 150000
+      },
+      "task_id": "e0239f18-db88-45ee-9887-b955613c14a7",
+      "project_id": "64b1b844-6d9b-40d1-a119-4bf8b54f026b",
+      "faces": 139210,
+      "vertices": 81940,
+      "observed_post_balance": 23150,
+      "prepared_variant": "Four real open window panes; original generated source preserved."
+    },
+    {
+      "key": "S26_gate_open_clear",
+      "quote": 55,
+      "reserved_credits": 0,
+      "spent_credits": 55,
+      "status": "runtime_source_prepared",
+      "utc": "2026-10-01T03:05:48.187120+00:00",
+      "settings": {
+        "model": "H3.1 Best Quality",
+        "ultra_mesh": true,
+        "texture": "4K PBR",
+        "topology": "Triangle",
+        "polycount": 150000
+      },
+      "project_id": "d212dacb-feee-43a7-a58c-c262a4c11a13",
+      "task_id": "8ed73427-1381-4a5f-a88f-d52986eb88f7",
+      "faces": 146216,
+      "vertices": 81052,
+      "observed_post_balance": 23095,
+      "acceptance": "Open leaf and clear central passage visible. Generated overhead bar; size to full-height gateway and verify clearance before placement."
+    }
+  ]
+}

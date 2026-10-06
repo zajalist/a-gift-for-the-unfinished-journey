@@ -1,0 +1,510 @@
+{
+ "regions": {
+  "5,3": {
+   "trees": 438,
+   "saved_packages": 26,
+   "seconds": null,
+   "at": "2026-09-27 14:3x (manual first run)",
+   "commit_pct_before": 69.1
+  },
+  "6,4": {
+   "trees": 692,
+   "saved_packages": 26,
+   "seconds": 19.7,
+   "at": "2026-09-27 14:33:55",
+   "commit_pct_before": 70.3
+  },
+  "4,3": {
+   "trees": 729,
+   "saved_packages": 26,
+   "seconds": 16.7,
+   "at": "2026-09-27 15:31:44",
+   "commit_pct_before": 60.1
+  },
+  "5,2": {
+   "trees": 155,
+   "saved_packages": 26,
+   "seconds": 20.5,
+   "at": "2026-09-27 15:32:06",
+   "commit_pct_before": 60.6
+  },
+  "5,4": {
+   "trees": 716,
+   "saved_packages": 26,
+   "seconds": 20.2,
+   "at": "2026-09-27 15:32:28",
+   "commit_pct_before": 60.6
+  },
+  "6,3": {
+   "trees": 277,
+   "saved_packages": 26,
+   "seconds": 19.6,
+   "at": "2026-09-27 15:32:49",
+   "commit_pct_before": 60.4
+  },
+  "6,5": {
+   "trees": 306,
+   "saved_packages": 26,
+   "seconds": 21.7,
+   "at": "2026-09-27 15:33:12",
+   "commit_pct_before": 60.2
+  },
+  "7,4": {
+   "trees": 319,
+   "saved_packages": 26,
+   "seconds": 19.8,
+   "at": "2026-09-27 15:33:33",
+   "commit_pct_before": 60.4
+  },
+  "4,2": {
+   "trees": 621,
+   "saved_packages": 26,
+   "seconds": 20.1,
+   "at": "2026-09-27 15:33:55",
+   "commit_pct_before": 60.5
+  },
+  "4,4": {
+   "trees": 524,
+   "saved_packages": 26,
+   "seconds": 20.1,
+   "at": "2026-09-27 15:34:17",
+   "commit_pct_before": 63.1
+  },
+  "5,5": {
+   "trees": 295,
+   "saved_packages": 26,
+   "seconds": 20.1,
+   "at": "2026-09-27 15:34:39",
+   "commit_pct_before": 61.2
+  },
+  "6,2": {
+   "trees": 692,
+   "saved_packages": 26,
+   "seconds": 20.7,
+   "at": "2026-09-27 15:35:01",
+   "commit_pct_before": 61.6
+  },
+  "7,3": {
+   "trees": 490,
+   "saved_packages": 26,
+   "seconds": 20.3,
+   "at": "2026-09-27 15:35:23",
+   "commit_pct_before": 61.1
+  },
+  "7,5": {
+   "trees": 616,
+   "saved_packages": 26,
+   "seconds": 20.5,
+   "at": "2026-09-27 15:35:45",
+   "commit_pct_before": 61.2
+  },
+  "3,3": {
+   "trees": 429,
+   "saved_packages": 26,
+   "seconds": 19.3,
+   "at": "2026-09-27 15:36:05",
+   "commit_pct_before": 61.2
+  },
+  "5,1": {
+   "trees": 317,
+   "saved_packages": 26,
+   "seconds": 21.1,
+   "at": "2026-09-27 15:36:28",
+   "commit_pct_before": 61.3
+  },
+  "6,6": {
+   "trees": 484,
+   "saved_packages": 26,
+   "seconds": 20.2,
+   "at": "2026-09-27 15:36:50",
+   "commit_pct_before": 61.6
+  },
+  "3,2": {
+   "trees": 1070,
+   "saved_packages": 26,
+   "seconds": 20.5,
+   "at": "2026-09-27 15:37:12",
+   "commit_pct_before": 61.9
+  },
+  "3,4": {
+   "trees": 76,
+   "saved_packages": 26,
+   "seconds": 17.2,
+   "at": "2026-09-27 15:37:31",
+   "commit_pct_before": 61.7
+  },
+  "4,1": {
+   "trees": 356,
+   "saved_packages": 26,
+   "seconds": 19.9,
+   "at": "2026-09-27 15:37:52",
+   "commit_pct_before": 62.1
+  },
+  "4,5": {
+   "trees": 812,
+   "saved_packages": 26,
+   "seconds": 21.5,
+   "at": "2026-09-27 15:38:15",
+   "commit_pct_before": 62.3
+  },
+  "5,6": {
+   "trees": 162,
+   "saved_packages": 26,
+   "seconds": 16.4,
+   "at": "2026-09-27 15:38:33",
+   "commit_pct_before": 62.6
+  },
+  "6,1": {
+   "trees": 435,
+   "saved_packages": 26,
+   "seconds": 20.7,
+   "at": "2026-09-27 15:38:55",
+   "commit_pct_before": 62.4
+  },
+  "7,2": {
+   "trees": 1099,
+   "saved_packages": 26,
+   "seconds": 19.6,
+   "at": "2026-09-27 15:39:16",
+   "commit_pct_before": 62.9
+  },
+  "7,6": {
+   "trees": 1001,
+   "saved_packages": 26,
+   "seconds": 20.3,
+   "at": "2026-09-27 15:39:38",
+   "commit_pct_before": 62.8
+  },
+  "3,1": {
+   "trees": 644,
+   "saved_packages": 26,
+   "seconds": 20.6,
+   "at": "2026-09-27 15:40:00",
+   "commit_pct_before": 62.7
+  },
+  "3,5": {
+   "trees": 364,
+   "saved_packages": 26,
+   "seconds": 19.9,
+   "at": "2026-09-27 15:40:21",
+   "commit_pct_before": 63.1
+  },
+  "4,6": {
+   "trees": 235,
+   "saved_packages": 26,
+   "seconds": 21.4,
+   "at": "2026-09-27 15:40:44",
+   "commit_pct_before": 63.0
+  },
+  "7,1": {
+   "trees": 1438,
+   "saved_packages": 26,
+   "seconds": 20.5,
+   "at": "2026-09-27 15:41:06",
+   "commit_pct_before": 63.5
+  },
+  "2,3": {
+   "trees": 292,
+   "saved_packages": 26,
+   "seconds": 20.0,
+   "at": "2026-09-27 15:41:28",
+   "commit_pct_before": 63.3
+  },
+  "5,0": {
+   "trees": 540,
+   "saved_packages": 21,
+   "seconds": 20.1,
+   "at": "2026-09-27 15:41:49",
+   "commit_pct_before": 63.5
+  },
+  "6,7": {
+   "trees": 868,
+   "saved_packages": 26,
+   "seconds": 20.1,
+   "at": "2026-09-27 15:42:11",
+   "commit_pct_before": 63.5
+  },
+  "2,2": {
+   "trees": 252,
+   "saved_packages": 26,
+   "seconds": 19.4,
+   "at": "2026-09-27 15:42:32",
+   "commit_pct_before": 64.1
+  },
+  "2,4": {
+   "trees": 51,
+   "saved_packages": 26,
+   "seconds": 20.0,
+   "at": "2026-09-27 15:42:53",
+   "commit_pct_before": 64.1
+  },
+  "4,0": {
+   "trees": 451,
+   "saved_packages": 21,
+   "seconds": 20.8,
+   "at": "2026-09-27 15:43:16",
+   "commit_pct_before": 64.8
+  },
+  "5,7": {
+   "trees": 794,
+   "saved_packages": 26,
+   "seconds": 20.5,
+   "at": "2026-09-27 15:43:38",
+   "commit_pct_before": 64.3
+  }
+ },
+ "regions_pines": {
+  "6,4": {
+   "trees": 895,
+   "saved_packages": 26,
+   "seconds": 25.8,
+   "at": "2026-09-27 22:29:53",
+   "commit_pct_before": 52.3
+  },
+  "5,3": {
+   "trees": 542,
+   "saved_packages": 26,
+   "seconds": 23.8,
+   "at": "2026-09-27 22:30:35",
+   "commit_pct_before": 54.4
+  },
+  "4,3": {
+   "trees": 1090,
+   "saved_packages": 26,
+   "seconds": 23.3,
+   "at": "2026-09-27 22:31:08",
+   "commit_pct_before": 53.9
+  },
+  "5,2": {
+   "trees": 160,
+   "saved_packages": 26,
+   "seconds": 19.2,
+   "at": "2026-09-27 22:31:37",
+   "commit_pct_before": 54.0
+  },
+  "5,4": {
+   "trees": 1034,
+   "saved_packages": 26,
+   "seconds": 163.6,
+   "at": "2026-09-27 22:34:29",
+   "commit_pct_before": 54.6
+  },
+  "6,3": {
+   "trees": 290,
+   "saved_packages": 26,
+   "seconds": 19.6,
+   "at": "2026-09-27 22:34:57",
+   "commit_pct_before": 56.5
+  },
+  "6,5": {
+   "trees": 346,
+   "saved_packages": 26,
+   "seconds": 23.6,
+   "at": "2026-09-27 22:35:30",
+   "commit_pct_before": 56.0
+  },
+  "7,4": {
+   "trees": 349,
+   "saved_packages": 26,
+   "seconds": 19.5,
+   "at": "2026-09-27 22:35:59",
+   "commit_pct_before": 56.8
+  },
+  "4,2": {
+   "trees": 815,
+   "saved_packages": 26,
+   "seconds": 25.4,
+   "at": "2026-09-27 22:36:34",
+   "commit_pct_before": 57.4
+  },
+  "4,4": {
+   "trees": 716,
+   "saved_packages": 26,
+   "seconds": 24.5,
+   "at": "2026-09-27 22:37:08",
+   "commit_pct_before": 56.8
+  },
+  "5,5": {
+   "trees": 299,
+   "saved_packages": 26,
+   "seconds": 22.7,
+   "at": "2026-09-27 22:37:39",
+   "commit_pct_before": 56.7
+  },
+  "6,2": {
+   "trees": 882,
+   "saved_packages": 26,
+   "seconds": 19.5,
+   "at": "2026-09-27 22:38:08",
+   "commit_pct_before": 57.1
+  },
+  "7,3": {
+   "trees": 555,
+   "saved_packages": 26,
+   "seconds": 23.3,
+   "at": "2026-09-27 22:38:40",
+   "commit_pct_before": 57.3
+  },
+  "7,5": {
+   "trees": 841,
+   "saved_packages": 26,
+   "seconds": 22.5,
+   "at": "2026-09-27 22:39:13",
+   "commit_pct_before": 58.0
+  },
+  "3,3": {
+   "trees": 480,
+   "saved_packages": 26,
+   "seconds": 23.2,
+   "at": "2026-09-27 22:39:46",
+   "commit_pct_before": 57.7
+  },
+  "5,1": {
+   "trees": 356,
+   "saved_packages": 26,
+   "seconds": 19.2,
+   "at": "2026-09-27 22:44:39",
+   "commit_pct_before": 59.3
+  },
+  "6,6": {
+   "trees": 660,
+   "saved_packages": 26,
+   "seconds": 20.5,
+   "at": "2026-09-27 22:45:08",
+   "commit_pct_before": 59.3
+  },
+  "3,2": {
+   "trees": 1688,
+   "saved_packages": 26,
+   "seconds": 20.7,
+   "at": "2026-09-27 22:45:38",
+   "commit_pct_before": 60.7
+  },
+  "3,4": {
+   "trees": 77,
+   "saved_packages": 26,
+   "seconds": 20.1,
+   "at": "2026-09-27 22:46:07",
+   "commit_pct_before": 60.2
+  },
+  "4,1": {
+   "trees": 398,
+   "saved_packages": 26,
+   "seconds": 20.2,
+   "at": "2026-09-27 22:47:38",
+   "commit_pct_before": 60.0
+  },
+  "4,5": {
+   "trees": 1140,
+   "saved_packages": 26,
+   "seconds": 30.8,
+   "at": "2026-09-27 22:54:19",
+   "commit_pct_before": 64.7
+  },
+  "5,6": {
+   "trees": 162,
+   "saved_packages": 26,
+   "seconds": 20.1,
+   "at": "2026-09-27 22:54:48",
+   "commit_pct_before": 66.6
+  },
+  "6,1": {
+   "trees": 596,
+   "saved_packages": 26,
+   "seconds": 16.5,
+   "at": "2026-09-27 22:55:12",
+   "commit_pct_before": 64.2
+  },
+  "7,2": {
+   "trees": 1723,
+   "saved_packages": 26,
+   "seconds": 22.5,
+   "at": "2026-09-27 22:55:42",
+   "commit_pct_before": 64.4
+  },
+  "7,6": {
+   "trees": 1692,
+   "saved_packages": 26,
+   "seconds": 17.4,
+   "at": "2026-09-27 22:56:07",
+   "commit_pct_before": 64.1
+  },
+  "3,1": {
+   "trees": 766,
+   "saved_packages": 26,
+   "seconds": 24.9,
+   "at": "2026-09-27 23:07:32",
+   "commit_pct_before": 63.5
+  },
+  "3,5": {
+   "trees": 398,
+   "saved_packages": 26,
+   "seconds": 20.4,
+   "at": "2026-09-27 23:08:01",
+   "commit_pct_before": 63.6
+  },
+  "4,6": {
+   "trees": 235,
+   "saved_packages": 26,
+   "seconds": 23.0,
+   "at": "2026-09-27 23:08:34",
+   "commit_pct_before": 64.2
+  },
+  "7,1": {
+   "trees": 2439,
+   "saved_packages": 26,
+   "seconds": 28.6,
+   "at": "2026-09-27 23:09:13",
+   "commit_pct_before": 64.8
+  },
+  "2,3": {
+   "trees": 310,
+   "saved_packages": 26,
+   "seconds": 25.2,
+   "at": "2026-09-27 23:09:51",
+   "commit_pct_before": 64.4
+  },
+  "5,0": {
+   "trees": 675,
+   "saved_packages": 21,
+   "seconds": 27.6,
+   "at": "2026-09-27 23:10:29",
+   "commit_pct_before": 64.1
+  },
+  "6,7": {
+   "trees": 1510,
+   "saved_packages": 26,
+   "seconds": 30.2,
+   "at": "2026-09-27 23:11:12",
+   "commit_pct_before": 64.2
+  },
+  "2,2": {
+   "trees": 269,
+   "saved_packages": 26,
+   "seconds": 33.3,
+   "at": "2026-09-27 23:11:56",
+   "commit_pct_before": 64.5
+  },
+  "4,0": {
+   "trees": 624,
+   "saved_packages": 40,
+   "seconds": 37.0,
+   "at": "2026-09-27 23:14:14",
+   "commit_pct_before": 67.3
+  },
+  "5,7": {
+   "trees": 1308,
+   "saved_packages": 26,
+   "seconds": 30.6,
+   "at": "2026-09-27 23:14:55",
+   "commit_pct_before": 67.3
+  },
+  "2,4": {
+   "trees": 51,
+   "saved_packages": 26,
+   "seconds": 29.6,
+   "at": "2026-09-27 23:15:52",
+   "commit_pct_before": 66.3
+  }
+ }
+}

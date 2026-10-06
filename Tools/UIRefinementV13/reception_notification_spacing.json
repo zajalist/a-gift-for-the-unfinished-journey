@@ -1,0 +1,38 @@
+{
+  "status": "prepared_not_installed",
+  "proven_issue": "Authored ReceptionPrompt and HintFit occupy the identical lower-left origin (28,-32); Onboarding blockers do not include RadioRepair, so both can be visible.",
+  "apply_after_root_notifications_install": true,
+  "commands": [
+    {
+      "command": "ui_set_widget_properties",
+      "params": {
+        "widget_blueprint_path": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_RadioRepair",
+        "widget_name": "ReceptionPrompt",
+        "slot_props": {
+          "anchors_min": [
+            0,
+            1
+          ],
+          "anchors_max": [
+            0,
+            1
+          ],
+          "alignment": [
+            0,
+            1
+          ],
+          "position": [
+            28,
+            -132
+          ],
+          "size": [
+            620,
+            84
+          ]
+        }
+      }
+    }
+  ],
+  "require_native_save_and_readback": true,
+  "geometry": "Reception bottom is 132 logical pixels above the viewport bottom; hint top is 116 pixels above bottom. This gives 16 pixels between 84-pixel rows."
+}

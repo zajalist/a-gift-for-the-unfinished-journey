@@ -1,0 +1,49 @@
+import unreal, random
+K = 0
+MESH = ['DeadPine_A', 'DeadPine_B', 'DeadPine_C', 'DeadPine_D', 'DeadPine_E', 'Ginkgo_A', 'Ginkgo_B', 'Ginkgo_C', 'Ginkgo_D']
+w = unreal.EditorLevelLibrary.get_editor_world()
+acts = unreal.GameplayStatics.get_all_actors_of_class(w, unreal.Actor)
+road = [a for a in acts if str(a.get_actor_label()) == 'BP_Saskarta_Road_THING'][0]
+h = [a for a in acts if str(a.get_actor_label()) == 'Saskarta_FarTrees'][0]
+sp = road.get_component_by_class(unreal.SplineComponent)
+rnd = random.Random(1006)
+CS = unreal.SplineCoordinateSpace.WORLD
+xs = []
+tries = 0
+count = 0
+while count < 1000 and tries < 400:
+    tries += 1
+    cx = rnd.uniform(15000.0, 805000.0)
+    cy = rnd.uniform(15000.0, 805000.0)
+    p = sp.find_location_closest_to_world_location(unreal.Vector(cx, cy, 0.0), CS)
+    if (p.x - cx) ** 2 + (p.y - cy) ** 2 < 45000.0 ** 2:
+        continue
+    n = rnd.randint(4, 11)
+    for i in range(n):
+        x = cx + rnd.gauss(0.0, 3500.0)
+        y = cy + rnd.gauss(0.0, 3500.0)
+        hr = unreal.SystemLibrary.line_trace_single(w, unreal.Vector(x, y, 300000.0), unreal.Vector(x, y, -300000.0), unreal.TraceTypeQuery.TRACE_TYPE_QUERY1, False, [], unreal.DrawDebugTrace.NONE, True)
+        t = hr.to_tuple() if hr else None
+        if t is None or not t[0]:
+            continue
+        if t[6].z < 0.82:
+            continue
+        k = rnd.randint(0, 8)
+        yaw = rnd.randint(0, 359)
+        sc = rnd.randint(80, 130) / 100.0
+        count += 1
+        if k == K:
+            xs.append(unreal.Transform(unreal.Vector(x, y, t[4].z - 40.0), unreal.Rotator(0.0, 0.0, float(yaw)), unreal.Vector(sc, sc, sc)))
+sds = unreal.get_engine_subsystem(unreal.SubobjectDataSubsystem)
+root = sds.k2_gather_subobject_data_for_instance(h)[0]
+nh, fail = sds.add_new_subobject(unreal.AddNewSubobjectParams(parent_handle=root, new_class=unreal.InstancedStaticMeshComponent))
+c = unreal.SubobjectDataBlueprintFunctionLibrary.get_object(unreal.SubobjectDataBlueprintFunctionLibrary.get_data(nh))
+c.set_static_mesh(unreal.load_asset('/Game/SaskartaGaea/Foliage/Static/SM_Saskarta_TreeFar_' + MESH[K]))
+c.set_editor_property('mobility', unreal.ComponentMobility.STATIC)
+c.set_collision_enabled(unreal.CollisionEnabled.NO_COLLISION)
+c.set_editor_property('cast_shadow', False)
+c.set_editor_property('evaluate_world_position_offset', False)
+c.set_editor_property('visible_in_ray_tracing', False)
+c.set_editor_property('affect_distance_field_lighting', False)
+c.add_instances(xs, False, True)
+print('K', K, MESH[K], 'instances', c.get_instance_count(), 'fail', str(fail))

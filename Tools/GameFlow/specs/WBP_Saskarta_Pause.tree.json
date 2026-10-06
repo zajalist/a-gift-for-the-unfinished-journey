@@ -1,0 +1,202 @@
+{
+  "asset": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Pause",
+  "tree": [
+    { "class": "BackgroundBlur", "name": "Blur", "properties": { "BlurStrength": 10, "bApplyAlphaToBlur": true } },
+    {
+      "class": "Image",
+      "name": "Scrim",
+      "properties": { "Brush": { "ImageSize": { "X": 1, "Y": 1 }, "DrawAs": "Image" }, "ColorAndOpacity": [0.0037, 0.003, 0.0024, 0.74] }
+    },
+    {
+      "class": "Image",
+      "name": "Mini",
+      "properties": {
+        "Brush": {
+          "ResourceObject": "/Game/SaskartaGaea/GameFlow/UI/Textures/T_Saskarta_TitleName_Ivory.T_Saskarta_TitleName_Ivory",
+          "ImageSize": { "X": 118, "Y": 192 },
+          "DrawAs": "Image"
+        },
+        "RenderOpacity": 0.18
+      }
+    },
+    {
+      "class": "TextBlock",
+      "name": "Heading",
+      "properties": {
+        "Text": "Paused",
+        "Font": { "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa.F_ArefRuqaa", "TypefaceFontName": "Bold", "Size": 44, "LetterSpacing": 30 },
+        "ColorAndOpacity": { "SpecifiedColor": [0.8469, 0.7835, 0.7011, 1] }
+      }
+    },
+    {
+      "class": "VerticalBox",
+      "name": "Menu",
+      "children": [
+        {
+          "class": "Button",
+          "name": "ResumeButton",
+          "properties": {
+            "WidgetStyle": {
+              "Normal": { "DrawAs": "NoDrawType" },
+              "Hovered": { "DrawAs": "NoDrawType" },
+              "Pressed": { "DrawAs": "NoDrawType" },
+              "Disabled": { "DrawAs": "NoDrawType" },
+              "NormalPadding": { "Left": 0, "Top": 0, "Right": 0, "Bottom": 0 },
+              "PressedPadding": { "Left": 0, "Top": 0, "Right": 0, "Bottom": 0 }
+            }
+          },
+          "slot_props": { "padding": [0, 0, 0, 30], "horizontal_alignment": "Left" },
+          "children": [
+            {
+              "class": "HorizontalBox",
+              "name": "ResumeEntry",
+              "children": [
+                {
+                  "class": "Image",
+                  "name": "ResumeMark",
+                  "properties": {
+                    "Brush": {
+                      "ResourceObject": "/Game/SaskartaGaea/GameFlow/UI/Textures/T_UI_FocusMark.T_UI_FocusMark",
+                      "ImageSize": { "X": 48, "Y": 24 },
+                      "DrawAs": "Image"
+                    },
+                    "RenderOpacity": 0
+                  },
+                  "slot_props": { "vertical_alignment": "Center" }
+                },
+                {
+                  "class": "TextBlock",
+                  "name": "ResumeLabel",
+                  "properties": {
+                    "Text": "Resume",
+                    "Font": {
+                      "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa.F_ArefRuqaa",
+                      "TypefaceFontName": "Bold",
+                      "Size": 30,
+                      "LetterSpacing": 50
+                    },
+                    "ColorAndOpacity": { "SpecifiedColor": [0.8469, 0.7835, 0.7011, 1] },
+                    "RenderOpacity": 0.6
+                  },
+                  "slot_props": { "vertical_alignment": "Center", "padding": [6, 0, 0, 0] }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "class": "Button",
+          "name": "SettingsButton",
+          "properties": {
+            "WidgetStyle": {
+              "Normal": { "DrawAs": "NoDrawType" },
+              "Hovered": { "DrawAs": "NoDrawType" },
+              "Pressed": { "DrawAs": "NoDrawType" },
+              "Disabled": { "DrawAs": "NoDrawType" },
+              "NormalPadding": { "Left": 0, "Top": 0, "Right": 0, "Bottom": 0 },
+              "PressedPadding": { "Left": 0, "Top": 0, "Right": 0, "Bottom": 0 }
+            }
+          },
+          "slot_props": { "padding": [0, 0, 0, 30], "horizontal_alignment": "Left" },
+          "children": [
+            {
+              "class": "HorizontalBox",
+              "name": "SettingsEntry",
+              "children": [
+                {
+                  "class": "Image",
+                  "name": "SettingsMark",
+                  "properties": {
+                    "Brush": {
+                      "ResourceObject": "/Game/SaskartaGaea/GameFlow/UI/Textures/T_UI_FocusMark.T_UI_FocusMark",
+                      "ImageSize": { "X": 48, "Y": 24 },
+                      "DrawAs": "Image"
+                    },
+                    "RenderOpacity": 0
+                  },
+                  "slot_props": { "vertical_alignment": "Center" }
+                },
+                {
+                  "class": "TextBlock",
+                  "name": "SettingsLabel",
+                  "properties": {
+                    "Text": "Settings",
+                    "Font": {
+                      "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa.F_ArefRuqaa",
+                      "TypefaceFontName": "Bold",
+                      "Size": 30,
+                      "LetterSpacing": 50
+                    },
+                    "ColorAndOpacity": { "SpecifiedColor": [0.8469, 0.7835, 0.7011, 1] },
+                    "RenderOpacity": 0.6
+                  },
+                  "slot_props": { "vertical_alignment": "Center", "padding": [6, 0, 0, 0] }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "class": "Button",
+          "name": "QuitButton",
+          "properties": {
+            "WidgetStyle": {
+              "Normal": { "DrawAs": "NoDrawType" },
+              "Hovered": { "DrawAs": "NoDrawType" },
+              "Pressed": { "DrawAs": "NoDrawType" },
+              "Disabled": { "DrawAs": "NoDrawType" },
+              "NormalPadding": { "Left": 0, "Top": 0, "Right": 0, "Bottom": 0 },
+              "PressedPadding": { "Left": 0, "Top": 0, "Right": 0, "Bottom": 0 }
+            }
+          },
+          "slot_props": { "padding": [0, 0, 0, 30], "horizontal_alignment": "Left" },
+          "children": [
+            {
+              "class": "HorizontalBox",
+              "name": "QuitEntry",
+              "children": [
+                {
+                  "class": "Image",
+                  "name": "QuitMark",
+                  "properties": {
+                    "Brush": {
+                      "ResourceObject": "/Game/SaskartaGaea/GameFlow/UI/Textures/T_UI_FocusMark.T_UI_FocusMark",
+                      "ImageSize": { "X": 48, "Y": 24 },
+                      "DrawAs": "Image"
+                    },
+                    "RenderOpacity": 0
+                  },
+                  "slot_props": { "vertical_alignment": "Center" }
+                },
+                {
+                  "class": "TextBlock",
+                  "name": "QuitLabel",
+                  "properties": {
+                    "Text": "Quit to title",
+                    "Font": {
+                      "FontObject": "/Game/SaskartaGaea/GameFlow/UI/Fonts/F_ArefRuqaa.F_ArefRuqaa",
+                      "TypefaceFontName": "Bold",
+                      "Size": 30,
+                      "LetterSpacing": 50
+                    },
+                    "ColorAndOpacity": { "SpecifiedColor": [0.8469, 0.7835, 0.7011, 1] },
+                    "RenderOpacity": 0.6
+                  },
+                  "slot_props": { "vertical_alignment": "Center", "padding": [6, 0, 0, 0] }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "slots": {
+    "Blur": { "anchors": [0, 0, 1, 1], "position": [0, 0], "size": [0, 0], "z_order": -3 },
+    "Scrim": { "anchors": [0, 0, 1, 1], "position": [0, 0], "size": [0, 0], "z_order": -2 },
+    "Mini": { "anchors": [0, 1, 0, 1], "position": [96, -269], "size": [118, 192] },
+    "Heading": { "anchors": [0, 0.5, 0, 0.5], "position": [125, -190], "size": [520, 70] },
+    "Menu": { "anchors": [0, 0.5, 0, 0.5], "position": [110, -84], "size": [520, 300] }
+  },
+  "variables": ["ResumeButton", "ResumeLabel", "ResumeMark", "SettingsButton", "SettingsLabel", "SettingsMark", "QuitButton", "QuitLabel", "QuitMark"]
+}

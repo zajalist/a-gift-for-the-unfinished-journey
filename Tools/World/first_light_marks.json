@@ -1,0 +1,229 @@
+{
+ "generated_by": "Tools/GameFlow/gen_first_light_road.py",
+ "design": "docs/story/drafts/storyline-first-light.md 4.3-4.4",
+ "level": "/Game/level/Saskarta_WP",
+ "conventions": {
+  "loc_cm": "road-profile.json terrain point + lateral offset (right of travel +); z is the terrain, the placer traces down from +20 m",
+  "yaw": "UE yaw of travel (up-road)"
+ },
+ "assets": {
+  "wreck_mesh": "/Game/SaskartaGaea/Characters/Carrier/SK_Carrier.SK_Carrier",
+  "wreck_pose": "/Game/SaskartaGaea/Characters/Carrier/Anims/A_Carrier_Shutdown.A_Carrier_Shutdown",
+  "wreck_note": "posed once and frozen (no tick, no anim update); swap for a baked static husk when one exists",
+  "grate_frame": "/Game/SaskartaGaea/Environment/Batch01/SM_B01_floor01.SM_B01_floor01",
+  "grate_plate": "/Engine/BasicShapes/Plane.Plane",
+  "grate_material": "/Game/MedievalVillage/Materials/MI_Metal.MI_Metal",
+  "dust": null,
+  "mouth_arch": "/Game/SaskartaGaea/Environment/Batch01/SM_B01_arch01.SM_B01_arch01",
+  "mouth_wall": "/Game/SaskartaGaea/Environment/Batch01/SM_B01_wall01.SM_B01_wall01",
+  "bay_cradle": "/Game/SaskartaGaea/Environment/Tripo02/SM_T2_carrier_cradle.SM_T2_carrier_cradle",
+  "tow_track": "/Game/SaskartaGaea/Environment/Batch01/SM_B01_rail01.SM_B01_rail01",
+  "stencil_mi": "/Game/SaskartaGaea/Story/FirstLight/MI_FL_Stencil_",
+  "dust_bp": "/Game/EasyAtmos/Blueprints/BP_EasyAtmos.BP_EasyAtmos"
+ },
+ "cull_distance_cm": {
+  "wreck": 12000,
+  "grate": 6000,
+  "dust": 4000,
+  "mouth": 15000
+ },
+ "items": [
+  {
+   "id": "WRECK_01",
+   "kind": "wreck",
+   "road_m": 1000,
+   "ue_m": 4132.5,
+   "lateral_m": -6.0,
+   "silt": 0.55,
+   "loc_cm": [
+    547809.3,
+    395698.3,
+    -35010.0
+   ],
+   "yaw": -95.0,
+   "sink_cm": 33.0,
+   "stencil": "01",
+   "voice": "CV_WRECK_01",
+   "where": "valley floor, 60 m before the Waiting Water"
+  },
+  {
+   "id": "WRECK_02",
+   "kind": "wreck",
+   "road_m": 2000,
+   "ue_m": 3126.2,
+   "lateral_m": 5.0,
+   "silt": 0.45,
+   "loc_cm": [
+    493078.5,
+    320356.5,
+    -29900.0
+   ],
+   "yaw": -162.0,
+   "sink_cm": 27.0,
+   "stencil": "02",
+   "voice": "CV_WRECK_02",
+   "where": "ridge crest, in CIN_06's frame"
+  },
+  {
+   "id": "WRECK_03",
+   "kind": "wreck",
+   "road_m": 3550,
+   "ue_m": 1549.6,
+   "lateral_m": -4.0,
+   "silt": 0.3,
+   "loc_cm": [
+    361204.7,
+    382682.4,
+    -29100.0
+   ],
+   "yaw": 156.0,
+   "sink_cm": 18.0,
+   "stencil": "03",
+   "voice": "",
+   "where": "foot of the 79 % pitch"
+  },
+  {
+   "id": "WRECK_04",
+   "kind": "wreck",
+   "road_m": 3900,
+   "ue_m": 1145.7,
+   "lateral_m": 5.0,
+   "silt": 0.2,
+   "loc_cm": [
+    345988.7,
+    407452.6,
+    -9420.0
+   ],
+   "yaw": 22.0,
+   "sink_cm": 12.0,
+   "stencil": "04",
+   "voice": "",
+   "where": "between the hairpins"
+  },
+  {
+   "id": "WRECK_05",
+   "kind": "wreck",
+   "road_m": 4400,
+   "ue_m": 615.5,
+   "lateral_m": -4.0,
+   "silt": 0.1,
+   "loc_cm": [
+    321989.6,
+    433604.1,
+    7610.0
+   ],
+   "yaw": 126.0,
+   "sink_cm": 6.0,
+   "stencil": "05",
+   "voice": "",
+   "where": "top of the climb, before B14"
+  },
+  {
+   "id": "WRECK_06",
+   "kind": "wreck",
+   "road_m": 4650,
+   "ue_m": 362.2,
+   "lateral_m": 3.5,
+   "silt": 0.0,
+   "loc_cm": [
+    308049.5,
+    451585.5,
+    11060.0
+   ],
+   "yaw": 135.0,
+   "sink_cm": 0.0,
+   "stencil": "06",
+   "voice": "",
+   "where": "the shoulder, during the failing steps (text only)"
+  },
+  {
+   "id": "G0",
+   "kind": "grate",
+   "road_m": 0,
+   "ue_m": 5133.3,
+   "lateral_m": -3.0,
+   "loc_cm": [
+    616353.6,
+    463746.8,
+    -35760.0
+   ],
+   "yaw": -131.0,
+   "breath_s": 7.0,
+   "where": "at the depot mouth, on the tow track"
+  },
+  {
+   "id": "G1",
+   "kind": "grate",
+   "road_m": 150,
+   "ue_m": 4983.2,
+   "lateral_m": 4.5,
+   "loc_cm": [
+    609505.7,
+    450637.0,
+    -36300.0
+   ],
+   "yaw": -120.0,
+   "breath_s": 7.0,
+   "where": "verge, right"
+  },
+  {
+   "id": "G2",
+   "kind": "grate",
+   "road_m": 1220,
+   "ue_m": 3911.8,
+   "lateral_m": -3.5,
+   "loc_cm": [
+    544282.9,
+    374449.7,
+    -36366.0
+   ],
+   "yaw": -109.0,
+   "breath_s": 7.0,
+   "where": "the dry channel bed (align to SM_B01_channel01 live)"
+  },
+  {
+   "id": "G3",
+   "kind": "grate",
+   "road_m": 2540,
+   "ue_m": 2573.7,
+   "lateral_m": 0.0,
+   "loc_cm": [
+    444856.0,
+    336550.0,
+    -40678.0
+   ],
+   "yaw": -180.0,
+   "breath_s": 7.0,
+   "where": "under the 6-8 arch, stamped with a number"
+  },
+  {
+   "id": "G4",
+   "kind": "grate",
+   "road_m": 3050,
+   "ue_m": 2061.6,
+   "lateral_m": 6.0,
+   "loc_cm": [
+    403036.7,
+    360913.7,
+    -38640.0
+   ],
+   "yaw": 135.0,
+   "breath_s": 7.0,
+   "where": "Tarsan floor over the city (S17); the verge if no cistern is built"
+  },
+  {
+   "id": "DEPOT_MOUTH",
+   "kind": "mouth",
+   "road_m": -25,
+   "ue_m": null,
+   "loc_cm": [
+    618220.1,
+    465436.8,
+    -35760.0
+   ],
+   "yaw": -131.0,
+   "bays": 7,
+   "where": "25 m behind the boot point, facing up-road; bays 01-06 empty and silted, 07 fresh"
+  }
+ ]
+}

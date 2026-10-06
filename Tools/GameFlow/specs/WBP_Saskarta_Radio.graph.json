@@ -1,0 +1,1724 @@
+{
+ "asset": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_Radio",
+ "description": "LANE5 radio panel: R / D-pad up toggles the Low Voice (USaskartaStorySettings.SetRadioStation), shows the dial, signal and state for 4 s after any change, while R is held and while a story line forces it on (INCOMING ARCHIVE); the station's OnRadioForced*/OnRadioGlitch are bound by editor/radio_bind.py. README_Radio.md.",
+ "variables": [
+  {
+   "name": "PollTimer",
+   "type": "struct:/Script/Engine.TimerHandle"
+  },
+  {
+   "name": "bROld",
+   "type": "bool",
+   "default": "false"
+  },
+  {
+   "name": "bUpOld",
+   "type": "bool",
+   "default": "false"
+  },
+  {
+   "name": "ShownUntil",
+   "type": "float",
+   "default": "0.0"
+  },
+  {
+   "name": "Opacity",
+   "type": "float",
+   "default": "0.0"
+  },
+  {
+   "name": "bLastAudible",
+   "type": "bool",
+   "default": "false"
+  },
+  {
+   "name": "bLastOn",
+   "type": "bool",
+   "default": "true"
+  },
+  {
+   "name": "TextOn",
+   "type": "text",
+   "default": "ON"
+  },
+  {
+   "name": "TextOff",
+   "type": "text",
+   "default": "OFF"
+  },
+  {
+   "name": "TextArchive",
+   "type": "text",
+   "default": "INCOMING ARCHIVE"
+  },
+  {
+   "name": "NoLabel",
+   "type": "text"
+  },
+  {
+   "name": "TextAir",
+   "type": "text",
+   "default": "on air"
+  },
+  {
+   "name": "TextStatic",
+   "type": "text",
+   "default": "static . . ."
+  },
+  {
+   "name": "TextSilent",
+   "type": "text",
+   "default": "no signal"
+  }
+ ],
+ "functions": [
+  {
+   "name": "Poll",
+   "inputs": [],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "Toggle",
+   "inputs": [],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "ShowFor4s",
+   "inputs": [],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "HandleForcedOn",
+   "inputs": [
+    {
+     "name": "BeatId",
+     "type": "name"
+    }
+   ],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "HandleForcedOff",
+   "inputs": [
+    {
+     "name": "bRadioOnAfter",
+     "type": "bool"
+    }
+   ],
+   "outputs": [],
+   "pure": false
+  },
+  {
+   "name": "HandleGlitch",
+   "inputs": [
+    {
+     "name": "Type",
+     "type": "enum:/Script/SaskartaCore.ESaskartaRadioGlitch"
+    },
+    {
+     "name": "DurationS",
+     "type": "float"
+    },
+    {
+     "name": "Intensity",
+     "type": "float"
+    }
+   ],
+   "outputs": [],
+   "pure": false
+  }
+ ],
+ "graphs": [
+  {
+   "graph": "EventGraph",
+   "nodes": {
+    "construct": {
+     "event": "Construct"
+    },
+    "timer": {
+     "timer": true
+    },
+    "n3": {
+     "set": "PollTimer"
+    },
+    "n4": {
+     "get": "RadioKey"
+    },
+    "n5": {
+     "call": "Configure",
+     "class": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_KeyPrompt.WBP_Saskarta_KeyPrompt_C"
+    },
+    "n6": {
+     "get": "NoLabel"
+    },
+    "n7": {
+     "get": "RadioKey"
+    },
+    "n8": {
+     "call": "Show",
+     "class": "/Game/SaskartaGaea/GameFlow/UI/WBP_Saskarta_KeyPrompt.WBP_Saskarta_KeyPrompt_C"
+    },
+    "destruct": {
+     "event": "Destruct"
+    },
+    "n10": {
+     "get": "PollTimer"
+    },
+    "clearPollOnDestruct": {
+     "call": "K2_ClearAndInvalidateTimerHandle",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    }
+   },
+   "links": [
+    [
+     "timer.ReturnValue",
+     "n3.PollTimer"
+    ],
+    [
+     "n4.RadioKey",
+     "n5.self"
+    ],
+    [
+     "n6.NoLabel",
+     "n5.InLabel"
+    ],
+    [
+     "n7.RadioKey",
+     "n8.self"
+    ],
+    [
+     "construct.then",
+     "timer.execute"
+    ],
+    [
+     "timer.then",
+     "n3.execute"
+    ],
+    [
+     "n3.then",
+     "n5.execute"
+    ],
+    [
+     "n5.then",
+     "n8.execute"
+    ],
+    [
+     "n10.PollTimer",
+     "clearPollOnDestruct.Handle"
+    ],
+    [
+     "destruct.then",
+     "clearPollOnDestruct.execute"
+    ]
+   ],
+   "defaults": {
+    "timer.FunctionName": "Poll",
+    "timer.Time": "0.1",
+    "timer.bLooping": "true",
+    "n5.InGlyph": "Key_R",
+    "n5.InGlyph2": "None",
+    "n5.InGlyphPad": "Pad_DPad_Up",
+    "n5.bInHold": "false",
+    "n5.InIconSize": "20.0"
+   }
+  },
+  {
+   "graph": "HandleForcedOn",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "n2": {
+     "self": true
+    },
+    "n3": {
+     "call": "PlaySound2D",
+     "class": "/Script/Engine.GameplayStatics"
+    },
+    "n4": {
+     "self": true
+    },
+    "n5": {
+     "call": "PlaySound2D",
+     "class": "/Script/Engine.GameplayStatics"
+    },
+    "n6": {
+     "call": "ShowFor4s"
+    }
+   },
+   "links": [
+    [
+     "n2.self",
+     "n3.WorldContextObject"
+    ],
+    [
+     "n4.self",
+     "n5.WorldContextObject"
+    ],
+    [
+     "entry.then",
+     "n3.execute"
+    ],
+    [
+     "n3.then",
+     "n5.execute"
+    ],
+    [
+     "n5.then",
+     "n6.execute"
+    ]
+   ],
+   "defaults": {
+    "n3.Sound": "/Game/SaskartaGaea/Audio/Radio/SFX_Radio_Knob_On_01.SFX_Radio_Knob_On_01",
+    "n3.VolumeMultiplier": "0.8",
+    "n5.Sound": "/Game/SaskartaGaea/Audio/Radio/SFX_Radio_Power_On_Bloom.SFX_Radio_Power_On_Bloom",
+    "n5.VolumeMultiplier": "0.6"
+   }
+  },
+  {
+   "graph": "HandleForcedOff",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "ifOnAfter": {
+     "branch": true
+    },
+    "n3": {
+     "self": true
+    },
+    "n4": {
+     "call": "PlaySound2D",
+     "class": "/Script/Engine.GameplayStatics"
+    },
+    "n5": {
+     "self": true
+    },
+    "n6": {
+     "call": "PlaySound2D",
+     "class": "/Script/Engine.GameplayStatics"
+    },
+    "n7": {
+     "call": "ShowFor4s"
+    }
+   },
+   "links": [
+    [
+     "entry.bRadioOnAfter",
+     "ifOnAfter.Condition"
+    ],
+    [
+     "entry.then",
+     "ifOnAfter.execute"
+    ],
+    [
+     "n3.self",
+     "n4.WorldContextObject"
+    ],
+    [
+     "n5.self",
+     "n6.WorldContextObject"
+    ],
+    [
+     "ifOnAfter.else",
+     "n4.execute"
+    ],
+    [
+     "n4.then",
+     "n6.execute"
+    ],
+    [
+     "n6.then",
+     "n7.execute"
+    ]
+   ],
+   "defaults": {
+    "n4.Sound": "/Game/SaskartaGaea/Audio/Radio/SFX_Radio_Knob_Off_01.SFX_Radio_Knob_Off_01",
+    "n4.VolumeMultiplier": "0.8",
+    "n6.Sound": "/Game/SaskartaGaea/Audio/Radio/SFX_Radio_Power_Off_Collapse.SFX_Radio_Power_Off_Collapse",
+    "n6.VolumeMultiplier": "0.6"
+   }
+  },
+  {
+   "graph": "HandleGlitch",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "n2": {
+     "call": "Conv_ByteToInt",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n3": {
+     "call": "EqualEqual_IntInt",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "ifDropout": {
+     "branch": true
+    },
+    "n5": {
+     "call": "RandomBool",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n6": {
+     "call": "SelectObject",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "castDropout": {
+     "cast": "/Script/Engine.SoundBase"
+    },
+    "n8": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n9": {
+     "self": true
+    },
+    "n10": {
+     "call": "PlaySound2D",
+     "class": "/Script/Engine.GameplayStatics"
+    },
+    "n11": {
+     "call": "Conv_ByteToInt",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n12": {
+     "call": "EqualEqual_IntInt",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "ifCrackle": {
+     "branch": true
+    },
+    "n14": {
+     "call": "RandomBool",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n15": {
+     "call": "SelectObject",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "castCrackle": {
+     "cast": "/Script/Engine.SoundBase"
+    },
+    "n17": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n18": {
+     "self": true
+    },
+    "n19": {
+     "call": "PlaySound2D",
+     "class": "/Script/Engine.GameplayStatics"
+    },
+    "n20": {
+     "call": "Conv_ByteToInt",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n21": {
+     "call": "EqualEqual_IntInt",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "ifNoiseBurst": {
+     "branch": true
+    },
+    "n23": {
+     "call": "RandomBool",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n24": {
+     "call": "SelectObject",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "castNoiseBurst": {
+     "cast": "/Script/Engine.SoundBase"
+    },
+    "n26": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n27": {
+     "self": true
+    },
+    "n28": {
+     "call": "PlaySound2D",
+     "class": "/Script/Engine.GameplayStatics"
+    },
+    "n29": {
+     "call": "Conv_ByteToInt",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n30": {
+     "call": "EqualEqual_IntInt",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "ifDrift": {
+     "branch": true
+    },
+    "n32": {
+     "call": "RandomBool",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n33": {
+     "call": "SelectObject",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "castDrift": {
+     "cast": "/Script/Engine.SoundBase"
+    },
+    "n35": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n36": {
+     "self": true
+    },
+    "n37": {
+     "call": "PlaySound2D",
+     "class": "/Script/Engine.GameplayStatics"
+    },
+    "n38": {
+     "call": "Conv_ByteToInt",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n39": {
+     "call": "EqualEqual_IntInt",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "ifSqueal": {
+     "branch": true
+    },
+    "n41": {
+     "call": "RandomBool",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n42": {
+     "call": "SelectObject",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "castSqueal": {
+     "cast": "/Script/Engine.SoundBase"
+    },
+    "n44": {
+     "call": "Multiply_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n45": {
+     "self": true
+    },
+    "n46": {
+     "call": "PlaySound2D",
+     "class": "/Script/Engine.GameplayStatics"
+    }
+   },
+   "links": [
+    [
+     "entry.Type",
+     "n2.InByte"
+    ],
+    [
+     "n2.ReturnValue",
+     "n3.A"
+    ],
+    [
+     "n3.ReturnValue",
+     "ifDropout.Condition"
+    ],
+    [
+     "n5.ReturnValue",
+     "n6.bSelectA"
+    ],
+    [
+     "n6.ReturnValue",
+     "castDropout.Object"
+    ],
+    [
+     "entry.Intensity",
+     "n8.A"
+    ],
+    [
+     "n9.self",
+     "n10.WorldContextObject"
+    ],
+    [
+     "castDropout.As",
+     "n10.Sound"
+    ],
+    [
+     "n8.ReturnValue",
+     "n10.VolumeMultiplier"
+    ],
+    [
+     "entry.then",
+     "ifDropout.execute"
+    ],
+    [
+     "ifDropout.then",
+     "castDropout.execute"
+    ],
+    [
+     "castDropout.then",
+     "n10.execute"
+    ],
+    [
+     "entry.Type",
+     "n11.InByte"
+    ],
+    [
+     "n11.ReturnValue",
+     "n12.A"
+    ],
+    [
+     "n12.ReturnValue",
+     "ifCrackle.Condition"
+    ],
+    [
+     "n14.ReturnValue",
+     "n15.bSelectA"
+    ],
+    [
+     "n15.ReturnValue",
+     "castCrackle.Object"
+    ],
+    [
+     "entry.Intensity",
+     "n17.A"
+    ],
+    [
+     "n18.self",
+     "n19.WorldContextObject"
+    ],
+    [
+     "castCrackle.As",
+     "n19.Sound"
+    ],
+    [
+     "n17.ReturnValue",
+     "n19.VolumeMultiplier"
+    ],
+    [
+     "ifDropout.else",
+     "ifCrackle.execute"
+    ],
+    [
+     "ifCrackle.then",
+     "castCrackle.execute"
+    ],
+    [
+     "castCrackle.then",
+     "n19.execute"
+    ],
+    [
+     "entry.Type",
+     "n20.InByte"
+    ],
+    [
+     "n20.ReturnValue",
+     "n21.A"
+    ],
+    [
+     "n21.ReturnValue",
+     "ifNoiseBurst.Condition"
+    ],
+    [
+     "n23.ReturnValue",
+     "n24.bSelectA"
+    ],
+    [
+     "n24.ReturnValue",
+     "castNoiseBurst.Object"
+    ],
+    [
+     "entry.Intensity",
+     "n26.A"
+    ],
+    [
+     "n27.self",
+     "n28.WorldContextObject"
+    ],
+    [
+     "castNoiseBurst.As",
+     "n28.Sound"
+    ],
+    [
+     "n26.ReturnValue",
+     "n28.VolumeMultiplier"
+    ],
+    [
+     "ifCrackle.else",
+     "ifNoiseBurst.execute"
+    ],
+    [
+     "ifNoiseBurst.then",
+     "castNoiseBurst.execute"
+    ],
+    [
+     "castNoiseBurst.then",
+     "n28.execute"
+    ],
+    [
+     "entry.Type",
+     "n29.InByte"
+    ],
+    [
+     "n29.ReturnValue",
+     "n30.A"
+    ],
+    [
+     "n30.ReturnValue",
+     "ifDrift.Condition"
+    ],
+    [
+     "n32.ReturnValue",
+     "n33.bSelectA"
+    ],
+    [
+     "n33.ReturnValue",
+     "castDrift.Object"
+    ],
+    [
+     "entry.Intensity",
+     "n35.A"
+    ],
+    [
+     "n36.self",
+     "n37.WorldContextObject"
+    ],
+    [
+     "castDrift.As",
+     "n37.Sound"
+    ],
+    [
+     "n35.ReturnValue",
+     "n37.VolumeMultiplier"
+    ],
+    [
+     "ifNoiseBurst.else",
+     "ifDrift.execute"
+    ],
+    [
+     "ifDrift.then",
+     "castDrift.execute"
+    ],
+    [
+     "castDrift.then",
+     "n37.execute"
+    ],
+    [
+     "entry.Type",
+     "n38.InByte"
+    ],
+    [
+     "n38.ReturnValue",
+     "n39.A"
+    ],
+    [
+     "n39.ReturnValue",
+     "ifSqueal.Condition"
+    ],
+    [
+     "n41.ReturnValue",
+     "n42.bSelectA"
+    ],
+    [
+     "n42.ReturnValue",
+     "castSqueal.Object"
+    ],
+    [
+     "entry.Intensity",
+     "n44.A"
+    ],
+    [
+     "n45.self",
+     "n46.WorldContextObject"
+    ],
+    [
+     "castSqueal.As",
+     "n46.Sound"
+    ],
+    [
+     "n44.ReturnValue",
+     "n46.VolumeMultiplier"
+    ],
+    [
+     "ifDrift.else",
+     "ifSqueal.execute"
+    ],
+    [
+     "ifSqueal.then",
+     "castSqueal.execute"
+    ],
+    [
+     "castSqueal.then",
+     "n46.execute"
+    ]
+   ],
+   "defaults": {
+    "n3.B": "0",
+    "n6.A": "/Game/SaskartaGaea/Audio/Radio/SFX_Radio_Dropout_01.SFX_Radio_Dropout_01",
+    "n6.B": "/Game/SaskartaGaea/Audio/Radio/SFX_Radio_Dropout_04.SFX_Radio_Dropout_04",
+    "n8.B": "0.55",
+    "n12.B": "1",
+    "n15.A": "/Game/SaskartaGaea/Audio/Radio/SFX_Radio_Tune_Click_02.SFX_Radio_Tune_Click_02",
+    "n15.B": "/Game/SaskartaGaea/Audio/Radio/SFX_Radio_Tune_Click_03.SFX_Radio_Tune_Click_03",
+    "n17.B": "0.35",
+    "n21.B": "2",
+    "n24.A": "/Game/SaskartaGaea/Audio/Radio/SFX_Radio_Lightning_02.SFX_Radio_Lightning_02",
+    "n24.B": "/Game/SaskartaGaea/Audio/Radio/SFX_Radio_Lightning_03.SFX_Radio_Lightning_03",
+    "n26.B": "0.3",
+    "n30.B": "4",
+    "n33.A": "/Game/SaskartaGaea/Audio/Radio/SFX_Radio_Tune_Sweep_02.SFX_Radio_Tune_Sweep_02",
+    "n33.B": "/Game/SaskartaGaea/Audio/Radio/SFX_Radio_Tune_Sweep_04.SFX_Radio_Tune_Sweep_04",
+    "n35.B": "0.25",
+    "n39.B": "5",
+    "n42.A": "/Game/SaskartaGaea/Audio/Radio/SFX_Radio_Tune_BandScan_01.SFX_Radio_Tune_BandScan_01",
+    "n42.B": "/Game/SaskartaGaea/Audio/Radio/SFX_Radio_Tune_Sweep_05.SFX_Radio_Tune_Sweep_05",
+    "n44.B": "0.2"
+   }
+  },
+  {
+   "graph": "ShowFor4s",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "n2": {
+     "call": "GetTimeSeconds",
+     "class": "/Script/Engine.GameplayStatics"
+    },
+    "n3": {
+     "self": true
+    },
+    "n4": {
+     "call": "Add_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n5": {
+     "set": "ShownUntil"
+    }
+   },
+   "links": [
+    [
+     "n3.self",
+     "n2.WorldContextObject"
+    ],
+    [
+     "n2.ReturnValue",
+     "n4.A"
+    ],
+    [
+     "n4.ReturnValue",
+     "n5.ShownUntil"
+    ],
+    [
+     "entry.then",
+     "n5.execute"
+    ]
+   ],
+   "defaults": {
+    "n4.B": "4.0"
+   }
+  },
+  {
+   "graph": "Toggle",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "n2": {
+     "self": true
+    },
+    "n3": {
+     "call": "GetEventRunner",
+     "class": "/Script/SaskartaCore.SaskartaEventRunner"
+    },
+    "runnerValid": {
+     "call": "IsValid",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "ifRunnerValid": {
+     "branch": true
+    },
+    "n6": {
+     "call": "GetFlowState",
+     "class": "/Script/SaskartaCore.SaskartaEventRunner"
+    },
+    "n7": {
+     "call": "EqualEqual_NameName",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "ifPlaying": {
+     "branch": true
+    },
+    "n9": {
+     "self": true
+    },
+    "n10": {
+     "call": "GetRadioStation",
+     "class": "/Script/SaskartaCore.SaskartaRadioStation"
+    },
+    "stationValid": {
+     "call": "IsValid",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "ifStationValid": {
+     "branch": true
+    },
+    "n13": {
+     "call": "IsRadioOn",
+     "class": "/Script/SaskartaCore.SaskartaRadioStation"
+    },
+    "n14": {
+     "call": "Not_PreBool",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n15": {
+     "call": "SetRadioOn",
+     "class": "/Script/SaskartaCore.SaskartaRadioStation"
+    },
+    "ifNowOn": {
+     "branch": true
+    },
+    "n17": {
+     "self": true
+    },
+    "n18": {
+     "call": "PlaySound2D",
+     "class": "/Script/Engine.GameplayStatics"
+    },
+    "n19": {
+     "call": "PlaySound2D",
+     "class": "/Script/Engine.GameplayStatics"
+    },
+    "n20": {
+     "call": "PlaySound2D",
+     "class": "/Script/Engine.GameplayStatics"
+    },
+    "n21": {
+     "call": "PlaySound2D",
+     "class": "/Script/Engine.GameplayStatics"
+    },
+    "n22": {
+     "call": "ShowFor4s"
+    },
+    "n23": {
+     "call": "ShowFor4s"
+    }
+   },
+   "links": [
+    [
+     "n2.self",
+     "n3.WorldContextObject"
+    ],
+    [
+     "n3.ReturnValue",
+     "runnerValid.Object"
+    ],
+    [
+     "n3.ReturnValue",
+     "n6.self"
+    ],
+    [
+     "n6.ReturnValue",
+     "n7.A"
+    ],
+    [
+     "n7.ReturnValue",
+     "ifPlaying.Condition"
+    ],
+    [
+     "n9.self",
+     "n10.WorldContextObject"
+    ],
+    [
+     "n10.ReturnValue",
+     "stationValid.Object"
+    ],
+    [
+     "n10.ReturnValue",
+     "n13.self"
+    ],
+    [
+     "n13.ReturnValue",
+     "n14.A"
+    ],
+    [
+     "n10.ReturnValue",
+     "n15.self"
+    ],
+    [
+     "n14.ReturnValue",
+     "n15.bOn"
+    ],
+    [
+     "n14.ReturnValue",
+     "ifNowOn.Condition"
+    ],
+    [
+     "n17.self",
+     "n18.WorldContextObject"
+    ],
+    [
+     "n17.self",
+     "n19.WorldContextObject"
+    ],
+    [
+     "n17.self",
+     "n20.WorldContextObject"
+    ],
+    [
+     "n17.self",
+     "n21.WorldContextObject"
+    ],
+    [
+     "runnerValid.ReturnValue",
+     "ifRunnerValid.Condition"
+    ],
+    [
+     "stationValid.ReturnValue",
+     "ifStationValid.Condition"
+    ],
+    [
+     "entry.then",
+     "ifRunnerValid.execute"
+    ],
+    [
+     "ifRunnerValid.then",
+     "ifStationValid.execute"
+    ],
+    [
+     "ifStationValid.then",
+     "ifPlaying.execute"
+    ],
+    [
+     "ifPlaying.then",
+     "n15.execute"
+    ],
+    [
+     "n15.then",
+     "ifNowOn.execute"
+    ],
+    [
+     "ifNowOn.then",
+     "n18.execute"
+    ],
+    [
+     "n18.then",
+     "n19.execute"
+    ],
+    [
+     "n19.then",
+     "n22.execute"
+    ],
+    [
+     "ifNowOn.else",
+     "n20.execute"
+    ],
+    [
+     "n20.then",
+     "n21.execute"
+    ],
+    [
+     "n21.then",
+     "n23.execute"
+    ]
+   ],
+   "defaults": {
+    "n7.B": "Playing",
+    "n18.Sound": "/Game/SaskartaGaea/Audio/Radio/SFX_Radio_Knob_On_01.SFX_Radio_Knob_On_01",
+    "n18.VolumeMultiplier": "0.8",
+    "n19.Sound": "/Game/SaskartaGaea/Audio/Radio/SFX_Radio_Power_On_Bloom.SFX_Radio_Power_On_Bloom",
+    "n19.VolumeMultiplier": "0.7",
+    "n20.Sound": "/Game/SaskartaGaea/Audio/Radio/SFX_Radio_Knob_Off_01.SFX_Radio_Knob_Off_01",
+    "n20.VolumeMultiplier": "0.8",
+    "n21.Sound": "/Game/SaskartaGaea/Audio/Radio/SFX_Radio_Power_Off_Collapse.SFX_Radio_Power_Off_Collapse",
+    "n21.VolumeMultiplier": "0.7"
+   }
+  },
+  {
+   "graph": "Poll",
+   "nodes": {
+    "entry": {
+     "entry": true
+    },
+    "n2": {
+     "call": "GetOwningPlayer",
+     "class": "/Script/UMG.Widget"
+    },
+    "ownerValid": {
+     "call": "IsValid",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "ifOwnerValid": {
+     "branch": true
+    },
+    "n5": {
+     "self": true
+    },
+    "n6": {
+     "call": "GetRadioStation",
+     "class": "/Script/SaskartaCore.SaskartaRadioStation"
+    },
+    "stationValid": {
+     "call": "IsValid",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "ifStationValid": {
+     "branch": true
+    },
+    "n9": {
+     "self": true
+    },
+    "n10": {
+     "call": "GetEventRunner",
+     "class": "/Script/SaskartaCore.SaskartaEventRunner"
+    },
+    "runnerValid": {
+     "call": "IsValid",
+     "class": "/Script/Engine.KismetSystemLibrary"
+    },
+    "ifRunnerValid": {
+     "branch": true
+    },
+    "n13": {
+     "call": "IsInputKeyDown",
+     "class": "/Script/Engine.PlayerController"
+    },
+    "n14": {
+     "call": "IsInputKeyDown",
+     "class": "/Script/Engine.PlayerController"
+    },
+    "n15": {
+     "get": "bROld"
+    },
+    "n16": {
+     "get": "bUpOld"
+    },
+    "n17": {
+     "call": "Not_PreBool",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n18": {
+     "call": "Not_PreBool",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n19": {
+     "call": "BooleanAND",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n20": {
+     "call": "BooleanAND",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n21": {
+     "call": "BooleanOR",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "ifPressed": {
+     "branch": true
+    },
+    "n23": {
+     "call": "Toggle"
+    },
+    "n24": {
+     "set": "bROld"
+    },
+    "n25": {
+     "set": "bUpOld"
+    },
+    "n26": {
+     "self": true
+    },
+    "n27": {
+     "call": "GetRadioStation",
+     "class": "/Script/SaskartaCore.SaskartaRadioStation"
+    },
+    "n28": {
+     "call": "IsAudible",
+     "class": "/Script/SaskartaCore.SaskartaRadioStation"
+    },
+    "n29": {
+     "call": "GetReceptionQuality",
+     "class": "/Script/SaskartaCore.SaskartaRadioStation"
+    },
+    "n30": {
+     "call": "IsRadioEffectivelyOn",
+     "class": "/Script/SaskartaCore.SaskartaRadioStation"
+    },
+    "n31": {
+     "call": "IsRadioForcedOn",
+     "class": "/Script/SaskartaCore.SaskartaRadioStation"
+    },
+    "n32": {
+     "get": "bLastAudible"
+    },
+    "n33": {
+     "get": "bLastOn"
+    },
+    "n34": {
+     "call": "NotEqual_BoolBool",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n35": {
+     "call": "NotEqual_BoolBool",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n36": {
+     "call": "BooleanOR",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "ifChanged": {
+     "branch": true
+    },
+    "n38": {
+     "call": "ShowFor4s"
+    },
+    "n39": {
+     "set": "bLastAudible"
+    },
+    "n40": {
+     "set": "bLastOn"
+    },
+    "n41": {
+     "call": "SelectFloat",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n42": {
+     "get": "SignalBar"
+    },
+    "n43": {
+     "call": "SetPercent",
+     "class": "/Script/UMG.ProgressBar"
+    },
+    "n44": {
+     "get": "TextAir"
+    },
+    "n45": {
+     "get": "TextStatic"
+    },
+    "n46": {
+     "get": "TextSilent"
+    },
+    "n47": {
+     "call": "SelectText",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n48": {
+     "call": "SelectText",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n49": {
+     "get": "NowText"
+    },
+    "n50": {
+     "call": "SetText",
+     "class": "/Script/UMG.TextBlock"
+    },
+    "n51": {
+     "get": "TextOn"
+    },
+    "n52": {
+     "get": "TextOff"
+    },
+    "n53": {
+     "call": "SelectText",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n54": {
+     "get": "TextArchive"
+    },
+    "n55": {
+     "call": "SelectText",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n56": {
+     "get": "PowerText"
+    },
+    "n57": {
+     "call": "SetText",
+     "class": "/Script/UMG.TextBlock"
+    },
+    "n58": {
+     "call": "GetTimeSeconds",
+     "class": "/Script/Engine.GameplayStatics"
+    },
+    "n59": {
+     "self": true
+    },
+    "n60": {
+     "get": "ShownUntil"
+    },
+    "n61": {
+     "call": "Less_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n62": {
+     "call": "BooleanOR",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n63": {
+     "call": "BooleanOR",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n64": {
+     "self": true
+    },
+    "n65": {
+     "call": "GetEventRunner",
+     "class": "/Script/SaskartaCore.SaskartaEventRunner"
+    },
+    "n66": {
+     "call": "GetFlowState",
+     "class": "/Script/SaskartaCore.SaskartaEventRunner"
+    },
+    "n67": {
+     "call": "EqualEqual_NameName",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n68": {
+     "call": "BooleanAND",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n69": {
+     "call": "SelectFloat",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n70": {
+     "get": "Opacity"
+    },
+    "n71": {
+     "call": "FInterpTo_Constant",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n72": {
+     "set": "Opacity"
+    },
+    "n73": {
+     "get": "Opacity"
+    },
+    "n74": {
+     "get": "Panel"
+    },
+    "n75": {
+     "call": "SetRenderOpacity",
+     "class": "/Script/UMG.Widget"
+    },
+    "n76": {
+     "get": "Opacity"
+    },
+    "n77": {
+     "call": "Greater_DoubleDouble",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "n78": {
+     "call": "BooleanOR",
+     "class": "/Script/Engine.KismetMathLibrary"
+    },
+    "ifLive": {
+     "branch": true
+    }
+   },
+   "links": [
+    [
+     "n2.ReturnValue",
+     "ownerValid.Object"
+    ],
+    [
+     "ownerValid.ReturnValue",
+     "ifOwnerValid.Condition"
+    ],
+    [
+     "n5.self",
+     "n6.WorldContextObject"
+    ],
+    [
+     "n6.ReturnValue",
+     "stationValid.Object"
+    ],
+    [
+     "stationValid.ReturnValue",
+     "ifStationValid.Condition"
+    ],
+    [
+     "n9.self",
+     "n10.WorldContextObject"
+    ],
+    [
+     "n10.ReturnValue",
+     "runnerValid.Object"
+    ],
+    [
+     "runnerValid.ReturnValue",
+     "ifRunnerValid.Condition"
+    ],
+    [
+     "n2.ReturnValue",
+     "n13.self"
+    ],
+    [
+     "n2.ReturnValue",
+     "n14.self"
+    ],
+    [
+     "n15.bROld",
+     "n17.A"
+    ],
+    [
+     "n16.bUpOld",
+     "n18.A"
+    ],
+    [
+     "n13.ReturnValue",
+     "n19.A"
+    ],
+    [
+     "n17.ReturnValue",
+     "n19.B"
+    ],
+    [
+     "n14.ReturnValue",
+     "n20.A"
+    ],
+    [
+     "n18.ReturnValue",
+     "n20.B"
+    ],
+    [
+     "n19.ReturnValue",
+     "n21.A"
+    ],
+    [
+     "n20.ReturnValue",
+     "n21.B"
+    ],
+    [
+     "n21.ReturnValue",
+     "ifPressed.Condition"
+    ],
+    [
+     "n13.ReturnValue",
+     "n24.bROld"
+    ],
+    [
+     "n14.ReturnValue",
+     "n25.bUpOld"
+    ],
+    [
+     "n26.self",
+     "n27.WorldContextObject"
+    ],
+    [
+     "n27.ReturnValue",
+     "n28.self"
+    ],
+    [
+     "n27.ReturnValue",
+     "n29.self"
+    ],
+    [
+     "n27.ReturnValue",
+     "n30.self"
+    ],
+    [
+     "n27.ReturnValue",
+     "n31.self"
+    ],
+    [
+     "n28.ReturnValue",
+     "n34.A"
+    ],
+    [
+     "n32.bLastAudible",
+     "n34.B"
+    ],
+    [
+     "n30.ReturnValue",
+     "n35.A"
+    ],
+    [
+     "n33.bLastOn",
+     "n35.B"
+    ],
+    [
+     "n34.ReturnValue",
+     "n36.A"
+    ],
+    [
+     "n35.ReturnValue",
+     "n36.B"
+    ],
+    [
+     "n36.ReturnValue",
+     "ifChanged.Condition"
+    ],
+    [
+     "n28.ReturnValue",
+     "n39.bLastAudible"
+    ],
+    [
+     "n30.ReturnValue",
+     "n40.bLastOn"
+    ],
+    [
+     "n29.ReturnValue",
+     "n41.A"
+    ],
+    [
+     "n30.ReturnValue",
+     "n41.bPickA"
+    ],
+    [
+     "n42.SignalBar",
+     "n43.self"
+    ],
+    [
+     "n41.ReturnValue",
+     "n43.InPercent"
+    ],
+    [
+     "n44.TextAir",
+     "n47.A"
+    ],
+    [
+     "n45.TextStatic",
+     "n47.B"
+    ],
+    [
+     "n28.ReturnValue",
+     "n47.bPickA"
+    ],
+    [
+     "n47.ReturnValue",
+     "n48.A"
+    ],
+    [
+     "n46.TextSilent",
+     "n48.B"
+    ],
+    [
+     "n30.ReturnValue",
+     "n48.bPickA"
+    ],
+    [
+     "n49.NowText",
+     "n50.self"
+    ],
+    [
+     "n48.ReturnValue",
+     "n50.InText"
+    ],
+    [
+     "n51.TextOn",
+     "n53.A"
+    ],
+    [
+     "n52.TextOff",
+     "n53.B"
+    ],
+    [
+     "n30.ReturnValue",
+     "n53.bPickA"
+    ],
+    [
+     "n54.TextArchive",
+     "n55.A"
+    ],
+    [
+     "n53.ReturnValue",
+     "n55.B"
+    ],
+    [
+     "n31.ReturnValue",
+     "n55.bPickA"
+    ],
+    [
+     "n56.PowerText",
+     "n57.self"
+    ],
+    [
+     "n55.ReturnValue",
+     "n57.InText"
+    ],
+    [
+     "n59.self",
+     "n58.WorldContextObject"
+    ],
+    [
+     "n58.ReturnValue",
+     "n61.A"
+    ],
+    [
+     "n60.ShownUntil",
+     "n61.B"
+    ],
+    [
+     "n61.ReturnValue",
+     "n62.A"
+    ],
+    [
+     "n13.ReturnValue",
+     "n62.B"
+    ],
+    [
+     "n62.ReturnValue",
+     "n63.A"
+    ],
+    [
+     "n31.ReturnValue",
+     "n63.B"
+    ],
+    [
+     "n64.self",
+     "n65.WorldContextObject"
+    ],
+    [
+     "n65.ReturnValue",
+     "n66.self"
+    ],
+    [
+     "n66.ReturnValue",
+     "n67.A"
+    ],
+    [
+     "n63.ReturnValue",
+     "n68.A"
+    ],
+    [
+     "n67.ReturnValue",
+     "n68.B"
+    ],
+    [
+     "n68.ReturnValue",
+     "n69.bPickA"
+    ],
+    [
+     "n70.Opacity",
+     "n71.Current"
+    ],
+    [
+     "n69.ReturnValue",
+     "n71.Target"
+    ],
+    [
+     "n71.ReturnValue",
+     "n72.Opacity"
+    ],
+    [
+     "n74.Panel",
+     "n75.self"
+    ],
+    [
+     "n73.Opacity",
+     "n75.InOpacity"
+    ],
+    [
+     "entry.then",
+     "ifOwnerValid.execute"
+    ],
+    [
+     "ifOwnerValid.then",
+     "ifStationValid.execute"
+    ],
+    [
+     "ifStationValid.then",
+     "ifRunnerValid.execute"
+    ],
+    [
+     "ifRunnerValid.then",
+     "ifPressed.execute"
+    ],
+    [
+     "ifPressed.then",
+     "n23.execute"
+    ],
+    [
+     "n23.then",
+     "n24.execute"
+    ],
+    [
+     "ifPressed.else",
+     "n24.execute"
+    ],
+    [
+     "n24.then",
+     "n25.execute"
+    ],
+    [
+     "n25.then",
+     "ifChanged.execute"
+    ],
+    [
+     "ifChanged.then",
+     "n38.execute"
+    ],
+    [
+     "n38.then",
+     "n39.execute"
+    ],
+    [
+     "ifChanged.else",
+     "n39.execute"
+    ],
+    [
+     "n76.Opacity",
+     "n77.A"
+    ],
+    [
+     "n77.ReturnValue",
+     "n78.A"
+    ],
+    [
+     "n68.ReturnValue",
+     "n78.B"
+    ],
+    [
+     "n78.ReturnValue",
+     "ifLive.Condition"
+    ],
+    [
+     "n39.then",
+     "n40.execute"
+    ],
+    [
+     "n40.then",
+     "ifLive.execute"
+    ],
+    [
+     "ifLive.then",
+     "n43.execute"
+    ],
+    [
+     "n43.then",
+     "n50.execute"
+    ],
+    [
+     "n50.then",
+     "n57.execute"
+    ],
+    [
+     "n57.then",
+     "n72.execute"
+    ],
+    [
+     "n72.then",
+     "n75.execute"
+    ]
+   ],
+   "defaults": {
+    "n13.Key": "R",
+    "n14.Key": "Gamepad_DPad_Up",
+    "n41.B": "0.0",
+    "n67.B": "Playing",
+    "n69.A": "1.0",
+    "n69.B": "0.0",
+    "n71.DeltaTime": "0.1",
+    "n71.InterpSpeed": "2.5",
+    "n77.B": "0.001"
+   }
+  }
+ ]
+}

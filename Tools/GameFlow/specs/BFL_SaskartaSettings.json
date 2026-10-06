@@ -1,0 +1,279 @@
+{
+  "asset": "/Game/SaskartaGaea/GameFlow/BFL_SaskartaSettings",
+  "create": { "parent": "/Script/Engine.BlueprintFunctionLibrary" },
+  "description": "Task P3 helpers shared by WBP_Saskarta_Settings and PC_Saskarta. The pure string helpers are tested from editor Python (Tools/GameFlow/tests/test_settings_bfl.py).",
+  "functions": [
+    {
+      "name": "LoadDisplay",
+      "inputs": [],
+      "outputs": [{ "name": "Display", "type": "object:/Game/SaskartaGaea/GameFlow/SG_Saskarta_Display.SG_Saskarta_Display_C" }],
+      "pure": false
+    },
+    {
+      "name": "SaveDisplay",
+      "inputs": [{ "name": "Display", "type": "object:/Game/SaskartaGaea/GameFlow/SG_Saskarta_Display.SG_Saskarta_Display_C" }],
+      "outputs": [],
+      "pure": false
+    },
+    {
+      "name": "ApplyDisplay",
+      "inputs": [{ "name": "Display", "type": "object:/Game/SaskartaGaea/GameFlow/SG_Saskarta_Display.SG_Saskarta_Display_C" }],
+      "outputs": [],
+      "pure": false
+    },
+    { "name": "ApplyAudio", "inputs": [], "outputs": [], "pure": false },
+    {
+      "name": "ResolutionToString",
+      "inputs": [{ "name": "Resolution", "type": "struct:/Script/CoreUObject.IntPoint" }],
+      "outputs": [{ "name": "Text", "type": "string" }],
+      "pure": true
+    },
+    {
+      "name": "StringToResolution",
+      "inputs": [{ "name": "Text", "type": "string" }],
+      "outputs": [{ "name": "Resolution", "type": "struct:/Script/CoreUObject.IntPoint" }],
+      "pure": true
+    },
+    { "name": "FrameCapToString", "inputs": [{ "name": "Limit", "type": "float" }], "outputs": [{ "name": "Text", "type": "string" }], "pure": true }
+  ],
+  "graphs": [
+    {
+      "graph": "LoadDisplay",
+      "nodes": {
+        "entry": { "entry": true },
+        "result": { "result": true },
+        "exists": { "call": "DoesSaveGameExist", "class": "/Script/Engine.GameplayStatics" },
+        "br": { "branch": true },
+        "load": { "call": "LoadGameFromSlot", "class": "/Script/Engine.GameplayStatics" },
+        "castLoaded": { "cast": "/Game/SaskartaGaea/GameFlow/SG_Saskarta_Display.SG_Saskarta_Display_C" },
+        "create": { "call": "CreateSaveGameObject", "class": "/Script/Engine.GameplayStatics" },
+        "castCreated": { "cast": "/Game/SaskartaGaea/GameFlow/SG_Saskarta_Display.SG_Saskarta_Display_C" },
+        "valid": { "call": "IsValid", "class": "/Script/Engine.KismetSystemLibrary" },
+        "pick": { "call": "SelectObject", "class": "/Script/Engine.KismetMathLibrary" },
+        "castFinal": { "cast": "/Game/SaskartaGaea/GameFlow/SG_Saskarta_Display.SG_Saskarta_Display_C" }
+      },
+      "links": [
+        ["entry.then", "exists.execute"],
+        ["exists.then", "br.execute"],
+        ["exists.ReturnValue", "br.Condition"],
+        ["br.then", "load.execute"],
+        ["load.then", "castLoaded.execute"],
+        ["castLoaded.then", "castFinal.execute"],
+        ["castFinal.then", "result.execute"],
+        ["load.ReturnValue", "castLoaded.Object"],
+        ["castLoaded.CastFailed", "create.execute"],
+        ["br.else", "create.execute"],
+        ["create.then", "castCreated.execute"],
+        ["castCreated.then", "castFinal.execute"],
+        ["create.ReturnValue", "castCreated.Object"],
+        ["castLoaded.AsSG Saskarta Display", "valid.Object"],
+        ["castLoaded.AsSG Saskarta Display", "pick.A"],
+        ["castCreated.AsSG Saskarta Display", "pick.B"],
+        ["valid.ReturnValue", "pick.bSelectA"],
+        ["pick.ReturnValue", "castFinal.Object"],
+        ["castFinal.AsSG Saskarta Display", "result.Display"]
+      ],
+      "defaults": {
+        "exists.SlotName": "SaskartaDisplay",
+        "exists.UserIndex": "0",
+        "load.SlotName": "SaskartaDisplay",
+        "load.UserIndex": "0",
+        "create.SaveGameClass": "/Game/SaskartaGaea/GameFlow/SG_Saskarta_Display.SG_Saskarta_Display_C"
+      }
+    },
+    {
+      "graph": "SaveDisplay",
+      "nodes": { "entry": { "entry": true }, "save": { "call": "SaveGameToSlot", "class": "/Script/Engine.GameplayStatics" } },
+      "links": [["entry.then", "save.execute"], ["entry.Display", "save.SaveGameObject"]],
+      "defaults": { "save.SlotName": "SaskartaDisplay", "save.UserIndex": "0" }
+    },
+    {
+      "graph": "ApplyDisplay",
+      "nodes": {
+        "entry": { "entry": true },
+        "valid": { "call": "IsValid", "class": "/Script/Engine.KismetSystemLibrary" },
+        "br": { "branch": true },
+        "gamma": { "call": "GetBrightness", "class": "/Game/SaskartaGaea/GameFlow/SG_Saskarta_Display.SG_Saskarta_Display_C" },
+        "gammaStr": { "call": "Conv_DoubleToString", "class": "/Script/Engine.KismetStringLibrary" },
+        "gammaCmd": { "call": "Concat_StrStr", "class": "/Script/Engine.KismetStringLibrary" },
+        "runGamma": { "call": "ExecuteConsoleCommand", "class": "/Script/Engine.KismetSystemLibrary" },
+        "blur": { "call": "GetMotionBlur", "class": "/Game/SaskartaGaea/GameFlow/SG_Saskarta_Display.SG_Saskarta_Display_C" },
+        "blurCmd": { "call": "SelectString", "class": "/Script/Engine.KismetMathLibrary" },
+        "runBlur": { "call": "ExecuteConsoleCommand", "class": "/Script/Engine.KismetSystemLibrary" }
+      },
+      "links": [
+        ["entry.then", "br.execute"],
+        ["br.then", "runGamma.execute"],
+        ["runGamma.then", "runBlur.execute"],
+        ["entry.Display", "valid.Object"],
+        ["valid.ReturnValue", "br.Condition"],
+        ["entry.Display", "gamma.self"],
+        ["gamma.Value", "gammaStr.InDouble"],
+        ["gammaStr.ReturnValue", "gammaCmd.B"],
+        ["gammaCmd.ReturnValue", "runGamma.Command"],
+        ["entry.Display", "blur.self"],
+        ["blur.bOn", "blurCmd.bPickA"],
+        ["blurCmd.ReturnValue", "runBlur.Command"]
+      ],
+      "defaults": { "gammaCmd.A": "gamma ", "blurCmd.A": "r.MotionBlur.Amount -1", "blurCmd.B": "r.MotionBlur.Amount 0" }
+    },
+    {
+      "graph": "ApplyAudio",
+      "nodes": {
+        "entry": {
+          "entry": true
+        },
+        "master": {
+          "call": "GetConsoleVariableFloatValue",
+          "class": "/Script/Engine.KismetSystemLibrary"
+        },
+        "override": {
+          "call": "SetSoundMixClassOverride",
+          "class": "/Script/Engine.GameplayStatics"
+        },
+        "push": {
+          "call": "PushSoundMixModifier",
+          "class": "/Script/Engine.GameplayStatics"
+        },
+        "voice": {
+          "call": "GetConsoleVariableFloatValue",
+          "class": "/Script/Engine.KismetSystemLibrary"
+        },
+        "voiceGain": {
+          "call": "Multiply_DoubleDouble",
+          "class": "/Script/Engine.KismetMathLibrary"
+        },
+        "voiceOverride": {
+          "call": "SetSoundMixClassOverride",
+          "class": "/Script/Engine.GameplayStatics"
+        }
+      },
+      "links": [
+        [
+          "entry.then",
+          "master.execute"
+        ],
+        [
+          "master.then",
+          "override.execute"
+        ],
+        [
+          "master.ReturnValue",
+          "override.Volume"
+        ],
+        [
+          "override.then",
+          "voice.execute"
+        ],
+        [
+          "voice.then",
+          "voiceOverride.execute"
+        ],
+        [
+          "voiceOverride.then",
+          "push.execute"
+        ],
+        [
+          "master.ReturnValue",
+          "voiceGain.A"
+        ],
+        [
+          "voice.ReturnValue",
+          "voiceGain.B"
+        ],
+        [
+          "voiceGain.ReturnValue",
+          "voiceOverride.Volume"
+        ]
+      ],
+      "defaults": {
+        "master.VariableName": "saskarta.volume.master",
+        "override.InSoundMixModifier": "/Game/SaskartaGaea/Audio/SMix_Saskarta_Settings.SMix_Saskarta_Settings",
+        "override.InSoundClass": "/Engine/EngineSounds/Master.Master",
+        "override.Pitch": "1.0",
+        "override.FadeInTime": "0.0",
+        "override.bApplyToChildren": "true",
+        "push.InSoundMixModifier": "/Game/SaskartaGaea/Audio/SMix_Saskarta_Settings.SMix_Saskarta_Settings",
+        "voice.VariableName": "saskarta.volume.voice",
+        "voiceOverride.InSoundMixModifier": "/Game/SaskartaGaea/Audio/SMix_Saskarta_Settings.SMix_Saskarta_Settings",
+        "voiceOverride.InSoundClass": "/Game/SaskartaGaea/Audio/SC_Voice.SC_Voice",
+        "voiceOverride.Pitch": "1.0",
+        "voiceOverride.FadeInTime": "0.0",
+        "voiceOverride.bApplyToChildren": "true"
+      }
+    },
+    {
+      "graph": "ResolutionToString",
+      "nodes": {
+        "entry": { "entry": true },
+        "result": { "result": true },
+        "v": { "call": "Conv_IntPointToVector2D", "class": "/Script/Engine.KismetMathLibrary" },
+        "brk": { "call": "BreakVector2D", "class": "/Script/Engine.KismetMathLibrary" },
+        "rx": { "call": "Round", "class": "/Script/Engine.KismetMathLibrary" },
+        "ry": { "call": "Round", "class": "/Script/Engine.KismetMathLibrary" },
+        "sx": { "call": "Conv_IntToString", "class": "/Script/Engine.KismetStringLibrary" },
+        "sy": { "call": "Conv_IntToString", "class": "/Script/Engine.KismetStringLibrary" },
+        "cx": { "call": "Concat_StrStr", "class": "/Script/Engine.KismetStringLibrary" },
+        "cxy": { "call": "Concat_StrStr", "class": "/Script/Engine.KismetStringLibrary" }
+      },
+      "links": [
+        ["entry.then", "result.execute"],
+        ["entry.Resolution", "v.InIntPoint"],
+        ["v.ReturnValue", "brk.InVec"],
+        ["brk.X", "rx.A"],
+        ["brk.Y", "ry.A"],
+        ["rx.ReturnValue", "sx.InInt"],
+        ["ry.ReturnValue", "sy.InInt"],
+        ["sx.ReturnValue", "cx.A"],
+        ["cx.ReturnValue", "cxy.A"],
+        ["sy.ReturnValue", "cxy.B"],
+        ["cxy.ReturnValue", "result.Text"]
+      ],
+      "defaults": { "cx.B": "x" }
+    },
+    {
+      "graph": "StringToResolution",
+      "nodes": {
+        "entry": { "entry": true },
+        "result": { "result": true },
+        "split": { "call": "Split", "class": "/Script/Engine.KismetStringLibrary" },
+        "dx": { "call": "Conv_StringToDouble", "class": "/Script/Engine.KismetStringLibrary" },
+        "dy": { "call": "Conv_StringToDouble", "class": "/Script/Engine.KismetStringLibrary" },
+        "mk": { "call": "MakeVector2D", "class": "/Script/Engine.KismetMathLibrary" },
+        "ip": { "call": "Conv_Vector2DToIntPoint", "class": "/Script/Engine.KismetMathLibrary" }
+      },
+      "links": [
+        ["entry.then", "result.execute"],
+        ["entry.Text", "split.SourceString"],
+        ["split.LeftS", "dx.InString"],
+        ["split.RightS", "dy.InString"],
+        ["dx.ReturnValue", "mk.X"],
+        ["dy.ReturnValue", "mk.Y"],
+        ["mk.ReturnValue", "ip.InVector2D"],
+        ["ip.ReturnValue", "result.Resolution"]
+      ],
+      "defaults": { "split.InStr": "x" }
+    },
+    {
+      "graph": "FrameCapToString",
+      "nodes": {
+        "entry": { "entry": true },
+        "result": { "result": true },
+        "r": { "call": "Round", "class": "/Script/Engine.KismetMathLibrary" },
+        "s": { "call": "Conv_IntToString", "class": "/Script/Engine.KismetStringLibrary" },
+        "none": { "call": "LessEqual_IntInt", "class": "/Script/Engine.KismetMathLibrary" },
+        "pick": { "call": "SelectString", "class": "/Script/Engine.KismetMathLibrary" }
+      },
+      "links": [
+        ["entry.then", "result.execute"],
+        ["entry.Limit", "r.A"],
+        ["r.ReturnValue", "s.InInt"],
+        ["r.ReturnValue", "none.A"],
+        ["s.ReturnValue", "pick.B"],
+        ["none.ReturnValue", "pick.bPickA"],
+        ["pick.ReturnValue", "result.Text"]
+      ],
+      "defaults": { "none.B": "0", "pick.A": "Unlimited" }
+    }
+  ]
+}
